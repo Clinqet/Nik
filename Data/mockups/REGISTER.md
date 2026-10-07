@@ -83,6 +83,7 @@
 | `provider-takeover-screens` | Provider take-over screens | `Data/admin-provider-setup/PLAN.md` §9 + §13. Redrawn 2026-10-05 from the real apps; accepted as the build guide (implementer has creative freedom, owner 2026-10-05). Supersedes `prepared-provider-takeover` (rejected) |
 | `service-price-on-request-v2` | Price on request | Same plan §9 + §13. Redrawn 2026-10-05; accepted as the build guide. Supersedes `service-price-on-request` (rejected) and `service-price-honesty` on the no-price line only |
 | `stop-emails-page` | Stop emails + claim page + email footer | Same plan §6A + §9 + §13. Drawn 2026-10-05; accepted as the build guide. Supersedes `claim-profile-landing` (rejected) |
+| `provider-name-prompt` | Provider name prompt | `Data/provider-import/SOLUTION.md` §14.3/§14.4. Drawn 2026-10-07; owner waived waiting for approval in conversation 2026-10-07. Governs the provider name prompt (web + phone), the neutral greeting, and the customer apps' 'business profile is ready — sign in with a code' step. |
 
 ## Sheets that were tracked INSIDE a repo (audit U-42)
 
