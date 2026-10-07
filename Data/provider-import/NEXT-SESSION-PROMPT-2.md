@@ -280,6 +280,19 @@ Clinket is a two-sided local-services marketplace.
    - `AiModelPinConventionTests` registry for the import deployments.
 5. **Skills + memory for Phase 5.**
 
+### 5.1a Integration-test flake risk found at hand-over (not provider-import code, fix in this programme's test pass)
+- FIXED: `clinqetapi/Clinqet.API.IntegrationTests/Repositories/KnowledgeRefreshCounterCosmosIntegrationTests.cs`
+  `TwentySimultaneousReservations_LoseNothing_AndCountEachDocument` failed only under the full suite with
+  `HttpRequestException: The response ended prematurely` (the Cosmos emulator dropping a connection under load — NOT a counter
+  bug; the class passes alone every time). Now each reservation counts against its own document, a cut-off reservation is
+  resolved by ONE read (present ⇒ landed, absent ⇒ re-sent) via `TransientCosmos.AnsweredAsync`, and the assertions stay exact
+  (day total = 20 = sum of documents, every document exactly 1). Sabotage-checked (lost updates ⇒ fails).
+- STILL EXPOSED to the same emulator drop (not failing yet): `ProviderSetupUsageCounterCosmosIntegrationTests.TwentySimultaneousIncrements_LoseNothing`
+  (one shared number — a cut-off increment cannot be attributed by a read; design an exact resolution, e.g. sequential
+  ambiguity resolution or per-request markers, and never weaken `Equal(20)`) and `CosmosTenancyIntegrationTests` (~L415, its
+  `Delivered` helper re-sends after a transport failure, which can over-count to 21). Fix both the same honest way and
+  sabotage-check them.
+
 ### 5.2 Other phases left
 - **Phase 4:** `handoff/phase4-identity-tests-TODO.md` (integration tests; the same-userId race is already FIXED and tested — §3a) and
   `handoff/phase4-names-TODO.md` (full suite runs, "Account owner" label call sites, the GET friendlyname check onto the
