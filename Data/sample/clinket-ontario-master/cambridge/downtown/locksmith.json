@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "city": "Cambridge",
+    "area": "Downtown",
+    "category": "locksmith",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "cambridge-downtown-fraser-lock-safe",
+      "businessName": "Fraser Lock & Safe",
+      "description": "Locksmith in downtown Cambridge on Dickson St.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "519-621-6691",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.fraserlock.com/",
+        "other": []
+      },
+      "address": {
+        "street": "83 Dickson St",
+        "city": "Cambridge",
+        "area": "Downtown",
+        "postalCode": "N1R 7A5",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "83 Dickson St, Cambridge, ON N1R 7A5"
+      },
+      "serviceAreas": [
+        "Cambridge"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "downtown",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "locksmith",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Locksmith",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Safe Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Key Cutting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.fraserlock.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

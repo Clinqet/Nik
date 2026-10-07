@@ -1,0 +1,78 @@
+{
+  "contentHash": "E3E8C23D814B659D7AED318D49C19E353CE0A7E14BBB64A17F5658DDD6D7C511",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "img_pricelist_two_columns_photo.jpg",
+  "pageCount": 1,
+  "docTitle": "Glow Salon Price List",
+  "docSummary": "A Glow Salon price list covering haircuts, beard trims, kids cuts, full head colour, root touch ups, highlights, keratin treatments, blow dries, updos, and deep conditioning.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "GLOW SALON",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "List",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [
+        "Haircut $25",
+        "Beard trim $15",
+        "Kids cut $18",
+        "Full head colour $80",
+        "Root touch up $55",
+        "Highlights $120",
+        "Keratin treatment $250",
+        "Blow dry $30",
+        "Updo $65",
+        "Deep conditioning $40"
+      ],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "# GLOW SALON\n\n| | |\n|---|---|\n| Haircut | $25 |\n| Beard trim | $15 |\n| Kids cut | $18 |\n| Full head colour | $80 |\n| Root touch up | $55 |\n| Highlights | $120 |\n| Keratin treatment | $250 |\n| Blow dry | $30 |\n| Updo | $65 |\n| Deep conditioning | $40 |",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {
+    "0": "A price list headed “GLOW SALON” showing: Haircut $25; Beard trim $15; Kids cut $18; Full head colour $80; Root touch up $55; Highlights $120; Keratin treatment $250; Blow dry $30; Updo $65; Deep conditioning $40."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "e3e8c23d814b659d",
+      "contentHash": "e3e8c23d814b659d7aed318d49c19e353ce0a7e14bbb64a17f5658ddd6d7c511",
+      "blobPath": "SX3SG2/_images/c425468ec8c34f0890587e62f0136e72/e3e8c23d814b659d.jpg",
+      "width": 1437,
+      "height": 1089,
+      "bytes": 79490,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "GLOW SALON"
+    }
+  ],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

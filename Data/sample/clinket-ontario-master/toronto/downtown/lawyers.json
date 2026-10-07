@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "Downtown",
+    "category": "lawyers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "toronto-downtown-greenwood-law",
+      "businessName": "Greenwood Law",
+      "description": "Toronto law firm; CMTO defence and lawyers for massage therapists Ontario.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-686-4612",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://greenwoodlawyers.com/",
+        "other": []
+      },
+      "address": {
+        "street": "103 Church St",
+        "city": "Toronto",
+        "area": "Downtown",
+        "postalCode": "M5C 2G3",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "103 Church St, Toronto, ON M5C 2G3"
+      },
+      "serviceAreas": [
+        "Toronto",
+        "Ontario"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "Downtown",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "lawyers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Professional Discipline Defence",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "CMTO Defence",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Legal Services for RMTs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://greenwoodlawyers.com/lawyers-for-massage-therapists-ontario/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

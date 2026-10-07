@@ -1,0 +1,74 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_0",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી અજય પાટીદાર",
+    "content": "પાન સોપારી | ₹250\nશરબત | ₹800\nમસાજ | ₹500\nલાઈટ સાઉન્ડ | ₹5,000\nફોટો | ₹50",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પાટીદારની ભાવ યાદી",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_1",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "2 414",
+    "content": "1, 54 | ₹250\n$22144 | ₹ 800\nWIE 24 | ₹5,000\n3 โรงเ | ₹50",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પાટીદારની ભાવ યાદી",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn",
+      "Gujr"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_2",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "2 414",
+    "content": "ક્રીમ રંગની પૃષ્ઠભૂમિ પર ગુજરાતી લખાણવાળી પાંચ-પંક્તિની ભાવસૂચિ છે; જમણી બાજુએ ₹250, ₹800, ₹500, ₹5,000 અને ₹50 દેખાય છે.",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પાટીદારની ભાવ યાદી",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": "526c1daee4fe4ddebb9f384ad3987f0d:d81727f429f17040"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_3",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "શ્રી અજય પાટીદારની ભાવ યાદી — overview\nપાન સોપારી, શરબત, મસાજ, લાઈટ સાઉન્ડ અને ફોટોની કિંમતો દર્શાવતી ભાવ યાદી.\nSections: શ્રી અજય પાટીદાર (5), 2 414 (4)",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પાટીદારની ભાવ યાદી",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

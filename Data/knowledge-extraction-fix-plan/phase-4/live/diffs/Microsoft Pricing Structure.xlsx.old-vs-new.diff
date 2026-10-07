@@ -1,0 +1,11 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+ docTitle=Microsoft Pricing Structure lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+-summary: Lists Microsoft costs for 2024, 2025 and 2026 in CAD, with vendor and support costs. Notes that B2C support is included with the Microsoft subscription, and that implementation and training require further analysis. Also gives the current vendor cost for 1M MAUs per year.
++summary: Covers Microsoft costs in CAD for 2024–2026, including vendor and support costs, implementation and training marked TBD, B2C subscription details, and current vendor cost for 1M MAUs per year.
+ [  0] Heading      p1 H1
+       Microsoft 
+ [  1] Table        p1

@@ -1,0 +1,50 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_8278471ed2934b059414d7a31aed7806_0",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "NAILS & LASHES",
+    "content": "- Classic manicure $30\n- Gel manicure $45\n- Spa pedicure $45\n- Gel pedicure $60\n- Acrylic full set $65\n- Acrylic fill $40\n- Nail art (per nail) $3\n- Polish change $15\n- Classic lash set $120\n- Volume lash set $160\n- Lash fill (2 weeks) $70\n- Lash lift $80\n- Brow lamination $75\n- Brow tint $20\n- Lash tint $20",
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_8278471ed2934b059414d7a31aed7806_1",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "NAILS & LASHES",
+    "content": "Deposit of $20 required for lash sets. 24 hours notice for cancellations.",
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_8278471ed2934b059414d7a31aed7806_2",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Nails & Lashes Price List — overview\nLists prices for manicures, pedicures, acrylic services, nail art, polish changes, lash sets, lash fills, lash lifts, brow lamination, brow tint, and lash tint. Notes a $20 deposit for lash sets and 24 hours’ notice for cancellations.\nSections: NAILS & LASHES (16)",
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

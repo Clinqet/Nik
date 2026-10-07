@@ -1,0 +1,23 @@
+cards=3
+--- NKN607_6ee9d274183e402683fc45d8c94765ed_0 [Table] section='Microsoft' page= img= scripts=["Latn"] chars=959 title='Microsoft Pricing Structure' type='Document'
+    Microsoft
+    2024 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Implementation | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Training | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Total 2024 Costs | $638750
+    2025 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Total 2025 Costs | $638750
+    2026 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Total 2026 Costs | $638750
+--- NKN607_6ee9d274183e402683fc45d8c94765ed_1 [Table] section='Microsoft' page= img= scripts=["Latn"] chars=65 title='Microsoft Pricing Structure' type='Document'
+    Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year
+--- NKN607_6ee9d274183e402683fc45d8c94765ed_2 [DocSummary] section='' page= img= scripts=["Latn"] chars=256 title='Microsoft Pricing Structure' type='Document'
+    Microsoft Pricing Structure — overview
+    Covers Microsoft costs in CAD for 2024–2026, including vendor and support costs, implementation and training marked TBD, B2C subscription details, and current vendor cost for 1M MAUs per year.
+    Sections: Microsoft (12)

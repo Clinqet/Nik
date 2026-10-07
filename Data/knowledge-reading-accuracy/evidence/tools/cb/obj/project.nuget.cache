@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "9dtjrHoJpeY=",
+  "success": true,
+  "projectFilePath": "C:\\Nik\\Data\\knowledge-reading-accuracy\\evidence\\tools\\cb\\cb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\azure.storage.blobs\\12.24.0\\azure.storage.blobs.12.24.0.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\azure.storage.common\\12.23.0\\azure.storage.common.12.23.0.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\system.clientmodel\\1.1.0\\system.clientmodel.1.1.0.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\system.io.hashing\\6.0.0\\system.io.hashing.6.0.0.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\system.memory.data\\6.0.0\\system.memory.data.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

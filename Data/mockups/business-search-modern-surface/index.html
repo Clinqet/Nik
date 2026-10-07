@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ask Clinket — the modern answer surface</title>
+<style>
+@font-face{font-family:Lufga;src:url('fonts/LufgaRegular.woff');font-weight:400;font-display:swap}
+@font-face{font-family:Lufga;src:url('fonts/LufgaSemiBold.woff');font-weight:600;font-display:swap}
+:root{
+  --ink:#032858; --ink-soft:#1B4C9B;
+  --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-soft:#F4FFE4; --green-ink:#3A6410; --green-mid:#DFFABD;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E;
+  --blue-bg:#EAF3FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B;
+  --r-xl:20px; --r-lg:16px; --r:12px; --r-sm:9px;
+  --sh:0 1px 2px rgba(3,40,88,.05), 0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06), 0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p{margin:0}
+p{line-height:1.62}
+button,input,textarea,select{font:inherit;color:inherit}
+svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:3px solid #2475C4;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ══ REVIEWER CHROME — never part of the product ══════════════════════════════════════════════ */
+.review{max-width:1680px;margin:auto;padding:26px 22px 60px}
+.kicker{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
+.review h1{font-size:27px;letter-spacing:-.4px;color:var(--ink);margin:8px 0 10px}
+.lede{max-width:920px;color:var(--muted);font-size:14.5px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:22px 0 16px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh)}
+.controls label{display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+select,.review button.tool{padding:10px 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);font-size:13px;min-height:44px;cursor:pointer}
+.frames{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.frame{flex:0 0 auto;max-width:100%}
+.frame>figcaption{font-size:11.5px;font-weight:600;color:var(--muted);margin:0 0 8px 2px}
+.frame iframe{display:block;width:100%;height:812px;border:1px solid #D8DEE6;border-radius:22px;background:var(--card);box-shadow:var(--sh)}
+.frame.wide{width:900px}
+.frame.phone{width:390px}
+.frame.phone iframe{border-radius:30px}
+.hint{color:var(--muted);font-size:12.5px;margin-top:14px;max-width:1000px}
+section.doc{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:0;margin-top:18px;box-shadow:var(--sh);overflow:hidden}
+section.doc>h2{font-size:15px;color:var(--ink);padding:18px 20px;margin:0;border-bottom:1px solid var(--hair);background:var(--tint)}
+section.doc>.body{padding:18px 20px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+th{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--mono);font-size:11.5px;background:var(--hair);padding:1px 5px;border-radius:5px;word-break:break-word}
+.pill{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.pill.new{background:var(--green-soft);color:var(--green-ink);border:1px solid var(--green-mid)}
+.pill.gap{background:var(--amber-bg);color:var(--amber-ink);border:1px solid var(--amber-line)}
+.pill.bug{background:var(--red-bg);color:var(--red-ink);border:1px solid var(--red-line)}
+.pill.ok{background:var(--blue-bg);color:var(--blue-ink);border:1px solid var(--blue-line)}
+.callout{border-radius:var(--r);padding:12px 14px;font-size:13px;line-height:1.6;margin:0 0 14px}
+.callout.amber{background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink)}
+.callout.blue{background:var(--blue-bg);border:1px solid var(--blue-line);color:var(--blue-ink)}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:132px;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;font-size:10.5px}
+.sw i{display:block;height:38px}
+.sw span{display:block;padding:5px 7px;font-family:var(--mono);color:var(--muted)}
+ul.tight{margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:var(--muted)}
+ul.tight b{color:var(--text)}
+@media(max-width:760px){
+  .review{padding:16px 12px 40px}
+  .frame.wide,.frame.phone{width:100%}
+  .frame iframe{height:640px}
+}
+
+/* ══ PRODUCT ══════════════════════════════════════════════════════════════════════════════════ */
+body.product{background:var(--page);height:100dvh;overflow:hidden}
+.shell{height:100%;display:flex;padding:12px;gap:12px}
+/* the dashboard rail — present only from 1024, exactly as the live shell */
+.rail{width:236px;flex:none;background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);padding:16px 10px;display:none;flex-direction:column;gap:4px;box-shadow:var(--sh)}
+.rail .logo{font-weight:600;font-size:21px;color:var(--ink);padding:8px 12px 22px;letter-spacing:-.4px}
+.rail a{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border-radius:var(--r);font-size:13.5px;color:var(--muted);text-decoration:none}
+.rail a svg{width:18px;height:18px}
+.rail a.on{background:var(--green-soft);color:var(--ink);font-weight:600}
+.rail .biz{margin-top:auto;padding:10px 12px;font-size:11.5px;color:var(--faint)}
+.col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px}
+.topbar{flex:none;height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);padding:0 14px;box-shadow:var(--sh)}
+.topbar h1{font-size:18px;color:var(--ink);letter-spacing:-.2px;white-space:nowrap}
+.topbar .left,.topbar .right{display:flex;align-items:center;gap:4px}
+.icobtn{width:44px;height:44px;display:grid;place-items:center;border:none;background:none;border-radius:50%;color:var(--muted);cursor:pointer}
+.icobtn:hover{background:var(--hair);color:var(--ink)}
+.burger{display:grid}
+
+/* the one surface */
+.surface{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--sh);overflow:hidden;position:relative}
+
+/* ── the topic bar: back · topic · new ───────────────────────────────────────────────────────── */
+.topic{flex:none;display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid var(--hair);
+  background:linear-gradient(180deg,#FCFDFE 0%,#FFFFFF 100%)}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 10px 0 6px;border:none;background:none;border-radius:99px;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+/* ‼️ ONE INTERACTION COLOUR for the pair (owner, 2026-09-08 — supersedes this sheet's original grey).
+   Back hovered neutral while New hovered green, so two controls in one bar read as two different systems.
+   The hierarchy still holds: New is the bordered, deliberate one. */
+.back:hover{background:var(--green-soft);color:var(--green-ink)}
+.back:active{background:var(--green-mid)}
+.back svg{width:17px;height:17px;stroke-width:2}
+.topic .name{flex:1;min-width:0;text-align:center;padding:0 4px}
+.topic .name b{display:block;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topic .name small{display:block;font-size:11px;color:var(--faint);margin-top:1px}
+.newbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border:1px solid var(--line);background:var(--card);border-radius:99px;color:var(--ink);font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.newbtn:hover{border-color:var(--green);background:var(--green-soft);color:var(--green-ink)}
+.newbtn:active{background:var(--green-mid)}
+.newbtn svg{width:15px;height:15px;stroke-width:2.2}
+
+/* ── the scroller ───────────────────────────────────────────────────────────────────────────── */
+.scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable}
+.scroll::-webkit-scrollbar{width:5px;height:5px}
+.scroll::-webkit-scrollbar-thumb{background:#C9D2DE;border-radius:9px}
+/* ‼️ The COLUMN widens on a laptop; the PARAGRAPH does not. Bounded at 780 everywhere, a 1440 screen left
+   ~330px of white down each side of the surface. Widening the column uses it; capping the answer's own
+   paragraph at 72 characters keeps the line length a person can actually read, which is the whole reason
+   the bound existed. Everything that is not prose — the source cards, a table, the picture strip — takes
+   the full width and gains a third column. */
+.inner{max-width:780px;margin:auto;padding:22px 22px 8px;display:flex;flex-direction:column}
+.inner.bottom{min-height:100%;justify-content:flex-end}
+
+/* ── the transcript ─────────────────────────────────────────────────────────────────────────── */
+.turn{display:flex;flex-direction:column;gap:14px;margin-bottom:26px}
+.turn:last-child{margin-bottom:6px}
+.q{align-self:flex-end;max-width:86%;padding:11px 15px;font-size:14px;line-height:1.55;color:var(--ink);
+  background:linear-gradient(180deg,#F7F9FB 0%,#F1F4F8 100%);border:1px solid #E8EDF3;
+  border-radius:var(--r-lg) var(--r-lg) 5px var(--r-lg);box-shadow:0 1px 1px rgba(3,40,88,.03)}
+.a{display:flex;gap:11px;align-items:flex-start}
+.mark{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:10px;
+  background:linear-gradient(145deg,#F4FFE4 0%,#E4FBC6 100%);border:1px solid var(--green-mid);color:var(--green-ink)}
+.mark svg{width:16px;height:16px;stroke-width:1.6}
+.abody{flex:1;min-width:0}
+.who{font-size:11.5px;font-weight:600;color:var(--ink);margin:5px 0 8px;letter-spacing:.01em}
+.abody p{font-size:14.5px;line-height:1.68;color:var(--text)}
+.abody p+p{margin-top:10px}
+.cite{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;padding:0 4px;margin:0 1px;
+  vertical-align:1px;font-size:10.5px;font-weight:600;color:var(--green-ink);background:var(--green-soft);
+  border:1px solid var(--green-mid);border-radius:5px;cursor:pointer}
+
+/* the live step */
+.step{display:inline-flex;align-items:center;gap:9px;margin:2px 0 4px;padding:6px 13px 6px 10px;border:1px solid var(--line);
+  background:var(--tint);border-radius:99px;font-size:12.5px;color:var(--muted)}
+.spin{width:13px;height:13px;border-radius:50%;border:2px solid var(--green-mid);border-top-color:var(--green-ink);animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.caret{display:inline-block;width:7px;height:15px;vertical-align:-2px;margin-left:2px;background:var(--green-ink);border-radius:2px;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+
+/* the answer's own controls */
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:12px;padding-top:9px;border-top:1px solid var(--hair)}
+.act{display:inline-flex;align-items:center;gap:5px;position:relative;padding:3px 9px;border:1px solid var(--line);background:var(--card);
+  border-radius:99px;font-size:11.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.act::before{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}
+.act svg{width:14px;height:14px}
+.act:hover{border-color:#C6D2E2;color:var(--ink)}
+.act.done{background:var(--green);border-color:var(--green);color:#10240A}
+.act.done:hover{background:var(--green);border-color:var(--green);color:#10240A}
+.act[disabled]{cursor:default;opacity:1}
+.from{margin-left:auto;padding-left:8px;font-size:11.5px;color:var(--faint);white-space:nowrap}
+
+/* ── sources: FOLDED by default ─────────────────────────────────────────────────────────────── */
+.src{margin-top:13px;border:1px solid var(--line);border-radius:var(--r);background:var(--tint);overflow:hidden}
+.src>summary{display:flex;align-items:center;gap:9px;min-height:44px;padding:0 13px;cursor:pointer;list-style:none;
+  font-size:12.5px;font-weight:600;color:var(--ink)}
+.src>summary::-webkit-details-marker{display:none}
+.src>summary .chev{margin-left:auto;color:var(--faint);transition:transform .18s}
+.src>summary .chev svg{width:16px;height:16px}
+.src[open]>summary{border-bottom:1px solid var(--hair);background:var(--card)}
+.src[open]>summary .chev{transform:rotate(180deg)}
+.src>summary em{font-style:normal;font-weight:400;color:var(--faint);font-size:11.5px}
+.srcgrid{padding:11px;display:grid;gap:9px;background:var(--card)}
+.card{border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 12px;background:var(--card)}
+.card .kind{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
+.card strong{display:block;font-size:13px;color:var(--ink);line-height:1.35}
+.card .sub{font-size:11.5px;color:var(--muted);margin-top:3px}
+.card .quote{margin-top:8px;padding:7px 9px;border-left:2px solid var(--green-mid);background:var(--green-soft);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:11.5px;line-height:1.55;color:var(--muted)}
+/* 36px of paint, 44 of hit area — the same trick the answer's own controls use, so a row of source cards
+   is not made taller by a rule about thumbs. */
+.card .go{position:relative;margin-top:9px;display:inline-flex;align-items:center;gap:5px;min-height:36px;padding:0 11px;border:1px solid var(--line);background:var(--card);border-radius:99px;font-size:11.5px;font-weight:600;color:var(--ink);cursor:pointer}
+.card .go::before{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}
+.card .go:hover{border-color:var(--green);background:var(--green-soft)}
+.card .go svg{width:13px;height:13px}
+
+/* ── boxes ──────────────────────────────────────────────────────────────────────────────────── */
+.box{border-radius:var(--r);padding:12px 14px;font-size:13px;line-height:1.6;margin:12px 0}
+.box b{display:block;font-weight:600;margin-bottom:2px}
+.box.amber{background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink)}
+.box.red{background:var(--red-bg);border:1px solid var(--red-line);color:var(--red-ink)}
+.box.blue{background:var(--blue-bg);border:1px solid var(--blue-line);color:var(--blue-ink)}
+.box.calm{background:var(--tint);border:1px solid var(--line);border-left:3px solid var(--green);color:var(--muted)}
+.box .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:99px;font-size:12.5px;font-weight:600;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.btn.go{background:var(--green);border-color:var(--green);color:#10240A}
+.btn.ghost{background:transparent;border-color:currentColor}
+
+/* ── the landing ────────────────────────────────────────────────────────────────────────────── */
+.landing{display:flex;flex-direction:column;gap:16px}
+.landing>p.body{font-size:13.5px;color:var(--muted);max-width:64ch}
+.lanes{display:grid;gap:16px}
+.lane h4{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+.chip{display:block;width:100%;text-align:left;min-height:44px;margin-bottom:7px;padding:8px 12px;border:1px solid var(--line);
+  background:var(--card);border-radius:var(--r);font-size:12.5px;line-height:1.4;color:var(--text);cursor:pointer;
+  transition:border-color .16s,background .16s,transform .16s}
+.chip:hover{border-color:var(--green);background:var(--green-soft);transform:translateY(-1px)}
+.rec{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:7px 4px;border:none;background:none;text-align:left;cursor:pointer;border-bottom:1px solid var(--hair)}
+.rec:last-child{border-bottom:none}
+.rec .dot{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:8px;background:var(--hair);color:var(--faint)}
+.rec .dot svg{width:14px;height:14px}
+.rec .txt{min-width:0;flex:1}
+.rec .txt b{display:block;font-size:12.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rec .txt small{display:block;font-size:11px;color:var(--faint);margin-top:1px}
+.rec:hover .txt b{color:var(--green-ink)}
+.foot-note{font-size:11px;color:var(--faint);margin-top:4px}
+
+/* ── the docked composer ────────────────────────────────────────────────────────────────────── */
+.dock{flex:none;border-top:1px solid var(--hair);background:var(--card);padding:12px 16px max(12px,env(safe-area-inset-bottom))}
+.dock-in{max-width:780px;margin:auto}
+.pill-field{display:flex;align-items:flex-end;gap:7px;padding:6px 6px 6px 14px;border:1px solid var(--line);background:var(--page);
+  border-radius:26px;transition:border-color .18s,background .18s,box-shadow .18s}
+.pill-field:focus-within{border-color:var(--green);background:var(--card);box-shadow:0 0 0 4px rgba(151,239,41,.16)}
+.pill-field.hot{border-color:var(--green);background:var(--green-soft);box-shadow:0 0 0 4px rgba(151,239,41,.14)}
+.pill-field.dim{opacity:.6}
+.pill-field textarea{flex:1;min-width:0;border:none;background:none;outline:none;resize:none;font-size:16px;line-height:1.45;
+  color:var(--text);padding:11px 0;max-height:120px}
+.pill-field textarea::placeholder{color:var(--faint)}
+.circ{width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;position:relative}
+.circ:hover{border-color:#C6D2E2;color:var(--ink)}
+.circ.go{background:var(--green);border-color:var(--green);color:#10240A}
+.circ.off{color:#C9C9C9;cursor:not-allowed}
+.circ.rec{border-color:var(--green);background:var(--green);color:#10240A}
+.circ.rec::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(151,239,41,.55);animation:halo 1.6s ease-out infinite}
+@keyframes halo{0%{transform:scale(.86);opacity:.85}100%{transform:scale(1.18);opacity:0}}
+.dockfoot{display:flex;gap:12px;justify-content:space-between;align-items:baseline;padding:8px 4px 0;font-size:11px;color:var(--faint)}
+.dockfoot .count{font-family:var(--mono)}
+.dockfoot .count.near{color:var(--amber-ink);font-weight:600}
+
+/* the level meter — replaces the field while listening (M3) */
+.meter{flex:1;min-width:0;display:flex;align-items:center;gap:10px;padding:11px 2px}
+.bars{display:flex;align-items:center;gap:3px;height:20px;flex:1;min-width:0;overflow:hidden}
+.bars i{width:3px;flex:none;border-radius:2px;background:var(--green-ink);height:6px;animation:lv 1.1s ease-in-out infinite}
+@keyframes lv{0%,100%{height:5px;opacity:.55}50%{height:19px;opacity:1}}
+.clock{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.clock b{color:var(--ink);font-weight:600}
+.clock.near{color:var(--amber-ink)}
+.vstrip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:9px;padding:8px 12px;border-radius:var(--r);font-size:12px;line-height:1.5}
+.vstrip.say{background:var(--blue-bg);border:1px solid var(--blue-line);color:var(--blue-ink)}
+.vstrip.warn{background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink)}
+.vstrip.bad{background:var(--red-bg);border:1px solid var(--red-line);color:var(--red-ink)}
+.vstrip.calm{background:var(--tint);border:1px solid var(--line);color:var(--muted)}
+.vstrip a{margin-left:auto;font-weight:600;text-decoration:underline;cursor:pointer;color:inherit;min-height:28px;display:inline-flex;align-items:center}
+.langs{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:8px;font-size:11.5px;color:var(--muted)}
+/* 32px of paint so three languages fit one line under a phone's ask box; 44 of hit area from the band. */
+.langs button{position:relative;padding:4px 11px;min-height:32px;border:1px solid var(--line);background:var(--card);border-radius:99px;font-size:11.5px;cursor:pointer}
+.langs button::before{content:"";position:absolute;left:0;right:0;top:-6px;bottom:-6px}
+.langs button.on{background:var(--green);border-color:var(--green);color:#10240A;font-weight:600}
+
+/* the more-below cue */
+.cue{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:44px;height:44px;display:grid;place-items:center;
+  border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--green-ink);box-shadow:var(--sh-lift);cursor:pointer;z-index:3}
+.cue.live{box-shadow:var(--sh-lift),0 0 0 5px rgba(151,239,41,.25)}
+.cue .nd{position:absolute;top:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:var(--green);border:1.5px solid var(--card)}
+.fade{position:absolute;left:0;right:0;bottom:0;height:52px;pointer-events:none;background:linear-gradient(to top,var(--card) 12%,rgba(255,255,255,.72) 55%,transparent);z-index:2}
+
+/* the phone keyboard stand-in */
+.kbd{flex:none;height:212px;background:#D9DDE2;border-top:1px solid #BBC3CB;padding:14px 8px;text-align:center;font-size:11px;color:#5A6572}
+.kbd .krow{display:flex;justify-content:center;gap:4px;margin:9px 0}
+.kbd span{background:#fff;border-radius:5px;padding:9px 0;width:9%;box-shadow:0 1px 1px #8190A0;font-size:11.5px}
+.kbd .space{background:#fff;border-radius:7px;padding:11px;margin:10px 60px}
+
+/* narrow: the rail goes, the topic name goes, gutters tighten */
+@media(min-width:1024px){.rail{display:flex}.burger{display:none}}
+@media(max-width:1023px){.shell{padding:10px;gap:10px}}
+@media(max-width:767px){
+  .shell{padding:8px;gap:8px}
+  .topbar{height:58px;padding:0 8px}
+  .topbar h1{font-size:16px}
+  .topbar .right .opt{display:none}
+  .surface{border-radius:var(--r-lg)}
+  .inner{padding:16px 14px 6px}
+  .topic{padding:6px 6px}
+  .topic .name b{font-size:12.5px}
+  .q{max-width:92%;font-size:13.5px}
+  .abody p{font-size:14px}
+  .mark{width:26px;height:26px;border-radius:9px}
+  .dock{padding:10px 12px max(10px,env(safe-area-inset-bottom))}
+  .srcgrid{grid-template-columns:1fr}
+}
+@media(min-width:768px){.srcgrid{grid-template-columns:1fr 1fr}.lanes.two{grid-template-columns:1fr 1fr;gap:26px}}
+@media(min-width:1024px){.lanes.two{grid-template-columns:1fr 1fr;gap:30px}}
+/* ── the laptop’s own width ─────────────────────────────────────────────────────────────────── */
+@media(min-width:1280px){
+  .inner{max-width:1100px;padding:26px 34px 10px}
+  .dock-in{max-width:1100px}
+  .abody p{max-width:72ch}
+  /* ‼️ auto-fit on a 1fr track, not a fixed three. Three fixed tracks left a visibly empty third slot
+     whenever an answer cited two documents — the commonest case — so the cards spread to fill instead.
+     ‼️ The ceiling belongs on the CARD, not on the track: a `minmax(300px,520px)` track is measured from
+     its MAX, so at a 989px grid the browser fitted exactly one column and stacked them. */
+  .srcgrid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .srcgrid>.card{max-width:560px}
+  .q{max-width:72%}
+}
+@media(min-width:1600px){
+  .inner{max-width:1360px;padding:28px 44px 10px}
+  .dock-in{max-width:1360px}
+  .q{max-width:64%}
+}
+/* ‼️ The words of New conversation survive as far down as they FIT — measured, that is 520. Dropped at 767
+   they were being hidden on a small tablet with 250px to spare, leaving a bare plus that says nothing. */
+@media(max-width:520px){
+  .newbtn span{display:none}
+  .newbtn{padding:0;width:44px;justify-content:center}
+}
+/* ‼️ 400 and under: the name takes a line of its own. Squeezed between the two controls it had 175px at
+   390 — about twenty characters — so a name of any length arrived already cut. A second row costs 20px of
+   height; a heading nobody can read costs the whole point of having one. */
+@media(max-width:400px){
+  .topic{flex-wrap:wrap;row-gap:2px}
+  .topic .name{order:3;flex-basis:100%;text-align:left;padding:0 4px 4px}
+  .topic .name b{font-size:12px}
+  /* the name no longer holds the row apart, so the plus has to claim the right edge itself */
+  .newbtn{margin-left:auto}
+  .back span{display:none}
+  .inner{padding:14px 11px 6px}
+  .acts{gap:4px}
+  .act{padding:3px 8px;font-size:11px}
+  .from{margin-left:0;padding-left:0;flex-basis:100%}
+}
+/* the folded cover screen */
+@media(max-width:330px){
+  .q{max-width:96%}
+  .clock{font-size:11px}
+  .bars{gap:2px}
+}
+</style>
+</head>
+<body>
+<script>
+/* ‼️ The frames are built from THIS file's own text, not fetched by URL. Pointed at `?ui=1&state=…` they
+   were blank wherever the sheet is opened without a query string surviving — a copy pasted into a viewer,
+   a preview pane, an email attachment. A sheet whose frames are empty for the reviewer is not a sheet. */
+const SELF_CSS = document.querySelector('style').textContent;
+const SELF_JS = document.currentScript ? document.currentScript.textContent : '';
+const P = new URLSearchParams(window.__FORCED || location.search);
+
+/* ─── every state this sheet draws ─────────────────────────────────────────────────────────── */
+const STATES = {
+  conversation:  'Answered · sources folded (the resting state)',
+  sourcesOpen:   'Sources opened',
+  acted:         'Copied · and “Thanks for your feedback”',
+  thinking:      'Question sent, nothing written yet',
+  streaming:     'Answer arriving',
+  long:          'Reading further up a long answer',
+  landing:       'Nothing asked yet — suggestions and conversations',
+  firstVisit:    'First visit — no conversations yet',
+  noDocs:        'No documents uploaded yet',
+  titlePending:  'Title not written yet (turn 1, live)',
+  titleLong:     'A long title, clamped',
+  titleScript:   'A title in Gujarati',
+  cutShort:      'Answer cut short',
+  resume:        'Came back to an answer that stopped',
+  offlineState:  'Offline with a draft',
+  limit:         'Daily allowance reached',
+  errorState:    'The answer could not start',
+  full:          'Conversation full',
+  charCount:     'Near the 500-character cap',
+  keyboard:      'Phone keyboard open',
+  micIdle:       'Voice · idle',
+  micListening:  'Voice · listening (the level meter)',
+  micNearCap:    'Voice · nearly at the cap',
+  micTranscribing:'Voice · putting it into words',
+  micReady:      'Voice · words are in the box',
+  micNothing:    'Voice · nothing heard',
+  micBlocked:    'Voice · microphone blocked',
+  micOffline:    'Voice · offline',
+  micFailed:     'Voice · could not be understood',
+  micTooLong:    'Voice · recording too long',
+};
+const WIDTHS = [
+  ['1920','Large screen · 1920'],['1440','Laptop · 1440'],['1280','Laptop · 1280'],
+  ['1024','iPad landscape · 1024 (the rail returns)'],['834','iPad Air portrait · 834'],['768','iPad portrait · 768'],
+  ['717','Foldable, unfolded · 717'],['540','Small tablet · 540'],['430','iPhone Pro Max · 430'],
+  ['390','iPhone · 390'],['360','Android · 360'],['320','Foldable cover · 320'],
+];
+
+/* ─── every word on the screen, and nothing invented ────────────────────────────────────────── */
+const T = {
+  title:'Ask Clinket', dashboard:'Dashboard', bookings:'Bookings', services:'Services', inbox:'Inbox', insights:'Insights',
+  biz:'Northside Equipment',
+  back:'Conversations', newChat:'New conversation',
+  // ‼️ A PLURAL, from the key. Rendered as a bare "{n} questions" the bar read "1 questions" on the very
+  // first turn — the one every conversation passes through.
+  turnsOne:'1 question', turnsMany:'{n} questions',
+  landingBody:'Answers come from your own business — services and prices, offers, opening hours, documents and business details, plus your bookings, quotes, invoices, leads, customers, messages and reviews. You see only what your role allows.',
+  tryAsking:'Try asking', recent:'Recent conversations',
+  firstVisit:'Your conversations will appear here.',
+  recentNote:'Recent conversations on this device. Saved answers stay for 7 days after the last activity.',
+  noDocsTitle:'You have no documents yet.',
+  noDocsBody:'Answers can already come from your services, offers, opening hours, business details and your everyday work. Add a price list or a terms sheet and they will come from those too.',
+  goKnowledge:'Go to AI Knowledge',
+  ask:'Ask anything about your business…', followUp:'Ask a follow-up…',
+  send:'Ask', stop:'Stop', mic:'Speak your question', stopRec:'Stop recording',
+  you:'You', working:'Looking that up…',
+  copy:'Copy', copied:'Copied', helpful:'Helpful', notHelpful:'Not helpful', thanks:'Thanks for your feedback',
+  sources:'Sources', tapToOpen:'Tap to open', openService:'Open service', openDoc:'Show page 3',
+  from2:'From 2 sources',
+  verify:'Check important details before acting.',
+  draftKept:'Your draft stays here.',
+  partialTitle:'This answer was cut short.', partialLive:'Ask a narrower question to see the rest.',
+  resumeTitle:'You switched away, so this answer stopped',
+  resumeBody:'It was saved up to that point. Open it again to see the rest — this does not use one of today’s questions.',
+  resumeOpen:'Open it again', resumeNew:'Ask a new question',
+  offlineTitle:'You’re offline.', offlineBody:'Your question is kept — ask again when you’re connected.',
+  dailyLimit:'You’ve reached today’s question allowance. You can still read your saved answers.',
+  retryIn:'Try again in about 34 min.',
+  errText:'Something went wrong. Your question was not lost.', tryAgain:'Try again',
+  fullText:'This conversation is full.',
+  listening:'Listening — tap the square to stop.',
+  wrapping:'Wrapping up in 8 seconds.',
+  transcribing:'Putting that into words…',
+  nothingHeard:'I didn’t catch anything. Try again, or type instead.',
+  blocked:'The microphone is blocked. Allow it in your browser settings, or type instead.',
+  micOffline:'You’re offline, so speaking isn’t available. You can type instead.',
+  micFailed:'That couldn’t be understood.',
+  micTooLong:'That recording was too long. Try a shorter question.',
+  typeInstead:'Type instead', notRight:'Not right?', heardIn:'Heard in', voiceRetry:'Try again',
+  scrollDown:'Go to the newest line',
+  kbdLabel:'Keyboard', space:'space',
+  q1:'Do we have a Caterpillar 352 for sale?',
+  a1:'Yes. The 2021 Caterpillar 352 · 07 is listed for sale in your services',
+  a1b:', at $268,000.',
+  q2:'Can we do the booking for it?',
+  a2:'It’s listed as an excavator for sale, but no booking duration or availability is set on it',
+  a2b:'. Would you like help with a purchase enquiry instead?',
+  a2partial:'It’s listed as an excavator for sale, but no booking',
+  topic:'Caterpillar 352 sale',
+  topicLong:'Deluxe hydrafacial pricing for first-time clients',
+  topicGu:'કેટરપિલર 352 વેચાણ',
+  srcDocKind:'Document', srcSvcKind:'Service',
+  srcDoc:'Equipment price list 2026.pdf', srcDocSub:'Page 3',
+  srcSvc:'2021 Caterpillar 352 · 07', srcSvcSub:'Marketplace & Classifieds · Tools & Equipment Sales',
+  srcQuote:'CAT 352 (2021) — 07 — asking $268,000, negotiable, inspection by appointment.',
+  recent1:'Caterpillar 352 sale', recent1sub:'Today · 2 questions',
+  recent2:'Opening hours this weekend', recent2sub:'Yesterday · 3 questions',
+  recent3:'Unpaid invoices this month', recent3sub:'2 days ago · 1 question',
+  chip1:'How much is a 2021 Caterpillar 352 · 07?',
+  chip2:'What’s on this week?',
+  chip3:'How many bookings did we get last week?',
+  chip4:'What are our opening hours?',
+  draft:'Can you help me write a purchase enquiry?',
+  longDraft:'Can you help me write a purchase enquiry for the Caterpillar 352, mentioning that we would want an inspection before committing and asking whether the asking price has any room in it, and also whether they can arrange delivery to the yard on the Thursday rather than the Friday, and if they can confirm the service history and the hours on the machine before we send anyone out to look at it, and whether the attachments in the photographs are included in that price',
+};
+const ICONS = {
+  back:'M15 5l-7 7 7 7', plus:'M12 5v14M5 12h14', spark:'M12 3l2.4 6.2L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4Z',
+  send:'M5 12h13M12 6l6 6-6 6', stop:'M7 7h10v10H7Z', mic:'M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3ZM5 11a7 7 0 0 0 14 0M12 18v3',
+  micOff:'M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3ZM5 11a7 7 0 0 0 14 0M12 18v3M4 4l16 16',
+  copy:'M9 9h11v11H9ZM5 15V4h11', check:'M4 12.5l5 5L20 6', thumbUp:'M7 10v10H4V10zM7 10l4-6h1.6a1.4 1.4 0 0 1 1.4 1.4V10h4.6a1.6 1.6 0 0 1 1.58 1.86l-1.1 6.6A1.6 1.6 0 0 1 17.5 20H7',
+  down:'M6 9l6 6 6-6', clock:'M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18ZM12 8v4.5l3 1.8', chat:'M4 5h16v11H9l-5 4Z',
+  home:'M3 10l9-7 9 7M5 9v12h14V9', cal:'M4 5h16v16H4ZM8 2v6M16 2v6M4 10h16', bag:'M4 7h16v14H4ZM9 7V3h6v4',
+  bell:'M5 17h14l-2-4V8a5 5 0 0 0-10 0v5ZM10 21h4', mag:'M20 20l-4.2-4.2M18 11a7 7 0 1 1-14 0 7 7 0 0 1 14 0', doc:'M6 3h8l4 4v14H6ZM14 3v4h4', graph:'M4 20V10M10 20V4M16 20v-7M22 20H2',
+  open:'M14 4h6v6M20 4l-8 8M18 14v6H4V6h6',
+};
+const ic = (n)=>`<svg aria-hidden="true" viewBox="0 0 24 24"><path d="${ICONS[n]||ICONS.chat}"/></svg>`;
+const esc = (s)=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   REVIEWER VIEW
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+if (!P.has('ui')) {
+  const stateOptions = Object.entries(STATES).map(([k,v])=>
+    `<option value="${k}"${k==='conversation'?' selected':''}>${esc(v)}</option>`).join('');
+  const widthOptions = WIDTHS.map(([w,l])=>`<option value="${w}"${w==='1440'?' selected':''}>${esc(l)}</option>`).join('');
+
+  document.body.innerHTML = `
+<main class="review">
+  <span class="kicker">M11 · proposed · awaiting approval · 7 September 2026</span>
+  <h1>The same answers, on a surface that looks built this year.</h1>
+  <p class="lede">
+    M10 approved a continuous conversation with a way back and a way to start again. Its transcript, its
+    conversation name, its folded sources and the footer under the ask box were never built, and M3’s level
+    meter — the thing that shows a microphone is actually listening — was never built either. This sheet
+    draws all of it in the house palette, adds nothing to the palette, and proves the layout at twelve
+    widths from a 1920 screen down to a folded phone’s cover.
+  </p>
+
+  <div class="controls">
+    <label>State
+      <select id="state">${stateOptions}</select>
+    </label>
+    <label>Large frame width
+      <select id="width">${widthOptions}</select>
+    </label>
+    <button class="tool" id="reset" type="button">Reload both frames</button>
+  </div>
+
+  <div class="frames">
+    <figure class="frame wide" id="wideFrame">
+      <figcaption id="wideCap">Laptop · 1440</figcaption>
+      <iframe id="wide" title="Large preview"></iframe>
+    </figure>
+    <figure class="frame phone">
+      <figcaption>Phone · 390</figcaption>
+      <iframe id="phone" title="Phone preview"></iframe>
+    </figure>
+  </div>
+  <p class="hint">
+    Both frames are live. Fold and unfold the sources, press Copy and the two feedback controls, type in the
+    ask box to watch the counter appear past 400 characters, press the microphone to run the whole listening
+    sequence, and press <b>Conversations</b> or <b>New conversation</b> to see what each one does. Nothing
+    here contacts an AI or your business; every name, price and count is review data.
+  </p>
+
+  <section class="doc">
+    <h2>1 · What the sheet changes, and why each one is here</h2>
+    <div class="body">
+      <p class="callout blue">
+        Six of these are <b>already approved and simply not built</b>. Three are new. Two are defects. The
+        column says which, so nothing is “found” later as a deviation that was in fact a decision.
+      </p>
+      <table>
+        <thead><tr><th>#</th><th>Change</th><th>Standing</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>The conversation is named at the top</b> — a back control that says
+            <i>Conversations</i>, the conversation’s own short name in the middle with its question count
+            beneath, and <i>New conversation</i> on the right</td><td><span class="pill gap">M10, not built</span></td>
+            <td>The bar shipped with two unlabelled buttons and no name, so a member three questions deep had
+            nothing on screen saying which conversation they were in. §5 settles where the name comes from.</td></tr>
+          <tr><td>2</td><td><b>New conversation is outlined, not filled green</b></td><td><span class="pill bug">defect</span></td>
+            <td>Brand green fills a <i>pressed or chosen</i> control everywhere else in the app. Filling the
+            second-most-likely action made it the loudest thing on the screen and left <i>Conversations</i>
+            looking disabled beside it. Green stays on Ask, on a chosen feedback control, and on the free
+            action inside a warning.</td></tr>
+          <tr><td>3</td><td><b>The question is a bubble; the answer has the Clinket mark beside it</b></td>
+            <td><span class="pill gap">M10, not built</span></td>
+            <td>M7 drew a small “You” tag and the app still ships it. M10 replaced it and supersedes M7 on the
+            transcript. Two speakers that look different is the single biggest reason the page reads as an
+            old form rather than a conversation.</td></tr>
+          <tr><td>4</td><td><b>The answer is no longer inside its own bordered card</b></td>
+            <td><span class="pill gap">M10, not built</span></td>
+            <td>A bordered card inside a bordered surface inside a bordered page is three frames around one
+            paragraph. The text carries itself; the hairline above the controls is the only rule it needs.</td></tr>
+          <tr><td>5</td><td><b>Sources are folded to one row, and open on a press</b></td>
+            <td><span class="pill gap">M10 + M9; phone already does it</span></td>
+            <td>The computer draws every card open, so an answer with four documents pushes itself off the
+            screen. The phone has folded them since P4.7 — this is also a parity fix, and the fold keeps the
+            count and the word <i>Sources</i> visible so nothing is hidden.</td></tr>
+          <tr><td>6</td><td><b>Copy and the two feedback controls answer back</b></td>
+            <td><span class="pill gap">M10, half built</span></td>
+            <td>Copy already swaps to “Copied”. Helpful and Not helpful only changed colour, so on a phone,
+            under a thumb, nothing legible happened. Both now swap to a tick and <i>Thanks for your
+            feedback</i>, and lock — the rating is already once-only underneath.</td></tr>
+          <tr><td>7</td><td><b>A footer under the ask box</b>: <i>Check important details before acting.</i>
+            and a character counter past 400 of 500</td><td><span class="pill gap">M10, not built</span></td>
+            <td>Neither app carries either. The line is the one honest caution on a screen that answers from
+            the provider’s own records; the counter stops a dictated question being silently clipped at 500.</td></tr>
+          <tr><td>8</td><td><b>The microphone shows it is listening</b> — the field is replaced by a live
+            level meter and the clock, with a soft halo behind the stop control</td>
+            <td><span class="pill gap">M3, not built</span></td>
+            <td>M3 §“Listening” draws nine bars and the clock in place of the field. Both apps ship a green
+            circle and a monospace clock, so the only difference between “listening” and “ready” is a fill
+            colour. The bars are the answer to “is it hearing me?”.</td></tr>
+          <tr><td>9</td><td><b>The voice strip uses the house colours</b></td><td><span class="pill bug">defect</span></td>
+            <td>On the computer the strip is painted in stock Tailwind greys, reds, ambers and blues, and it
+            is the <b>only</b> file in the provider web app that carries <code>dark:</code> classes — with
+            Tailwind’s default setting those apply from the operating system, so a provider on a dark desktop
+            sees one dark box in an all-white page. On the phone the recording clock is hardcoded
+            <code>#dc2626</code> — red — directly beneath a comment saying recording must never look like a
+            fault.</td></tr>
+          <tr><td>10</td><td><b>Conversations and New conversation stop doing the same thing</b></td>
+            <td><span class="pill new">new</span></td>
+            <td>Both call the same “start again” today, so <i>Conversations</i> throws away a half-typed
+            follow-up it never warned about. Now: <i>Conversations</i> keeps the draft and goes back to the
+            list; <i>New conversation</i> clears it. Neither ever loses an answer — every conversation is
+            still in the list.</td></tr>
+          <tr><td>11</td><td><b>Twelve widths proved, including a foldable — and the laptop’s white space
+            put to work</b></td><td><span class="pill new">new</span></td>
+            <td>At 1280 and up the column opens from 780 to 1100 (1240 past 1600), so a laptop no longer
+            frames the conversation with 330&nbsp;px of white down each side — while the answer’s own
+            paragraph stays capped at 72 characters, because that cap is for reading, not for framing.
+            Source cards go three to a row there. Under 390 the conversation name took a 40-pixel sliver
+            between two controls; it now takes its own line. Under 330 — a folded cover screen — the bubble
+            widens and the meter tightens.</td></tr>
+          <tr><td>12</td><td><b>The phone app earns its own shape</b></td><td><span class="pill new">new</span></td>
+            <td>§7. The same rules, expressed natively: the name in the header the phone already has, sources
+            in a sheet that comes up from the bottom, hold-to-copy, a swipe back to the list, and the meter
+            drawn on the phone’s own theme in both light and dark.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>2 · The palette — nothing new, and green means one thing</h2>
+    <div class="body">
+      <div class="swatches">
+        <div class="sw"><i style="background:#032858"></i><span>#032858 ink</span></div>
+        <div class="sw"><i style="background:#97EF29"></i><span>#97EF29 chosen</span></div>
+        <div class="sw"><i style="background:#DFFABD"></i><span>#DFFABD selected</span></div>
+        <div class="sw"><i style="background:#F4FFE4"></i><span>#F4FFE4 brand soft</span></div>
+        <div class="sw"><i style="background:#3A6410"></i><span>#3A6410 green ink</span></div>
+        <div class="sw"><i style="background:#E7E7E7"></i><span>#E7E7E7 line</span></div>
+        <div class="sw"><i style="background:#F5F5F5"></i><span>#F5F5F5 page</span></div>
+        <div class="sw"><i style="background:#5F6672"></i><span>#5F6672 muted</span></div>
+        <div class="sw"><i style="background:#FFF7E8"></i><span>#FFF7E8 boundary</span></div>
+        <div class="sw"><i style="background:#9A5B00"></i><span>#9A5B00 boundary ink</span></div>
+        <div class="sw"><i style="background:#FCECEA"></i><span>#FCECEA breakage</span></div>
+        <div class="sw"><i style="background:#B3261E"></i><span>#B3261E breakage ink</span></div>
+        <div class="sw"><i style="background:#EAF3FF"></i><span>#EAF3FF saying</span></div>
+        <div class="sw"><i style="background:#1B4C9B"></i><span>#1B4C9B saying ink</span></div>
+      </div>
+      <p class="callout amber" style="margin-top:14px">
+        <b>The rules that make it read as one system.</b>
+        Green fills <b>only</b> a pressed or chosen control — Ask when there is something to ask, a chosen
+        feedback control, the free action inside a warning, and the microphone while it is recording.
+        Amber is a boundary the member will pass (a daily ceiling, being offline, an answer cut short).
+        Red is a breakage. Blue is the app narrating itself, never a limit. Navy is a heading. Everything
+        modern about the sheet comes from <b>space, weight, radius, one soft shadow and 160&nbsp;ms of
+        motion</b> — not from a new colour.
+      </p>
+      <ul class="tight">
+        <li><b>Radius</b> 20 for the surface, 16 for a bubble, 12 for a box, 99 for anything pressable.</li>
+        <li><b>Elevation</b> one shadow, tinted navy rather than black: <code>0 1px 2px rgba(3,40,88,.05), 0 8px 24px -14px rgba(3,40,88,.16)</code>.</li>
+        <li><b>Motion</b> 160–180&nbsp;ms on colour and border; the level meter, the caret and the halo are the
+          only loops, and every one of them stops under <code>prefers-reduced-motion</code>.</li>
+        <li><b>Touch</b> every control is at least 44&nbsp;px of hit area. The feedback chips paint at 20&nbsp;px and
+          take their 44 from an invisible band above and below, so a row of controls is not three times the
+          height of the text it belongs to.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>3 · How a conversation gets its name — decided on cost, and the owner’s call</h2>
+    <div class="body">
+      <p class="callout blue">
+        <b>The approved sheet does not settle this.</b> M10 draws the name “Excavator purchase enquiry”
+        above a conversation that opens “Do we have a Caterpillar 352 for sale?”, and its own copy table
+        lists that name as prototype data. Today both apps use the first question, cut to one line. Three
+        ways to do better, priced on the live rates in <code>AIService:TokenPricing</code>
+        (luna: $0.20 / 1M in, $1.20 / 1M out).
+      </p>
+      <table>
+        <thead><tr><th>Option</th><th>How</th><th>Cost per conversation</th><th>Against it</th></tr></thead>
+        <tbody>
+          <tr><td><b>A</b> · leave it</td><td>The first question, cut to one line. What ships today.</td>
+            <td>nothing</td>
+            <td>“How much does a Deluxe Hydrafacial with dermaplaning cost for a first-time…” is unreadable
+              before it is useful, and two conversations that open similarly are indistinguishable in the list.</td></tr>
+          <tr><td><b>B</b> · one small call, off the critical path <span class="pill ok">recommended</span></td>
+            <td>On the <b>first turn only</b>, the server asks luna for a name of at most five words in the
+              question’s own language, <b>at the same moment</b> the answer starts streaming — it needs only
+              the question. It is awaited just before the turn is saved, so it rides the write that was
+              already happening.</td>
+            <td><b>≈ $0.00003</b><br><span style="color:#98A0AC">≈ 3¢ per 1,000 conversations; about 2% of one
+              answer, once per conversation and never per follow-up</span></td>
+            <td>One more thing that can fail — so it is bounded by a timeout and, when it does not arrive,
+              the name is simply the first question. Needs one key on the conversation record (§4).</td></tr>
+          <tr><td><b>C</b> · fold it into the answer</td><td>Ask the answering model to print the name first
+              and strip it off the stream.</td>
+            <td>≈ $0.000015</td>
+            <td>Half the cost of B and the wrong trade: the server would have to hold back the first words to
+              cut the name off them, which pushes out time-to-first-word — a number the platform measures —
+              and it edits the answer prompt the cost-and-quality programme locked.</td></tr>
+          <tr><td><b>D</b> · strip the question by rule</td><td>Drop a leading “do we have”, “how much is”…
+              and title-case what is left.</td><td>nothing</td>
+            <td>Needs a hand-written list of openings per language. It produces nothing usable in Gujarati or
+              Hindi, and inventing that list is exactly the kind of screen-side wording §0.20 forbids.</td></tr>
+        </tbody>
+      </table>
+      <p class="callout amber" style="margin-top:14px">
+        <b>The ladder, whichever option is chosen.</b> The bar shows the <b>name</b> when there is one; the
+        <b>first question, clamped</b> when there is not (a conversation saved before this shipped, a name
+        that timed out, an answer that failed); and <b>New conversation</b> when nothing has been asked.
+        A name is written <b>once</b> and never rewritten by a follow-up — a heading that moves while you
+        read is worse than a plain one. States <code>titlePending</code>, <code>titleLong</code> and
+        <code>titleScript</code> draw all three.
+      </p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>4 · What this needs from the server — the §0.7 table</h2>
+    <div class="body">
+      <p class="callout amber"><b>Nothing below is written until the owner says yes.</b> There is no new
+      container, no partition-key change, no index change and no new SQL.</p>
+      <table>
+        <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><th>What</th><td>A <code>topic</code> key inside the conversation record’s <b>existing</b>
+            <code>metadata</code> dictionary on <code>AiSession</code> — the same dictionary that already
+            carries <code>membershipId</code>. A string, capped at 60 characters. <b>Not</b> a new field on
+            the entity and <b>not</b> a new document.</td></tr>
+          <tr><th>Who writes it</th><td><code>BusinessSearchController.Ask</code> on turn one only, passed
+            into the existing <code>PersistTurnAsync</code> → <code>AppendTurnsAsync</code> create. One
+            write, the one that already happens.</td></tr>
+          <tr><th>Who reads it</th><td><code>GET business-search/sessions/{id}</code> (so a reopened
+            conversation is named) and the <code>Done</code> frame of the first answer (so a live one is
+            named as soon as it finishes). Both are read <b>in this change</b> by the provider web app and
+            the provider phone app — not by a later phase.</td></tr>
+          <tr><th>Why not a column</th><td>Not a table at all — one string, one-to-one with a conversation
+            that already exists.</td></tr>
+          <tr><th>Why not a constant or an enum</th><td>It is the provider’s own subject, in their own
+            language. There is no fixed set.</td></tr>
+          <tr><th>Why not already stored</th><td>The record holds <code>history</code>,
+            <code>totalTokensUsed</code>, <code>createdAt</code>, <code>lastActivity</code> and
+            <code>metadata</code>. The first question is in <code>history[0]</code> — that is option A, and
+            it is what happens when no topic is present.</td></tr>
+          <tr><th>Cost</th><td>Cosmos: <b>zero extra RU</b> — it rides the create that already occurs; about
+            60 more bytes in a document whose cap is 1&nbsp;MB. Model: ≈ $0.00003 once per conversation.
+            Latency: <b>zero</b> — the call runs beside the answer, not after it.</td></tr>
+          <tr><th>What breaks if it is left out</th><td>Nothing breaks. The bar and the list both fall back
+            to the first question, which is what ships today — so this row is genuinely the owner’s call, and
+            every other change in this sheet is independent of it.</td></tr>
+        </tbody>
+      </table>
+      <table style="margin-top:16px">
+        <thead><tr><th>Also on the wire</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><code>BusinessSearchFrameDto.Title</code></td><td>One more optional string, written only on
+            the <code>Done</code> frame of a first turn, beside the <code>Conversation</code> and
+            <code>Rows</code> it already carries. No new frame kind.</td></tr>
+          <tr><td><code>BusinessSearchSessionDto.Title</code></td><td>The same string on the reopen read.</td></tr>
+          <tr><td>The device list</td><td><code>recentQuestions</code> keeps <code>{question, sessionId, at}</code>
+            in the browser and on the phone. A fourth optional <code>title</code> is added; a row saved
+            without one still reads correctly, so nothing needs clearing.</td></tr>
+          <tr><td><code>BusinessSearch:Answer:TopicPrompt</code>,
+            <code>…:TopicMaxWords</code>, <code>…:TopicTimeoutMs</code>, <code>…:TopicEnabled</code></td>
+            <td>Settings, with class defaults mirroring <code>appsettings.json</code> exactly. Switched off,
+            the surface behaves exactly as option A — which is how this ships if the owner prefers A.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>5 · Where every state’s words come from</h2>
+    <div class="body">
+      <p class="callout blue">A screen that invents a sentence the server already sends drifts out of
+        translation. Every row says who writes it. <b>New</b> means the key does not exist yet and is owed
+        five languages on both apps before anything ships.</p>
+      <table>
+        <thead><tr><th>On screen</th><th>Author</th><th>Key</th></tr></thead>
+        <tbody>
+          <tr><td>Conversations</td><td>screen</td><td><code>BusinessSearch.Conversation.Back</code> — <b>reworded</b>
+            from “Back to conversations”, which no longer fits beside a name</td></tr>
+          <tr><td>New conversation</td><td>screen</td><td><code>BusinessSearch.Conversation.New</code> — <b>reworded</b>
+            from “New chat”. The app said <i>chat</i> in two places and the sheet says <i>conversation</i>;
+            one name per thing (ruling R7)</td></tr>
+          <tr><td>2 questions</td><td>screen</td><td><span class="pill new">new</span> <code>BusinessSearch.Conversation.TurnCount</code>
+            — ‼️ <b>a real plural</b>, not “{n} questions”: every conversation passes through <i>1 question</i>
+            on its first turn, and five languages need more than the two English forms. The count is the turns
+            already on screen, never a stored number</td></tr>
+          <tr><td>The conversation’s name</td><td><b>server</b> (the model), or the member’s own first
+            question when absent</td><td>no key — it is content, in the member’s own language</td></tr>
+          <tr><td>Recent conversations</td><td>screen</td><td><code>BusinessSearch.Landing.Recent</code> — <b>reworded</b>
+            from “Recent”, which named neither what the rows are nor what pressing one does</td></tr>
+          <tr><td>Today · 2 questions</td><td>screen</td><td><span class="pill new">new</span>
+            <code>BusinessSearch.Recent.Subtitle</code> · reuses the existing relative-day words</td></tr>
+          <tr><td>Sources · 2 / Tap to open</td><td>screen</td><td><code>BusinessSearch.Sources.Collapsed</code> and
+            <code>BusinessSearch.Sources.TapToOpen</code> — <b>both already exist on the phone</b>; the two
+            web keys are new only to the web catalogue</td></tr>
+          <tr><td>Thanks for your feedback</td><td>screen</td><td><span class="pill new">new</span>
+            <code>BusinessSearch.Answer.FeedbackThanks</code></td></tr>
+          <tr><td>Check important details before acting.</td><td>screen</td><td><span class="pill new">new</span>
+            <code>BusinessSearch.Ask.VerifyNote</code></td></tr>
+          <tr><td>Your draft stays here.</td><td>screen</td><td><span class="pill new">new</span>
+            <code>BusinessSearch.Ask.DraftKept</code> — replaces the caution while the box cannot send</td></tr>
+          <tr><td>438 / 500</td><td>screen</td><td>no key — two numerals and a solidus, identical in every
+            language</td></tr>
+          <tr><td>Listening — tap the square to stop.</td><td>screen</td><td><code>Dictation.Listening</code>
+            — <b>unchanged</b>. This sheet first claimed a reword; the shipped copy already names the square, and
+            changing <i>tap</i> to <i>press</i> would split it from the phone that shares the key</td></tr>
+          <tr><td>Wrapping up in 8 seconds · Putting that into words… · I didn’t catch anything ·
+            The microphone is blocked · offline · could not be understood · too long</td><td>screen</td>
+            <td>existing <code>Dictation.*</code> and <code>BusinessSearch.Voice.*</code> keys, unchanged</td></tr>
+          <tr><td>Copy · Copied · Helpful · Not helpful · From 2 sources · Show page 3 · Open service</td>
+            <td>screen</td><td>existing keys, unchanged</td></tr>
+          <tr><td>Every refusal, ceiling, permission and “nothing found” sentence</td><td><b>server</b>,
+            already translated</td><td>rendered verbatim; the screen only chooses amber or red</td></tr>
+          <tr><td>This answer was cut short · the advice under it</td><td>screen</td>
+            <td><code>BusinessSearch.Partial.*</code> — unchanged, and ruling R6 already made the screen its
+            only author</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>6 · Twelve widths, and what changes at each</h2>
+    <div class="body">
+      <table>
+        <thead><tr><th>Width</th><th>What the surface does</th></tr></thead>
+        <tbody>
+          <tr><td><b>1920 · 1600</b></td><td>The column opens to <b>1360&nbsp;px</b> — measured, that leaves
+            34&nbsp;px of gutter at 1600 and 144 at 1920, against 434 before. The question bubble is capped
+            at 64% so it still reads as one side of a conversation rather than a banner.</td></tr>
+          <tr><td><b>1440 · 1280</b> — laptop</td><td>The rail is open and the column opens to
+            <b>1100&nbsp;px</b>, which is the change the owner asked for: bounded at 780 everywhere, a 1440
+            screen left about 330&nbsp;px of white down each side. <b>The paragraph does not widen with it</b>
+            — the answer’s own text stays capped at 72 characters a line, because that bound exists for
+            reading, not for framing. Everything that is not prose takes the new width: source cards go
+            <b>three to a row</b>, and a table or a picture strip stops scrolling inside itself.</td></tr>
+          <tr><td><b>1024</b> — iPad landscape</td><td>The narrowest width that still has the rail. The
+            column returns to 780 with two lanes on the landing; sources two to a row.</td></tr>
+          <tr><td><b>834 · 768</b> — iPad</td><td>The rail is gone and the burger is back. <b>Lanes stack</b>
+            — between 768 and 1024 there is no rail and there was no room for two columns either. Sources
+            stay two to a row at 768 and up.</td></tr>
+          <tr><td><b>717</b> — a foldable, unfolded</td><td>Treated as a small tablet: one lane, one source
+            per row, the name still in the middle of the bar. Nothing depends on the hinge.</td></tr>
+          <tr><td><b>540</b></td><td>Phone rules take over: tighter gutters, the ask box loses its outer
+            margin, <i>New conversation</i> keeps its words.</td></tr>
+          <tr><td><b>430 · 390</b> — iPhone</td><td><i>New conversation</i> becomes its plus alone; the name
+            keeps the middle. The keyboard shrinks the surface rather than covering the ask box, because the
+            shell tracks the visual viewport.</td></tr>
+          <tr><td><b>390 · 360</b> — iPhone and Android</td><td>At 400 and under the <b>name moves to its
+            own line</b> beneath the two controls, left-aligned, and <i>Conversations</i> becomes its chevron
+            alone. Measured: squeezed between the controls at 390 the name had 175&nbsp;px — about twenty
+            characters — so it arrived already cut. The feedback controls wrap and “From 2 sources” takes the
+            next line rather than being squeezed.</td></tr>
+          <tr><td><b>320</b> — a folded cover screen</td><td>The bubble takes 96% of the width, the level
+            meter tightens its bars and the clock drops a point. Nothing scrolls sideways anywhere, at any
+            width.</td></tr>
+        </tbody>
+      </table>
+      <p class="callout amber" style="margin-top:14px"><b>What must never happen, at any width:</b> the page
+        itself scrolling sideways; the ask box leaving the screen; a control under 44&nbsp;px of hit area; the
+        conversation name overlapping either control; a source card narrower than its own quoted words.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>7 · The phone app — the same rules, in the phone’s own shape</h2>
+    <div class="body">
+      <p class="callout blue">Parity means <b>matching rendering rules</b>, not the same components. The
+        phone frame beside every state above is the layout; this is what makes it native.</p>
+      <table>
+        <thead><tr><th>On the phone</th><th>Instead of the web’s</th></tr></thead>
+        <tbody>
+          <tr><td>The conversation’s name goes in the header the screen <b>already has</b>, as its subtitle,
+            with the question count beside it. The header’s own back control returns to the list.</td>
+            <td>A separate bar under the top bar. The phone has no shared header, so it does not need one.</td></tr>
+          <tr><td><b>New conversation</b> is an outlined control on the right of that header.</td>
+            <td>A green-filled button in a second row.</td></tr>
+          <tr><td>Sources open in a <b>sheet that comes up from the bottom</b>, over the conversation, with a
+            grab handle and a swipe to close.</td><td>An inline fold. The phone already folds them; the sheet
+            is the step that stops a long card list pushing the answer away.</td></tr>
+          <tr><td><b>Hold an answer to copy it</b>, with the same tick-and-“Copied” confirmation, plus one
+            light haptic tap.</td><td>Only a small Copy control under the answer — kept as well, not replaced.</td></tr>
+          <tr><td><b>Swipe right</b> anywhere in the conversation returns to the list; the hardware back
+            button already does, and now they agree.</td><td>Nothing.</td></tr>
+          <tr><td>The level meter is drawn on the phone’s <b>own</b> theme tokens, correct in light and dark,
+            and the clock is <b>green ink, never red</b>.</td><td>A hardcoded <code>#dc2626</code> clock and a
+            stock grey button.</td></tr>
+          <tr><td>One light haptic when the answer finishes and one when a rating is recorded.</td><td>Nothing.</td></tr>
+          <tr><td>Every gutter respects the notch and the home indicator; the ask box sits above the keyboard,
+            not under it.</td><td>Already correct — unchanged, and stated so it is not lost.</td></tr>
+        </tbody>
+      </table>
+      <p class="callout amber" style="margin-top:14px"><b>And one defect the phone carries alone.</b> Every
+        press of <i>Not helpful</i> posts the report again. The server refuses the duplicate and the phone
+        swallows the refusal, so it looks harmless — but each press spends one unit of the member’s daily
+        feedback allowance on a row that will never be written. The web app has guarded this since P4; the
+        phone must too.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>8 · The register row this sheet would add</h2>
+    <div class="body">
+      <table>
+        <thead><tr><th>#</th><th>Sheet</th><th>Governs</th><th>Supersedes</th></tr></thead>
+        <tbody>
+          <tr><td><b>M11</b></td><td><code>C:\Nik\Data\mockups\business-search-modern-surface\index.html</code></td>
+            <td>The visual language of the answer surface: the topic bar and the conversation’s name, the
+              question bubble and the answer’s mark, the answer without a card of its own, folded sources on
+              the computer, the answering feedback controls, the composer footer and counter, the listening
+              level meter and every voice state in house colour, twelve widths including a foldable, and the
+              phone app’s native shape.</td>
+            <td><b>Nothing is reversed.</b> It <b>completes</b> M10 (transcript, name, folded sources,
+              footer), <b>completes</b> M3 (the listening meter), and <b>supersedes M10 on one point only</b>
+              — <i>New conversation</i> is outlined, not filled, because green is reserved for a chosen
+              control. M7’s “You” tag is already superseded by M10 and stays so. M9’s source grouping, M2’s
+              “no download anywhere” and every ruling R1–R9 are untouched.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="hint" style="margin-top:20px">
+    Reviewer headings, the state list and every table above are outside the product. Service names, prices,
+    counts, questions and answers in the frames are review data; in the app they come from the member, from
+    authorised records, or from the answer itself.
+  </p>
+</main>`;
+
+  const stateSel = document.getElementById('state');
+  const widthSel = document.getElementById('width');
+  const productDoc = (which) => '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    + '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+    + '<style>' + SELF_CSS + '</style></head><body><scr' + 'ipt>window.__FORCED='
+    + JSON.stringify('ui=1&state=' + which) + ';\n' + SELF_JS + '</scr' + 'ipt></body></html>';
+  const load = () => {
+    document.getElementById('wide').srcdoc = productDoc(stateSel.value);
+    document.getElementById('phone').srcdoc = productDoc(stateSel.value);
+  };
+  const size = () => {
+    const w = widthSel.value;
+    document.getElementById('wideFrame').style.width = w + 'px';
+    document.getElementById('wideCap').textContent =
+      (WIDTHS.find(([v]) => v === w) || ['', w])[1];
+  };
+  stateSel.onchange = load;
+  load();
+  widthSel.onchange = size;
+  document.getElementById('reset').onclick = load;
+  size();
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   PRODUCT VIEW
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+else {
+  document.body.className = 'product';
+  let state = P.get('state') || 'conversation';
+  let draft = '';
+  // ‼️ PER EXCHANGE, not per screen. Held as one flag each, pressing Helpful on one answer marked every
+  // answer in the conversation — which is exactly the confusion the confirmation exists to remove.
+  let openAt = new Set();    // exchanges whose sources are unfolded
+  let copiedAt = new Set();  // exchanges whose answer has just been copied
+  let ratedAt = new Map();   // exchange -> true | false
+  let voice = null;          // null | listening | nearCap | transcribing | ready | nothing | blocked | offline | failed | tooLong
+  let clock = 8;
+  let timer = null;
+  let sentTitle = null;      // a name that has arrived for a conversation asked in this preview
+  // ‼️ The sample exchange belongs to the STATE, not to the preview. Kept on after New conversation, a
+  // question asked from the list appeared underneath two answers the member never asked for.
+  let showBase = true;
+  let asked = [];            // questions asked inside the preview
+
+  const VOICE_FROM_STATE = {
+    micIdle:null, micListening:'listening', micNearCap:'nearCap', micTranscribing:'transcribing',
+    micReady:'ready', micNothing:'nothing', micBlocked:'blocked', micOffline:'offline',
+    micFailed:'failed', micTooLong:'tooLong',
+  };
+  if (state in VOICE_FROM_STATE) { voice = VOICE_FROM_STATE[state]; }
+  if (state === 'sourcesOpen') { openAt.add(0); }
+  if (state === 'acted') { copiedAt.add(0); ratedAt.set(0, true); }
+  if (state === 'micReady') { draft = 'Do we have a Caterpillar 352 for sale'; }
+  if (state === 'charCount') { draft = T.longDraft; }
+  if (state === 'offlineState' || state === 'errorState' || state === 'keyboard') { draft = T.draft; }
+  if (state === 'micNearCap') { clock = 52; }
+
+  const is = (...names) => names.includes(state);
+  // ‼️ FUNCTIONS, not constants. Frozen at load, `landing` stayed false after Conversations or New
+  // conversation set the state — so both controls cleared the conversation and then drew it again.
+  const landing = () => is('landing','firstVisit','noDocs');
+  const running = () => is('thinking','streaming');
+  const blocked = () => is('offlineState','limit','full');
+  const mm = (n) => `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;
+
+  /* ── pieces ─────────────────────────────────────────────────────────────────────────────── */
+  const sources = (ix, n = 2) => `
+    <details class="src" data-i="${ix}"${openAt.has(ix) ? ' open' : ''}>
+      <summary>${ic('doc')}<span>${T.sources} · ${n}</span>
+        ${openAt.has(ix) ? '' : `<em>${T.tapToOpen}</em>`}
+        <span class="chev">${ic('down')}</span>
+      </summary>
+      <div class="srcgrid">
+        <div class="card">
+          <span class="kind">${T.srcDocKind}</span>
+          <strong>${T.srcDoc}</strong>
+          <div class="sub">${T.srcDocSub}</div>
+          <div class="quote">${T.srcQuote}</div>
+          <button class="go" type="button" data-do="noop">${ic('open')}${T.openDoc}</button>
+        </div>
+        <div class="card">
+          <span class="kind">${T.srcSvcKind}</span>
+          <strong>${T.srcSvc}</strong>
+          <div class="sub">${T.srcSvcSub}</div>
+          <button class="go" type="button" data-do="noop">${ic('open')}${T.openService}</button>
+        </div>
+      </div>
+    </details>`;
+
+  const acts = (ix) => {
+    const wasCopied = copiedAt.has(ix);
+    const wasRated = ratedAt.has(ix);
+    return `
+    <div class="acts">
+      <button class="act${wasCopied ? ' done' : ''}" type="button" data-do="copy" data-i="${ix}">
+        ${ic(wasCopied ? 'check' : 'copy')}<span>${wasCopied ? T.copied : T.copy}</span>
+      </button>
+      ${wasRated
+        ? `<button class="act done" type="button" disabled>${ic('check')}<span>${T.thanks}</span></button>`
+        : `<button class="act" type="button" data-do="up" data-i="${ix}">${ic('thumbUp')}<span>${T.helpful}</span></button>
+           <button class="act" type="button" data-do="down" data-i="${ix}">
+             <svg aria-hidden="true" viewBox="0 0 24 24" style="transform:rotate(180deg)"><path d="${ICONS.thumbUp}"/></svg>
+             <span>${T.notHelpful}</span>
+           </button>`}
+      <span class="from">${T.from2}</span>
+    </div>`;
+  };
+
+  const answer = (html, opts = {}) => `
+    <div class="a">
+      <div class="mark">${ic('spark')}</div>
+      <div class="abody">
+        <div class="who">${T.title}</div>
+        ${opts.step ? `<div class="step"><span class="spin"></span>${T.working}</div>` : ''}
+        ${html ? `<p>${html}</p>` : ''}
+        ${opts.partialNote ? `<div class="box amber"><b>${T.partialTitle}</b>${T.partialLive}</div>` : ''}
+        ${opts.done ? sources(opts.ix) + acts(opts.ix) : ''}
+      </div>
+    </div>`;
+
+  const cite = (n) => `<span class="cite" data-do="noop">${n}</span>`;
+  const turn = (q, a) => `<article class="turn"><div class="q">${esc(q)}</div>${a}</article>`;
+
+  const transcript = () => {
+    let out = '';
+    if (!showBase) {
+      asked.forEach((q, i) => {
+        out += turn(q, answer('For a purchase enquiry, ask the seller to confirm availability and arrange an inspection. Booking availability is not set on this listing' + cite(2) + '.', { done: true, ix: i }));
+      });
+      return out;
+    }
+    const first = turn(T.q1, answer(T.a1 + cite(1) + T.a1b, { done: true, ix: 0 }));
+    if (is('thinking')) { return turn(T.q1, answer('', { step: true })); }
+    if (is('streaming')) {
+      return first + turn(T.q2, answer(T.a2 + '<span class="caret"></span>', { step: false }));
+    }
+    if (is('cutShort')) {
+      return first + turn(T.q2, answer(T.a2partial, { partialNote: true, done: true, ix: 1 }));
+    }
+    if (is('long')) {
+      out = first;
+      for (let i = 0; i < 5; i += 1) {
+        out += turn(
+          ['What condition is it in?','Does the listing include delivery?','Is the price provided?',
+           'Can I see the model again?','What should I ask the seller?'][i],
+          answer(['The listing does not state its condition' + cite(1) + '. Confirm that with the seller before proceeding.',
+                  'Delivery is not described in this listing' + cite(1) + '.',
+                  'The asking price is $268,000' + cite(1) + ', shown as negotiable.',
+                  'The listed model is the 2021 Caterpillar 352 · 07' + cite(2) + '.',
+                  'Ask about the machine’s condition, whether an inspection can be arranged, and how they want to handle the purchase. The listing does not cover those.'][i],
+                 { done: true, ix: i + 1 }),
+        );
+      }
+      return out;
+    }
+    out = first + turn(T.q2, answer(T.a2 + cite(2) + T.a2b, { done: true, ix: 1 }));
+    asked.forEach((q, i) => {
+      out += turn(q, answer('For a purchase enquiry, ask the seller to confirm availability and arrange an inspection. Booking availability is not set on this listing' + cite(2) + '.', { done: true, ix: i + 2 }));
+    });
+    return out;
+  };
+
+  const notices = () => {
+    if (is('resume')) {
+      return `<div class="box amber" role="alert"><b>${T.resumeTitle}</b>${T.resumeBody}
+        <div class="row"><button class="btn go" type="button" data-do="noop">${T.resumeOpen}</button>
+        <button class="btn" type="button" data-do="new">${T.resumeNew}</button></div></div>`;
+    }
+    if (is('limit')) {
+      return `<div class="box amber" role="alert">${T.dailyLimit}<p style="margin-top:6px">${T.retryIn}</p></div>`;
+    }
+    if (is('errorState')) {
+      return `<div class="box red" role="alert">${T.errText}
+        <div class="row"><button class="btn ghost" type="button" data-do="noop">${T.tryAgain}</button></div></div>`;
+    }
+    if (is('full')) {
+      return `<div class="box amber" role="status">${T.fullText}
+        <div class="row"><button class="btn go" type="button" data-do="new">${T.newChat}</button></div></div>`;
+    }
+    return '';
+  };
+
+  const landingBlock = () => {
+    const rows = is('firstVisit') ? '' : `
+      <button class="rec" type="button" data-do="reopen"><span class="dot">${ic('clock')}</span>
+        <span class="txt"><b>${T.recent1}</b><small>${T.recent1sub}</small></span>${ic('back')}</button>
+      <button class="rec" type="button" data-do="reopen"><span class="dot">${ic('clock')}</span>
+        <span class="txt"><b>${T.recent2}</b><small>${T.recent2sub}</small></span>${ic('back')}</button>
+      <button class="rec" type="button" data-do="reopen"><span class="dot">${ic('clock')}</span>
+        <span class="txt"><b>${T.recent3}</b><small>${T.recent3sub}</small></span>${ic('back')}</button>`;
+    const both = !is('firstVisit');
+    return `<section class="landing">
+      <p class="body">${T.landingBody}</p>
+      ${is('noDocs') ? `<div class="box calm"><b>${T.noDocsTitle}</b>${T.noDocsBody}
+        <div class="row"><button class="btn go" type="button" data-do="noop">${T.goKnowledge}</button></div></div>` : ''}
+      <div class="lanes${both ? ' two' : ''}">
+        <div class="lane"><h4>${T.tryAsking}</h4>
+          ${[T.chip1,T.chip2,T.chip3,T.chip4].map(c=>`<button class="chip" type="button" data-do="ask" data-q="${esc(c)}">${esc(c)}</button>`).join('')}
+        </div>
+        <div class="lane"><h4>${T.recent}</h4>
+          ${rows || `<p style="font-size:12.5px;color:#98A0AC">${T.firstVisit}</p>`}
+        </div>
+      </div>
+      <p class="foot-note">${T.recentNote}</p>
+    </section>`;
+  };
+
+  /* the conversation's name — the ladder from §3, and the count is what the transcript actually holds */
+  const topicName = () => {
+    const base = showBase ? 2 : 0;
+    if (is('titlePending')) { return { name: T.q1, turns: 1 }; }
+    if (is('titleLong')) { return { name: T.topicLong, turns: 4 }; }
+    if (is('titleScript')) { return { name: T.topicGu, turns: 2 }; }
+    if (is('long')) { return { name: T.topic, turns: 6 }; }
+    if (is('thinking')) { return { name: T.q1, turns: 1 }; }
+    // ‼️ No name yet ⇒ the member's own first question, which is the fallback the whole ladder rests on.
+    if (!sentTitle && !showBase) { return { name: asked[0] || T.newChat, turns: asked.length }; }
+    return { name: sentTitle || T.topic, turns: base + asked.length };
+  };
+
+  const composer = () => {
+    const listening = voice === 'listening' || voice === 'nearCap';
+    const busy = listening || voice === 'transcribing';
+    const canSend = draft.trim().length > 0 && !blocked() && !busy;
+    const field = listening
+      ? `<div class="meter">
+           <div class="bars">${Array.from({length:22},(_,i)=>`<i style="animation-delay:${(i*0.07).toFixed(2)}s"></i>`).join('')}</div>
+           <div class="clock${voice==='nearCap'?' near':''}"><b>${mm(clock)}</b> / 1:00</div>
+         </div>`
+      : `<textarea rows="1" maxlength="500" placeholder="${esc(landing() ? T.ask : T.followUp)}"
+           ${blocked() ? 'disabled' : ''} aria-label="${esc(landing() ? T.ask : T.followUp)}">${esc(draft)}</textarea>`;
+
+    const micBtn = voice === 'blocked' || voice === 'offline'
+      ? `<button class="circ off" type="button" data-do="mic" aria-label="${esc(T.mic)}">${ic('micOff')}</button>`
+      : listening
+        ? `<button class="circ rec" type="button" data-do="mic" aria-label="${esc(T.stopRec)}">${ic('stop')}</button>`
+        : `<button class="circ" type="button" data-do="mic" aria-label="${esc(T.mic)}">${ic('mic')}</button>`;
+
+    const sendBtn = running()
+      ? `<button class="circ" type="button" data-do="noop" aria-label="${esc(T.stop)}">${ic('stop')}</button>`
+      : `<button class="circ ${canSend ? 'go' : 'off'}" type="button" data-do="send" aria-label="${esc(T.send)}">${ic('send')}</button>`;
+
+    const strip = {
+      listening: ['say', T.listening, T.typeInstead],
+      nearCap:   ['warn', T.wrapping, T.typeInstead],
+      transcribing: ['say', T.transcribing, T.typeInstead],
+      ready:     ['calm', '', T.notRight],
+      nothing:   ['warn', T.nothingHeard, T.typeInstead],
+      blocked:   ['bad', T.blocked, T.typeInstead],
+      offline:   ['warn', T.micOffline, T.typeInstead],
+      failed:    ['bad', T.micFailed, T.voiceRetry],
+      tooLong:   ['warn', T.micTooLong, T.typeInstead],
+    }[voice];
+
+    const langs = voice === 'ready'
+      ? `<div class="langs"><span>${T.heardIn}</span>
+           <button class="on" type="button" data-do="noop">English</button>
+           <button type="button" data-do="noop">ગુજરાતી</button>
+           <button type="button" data-do="noop">हिन्दी</button></div>`
+      : '';
+
+    return `<form class="dock" onsubmit="return false">
+      <div class="dock-in">
+        <div class="pill-field${listening ? ' hot' : ''}${blocked() ? ' dim' : ''}">
+          ${field}${micBtn}${sendBtn}
+        </div>
+        ${strip && (strip[1] || strip[2]) ? `<div class="vstrip ${strip[0]}" role="status">
+            ${strip[1] ? `<span>${strip[1]}</span>` : ''}
+            <a data-do="${voice === 'ready' ? 'mic' : 'typeInstead'}">${strip[2]}</a></div>` : ''}
+        ${langs}
+        <div class="dockfoot">
+          <span>${blocked() ? T.draftKept : T.verify}</span>
+          <span class="count${draft.length > 470 ? ' near' : ''}">${draft.length > 400 ? draft.length + ' / 500' : ''}</span>
+        </div>
+      </div>
+    </form>`;
+  };
+
+  /* ── the whole screen ───────────────────────────────────────────────────────────────────── */
+  function render() {
+    const { name, turns } = topicName();
+    const showCue = is('long','streaming');
+    document.body.innerHTML = `
+<div class="shell">
+  <nav class="rail" aria-label="Main">
+    <div class="logo">Clinket</div>
+    <a href="#" data-do="noop">${ic('home')}${T.dashboard}</a>
+    <a href="#" class="on" data-do="noop">${ic('mag')}${T.title}</a>
+    <a href="#" data-do="noop">${ic('cal')}${T.bookings}</a>
+    <a href="#" data-do="noop">${ic('bag')}${T.services}</a>
+    <a href="#" data-do="noop">${ic('chat')}${T.inbox}</a>
+    <a href="#" data-do="noop">${ic('graph')}${T.insights}</a>
+    <div class="biz">${T.biz}</div>
+  </nav>
+
+  <div class="col">
+    <header class="topbar">
+      <div class="left">
+        <button class="icobtn burger" type="button" data-do="noop" aria-label="Menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <h1>${T.title}</h1>
+      </div>
+      <div class="right">
+        <button class="icobtn" type="button" data-do="focus" aria-label="${esc(T.title)}">${ic('mag')}</button>
+        <button class="icobtn opt" type="button" data-do="noop" aria-label="Notifications">${ic('bell')}</button>
+        <button class="icobtn opt" type="button" data-do="noop" aria-label="Language">EN</button>
+      </div>
+    </header>
+
+    <section class="surface" aria-label="${esc(T.title)}">
+      ${landing() ? '' : `
+      <div class="topic">
+        <button class="back" type="button" data-do="back">${ic('back')}<span>${T.back}</span></button>
+        <span class="name"><b>${esc(name)}</b><small>${turns === 1 ? T.turnsOne : T.turnsMany.replace('{n}', turns)}</small></span>
+        <button class="newbtn" type="button" data-do="new">${ic('plus')}<span>${T.newChat}</span></button>
+      </div>`}
+
+      <div class="scroll" id="scroll">
+        <div class="inner${landing() ? ' bottom' : ''}">
+          ${is('offlineState') ? `<div class="box amber"><b>${T.offlineTitle}</b>${T.offlineBody}</div>` : ''}
+          ${landing() ? landingBlock() : transcript()}
+          ${notices()}
+        </div>
+      </div>
+
+      ${showCue ? `<span class="fade" aria-hidden="true"></span>
+        <button class="cue${is('streaming') ? ' live' : ''}" type="button" data-do="newest"
+          aria-label="${esc(T.scrollDown)}" title="${esc(T.scrollDown)}">
+          ${ic('down')}${is('streaming') ? '<span class="nd"></span>' : ''}
+        </button>` : ''}
+
+      ${composer()}
+    </section>
+
+    ${is('keyboard') ? `<div class="kbd">${T.kbdLabel}
+      <div class="krow">${'qwertyuiop'.split('').map(k=>`<span>${k}</span>`).join('')}</div>
+      <div class="krow">${'asdfghjkl'.split('').map(k=>`<span>${k}</span>`).join('')}</div>
+      <div class="space">${T.space}</div></div>` : ''}
+  </div>
+</div>`;
+
+    const field = document.querySelector('.pill-field textarea');
+    if (field) {
+      field.oninput = () => {
+        draft = field.value;
+        const count = document.querySelector('.dockfoot .count');
+        if (count) {
+          count.textContent = draft.length > 400 ? draft.length + ' / 500' : '';
+          count.className = 'count' + (draft.length > 470 ? ' near' : '');
+        }
+        const send = document.querySelector('[data-do="send"]');
+        if (send) { send.className = 'circ ' + (draft.trim() ? 'go' : 'off'); }
+        field.style.height = 'auto';
+        field.style.height = Math.min(field.scrollHeight, 120) + 'px';
+      };
+      field.onkeydown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); act('send'); }
+      };
+    }
+    document.querySelectorAll('[data-do]').forEach((el) => {
+      el.onclick = (e) => { e.preventDefault(); act(el.dataset.do, el); };
+    });
+    document.querySelectorAll('details.src').forEach((d) => {
+      d.ontoggle = () => {
+        const ix = Number(d.dataset.i);
+        if (d.open) { openAt.add(ix); } else { openAt.delete(ix); }
+      };
+    });
+    const scroll = document.getElementById('scroll');
+    if (scroll && !landing() && !is('long')) { scroll.scrollTop = scroll.scrollHeight; }
+  }
+
+  function ask(text) {
+    const q = (text || '').trim();
+    if (!q) { return; }
+    asked.push(q);
+    draft = '';
+    state = 'conversation';
+    render();
+  }
+
+  function act(what, el) {
+    const ix = Number(el?.dataset?.i ?? 0);
+    switch (what) {
+      case 'copy':
+        copiedAt.add(ix); render();
+        clearTimeout(timer);
+        timer = setTimeout(() => { copiedAt.delete(ix); render(); }, 2200);
+        return;
+      case 'up': case 'down':
+        ratedAt.set(ix, what === 'up'); render(); return;
+      case 'send': {
+        const f = document.querySelector('.pill-field textarea');
+        return ask(f ? f.value : draft);
+      }
+      case 'ask':
+        return ask(el?.dataset?.q);
+      case 'back':
+        // keeps the draft — that is the whole difference from New conversation
+        state = 'landing'; asked = []; sentTitle = null; showBase = false; render(); return;
+      case 'new':
+        state = 'landing'; asked = []; sentTitle = null; showBase = false; draft = ''; render(); return;
+      case 'reopen':
+        state = 'conversation'; asked = []; sentTitle = T.recent1; showBase = true;
+        copiedAt = new Set(); ratedAt = new Map(); openAt = new Set(); render(); return;
+      case 'focus':
+        document.querySelector('.pill-field textarea')?.focus(); return;
+      case 'newest':
+        document.getElementById('scroll')?.scrollTo({
+          top: document.getElementById('scroll').scrollHeight,
+          behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth',
+        });
+        return;
+      case 'typeInstead':
+        voice = null; clearInterval(timer); render();
+        document.querySelector('.pill-field textarea')?.focus();
+        return;
+      case 'mic': {
+        clearInterval(timer);
+        if (voice === 'listening' || voice === 'nearCap') {
+          voice = 'transcribing'; render();
+          timer = setTimeout(() => {
+            voice = 'ready';
+            draft = 'Do we have a Caterpillar 352 for sale';
+            render();
+          }, 1400);
+          return;
+        }
+        if (voice === 'blocked' || voice === 'offline') { return; }
+        voice = 'listening'; clock = 0; render();
+        timer = setInterval(() => {
+          clock += 1;
+          if (clock >= 50) { voice = 'nearCap'; }
+          if (clock >= 60) { clearInterval(timer); voice = 'transcribing'; render(); return; }
+          const c = document.querySelector('.clock');
+          if (c) {
+            c.innerHTML = `<b>${mm(clock)}</b> / 1:00`;
+            c.className = 'clock' + (voice === 'nearCap' ? ' near' : '');
+          } else { render(); }
+        }, 1000);
+        return;
+      }
+      default: return;
+    }
+  }
+
+  render();
+}
+</script>
+</body>
+</html>

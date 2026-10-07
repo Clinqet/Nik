@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "general",
+    "category": "movers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "burlington-general-appleby-moving-storage",
+      "businessName": "Appleby Moving & Storage",
+      "description": "Burlington movers since 1986. Local and long-distance residential/commercial moving plus storage. Owner Jeff.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 40,
+      "owner": {
+        "name": "Jeff",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "applebymoving@bellnet.ca",
+      "businessPhone": "905-336-1173",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://applebymoving.com/",
+        "other": []
+      },
+      "address": {
+        "street": "5035 N Service Rd unit B-11,12",
+        "city": "Burlington",
+        "area": "general",
+        "postalCode": "L7L 5V2",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "5035 N Service Rd unit B-11,12, Burlington, ON L7L 5V2"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton",
+        "Ancaster",
+        "Dundas"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Local Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Long-Distance Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Long Term Storage",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Moving Supplies",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "08:30",
+            "close": "20:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://applebymoving.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

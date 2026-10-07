@@ -1,0 +1,507 @@
+{
+  "meta": {
+    "city": "Markham",
+    "area": "unionville",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:30:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "markham-unionville-gta-power-electrical",
+      "businessName": "GTA Power Electrical",
+      "description": "Unionville-based electricians for residential and commercial work, panel wiring, emergency lighting, EV-related and outdoor lighting.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-820-8576",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "78 Webber Cres",
+        "postalCode": "L3R 0R2",
+        "area": "unionville",
+        "city": "Unionville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "78 Webber Cres, Unionville, ON L3R 0R2"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "unionville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "24h Emergency Electrician",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Circuit Breaker Panel Wiring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Light Fixture Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Residential Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Outdoor Lighting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Markham+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    },
+    {
+      "id": "markham-unionville-signature-electric-ltd",
+      "businessName": "Signature Electric Ltd",
+      "description": "Markham electrical contractor for EV chargers, repairs, solar and maintenance. Esna Park Drive.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-490-8093",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1-400 Esna Park Dr",
+        "postalCode": "L3R 3K2",
+        "area": "unionville",
+        "city": "Markham",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1-400 Esna Park Dr, Markham, ON L3R 3K2"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "unionville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "EV Charger Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Light Fixture Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Circuit Breaker Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Solar Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Markham+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        },
+        {
+          "url": "https://trustanalytica.org/ca/on/markham/reviews/signature-electric-ltd",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    },
+    {
+      "id": "markham-unionville-speedway-electric",
+      "businessName": "Speedway Electric",
+      "description": "Electricians and electrical equipment on Shields Court, Markham.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-475-9712",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "105 Shields Crt",
+        "postalCode": "L3R 9T5",
+        "area": "unionville",
+        "city": "Markham",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "105 Shields Crt, Markham, ON L3R 9T5"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "unionville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Electrical Contracting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Equipment",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Markham+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "city": "Markham",
+    "area": "buttonville",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:30:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "markham-buttonville-avalon-hvac-pro",
+      "businessName": "Avalon HVAC Pro",
+      "description": "HVAC services from Campden Place, Markham.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-388-9600",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "27 Campden Pl",
+        "postalCode": "L6C 2J4",
+        "area": "buttonville",
+        "city": "Markham",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "27 Campden Pl, Markham, ON L6C 2J4"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "buttonville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "HVAC Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Markham+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "businessId": "NKN607",
+  "docId": "526c1daee4fe4ddebb9f384ad3987f0d",
+  "docName": "img_gujarati_pricelist.png",
+  "docTitle": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "readingNotices": [
+    {
+      "key": "Info_KnowledgeValueUnconfirmed"
+    }
+  ],
+  "sizeBytes": 111530,
+  "pageCount": 1,
+  "passageCount": 3,
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "blobPath": "NKN607/526c1daee4fe4ddebb9f384ad3987f0d/img_gujarati_pricelist-20260925-052226-6b4f9b8b05f9.png",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:01:56.243754Z",
+    "outcome": "Ran",
+    "candidateCount": 5,
+    "draftCount": 0,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false,
+    "judgeRemovedCount": 5
+  },
+  "images": [
+    {
+      "imageId": "d81727f429f17040",
+      "page": 1,
+      "anchorPath": "શ્રી અજય પટેલ",
+      "blobPath": "NKN607/_images/526c1daee4fe4ddebb9f384ad3987f0d/d81727f429f17040.png",
+      "thumbPath": "NKN607/_images/526c1daee4fe4ddebb9f384ad3987f0d/d81727f429f17040.png.thumb.webp",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "kind": "TextSnapshot",
+      "caption": "ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે.",
+      "captionContextHash": "46A5E1A294033FF4",
+      "sendable": false,
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "source": "Upload",
+      "status": "ThumbReady"
+    }
+  ],
+  "id": "526c1daee4fe4ddebb9f384ad3987f0d",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5b0b0ece-0000-0200-0000-6ab6d3340000\"",
+  "createdAt": "2026-09-25T05:22:26.9488544Z",
+  "updatedAt": "2026-09-25T20:01:56.2847961Z",
+  "_rid": "ezpkAL1hvTELAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTELAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366516
+}

@@ -1,0 +1,471 @@
+{
+  "meta": {
+    "city": "Cambridge",
+    "area": "general",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "cambridge-general-castio-cleaning-services",
+      "businessName": "Castio Cleaning Services",
+      "description": "House, deep and move-out cleaning for Galt, Preston, Hespeler. Eco-friendly, bonded & insured. Formerly KCS. Weekly from $141.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 5,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "hello@castiocleaning.com",
+      "businessPhone": "226-400-7376",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://castiocleaning.com/cambridge/",
+        "other": []
+      },
+      "address": {
+        "street": "6-425 Hespeler Road MailBox 710",
+        "postalCode": "N1R 8J6",
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "6-425 Hespeler Road MailBox 710, Cambridge, ON N1R 8J6"
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Galt",
+        "Preston",
+        "Hespeler",
+        "Blair",
+        "Kitchener",
+        "Waterloo",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Deep Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-Out Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Condo Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Office Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pet-Friendly Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://castiocleaning.com/cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "cambridge-general-daisy-fresh-cleaning-service",
+      "businessName": "Daisy Fresh Cleaning Service",
+      "description": "Locally owned residential & commercial cleaning for 30 years — Cambridge, Guelph, Ancaster. Bonded, insured, WSIB. Senior & veteran discounts.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@daisyfreshcleaningservice.ca",
+      "businessPhone": "519-624-9050",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.daisyfreshcleaningservice.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Guelph",
+        "Ancaster"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Weekly Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Monthly Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-In Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-Out Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "New Construction Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.daisyfreshcleaningservice.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "cambridge-general-molly-maid-cambridge",
+      "businessName": "Molly Maid Cambridge",
+      "description": "Professional green house cleaning / maid service in Cambridge.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@mollymaid.ca",
+      "businessPhone": "519-618-0026",
+      "social": {
+        "facebook": "https://www.facebook.com/MollyMaidCanada",
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://mollymaid.ca/locations/on/cambridge/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Galt",
+        "Preston",
+        "Hespeler",
+        "Blair",
+        "Kitchener",
+        "Waterloo",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Maid Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Recurring Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://mollymaid.ca/locations/on/cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://mollymaid.ca/locations/on/cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

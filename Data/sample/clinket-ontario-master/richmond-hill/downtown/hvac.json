@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "city": "Richmond Hill",
+    "area": "downtown",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "richmond-hill-downtown-suburban-services",
+      "businessName": "Suburban Services",
+      "description": "24/7 heating and cooling — furnaces, AC, boilers, gas fireplaces, humidifiers.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-883-3545",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "588 Edward Ave",
+        "postalCode": "L4C 9Y6",
+        "area": "downtown",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "588 Edward Ave, Richmond Hill, ON L4C 9Y6"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "downtown",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioners",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Boilers",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Gas Fireplaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Humidifiers",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-downtown-robertaire-heat-cool-systems-ltd",
+      "businessName": "RobertAire Heat-Cool Systems Ltd",
+      "description": "Heating and cooling systems contractor in Richmond Hill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-737-4811",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "244 Essex Ave",
+        "postalCode": "L4C 2B8",
+        "area": "downtown",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "244 Essex Ave, Richmond Hill, ON L4C 2B8"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "downtown",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

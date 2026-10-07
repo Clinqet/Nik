@@ -1,0 +1,89 @@
+{
+ "business": "ZEKIKT",
+ "questions": [
+  {
+   "id": "Z01",
+   "renderings": {
+    "Latn": "How much is the Classic haircuts express 1?"
+   },
+   "relevant": "Classic\\ haircuts\\ express\\ 1\\b[^\\n]*525"
+  },
+  {
+   "id": "Z02",
+   "renderings": {
+    "Latn": "How much is the Ombre haircuts signature 14?"
+   },
+   "relevant": "Ombre\\ haircuts\\ signature\\ 14\\b[^\\n]*550"
+  },
+  {
+   "id": "Z03",
+   "renderings": {
+    "Latn": "How much is the Root touch-up hair signature 11?"
+   },
+   "relevant": "Root\\ touch\\-up\\ hair\\ signature\\ 11\\b[^\\n]*1,?050"
+  },
+  {
+   "id": "Z04",
+   "renderings": {
+    "Latn": "How much is the Lowlights hair signature 8?"
+   },
+   "relevant": "Lowlights\\ hair\\ signature\\ 8\\b[^\\n]*900"
+  },
+  {
+   "id": "Z05",
+   "renderings": {
+    "Latn": "How much is the Gloss nails signature 5?"
+   },
+   "relevant": "Gloss\\ nails\\ signature\\ 5\\b[^\\n]*525"
+  },
+  {
+   "id": "Z06",
+   "renderings": {
+    "Latn": "How much is the Botox facials signature 2?"
+   },
+   "relevant": "Botox\\ facials\\ signature\\ 2\\b[^\\n]*1,?100"
+  },
+  {
+   "id": "Z07",
+   "renderings": {
+    "Latn": "How much is the Vitamin C facials deluxe 15?"
+   },
+   "relevant": "Vitamin\\ C\\ facials\\ deluxe\\ 15\\b[^\\n]*1,?050"
+  },
+  {
+   "id": "Z08",
+   "renderings": {
+    "Latn": "How much is the Deep tissue massage deluxe 12?"
+   },
+   "relevant": "Deep\\ tissue\\ massage\\ deluxe\\ 12\\b[^\\n]*575"
+  },
+  {
+   "id": "Z09",
+   "renderings": {
+    "Latn": "How much is the Hot stone waxing deluxe 9?"
+   },
+   "relevant": "Hot\\ stone\\ waxing\\ deluxe\\ 9\\b[^\\n]*1,?525"
+  },
+  {
+   "id": "Z10",
+   "renderings": {
+    "Latn": "How much is the Full arms threading deluxe 6?"
+   },
+   "relevant": "Full\\ arms\\ threading\\ deluxe\\ 6\\b[^\\n]*600"
+  },
+  {
+   "id": "Z11",
+   "renderings": {
+    "Latn": "How much is the Underarms bridal deluxe 3?"
+   },
+   "relevant": "Underarms\\ bridal\\ deluxe\\ 3\\b[^\\n]*400"
+  },
+  {
+   "id": "Z12",
+   "renderings": {
+    "Latn": "How much is the Bob bridal express 16?"
+   },
+   "relevant": "Bob\\ bridal\\ express\\ 16\\b[^\\n]*575"
+  }
+ ]
+}

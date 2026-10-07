@@ -1,0 +1,136 @@
+{
+  "contentHash": "3E6783F6F7B5E8D7048FFDFF2D42365387B8E2923D50B289D30E61947D5511ED",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "pdf_duration_grid_crosstab.pdf",
+  "pageCount": 1,
+  "docTitle": "pdf_duration_grid_crosstab",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Massage menu",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Massage",
+            "30 min",
+            "60 min",
+            "90 min"
+          ],
+          [
+            "Swedish",
+            "$60",
+            "$90",
+            "$120"
+          ],
+          [
+            "Deep tissue",
+            "$70",
+            "$100",
+            "$135"
+          ],
+          [
+            "Hot stone",
+            "$75",
+            "$110",
+            "$150"
+          ],
+          [
+            "Prenatal",
+            "$65",
+            "$95",
+            "$130"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Facials by skin type",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            "Express",
+            "Classic",
+            "Luxury"
+          ],
+          [
+            "Hydrating",
+            "$45",
+            "$80",
+            "$120"
+          ],
+          [
+            "Anti-aging",
+            "$55",
+            "$95",
+            "$140"
+          ],
+          [
+            "Acne care",
+            "$50",
+            "$85",
+            "$125"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "3d47d6be-cbb6-4709-9fb0-182b5ebea164",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "'Classic' reads 'Clasic'",
+          "location": "page 1, table 2, row 1, column 3",
+          "ocrReading": "Classic",
+          "firstAiReading": "Clasic",
+          "sourceServiceName": "",
+          "passageIds": [],
+          "thirdReading": "| Express | Classic | Luxury |\n| Hydrating | $45 | $80 | $120 |\n| Anti-aging | $55 | $95 | $140 |\n| Acne care | $50 | $85 | $125 |",
+          "selectedReading": "Classic",
+          "disposition": "ResolvedToSourceReading"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

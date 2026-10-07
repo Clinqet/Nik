@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v5.2 — AI Knowledge: two-tab layout (chosen), Add vs Update tiles, short-lived cue, Dismiss for both sections</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --green-pick: #DFFABD; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #F5F5F5;
+    --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+    --ok-bg: #EAFBF0; --ok-ink: #0e7a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.5; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 980px; line-height: 1.55; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w980 { width: 980px; max-width: 100%; }
+  .w760 { width: 760px; max-width: 100%; }
+  .w560 { width: 560px; max-width: 100%; }
+  .w480 { width: 480px; max-width: 100%; }
+  .w400 { width: 400px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:normal; line-height:1.3; }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-border); }
+  .pill.navy { background: #fff; color: var(--navy); border-color: rgba(3,40,88,.35); }
+  .chip { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--muted); white-space:nowrap; }
+  .chip.on { background: var(--green-pick); border-color:#CBE9A6; color:#101010; }
+  .chip.warn { color: var(--warn); border-color: var(--warn-border); background: var(--warn-bg); }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .search { display:inline-flex; align-items:center; gap:6px; background:var(--field); border-radius:999px; padding:6px 12px; font-size:12px; color:var(--muted); min-width:150px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.xs { padding:5px 10px; font-size:11.5px; }
+  .btn.danger-ghost { color: var(--danger); border-color: var(--danger-border); }
+  .btn.link { border:none; background:transparent; color:var(--navy); text-decoration:underline; text-underline-offset:3px; padding:4px 2px; font-weight:600; }
+  .banner { display:flex; gap:8px; border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.45; align-items:flex-start; }
+  .banner.info { background: var(--info-bg); border:1px solid var(--info-border); color: var(--navy); }
+  .banner.danger { background: var(--danger-bg); border:1px solid var(--danger-border); color: var(--danger); }
+  .banner.ok { background: var(--ok-bg); border:1px solid #bdebca; color: var(--ok-ink); }
+  .banner .grow { flex:1; min-width:160px; }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; background:#F3F3F3; padding:1px 5px; border-radius:5px; }
+
+  /* page chrome */
+  .page-h { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap; }
+  .page-h h2 { font-size:18px; color:#1a1a1a; font-weight:500; }
+  .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:420px; line-height:1.45; }
+  .usage { font-size:12px; color:var(--muted); text-align:right; flex:none; }
+  .meter { width:130px; height:6px; border-radius:999px; background:#EFEFEF; margin-top:6px; overflow:hidden; margin-left:auto; }
+  .meter i { display:block; height:100%; border-radius:999px; background:var(--green); }
+  .doc { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); }
+  .doc:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; font-size:11px; color:#3F7A00; font-weight:700; }
+  .doc-main { flex:1; min-width:0; }
+  .doc-name { font-size:13.5px; font-weight:600; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .doc-meta { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .doc-an { font-size:11.5px; color:var(--navy); margin-top:3px; }
+  .doc-an a { color:var(--navy); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+  .doc-an.quiet { color:var(--faint); }
+  .doc-actions { display:flex; gap:6px; flex:none; align-items:center; }
+  .dots { width:28px; height:28px; border-radius:999px; background:#F1F1F1; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--muted); letter-spacing:1px; }
+
+  /* page-level tabs (Option A — chosen) */
+  .ptabs { display:flex; gap:8px; margin-top:14px; border-bottom:1px solid var(--border); align-items:flex-end; }
+  .ptab { padding:10px 16px 9px; font-size:13.5px; font-weight:600; color:var(--muted); border-bottom:3px solid transparent; cursor:pointer; display:flex; gap:7px; align-items:center; }
+  .ptab.on { color:var(--navy); border-bottom-color: var(--green); }
+  .ptab .n { font-size:11px; font-weight:700; background:var(--green); color:#101010; border-radius:999px; padding:1.5px 8px; }
+  .ptab.off .n { background:#EDF1F7; color:var(--navy); }
+  /* The SHIPPED cue: the workspace chip's green, but PULSING — a static ring on a tab that already has its
+     own borders reads as one more coloured chip, not as "look here". Three pulses live, then it holds. */
+  @keyframes attention-ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 2px #C8F49E, 0 0 0 0 rgba(151,239,41,.34); }
+    50%      { box-shadow: 0 0 0 2px #C8F49E, 0 0 0 9px rgba(151,239,41,0); }
+  }
+  .ptab.cue { background:#F7FFEF; border-radius:10px 10px 0 0; box-shadow:0 0 0 2px #C8F49E; animation: attention-ring-pulse 1.5s ease-out infinite; }
+  .ptab.cue .n { background:#DCF6B8; color:#101010; }
+  @media (prefers-reduced-motion: reduce) { .ptab.cue, .seg .s.cue { animation: none; } }
+
+  /* the box */
+  .dsec { margin-top:6px; border:1px solid var(--info-border); border-radius:14px; background:#FBFCFF; }
+  .dsec-h { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:14px 16px 10px; flex-wrap:wrap; }
+  .dsec-h h3 { font-size:16px; color:var(--navy); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .dsec-h p { font-size:12.5px; color:var(--muted); margin-top:3px; max-width:520px; line-height:1.45; }
+  .dsec-body { padding:10px 16px 14px; display:flex; flex-direction:column; gap:10px; }
+  .tabbar { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 16px 0; }
+  .settingsline { font-size:12px; color:var(--muted); padding:8px 16px 0; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .settingsline b { color:var(--ink); font-weight:600; }
+
+  /* NEW — the Add vs Update tiles */
+  .tiles { display:flex; gap:10px; padding:4px 16px 0; }
+  .tile { flex:1; border:1.5px solid var(--border); background:#fff; border-radius:12px; padding:10px 14px; cursor:pointer; min-width:0; }
+  .tile.on { border-color: var(--green); background: var(--green-soft); box-shadow: inset 0 0 0 1px var(--green); }
+  .tile .t-top { display:flex; align-items:baseline; gap:8px; }
+  .tile .t-count { font-size:20px; font-weight:800; color:var(--navy); }
+  .tile.on .t-count { color:#101010; }
+  .tile .t-name { font-size:13px; font-weight:700; color:var(--navy); }
+  .tile .t-sub { font-size:11.5px; color:var(--muted); margin-top:3px; line-height:1.4; }
+  .tile.on .t-sub { color:#3d5c12; }
+  .tile.solo { cursor:default; }
+
+  .dcard { border:1px solid var(--border); border-radius:12px; background:#fff; padding:12px 14px; }
+  .dcard.rv { border-color: var(--warn-border); }
+  .dcard-top { display:flex; gap:12px; align-items:flex-start; }
+  .thumb { width:56px; height:56px; border-radius:10px; flex:none; background: linear-gradient(135deg,#d9e7f5,#f1f5f9); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--faint); text-align:center; overflow:hidden; }
+  .dcard-main { flex:1; min-width:0; }
+  .dcard-title { font-size:13.5px; font-weight:600; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .dcard-line { font-size:12px; color:var(--muted); margin-top:3px; }
+  .dcard-src { font-size:11.5px; color:var(--faint); margin-top:4px; }
+  .diff { margin-top:6px; display:grid; grid-template-columns:auto 1fr; gap:2px 10px; font-size:12px; }
+  .diff .k { color:var(--faint); }
+  .diff .v s { color:var(--faint); }
+  .diff .v b { color:var(--ok-ink); font-weight:700; }
+  .dcard-acts { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .skel { height:64px; border-radius:12px; background:linear-gradient(90deg,#F1F1F1,#F8F8F8,#F1F1F1); background-size:200% 100%; animation: sh 1.4s infinite; }
+  @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .more { text-align:center; padding:6px 0 0; }
+
+  /* modal */
+  .modal { border:1px solid var(--border); border-radius:20px; box-shadow:0 18px 50px rgba(3,40,88,.14); background:#fff; overflow:hidden; }
+  .modal-b { padding:20px 22px 6px; }
+  .modal-b h4 { font-size:17px; font-weight:700; }
+  .modal-b p { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.55; }
+  .modal-f { padding:16px 22px 20px; display:flex; gap:10px; }
+  .modal-f .btn { flex:1; padding:11px 14px; border-radius:12px; }
+
+  /* phone */
+  .phone { width:320px; border:1px solid var(--border); border-radius:26px; background:#fff; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.06); }
+  .phone .ph-h { padding:14px 16px 10px; border-bottom:1px solid var(--hair); }
+  .phone .ph-h b { font-size:15px; display:block; text-align:center; }
+  .phone .ph-b { padding:12px 12px 16px; display:flex; flex-direction:column; gap:10px; }
+  .seg { display:flex; background:var(--field); border-radius:999px; padding:3px; gap:3px; }
+  .seg .s { flex:1; text-align:center; font-size:12px; font-weight:600; color:var(--muted); border-radius:999px; padding:7px 4px; }
+  .seg .s.on { background:var(--green); color:#101010; font-weight:700; }
+  .seg .s.cue { box-shadow:0 0 0 2px #C8F49E; background:#F7FFEF; color:var(--navy); animation: attention-ring-pulse 1.5s ease-out infinite; }
+  .seg .s .n { font-size:10.5px; font-weight:700; background:rgba(3,40,88,.10); color:var(--navy); border-radius:999px; padding:1px 6px; margin-left:4px; }
+  .seg .s.on .n { background:rgba(16,16,16,.12); color:#101010; }
+  .seg .s.cue .n { background:#DCF6B8; color:#101010; }
+  .m-tiles { display:flex; gap:8px; }
+  .m-tile { flex:1; border:1.5px solid var(--border); background:#fff; border-radius:11px; padding:8px 10px; }
+  .m-tile.on { border-color: var(--green); background: var(--green-soft); box-shadow: inset 0 0 0 1px var(--green); }
+  .m-tile .t-count { font-size:17px; font-weight:800; color:var(--navy); }
+  .m-tile .t-name { font-size:11.5px; font-weight:700; color:var(--navy); }
+  .m-explain { font-size:11px; color:var(--muted); line-height:1.4; padding:0 2px; }
+  .sticky { border-top:1px solid var(--border); background:#fff; padding:10px 12px; display:flex; gap:8px; box-shadow:0 -6px 18px rgba(0,0,0,.06); }
+  .sticky .btn { flex:1; }
+  .empty { text-align:center; padding:26px 16px; }
+  .empty h5 { font-size:14px; color:var(--navy); font-weight:600; }
+  .empty p { font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5; max-width:400px; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Knowledge — v5.2: cue is short-lived, both sections can be dismissed, the filter row explained
+  <span><b>Decided already:</b> Option A layout · tiles · one mass button per section · fixed mobile footer · the caching contract (§6). <b>This revision, per your latest notes:</b> <b>1)</b> the highlight cue is now short-lived — it fades on its own after ~5 seconds (or on first click); the lime count badge stays as the permanent signal; <b>2)</b> the New section gains <b>"Dismiss all new (N)"</b> — the gap you spotted: adds could never be mass-dismissed (web + mobile footer; the endpoint already supports it, zero backend work); <b>3)</b> §2.1 explains exactly what "Please check", the Document filter and Search are, when each appears — and yes, Search stays for the Add section too. Sample data: 7 new + 36 changes = 43.</span>
+</h1>
+
+<!-- ════════════════ §1 THE CUE ════════════════ -->
+<div class="section-title">§1 — Landing on the page: the Suggestions tab announces itself, briefly</div>
+<div class="section-sub">The workspace chip's green ring + soft fill, applied to the "Service suggestions" tab — but <b>short-lived, as you asked</b>: it appears when you land on the page with suggestions waiting, then fades out on its own after ~5 seconds (a smooth fade, not a blink), or instantly on your first click anywhere in the tabs. The lime count badge is the permanent signal; the ring is only the arrival nudge. Same lifecycle on mobile's segmented control.</div>
+
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label">WEB · TAB 1 ACTIVE — THE SUGGESTIONS TAB WEARS THE CUE <em>proposed</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div>
+          <h2>AI Knowledge</h2>
+          <p>What your AI receptionist knows beyond your services — policies, price lists, spec sheets, FAQs. It answers callers straight from your material.</p>
+        </div>
+        <div class="usage">
+          Documents 3 of 20
+          <div class="meter"><i style="width:15%"></i></div>
+          <div style="margin-top:8px">Searchable parts 739 of 4,000</div>
+          <div class="meter"><i style="width:18%"></i></div>
+          <button class="btn primary small" style="margin-top:10px">Upload documents</button>
+        </div>
+      </div>
+
+      <div class="ptabs">
+        <div class="ptab on">Documents &amp; FAQs</div>
+        <div class="ptab cue">Service suggestions <span class="n">43</span></div>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Toromont used machine inventory records <span class="pill">Other</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 666 parts · 793 kB · Aug 21</div>
+            <div class="doc-an quiet">No services found in this document · <a href="#" style="color:var(--navy)">Run again</a></div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Hamilton equipment inventory <span class="pill">Inventory</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 68 parts · 72 kB · Aug 21</div>
+            <div class="doc-an">43 services suggested · <a href="#">Review</a></div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Caterpillar Equipment Model Specifications <span class="pill">Spec sheet</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 5 parts · 7 kB · Aug 21</div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; border-top:1px solid var(--hair); padding-top:12px">
+        <div class="page-h">
+          <div><h2 style="font-size:15px; color:var(--navy)">Your FAQs</h2><p>Quick answers your receptionist gives callers, typed right here, no file needed.</p></div>
+          <div style="display:flex; gap:10px; align-items:center"><button class="btn small">Add FAQ</button><span class="note">0 of 200</span></div>
+        </div>
+      </div>
+
+      <div class="ann good"><b>The cue's lifecycle — short-lived, and it MOVES</b>
+        The tab above is showing the real thing: a <b>LIGHTER</b> green than the workspace chip's brand #97EF29 (a #C8F49E ring on #F7FFEF), <b>pulsing three times</b> rather than sitting still. Lighter on purpose — that chip sits on white chrome with nothing green near it, while this page already carries brand green on the sidebar pill, Upload documents and every Ready chip, so the full-strength ring competes instead of inviting; the motion carries the attention, so the colour steps back. ‼️ The dashboard chip itself is UNCHANGED — it has no motion and needs the weight — a static ring on a tab that already has its own borders reads as one more coloured chip, not as "look here". Appears on landing when suggestions are waiting · pulses, then holds · fades out by itself after ~5 seconds · clears instantly on your first click · re-arms next visit if the queue still has items. Honours <code>prefers-reduced-motion</code> (ring only, no pulse). Mobile does the same with a matching 3-pulse scale, and checks the OS reduce-motion setting. At 0 pending: plain tab, no badge, no cue.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §2 THE TILES ════════════════ -->
+<div class="section-title">§2 — The Suggestions tab: Add vs Update become two tiles that explain themselves (your note #4)</div>
+<div class="section-sub">The small text tabs are gone. Two big tiles split the queue, each stating in one line what approving does to your services. The active tile fills green (brand rule: green = chosen). This also structurally removes the ▲▼ scrollbar artifact — there is no overflowing tab row anymore.</div>
+
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label">WEB · SUGGESTIONS TAB · "NEW SERVICES" TILE ACTIVE — ONE MASS BUTTON <em>proposed</em></div>
+    <div class="pad">
+      <div class="ptabs" style="margin-top:0">
+        <div class="ptab off">Documents &amp; FAQs</div>
+        <div class="ptab on">Service suggestions <span class="n">43</span></div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; margin-top:10px"><button class="btn link" style="font-size:12px">Re-run AI Data Analytics for all documents</button></div>
+
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">43 to review</span></h3>
+            <p>Suggestions from your documents. Only you can see them. Nothing changes until you approve it.</p>
+          </div>
+          <span class="dots">···</span>
+        </div>
+
+        <div class="tiles">
+          <div class="tile on">
+            <div class="t-top"><span class="t-count">7</span><span class="t-name">New services</span></div>
+            <div class="t-sub">Not in your services yet — approving <b>adds</b> them.</div>
+          </div>
+          <div class="tile">
+            <div class="t-top"><span class="t-count">36</span><span class="t-name">Changes to your services</span></div>
+            <div class="t-sub">You already offer these — approving <b>updates</b> only the fields shown.</div>
+          </div>
+        </div>
+
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip warn">Please check 2</span>
+            <span class="chip">Document: All ▾</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <div class="chips">
+            <button class="btn small primary">Add all new services (7)</button>
+            <button class="btn small">Dismiss all new (7)</button>
+          </div>
+        </div>
+        <div class="settingsline">New services are added at: <b>At my location · Sherbrooke CCE, QC</b> <button class="btn link" style="font-size:12px">Change</button> <span class="note">You can still change any single card with Edit.</span></div>
+        <div class="settingsline" style="color:var(--faint)">A tile you empty disappears, and the queue moves you to the kind that still has work — you are never left on a section with nothing in it.</div>
+        <div class="dsec-body">
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="thumb">photo</div>
+              <div class="dcard-main">
+                <div class="dcard-title">2024 Caterpillar 259D3 <span class="pill">Fixed · $86,500</span> <span class="pill">96% match</span></div>
+                <div class="dcard-line">Marketplace &amp; Classifieds › Tools &amp; Equipment Sales (New &amp; Used) · At my location · Sherbrooke CCE, QC</div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts"><button class="btn small primary">Approve</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="dcard rv">
+            <div class="dcard-top">
+              <div class="thumb">photo</div>
+              <div class="dcard-main">
+                <div class="dcard-title">2023 Caterpillar 306 CR <span class="pill warn">Check price type</span> <span class="pill">Fixed · $61,900</span></div>
+                <div class="dcard-line">Marketplace &amp; Classifieds › Tools &amp; Equipment Sales (New &amp; Used) · At my location · Sherbrooke CCE, QC</div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1 · written as "61,900*"</div>
+                <div class="dcard-acts"><button class="btn small primary">Approve</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="note" style="text-align:center">…5 more cards…</div>
+          <div class="note" style="text-align:center">Showing 1–7 of 7</div>
+        </div>
+      </div>
+
+      <div class="ann good"><b>One mass-ACCEPT button, plus the dismiss you asked for</b>
+        "Add all" (not "Add the shown"): new services are additive and reversible — a wrong one is one Delete away — and the real bulk case is a dealer inventory of 44–600 items, so it keeps its progress bar, Cancel and Resume. Cherry-picking stays per-card. <b>New: "Dismiss all new (7)"</b> closes the gap you spotted — every section can now be cleared either way (accept or dismiss), symmetric with "Dismiss all changes". Guarded by its own confirm dialog; dismissed suggestions stay dismissed — a re-run does not resurface them.</div>
+    </div>
+  </div>
+
+  <div class="frame w760">
+    <div class="frame-label">WEB · SUGGESTIONS TAB · "CHANGES" TILE ACTIVE — UPDATE IS PAGE-SCOPED <em>proposed</em></div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">43 to review</span></h3>
+            <p>Suggestions from your documents. Only you can see them. Nothing changes until you approve it.</p>
+          </div>
+          <span class="dots">···</span>
+        </div>
+
+        <div class="tiles">
+          <div class="tile">
+            <div class="t-top"><span class="t-count">7</span><span class="t-name">New services</span></div>
+            <div class="t-sub">Not in your services yet — approving <b>adds</b> them.</div>
+          </div>
+          <div class="tile on">
+            <div class="t-top"><span class="t-count">36</span><span class="t-name">Changes to your services</span></div>
+            <div class="t-sub">You already offer these — approving <b>updates</b> only the fields shown.</div>
+          </div>
+        </div>
+
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip warn">Please check 1</span>
+            <span class="chip">Document: All ▾</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <div class="chips">
+            <button class="btn small primary">Update the 25 shown</button>
+            <button class="btn small">Dismiss all changes (36)</button>
+          </div>
+        </div>
+        <div class="dsec-body">
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title">2024 Caterpillar D1 - 12 <span class="pill info">Change to "2024 CATERPILLAR D1 - 12 (MF066850)"</span> <span class="pill">99% match</span></div>
+                <div class="diff"><span class="k">Price</span><span class="v"><s>Fixed · $104,000</s> → <b>Fixed · $99,500</b></span></div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts"><button class="btn small primary">Update my service</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title">2024 Caterpillar 305 - 07 <span class="pill info">Change to "2024 CATERPILLAR 305 - 07 (MF066490)"</span> <span class="pill">99% match</span></div>
+                <div class="diff"><span class="k">Price</span><span class="v"><s>Fixed · $67,000</s> → <b>Fixed · $64,900</b></span></div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts"><button class="btn small primary">Update my service</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="note" style="text-align:center">…23 more cards…</div>
+          <div class="more"><button class="btn small">Show 25 more</button></div>
+          <div class="note" style="text-align:center">Showing 1–25 of 36</div>
+        </div>
+      </div>
+
+      <div class="ann good"><b>Why Add says "all" but Update says "the shown" — the asymmetry is the safety design</b>
+        Updates overwrite services you configured, so the mass button only ever covers what is on screen (one glance stays in the loop — the rule that saved the 43 category-downgrade case). When everything fits on one page the label turns honest-simple: <b>"Update all 12 changes"</b>. "Dismiss all changes" stays — it is the opposite intent (reject), not a duplicate. The tile subtitles teach the difference, so the buttons no longer have to.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §2.1 THE FILTER ROW ════════════════ -->
+<div class="section-title">§2.1 — The filter row, chip by chip (your questions answered)</div>
+<div class="section-sub">All three tools apply to BOTH sections — including Search on the Add section, which earns its place the moment a dealer inventory drops 44–600 new items into the queue.</div>
+
+<div class="board">
+  <div class="frame w980">
+    <div class="frame-label">WHAT EACH CHIP IS · WHEN IT APPEARS</div>
+    <div class="pad">
+      <table class="rules">
+        <tr><th style="width:20%">Chip</th><th style="width:44%">What it is</th><th>When it appears</th></tr>
+        <tr>
+          <td><span class="chip warn">Please check 2</span></td>
+          <td>A one-tap filter to the cards <b>the AI itself was not sure about</b> — its confidence fell below the threshold, or the document's price shape was ambiguous (e.g. "61,900*" — fixed price or starting-from?). That is what this count and this filter mean, exactly.<br><br><b>The amber border is wider than the chip</b>, and covers four blocking conditions: <b>1)</b> AI unsure (the chip's set) · <b>2)</b> a price range missing its upper amount · <b>3)</b> the document's currency differs from your business currency · <b>4)</b> the category could not be resolved. On ALL FOUR: Approve opens Edit at the exact field instead of applying blind, and <b>every mass action skips the card and reports it</b> — you fix those by hand.</td>
+          <td>Only when the count is above 0 — "Please check 0" never renders (v5.2). No percentage threshold on the border: a card turns amber the moment ANY of the four is true.</td>
+        </tr>
+        <tr>
+          <td><span class="chip">Document: All ▾</span></td>
+          <td>Filters the queue to suggestions from ONE uploaded document (each option shows its count, e.g. "Hamilton equipment inventory (43)"). This is also how the "Review" link on a document row lands: it opens this tab with that document pre-selected.</td>
+          <td>Always — with one document it is a one-option select; worth keeping because multi-document is the normal end state.</td>
+        </tr>
+        <tr>
+          <td><span class="search">Search by name…</span></td>
+          <td>Live name filter over the suggestion cards — find "306 CR" in a 600-item import without scrolling.</td>
+          <td>Always, in BOTH sections. Add needs it most: new-service queues are the big ones.</td>
+        </tr>
+      </table>
+      <p class="note" style="margin-top:8px"><b>Mass buttons never lie about their scope:</b> with a Document filter active, "Add all" / "Dismiss all" scope to that document and their counts say so (the endpoints already support it). While a Search or "Please check" filter is active, the kind-wide buttons hide — only the view-scoped "Update the N shown" stays, because it acts on exactly the cards you see. Clearing the filter brings the others back.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §3 SINGLE-KIND ════════════════ -->
+<div class="section-title">§3 — Only one kind exists: a single full-width tile, still explaining itself</div>
+<div class="section-sub">Your 4.jpg case (0 new + 43 changes). No empty tab, no "All", no footnote — one tile that reads as a headline, and the whole width goes to cards.</div>
+
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label">STATE · ONLY CHANGES (0 NEW + 43 CHANGES) <em>proposed</em></div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">43 to review</span></h3>
+            <p>Suggestions from your documents. Nothing changes until you approve it.</p>
+          </div>
+          <span class="dots">···</span>
+        </div>
+        <div class="tiles">
+          <div class="tile on solo">
+            <div class="t-top"><span class="t-count">43</span><span class="t-name">Changes to your services</span></div>
+            <div class="t-sub">You already offer these — approving <b>updates</b> only the fields shown on each card.</div>
+          </div>
+        </div>
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip">Document: All ▾</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <div class="chips">
+            <button class="btn small primary">Update the 25 shown</button>
+            <button class="btn small">Dismiss all changes (43)</button>
+          </div>
+        </div>
+        <div class="dsec-body">
+          <div class="dcard"><div class="dcard-title">2024 Caterpillar D1 - 12 <span class="pill info">Change</span></div><div class="diff"><span class="k">Price</span><span class="v"><s>$104,000</s> → <b>$99,500</b></span></div></div>
+          <div class="note" style="text-align:center">…</div>
+        </div>
+      </div>
+      <div class="ann good"><b>Also quieter</b>
+        "Please check 0" no longer renders — the amber chip only appears when there is something to check.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label">STATE · ONLY NEW (44 NEW + 0 CHANGES) <em>proposed</em></div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">44 to review</span></h3>
+            <p>Suggestions from your documents. Nothing changes until you approve it.</p>
+          </div>
+          <span class="dots">···</span>
+        </div>
+        <div class="tiles">
+          <div class="tile on solo">
+            <div class="t-top"><span class="t-count">44</span><span class="t-name">New services</span></div>
+            <div class="t-sub">Not in your services yet — approving <b>adds</b> them to your catalog.</div>
+          </div>
+        </div>
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip warn">Please check 3</span>
+            <span class="chip">Document: All ▾</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <div class="chips">
+            <button class="btn small primary">Add all new services (44)</button>
+            <button class="btn small">Dismiss all new (44)</button>
+          </div>
+        </div>
+        <div class="settingsline">New services are added at: <b>At my location · Sherbrooke CCE, QC</b> <button class="btn link" style="font-size:12px">Change</button></div>
+        <div class="dsec-body">
+          <div class="dcard"><div class="dcard-top"><div class="thumb">photo</div><div class="dcard-main"><div class="dcard-title">2024 Caterpillar 259D3 <span class="pill">Fixed · $86,500</span></div><div class="dcard-src">From "Toromont used machine inventory records" · page 1</div></div></div></div>
+          <div class="note" style="text-align:center">…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §4 MOBILE ════════════════ -->
+<div class="section-title">§4 — Mobile: same tiles, and mass actions in a FIXED footer (your note #3)</div>
+<div class="section-sub">The footer bar is pinned to the bottom of the screen while the Suggestions tab is open — it never scrolls away. It always carries the active section's mass actions; every tap still opens the confirm sheet first.</div>
+
+<div class="board">
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b></div>
+    <div class="ph-b">
+      <div class="seg">
+        <div class="s on">Documents &amp; FAQs</div>
+        <div class="s cue">Suggestions <span class="n">43</span></div>
+      </div>
+      <div class="doc" style="padding:10px 0">
+        <div class="doc-ico">DOC</div>
+        <div class="doc-main">
+          <div class="doc-name" style="font-size:12.5px">Hamilton equipment inventory <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">1 page · 68 parts · 72 kB</div>
+          <div class="doc-an">43 services suggested · <a href="#">Review</a></div>
+        </div>
+      </div>
+      <div class="doc" style="padding:10px 0">
+        <div class="doc-ico">DOC</div>
+        <div class="doc-main">
+          <div class="doc-name" style="font-size:12.5px">Caterpillar Equipment Model Specifications <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">1 page · 5 parts · 7 kB</div>
+        </div>
+      </div>
+      <div class="note">Your FAQs · Add FAQ · 0 of 200</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--hair); border-bottom:none">MOBILE · TAB 1 — SEGMENT WEARS THE CUE <em>proposed</em></div>
+  </div>
+
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b></div>
+    <div class="ph-b">
+      <div class="seg">
+        <div class="s">Documents &amp; FAQs</div>
+        <div class="s on">Suggestions <span class="n">43</span></div>
+      </div>
+      <div class="m-tiles">
+        <div class="m-tile on"><div class="t-count">7</div><div class="t-name">New services</div></div>
+        <div class="m-tile"><div class="t-count">36</div><div class="t-name">Changes</div></div>
+      </div>
+      <div class="m-explain">Not in your services yet — approving <b>adds</b> them.</div>
+      <div class="chips">
+        <span class="chip warn" style="font-size:11.5px">Please check 2</span>
+        <span class="chip" style="font-size:11.5px">Document: All ▾</span>
+      </div>
+      <div class="dcard" style="padding:10px 12px">
+        <div class="dcard-title" style="font-size:12.5px">2024 Caterpillar 259D3 <span class="pill" style="font-size:10px">Fixed · $86,500</span></div>
+        <div class="dcard-src">From "Hamilton equipment inventory"</div>
+        <div class="dcard-acts"><button class="btn xs primary">Approve</button><button class="btn xs">Edit</button><button class="btn xs">Dismiss</button></div>
+      </div>
+      <div class="note" style="text-align:center">…keeps loading as you scroll…</div>
+    </div>
+    <div class="sticky"><button class="btn small primary">Add all new services (7)</button><button class="btn small">Dismiss all (7)</button></div>
+    <div class="frame-label" style="border-top:1px solid var(--hair); border-bottom:none">MOBILE · NEW ACTIVE — FIXED FOOTER <em>proposed</em></div>
+  </div>
+
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b></div>
+    <div class="ph-b">
+      <div class="seg">
+        <div class="s">Documents &amp; FAQs</div>
+        <div class="s on">Suggestions <span class="n">43</span></div>
+      </div>
+      <div class="m-tiles">
+        <div class="m-tile"><div class="t-count">7</div><div class="t-name">New services</div></div>
+        <div class="m-tile on"><div class="t-count">36</div><div class="t-name">Changes</div></div>
+      </div>
+      <div class="m-explain">You already offer these — approving <b>updates</b> only the fields shown.</div>
+      <div class="dcard" style="padding:10px 12px">
+        <div class="dcard-title" style="font-size:12.5px">2024 Caterpillar D1 - 12 <span class="pill info" style="font-size:10px">Change</span></div>
+        <div class="diff" style="font-size:11.5px"><span class="k">Price</span><span class="v"><s>$104,000</s> → <b>$99,500</b></span></div>
+        <div class="dcard-acts"><button class="btn xs primary">Update my service</button><button class="btn xs">Edit</button><button class="btn xs">Dismiss</button></div>
+      </div>
+      <div class="note" style="text-align:center">…keeps loading as you scroll…</div>
+    </div>
+    <div class="sticky"><button class="btn small primary">Update the 25 shown</button><button class="btn small">Dismiss all (36)</button></div>
+    <div class="frame-label" style="border-top:1px solid var(--hair); border-bottom:none">MOBILE · CHANGES ACTIVE — FIXED FOOTER <em>proposed</em></div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:14px">
+  <div class="frame w760">
+    <div class="frame-label">FIXED FOOTER — THE EXACT RULES</div>
+    <div class="pad">
+      <table class="rules">
+        <tr><th style="width:34%">Situation</th><th>Footer shows</th></tr>
+        <tr><td>Suggestions tab · New section active</td><td>"Add all new services (N)" (primary) + "Dismiss all (N)"</td></tr>
+        <tr><td>Suggestions tab · Changes section active</td><td>"Update the N shown" (primary) + "Dismiss all (N)"; when everything fits on one screen the label reads "Update all N changes"</td></tr>
+        <tr><td>Search or "Please check" filter active</td><td>Kind-wide buttons hide; only the view-scoped "Update the N shown" stays (Changes section)</td></tr>
+        <tr><td>List loading / mass action running</td><td>Footer hides — a mass action must never target a half-loaded list; the bulk progress banner shows instead</td></tr>
+        <tr><td>View-only (no catalog permission) · or 0 items</td><td>No footer</td></tr>
+        <tr><td>Documents &amp; FAQs tab</td><td>No footer — it belongs to the queue only</td></tr>
+      </table>
+      <p class="note" style="margin-top:8px">Every footer tap opens the confirm bottom-sheet first (v4's guarded-dialog rule, unchanged). The footer sits above the device safe-area inset.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §5 DIALOG + STATES ════════════════ -->
+<div class="section-title">§5 — The Update confirm + the states (unchanged from v5 where not noted)</div>
+<div class="section-sub">Loading, error, empty, view-only, cap-reached all carry over from the approved v5 set — redrawn here only where the tiles changed the frame.</div>
+
+<div class="board">
+  <div class="frame w480">
+    <div class="frame-label">DIALOG · "UPDATE THE 25 SHOWN"</div>
+    <div class="pad" style="background:#F1F3F6">
+      <div class="modal">
+        <div class="modal-b">
+          <h4>Update 25 of your services?</h4>
+          <p>Each service gets exactly the change shown on its card — nothing else on it moves. Cards marked "Please check" are skipped so you can look at them first.</p>
+        </div>
+        <div class="modal-f">
+          <button class="btn">Cancel</button>
+          <button class="btn primary">Update 25 services</button>
+        </div>
+      </div>
+      <div class="ann good" style="margin-top:12px"><b>Honest result</b>
+        "Updated 24 services · 1 needs a look" — skipped and failed cards stay in the queue, flagged. Mobile: same copy in the bottom-sheet.</div>
+    </div>
+  </div>
+
+  <div class="frame w480">
+    <div class="frame-label">STATE · SWITCHING TILES — SKELETONS, INSTANT WHEN CACHED</div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="tiles" style="padding-top:12px">
+          <div class="tile"><div class="t-top"><span class="t-count">7</span><span class="t-name">New services</span></div></div>
+          <div class="tile on"><div class="t-top"><span class="t-count">36</span><span class="t-name">Changes to your services</span></div></div>
+        </div>
+        <div class="dsec-body" style="padding-top:12px">
+          <div class="skel"></div>
+          <div class="skel"></div>
+          <div class="skel"></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">First visit to a section: skeletons; header and tiles never move. Every later visit renders instantly from the cache (§7). Mass buttons hide while loading.</p>
+    </div>
+  </div>
+
+  <div class="frame w480">
+    <div class="frame-label">STATE · EMPTY TAB (0 TO REVIEW)</div>
+    <div class="pad">
+      <div class="ptabs" style="margin-top:0">
+        <div class="ptab off">Documents &amp; FAQs</div>
+        <div class="ptab on">Service suggestions</div>
+      </div>
+      <div class="empty">
+        <h5>Nothing waiting for review</h5>
+        <p>When AI Data Analytics finds services or price changes in your documents, they appear here for your approval.</p>
+        <button class="btn small" style="margin-top:10px">Re-run AI Data Analytics for all documents</button>
+      </div>
+      <p class="note">No badge, no cue at 0. The tab never disappears.</p>
+    </div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:18px">
+  <div class="frame w400">
+    <div class="frame-label">STATE · LOAD FAILED</div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-h"><div><h3>Clinket AI Data Analytics</h3></div></div>
+        <div class="dsec-body">
+          <div class="banner danger"><div class="grow">We could not load your suggestions. Your queue is safe — nothing was changed.</div><button class="btn small">Try again</button></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">A failed background refresh never blanks the list — the last good list stays until a retry succeeds.</p>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label">STATE · VIEW-ONLY (no catalog permission)</div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-h"><div><h3>Clinket AI Data Analytics <span class="pill navy">43 to review</span></h3><p>Suggestions from your documents. Someone with catalog access can approve them.</p></div></div>
+        <div class="tiles">
+          <div class="tile on"><div class="t-top"><span class="t-count">7</span><span class="t-name">New services</span></div></div>
+          <div class="tile"><div class="t-top"><span class="t-count">36</span><span class="t-name">Changes to your services</span></div></div>
+        </div>
+        <div class="dsec-body" style="padding-top:10px">
+          <div class="dcard"><div class="dcard-title">2024 Caterpillar 259D3 <span class="pill">Fixed · $86,500</span></div><div class="dcard-src">From "Hamilton equipment inventory" · page 1</div></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">No approve/dismiss/mass buttons, no footer on mobile — v4 rule unchanged.</p>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label">STATE · QUEUE CAP REACHED</div>
+    <div class="pad">
+      <div class="dsec">
+        <div class="dsec-body" style="padding-top:12px">
+          <div class="dcard"><div class="dcard-title">…last card on the page…</div></div>
+          <div class="note" style="text-align:center">More suggestions are waiting — approve or dismiss some of these first.</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">Unchanged from v4.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §6 CACHE (CONFIRMED) ════════════════ -->
+<div class="section-title">§6 — Caching contract (you confirmed this — kept here as the reference)</div>
+<div class="board">
+  <div class="frame w980">
+    <div class="frame-label">THE CACHE CONTRACT <em>confirmed</em></div>
+    <div class="pad">
+      <table class="rules">
+        <tr><th style="width:22%">Question</th><th>Answer</th></tr>
+        <tr><td>What is cached</td><td>Each section/filter combination's response (cards + counts together, from one response — a cached page is internally consistent). At most 10 combinations; oldest dropped. Browser memory only — zero server memory.</td></tr>
+        <tr><td>How long</td><td><b>60 seconds fresh, then stale-while-refresh:</b> within 60s a flip renders from memory with no call. After 60s it still renders instantly, but silently re-fetches and swaps in the fresh result.</td></tr>
+        <tr><td>What clears it instantly</td><td>Every mutation (approve / update / dismiss / edit / mass / bulk — success or failure) · any re-run · a document finishing processing (existing live signal) · workspace switch · leaving the page.</td></tr>
+        <tr><td>The teammate edge case</td><td>A teammate approves on their phone while you look: your list can be up to ~60s behind. Acting on a card they already handled gets the server's honest answer ("already approved" / "not found"), a toast, and a reload. <b>A stale read can never cause a wrong write.</b></td></tr>
+        <tr><td>Slow-response edge case</td><td>A response landing after you switched sections is dropped entirely — not rendered, not stored. A mutation does the same to any read already in flight, so an approved card can never be restored to life by a reply that left before you pressed it. Errors are never cached. "Show more" pages append into the same entry.</td></tr>
+        <tr><td>Mobile</td><td>Identical contract, same session.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §7 WHAT SHIPS ════════════════ -->
+<div class="section-title">§7 — What ships on your go</div>
+<div class="section-sub">Backend: one new endpoint — <code>approve-update-batch</code> (page-scoped mass update; skips amber; per-draft results; <code>catalog.service.update</code>) with unit + integration tests; "Dismiss all new" reuses the existing <code>dismiss-by-kind</code> endpoint — no schema change anywhere. Web + mobile, same session: the two-tab page with the short-lived highlight cue (~5s fade), the Add/Update tiles (smart: two / one / none), Add-all + Dismiss-all on New, Update-shown + Dismiss-all on Changes, honest button scoping under filters, tile-switch skeletons, the client cache, the fixed mobile footer, "Please check" hidden at 0, the ▲▼ overflow gone — all localized ×5, ESLint + tests green, then the full multi-dimensional audit.</div>
+
+</div>
+</body>
+</html>

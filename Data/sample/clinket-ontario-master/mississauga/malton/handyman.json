@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "malton",
+    "category": "handyman",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-malton-mississauga-handyman",
+      "businessName": "Mississauga Handyman",
+      "description": "House carpentry, painting and home repairs. Corliss Crescent, Malton area.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-568-3547",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "3778 Corliss Cres",
+        "postalCode": "L4T 2Z5",
+        "area": "malton",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "3778 Corliss Cres, Mississauga, ON L4T 2Z5"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "malton",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Carpentry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Home Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painting+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

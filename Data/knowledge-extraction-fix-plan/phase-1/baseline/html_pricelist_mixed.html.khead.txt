@@ -1,0 +1,71 @@
+# html_pricelist_mixed.html
+blocks=21 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Glow Salon
+[  1] Paragraph    p1
+      123 Lakeshore Rd, Oakville · 905-555-0142
+[  2] Paragraph    p1
+      OLD PRICES 2023: Haircut $18 Colour $60
+[  3] Paragraph    p1
+      Internal note: raise colour to $95 next quarter
+[  4] Heading      p1 H2
+      Hair
+[  5] Paragraph    p1
+      Haircut $25
+[  6] Paragraph    p1
+      Beard trim $15
+[  7] Paragraph    p1
+      Kids cut $18
+[  8] Paragraph    p1
+      Full head colour $80
+[  9] Paragraph    p1
+      Highlights $120
+[ 10] Heading      p1 H2
+      Nails
+[ 11] Table        p1
+      hasHeader=False caption= rows=3
+      | Manicure | $30 |
+      | Pedicure | $45 |
+      | Gel manicure | $55 |
+[ 12] Heading      p1 H2
+      Massage
+[ 13] Table        p1
+      hasHeader=False caption= rows=3
+      | Massage | 30 min | 60 min |
+      | Swedish | $60 | $90 |
+      | Deep tissue | $70 | $100 |
+[ 14] Heading      p1 H2
+      Policies
+[ 15] Paragraph    p1
+      Deposit
+[ 16] Paragraph    p1
+      20% on bookings over $100
+[ 17] Paragraph    p1
+      Cancellation
+[ 18] Paragraph    p1
+      24 hours notice or 50% charge
+[ 19] Paragraph    p1
+      The deposit is $50 for bridal trials and non-refundable within 48 hours.
+[ 20] Paragraph    p1
+      Open Tue–Sat 9–6 · Closed Mondays
+
+## INVENTORY
+Sections: Policies (6), Hair (5), Glow Salon (3), Nails (3), Massage (3)
+
+## CARDS (5)  warnings=0
+--- card 0 [Text] section='Glow Salon' page=1 tokens~33 img=-1
+    123 Lakeshore Rd, Oakville · 905-555-0142 OLD PRICES 2023: Haircut $18 Colour $60 Internal note: raise colour to $95 next quarter
+--- card 1 [Text] section='Glow Salon › Hair' page=1 tokens~19 img=-1
+    Haircut $25 Beard trim $15 Kids cut $18 Full head colour $80 Highlights $120
+--- card 2 [Table] section='Glow Salon › Nails' page=1 tokens~12 img=-1
+    Manicure | $30
+    Pedicure | $45
+    Gel manicure | $55
+--- card 3 [Table] section='Glow Salon › Massage' page=1 tokens~18 img=-1
+    Massage | 30 min | 60 min
+    Swedish | $60 | $90
+    Deep tissue | $70 | $100
+--- card 4 [Text] section='Glow Salon › Policies' page=1 tokens~46 img=-1
+    Deposit 20% on bookings over $100 Cancellation 24 hours notice or 50% charge The deposit is $50 for bridal trials and non-refundable within 48 hours. Open Tue–Sat 9–6 · Closed Mondays

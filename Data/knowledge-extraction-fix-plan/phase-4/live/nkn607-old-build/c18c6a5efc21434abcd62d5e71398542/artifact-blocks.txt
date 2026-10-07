@@ -1,0 +1,41 @@
+docTitle=Maple Family Clinic Patient Information Pack lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Provides a sample insurance policy summary, a medication schedule for Amoxicillin, Ibuprofen, and Vitamin D, fees for uninsured services, and lab reference ranges.
+[  0] Heading      p1 H1
+      Maple Family Clinic — patient information pack
+[  1] Heading      p1 H2
+      Insurance summary (sample policy)
+[  2] Table        p1
+      hasHeader=False caption= rows=7
+      |  |  |
+      | Monthly premium | $182.50 |
+      | Annual deductible | $500 |
+      | Out-of-pocket maximum | $3,000 |
+      | Co-pay per visit | $25 |
+      | Policy number | POL-4471-2026 |
+      | Coverage start | 2026-01-01 |
+[  3] Heading      p1 H2
+      Medication schedule
+[  4] Table        p1
+      hasHeader=True caption= rows=4
+      | Medication | Dose | Frequency |
+      | Amoxicillin | 500 mg | 3 times daily for 7 days |
+      | Ibuprofen | 400 mg | every 8 hours as needed |
+      | Vitamin D | 1000 IU | once daily |
+[  5] Heading      p1 H2
+      Uninsured services and fees
+[  6] Table        p1
+      hasHeader=True caption= rows=7
+      | Service | Fee |
+      | Sick note | $30 |
+      | Driver medical exam | $150 |
+      | Travel consultation (30 min) | $95 |
+      | Ear syringing | $40 |
+      | Missed appointment fee | $50 |
+      | Annual physical (uninsured patients) | $250 |
+[  7] Paragraph    p1
+      Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.
+      
+
+## captions
+## images
+## reviews

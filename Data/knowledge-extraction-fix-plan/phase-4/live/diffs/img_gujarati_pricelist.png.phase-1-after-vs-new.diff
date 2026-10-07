@@ -1,0 +1,29 @@
+--- phase-1-after/cards (content)
++++ new-build/cards (content)
+@@ -1,20 +1,6 @@
+---- #0 [Table] section='શ્રી બ્યુટી પાર્લર' page=1 img= scripts=["Gujr","Latn"] chars=146 title='શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી' type='Document'
+-    સેવા: વાળ કપાવવા | કિંમત: ₹250
+-    સેવા: ફેશિયલ | કિંમત: ₹800
+-    સેવા: મસાજ | કિંમત: ₹500
+-    સેવા: બ્રાઇડલ મેકઅપ | કિંમત: ₹5,000
+-    સેવા: થ્રેડિંગ | કિંમત: ₹50
+---- #1 [Text] section='2 414' page=1 img= scripts=["Latn","Gujr"] chars=69 title='શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી' type='Document'
+-    1, 54 | ₹250
+-    $22144 | ₹ 800
+-    4211% | ₹500
+-    WIE 24 | ₹5,000
+-    3 โรงเ | ₹50
+---- #3 [Text] section='2 414' page=1 img= scripts=["Gujr","Latn"] chars=149 title='શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી' type='Document'
+-    # શ્રી બ્યુટી પાર્લર | સેવા | કિંમત | |---|---:| | વાળ કાપવા | ₹250 | | ફેશિયલ | ₹800 | | મસાજ | ₹500 | | બ્રાઇડલ મેકઅપ | ₹5,000 | | થ્રેડિંગ | ₹50 |
+---- #5 [DocAggregate] section='સેવા' page= img= scripts=["Gujr","Latn"] chars=142 title='શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી' type='Document'
+-    શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી — overview — સેવા
+-    5 records — સેવા: વાળ કપાવવા (1), ફેશિયલ (1), મસાજ (1), બ્રાઇડલ મેકઅપ (1), થ્રેડિંગ (1)
+---- #6 [DocAggregate] section='કિંમત' page= img= scripts=["Gujr","Latn"] chars=98 title='શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી' type='Document'
+-    શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી — overview — કિંમત
+-    5 records — કિંમત: ₹50 to ₹5,000 (typical)
++--- #0 [Table] section='શ્રી અજય પટેલ' page=1 img= scripts=["Gujr","Latn"] chars=71 title='શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી' type='Document'
++    પાન મસાલા | ₹250
++    શરબત | ₹800
++    મીઠાઈ | ₹500
++    પાણીની બોટલ | ₹5,000
++    ચા | ₹50

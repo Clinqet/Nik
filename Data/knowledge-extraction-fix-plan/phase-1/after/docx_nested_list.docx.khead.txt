@@ -1,0 +1,33 @@
+# docx_nested_list.docx
+blocks=2 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Packages
+[  1] List         p1
+      - Gold package $450
+      -   Bridal makeup
+      -   Hair styling
+      -   Saree draping
+      - Silver package $250
+      -   Party makeup
+      -   Blow dry
+      - Add-ons
+      -   Lashes $20
+      -   Nail art $15
+
+## INVENTORY
+Sections: Packages (10)
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='Packages' page= tokens~42 img=-1
+    - Gold package $450
+      - Bridal makeup
+      - Hair styling
+      - Saree draping
+    - Silver package $250
+      - Party makeup
+      - Blow dry
+    - Add-ons
+      - Lashes $20
+      - Nail art $15

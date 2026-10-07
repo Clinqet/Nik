@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Downtown",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T15:41:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-downtown-first-barbershop",
+      "businessName": "First Barbershop",
+      "description": "Downtown Hamilton barbershop at 222 King Street West offering haircuts, beard trimming, and men's shaving.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "firstbarbershop9@gmail.com",
+      "businessPhone": "905-464-8883",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://firstbarbershop.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "222 King St W",
+        "postalCode": "L8P 1A9",
+        "formatted": "222 King St W, Hamilton, ON L8P 1A9 Canada",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Downtown Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "starting_from",
+            "amount": 20.0,
+            "min": 20.0,
+            "max": null,
+            "currency": "CAD",
+            "notes": "From $20.00"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Shaves",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "starting_from",
+            "amount": 20.0,
+            "min": 20.0,
+            "max": null,
+            "currency": "CAD",
+            "notes": "From $20.00"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "11:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "11:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "11:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "11:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "11:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "11:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://firstbarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://firstbarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-downtown-the-barber-on-locke",
+      "businessName": "The Barber on Locke",
+      "description": "Barber shop on Locke Street South, Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-389-6366",
+      "social": {
+        "facebook": "https://www.facebook.com/61559394701250",
+        "instagram": "https://www.instagram.com/thebarberonlocke",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://thebarberonlocke.com/",
+        "other": []
+      },
+      "address": {
+        "street": "140 Locke Street South",
+        "formatted": "140 Locke Street South, Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada",
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Barber Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://thebarberonlocke.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://thebarberonlocke.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-downtown-prime-choice-barbershop",
+      "businessName": "Prime Choice Barbershop",
+      "description": "Barbershop in Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-572-9214",
+      "social": {
+        "facebook": "https://www.facebook.com/prime.choice.barbershop",
+        "instagram": "https://www.instagram.com/primechoice_barbershop",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://primechoicebarbershop.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "318 Dundurn Street South",
+        "formatted": "318 Dundurn Street South, Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada",
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Barber Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://primechoicebarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://primechoicebarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-downtown-duplacey-s-barbershop",
+      "businessName": "Duplacey's Barbershop",
+      "description": "Traditional barbering in Downtown Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": null,
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://duplaceys.com/",
+        "other": []
+      },
+      "address": {
+        "street": "150 King Street East",
+        "formatted": "150 King Street East, Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada",
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Downtown Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Traditional Barbering",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://duplaceys.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": false,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "Phone not found on public page in this scrape"
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    }
+  ]
+}

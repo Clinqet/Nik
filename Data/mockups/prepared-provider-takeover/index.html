@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prepared provider take-over</title>
+<style>
+:root{
+  /* LIVE app tokens (clinqetwebpartnerapp registerForm.jsx / tailwind) — no new values */
+  --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9; --paper:#FFFFFF;
+  --green:#97EF29; --green-hover:#85D61F; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0E7A3A;
+  --amber-line:#FFB020; --amber-soft:#FFF7E6; --amber-ink:#8A5A00;
+  --red:#FF3B30; --red-soft:#FFECEC;
+  --blue:#2F80ED; --info:#E4EEFB; --info-ink:#14477E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Lufga","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+header.sheet{background:var(--ink);color:#fff;padding:24px 32px}
+header.sheet h1{margin:0 0 6px;font-size:22px;font-weight:600}
+header.sheet p{margin:0;opacity:.85;font-size:13px;max-width:980px}
+main{padding:0 32px 64px;max-width:1500px}
+h2{color:var(--ink);font-size:17px;font-weight:600;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+.lead{color:var(--muted);font-size:13px;max-width:980px;margin:6px 0 0}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+.frame{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.frame .bd{padding:18px}
+.web{width:420px;max-width:100%}
+.web.wide{width:720px}
+.web.wide .bd{overflow-x:auto}
+.phone{width:300px;max-width:100%;border-radius:26px;border:8px solid #22262B}
+.phone .bd{padding:16px 14px 22px}
+.t{font-size:20px;font-weight:600;color:var(--body);margin:0 0 6px}
+.s{font-size:13px;color:var(--muted);margin:0 0 14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;border-radius:12px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--green);color:var(--body)}
+.btn.primary[disabled]{opacity:.55;cursor:not-allowed}
+.btn.ghost{background:#fff;border-color:var(--line);color:var(--body);margin-top:10px}
+.link{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;background:#fff}
+.input.err{border-color:var(--red)}
+.box{border-radius:10px;padding:10px 12px;font-size:13px;margin:10px 0}
+.box.ok{background:var(--green-soft);border:1px solid var(--green-line);color:var(--green-ink)}
+.box.warn{background:var(--amber-soft);border:1px solid var(--amber-line);color:var(--amber-ink)}
+.box.err{background:var(--red-soft);border:1px solid var(--red);color:var(--red)}
+.box.info{background:var(--info);border:1px solid #C7DBF6;color:var(--info-ink)}
+.ready{display:flex;gap:12px;align-items:flex-start;background:var(--green-soft);border:1px solid var(--green-line);border-radius:14px;padding:14px;margin-bottom:14px}
+.ready .ic{flex:0 0 36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center}
+.ready h3{margin:0 0 2px;font-size:16px;font-weight:600;color:var(--body)}
+.ready p{margin:0;font-size:13px;color:var(--muted)}
+.otp{display:flex;gap:8px;margin:8px 0 12px}
+.otp span{flex:1;height:48px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600}
+.spin{width:16px;height:16px;border:2px solid var(--body);border-top-color:transparent;border-radius:50%;display:inline-block}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 10px;font-size:11px;font-weight:600;white-space:nowrap}
+.pill.wait{background:var(--amber-soft);color:var(--amber-ink);border:1px solid var(--amber-line)}
+.pill.done{background:var(--green-soft);color:var(--green-ink);border:1px solid var(--green-line)}
+table.list{width:100%;border-collapse:collapse;font-size:13px}
+table.list th{text-align:left;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px;border-bottom:1px solid var(--line)}
+table.list td{padding:10px 8px;border-bottom:1px solid #F1F2F4;vertical-align:middle}
+.mini{font-size:12px;color:var(--muted)}
+.act{display:inline-flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:12px;font-weight:600;background:#fff;white-space:nowrap}
+.chip.g{background:var(--green);border-color:var(--green)}
+.banner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:12px;padding:10px 14px;font-size:13px}
+.banner b{font-weight:600}
+.banner .chip{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.switch{display:inline-block;width:40px;height:22px;border-radius:999px;background:#D9DCE1;position:relative;vertical-align:middle}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.menu a{display:flex;justify-content:space-between;padding:11px 4px;border-bottom:1px solid #F1F2F4;color:var(--body);text-decoration:none;font-size:14px}
+.menu a .new{color:var(--green-ink);font-size:11px;font-weight:600}
+table.copy{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12.5px;margin-top:12px}
+table.copy th,table.copy td{padding:8px 10px;border-bottom:1px solid #F1F2F4;text-align:left;vertical-align:top}
+table.copy th{background:#FAFBFC;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+code{font-size:12px;background:#F1F3F6;padding:1px 5px;border-radius:5px}
+.tag{display:inline-block;font-size:10px;font-weight:600;color:#fff;background:var(--muted);border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.tag.p{background:var(--amber-ink)}
+@media (max-width:700px){main{padding:0 16px 48px}header.sheet{padding:20px 16px}.web.wide{width:100%}}
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>Prepared provider take-over — provider + admin, web + phone</h1>
+  <p>Governs Data/admin-provider-setup/PLAN.md §1, §2, §3. Example: the team built <b>Joe's Plumbing</b> with info@joesplumbing.com and 905-555-1234, no password. Colours, radii and fonts are the live app tokens. Nothing on a provider screen shows an account's email or details. The words come from the server only where marked "server sentence"; everything else is the app's own key (table §8).</p>
+</header>
+<main>
+
+<h2>1 · Register with the team's phone <span class="n">PLAN §3.1 — owner "Yes, go"</span></h2>
+<p class="lead">Joe fills the normal register form with 905-555-1234 and any email. Instead of an error, the form is replaced by this card. One tap sends a code and opens the existing code screen with the number filled in.</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · after Register</div><div class="bd">
+    <div class="ready">
+      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#101010" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><h3>Your business profile is ready on Clinket</h3><p>Our team set up a profile for this phone number. Sign in with a code sent to it to open it.</p></div>
+    </div>
+    <button class="btn primary">Send code to •••• 1234</button>
+    <button class="btn ghost">Use a different phone number</button>
+    <p class="note">Your email and password can be added after you sign in, in Settings.</p>
+  </div></div>
+  <div class="frame phone"><div class="cap">Provider phone app</div><div class="bd">
+    <div class="ready">
+      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#101010" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><h3>Your business profile is ready on Clinket</h3><p>Our team set up a profile for this phone number. Sign in with a code sent to it to open it.</p></div>
+    </div>
+    <button class="btn primary">Send code to •••• 1234</button>
+    <button class="btn ghost">Use a different phone number</button>
+  </div></div>
+  <div class="frame web"><div class="cap">State · sending</div><div class="bd">
+    <button class="btn primary" disabled><span class="spin"></span> Sending code…</button>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · could not send</div>
+    <div class="box err">We couldn't send the code. Check your connection and try again.</div>
+    <button class="btn primary">Try again</button>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · limit reached (server sentence)</div>
+    <div class="box warn">Too many codes were requested for this number. Please try again later or contact support.</div>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · offline</div>
+    <div class="box info">You're offline. Connect to the internet to get your code.</div>
+  </div></div>
+</div>
+
+<h2>2 · The code screen (existing) — "Resend code" now works <span class="n">PLAN §5</span></h2>
+<p class="lead">Unchanged screen. The fix: "Resend code" sends a new sign-in code (today it calls the two-step resend and fails for every account without two-step).</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · code sign-in</div><div class="bd">
+    <p class="t">Enter the code</p><p class="s">We sent a 6-digit code to •••• 1234.</p>
+    <div class="otp"><span>4</span><span>8</span><span>1</span><span></span><span></span><span></span></div>
+    <button class="btn primary" disabled>Sign in</button>
+    <p class="note">Didn't get it? <span class="link">Resend code</span> · <span class="link">Send by WhatsApp</span></p>
+  </div></div>
+  <div class="frame phone"><div class="cap">Provider phone · resent</div><div class="bd">
+    <p class="t">Enter the code</p><p class="s">We sent a 6-digit code to •••• 1234.</p>
+    <div class="otp"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="box ok">A new code is on its way.</div>
+    <button class="btn primary" disabled>Sign in</button>
+  </div></div>
+</div>
+
+<h2>3 · Password typed on an account with no password <span class="n">PLAN §3.3 #12</span></h2>
+<p class="lead">The server answer is unchanged ("Invalid email or password", same for every account, so nothing is revealed). The app adds one line under it, on every failed password, with a direct link to code sign-in.</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · password sign-in failed</div><div class="bd">
+    <div class="field"><label>Email</label><input class="input" value="info@joesplumbing.com"></div>
+    <div class="field"><label>Password</label><input class="input err" type="password" value="xxxxxxxx"></div>
+    <div class="box err">Invalid email or password. Please try again.</div>
+    <p class="note" style="margin-top:0">No password yet? <span class="link">Sign in with a code</span></p>
+    <button class="btn primary">Sign in</button>
+    <p class="note"><span class="link">Forgot password?</span></p>
+  </div></div>
+  <div class="frame phone"><div class="cap">Provider phone</div><div class="bd">
+    <div class="field"><label>Email</label><input class="input" value="info@joesplumbing.com"></div>
+    <div class="field"><label>Password</label><input class="input err" type="password" value="xxxxxxxx"></div>
+    <div class="box err">Invalid email or password. Please try again.</div>
+    <p class="note" style="margin-top:0">No password yet? <span class="link">Sign in with a code</span></p>
+    <button class="btn primary">Sign in</button>
+  </div></div>
+</div>
+
+<h2>4 · Phone-only account uses "Forgot password" <span class="n">PLAN §3.3 #11 — owner "Yes"</span></h2>
+<p class="lead">Today it says "code sent" and sends nothing. Now a text code arrives; after it, Joe is signed straight in (a password is only usable with an email).</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · after the code</div><div class="bd">
+    <div class="box ok"><b>You're signed in.</b> This account signs in with a code sent to your phone. Add an email in Settings if you'd also like to use a password.</div>
+    <button class="btn primary">Open my dashboard</button>
+    <button class="btn ghost">Add an email</button>
+  </div></div>
+  <div class="frame phone"><div class="cap">Provider phone</div><div class="bd">
+    <div class="box ok"><b>You're signed in.</b> This account signs in with a code sent to your phone. Add an email in Settings if you'd also like to use a password.</div>
+    <button class="btn primary">Open my dashboard</button>
+  </div></div>
+</div>
+
+<h2>5 · Settings: "Set password" (existing page) <span class="n">PLAN §1 A4–A5</span></h2>
+<p class="lead">The page already switches to "Set password" when there is none. The only visible change: the menu entry says <b>Set password</b> too (today always "Change Password"). If the sign-in is older than 10 minutes the existing "sign in again" step runs first.</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · profile menu</div><div class="bd menu">
+    <a href="#">Business details <span>›</span></a>
+    <a href="#">Set password <span class="new">no password yet ›</span></a>
+    <a href="#">Notifications <span>›</span></a>
+  </div></div>
+  <div class="frame phone"><div class="cap">Customer phone · profile</div><div class="bd menu">
+    <a href="#">Personal details <span>›</span></a>
+    <a href="#">Set password <span class="new">›</span></a>
+    <a href="#">Payment methods <span>›</span></a>
+  </div></div>
+  <div class="frame web"><div class="cap">Existing Set password page (unchanged)</div><div class="bd">
+    <p class="t">Set Password</p><p class="s">Add a password so you can also sign in with your email.</p>
+    <div class="field"><label>New password</label><input class="input" type="password"></div>
+    <div class="field"><label>Confirm password</label><input class="input" type="password"></div>
+    <button class="btn primary">Set password</button>
+  </div></div>
+</div>
+
+<h2>6 · Admin — provider list, status and "Correct email / phone" <span class="n">PLAN §3.4 — owner chose "Admin corrects email/phone"</span></h2>
+<div class="row">
+  <div class="frame web wide"><div class="cap">Admin web · Providers you added</div><div class="bd">
+    <table class="list">
+      <tr><th>Provider</th><th>Signs in with</th><th>Status</th><th></th></tr>
+      <tr><td><b>Joe's Plumbing</b><div class="mini">Joe Smith · 7KQ2M</div></td><td class="mini">info@joesplumbing.com<br>+1 905-555-1234</td><td><span class="pill wait">Waiting for provider</span></td><td><span class="act"><span class="chip g">Continue setup</span><span class="chip">Correct email / phone</span></span></td></tr>
+      <tr><td><b>Bright Salon</b><div class="mini">Asha Patel · M3D8R</div></td><td class="mini">+91 98250 12345</td><td><span class="pill done">Taken over on 6 Oct</span></td><td><span class="act"><span class="chip">Help with setup</span></span></td></tr>
+    </table>
+  </div></div>
+  <div class="frame phone"><div class="cap">Admin phone app · same list</div><div class="bd">
+    <b>Joe's Plumbing</b><div class="mini">info@joesplumbing.com · +1 905-555-1234</div>
+    <div style="margin:6px 0 10px"><span class="pill wait">Waiting for provider</span></div>
+    <span class="act"><span class="chip g">Continue setup</span><span class="chip">Correct email / phone</span></span>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <b>Bright Salon</b><div class="mini">+91 98250 12345</div>
+    <div style="margin:6px 0 10px"><span class="pill done">Taken over on 6 Oct</span></div>
+    <span class="chip">Help with setup</span>
+  </div></div>
+</div>
+<div class="row">
+  <div class="frame web"><div class="cap">Correct email / phone · dialog</div><div class="bd">
+    <p class="t" style="font-size:17px">Correct how Joe signs in</p>
+    <p class="s">Only while Joe has not taken over his account. Nothing is sent to him.</p>
+    <div class="field"><label>Email</label><input class="input" value="joe.smith@gmail.com"></div>
+    <div class="field"><label>Mobile number</label><input class="input" value="+1 905-555-1234"></div>
+    <p class="note" style="margin-top:0">Use a mobile number the owner can receive texts on.</p>
+    <button class="btn primary">Save</button>
+  </div></div>
+  <div class="frame web"><div class="cap">States</div><div class="bd">
+    <div class="box err">This email is already used by another Clinket account (7Q41B). Ask Joe for a different one.</div>
+    <div class="box warn">Joe now manages this account, so only he can change how he signs in, from his Settings.</div>
+    <button class="btn primary" disabled><span class="spin"></span> Saving…</button>
+    <div class="box ok" style="margin-top:12px">Saved. Joe can now sign in with joe.smith@gmail.com.</div>
+    <div class="box info">You're offline. Your change hasn't been saved.</div>
+  </div></div>
+</div>
+
+<h2>7 · Admin — setup session banner and online booking <span class="n">PLAN §2, §3.4</span></h2>
+<p class="lead">The banner states the limits the server now enforces. "Help with setup" on a taken-over account asks first and the provider is told <span class="tag p">P1 — recommendation, not approved</span>.</p>
+<div class="row">
+  <div class="frame web wide"><div class="cap">Admin web · inside a prepared business</div><div class="bd">
+    <div class="banner"><b>Setting up Joe's Plumbing</b><span>Business setup screens only · 52:10 left</span><span style="flex:1"></span><span class="chip">Keep working</span><span class="chip">Exit</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:12px">
+      <div><b>Customers can book online</b><div class="mini">Turns on when Joe signs in. Until then customers see "Online booking not available — tap Call".</div></div>
+      <span class="switch" title="Locked"></span>
+    </div>
+    <div class="box warn" style="margin-top:14px">This part of Joe's account is not available in a setup session.</div>
+  </div></div>
+  <div class="frame web"><div class="cap">Exit / Done on an account the provider manages · §13 P1</div><div class="bd">
+    <p class="t" style="font-size:17px">Finish helping Asha?</p>
+    <label style="display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0 12px;cursor:pointer">
+      <input type="checkbox" checked style="width:20px;height:20px;margin-top:2px;accent-color:#97EF29">
+      <span><b>Tell Asha the Clinket team updated their profile</b><span class="mini" style="display:block">She gets one notice in the app and on her phone.</span></span>
+    </label>
+    <p class="mini" style="margin:0 0 6px">What did you update? (optional — makes the notice specific)</p>
+    <div class="act" style="margin-bottom:12px"><span class="chip g">Categories &amp; services</span><span class="chip g">Offers</span><span class="chip">Business details</span><span class="chip">Prices</span><span class="chip">Opening hours</span><span class="chip">Service areas</span><span class="chip">AI knowledge</span></div>
+    <div class="box info" style="margin-top:0">Asha will see: "The Clinket team updated your services and offers." · Nothing ticked: "The Clinket team updated your business on Clinket."</div>
+    <button class="btn primary">Finish</button>
+    <button class="btn ghost">Keep working</button>
+    <p class="note">Not shown for an account the provider hasn't taken over yet.</p>
+  </div></div>
+  <div class="frame phone"><div class="cap">Admin phone app · banner</div><div class="bd">
+    <div class="banner" style="font-size:12px"><b>Joe's Plumbing</b><span>Setup only · 52:10</span></div>
+    <div class="box info" style="margin-top:10px">Session ended. Start a new one to keep working.</div>
+  </div></div>
+</div>
+
+<h2>8a · Emails to a business the provider hasn't taken over · the stop page <span class="n">§13 P2</span></h2>
+<p class="lead">Existing email templates, unchanged. Only for these accounts, the shared email footer adds the two lines below. <b>Both links now open the full claim page — sheet <code>claim-profile-landing</code>, which supersedes the small stop-page frames below</b> (kept here only for history).</p>
+<div class="row">
+  <div class="frame web"><div class="cap">Email footer (shared shell, 5 languages)</div><div class="bd" style="text-align:center">
+    <p style="margin:0 0 8px;font-size:14px"><span class="link">Claim your profile</span> and grow your business with Clinket</p>
+    <p class="mini" style="margin:0">Don't want these emails? <span class="link" style="font-weight:500">Stop them</span></p>
+  </div></div>
+  <div class="frame web"><div class="cap">Stop page (provider web, no sign-in)</div><div class="bd">
+    <p class="t" style="font-size:17px">Stop Clinket emails for Joe's Plumbing?</p>
+    <p class="s">You won't get emails about customer requests for this business. You can turn them back on any time by claiming your profile.</p>
+    <button class="btn primary">Stop</button>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · stopped</div>
+    <div class="box ok">Done. You won't get these emails any more.</div>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · expired or broken link</div>
+    <div class="box warn">This link has expired. Sign in to Clinket or contact support.</div>
+    <div class="cap" style="margin:16px -18px 12px;border-top:1px solid var(--line)">State · could not save · offline</div>
+    <div class="box err">That didn't work. Try again.</div>
+    <div class="box info">You're offline. Connect to the internet and try again.</div>
+  </div></div>
+  <div class="frame phone"><div class="cap">Stop page on a phone browser</div><div class="bd">
+    <p class="t" style="font-size:17px">Stop Clinket emails for Joe's Plumbing?</p>
+    <p class="s">You won't get emails about customer requests for this business.</p>
+    <button class="btn primary">Stop</button>
+    <div class="box ok">Done. You won't get these emails any more.</div>
+  </div></div>
+</div>
+
+<h2>8 · Every string, its key and where it comes from <span class="n">5 languages each (en, es, fr, gu, hi)</span></h2>
+<table class="copy">
+<tr><th>Where</th><th>English</th><th>Source</th></tr>
+<tr><td>Register stop · title</td><td>Your business profile is ready on Clinket</td><td>app key, provider web + phone (new)</td></tr>
+<tr><td>Register stop · body</td><td>Our team set up a profile for this phone number. Sign in with a code sent to it to open it.</td><td>app key (new); the server answers only the code <code>PreparedProfileSignIn</code> + the masked number</td></tr>
+<tr><td>Register stop · button</td><td>Send code to •••• {last4}</td><td>app key (new)</td></tr>
+<tr><td>Register stop · second button / note</td><td>Use a different phone number · Your email and password can be added after you sign in, in Settings.</td><td>app keys (new)</td></tr>
+<tr><td>Code limit</td><td>(server sentence)</td><td>existing localized server message</td></tr>
+<tr><td>Resent</td><td>A new code is on its way.</td><td>existing app key where present, else new</td></tr>
+<tr><td>Failed password hint</td><td>No password yet? Sign in with a code</td><td>app key (new), all four apps</td></tr>
+<tr><td>Forgot link</td><td>Forgot password? (unchanged)</td><td>existing key; only the Gujarati "??" bug is fixed</td></tr>
+<tr><td>Phone-only forgot result</td><td>You're signed in. This account signs in with a code sent to your phone. Add an email in Settings if you'd also like to use a password.</td><td>app key (new), provider + customer apps</td></tr>
+<tr><td>Menu entry</td><td>Set password</td><td>existing keys <code>Profile.SetPassword.Title</code> / <code>CHANGE_PASSWORD_SCREEN.SET_TITLE</code></td></tr>
+<tr><td>Admin (web + phone)</td><td>Waiting for provider · Taken over on {date} · Correct email / phone · Correct how {name} signs in · Use a mobile number the owner can receive texts on · Turns on when {name} signs in</td><td>admin web: English (admin app has no i18n, CLAUDE §0.10 exception); admin phone: same</td></tr>
+<tr><td>Provider notice (§13 P1, only when the admin leaves the box ticked)</td><td>The Clinket team updated your profile</td><td>server notification (in-app + push), localized, 5 languages</td></tr>
+<tr><td>Activity log line</td><td>Clinket team helped with your business setup</td><td>server, localized, 5 languages</td></tr>
+<tr><td>Email footer</td><td>Claim your profile and grow your business with Clinket · Don't want these emails? Stop them</td><td>shared email shell, 5 languages</td></tr>
+<tr><td>Stop page</td><td>Stop Clinket emails for {business}? · You won't get emails about customer requests … · Stop · Done… · This link has expired…</td><td>provider web app keys, 5 languages</td></tr>
+</table>
+<p class="lead" style="margin-top:12px">Unchanged on purpose: registering with the team's <b>email</b> looks exactly like a normal sign-up (one email code) — no new screen. The take-over alert and the "remove unused contact" rule have no screen.</p>
+</main>
+</body>
+</html>

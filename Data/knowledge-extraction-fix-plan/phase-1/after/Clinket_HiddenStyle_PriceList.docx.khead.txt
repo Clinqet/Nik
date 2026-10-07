@@ -1,0 +1,17 @@
+# Clinket_HiddenStyle_PriceList.docx
+blocks=3 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Clinket Salon price list
+[  1] Paragraph    p1
+      Gel manicure 45
+[  2] Paragraph    p1
+      Cut and finish 30
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='' page= tokens~15 img=-1
+    Clinket Salon price list Gel manicure 45 Cut and finish 30

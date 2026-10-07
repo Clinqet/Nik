@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "city": "Markham",
+    "area": "unionville",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:30:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "markham-unionville-landscape-accents",
+      "businessName": "Landscape Accents",
+      "description": "Landscape planning and outdoor design from Hwy 7 E, Unionville.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@landscapeaccents.com",
+      "businessPhone": "905-513-9930",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "http://www.landscapeaccents.com/",
+        "other": []
+      },
+      "address": {
+        "street": "110-4261 Highway 7 E",
+        "postalCode": "L3R 9W6",
+        "area": "unionville",
+        "city": "Unionville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "110-4261 Highway 7 E, Unionville, ON L3R 9W6"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "unionville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Planning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "http://www.landscapeaccents.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    },
+    {
+      "id": "markham-unionville-greenblock-landscape",
+      "businessName": "Greenblock Landscape",
+      "description": "Luxury landscape design and build for Unionville — backyard makeovers, pools, outdoor kitchens.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "sal@greenblock.ca",
+      "businessPhone": "905-202-5743",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.greenblocklandscape.ca/service-areas/unionville/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "unionville",
+        "city": "Markham",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "unionville",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Design & Build",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Backyard Transformations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Swimming Pool Installations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Outdoor Kitchens",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.greenblocklandscape.ca/service-areas/unionville/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    }
+  ]
+}

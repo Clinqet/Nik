@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "york",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-york-safe-electrical-solutions",
+      "businessName": "Safe Electrical Solutions",
+      "description": "Trusted electricians in Toronto for residential, commercial & emergency. Hertford Ave, York.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-846-2663",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "26 Hertford Ave",
+        "postalCode": "M6M 1S1",
+        "area": "york",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "26 Hertford Ave, Toronto, ON M6M 1S1"
+      },
+      "serviceAreas": [
+        "Toronto",
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "East York",
+        "York"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "york",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Panel Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Knob And Tube Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24h Emergency Electrician",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "EV/Appliance Hook Up",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Safety Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

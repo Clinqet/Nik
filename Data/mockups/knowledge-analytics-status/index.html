@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge — analytics status + picture feedback (2026-08-29)</title>
+<style>
+  :root{
+    --brand:#97EF29; --navy:#032858; --ink:#101010; --ink2:#5F5F5F; --ink3:#919191;
+    --line:#E7E7E7; --hair:#F0F0F0; --bg:#F6F7F5; --soft:#F5F5F5;
+    --indigoLine:#C7D7FE; --indigoBg:#EEF2FF; --indigoInk:#3730A3;
+    --greenSoft:#F4FFE4; --greenLine:#CBE9A6; --greenInk:#3F7A00;
+    --infoBg:#E4EEFB; --infoLine:#C7DBF6;
+    --dangerBg:#FCECEA; --dangerLine:#F2C4C0; --dangerInk:#B3261E;
+    --tip:#1f2937;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Lufga","Segoe UI",system-ui,-apple-system,sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 90px}
+  h1{font-size:24px;margin:0 0 6px;font-weight:600}
+  .sub{color:var(--ink2);font-size:13.5px;margin:0 0 22px;line-height:1.6;max-width:900px}
+  h2{font-size:15px;margin:32px 0 4px;font-weight:600}
+  .why{color:var(--ink2);font-size:12.5px;margin:0 0 12px;line-height:1.6;max-width:960px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;align-items:start}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+  .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:0 0 9px;font-weight:600}
+
+  .docrow{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--hair)}
+  .docrow:last-child{border-bottom:0}
+  .ficon{width:34px;height:34px;border-radius:9px;background:var(--greenSoft);border:1px solid #DCEFC2;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:14px;color:var(--greenInk)}
+  .dbody{flex:1;min-width:0}
+  .dtitle{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .dname{font-size:13.5px;font-weight:600}
+  .pill{font-size:11px;font-weight:600;border-radius:99px;padding:2px 8px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+  .pill.type{border:1px solid var(--line);background:var(--soft);color:var(--ink2)}
+  .pill.ready{border:1px solid var(--greenLine);background:var(--greenSoft);color:var(--greenInk)}
+  .pill.analysing{border:1px solid var(--infoLine);background:var(--infoBg);color:var(--navy);cursor:help;position:relative}
+  .pill.share{border:1px solid var(--indigoLine);background:var(--indigoBg);color:var(--indigoInk)}
+  .spin{width:11px;height:11px;border:2px solid var(--infoLine);border-top-color:var(--navy);border-radius:50%;animation:spin 1s linear infinite;display:inline-block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .meta{font-size:11.5px;color:var(--ink3);margin-top:3px}
+  .line{font-size:11.5px;margin-top:3px}
+  .line.navy{color:var(--navy)}
+  .line.muted{color:var(--ink3)}
+  .line.danger{color:var(--dangerInk)}
+  .line a{color:inherit;font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  .actions{display:flex;gap:6px;flex:0 0 auto}
+  .btn{border-radius:99px;border:1px solid var(--line);background:#fff;padding:6px 12px;font-size:12px;font-weight:600}
+  .btn.danger{border-color:var(--dangerLine);color:var(--dangerInk)}
+  .btn.dim{opacity:.45}
+
+  /* themed tooltip (react-tooltip style used across the app: TruncatedText / Offers) */
+  .tip{position:absolute;left:0;top:26px;z-index:5;background:var(--tip);color:#fff;padding:8px 12px;border-radius:8px;font-size:12px;line-height:1.4;max-width:300px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);white-space:normal;font-weight:400}
+  .tip:before{content:"";position:absolute;top:-5px;left:14px;border:5px solid transparent;border-top:0;border-bottom-color:var(--tip)}
+
+  .banner{display:flex;gap:8px;align-items:center;border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.5;margin:12px 0}
+  .banner.info{background:var(--infoBg);border:1px solid var(--infoLine);color:var(--navy)}
+  .banner .btn{margin-left:auto}
+
+  /* pictures panel */
+  .pics{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:#FCFDFB;padding:12px}
+  .hint{font-size:11.5px;color:var(--ink3);margin:0 0 10px}
+  .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .tile{position:relative;aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,#d9d2c5,#8d7b6a);overflow:hidden}
+  .tile.text{background:linear-gradient(180deg,#4a3a33,#7b6350)}
+  .tick{position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(255,255,255,.95);border:1px solid rgba(0,0,0,.1);color:var(--ink3)}
+  .tick.on{background:var(--brand);color:var(--ink);border-color:transparent}
+  .tick.no{border:1px dashed rgba(0,0,0,.35);color:var(--ink3)}
+  .tick.no:after{content:"–"}
+  .notice{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--infoLine);background:var(--infoBg);color:var(--navy);border-radius:9px;padding:9px 10px;font-size:11.5px;line-height:1.55;margin-bottom:10px}
+  .notice .x{margin-left:auto;border:0;background:transparent;color:var(--navy);font-weight:700;cursor:pointer;font-size:14px;line-height:1}
+
+  /* mobile frame */
+  .phone{width:390px;border:10px solid #111;border-radius:36px;background:#fff;overflow:hidden;margin:0 auto}
+  .phone .bar{height:44px;background:#fff;border-bottom:1px solid var(--hair);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
+  .phone .body{padding:14px}
+  .mrow{padding:12px 0;border-bottom:1px solid var(--hair)}
+  .mrow .top{display:flex;justify-content:space-between;gap:10px}
+  .mrow .name{font-size:14px;font-weight:600;flex:1}
+  .mpill{font-size:11px;font-weight:600;border-radius:99px;padding:3px 9px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .mpill.ready{border:1px solid var(--greenLine);background:var(--greenSoft);color:var(--greenInk)}
+  .mpill.analysing{border:1px solid var(--infoLine);background:var(--infoBg);color:var(--navy)}
+  .mtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}
+  .code{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;background:#F5F5F5;border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+  .states{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font-size:12.5px;color:var(--ink2);margin:0 0 14px}
+  .states b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AI Knowledge — analytics status + picture feedback</h1>
+  <p class="sub">What changes on the document row and on the pictures strip, web and mobile, every state. Same rendering rules on both surfaces. Nothing else on the page moves. Brand green = pressed/selected, navy = headings, info-blue = "in progress" (D33 chip semantics: green Ready, blue Processing/Analysing, red Failed).</p>
+
+  <div class="states">
+    <div><b>1 · Analysing</b> — Ready + a second chip, spinner while the page still checks; hover/tap explains.</div>
+    <div><b>2 · Found / None / Failed</b> — unchanged outcomes; Try again / Run again hidden while Analysing.</div>
+    <div><b>3 · Stalled</b> — the checks ended, the existing banner + Refresh.</div>
+    <div><b>4 · Picture that cannot be sent</b> — dashed tick stays visible; hover tooltip; click/tap → notice with the reason and the remedies.</div>
+    <div><b>5 · Read-only member</b> — same chip and lines, no links, no ticks.</div>
+    <div><b>6 · Not shared</b> — pictures dimmed, ticks disabled (existing behaviour, unchanged).</div>
+  </div>
+
+  <h2>1 · Web — the document rows</h2>
+  <p class="why">A row is <b>Ready</b> the moment it is indexed (the receptionist already answers from it). While Clinket AI Data Analytics runs, an <b>Analysing</b> chip sits beside Ready with the spinner that the Processing chip already uses. Hover shows the themed tooltip (same style as every tooltip in the app). The line under the row says what is happening; Re-run is absent from the menu until the run ends.</p>
+  <div class="panel">
+    <div class="docrow">
+      <div class="ficon">▤</div>
+      <div class="dbody">
+        <div class="dtitle">
+          <span class="dname">Toromont machine inventory records</span>
+          <span class="pill type">Other</span>
+          <span class="pill ready">Ready</span>
+          <span class="pill analysing"><span class="spin"></span>Analysing
+            <span class="tip">Clinket AI Data Analytics is reading this document to suggest services and match its pictures. It usually takes a few minutes; very large files can take up to 25 minutes. Your receptionist already answers from this document.</span>
+          </span>
+          <span class="pill share">Details can be sent</span>
+        </div>
+        <div class="meta">1 page · 664 parts · 774 kB · added Aug 21</div>
+        <div class="line muted">Checking for services and pictures to suggest… large files can take a few minutes.</div>
+      </div>
+      <div class="actions"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn">···</span></div>
+    </div>
+    <div class="docrow" style="margin-top:34px">
+      <div class="ficon">▤</div>
+      <div class="dbody">
+        <div class="dtitle"><span class="dname">Hamilton equipment inventory</span><span class="pill type">Inventory</span><span class="pill ready">Ready</span><span class="pill share">Details can be sent</span></div>
+        <div class="meta">1 page · 68 parts · 72.1 kB · added Aug 21</div>
+        <div class="line navy">17 services suggested · 43 are already in your services · <a href="#">Review</a></div>
+      </div>
+      <div class="actions"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn">···</span></div>
+    </div>
+    <div class="docrow">
+      <div class="ficon">▤</div>
+      <div class="dbody">
+        <div class="dtitle"><span class="dname">Caterpillar model specifications reference</span><span class="pill type">Spec sheet</span><span class="pill ready">Ready</span><span class="pill share">Details can be sent</span></div>
+        <div class="meta">1 page · 5 parts · 7.4 kB · added Aug 21</div>
+        <div class="line muted">No services found in this document · <a href="#">Run again</a></div>
+      </div>
+      <div class="actions"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn">···</span></div>
+    </div>
+    <div class="docrow">
+      <div class="ficon">▤</div>
+      <div class="dbody">
+        <div class="dtitle"><span class="dname">Winter service catalogue</span><span class="pill type">Price list</span><span class="pill ready">Ready</span><span class="pill share">Details can be sent</span></div>
+        <div class="meta">12 pages · 210 parts · 1.9 MB · added Aug 27</div>
+        <div class="line danger">AI Data Analytics failed. Your receptionist still uses this document. · <a href="#">Try again</a></div>
+      </div>
+      <div class="actions"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn">···</span></div>
+    </div>
+  </div>
+
+  <h2>2 · Web — the checks ended (stalled)</h2>
+  <p class="why">The page checks on a slow, widening ladder while a row is Analysing (30 s → 60 s → 2 min → 3 min → 5 min × 5, ≈ 31 minutes) and then stops. The existing banner takes over — the copy is already localized ×5 — and the chip's spinner stops so it never claims to watch.</p>
+  <div class="panel">
+    <div class="banner info">⚠ This is taking longer than usual. We have stopped checking automatically. Refresh to see the latest. <span class="btn">Refresh</span></div>
+    <div class="docrow">
+      <div class="ficon">▤</div>
+      <div class="dbody">
+        <div class="dtitle"><span class="dname">Toromont machine inventory records</span><span class="pill type">Other</span><span class="pill ready">Ready</span><span class="pill analysing">Analysing</span></div>
+        <div class="meta">1 page · 664 parts · 774 kB · added Aug 21</div>
+        <div class="line muted">Checking for services and pictures to suggest… large files can take a few minutes.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>3 · Web — a picture that cannot be sent (hover + click)</h2>
+  <p class="why">The tick stays where it always is, drawn dashed so it reads "not available" rather than "not ticked". Hover shows the short themed tooltip; a click shows the notice inside the panel with the reason and both remedies, in plain words. Untick of an already-ON picture is unchanged.</p>
+  <div class="panel">
+    <div class="line navy" style="margin-bottom:6px">1 picture · 0 can be sent · <a href="#">Hide</a></div>
+    <div class="pics">
+      <div class="notice">ℹ <span>This picture can't be sent to callers yet: Clinket AI couldn't describe it, and it only sends pictures it can describe. Reprocess the file to try again. To show this picture to customers anyway, add it as a photo on the matching service in Manage Services &amp; Price.</span><button class="x" aria-label="Dismiss">×</button></div>
+      <p class="hint">Ticked pictures can be sent to a caller during a call. Tap a picture to see it larger.</p>
+      <div class="tiles">
+        <div class="tile text"><span class="tick no" style="position:absolute"><span class="tip" style="left:auto;right:0;top:26px;width:190px">Cannot be sent yet — no description</span></span></div>
+        <div class="tile"><span class="tick on">✓</span></div>
+        <div class="tile"><span class="tick"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>4 · Mobile — the same rules, tap instead of hover</h2>
+  <p class="why">Same chip beside Ready (Pill, info tone, ActivityIndicator while checking). Tapping the chip shows the explanation as an inline notice under the row (the app's Banner, info tone) and tapping again hides it. On the pictures strip a dashed tick is tappable: the tap shows the same notice at the top of the panel.</p>
+  <div class="grid2">
+    <div class="phone">
+      <div class="bar">AI Knowledge</div>
+      <div class="body">
+        <div class="mrow">
+          <div class="top"><span class="name">Toromont machine inventory records</span><span class="mpill ready">Ready</span></div>
+          <div class="meta">1 page · 664 parts · 774 kB · added Aug 21</div>
+          <div style="margin-top:6px"><span class="mpill analysing"><span class="spin"></span>Analysing</span></div>
+          <div class="line muted">Checking for services and pictures to suggest… large files can take a few minutes.</div>
+          <div class="banner info" style="margin:8px 0 0">ℹ Clinket AI Data Analytics is reading this document to suggest services and match its pictures. It usually takes a few minutes; very large files can take up to 25 minutes. Your receptionist already answers from this document.</div>
+        </div>
+        <div class="mrow">
+          <div class="top"><span class="name">Hamilton equipment inventory</span><span class="mpill ready">Ready</span></div>
+          <div class="meta">1 page · 68 parts · 72.1 kB</div>
+          <div class="line navy">17 services suggested · 43 are already in your services · <a href="#">Review</a></div>
+        </div>
+        <div class="mrow">
+          <div class="top"><span class="name">Complete Hair &amp; Beauty Services</span><span class="mpill ready">Ready</span></div>
+          <div class="meta">1 page · 7 parts · 233 kB</div>
+          <div class="line navy">1 picture · 0 can be sent · <a href="#">Hide</a></div>
+          <div class="pics" style="padding:10px">
+            <div class="notice">ℹ <span>This picture can't be sent to callers yet: Clinket AI couldn't describe it, and it only sends pictures it can describe. Reprocess the file to try again. To show this picture to customers anyway, add it as a photo on the matching service in Manage Services &amp; Price.</span><button class="x" aria-label="Dismiss">×</button></div>
+            <div class="mtiles"><div class="tile text"><span class="tick no"></span></div><div class="tile"><span class="tick on">✓</span></div><div class="tile"><span class="tick"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="lbl">Read-only member · not shared · disabled feature</p>
+      <div class="docrow">
+        <div class="ficon">▤</div>
+        <div class="dbody">
+          <div class="dtitle"><span class="dname">Toromont machine inventory records</span><span class="pill ready">Ready</span><span class="pill analysing">Analysing</span></div>
+          <div class="line muted">Checking for services and pictures to suggest… large files can take a few minutes.</div>
+        </div>
+      </div>
+      <div class="docrow">
+        <div class="ficon">▤</div>
+        <div class="dbody">
+          <div class="dtitle"><span class="dname">Winter service catalogue</span><span class="pill ready">Ready</span></div>
+          <div class="line danger">AI Data Analytics failed. Your receptionist still uses this document.</div>
+          <div class="meta">(no Try again — the member cannot manage AI Knowledge)</div>
+        </div>
+      </div>
+      <div class="docrow">
+        <div class="ficon">▤</div>
+        <div class="dbody">
+          <div class="dtitle"><span class="dname">Staff handbook</span><span class="pill ready">Ready</span><span class="pill" style="border:1px dashed var(--line);color:var(--ink3)">Not sent to callers</span></div>
+          <div class="pics" style="opacity:.45"><div class="tiles"><div class="tile"><span class="tick"></span></div><div class="tile"><span class="tick"></span></div></div></div>
+        </div>
+      </div>
+      <div class="docrow">
+        <div class="ficon">▤</div>
+        <div class="dbody">
+          <div class="dtitle"><span class="dname">Any document</span><span class="pill ready">Ready</span></div>
+          <div class="meta">Feature switched off (<span class="code">ServiceDrafts.Enabled=false</span>): no chip, no line — exactly today.</div>
+        </div>
+      </div>
+      <p class="lbl" style="margin-top:16px">Copy (EN) — localized ×5 on both apps</p>
+      <ul style="font-size:12px;color:var(--ink2);line-height:1.7;margin:0;padding-left:18px">
+        <li><span class="code">knowledge.status.analysing</span> — Analysing</li>
+        <li><span class="code">knowledge.analysing.explain</span> — Clinket AI Data Analytics is reading this document to suggest services and match its pictures. It usually takes a few minutes; very large files can take up to {minutes} minutes. Your receptionist already answers from this document.</li>
+        <li><span class="code">knowledge.drafts.row.pending</span> — Checking for services and pictures to suggest… large files can take a few minutes.</li>
+        <li><span class="code">knowledge.images.tick.noDescriptionHint</span> — Cannot be sent yet — no description</li>
+        <li><span class="code">knowledge.images.noDescriptionFeedback</span> — This picture can't be sent to callers yet: Clinket AI couldn't describe it, and it only sends pictures it can describe. Reprocess the file to try again. To show this picture to customers anyway, add it as a photo on the matching service in Manage Services &amp; Price.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

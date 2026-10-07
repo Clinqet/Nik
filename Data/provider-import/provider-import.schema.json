@@ -1,0 +1,1441 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clinket.com/schemas/provider-import/2.0/provider-import.schema.json",
+  "title": "ClinketProviderImportFile",
+  "description": "ONE upload file for the Clinket admin Provider Import tool (schema 2.0). A bot that scrapes public information about local service providers writes every provider it found into the `providers` array of ONE file per region. GOLDEN RULES FOR THE BOT: (1) NEVER invent anything. If a fact is not published by a public source, write null (or an empty array). A wrong value is far worse than a missing one. (2) Copy what the source says; do not 'improve' it, translate it, or guess. Put the exact source wording in the *Text fields (priceText, hoursText, offerText) so the importer can verify numbers. (3) A price of 0 is NOT a price: if the source shows no price, write price.type = \"on_request\" and every amount null. (4) Never write a private person's home address: only fill address.street when the business itself publishes that street address as its place of business. (5) Every URL must be a full https:// (or http://) address copied from the source. (6) One record per BUSINESS, not per landing page: if the same business appears in several cities or categories, write ONE record with several addresses / serviceAreas / categories / services. If you are unsure whether two listings are the same business, write two records and set dataQuality.possibleDuplicateOf. (7) FIELDS NOT IN THIS SCHEMA ARE IGNORED by the importer (never an error, never imported); an OPTIONAL value that breaks its rule (wrong type, out of range, bad URL, a 0 price) is dropped as if it were null; only a broken REQUIRED part (schemaVersion, batch, a provider's business.name, contacts, addresses, categories, services, availability…) makes the importer skip that provider. Use the exact field names below — a misspelt field is ignored, so its data is lost.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "batch",
+    "providers"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "2.0",
+      "description": "Always the string \"2.0\" for this schema."
+    },
+    "batch": {
+      "type": "object",
+      "required": [
+        "batchId",
+        "generatedAt",
+        "generator",
+        "countryCode"
+      ],
+      "properties": {
+        "batchId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,99}$",
+          "description": "Unique name of this scrape batch, e.g. \"ontario-2026-10-06-pass2\". For the Clinket team's reference only."
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this file was produced, ISO 8601 with offset."
+        },
+        "generator": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "Which bot / pipeline produced the file, e.g. \"meta-scraper\", \"grok-scraper\"."
+            },
+            "version": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 50
+            }
+          }
+        },
+        "countryCode": {
+          "type": "string",
+          "enum": [
+            "CA",
+            "US",
+            "IN"
+          ],
+          "description": "ISO 3166-1 alpha-2 country EVERY provider in this file operates in. One file = one country. The importer refuses a file whose country the Clinket region it is uploaded to does not serve (Canada region serves CA + US, India region serves IN)."
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 2000,
+          "description": "Free text for the Clinket team. Never read by the importer's logic."
+        }
+      }
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5000,
+      "items": {
+        "$ref": "#/$defs/provider"
+      }
+    }
+  },
+  "$defs": {
+    "nullableUrl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500,
+      "pattern": "^https?://[^\\s]+$",
+      "description": "A full public URL copied from the source, or null."
+    },
+    "isoDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "YYYY-MM-DD or null."
+    },
+    "hhmm": {
+      "type": "string",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$|^24:00$",
+      "description": "24-hour HH:mm. \"24:00\" is allowed only as a closing time meaning midnight."
+    },
+    "phone": {
+      "type": "object",
+      "required": [
+        "number"
+      ],
+      "properties": {
+        "number": {
+          "type": "string",
+          "minLength": 7,
+          "maxLength": 30,
+          "description": "The phone number. Prefer E.164 (\"+19056484113\", \"+919876543210\"). If you only have the local form, copy it exactly as published (\"905-648-4113\"); the importer formats it for the file's country. Do NOT include extensions here."
+        },
+        "extension": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 10,
+          "pattern": "^[0-9]{1,10}$"
+        },
+        "lineType": {
+          "type": "string",
+          "enum": [
+            "mobile",
+            "landline",
+            "toll_free",
+            "unknown"
+          ],
+          "default": "unknown",
+          "description": "Only set mobile/landline when the source says so (e.g. \"Text us at\", \"Cell\"). 1-800/833/844/855/866/877/888 numbers are toll_free. When unsure: unknown."
+        },
+        "purpose": {
+          "type": "string",
+          "enum": [
+            "main",
+            "text",
+            "whatsapp",
+            "emergency",
+            "office",
+            "owner_direct",
+            "other"
+          ],
+          "default": "main"
+        },
+        "sourceUrl": {
+          "$ref": "#/$defs/nullableUrl"
+        }
+      }
+    },
+    "email": {
+      "type": "object",
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 256,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "description": "Copied exactly; the importer lower-cases it."
+        },
+        "purpose": {
+          "type": "string",
+          "enum": [
+            "main",
+            "booking",
+            "owner_direct",
+            "support",
+            "other"
+          ],
+          "default": "main"
+        },
+        "sourceUrl": {
+          "$ref": "#/$defs/nullableUrl"
+        }
+      }
+    },
+    "categoryRef": {
+      "type": "object",
+      "required": [
+        "category"
+      ],
+      "properties": {
+        "category": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100,
+          "description": "The trade in plain words as the bot understands it, e.g. \"Plumbing\", \"Hair salon\", \"Dentist\". The importer maps it to Clinket's category tree."
+        },
+        "subcategory": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 100,
+          "description": "A narrower trade if the source makes it clear, e.g. \"Drain cleaning\", \"Barber\"."
+        },
+        "clinketCategoryId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 50,
+          "description": "OPTIONAL. Only if the bot was given Clinket's published category list. The importer still verifies it."
+        },
+        "clinketSubcategoryId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 50
+        },
+        "isPrimary": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "money": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0,
+      "maximum": 10000000,
+      "description": "A real amount above zero, in batch currency units (dollars, rupees — NOT cents). Never 0: no price is null."
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "scrapedAt",
+        "sources",
+        "business",
+        "contacts",
+        "addresses",
+        "serviceAreas",
+        "categories",
+        "services",
+        "availability"
+      ],
+      "properties": {
+        "scrapedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "items": {
+            "type": "object",
+            "required": [
+              "url",
+              "type"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "maxLength": 1000,
+                "pattern": "^https?://[^\\s]+$"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "business_website",
+                  "google_business_profile",
+                  "facebook",
+                  "instagram",
+                  "linkedin",
+                  "yelp",
+                  "yellow_pages",
+                  "bbb",
+                  "industry_directory",
+                  "government_registry",
+                  "licensing_body",
+                  "marketplace_listing",
+                  "news",
+                  "other"
+                ]
+              },
+              "scrapedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "providedFields": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "business",
+                    "contacts",
+                    "social",
+                    "addresses",
+                    "serviceAreas",
+                    "categories",
+                    "services",
+                    "prices",
+                    "availability",
+                    "offers",
+                    "portfolio",
+                    "media",
+                    "licenses",
+                    "faqs"
+                  ]
+                },
+                "description": "Which parts of this record came from this source. Lets the Clinket team trace any value back."
+              }
+            }
+          }
+        },
+        "business": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 150,
+              "description": "The trading name customers know, exactly as the business writes it (\"Glendale Motors\"). Not a landing-page title (\"Best Plumber in Ajax | Call Now\")."
+            },
+            "legalName": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 200,
+              "description": "Registered legal name if published (\"Glendale Motors Ltd.\")."
+            },
+            "brandName": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 150,
+              "description": "Franchise or parent brand if this is one location of a brand (\"Molly Maid\", \"Mr. Rooter\")."
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 2000,
+              "description": "What the business says about itself, copied or closely summarised from its own words. No invented claims, no phone numbers, no URLs."
+            },
+            "foundedYear": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1800,
+              "maximum": 2100,
+              "description": "Year founded, if the source says it (\"since 1985\")."
+            },
+            "yearsInBusiness": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Only if the source states a number of years (\"30 years of experience\"). If foundedYear is known, leave this null."
+            },
+            "employeeCount": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 100000,
+              "description": "Exact headcount if published. A range like \"11-50\" is NOT a count: write null."
+            },
+            "friendlyNameSuggestions": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9](?:[a-z0-9-]{1,18}[a-z0-9])$"
+              },
+              "description": "OPTIONAL short web addresses for clinket.com/<name>, 3–20 characters, lower-case letters, digits and hyphens, e.g. \"glendale-motors\". The importer checks availability and makes its own when these are taken or missing."
+            },
+            "operatingStatus": {
+              "type": "string",
+              "enum": [
+                "operating",
+                "temporarily_closed",
+                "permanently_closed",
+                "unknown"
+              ],
+              "default": "unknown",
+              "description": "permanently_closed records are skipped by the importer."
+            }
+          }
+        },
+        "contacts": {
+          "type": "object",
+          "required": [
+            "owner",
+            "business"
+          ],
+          "properties": {
+            "owner": {
+              "type": "object",
+              "description": "The person who owns or runs the business, ONLY when a public source names them. Never guess a person from an email address.",
+              "properties": {
+                "firstName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 100
+                },
+                "lastName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 100
+                },
+                "fullName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 200,
+                  "description": "As published (\"Dr. Winston Law\", \"Jill & Dani\"). Fill this even when you cannot split it."
+                },
+                "role": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "maxLength": 100,
+                  "description": "\"Owner\", \"Founder\", \"Manager\"…"
+                },
+                "emails": {
+                  "type": "array",
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "#/$defs/email"
+                  }
+                },
+                "phones": {
+                  "type": "array",
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "#/$defs/phone"
+                  }
+                }
+              }
+            },
+            "business": {
+              "type": "object",
+              "properties": {
+                "emails": {
+                  "type": "array",
+                  "maxItems": 5,
+                  "items": {
+                    "$ref": "#/$defs/email"
+                  },
+                  "description": "Every public email of the business; the most important first."
+                },
+                "phones": {
+                  "type": "array",
+                  "maxItems": 5,
+                  "items": {
+                    "$ref": "#/$defs/phone"
+                  },
+                  "description": "Every public phone of the business; the main one first."
+                }
+              }
+            }
+          }
+        },
+        "social": {
+          "type": "object",
+          "description": "Only the business's OWN pages. Never a search-results URL, a share link, or facebook.com/profile.php without an id.",
+          "properties": {
+            "website": {
+              "$ref": "#/$defs/nullableUrl"
+            },
+            "facebook": {
+              "$ref": "#/$defs/nullableUrl"
+            },
+            "instagram": {
+              "$ref": "#/$defs/nullableUrl"
+            },
+            "youtube": {
+              "$ref": "#/$defs/nullableUrl"
+            },
+            "linkedin": {
+              "$ref": "#/$defs/nullableUrl"
+            },
+            "twitter": {
+              "$ref": "#/$defs/nullableUrl",
+              "description": "X / Twitter."
+            },
+            "other": {
+              "type": "array",
+              "maxItems": 10,
+              "items": {
+                "type": "object",
+                "required": [
+                  "platform",
+                  "url"
+                ],
+                "properties": {
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "tiktok",
+                      "whatsapp",
+                      "pinterest",
+                      "google_business_profile",
+                      "yelp",
+                      "houzz",
+                      "homestars",
+                      "bbb",
+                      "other"
+                    ]
+                  },
+                  "url": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "pattern": "^https?://[^\\s]+$"
+                  }
+                }
+              },
+              "description": "Kept in import history only; Clinket profiles show website, Facebook, Instagram, YouTube, LinkedIn and X."
+            }
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "maxItems": 10,
+          "description": "Places the business operates from. The first isPrimary=true address is the main one. At least the city is needed for the business to appear on Clinket.",
+          "items": {
+            "type": "object",
+            "required": [
+              "city",
+              "countryCode",
+              "isPrimary",
+              "publiclyListed",
+              "kind"
+            ],
+            "properties": {
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 50,
+                "description": "\"Main shop\", \"Waterdown location\"…"
+              },
+              "street": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 200,
+                "description": "Street number and name. ONLY when publiclyListed is true. Never a home address the business does not publish."
+              },
+              "unit": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 50,
+                "description": "Suite / unit."
+              },
+              "city": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "The municipality in the postal address (\"Ancaster\", \"Mississauga\")."
+              },
+              "province": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 100,
+                "description": "Province / state as a 2-letter code when one exists (\"ON\", \"BC\", \"NY\"); India: the state name (\"Gujarat\")."
+              },
+              "postalCode": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 20
+              },
+              "countryCode": {
+                "type": "string",
+                "enum": [
+                  "CA",
+                  "US",
+                  "IN"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": -90,
+                "maximum": 90
+              },
+              "longitude": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": -180,
+                "maximum": 180
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "publiclyListed": {
+                "type": "boolean",
+                "description": "true only when the business itself shows this street address to the public (storefront, office, clinic, Google listing with the address visible)."
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "storefront",
+                  "office",
+                  "workshop",
+                  "home_based",
+                  "service_area_only",
+                  "mailing",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        },
+        "serviceAreas": {
+          "type": "array",
+          "maxItems": 50,
+          "description": "Cities / towns / neighbourhoods the business says it serves. Each becomes a circle on Clinket (centre of the place + radius).",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "\"Oakville\", \"North York\", \"Ahmedabad\"."
+              },
+              "province": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 100
+              },
+              "countryCode": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "CA",
+                  "US",
+                  "IN",
+                  null
+                ]
+              },
+              "radiusKm": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "maximum": 500,
+                "description": "Only if the source states a distance (\"within 50 km\"). Otherwise null: the importer uses Clinket's default.",
+                "minimum": 0.1
+              },
+              "isPrimary": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        },
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/$defs/categoryRef"
+          }
+        },
+        "services": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 200,
+          "description": "Every service the business lists. One entry per service, never one entry for a whole price list.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "price"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 150,
+                "description": "As the business names it (\"Men's Haircut\", \"Furnace Repair\")."
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 2000,
+                "description": "The business's own words about this service."
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/categoryRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "The trade this service belongs to, when it differs from the business's primary category."
+              },
+              "price": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "fixed",
+                      "hourly",
+                      "starting_from",
+                      "range",
+                      "on_request"
+                    ],
+                    "description": "fixed = one amount; hourly = per hour; starting_from = \"from $X\"; range = \"$X–$Y\"; on_request = no price published (\"call for a quote\", \"free estimate\")."
+                  },
+                  "amount": {
+                    "$ref": "#/$defs/money",
+                    "description": "fixed: the price. starting_from: the starting price."
+                  },
+                  "minAmount": {
+                    "$ref": "#/$defs/money",
+                    "description": "range: the low end."
+                  },
+                  "maxAmount": {
+                    "$ref": "#/$defs/money",
+                    "description": "range: the high end."
+                  },
+                  "hourlyRate": {
+                    "$ref": "#/$defs/money"
+                  },
+                  "minimumHours": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "minimumCharge": {
+                    "$ref": "#/$defs/money",
+                    "description": "\"Minimum charge $120\"."
+                  },
+                  "currency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "CAD",
+                      "USD",
+                      "INR",
+                      null
+                    ],
+                    "description": "Currency of the amounts. Optional: when null, the currency of the business's country is assumed (CA → CAD, US → USD, IN → INR). A currency that is not the business's own makes the importer treat the price as \"on request\"."
+                  },
+                  "taxIncluded": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "true = \"tax included\"; false = \"plus tax\" / \"before HST\"; null = not stated."
+                  },
+                  "priceText": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 300,
+                    "description": "The price EXACTLY as printed (\"From $20.00\", \"$39/hr\", \"$24 before HST\"). The importer only accepts an amount that appears in this text or in the amount fields."
+                  },
+                  "notes": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 500
+                  }
+                }
+              },
+              "visitFee": {
+                "$ref": "#/$defs/money",
+                "description": "Service-call / call-out fee charged per visit, if published."
+              },
+              "travelFee": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "amountPerDistance": {
+                    "$ref": "#/$defs/money"
+                  },
+                  "distanceUnit": {
+                    "type": "string",
+                    "enum": [
+                      "km",
+                      "mile"
+                    ]
+                  },
+                  "freeWithin": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "Distance included before the fee starts."
+                  }
+                }
+              },
+              "duration": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "value",
+                  "unit"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 10000
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": [
+                      "minutes",
+                      "hours",
+                      "days"
+                    ]
+                  }
+                }
+              },
+              "deliveredAt": {
+                "type": "object",
+                "properties": {
+                  "businessLocation": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Customer comes to the business (salon, garage, clinic)."
+                  },
+                  "customerLocation": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Business goes to the customer (plumber, cleaner, mobile mechanic)."
+                  }
+                }
+              },
+              "serviceAreaNames": {
+                "type": "array",
+                "maxItems": 50,
+                "items": {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "description": "Only if this service is offered in fewer places than the whole business. Names must match serviceAreas[].name."
+              },
+              "imageUrls": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "maxLength": 1000,
+                  "pattern": "^https://[^\\s]+$"
+                }
+              }
+            }
+          }
+        },
+        "availability": {
+          "type": "object",
+          "required": [
+            "schedule"
+          ],
+          "properties": {
+            "timezone": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 64,
+              "description": "IANA zone, e.g. \"America/Toronto\", \"Asia/Kolkata\". Optional — Clinket takes the zone from the business address; this is only compared."
+            },
+            "openTwentyFourSeven": {
+              "type": "boolean",
+              "default": false,
+              "description": "true only when the source says open 24 hours, 7 days."
+            },
+            "byAppointmentOnly": {
+              "type": "boolean",
+              "default": false
+            },
+            "schedule": {
+              "type": "array",
+              "description": "Either EMPTY (hours not published) or EXACTLY 7 entries, Monday to Sunday. Never fill hours the source does not show.",
+              "anyOf": [
+                {
+                  "maxItems": 0
+                },
+                {
+                  "minItems": 7,
+                  "maxItems": 7
+                }
+              ],
+              "items": {
+                "type": "object",
+                "required": [
+                  "day",
+                  "closed",
+                  "slots"
+                ],
+                "properties": {
+                  "day": {
+                    "type": "string",
+                    "enum": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday"
+                    ]
+                  },
+                  "closed": {
+                    "type": "boolean"
+                  },
+                  "slots": {
+                    "type": "array",
+                    "maxItems": 4,
+                    "description": "Empty when closed. One entry per opening period (\"9–12 and 13–17\" is two slots). A period that runs past midnight (18:00–02:00) is written as close \"24:00\" on its day and the rest on the next day's first slot (00:00–02:00).",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "open",
+                        "close"
+                      ],
+                      "properties": {
+                        "open": {
+                          "$ref": "#/$defs/hhmmOpen"
+                        },
+                        "close": {
+                          "$ref": "#/$defs/hhmm"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "hoursText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 500,
+              "description": "Hours EXACTLY as published (\"Mon–Fri 8 am – 5:30 pm, Sat by appointment\")."
+            },
+            "notes": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 500,
+              "description": "e.g. \"24/7 emergency service\". Never phone numbers."
+            }
+          }
+        },
+        "offers": {
+          "type": "array",
+          "maxItems": 20,
+          "description": "Current promotions the business itself publishes.",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "offerText"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 150
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 1000
+              },
+              "offerText": {
+                "type": "string",
+                "maxLength": 500,
+                "description": "The promotion EXACTLY as published."
+              },
+              "discountType": {
+                "type": "string",
+                "enum": [
+                  "percentage",
+                  "fixed_amount",
+                  "other"
+                ],
+                "default": "other",
+                "description": "other = free item, BOGO, \"seniors discount\" without a number… (kept in history; Clinket offers are a % or an amount off)."
+              },
+              "discountValue": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "exclusiveMinimum": 0,
+                "maximum": 1000000,
+                "description": "percentage: 1–100. fixed_amount: amount off in batch currency."
+              },
+              "minimumSpend": {
+                "$ref": "#/$defs/money"
+              },
+              "appliesToServiceNames": {
+                "type": "array",
+                "maxItems": 50,
+                "items": {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                "description": "Empty = the whole business. Names must match services[].name."
+              },
+              "startDate": {
+                "$ref": "#/$defs/isoDate"
+              },
+              "endDate": {
+                "$ref": "#/$defs/isoDate"
+              },
+              "recurrence": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "frequency"
+                ],
+                "properties": {
+                  "frequency": {
+                    "type": "string",
+                    "enum": [
+                      "daily",
+                      "weekly",
+                      "monthly",
+                      "yearly"
+                    ]
+                  },
+                  "interval": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 1
+                  },
+                  "byWeekDays": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "MO",
+                        "TU",
+                        "WE",
+                        "TH",
+                        "FR",
+                        "SA",
+                        "SU"
+                      ]
+                    }
+                  },
+                  "byMonthDays": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 31
+                    }
+                  },
+                  "timeWindow": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "start",
+                      "end"
+                    ],
+                    "properties": {
+                      "start": {
+                        "$ref": "#/$defs/hhmm"
+                      },
+                      "end": {
+                        "$ref": "#/$defs/hhmm"
+                      }
+                    }
+                  }
+                }
+              },
+              "conditions": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 500
+              },
+              "sourceUrl": {
+                "$ref": "#/$defs/nullableUrl"
+              }
+            }
+          }
+        },
+        "portfolio": {
+          "type": "array",
+          "maxItems": 30,
+          "description": "Past projects the business publishes (\"Kitchen renovation, Oakville, 2024\"). Never a customer's name or address.",
+          "items": {
+            "type": "object",
+            "required": [
+              "title"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 150
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 2000
+              },
+              "completedOn": {
+                "$ref": "#/$defs/isoDate"
+              },
+              "category": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/categoryRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "imageUrls": {
+                "type": "array",
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "maxLength": 1000,
+                  "pattern": "^https://[^\\s]+$"
+                }
+              }
+            }
+          }
+        },
+        "media": {
+          "type": "object",
+          "description": "Pictures. They are copied only when the admin ticks \"Copy photos from the source\" on the upload.",
+          "properties": {
+            "logoUrl": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 1000,
+              "pattern": "^https://[^\\s]+$"
+            },
+            "galleryImageUrls": {
+              "type": "array",
+              "maxItems": 40,
+              "items": {
+                "type": "string",
+                "maxLength": 1000,
+                "pattern": "^https://[^\\s]+$"
+              },
+              "description": "General photos of the business's work, not tied to one project."
+            }
+          }
+        },
+        "licenses": {
+          "type": "array",
+          "maxItems": 10,
+          "description": "Trade licences / registrations, ONLY when the source publishes the licence number (\"ECRA/ESA #7012345\").",
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "number",
+              "issuer"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 100,
+                "description": "\"Electrical Contractor Licence\"."
+              },
+              "number": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "issuer": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 150,
+                "description": "\"Electrical Safety Authority (ECRA/ESA)\"."
+              },
+              "issuedOn": {
+                "$ref": "#/$defs/isoDate"
+              },
+              "expiresOn": {
+                "$ref": "#/$defs/isoDate"
+              },
+              "sourceUrl": {
+                "$ref": "#/$defs/nullableUrl"
+              }
+            }
+          }
+        },
+        "faqs": {
+          "type": "array",
+          "maxItems": 50,
+          "description": "Questions and answers the business publishes on its own site.",
+          "items": {
+            "type": "object",
+            "required": [
+              "question",
+              "answer"
+            ],
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 200
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 1000
+              },
+              "sourceUrl": {
+                "$ref": "#/$defs/nullableUrl"
+              }
+            }
+          }
+        },
+        "externalRating": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "History only. Clinket NEVER shows or copies another site's reviews or ratings.",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "google",
+                "yelp",
+                "facebook",
+                "bbb",
+                "homestars",
+                "other"
+              ]
+            },
+            "rating": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 5
+            },
+            "reviewCount": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            }
+          }
+        },
+        "dataQuality": {
+          "type": "object",
+          "properties": {
+            "phoneVerified": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "true only when two independent sources agree on the main phone."
+            },
+            "emailVerified": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "true only when the email appears on the business's own website."
+            },
+            "conflicts": {
+              "type": "array",
+              "maxItems": 20,
+              "description": "Where sources disagreed. The importer holds the provider for admin review when a conflict touches name, phone, email or address.",
+              "items": {
+                "type": "object",
+                "required": [
+                  "field",
+                  "values"
+                ],
+                "properties": {
+                  "field": {
+                    "type": "string",
+                    "enum": [
+                      "name",
+                      "phone",
+                      "email",
+                      "address",
+                      "hours",
+                      "prices",
+                      "services",
+                      "category",
+                      "other"
+                    ]
+                  },
+                  "values": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 5,
+                    "items": {
+                      "type": "string",
+                      "maxLength": 300
+                    }
+                  },
+                  "note": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 300
+                  }
+                }
+              }
+            },
+            "possibleDuplicateOf": {
+              "type": "array",
+              "maxItems": 10,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 150
+              },
+              "description": "Exact business.name values of other records in THIS file that may be the same business."
+            },
+            "completenessScore": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "notes": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "maxLength": 1000
+            }
+          }
+        }
+      },
+      "description": "One business. Required: scrapedAt, sources, business, contacts, addresses, serviceAreas, categories, services, availability. There is no id field: Clinket recognises a business from its email, phone, name, city and website."
+    },
+    "hhmmOpen": {
+      "type": "string",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+      "description": "24-hour HH:mm opening time (00:00–23:59)."
+    }
+  }
+}

@@ -1,0 +1,1302 @@
+<title>Business Search States</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ground: #FBFCFA;
+    --surface: #FFFFFF;
+    --surface-sunk: #F3F6F1;
+    --ink: #101F33;
+    --ink-soft: #46545F;
+    --ink-mute: #6B7883;
+    --line: #E1E7DE;
+    --line-firm: #C9D2C6;
+    --brand: #97EF29;
+    --brand-deep: #4E7F12;
+    --warn: #9A5B00;
+    --warn-bg: #FBF1E0;
+    --stop: #A32C2C;
+    --stop-bg: #FAEBEB;
+    --shadow: 0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+
+    --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #0D1410;
+      --surface: #141C18;
+      --surface-sunk: #101711;
+      --ink: #EAF2E6;
+      --ink-soft: #B4C2B6;
+      --ink-mute: #8A9A8D;
+      --line: #253028;
+      --line-firm: #38473B;
+      --brand: #97EF29;
+      --brand-deep: #B8F76A;
+      --warn: #E0A44A;
+      --warn-bg: #2A2013;
+      --stop: #E88A8A;
+      --stop-bg: #2B1717;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1410;
+    --surface: #141C18;
+    --surface-sunk: #101711;
+    --ink: #EAF2E6;
+    --ink-soft: #B4C2B6;
+    --ink-mute: #8A9A8D;
+    --line: #253028;
+    --line-firm: #38473B;
+    --brand: #97EF29;
+    --brand-deep: #B8F76A;
+    --warn: #E0A44A;
+    --warn-bg: #2A2013;
+    --stop: #E88A8A;
+    --stop-bg: #2B1717;
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0 20px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; }
+
+  header.masthead {
+    padding: 48px 0 28px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .masthead h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .masthead p {
+    margin: 8px 0 0;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.8;
+    white-space: nowrap;
+  }
+
+  h2.rule {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 56px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-firm);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2.rule span.n {
+    font-family: var(--mono);
+    color: var(--brand-deep);
+    font-size: 12px;
+  }
+  .lede { color: var(--ink-soft); max-width: 68ch; margin: 14px 0 24px; }
+
+  .verdict {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    border-radius: 3px;
+    padding: 16px 18px;
+    margin: 22px 0 0;
+  }
+  .verdict strong { font-family: var(--display); }
+  .verdict p { margin: 0; color: var(--ink-soft); }
+  .verdict p + p { margin-top: 8px; }
+
+  /* ---- specimen grid ---- */
+  .specimens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .spec {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .spec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px dashed var(--line-firm);
+    padding-bottom: 10px;
+  }
+  .spec-head b { color: var(--ink); font-weight: 600; }
+
+  /* the actual UI specimen: a source card as the member sees it */
+  .card {
+    border: 1px solid var(--line-firm);
+    border-radius: 4px;
+    background: var(--surface-sunk);
+    padding: 12px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .cite {
+    flex: 0 0 auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-deep);
+    background: color-mix(in srgb, var(--brand) 22%, transparent);
+    border-radius: 3px;
+    padding: 2px 7px;
+    margin-top: 1px;
+  }
+  .card-body { min-width: 0; flex: 1; }
+  .card-title {
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+  .card-sub {
+    color: var(--ink-mute);
+    font-size: 13.5px;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+  }
+  .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+  .btn {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 5px 11px;
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: default;
+  }
+  .btn.primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #10240A;
+  }
+  .btn.gone {
+    text-decoration: line-through;
+    color: var(--stop);
+    border-color: color-mix(in srgb, var(--stop) 40%, transparent);
+    background: var(--stop-bg);
+    font-weight: 400;
+  }
+
+  .note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .note code, .inline-code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 0 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag.page { background: color-mix(in srgb, var(--brand) 20%, transparent); color: var(--brand-deep); }
+  .tag.nopage { background: var(--warn-bg); color: var(--warn); }
+  .tag.none { background: var(--surface-sunk); color: var(--ink-mute); border: 1px solid var(--line); }
+
+  /* ---- panel preview (what opens) ---- */
+  .panel {
+    border: 1px solid var(--line-firm);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .panel-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 12px;
+    background: var(--surface-sunk);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .panel-bar .x { color: var(--ink-mute); font-family: var(--mono); font-size: 13px; }
+  .panel-body {
+    padding: 14px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-height: 210px;
+    overflow-y: auto;
+  }
+  .panel-body h4 {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .panel-body p { margin: 0 0 9px; }
+  .panel-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 4px 0 10px;
+  }
+  .panel-body th, .panel-body td {
+    text-align: left;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  .panel-body th { color: var(--ink); font-weight: 600; background: var(--surface-sunk); }
+
+  /* ---- two-up compare ---- */
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .compare > div {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 16px;
+  }
+  .compare h3 {
+    font-family: var(--display);
+    font-size: 14px;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .compare .verdict-line {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .bad { color: var(--stop); }
+  .good { color: var(--brand-deep); }
+  .raw {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.6;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 11px;
+    color: var(--ink-soft);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* ---- mobile frame ---- */
+  .frames {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+    align-items: start;
+  }
+  .frame-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .phone {
+    border: 1px solid var(--line-firm);
+    border-radius: 18px;
+    background: var(--surface);
+    padding: 10px;
+    max-width: 330px;
+    box-shadow: var(--shadow);
+  }
+  .phone-inner {
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: var(--ground);
+  }
+  .phone-top {
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink);
+  }
+  .phone-scroll { padding: 12px; display: flex; flex-direction: column; gap: 11px; }
+  .bubble {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px 12px 12px 12px;
+    padding: 11px 13px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .bubble b { color: var(--ink); }
+  sup.marker {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--brand-deep);
+    font-weight: 600;
+  }
+
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 22px;
+  }
+  table.matrix th, table.matrix td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.matrix th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--line-firm);
+    white-space: nowrap;
+  }
+  table.matrix td:first-child { font-weight: 600; white-space: nowrap; }
+  .scroll-x { overflow-x: auto; }
+
+  .decide {
+    margin-top: 26px;
+    display: grid;
+    gap: 12px;
+  }
+  .decide > div {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand-deep);
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .decide h4 {
+    margin: 0 0 5px;
+    font-family: var(--display);
+    font-size: 15px;
+  }
+  .decide p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<style>
+  /* ── additions for this sheet only: a desktop frame, banners, a keyboard block ── */
+  .screen {
+    border: 1px solid var(--line-firm);
+    border-radius: 6px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .screen-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-sunk);
+  }
+  .screen-bar h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .screen-bar .cluster { display: flex; gap: 7px; align-items: center; }
+  .chip {
+    font-size: 12px;
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    padding: 3px 10px;
+    color: var(--ink-soft);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .chip.brand { background: var(--brand); border-color: var(--brand); color: #10240A; font-weight: 600; }
+  .screen-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .screen-body.tall { max-height: 340px; overflow-y: auto; }
+
+  .askbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    background: var(--surface-sunk);
+    padding: 9px 9px 9px 15px;
+  }
+  .askbox .ph { flex: 1; color: var(--ink-mute); font-size: 14.5px; min-width: 0; overflow-wrap: anywhere; }
+  .askbox .ph.typed { color: var(--ink); }
+  .askbox .mic, .askbox .send {
+    flex: 0 0 auto;
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .askbox .send.on { background: var(--brand); border-color: var(--brand); color: #10240A; font-weight: 600; }
+  .askbox .mic.off { color: var(--ink-mute); background: var(--surface-sunk); }
+
+  .banner {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line-firm);
+    border-radius: 3px;
+    padding: 11px 13px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+  .banner b { color: var(--ink); }
+  .banner.warn { background: var(--warn-bg); border-color: color-mix(in srgb, var(--warn) 30%, transparent); border-left-color: var(--warn); color: var(--warn); }
+  .banner.warn b { color: var(--warn); }
+  .banner.stop { background: var(--stop-bg); border-color: color-mix(in srgb, var(--stop) 30%, transparent); border-left-color: var(--stop); color: var(--stop); }
+  .banner.stop b { color: var(--stop); }
+  .banner.calm { background: var(--surface-sunk); border-left-color: var(--brand-deep); }
+  .banner .grow { flex: 1; min-width: 0; }
+
+  .answer {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 13px 15px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .answer h4 { margin: 0 0 7px; font-family: var(--display); font-size: 15px; color: var(--ink); }
+  .answer p { margin: 0 0 9px; }
+  .answer p:last-child { margin-bottom: 0; }
+  .answer b { color: var(--ink); }
+  .answer table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 6px 0 10px; }
+  .answer th, .answer td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+  .answer th { color: var(--ink); font-weight: 600; background: var(--surface-sunk); }
+  .caret { display: inline-block; width: 2px; height: 15px; background: var(--brand-deep); vertical-align: -3px; }
+
+  .stickybar {
+    position: sticky; top: 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    padding: 6px 8px 6px 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    z-index: 2;
+  }
+  .foot {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    border-top: 1px solid var(--line);
+    margin-top: 11px; padding-top: 10px;
+  }
+  .foot .meta { font-size: 12.5px; color: var(--ink-mute); margin-left: auto; }
+
+  .stepline { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--ink-soft); }
+  .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--brand-deep); flex: 0 0 auto; }
+  .skel { height: 10px; border-radius: 2px; background: var(--surface-sunk); border: 1px solid var(--line); }
+  .skel.w70 { width: 70%; } .skel.w45 { width: 45%; } .skel.w90 { width: 90%; }
+
+  .kbd {
+    border-top: 1px solid var(--line-firm);
+    background: var(--surface-sunk);
+    padding: 9px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+  }
+  .kbd i {
+    height: 22px;
+    border-radius: 3px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .kbd i.wide { grid-column: span 4; }
+  .kbd i.brand { background: var(--brand); border-color: var(--brand); }
+  .docked { border-top: 1px solid var(--line); background: var(--surface); padding: 9px 10px; }
+
+  .pillrow { display: flex; flex-wrap: wrap; gap: 7px; }
+  .quiet {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 2px 7px;
+    background: var(--surface-sunk);
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <h1>The states the first sheets did not draw</h1>
+      <p>Eleven states of Ask Clinket that no approved mockup covers yet, web and phone. Every one is
+        reachable in normal use, and each is drawn from what Clinket can actually tell the member — not from what
+        would be convenient to draw.</p>
+    </div>
+    <div class="stamp">
+      Clinqet · Business Search<br>
+      Phase 2 mockup · 2026-09-03<br>
+      For approval
+    </div>
+  </header>
+
+  <h2 class="rule"><span class="n">00</span> What is already settled, and not re-drawn here</h2>
+  <p class="lede">Three sheets are approved and stand unchanged: the <b>page and its core states</b>
+    (<span class="inline-code">provider-ai-search.html</span> — empty, running, answered, nothing found,
+    error, permission denied, daily limit, plus header <b>Option A</b>), <b>how a source appears</b>
+    (<span class="inline-code">business-search-sources</span> — one card per file type, Show page N / Show
+    text, and no download anywhere), and <b>the microphone</b>
+    (<span class="inline-code">business-search-voice</span> — eleven mic states and the correction chip).
+    This sheet adds only what is missing — and §01b <b>corrects</b> M1's suggestion chips.</p>
+
+  <div class="verdict">
+    <div>
+      <strong>One rule behind all eleven</strong>
+      <p>Every state below says <em>what happened</em> and <em>what to do next</em>. There is no spinner that
+        ends in nothing, no empty panel, and nothing that reads as a finished answer when it is not.</p>
+      <p>Where the server sends the sentence, the screen renders <b>the server's sentence</b> — it is already
+        translated and already carries the number. The screen invents copy only for what the screen itself
+        does: the empty state, the buttons, the panel chrome, offline, and the cut-short notice on a replayed
+        conversation.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">01</span> Nothing to search yet</h2>
+  <p class="lede">A brand-new provider has no documents. The answer surface must not look broken, and must
+    not promise an answer it cannot give. It names what it <em>can</em> already answer from — services,
+    offers, hours, business details — and points at the one screen that changes the rest.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>/dashboard/search · first visit, empty library</span></div>
+      <div class="screen">
+        <div class="screen-bar">
+          <h3>Ask Clinket</h3>
+          <div class="cluster"><span class="chip">Sunrise Salon</span></div>
+        </div>
+        <div class="screen-body">
+          <div class="askbox">
+            <span class="ph">Ask anything about your business…</span>
+            <span class="mic">◉</span><span class="send">→</span>
+          </div>
+          <div class="banner calm">
+            <div class="grow">
+              <b>You have no documents yet.</b> Ask Clinket can already answer from your services, offers,
+              working hours and business details. Upload a price list, a terms sheet or a photographed rate
+              card on <b>AI Knowledge</b> and it will answer from those too.
+              <div style="margin-top:9px" class="pillrow">
+                <span class="btn primary">Go to AI Knowledge</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="frame-label" style="margin-bottom:7px">Try asking</div>
+            <div class="pillrow">
+              <span class="chip">How much is a <b>HydraFacial</b>?</span>
+              <span class="chip">What's included in a <b>Bridal package</b>?</span>
+              <span class="chip">Which services can be booked online?</span>
+              <span class="chip">What are our opening hours?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>The first two chips are this salon's own service names</b>, read from their catalogue
+        — not a generic example. None of the four needs a document, so none of them can dead-end for a
+        provider who has just signed up. §01b is the whole rule.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PHONE</b><span>Ask Clinket · empty library</span></div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="phone-top"><span>Ask Clinket</span><span class="x" style="font-family:var(--mono);color:var(--ink-mute)">✕</span></div>
+          <div class="phone-scroll">
+            <div class="askbox" style="padding:7px 7px 7px 12px">
+              <span class="ph" style="font-size:13.5px">Ask anything…</span>
+              <span class="mic">◉</span><span class="send">→</span>
+            </div>
+            <div class="banner calm" style="font-size:13px">
+              <div class="grow"><b>No documents yet.</b> Answers come from your services, offers, hours and
+                business details. Add a document on AI Knowledge for more.</div>
+            </div>
+            <div class="pillrow">
+              <span class="chip" style="font-size:11.5px">How much is a <b>HydraFacial</b>?</span>
+              <span class="chip" style="font-size:11.5px">Opening hours?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Same rule, same copy keys, native chrome — <b>three chips on a phone, four on web</b>, and
+        the phone drops the longest one rather than letting them wrap to a third line.</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">01b</span> The "Try asking" chips — the provider's own, never generic</h2>
+  <p class="lede">A chip is a promise. "What is our cancellation policy?" shown to a plumber with no documents
+    spends one of the day's questions and returns "I couldn't find anything" — the screen caused that. So a
+    chip is only ever offered when it <b>cannot</b> dead-end, and two of them are built from the provider's
+    <b>own catalogue</b>, so a salon is asked about a HydraFacial and a plumber about a drain survey.</p>
+
+  <div class="verdict">
+    <div>
+      <strong>Built on screen, from what the app already has — no new request, no AI</strong>
+      <p>The service names come from the same catalogue list the dashboard already loads and keeps. <b>All ten
+        roles</b> can read that catalogue, so every member gets their own business's words. Nothing is
+        generated, nothing is guessed, and the sentence around the name is a translated template with the
+        name dropped into it — so it reads correctly in all five languages.</p>
+    </div>
+  </div>
+
+  <div class="scroll-x">
+    <table class="matrix">
+      <tr><th>Chip</th><th>Shown when</th><th>Why it cannot dead-end</th></tr>
+      <tr>
+        <td>How much is a <b>{service}</b>?</td>
+        <td>the catalogue has at least one service</td>
+        <td>the name came from their catalogue, so the answer is their own price</td>
+      </tr>
+      <tr>
+        <td>What's included in a <b>{service}</b>?</td>
+        <td>the catalogue has a second, different service</td>
+        <td>same — and a second name shows the chips are theirs, not a fixed pair</td>
+      </tr>
+      <tr>
+        <td>Which services can be booked online?</td>
+        <td>the catalogue has at least one service</td>
+        <td>a fact stored on every service</td>
+      </tr>
+      <tr>
+        <td>What are our opening hours?</td>
+        <td>always</td>
+        <td>hours exist for every business, and every member may read them</td>
+      </tr>
+      <tr>
+        <td><span class="btn gone">What is our cancellation policy?</span></td>
+        <td class="bad">never as a fixed chip</td>
+        <td class="bad">it assumes a document. It is the exact chip that fails on day one</td>
+      </tr>
+      <tr>
+        <td><span class="btn gone">Show my bookings this week</span></td>
+        <td class="bad">not yet</td>
+        <td class="bad">bookings, leads, quotes and payments cannot be answered yet — offering them now
+          would return "I couldn't find anything" about work that plainly exists</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>The order is fixed, and the names do not shuffle</h4>
+      <p>Their own service names first, then the two general ones. The names are taken in the catalogue's own
+        order — a chip that changes on every visit reads as noise, not as a suggestion.</p>
+    </div>
+    <div>
+      <h4>Four on web, three on a phone — one line each, never wrapping to three</h4>
+      <p>A very long service name is truncated with an ellipsis rather than being dropped: the provider still
+        recognises it, and tapping still asks the whole question.</p>
+    </div>
+    <div>
+      <h4>While the catalogue is still loading, only the general chips appear</h4>
+      <p>They are never replaced by a placeholder that turns into chips — controls that appear a moment late
+        get mis-tapped.</p>
+    </div>
+    <div>
+      <h4>‼️ Superseded in part by M5 (2026-09-03)</h4>
+      <p>The two work chips below were removed here because nothing could answer them. Sheet
+        <span class="inline-code">business-search-team-answers</span> section 10 puts them BACK, for a member who
+        can be answered, now that Ask Clinket reads bookings and leads. Every other rule on this page still
+        stands: their own catalogue first, a fixed order, and Hours reserved.</p>
+    </div>
+    <div>
+      <h4>‼️ This corrects the approved page sheet (M1)</h4>
+      <p>M1's chip row shows "What is our cancellation policy?", "Which services include a warranty?", "Show
+        my bookings this week" and "How many leads did we get last week?", and annotates them as
+        <em>"localized fixed copy, not generated"</em>. Two of those cannot be answered at all yet and two
+        assume a document exists. <b>The rule above replaces that row on both platforms.</b></p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">02</span> Offline</h2>
+  <p class="lede">Asking needs the network. Offline is drawn <b>dimmed, never hidden</b> — the same choice the
+    approved mic sheet made — because the capability exists and only the connection is missing. It clears
+    itself when the connection returns; nothing is retried in a loop, and nothing the member typed is lost.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>offline while the question is half typed</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Offline</span></div></div>
+        <div class="screen-body">
+          <div class="askbox" style="opacity:.72">
+            <span class="ph typed">What deposit do we take on a keratin</span>
+            <span class="mic off">◉</span><span class="send">→</span>
+          </div>
+          <div class="banner warn">
+            <div class="grow"><b>You're offline.</b> Your question is kept — ask again when you're connected.</div>
+          </div>
+          <p class="note" style="margin-top:2px">Previous answers in this conversation stay on screen and stay
+            readable. A source that has to be loaded ("Show page 4") says the same thing when tapped.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PHONE</b><span>offline · mid-answer</span></div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="phone-top"><span>Ask Clinket</span><span style="font-family:var(--mono);font-size:11px;color:var(--warn)">OFFLINE</span></div>
+          <div class="phone-scroll">
+            <div class="bubble">The deposit is <b>20%</b>, refundable up to 48 hours before the appointment.<sup class="marker">[1]</sup></div>
+            <div class="banner warn" style="font-size:13px"><div class="grow"><b>You're offline.</b> Ask again when
+              you're connected.</div></div>
+            <div class="askbox" style="padding:7px 7px 7px 12px;opacity:.72">
+              <span class="ph" style="font-size:13.5px">Ask anything…</span>
+              <span class="mic off">◉</span><span class="send">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">‼️ A phone that loses the network <em>while the answer is still being written</em> keeps the words already written and
+        marks the answer cut short (§05) — it never rewinds to a spinner.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">03</span> A very long answer</h2>
+  <p class="lede">A price list question can produce three tables. The problem is not the length — it is that
+    the sources land below the fold, and the member cannot tell whether the answer is still being written.
+    One sticky strip solves both.</p>
+
+  <div class="specimens" style="grid-template-columns:1fr">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>long answer · sticky strip · sources reachable at any scroll</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Sunrise Salon</span></div></div>
+        <div class="screen-body tall">
+          <div class="stickybar">
+            <span><b style="color:var(--ink)">Writing the answer…</b> · 4 sources so far</span>
+            <span class="pillrow"><span class="btn">Jump to sources</span><span class="btn">Stop</span></span>
+          </div>
+          <div class="answer">
+            <h4>Facial treatments</h4>
+            <p>You list <b>four</b> facial treatments. Prices are from your price list; the HydraFacial is also
+              a bookable service.<sup class="marker">[1]</sup><sup class="marker">[3]</sup></p>
+            <table>
+              <tr><th>Treatment</th><th>Duration</th><th>Price</th></tr>
+              <tr><td>Classic facial</td><td>45 min</td><td>$65</td></tr>
+              <tr><td>Deep-cleansing facial</td><td>60 min</td><td>$85</td></tr>
+              <tr><td>HydraFacial</td><td>60 min</td><td>$149</td></tr>
+              <tr><td>Anti-ageing facial</td><td>75 min</td><td>$120</td></tr>
+            </table>
+            <p>Add-ons can be combined with any of the above.<sup class="marker">[1]</sup></p>
+            <table>
+              <tr><th>Add-on</th><th>Price</th></tr>
+              <tr><td>LED therapy</td><td>$25</td></tr>
+              <tr><td>Dermaplaning</td><td>$40</td></tr>
+            </table>
+            <p>Courses of six are sold at a discount.<sup class="marker">[2]</sup> A patch test is recommended
+              for sensitive skin before the first HydraFacial.<sup class="marker">[4]</sup><span class="caret"></span></p>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px">
+        <p class="note"><b>The strip is the only new furniture.</b> It carries the live step, the count of
+          sources found so far, a jump, and Stop. While the answer is being written the view does <b>not</b> auto-scroll
+          — a page that chases the caret makes a long answer unreadable. A quiet "new text below" affordance
+          appears instead if the member has scrolled up.</p>
+        <p class="note"><b>Stop keeps what was written.</b> Pressing it also stops the work at Clinket's end, and
+          the exchange is still saved — so re-asking never spends a second question for words the
+          member already has.</p>
+        <p class="note"><b>The count is of sources, never of records.</b> "4 sources so far" is a fact the
+          screen may state, because it counted the source cards it was given. It never says "4 bookings" —
+          a total is Clinket's to state or to withhold.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="frames">
+    <div>
+      <div class="frame-label">PHONE · long answer, sources collapsed</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="phone-top"><span>Ask Clinket</span><span class="x">✕</span></div>
+          <div class="phone-scroll" style="max-height:300px;overflow-y:auto">
+            <div class="stickybar" style="font-size:12px;padding:5px 6px 5px 11px">
+              <span>Writing…</span><span class="btn" style="font-size:11.5px">Stop</span>
+            </div>
+            <div class="bubble">
+              <b>Facial treatments</b>
+              <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px">
+                <tr><th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)">Treatment</th><th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)">Price</th></tr>
+                <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)">Classic</td><td style="padding:4px 6px;border-bottom:1px solid var(--line)">$65</td></tr>
+                <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)">HydraFacial</td><td style="padding:4px 6px;border-bottom:1px solid var(--line)">$149</td></tr>
+              </table>
+              A patch test is recommended before the first HydraFacial.<sup class="marker">[4]</sup><span class="caret"></span>
+            </div>
+            <div class="card" style="border-radius:4px">
+              <span class="cite">4</span>
+              <div class="card-body">
+                <div class="card-title">Sources (4)</div>
+                <div class="card-sub">Tap to open</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px">A wide table <b>scrolls inside its own box</b>; the screen never
+        scrolls sideways. Sources collapse to one row and expand on tap, so the answer is not pushed off the
+        top of a phone by eight cards.</p>
+    </div>
+
+    <div>
+      <div class="frame-label">PHONE · keyboard open (§04)</div>
+      <div class="phone">
+        <div class="phone-inner">
+          <div class="phone-top"><span>Ask Clinket</span><span class="x">✕</span></div>
+          <div class="phone-scroll" style="padding-bottom:6px">
+            <div class="bubble" style="font-size:13px">The deposit is <b>20%</b>.<sup class="marker">[1]</sup></div>
+          </div>
+          <div class="docked">
+            <div class="askbox" style="padding:6px 6px 6px 11px">
+              <span class="ph typed" style="font-size:13.5px">and if they cancel late?</span>
+              <span class="mic">◉</span><span class="send on">→</span>
+            </div>
+          </div>
+          <div class="kbd">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i class="wide"></i><i></i><i></i><i class="wide brand"></i>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px"><b>The ask box docks above the keyboard and the answer keeps
+        scrolling behind it.</b> The last line of the answer stays visible — the standing defect here is a keyboard
+        that covers exactly the text the member is asking about. Suggestion chips and Sources are hidden while
+        the keyboard is up: they cannot be reached without dismissing it, and a control that cannot be reached
+        is worse than none.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">04</span> Keyboard open — the rule, stated</h2>
+  <div class="decide">
+    <div>
+      <h4>The box docks, it does not float</h4>
+      <p>The ask box sits flush on the keyboard, full width, with the mic and Send in it. It is the same
+        control in the same order as the idle state — nothing moves position when the keyboard appears.</p>
+    </div>
+    <div>
+      <h4>The answer scrolls behind it, anchored to its last line</h4>
+      <p>Opening the keyboard keeps the bottom of the answer in view instead of leaving the reader in the
+        middle of a table.</p>
+    </div>
+    <div>
+      <h4>Chips, Recent and Sources are hidden while it is up</h4>
+      <p>They live below the fold behind the keyboard, so drawing them claims a reachable control that is not.
+        They come back the moment the keyboard closes.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">05</span> An answer that was cut short</h2>
+  <p class="lede">Six things can end an answer early: the model's own length cap, the answer budget, the
+    clock on the whole question, the daily spend guard, the number of look-ups one question may make, and the
+    member pressing Stop or closing the tab.
+    In every one the words already written are <b>kept</b> — and marked.</p>
+
+  <div class="compare">
+    <div>
+      <h3>Live <span class="verdict-line good" style="margin:0">as it is being written</span></h3>
+      <div class="answer" style="margin-top:6px">
+        <p>Cancellations inside 48 hours are charged at 50% of the quoted value, and the deposit is not
+          returned when</p>
+      </div>
+      <div class="banner warn" style="margin-top:9px">
+        <div class="grow"><b>This answer was cut short.</b> Ask a narrower question to see the rest.</div>
+      </div>
+      <p class="note" style="margin-top:9px">This sentence comes <b>from Clinket</b>, already translated.
+        The screen shows it because it was <em>told</em> the answer was cut short — never by reading the words
+        themselves, which would only work in English.</p>
+    </div>
+    <div>
+      <h3>Reopened later <span class="verdict-line good" style="margin:0">replayed conversation</span></h3>
+      <div class="answer" style="margin-top:6px">
+        <p>Cancellations inside 48 hours are charged at 50% of the quoted value, and the deposit is not
+          returned when</p>
+      </div>
+      <div class="banner warn" style="margin-top:9px">
+        <div class="grow"><b>This answer was cut short.</b> Ask it again to see the rest.</div>
+      </div>
+      <p class="note" style="margin-top:9px">A saved answer that ended early is stored with a hidden mark on it.
+        The screen <b>removes the mark and shows its own notice</b>. Leaving the mark in would look like
+        gibberish; leaving it out would present half a policy as the whole of it.</p>
+      <p class="note" style="margin-top:7px"><span class="quiet">The one new copy key on this sheet</span>
+        "Ask it again to see the rest" — the live sentence tells the member to narrow the question, which is
+        advice about a question they are no longer asking.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">06</span> A document this member may not search</h2>
+  <p class="lede">A document can be restricted to certain roles. The correct rendering of a restricted
+    document is <b>no rendering at all</b> — it is absent from the answer, absent from the sources, and its
+    pictures do not appear. Nothing tells the member it exists. What they get is an honest answer built from
+    everything they <em>can</em> see.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a technician asks about staff pay</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Technician</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">What is the commission on a colour service?</span><span class="mic">◉</span><span class="send on">→</span></div>
+          <div class="answer">
+            <p>I couldn't find anything about commission in your business's information.</p>
+            <p style="color:var(--ink-mute)">You could ask about service prices, your working hours, or what is
+              included in a treatment.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>The staff-pay document exists and is restricted to the owner.</b> It is left out
+        before the assistant is given anything, so there is no "restricted" badge to draw, no count of hidden
+        results, and no way to work out from the answer that the document is there. A badge would be the leak.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>the same person asks a money question</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Technician</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">How much did we invoice last week?</span><span class="mic">◉</span><span class="send on">→</span></div>
+          <div class="answer">
+            <p>You don't have access to that. Ask the business owner if you need it.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">‼️ <b>Two different facts, two different sentences.</b> "I couldn't find anything" is
+        about the business's information. "You don't have access to that" is about this person's role — a
+        <b>fixed server sentence</b>, with no figure fetched first and no record or person named. Rendering
+        one as the other is the defect this pair exists to prevent.</p>
+    </div>
+  </div>
+
+  <p class="note" style="margin-top:16px"><b>What is deliberately NOT drawn:</b> a "some results were hidden"
+    line. It would tell a member the restricted document exists, which is exactly what restricting it was for.
+    Where an answer is genuinely narrower than the whole business — a search that failed, or a language it could not
+    read — the assistant says so <b>in its own words, inside the answer</b>. There is no separate message for
+    it, so the screen must not invent one.</p>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">07</span> The source panel, three ways it can go</h2>
+  <p class="lede">Approved already: <b>Show page N</b> for a paginated file and <b>Show text</b> for the four
+    types with no real page. Two outcomes were never drawn — a partial extract, and a page that is not there.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>PANEL</b><span>Show text · complete</span></div>
+      <div class="panel">
+        <div class="panel-bar"><span>Terms of service.docx</span><span class="x">esc</span></div>
+        <div class="panel-body">
+          <h4>Deposits &amp; cancellations</h4>
+          <p>A deposit of 20% is required to confirm a booking. Deposits are refundable up to 48 hours before
+            the appointment.</p>
+          <h4>Workmanship guarantee</h4>
+          <p>All work carries a 12-month guarantee from the date of completion.</p>
+        </div>
+      </div>
+      <p class="note">The whole stored text. No banner, because nothing is missing.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PANEL</b><span>Show text · <span style="color:var(--warn)">truncated</span></span></div>
+      <div class="panel">
+        <div class="panel-bar"><span>Full service manual.docx</span><span class="x">esc</span></div>
+        <div class="panel-body">
+          <div class="banner warn" style="margin:0 0 10px">
+            <div class="grow"><b>This is the beginning of the document.</b> It is too long to show in full here.</div>
+          </div>
+          <h4>Section 1 — Scope</h4>
+          <p>This manual covers installation, commissioning and annual servicing for every unit type listed in
+            appendix A…</p>
+        </div>
+      </div>
+      <p class="note">‼️ <b>Clinket says whether it cut the text, and the panel repeats that before the first
+        word.</b> A long extract shown silently reads as the whole document — and a member acting on "the
+        document does not mention X" when X is on page 40 is the confident-partial defect in its worst form.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PANEL</b><span>Show page 4 · <span style="color:var(--stop)">not available</span></span></div>
+      <div class="panel">
+        <div class="panel-bar"><span>Rate card (photo).heic · page 4</span><span class="x">esc</span></div>
+        <div class="panel-body">
+          <div class="banner stop" style="margin:0">
+            <div class="grow"><b>This page can't be shown right now.</b> The answer above still quotes it, and
+              the wording it used is unchanged.</div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>A missing page is normal, not a fault:</b> a very long document is not read page by
+        page, and saved pages are cleared after 180 days. The card keeps its name, section and page
+        number — those came with the answer, not from this panel. <b>There is no "open the file instead"</b>:
+        that route no longer exists, so offering it would be a dead end.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">08</span> Reopening a conversation</h2>
+  <p class="lede">"Recent" is kept per business on the device. Tapping one <b>reopens the exchange</b>, it does
+    not re-ask it — re-asking would silently spend one of the day's questions.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a recent question, reopened</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Sunrise Salon</span></div></div>
+        <div class="screen-body">
+          <div class="stepline"><span class="quiet">Yesterday</span><span>What deposit do we take?</span></div>
+          <div class="answer"><p>The deposit is <b>20%</b>, refundable up to 48 hours before the
+            appointment.<sup class="marker">[1]</sup></p></div>
+          <div class="card">
+            <span class="cite">1</span>
+            <div class="card-body">
+              <div class="card-title">Complete price list 2026</div>
+              <div class="card-sub">Deposits &amp; cancellations · page 4</div>
+              <div class="card-actions"><span class="btn primary">Show page 4</span></div>
+            </div>
+          </div>
+          <div class="askbox"><span class="ph">Ask a follow-up…</span><span class="mic">◉</span><span class="send">→</span></div>
+        </div>
+      </div>
+      <p class="note"><b>Recent is per business.</b> Someone who works for two businesses must never see one
+        business's questions inside the other, so the list is keyed by business and cleared on switching
+        workspace and on signing out.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>the conversation could not be reopened</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Sunrise Salon</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">What deposit do we take?</span><span class="mic">◉</span><span class="send on">→</span></div>
+          <div class="banner calm">
+            <div class="grow"><b>This conversation is no longer saved.</b> The question is in the box — press
+              Ask to run it again.</div>
+          </div>
+        </div>
+      </div>
+      <p class="note">A conversation is kept for a few days. Once it has gone the question is <b>put back in the
+        box, not sent</b> — the member decides whether it is worth asking again.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">09</span> Every state, and where its words come from</h2>
+  <div class="scroll-x">
+    <table class="matrix">
+      <tr>
+        <th>State</th><th>What the member sees</th><th>Who writes the words</th><th>Drawn in</th>
+      </tr>
+      <tr>
+        <td>No documents yet</td>
+        <td>Calm strip naming what it can still answer + Go to AI Knowledge</td>
+        <td class="good">the screen</td><td>§01</td>
+      </tr>
+      <tr>
+        <td>Offline</td>
+        <td>Dimmed ask box, amber strip, question kept</td>
+        <td class="good">the screen</td><td>§02</td>
+      </tr>
+      <tr>
+        <td>Long answer</td>
+        <td>Sticky strip: step · sources so far · Jump · Stop</td>
+        <td class="good">the screen</td><td>§03</td>
+      </tr>
+      <tr>
+        <td>Keyboard open</td>
+        <td>Docked ask box, answer anchored to its last line</td>
+        <td class="good">the screen</td><td>§03–04</td>
+      </tr>
+      <tr>
+        <td>Cut short, live</td>
+        <td>Answer kept + "This answer was cut short…"</td>
+        <td>Clinket</td><td>§05</td>
+      </tr>
+      <tr>
+        <td>Cut short, replayed</td>
+        <td>Answer kept + "…Ask it again to see the rest."</td>
+        <td class="good">the screen</td><td>§05</td>
+      </tr>
+      <tr>
+        <td>Restricted document</td>
+        <td>Nothing — the document is simply not in the answer</td>
+        <td>—</td><td>§06</td>
+      </tr>
+      <tr>
+        <td>Topic the role cannot reach</td>
+        <td>"You don't have access to that. Ask the business owner if you need it."</td>
+        <td>Clinket</td><td>§06</td>
+      </tr>
+      <tr>
+        <td>Show text, truncated</td>
+        <td>"This is the beginning of the document." above the text</td>
+        <td class="good">the screen</td><td>§07</td>
+      </tr>
+      <tr>
+        <td>Page not available</td>
+        <td>"This page can't be shown right now." and no dead-end action</td>
+        <td>Clinket</td><td>§07</td>
+      </tr>
+      <tr>
+        <td>Conversation expired</td>
+        <td>Question restored to the box, not re-sent</td>
+        <td class="good">the screen</td><td>§08</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">10</span> What this settles</h2>
+  <div class="decide">
+    <div>
+      <h4>No state is silent, and no state is a spinner</h4>
+      <p>Eleven states, eleven sentences. Each says what happened and what to do next.</p>
+    </div>
+    <div>
+      <h4>Restricting a document draws nothing</h4>
+      <p>Absence is the rendering. A badge, a count of hidden results, or a "restricted" note would announce
+        the very document that was restricted.</p>
+    </div>
+    <div>
+      <h4>A cut-short answer never looks finished</h4>
+      <p>Live, the screen is told the answer was cut short rather than reading the words. Reopened, it removes the
+        hidden mark and says the same thing in its own words.</p>
+    </div>
+    <div>
+      <h4>Nothing offers a file, anywhere</h4>
+      <p>The page-unavailable state has no "open the original" fallback, because that route was removed. A
+        missing page falls back to the wording already on screen.</p>
+    </div>
+    <div>
+      <h4>Reopening never spends a question</h4>
+      <p>Recent replays a stored exchange. When the exchange has expired the question goes back in the box and
+        waits for the member.</p>
+    </div>
+  </div>
+
+  <footer>
+    Mockup for approval — no integrated UI code has been written against these states. Tokens, cards, panels
+    and phone frames are the same ones the approved <span class="inline-code">business-search-sources</span>
+    and <span class="inline-code">business-search-voice</span> sheets use.
+  </footer>
+
+</div>

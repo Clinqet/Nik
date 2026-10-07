@@ -1,0 +1,280 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "port-credit",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-port-credit-perennial-gardener",
+      "businessName": "Perennial Gardener",
+      "description": "Perennial gardens, landscape design and maintenance. Mineola Rd E, Port Credit.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-274-7995",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "177 Mineola Rd E",
+        "postalCode": "L5G 2E7",
+        "area": "port-credit",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "177 Mineola Rd E, Mississauga, ON L5G 2E7"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "port-credit",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Perennial Planting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Garden Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Landscaping+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-port-credit-g-edick-sons-landscape-contractors-ltd",
+      "businessName": "G Edick & Sons Landscape Contractors Ltd",
+      "description": "Interlock, natural stone, tree care, garden designs, snow removal. Southdown Rd since 1949.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 77,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-633-0570",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "844 Southdown Rd",
+        "postalCode": "L5J 2Y4",
+        "area": "port-credit",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "844 Southdown Rd, Mississauga, ON L5J 2Y4"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "port-credit",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interlocking Stone",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tree Care",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Garden Designs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sodding",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snow Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Landscaping+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Ancaster",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Family plumbing and HVAC company based in Ancaster — residential and commercial plumbing, furnaces, AC, water heaters, emergency service, Kinetico water systems.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@guestplumbing.com",
+      "businessPhone": "905-745-1963",
+      "social": {
+        "facebook": "https://www.facebook.com/guestplumbing",
+        "instagram": "https://www.instagram.com/guest.plumbing.hvac",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://guestplumbing.com/",
+        "other": []
+      },
+      "address": {
+        "street": "50 Bittern St., Unit 8",
+        "city": "Ancaster",
+        "area": "Ancaster",
+        "province": "ON",
+        "postalCode": "L9G 4V5",
+        "country": "Canada",
+        "formatted": "50 Bittern St., Unit 8, Ancaster, ON L9G 4V5"
+      },
+      "serviceAreas": [
+        "Ancaster",
+        "Dundas",
+        "Flamborough",
+        "Hamilton",
+        "Caledonia",
+        "Hagersville"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Ancaster",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        },
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Kinetico Home Water Systems",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Plumbing & HVAC",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://guestplumbing.com/ancaster-hvac-plumbing-services/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://guestplumbing.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-ancaster-guest-plumbing-hvac",
+      "businessName": "Guest Plumbing & HVAC"
+    }
+  ]
+}

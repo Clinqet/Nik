@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v4 — AI Knowledge page: calmer layout, grouped review, every action guarded</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --green-pick: #DFFABD; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #F5F5F5;
+    --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+    --ok-bg: #EAFBF0; --ok-ink: #0e7a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1260px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.5; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 960px; line-height: 1.55; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w760 { width: 760px; max-width: 100%; }
+  .w560 { width: 560px; max-width: 100%; }
+  .w400 { width: 400px; max-width: 100%; }
+  .w360 { width: 360px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:normal; line-height:1.3; }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-border); }
+  .pill.danger { background: var(--danger-bg); color: var(--danger); border-color: var(--danger-border); }
+  .pill.navy { background: #fff; color: var(--navy); border-color: rgba(3,40,88,.35); }
+  .chip { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--muted); white-space:nowrap; }
+  .chip.on { background: var(--green-pick); border-color:#CBE9A6; color:#101010; }
+  .chip.warn { color: var(--warn); border-color: var(--warn-border); background: var(--warn-bg); }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .search { display:inline-flex; align-items:center; gap:6px; background:var(--field); border-radius:999px; padding:6px 12px; font-size:12px; color:var(--muted); min-width:150px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.xs { padding:5px 10px; font-size:11.5px; }
+  .btn.disabled { opacity:.45; cursor:not-allowed; }
+  .btn.danger-ghost { color: var(--danger); border-color: var(--danger-border); }
+  .btn.link { border:none; background:transparent; color:var(--navy); text-decoration:underline; text-underline-offset:3px; padding:4px 2px; font-weight:600; }
+  .banner { display:flex; gap:8px; border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.45; align-items:flex-start; }
+  .banner.info { background: var(--info-bg); border:1px solid var(--info-border); color: var(--navy); }
+  .banner.warn { background: var(--warn-bg); border:1px solid var(--warn-border); color: var(--warn); }
+  .banner.danger { background: var(--danger-bg); border:1px solid var(--danger-border); color: var(--danger); }
+  .banner.ok { background: var(--ok-bg); border:1px solid #bdebca; color: var(--ok-ink); }
+  .banner .grow { flex:1; min-width:160px; }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann.bad { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules td.yes { color:#3F7A00; font-weight:600; }
+  table.rules td s { color:var(--danger); }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; background:#F3F3F3; padding:1px 5px; border-radius:5px; }
+
+  /* page chrome */
+  .page-h { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+  .page-h h2 { font-size:18px; color:#1a1a1a; font-weight:500; }
+  .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:420px; line-height:1.45; }
+  .usage { font-size:12px; color:var(--muted); text-align:right; flex:none; }
+  .meter { width:130px; height:6px; border-radius:999px; background:#EFEFEF; margin-top:6px; overflow:hidden; margin-left:auto; }
+  .meter i { display:block; height:100%; border-radius:999px; background:var(--green); }
+  .doc { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); position:relative; }
+  .doc:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; font-size:11px; color:#3F7A00; font-weight:700; }
+  .doc-main { flex:1; min-width:0; }
+  .doc-name { font-size:13.5px; font-weight:600; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .doc-meta { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .doc-an { font-size:11.5px; color:var(--navy); margin-top:3px; }
+  .doc-an a { color:var(--navy); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+  .doc-an.quiet { color:var(--faint); }
+  .doc-an.bad { color:var(--danger); }
+  .doc-actions { display:flex; gap:6px; flex:none; align-items:center; }
+  .dots { width:28px; height:28px; border-radius:999px; background:#F1F1F1; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--muted); letter-spacing:1px; }
+
+  /* the box */
+  .dsec { margin-top:6px; border:1px solid var(--info-border); border-radius:14px; background:#FBFCFF; }
+  .dsec-h { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:14px 16px 10px; flex-wrap:wrap; }
+  .dsec-h h3 { font-size:16px; color:var(--navy); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .dsec-h p { font-size:12.5px; color:var(--muted); margin-top:3px; max-width:520px; line-height:1.45; }
+  .dsec-body { padding:10px 16px 14px; display:flex; flex-direction:column; gap:10px; }
+  .tabs { display:flex; gap:0; border-bottom:1px solid var(--info-border); padding:0 16px; }
+  .tab { padding:9px 14px 8px; font-size:13px; font-weight:600; color:var(--muted); border-bottom:2.5px solid transparent; cursor:pointer; display:flex; gap:6px; align-items:center; }
+  .tab.on { color:var(--navy); border-bottom-color: var(--green); }
+  .tab .n { font-size:11px; font-weight:700; background:#EDF1F7; color:var(--navy); border-radius:999px; padding:1px 7px; }
+  .tab.on .n { background: var(--green-pick); color:#101010; }
+  .tabbar { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 16px 0; }
+  .settingsline { font-size:12px; color:var(--muted); padding:8px 16px 0; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .settingsline b { color:var(--ink); font-weight:600; }
+  .dcard { border:1px solid var(--border); border-radius:12px; background:#fff; padding:12px 14px; }
+  .dcard.rv { border-color: var(--warn-border); }
+  .dcard.ok { border-color:#bdebca; background:#F4FFF8; }
+  .dcard.bad { border-color:var(--danger-border); }
+  .dcard.dis { border-color:var(--border); background:#FAFAFA; opacity:.6; }
+  .dcard-top { display:flex; gap:12px; align-items:flex-start; }
+  .thumb { width:56px; height:56px; border-radius:10px; flex:none; background: linear-gradient(135deg,#d9e7f5,#f1f5f9); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--faint); text-align:center; overflow:hidden; }
+  .dcard-main { flex:1; min-width:0; }
+  .dcard-title { font-size:13.5px; font-weight:600; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .dcard-line { font-size:12px; color:var(--muted); margin-top:3px; }
+  .dcard-line b { color:var(--ink); font-weight:600; }
+  .dcard-src { font-size:11.5px; color:var(--faint); margin-top:4px; }
+  .diff { margin-top:6px; display:grid; grid-template-columns:auto 1fr; gap:2px 10px; font-size:12px; }
+  .diff .k { color:var(--faint); }
+  .diff .v s { color:var(--faint); }
+  .diff .v b { color:var(--ok-ink); font-weight:700; }
+  .dcard-acts { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .skel { height:64px; border-radius:12px; background:linear-gradient(90deg,#F1F1F1,#F8F8F8,#F1F1F1); background-size:200% 100%; animation: sh 1.4s infinite; }
+  @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .pbar { height:6px; border-radius:999px; background:#EFEFEF; overflow:hidden; margin-top:6px; }
+  .pbar i { display:block; height:100%; width:34%; background:var(--navy); border-radius:999px; }
+  .more { text-align:center; padding:6px 0 0; }
+
+  /* modal */
+  .modal { border:1px solid var(--border); border-radius:20px; box-shadow:0 18px 50px rgba(3,40,88,.14); background:#fff; overflow:hidden; }
+  .modal-b { padding:20px 22px 6px; }
+  .modal-b h4 { font-size:17px; font-weight:700; }
+  .modal-b p { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.55; }
+  .modal-f { padding:16px 22px 20px; display:flex; gap:10px; }
+  .modal-f .btn { flex:1; padding:11px 14px; border-radius:12px; }
+  .modal-f .btn.destructive { background:#FF3B30; border-color:#FF3B30; color:#fff; }
+
+  /* phone */
+  .phone { width:320px; border:1px solid var(--border); border-radius:26px; background:#fff; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.06); }
+  .phone .ph-h { padding:14px 16px 10px; border-bottom:1px solid var(--hair); }
+  .phone .ph-h b { font-size:15px; display:block; text-align:center; }
+  .phone .ph-h p { font-size:11.5px; color:var(--muted); margin-top:6px; line-height:1.45; }
+  .phone .ph-b { padding:12px 12px 16px; display:flex; flex-direction:column; gap:10px; }
+  .sticky { border-top:1px solid var(--border); background:#fff; padding:10px 12px; display:flex; gap:8px; }
+  .sticky .btn { flex:1; }
+  .sheet { border-top-left-radius:18px; border-top-right-radius:18px; border:1px solid var(--border); border-bottom:none; background:#fff; padding:12px 16px 16px; box-shadow:0 -10px 30px rgba(0,0,0,.10); }
+  .sheet .hd { width:36px; height:4px; border-radius:99px; background:#E2E2E2; margin:0 auto 10px; }
+  .sheet h4 { font-size:15px; font-weight:700; }
+  .sheet p { font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .sheet .modal-f { padding:14px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Knowledge page — v4: calmer layout, grouped review, every action guarded
+  <span>Evolves the shipped v3.1 design. Built against the real CA sandbox data (Toromont / Hamilton / Caterpillar on SX3SG2: today that is 1 new service + 43 changes pending; after the price-fix deploy Toromont alone will produce ~600). Three goals, from your notes: <b>1)</b> the page reads calm — fewer words per row and card, no "Link found in the document" chips; <b>2)</b> you always know what Approve will touch — new services and changes are separate tabs, and the buttons say exactly what they add; <b>3)</b> every important action asks first — eight confirmation dialogs, same ConfirmationModal / bottom-sheet the rest of the platform uses. Web and mobile both shown, every state below.</span>
+</h1>
+
+<!-- ════════════════ §1 THE PAGE ════════════════ -->
+<div class="section-title">§1 — The page (web) — what changes above the box</div>
+<div class="section-sub">Document rows drop to at most three short lines. The row no longer repeats the "AI Data Analytics" brand — the brand lives on the box; the row just states the outcome with one action. File sizes round ("72 kB", never "72.062kB"). The subtitle is one sentence shorter (both options in §7).</div>
+
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label">WEB · THE PAGE, TOP TO BOTTOM <em>proposed</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div>
+          <h2>AI Knowledge</h2>
+          <p>What your AI receptionist knows beyond your services — policies, price lists, spec sheets, FAQs. It answers callers straight from your material.</p>
+        </div>
+        <div class="usage">
+          Documents 3 of 20
+          <div class="meter"><i style="width:15%"></i></div>
+          <div style="margin-top:8px">Searchable parts 739 of 4,000</div>
+          <div class="meter"><i style="width:18%"></i></div>
+          <button class="btn primary small" style="margin-top:10px">Upload documents</button>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Toromont used machine inventory records <span class="pill">Other</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 666 parts · 793 kB · Aug 21</div>
+            <div class="doc-an quiet">No services found in this document · <a href="#" style="color:var(--navy)">Run again</a></div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Hamilton equipment inventory <span class="pill">Inventory</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 68 parts · 72 kB · Aug 21</div>
+            <div class="doc-an">44 services suggested · <a href="#">Review below</a></div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico">DOC</div>
+          <div class="doc-main">
+            <div class="doc-name">Caterpillar Equipment Model Specifications <span class="pill">Spec sheet</span> <span class="pill info">Shared</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 5 parts · 7 kB · Aug 21</div>
+          </div>
+          <div class="doc-actions"><button class="btn xs">Replace</button><button class="btn xs danger-ghost">Delete</button><span class="dots">···</span></div>
+        </div>
+      </div>
+      <div class="ann good"><b>What got quieter, row by row</b>
+        Today each row can carry: title + type chip + shared pill + status chip + "1 page · 666 searchable parts · 774.148kB · Aug 21" + "AI Data Analytics: no services found in this document". v4 keeps every fact but: "parts" instead of "searchable parts" (the meter at the top already teaches the word), rounded sizes, and the analytics line becomes a short outcome with its action inline. A document that was never analysed (Caterpillar here — analytics not run) shows nothing instead of a sentence. The per-document "Re-run AI Data Analytics" stays in the ··· menu; the "Run again" link only appears on the 0-found and failed variants where it is the natural next step.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §2 THE BOX ════════════════ -->
+<div class="section-title">§2 — The review box (web) — new services and changes stop sharing one pile</div>
+<div class="section-sub">The core confusion on the live page: 44 to review, but "Approve all remaining (1)" — because bulk-approve only ever covers <b>new</b> services, while the 43 <b>changes</b> wait for one-by-one review. v4 makes that split physical: two tabs with counts. Each tab carries only the actions that apply to it, and the buttons name what they do ("Add all new services (1)", never "Approve all remaining (1)"). No backend change — the list API already filters by kind.</div>
+
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label">WEB · THE BOX — "NEW SERVICES" TAB ACTIVE <em>proposed</em></div>
+    <div class="pad" style="background:#FBFCFF">
+      <div class="dsec" style="margin-top:0">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">44 to review</span></h3>
+            <p>Suggestions from your documents. Only you can see them — nothing changes until you approve it.</p>
+          </div>
+          <div class="dsec-acts"><span class="dots">···</span></div>
+        </div>
+        <div class="tabs">
+          <div class="tab on">New services <span class="n">1</span></div>
+          <div class="tab">Changes to your services <span class="n">43</span></div>
+          <div class="tab">All <span class="n">44</span></div>
+        </div>
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip warn">Please check (0)</span>
+            <span class="chip">Document: All</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <button class="btn primary small">Add all new services (1)</button>
+        </div>
+        <div class="settingsline">New services are added at: <b>My location · Sherbrooke</b> <button class="btn link xs">Change</button> <span class="note">— you can still edit any single card.</span></div>
+        <div class="dsec-body">
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="thumb">photo</div>
+              <div class="dcard-main">
+                <div class="dcard-title">2019 Bobcat T770 <span class="pill">Fixed · CA$52,900</span> <span class="pill">98% sure</span></div>
+                <div class="dcard-line">Marketplace &amp; Classifieds › Tools &amp; Equipment Sales (New &amp; Used) · At my location · Sherbrooke</div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts">
+                  <button class="btn primary small">Approve</button>
+                  <button class="btn small">Edit</button>
+                  <button class="btn small">Dismiss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="note" style="text-align:center">That's every new service. 43 changes wait in the next tab.</div>
+        </div>
+      </div>
+      <div class="ann good"><b>What the tab split fixes</b>
+        "Add all new services (1)" can no longer be misread against "44 to review" — you are looking at exactly the one card it will add. "Approve these 25" disappears as a separate idea: on a big queue the primary button reads "Add the 25 shown", and "Add all new services (N)" sits beside it (both confirm first, §4). The "please check" chip filters <i>within</i> the current tab; amber cards keep their border and their edit-first intercept exactly as today.</div>
+    </div>
+  </div>
+
+  <div class="frame w760">
+    <div class="frame-label">WEB · THE BOX — "CHANGES" TAB ACTIVE <em>proposed</em></div>
+    <div class="pad" style="background:#FBFCFF">
+      <div class="dsec" style="margin-top:0">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics <span class="pill navy">44 to review</span></h3>
+            <p>Suggestions from your documents. Only you can see them — nothing changes until you approve it.</p>
+          </div>
+          <div class="dsec-acts"><span class="dots">···</span></div>
+        </div>
+        <div class="tabs">
+          <div class="tab">New services <span class="n">1</span></div>
+          <div class="tab on">Changes to your services <span class="n">43</span></div>
+          <div class="tab">All <span class="n">44</span></div>
+        </div>
+        <div class="tabbar">
+          <div class="chips">
+            <span class="chip warn">Please check (0)</span>
+            <span class="chip">Document: All</span>
+            <span class="search">Search by name…</span>
+          </div>
+          <button class="btn small">Dismiss all changes (43)</button>
+        </div>
+        <div class="settingsline"><span class="note">Changes are applied one at a time, so nothing overwrites a service you set up by accident.</span></div>
+        <div class="dsec-body">
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title">2008 Caterpillar D6TXLVP <span class="pill info">Change to "2008 CATERPILLAR D6TXLVP (M1062650)"</span> <span class="pill">99% match</span></div>
+                <div class="diff">
+                  <span class="k">Price</span><span class="v"><s>Fixed · CA$20,999</s> → <b>Fixed · CA$161,100</b></span>
+                  <span class="k">Category</span><span class="v"><s>Construction &amp; Mining › Dozers</s> → <b>Marketplace &amp; Classifieds › Tools &amp; Equipment Sales</b></span>
+                </div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts">
+                  <button class="btn primary small">Update my service</button>
+                  <button class="btn small">Edit</button>
+                  <button class="btn small">Dismiss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title">2008 Hyundai HL770 - 7A <span class="pill info">Change to "2008 HYUNDAI HL770 - 7A (MT39131B)"</span> <span class="pill">99% match</span></div>
+                <div class="diff">
+                  <span class="k">Category</span><span class="v"><s>Construction &amp; Mining › Wheel Loaders</s> → <b>Marketplace &amp; Classifieds › Tools &amp; Equipment Sales</b></span>
+                </div>
+                <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+                <div class="dcard-acts">
+                  <button class="btn primary small">Update my service</button>
+                  <button class="btn small">Edit</button>
+                  <button class="btn small">Dismiss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="more"><button class="btn small">Show 25 more</button></div>
+          <div class="note" style="text-align:center">1–25 of 43</div>
+        </div>
+      </div>
+      <div class="ann"><b>Why there is still no "Update all" button (recommendation — your call, §8)</b>
+        In your live queue, all 43 changes propose moving well-categorised machines into the generic "Marketplace &amp; Classifieds › Tools &amp; Equipment Sales" — a bulk-apply would have damaged 43 services in one click. One-at-a-time stays, but the tab now gives the honest bulk action for this situation: <b>Dismiss all changes</b> (with a confirm). If you want more later, the safe middle step is "Apply all price-only changes" — prices are anchored to the document, categories are guesses.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §3 CARDS ════════════════ -->
+<div class="section-title">§3 — One card, before and after</div>
+<div class="section-sub">The card loses the link chips entirely (already removed in code — the links shown were provably wrong: each card was displaying its <i>neighbours'</i> links from the document, a dozer carrying forklift PDFs). Category and place merge onto one line. "From … · units · page 1" drops the section word when it adds nothing.</div>
+
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label">TODAY <i>crowded</i></div>
+    <div class="pad">
+      <div class="dcard">
+        <div class="dcard-title">2024 Kubota U55 - 5 <span class="pill info">A change to your existing service "2024 KUBOTA U55 - 5 (M106329A)"</span> <span class="pill">99% match</span></div>
+        <div class="dcard-line">Category&nbsp;&nbsp;Construction and Mining › Mini Excavators → Marketplace &amp; Classifieds › Tools &amp; Equipment Sales (New &amp; Used)</div>
+        <div class="dcard-src">From "Hamilton equipment inventory" · units · page 1</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+          <span class="pill info">Link found in the document: eq-mdm-227521....</span>
+          <span class="pill info">Link found in the document: 2011_CATERPILL...</span>
+          <span class="pill info">Link found in the document: eq-mdm-190916...</span>
+          <span class="pill info">Link found in the document: 2024_KUBOTA_U...</span>
+          <span class="pill info">Link found in the document: eq-mdm-190721...</span>
+          <span class="pill info">Link found in the document: 2023_JOHN_DEE...</span>
+        </div>
+        <div class="dcard-acts"><button class="btn primary small">Update my service</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+      </div>
+      <div class="ann bad"><b>Six chips, four of them lies</b> — only two of those links belong to the Kubota's row; the rest are the neighbouring machines'. They also pushed the buttons below the fold on a phone.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label">V4 <em>calm</em></div>
+    <div class="pad">
+      <div class="dcard">
+        <div class="dcard-title">2024 Kubota U55 - 5 <span class="pill info">Change to "2024 KUBOTA U55 - 5 (M106329A)"</span> <span class="pill">99% match</span></div>
+        <div class="diff">
+          <span class="k">Category</span><span class="v"><s>Construction &amp; Mining › Mini Excavators</s> → <b>Marketplace &amp; Classifieds › Tools &amp; Equipment Sales</b></span>
+        </div>
+        <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+        <div class="dcard-acts"><button class="btn primary small">Update my service</button><button class="btn small">Edit</button><button class="btn small">Dismiss</button></div>
+      </div>
+      <div class="ann good"><b>Kept, not cut</b> — every fact a decision needs is still here: what changes (as an old → new diff, not a prose category line), how sure the match is, and where it came from. The amber "please check" card keeps its warn border, its chip and the edit-first intercept — unchanged from v3.1. The chip wording tightens: "Change to …" instead of "A change to your existing service …".</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §4 DIALOGS ════════════════ -->
+<div class="section-title">§4 — Every important action asks first (8 dialogs)</div>
+<div class="section-sub">Today only "Approve all remaining" and "Dismiss all from document" confirm; a stray tap on Approve, Update my service, Dismiss, or "Approve these 25" acts immediately. v4 guards all of them with the platform ConfirmationModal (web) / ConfirmDialog bottom sheet (mobile). "Save and approve" inside the editor stays unguarded — the editor itself is the deliberate step. Exact copy below; green confirm for adding, red for dismissing.</div>
+
+<div class="board">
+  <div class="frame w400"><div class="frame-label">1 · APPROVE ONE (new)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Add "2019 Bobcat T770" to your services?</h4><p>It goes live right away with the price and details on this card, at My location · Sherbrooke. You can change or remove it any time in Manage Services.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Add service</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">2 · UPDATE ONE (new)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Update "2008 CATERPILLAR D6TXLVP (M1062650)"?</h4><p>Only the changes shown on the card are applied. The service goes back into review before the change shows to customers.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Update service</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">3 · APPROVE AS A CHANGE (new)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Apply "Gutter clean" as a change?</h4><p>You already have a service with this name, so this updates it instead of creating a copy.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Apply change</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">4 · DISMISS ONE (new)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Dismiss "2008 Hyundai HL770 - 7A"?</h4><p>It leaves the list and won't come back unless you run AI Data Analytics again for its document.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn destructive">Dismiss</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">5 · ADD THE PAGE (new — was un-guarded "Approve these 25")</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Add the 25 new services shown?</h4><p>They go live right away, added at My location · Sherbrooke. Anything marked "please check" is skipped and stays in the list.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Add 25 services</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">6 · DISMISS THE SHOWN (new — was un-guarded menu item)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Dismiss the 25 suggestions shown?</h4><p>Everything currently shown leaves the list. They won't come back unless you run AI Data Analytics again.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn destructive">Dismiss 25</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">7 · ADD ALL NEW (kept from v3.1, re-worded)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Add all 320 new services?</h4><p>They go live on your page and in search as they are added, at My location · Sherbrooke. Changes to existing services and "please check" items are left out — you review those one by one.</p><p>• Takes a few minutes. Cancel any time; what's already added stays.<br>• Anything that couldn't be added stays in the list with the reason.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Add 320 services</button></div></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">8 · DISMISS ALL FROM DOCUMENT (kept from v3.1)</div><div class="pad">
+    <div class="modal"><div class="modal-b"><h4>Dismiss all 43 suggestions from "Hamilton equipment inventory"?</h4><p>They disappear from this list. Nothing changes in your services. If you run AI Data Analytics again for this document later, they may come back.</p></div>
+    <div class="modal-f"><button class="btn">Cancel</button><button class="btn destructive">Dismiss 43</button></div></div>
+  </div></div>
+</div>
+
+<!-- ════════════════ §5 MOBILE ════════════════ -->
+<div class="section-title">§5 — Mobile (mirrors the same rendering rules)</div>
+<div class="section-sub">Same tabs, same counts, same dialogs as bottom sheets. The sticky bar shows only the active tab's action, so "Add all new services (1)" is never on screen while you look at changes. Cards keep one action row; the confirm sheet carries the same words as web.</div>
+
+<div class="board">
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b><p>What your AI receptionist knows beyond your services — policies, price lists, spec sheets, FAQs. It answers callers straight from your material.</p></div>
+    <div class="ph-b">
+      <div style="border:1px solid var(--border);border-radius:12px;padding:10px 12px">
+        <div class="doc-name" style="font-size:12.5px">Hamilton equipment inventory <span class="pill">Inventory</span> <span class="pill ok">Ready</span></div>
+        <div class="doc-meta">1 page · 68 parts · 72 kB · Aug 21</div>
+        <div class="doc-an">44 services suggested · <a href="#">Review below</a></div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:10px 12px">
+        <div class="doc-name" style="font-size:12.5px">Toromont used machine inventory records <span class="pill">Other</span> <span class="pill ok">Ready</span></div>
+        <div class="doc-meta">1 page · 666 parts · 793 kB · Aug 21</div>
+        <div class="doc-an quiet">No services found · <a href="#" style="color:var(--navy)">Run again</a></div>
+      </div>
+      <div class="dsec" style="margin-top:2px">
+        <div class="dsec-h" style="padding:12px 12px 8px"><div><h3 style="font-size:14px">Clinket AI Data Analytics <span class="pill navy">44</span></h3></div><span class="dots">···</span></div>
+        <div class="tabs" style="padding:0 12px;overflow-x:auto">
+          <div class="tab on" style="font-size:12px;padding:8px 10px 7px">New <span class="n">1</span></div>
+          <div class="tab" style="font-size:12px;padding:8px 10px 7px">Changes <span class="n">43</span></div>
+          <div class="tab" style="font-size:12px;padding:8px 10px 7px">All <span class="n">44</span></div>
+        </div>
+        <div class="dsec-body" style="padding:10px 12px 12px">
+          <div class="settingsline" style="padding:0 0 6px">Added at: <b>My location · Sherbrooke</b> <button class="btn link xs">Change</button></div>
+          <div class="dcard" style="padding:10px 12px">
+            <div class="dcard-title" style="font-size:12.5px">2019 Bobcat T770 <span class="pill">Fixed · CA$52,900</span></div>
+            <div class="dcard-line" style="font-size:11.5px">Marketplace &amp; Classifieds › Tools &amp; Equipment Sales · My location</div>
+            <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+            <div class="dcard-acts" style="margin-top:8px"><button class="btn primary xs" style="flex:1">Approve</button><button class="btn xs" style="flex:1">Edit</button><button class="btn xs" style="flex:1">Dismiss</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sticky"><button class="btn primary small">Add all new services (1)</button></div>
+  </div>
+
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b><p>Changes tab active — the sticky bar switches with the tab.</p></div>
+    <div class="ph-b">
+      <div class="dsec" style="margin-top:2px">
+        <div class="tabs" style="padding:0 12px">
+          <div class="tab" style="font-size:12px;padding:8px 10px 7px">New <span class="n">1</span></div>
+          <div class="tab on" style="font-size:12px;padding:8px 10px 7px">Changes <span class="n">43</span></div>
+          <div class="tab" style="font-size:12px;padding:8px 10px 7px">All <span class="n">44</span></div>
+        </div>
+        <div class="dsec-body" style="padding:10px 12px 12px">
+          <div class="note" style="padding-bottom:2px">Applied one at a time, so nothing overwrites your services by accident.</div>
+          <div class="dcard" style="padding:10px 12px">
+            <div class="dcard-title" style="font-size:12.5px">2008 Caterpillar D6TXLVP <span class="pill info">Change · 99% match</span></div>
+            <div class="diff" style="font-size:11.5px">
+              <span class="k">Price</span><span class="v"><s>CA$20,999</s> → <b>CA$161,100</b></span>
+              <span class="k">Category</span><span class="v"><s>Dozers</s> → <b>Tools &amp; Equipment Sales</b></span>
+            </div>
+            <div class="dcard-acts" style="margin-top:8px"><button class="btn primary xs" style="flex:1">Update my service</button><button class="btn xs">Edit</button><button class="btn xs">Dismiss</button></div>
+          </div>
+          <div class="note" style="text-align:center">Keeps loading as you scroll · 1–25 of 43</div>
+        </div>
+      </div>
+    </div>
+    <div class="sticky"><button class="btn small">Dismiss all changes (43)</button></div>
+  </div>
+
+  <div class="phone">
+    <div class="ph-h"><b>AI Knowledge</b><p>Any approve / update / dismiss confirms in a bottom sheet — same words as web.</p></div>
+    <div class="ph-b" style="min-height:280px;position:relative;background:#F2F2F3">
+      <div style="opacity:.35">
+        <div class="dcard" style="padding:10px 12px"><div class="dcard-title" style="font-size:12.5px">2008 Caterpillar D6TXLVP</div><div class="dcard-line" style="font-size:11.5px">Change · 99% match</div></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:0">
+        <div class="sheet">
+          <div class="hd"></div>
+          <h4>Update "2008 CATERPILLAR D6TXLVP (M1062650)"?</h4>
+          <p>Only the changes shown on the card are applied. The service goes back into review before the change shows to customers.</p>
+          <div class="modal-f"><button class="btn">Cancel</button><button class="btn primary">Update service</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ §6 STATES ════════════════ -->
+<div class="section-title">§6 — Every state</div>
+<div class="section-sub">Nothing from v3.1's state coverage is lost — the states below re-render in the v4 layout.</div>
+
+<div class="board">
+  <div class="frame w400"><div class="frame-label">LOADING</div><div class="pad">
+    <h3 style="font-size:15px;color:var(--navy)">Clinket AI Data Analytics</h3>
+    <p class="note" style="margin:4px 0 10px">Checking your documents for services…</p>
+    <div class="skel" style="margin-bottom:8px"></div><div class="skel" style="margin-bottom:8px"></div><div class="skel"></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">LOAD ERROR</div><div class="pad">
+    <h3 style="font-size:15px;color:var(--navy)">Clinket AI Data Analytics</h3>
+    <div class="banner danger" style="margin-top:10px"><span class="grow">We couldn't load your suggestions.</span><button class="btn xs">Try again</button></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">EMPTY PAGE (no documents)</div><div class="pad" style="text-align:center">
+    <div class="doc-ico" style="margin:14px auto 8px">DOC</div>
+    <b style="font-size:14px;color:var(--navy)">Teach your assistant from your documents</b>
+    <p class="note" style="max-width:280px;margin:6px auto 12px">Upload price lists, policies or spec sheets — it answers callers from them, word for word.</p>
+    <button class="btn primary small">Upload documents</button> <button class="btn small">Add an FAQ</button>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">ZERO PENDING — THE BOX IS SIMPLY GONE</div><div class="pad">
+    <p class="note">Nothing to review ⇒ no box, no tabs, no re-run link. The per-document "Re-run AI Data Analytics" stays in each row's ··· menu, and the row's outcome line ("44 services suggested / No services found") is the only trace. Unchanged from v3.1.</p>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">VIEW-ONLY (no voice.settings.manage)</div><div class="pad">
+    <div class="dcard">
+      <div class="dcard-title">2019 Bobcat T770 <span class="pill">Fixed · CA$52,900</span></div>
+      <div class="dcard-line">Marketplace &amp; Classifieds › Tools &amp; Equipment Sales</div>
+      <div class="dcard-src">From "Hamilton equipment inventory" · page 1</div>
+    </div>
+    <p class="note" style="margin-top:8px">Subtitle reads "Someone with access can review them." Every button is absent, never disabled. Tabs and counts stay readable.</p>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">CAN MANAGE, CAN'T CREATE SERVICES</div><div class="pad">
+    <p class="note">Approve buttons and both bulk-add actions are absent; Edit and Dismiss remain. Quiet line: "Adding services needs the services permission." Unchanged rule from v3.1, re-rendered per tab.</p>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">LIMIT REACHED / SPACE FULL</div><div class="pad">
+    <div class="banner warn"><span class="grow">You've reached the 20-document limit. Delete one to upload another.</span></div>
+    <div class="banner warn" style="margin-top:8px"><span class="grow">Your knowledge space is full (4,000 parts). New uploads wait until you delete something.</span></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">QUEUE CAP</div><div class="pad">
+    <div class="note" style="text-align:center">More suggestions are waiting — approve or dismiss some of these first.</div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">BULK RUN — PROGRESS / STOPPED / DONE</div><div class="pad">
+    <div class="banner info"><span class="grow">Adding 108 of 320 to your services… you can keep using the page.<span class="pbar"><i></i></span></span><button class="btn xs">Cancel</button></div>
+    <div class="banner info" style="margin-top:8px"><span class="grow">You stopped at 108 of 320.</span><button class="btn xs primary">Continue adding (212 left)</button><button class="btn xs">Cancel</button></div>
+    <div class="banner ok" style="margin-top:8px"><span class="grow">Done — 318 added to your services. 2 couldn't be added and stay in this list.</span><button class="btn xs">Show those 2</button><button class="btn xs">Hide</button></div>
+  </div></div>
+
+  <div class="frame w400"><div class="frame-label">PARTIAL SCAN / ANALYTICS FAILED</div><div class="pad">
+    <div class="banner info"><span class="grow">"Toromont used machine inventory records" is a big document — we checked the first part of it.</span></div>
+    <div class="doc" style="margin-top:8px;border-bottom:none">
+      <div class="doc-main">
+        <div class="doc-name" style="font-size:12.5px">Toromont used machine inventory records</div>
+        <div class="doc-an bad">AI Data Analytics failed · <a href="#" style="color:var(--danger)">Try again</a></div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ════════════════ §7 COPY ════════════════ -->
+<div class="section-title">§7 — Exact copy (EN) this mockup proposes</div>
+<div class="section-sub">These strings become localization keys in all 15 catalogs on approval. Everything not listed keeps its v3.1 wording.</div>
+
+<table class="rules">
+  <tr><th style="width:30%">Where</th><th>Proposed EN copy</th></tr>
+  <tr><td>Page subtitle (option A — shorter, recommended)</td><td>"What your AI receptionist knows beyond your services — policies, price lists, spec sheets, FAQs. It answers callers straight from your material."</td></tr>
+  <tr><td>Page subtitle (option B — keep today's)</td><td>"What your AI receptionist knows about your business beyond your services — policies, spec sheets, FAQs. It answers callers from these, word for word from your own material."</td></tr>
+  <tr><td>Box header</td><td>"Clinket AI Data Analytics" + pill "{count} to review" (the brand stops repeating per document row)</td></tr>
+  <tr><td>Box subtitle</td><td>"Suggestions from your documents. Only you can see them — nothing changes until you approve it."</td></tr>
+  <tr><td>Tabs</td><td>"New services ({n})" · "Changes to your services ({n})" · "All ({n})"</td></tr>
+  <tr><td>Row outcome lines</td><td>"{n} services suggested · Review below" / "No services found in this document · Run again" / "AI Data Analytics failed · Try again" / (never analysed ⇒ no line)</td></tr>
+  <tr><td>Bulk buttons</td><td>"Add all new services ({n})" · "Add the {n} shown" · "Dismiss all changes ({n})" · "Dismiss the {n} shown"</td></tr>
+  <tr><td>Settings line</td><td>"New services are added at: {At my location / Customer's place} · {area} — Change" + "you can still edit any single card."</td></tr>
+  <tr><td>Changes-tab note</td><td>"Changes are applied one at a time, so nothing overwrites a service you set up by accident."</td></tr>
+  <tr><td>Dialog 1 — approve one</td><td>Title "Add "{name}" to your services?" · Body "It goes live right away with the price and details on this card, at {settings}. You can change or remove it any time in Manage Services." · Confirm "Add service"</td></tr>
+  <tr><td>Dialog 2 — update one</td><td>Title "Update "{service}"?" · Body "Only the changes shown on the card are applied. The service goes back into review before the change shows to customers." · Confirm "Update service"</td></tr>
+  <tr><td>Dialog 3 — approve as change</td><td>Title "Apply "{name}" as a change?" · Body "You already have a service with this name, so this updates it instead of creating a copy." · Confirm "Apply change"</td></tr>
+  <tr><td>Dialog 4 — dismiss one</td><td>Title "Dismiss "{name}"?" · Body "It leaves the list and won't come back unless you run AI Data Analytics again for its document." · Confirm "Dismiss" (red)</td></tr>
+  <tr><td>Dialog 5 — add the shown page</td><td>Title "Add the {n} new services shown?" · Body "They go live right away, added at {settings}. Anything marked "please check" is skipped and stays in the list." · Confirm "Add {n} services"</td></tr>
+  <tr><td>Dialog 6 — dismiss the shown</td><td>Title "Dismiss the {n} suggestions shown?" · Body "Everything currently shown leaves the list. They won't come back unless you run AI Data Analytics again." · Confirm "Dismiss {n}" (red)</td></tr>
+  <tr><td>Dialogs 7 &amp; 8</td><td>Keep v3.1 bodies; 7's title becomes "Add all {n} new services?" and its confirm "Add {n} services".</td></tr>
+</table>
+
+<!-- ════════════════ §8 DECISIONS ════════════════ -->
+<div class="section-title">§8 — Decisions I need from you (nothing below is built yet)</div>
+<table class="rules">
+  <tr><th style="width:26%">Question</th><th>Options</th><th style="width:34%">My recommendation</th></tr>
+  <tr>
+    <td><b>1 · Tabs</b></td>
+    <td>(a) Two tabs + All, as drawn · (b) keep one mixed list with stronger grouping headers</td>
+    <td class="yes">(a) — it kills the "44 vs (1)" confusion physically, uses the existing API filters, and each tab carries only its own bulk action.</td>
+  </tr>
+  <tr>
+    <td><b>2 · Bulk for changes</b></td>
+    <td>(a) none — per card only, plus "Dismiss all changes" · (b) "Apply all price-only changes" · (c) full "Update all"</td>
+    <td class="yes">(a) now; (b) is the safe later step. Your live queue would have been damaged by (c): all 43 changes were category downgrades.</td>
+  </tr>
+  <tr>
+    <td><b>3 · Category-only changes</b></td>
+    <td>Should analytics propose a change when only the CATEGORY differs and the price matches? (a) keep proposing · (b) stop proposing category-only changes</td>
+    <td class="yes">(b) — the price is anchored to your document; the category is the resolver's guess and, on real data, usually worse than what you chose. Cuts the 43 to ~a handful. Backend change; needs your yes.</td>
+  </tr>
+  <tr>
+    <td><b>4 · Subtitle</b></td>
+    <td>Option A (shorter) or B (today's)</td>
+    <td class="yes">A.</td>
+  </tr>
+  <tr>
+    <td><b>5 · Confirm on single Approve</b></td>
+    <td>(a) confirm every single approve, as drawn · (b) confirm only bulk + update + dismiss, let single Approve act instantly</td>
+    <td class="yes">(a) — you asked for every important button guarded; a single approve publishes to your live page.</td>
+  </tr>
+</table>
+
+<div class="ann" style="max-width:960px"><b>Already shipped in code this session (your explicit asks — reflected above, not waiting on this mockup)</b>
+1) "Link found in the document" chips removed on web + mobile, and the underlying capture bug fixed as a class (each row now keeps only its OWN links; neighbours only fill silence — this also stops a draft from ever taking its neighbour's photo). 2) The voice-settings page: the "whose number shows?" section is gone on every stamp (Canada now always shows the caller's number; India unchanged), and the "When should the assistant answer?" cards sit in two columns with Call recording after. Everything else on this page waits for your approval.</div>
+
+</div>
+</body>
+</html>

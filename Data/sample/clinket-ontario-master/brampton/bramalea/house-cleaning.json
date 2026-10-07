@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "bramalea",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-bramalea-glow-light-cleaning",
+      "businessName": "Glow Light Cleaning",
+      "description": "Residential and commercial cleaning — deep clean, move-in/out, post-construction, office, recurring. Norwood Pl, Bramalea.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "742-247-3666",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2 Norwood Pl",
+        "postalCode": "L6S 4W9",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2 Norwood Pl, Brampton, ON L6S 4W9"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Deep Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-In/Move-Out",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Office Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Post-Construction Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Cleaning+Services/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-bramalea-dust-bunny-cleaning",
+      "businessName": "Dust Bunny Cleaning",
+      "description": "House cleaning service, Royal Salisbury Way, Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-455-5282",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "259 Royal Salisbury Way",
+        "postalCode": "L6V 3G4",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "259 Royal Salisbury Way, Brampton, ON L6V 3G4"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Cleaning+Services/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-bramalea-united-cleaning-services",
+      "businessName": "United Cleaning Services",
+      "description": "Cleaning services, Hedgedale Rd industrial, Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-595-4830",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "46 Hedgedale Rd",
+        "postalCode": "L6T 5L2",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "46 Hedgedale Rd, Brampton, ON L6T 5L2"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Cleaning Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Cleaning+Services/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

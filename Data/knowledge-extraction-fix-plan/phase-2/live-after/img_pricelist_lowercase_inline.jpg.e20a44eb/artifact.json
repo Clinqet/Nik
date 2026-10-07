@@ -1,0 +1,59 @@
+{
+  "contentHash": "88AA6D4C9EFFC24A9CEB627B721DAA8B6D1568901562F046B504F1576424223F",
+  "pipelineFingerprint": "0ab241d36357432abfa381b72d9628a8:605e5c5cedbd4f1397642f2aad131c79:6796ddb61486459f9666ec5d4053cadc:cap=1",
+  "docName": "img_pricelist_lowercase_inline.jpg",
+  "pageCount": 1,
+  "docTitle": "Nail Bar Price List",
+  "docSummary": "Price list for nail bar services, including classic manicure, gel manicure, spa pedicure, acrylic full set, nail art per nail, and polish change.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "nail bar",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "classic manicure $30  \ngel manicure $45  \nspa pedicure $45  \nacrylic full set $65  \nnail art per nail $3  \npolish change $15\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "A nail bar service price list reading: “nail bar”; “classic manicure $30”; “gel manicure $45”; “spa pedicure $45”; “acrylic full set $65”; “nail art per nail $3”; “polish change $15”."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "88aa6d4c9effc24a",
+      "contentHash": "88aa6d4c9effc24a9ceb627b721daa8b6d1568901562f046b504f1576424223f",
+      "blobPath": "SX3SG2/_images/e20a44eb9cce470abf36e0f05b3b0d89/88aa6d4c9effc24a.jpg",
+      "width": 1419,
+      "height": 765,
+      "bytes": 48905,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "nail bar"
+    }
+  ],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

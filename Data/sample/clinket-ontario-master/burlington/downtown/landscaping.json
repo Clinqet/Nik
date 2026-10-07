@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "downtown",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-downtown-greer-landscaping",
+      "businessName": "Greer Landscaping",
+      "description": "Landscape construction, hardscaping, pools, decks, fences, drainage and outdoor living for Burlington and Halton. Techo-Bloc certified.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@greerlandscaping.ca",
+      "businessPhone": "905-467-8314",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.greerlandscaping.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "2370 Fairview St",
+        "postalCode": "L7R 2E4",
+        "area": "downtown",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2370 Fairview St, Burlington, ON L7R 2E4"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Ancaster",
+        "Hamilton",
+        "Halton Region"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "downtown",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Construction",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hardscaping & Patios",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pools & Poolscapes",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Fences & Decks",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drainage & Stormwater",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Outdoor Kitchens",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.greerlandscaping.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    },
+    {
+      "id": "burlington-downtown-smitty-s-landscaping",
+      "businessName": "Smitty's Landscaping",
+      "description": "Custom landscape design and construction in Burlington & Oakville for 20+ years. Hardscapes, decks, lighting. Owner on-site every day.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": "Nick Smith",
+        "email": "nick@smittyslandscaping.ca",
+        "phone": "905-334-3844"
+      },
+      "businessEmail": "nick@smittyslandscaping.ca",
+      "businessPhone": "905-334-3844",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://smittyslandscaping.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "1265 Ontario St",
+        "postalCode": "L7S 1X8",
+        "area": "downtown",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1265 Ontario St, Burlington, ON L7S 1X8"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "downtown",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hardscape Construction",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Decks",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Patio Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "LED Landscape Lighting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Retaining Walls",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "18:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "18:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "18:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "18:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "18:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://smittyslandscaping.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    }
+  ]
+}

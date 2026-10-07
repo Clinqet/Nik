@@ -1,0 +1,53 @@
+{
+  "businessId": "MEE3IC",
+  "docId": "be07d747c73944a587a3a1029cb5717f",
+  "docName": "gopi.jpeg",
+  "docTitle": "Complete Hair & Beauty Services Price List",
+  "docType": "PriceList",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 238677,
+  "pageCount": 1,
+  "passageCount": 20,
+  "contentHash": "8121D2B30E5A9D73ADD2A94BBC40D2C939BD27CD0DFE115E82A8023FE0484F52",
+  "blobPath": "MEE3IC/be07d747c73944a587a3a1029cb5717f/gopi-20260822-021503-c77680a5cbdf.jpeg",
+  "sourceKind": "File",
+  "receptionistAccess": "AnswersAndSends",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-11T22:49:46.9346212Z",
+    "outcome": "Ran",
+    "candidateCount": 39,
+    "draftCount": 0,
+    "alreadyInCatalogCount": 36,
+    "notFullyScanned": false
+  },
+  "images": [
+    {
+      "imageId": "8121d2b30e5a9d73",
+      "page": 1,
+      "anchorPath": "HAIR TREATMENT",
+      "blobPath": "MEE3IC/_images/be07d747c73944a587a3a1029cb5717f/8121d2b30e5a9d73.jpg",
+      "thumbPath": "MEE3IC/_images/be07d747c73944a587a3a1029cb5717f/8121d2b30e5a9d73.jpg.thumb.webp",
+      "contentHash": "8121d2b30e5a9d73add2a94bbc40d2c939bd27cd0dfe115e82a8023fe0484f52",
+      "kind": "TextSnapshot",
+      "caption": "A green-tinted salon service price list headed “COMPLETE HAIR & BEAUTY,” with sections including “THREADING,” “FACIAL,” and “WAXING,” and listed services such as Eyebrows, Upper lips, Chin, Forehead, Full face, Chemical peels, O3 plus bridal facial, and Casmara whitening.",
+      "sendable": false,
+      "width": 1134,
+      "height": 2048,
+      "bytes": 238677,
+      "source": "Upload",
+      "status": "ThumbReady",
+      "quality": "Blurry"
+    }
+  ],
+  "id": "be07d747c73944a587a3a1029cb5717f",
+  "type": "KnowledgeDocument",
+  "_etag": "\"09004482-0000-0200-0000-6aa4858b0000\"",
+  "createdAt": "2026-08-22T02:15:04.5778471Z",
+  "updatedAt": "2026-09-11T22:49:46.9819125Z",
+  "_rid": "789SAKsUF+QvAAAAAAAAAA==",
+  "_self": "dbs/789SAA==/colls/789SAKsUF+Q=/docs/789SAKsUF+QvAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1789166987
+}

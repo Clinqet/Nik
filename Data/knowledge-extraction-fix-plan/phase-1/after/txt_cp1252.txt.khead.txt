@@ -1,0 +1,16 @@
+# txt_cp1252.txt
+blocks=1 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Coupe 25 €
+      “Forfait” 450 €
+      Soin 50–70 €
+      
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='' page= tokens~10 img=-1
+    Coupe 25 € “Forfait” 450 € Soin 50–70 €

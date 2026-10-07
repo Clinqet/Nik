@@ -1,0 +1,52 @@
+cards=9
+--- NKN607_45db118ded8f4916b988973d95a73901_0 [Text] section='ProFix Home Services — rate card' page=1 img= scripts=["Latn"] chars=449 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service call $95/hr (minimum 1 hour)
+    After-hours call $150/hr
+    Lawn cut $45/visit
+    Porcelain tile installation $3/sq ft
+    Storage unit rental $120/month
+    Excavator rental $350/day
+    Haircut Men $20 Women $30
+    Colour $50 / $70 (short / long)
+    Highlights from $120
+    Repairs $80+
+    Consultation Free
+    Balayage $180–$260
+    Gutter cleaning US$45 per visit
+    Pressure washing 30 - 45 per hour
+    Deposit $50 on all bookings over $300
+    Total for package deal $1,250 (save $150)
+--- NKN607_45db118ded8f4916b988973d95a73901_1 [Table] section='ProFix Home Services — rate card › Detailing menu' page=1 img= scripts=["Latn"] chars=193 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Package: Exterior wash | Small: $25 | Medium: $30 | Large: $40
+    Package: Interior detail | Small: $80 | Medium: $100 | Large: $130
+    Package: Full detail | Small: $150 | Medium: $180 | Large: $220
+--- NKN607_45db118ded8f4916b988973d95a73901_2 [Table] section='ProFix Home Services — rate card › Rupee card' page=1 img= scripts=["Latn"] chars=159 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Machine: Volvo EC210 excavator | Price (INR): 1,05,00,000
+    Machine: JCB 3DX backhoe | Price (INR): 32,50,000
+    Machine: Bobcat S70 loader | Price (INR): 18,75,000
+--- NKN607_45db118ded8f4916b988973d95a73901_3 [DocSummary] section='' page= img= scripts=["Latn"] chars=590 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview
+    A rate card for ProFix Home Services, a detailing menu with exterior wash, interior detail, and full detail packages by size, and a rupee card listing prices for excavator, backhoe, and loader machinery.
+    Sections: ProFix Home Services — rate card (16)
+    Detailing menu — 3 records
+    Package: Exterior wash (1), Interior detail (1), Full detail (1)
+    Small: $25 to $150 (typical)
+    Medium: $30 to $180 (typical)
+    Large: $40 to $220 (typical)
+    Rupee card — 3 records
+    Machine: Volvo EC210 excavator (1), JCB 3DX backhoe (1), Bobcat S70 loader (1)
+--- NKN607_45db118ded8f4916b988973d95a73901_4 [DocAggregate] section='Detailing menu — Package' page= img= scripts=["Latn"] chars=160 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview — Detailing menu — Package
+    3 records — Package: Exterior wash (1), Interior detail (1), Full detail (1)
+--- NKN607_45db118ded8f4916b988973d95a73901_5 [DocAggregate] section='Detailing menu — Small' page= img= scripts=["Latn"] chars=122 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview — Detailing menu — Small
+    3 records — Small: $25 to $150 (typical)
+--- NKN607_45db118ded8f4916b988973d95a73901_6 [DocAggregate] section='Detailing menu — Medium' page= img= scripts=["Latn"] chars=124 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview — Detailing menu — Medium
+    3 records — Medium: $30 to $180 (typical)
+--- NKN607_45db118ded8f4916b988973d95a73901_7 [DocAggregate] section='Detailing menu — Large' page= img= scripts=["Latn"] chars=122 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview — Detailing menu — Large
+    3 records — Large: $40 to $220 (typical)
+--- NKN607_45db118ded8f4916b988973d95a73901_8 [DocAggregate] section='Rupee card — Machine' page= img= scripts=["Latn"] chars=170 title='Service, Detailing, and Equipment Price Cards' type='Document'
+    Service, Detailing, and Equipment Price Cards — overview — Rupee card — Machine
+    3 records — Machine: Volvo EC210 excavator (1), JCB 3DX backhoe (1), Bobcat S70 loader (1)

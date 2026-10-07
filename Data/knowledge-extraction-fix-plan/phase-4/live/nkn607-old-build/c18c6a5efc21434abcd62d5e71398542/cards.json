@@ -1,0 +1,172 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_0",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Maple Family Clinic — patient information pack › Insurance summary (sample policy)",
+    "content": "Monthly premium | $182.50\nAnnual deductible | $500\nOut-of-pocket maximum | $3,000\nCo-pay per visit | $25\nPolicy number | POL-4471-2026\nCoverage start | 2026-01-01",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_1",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Maple Family Clinic — patient information pack › Medication schedule",
+    "content": "Medication: Amoxicillin | Dose: 500 mg | Frequency: 3 times daily for 7 days\nMedication: Ibuprofen | Dose: 400 mg | Frequency: every 8 hours as needed\nMedication: Vitamin D | Dose: 1000 IU | Frequency: once daily",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_2",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Maple Family Clinic — patient information pack › Uninsured services and fees",
+    "content": "Service: Sick note | Fee: $30\nService: Driver medical exam | Fee: $150\nService: Travel consultation (30 min) | Fee: $95\nService: Ear syringing | Fee: $40\nService: Missed appointment fee | Fee: $50\nService: Annual physical (uninsured patients) | Fee: $250",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_3",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Maple Family Clinic — patient information pack › Uninsured services and fees",
+    "content": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_4",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Maple Family Clinic Patient Information Pack — overview\nProvides a sample insurance policy summary, a medication schedule for Amoxicillin, Ibuprofen, and Vitamin D, fees for uninsured services, and lab reference ranges.\nSections: Uninsured services and fees, Insurance summary (sample policy) (6)\nMedication schedule — 3 records\nMedication: Amoxicillin (1), Ibuprofen (1), Vitamin D (1)\nDose: 500 mg (1), 400 mg (1), 1000 IU (1)\nFrequency: 3 times daily for 7 days (1), every 8 hours as needed (1), once daily (1)\nUninsured services and fees — 6 records\nService: Sick note (1), Driver medical exam (1), Travel consultation (30 min) (1), Ear syringing (1), Missed appointment fee (1), Annual physical (uninsured patients) (1)\nFee: $30 to $250 (typical)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_5",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Medication schedule — Medication",
+    "content": "Maple Family Clinic Patient Information Pack — overview — Medication schedule — Medication\n3 records — Medication: Amoxicillin (1), Ibuprofen (1), Vitamin D (1)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_6",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Medication schedule — Dose",
+    "content": "Maple Family Clinic Patient Information Pack — overview — Medication schedule — Dose\n3 records — Dose: 500 mg (1), 400 mg (1), 1000 IU (1)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_7",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Medication schedule — Frequency",
+    "content": "Maple Family Clinic Patient Information Pack — overview — Medication schedule — Frequency\n3 records — Frequency: 3 times daily for 7 days (1), every 8 hours as needed (1), once daily (1)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_8",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Uninsured services and fees — Service",
+    "content": "Maple Family Clinic Patient Information Pack — overview — Uninsured services and fees — Service\n6 records — Service: Sick note (1), Driver medical exam (1), Travel consultation (30 min) (1), Ear syringing (1), Missed appointment fee (1), Annual physical (uninsured patients) (1)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_c18c6a5efc21434abcd62d5e71398542_9",
+    "docName": "pdf_insurance_medical_and_fees.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Uninsured services and fees — Fee",
+    "content": "Maple Family Clinic Patient Information Pack — overview — Uninsured services and fees — Fee\n6 records — Fee: $30 to $250 (typical)",
+    "contentCjk": null,
+    "docTitle": "Maple Family Clinic Patient Information Pack",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

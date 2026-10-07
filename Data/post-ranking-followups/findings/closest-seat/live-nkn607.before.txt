@@ -1,0 +1,40 @@
+setting Voice__Knowledge__RetrievalClosestSeats = 0
+Q	Q01	phone good 8 bad 1 first 1 n 9	ask good 6 bad 2 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q02	phone good 0 bad 0 first 0 n 0	ask good 7 bad 1 first 1 n 8	
+Q	Q03	phone good 0 bad 0 first 0 n 0	ask good 5 bad 3 first 0 n 8	
+Q	Q04	phone good 0 bad 0 first 0 n 0	ask good 0 bad 8 first 0 n 8	
+Q	Q05	phone good 0 bad 0 first 0 n 0	ask good 0 bad 8 first 0 n 8	
+Q	Q06	phone good 0 bad 0 first 0 n 0	ask good 3 bad 1 first 1 n 4	
+Q	Q07	phone good 0 bad 0 first 0 n 0	ask good 0 bad 5 first 0 n 5	
+Q	Q08	phone good 0 bad 0 first 0 n 0	ask good 1 bad 0 first 1 n 1	
+Q	Q09	phone good 3 bad 5 first 1 n 8	ask good 3 bad 5 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv.
+Q	Q10	phone good 0 bad 0 first 0 n 0	ask good 1 bad 7 first 1 n 8	
+Q	Q11	phone good 0 bad 9 first 0 n 9	ask good 1 bad 7 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q12	phone good 0 bad 0 first 0 n 0	ask good 1 bad 7 first 1 n 8	
+Q	Q13	phone good 0 bad 0 first 0 n 0	ask good 1 bad 7 first 1 n 8	
+Q	Q14	phone good 0 bad 0 first 0 n 0	ask good 3 bad 5 first 0 n 8	
+Q	Q15	phone good 0 bad 0 first 0 n 0	ask good 2 bad 6 first 1 n 8	
+Q	Q16	phone good 0 bad 0 first 0 n 0	ask good 7 bad 1 first 1 n 8	
+Q	Q17	phone good 0 bad 0 first 0 n 0	ask good 4 bad 4 first 1 n 8	
+Q	Q18	phone good 0 bad 0 first 0 n 0	ask good 7 bad 1 first 0 n 8	
+Q	Q19	phone good 0 bad 0 first 0 n 0	ask good 3 bad 5 first 1 n 8	
+Q	Q20	phone good 0 bad 0 first 0 n 0	ask good 4 bad 4 first 1 n 8	
+Q	Q21	phone good 0 bad 0 first 0 n 0	ask good 2 bad 1 first 1 n 3	
+Q	Q22	phone good 0 bad 0 first 0 n 0	ask good 1 bad 6 first 0 n 7	
+Q	Q23	phone good 0 bad 0 first 0 n 0	ask good 4 bad 0 first 1 n 8	
+Q	Q24	phone good 0 bad 0 first 0 n 0	ask good 1 bad 3 first 1 n 4	
+Q	Q25	phone good 0 bad 0 first 0 n 0	ask good 1 bad 3 first 1 n 4	
+Q	Q26	phone good 0 bad 1 first 0 n 1	ask good 1 bad 7 first 0 n 8	Northline Equipment 2026 Catalogue - Inv.
+Q	Q27	phone good 6 bad 3 first 1 n 9	ask good 6 bad 2 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q28	phone good 0 bad 0 first 0 n 0	ask good 6 bad 2 first 1 n 8	
+Q	Q29	phone good 0 bad 0 first 0 n 0	ask good 0 bad 8 first 0 n 8	
+Q	Q30	phone good 0 bad 0 first 0 n 0	ask good 0 bad 8 first 0 n 8	
+Q	Q31	phone good 0 bad 0 first 0 n 0	ask good 0 bad 7 first 0 n 7	
+Q	Q32	phone good 8 bad 1 first 1 n 9	ask good 6 bad 2 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q33	phone good 8 bad 1 first 1 n 9	ask good 6 bad 2 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q34	phone good 0 bad 0 first 0 n 0	ask good 1 bad 6 first 1 n 7	
+Q	Q35	phone good 0 bad 0 first 0 n 0	ask good 2 bad 6 first 1 n 8	
+Q	Q36	phone good 0 bad 0 first 0 n 0	ask good 7 bad 1 first 1 n 8	
+Q	Q37	phone good 7 bad 0 first 1 n 7	ask good 8 bad 0 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+Q	Q38	phone good 4 bad 5 first 1 n 9	ask good 4 bad 4 first 1 n 8	Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - Inv. | Northline Equipment 2026 Catalogue - ove.
+TOTAL	phone right 44 unrelated 26 first 7 answered 7	ask right 115 unrelated 155 first 27 answered 32

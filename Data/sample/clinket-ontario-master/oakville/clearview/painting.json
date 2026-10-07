@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "clearview",
+    "category": "painting",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-clearview-certapro-painters-of-oakville-burlington",
+      "businessName": "CertaPro Painters of Oakville/Burlington",
+      "description": "Locally owned residential and commercial painters. Interior, exterior, cabinets, colour consultation, power washing.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Mark Tunks",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "haltonoffice@certapro.com",
+      "businessPhone": "905-582-5633",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://certapro.com/oakville-burlington/",
+        "other": []
+      },
+      "address": {
+        "street": "333 Wyecroft Rd., Unit 4",
+        "postalCode": "L6K 2H2",
+        "area": "clearview",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "333 Wyecroft Rd., Unit 4, Oakville, ON L6K 2H2"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga",
+        "Milton",
+        "Georgetown"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "clearview",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Cabinet Refinishing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Colour Consultation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Power Washing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Wallpaper Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://certapro.com/oakville-burlington/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

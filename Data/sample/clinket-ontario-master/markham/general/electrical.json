@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "city": "Markham",
+    "area": "general",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:30:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "markham-general-moon-tech-electric",
+      "businessName": "Moon Tech Electric",
+      "description": "Licensed residential electricians serving Markham homes, townhouses and condos — repairs, fixtures, panel work, Ontario Electrical Code compliant.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@moontechelectric.ca",
+      "businessPhone": "289-395-1932",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://moontechelectric.ca/residential-electrician/markham/",
+        "other": []
+      },
+      "address": {
+        "street": "130-11750 Ninth Line",
+        "postalCode": "L4A 5G1",
+        "area": "general",
+        "city": "Whitchurch-Stouffville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "130-11750 Ninth Line, Whitchurch-Stouffville, ON L4A 5G1"
+      },
+      "serviceAreas": [
+        "Markham",
+        "Unionville",
+        "Cornell",
+        "Milliken",
+        "Markham Village",
+        "Buttonville",
+        "Richmond Hill",
+        "Stouffville",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Markham",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Fixture Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Upgrades",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Troubleshooting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://moontechelectric.ca/residential-electrician/markham/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:30:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:30:00-04:00"
+    }
+  ]
+}

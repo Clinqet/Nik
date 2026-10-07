@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "general",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-general-airfx-heating-air-conditioning",
+      "businessName": "Airfx Heating & Air Conditioning",
+      "description": "Heating, AC, ventilation, refrigeration — commercial/industrial, planned maintenance, 24h emergency. Regan Rd.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-323-3242",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "20 Regan Rd",
+        "postalCode": "L7A 1C3",
+        "area": "general",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "20 Regan Rd, Brampton, ON L7A 1C3"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Ventilation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Refrigeration",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24h Emergency Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# pdf_hindi_gujarati_english_pricelist.pdf.4eeae96e
+blocks=5 pageCount=1 docType=Other
+cards=3 imageCards=0 warnings=0
+
+--- card 0 [Table] section='श्री ब्यूटी पार्लर - रेट कार्ड' page=1 img= chars=125
+    सेवा | कीमत
+    बाल कटवाना | ₹250
+    दाढ़ी ट्रिम | ₹150
+    फेशियल (गोल्ड) | ₹1,200
+    मैनीक्योर | ₹300
+    पेडीक्योर | ₹450
+    हेयर स्पा | ₹1,500
+--- card 1 [Table] section='श्री ब्यूटी पार्लर - रेट कार्ड › सेवायो जने लाव' page=1 img= chars=75
+    1 5 | ₹250
+    इशियस | ₹800
+    42118 | ₹500
+    417541212 | ₹400
+    WISSEL 78244 | ₹5,000
+--- card 2 [Text] section='श्री ब्यूटी पार्लर - रेट कार्ड › सेवायो जने लाव' page=1 img= chars=82
+    English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.

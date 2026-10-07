@@ -1,0 +1,176 @@
+{
+  "contentHash": "BAACDD1A05F8ADB2BD215A307148F1864F6D8FD7EEF299002E34BC46E0EDB1D4",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "pdf_insurance_medical_and_fees.pdf",
+  "pageCount": 1,
+  "docTitle": "Maple Family Clinic Patient Information Pack",
+  "docSummary": "Provides a sample insurance policy summary, a medication schedule for Amoxicillin, Ibuprofen, and Vitamin D, fees for uninsured services, and lab reference ranges.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Maple Family Clinic — patient information pack",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Insurance summary (sample policy)",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "Monthly premium",
+            "$182.50"
+          ],
+          [
+            "Annual deductible",
+            "$500"
+          ],
+          [
+            "Out-of-pocket maximum",
+            "$3,000"
+          ],
+          [
+            "Co-pay per visit",
+            "$25"
+          ],
+          [
+            "Policy number",
+            "POL-4471-2026"
+          ],
+          [
+            "Coverage start",
+            "2026-01-01"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Medication schedule",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Medication",
+            "Dose",
+            "Frequency"
+          ],
+          [
+            "Amoxicillin",
+            "500 mg",
+            "3 times daily for 7 days"
+          ],
+          [
+            "Ibuprofen",
+            "400 mg",
+            "every 8 hours as needed"
+          ],
+          [
+            "Vitamin D",
+            "1000 IU",
+            "once daily"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Uninsured services and fees",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Service",
+            "Fee"
+          ],
+          [
+            "Sick note",
+            "$30"
+          ],
+          [
+            "Driver medical exam",
+            "$150"
+          ],
+          [
+            "Travel consultation (30 min)",
+            "$95"
+          ],
+          [
+            "Ear syringing",
+            "$40"
+          ],
+          [
+            "Missed appointment fee",
+            "$50"
+          ],
+          [
+            "Annual physical (uninsured patients)",
+            "$250"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [],
+  "unpairedPriceLines": 0
+}

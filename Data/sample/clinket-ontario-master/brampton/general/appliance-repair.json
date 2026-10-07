@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "general",
+    "category": "appliance-repair",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-general-bravora-appliance-repair",
+      "businessName": "Bravora Appliance Repair",
+      "description": "Same-day appliance repair across Brampton & GTA — refrigerators, washers, dryers, dishwashers, ovens, microwaves. Warranty on repairs. 24/7 emergency.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "bravoratech@gmail.com",
+      "businessPhone": "905-965-2199",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://bravoraappliance.com/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Toronto",
+        "Oakville",
+        "Milton",
+        "Markham",
+        "Etobicoke",
+        "Burlington",
+        "Vaughan"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "appliance-repair",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Refrigerator Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Washing Machine Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Dryer Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Dishwasher Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Oven/Range Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Microwave Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24/7 emergency service available"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://bravoraappliance.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-general-superior-appliance-service-of-brampton",
+      "businessName": "Superior Appliance Service of Brampton",
+      "description": "Appliance repair service for Brampton listed on TrustedPros.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-302-7142",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "appliance-repair",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Appliance Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://trustedpros.ca/company/superior-appliance-service-of-brampton",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-general-enercare-brampton",
+      "businessName": "Enercare Brampton",
+      "description": "Air conditioning and appliance repair & service. Lowry Drive location.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-488-2186",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "5 Lowry Drive",
+        "postalCode": "L7A 1A3",
+        "area": "general",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "5 Lowry Drive, Brampton, ON L7A 1A3"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "appliance-repair",
+          "subcategory": null
+        },
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Appliance Repair & Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

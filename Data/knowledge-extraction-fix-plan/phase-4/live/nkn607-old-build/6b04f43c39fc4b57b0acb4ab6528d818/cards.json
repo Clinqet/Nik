@@ -1,0 +1,121 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_0",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "PRIYA SHARMA",
+    "content": "Senior Hair Stylist 416-555-0199 priya@example.com",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_1",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "SKILLS",
+    "content": "Balayage Keratin Bridal styling Colour correction",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_2",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "CERTIFICATIONS",
+    "content": "Redken Colour Specialist 2021 Olaplex Pro 2022",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_3",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "PROFILE",
+    "content": "Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_4",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "EXPERIENCE",
+    "content": "Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000.",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_5",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "EDUCATION",
+    "content": "Marvel Beauty School, Diploma 2012",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_6b04f43c39fc4b57b0acb4ab6528d818_6",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Priya Sharma Senior Hair Stylist Resume — overview\nResume for senior hair stylist Priya Sharma, covering skills in balayage, keratin, bridal styling and colour correction; Redken and Olaplex certifications; a professional profile; salon experience at Glow Salon and City Cuts; and education at Marvel Beauty School.\nSections: SKILLS (4), EXPERIENCE (4), PRIYA SHARMA (3), CERTIFICATIONS (2), PROFILE (1), EDUCATION (1)",
+    "contentCjk": null,
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

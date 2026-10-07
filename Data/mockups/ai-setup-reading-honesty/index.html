@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup summary honesty</title>
+<style>
+  :root {
+    --ink: #101010; --navy: #032858; --muted: #5F5F5F; --hint: #8A94A6; --line: #E5E9F0; --page: #F4F6FA;
+    --green: #97EF29; --green-deep: #7acc1f;
+    --amber-bg: #FFFBEB; --amber-line: #FDE68A; --amber-title: #92400E; --amber-text: #B45309; --amber-chip: #FEF3C7; --amber-more: #FDE68A;
+    --info-bg: #F1F5FB; --info-line: #D6E0EE; --info-title: #032858; --info-text: #33507A; --info-chip: #E3EBF6;
+    --card: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --page: #0E1420; --card: #161E2C; --ink: #F2F5FA; --muted: #A9B4C5; --hint: #8592A6; --line: #253047; }
+  }
+  :root[data-theme="dark"] { --page: #0E1420; --card: #161E2C; --ink: #F2F5FA; --muted: #A9B4C5; --hint: #8592A6; --line: #253047; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: Lufga, "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 1240px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 6px; color: var(--navy); }
+  h2 { font-size: 19px; margin: 40px 0 6px; color: var(--navy); }
+  h3 { font-size: 15px; margin: 0 0 8px; }
+  p.lead { color: var(--muted); max-width: 900px; line-height: 1.5; margin: 0 0 10px; }
+  .note { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; line-height: 1.5; font-size: 14px; max-width: 960px; }
+  .note b { color: var(--navy); }
+  .row { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+  .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--hint); margin: 0 0 8px; }
+
+  /* web modal */
+  .web { width: 480px; max-width: 100%; background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(3,40,88,.18); padding: 24px; color: #101010; }
+  .tick { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--green-deep)); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+  .center { text-align: center; }
+  .title { font-size: 24px; font-weight: 700; margin: 0 0 2px; }
+  .sub { font-size: 14px; color: #5F5F5F; margin: 0; }
+  .hint { font-size: 12px; color: #8A94A6; text-align: center; margin: 14px 0 10px; }
+  .srow { display: flex; align-items: center; gap: 12px; border: 1px solid #E8ECF2; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; background: #fff; }
+  .srow .ic { width: 34px; height: 34px; border-radius: 10px; background: #EEF8DF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .srow .t { font-size: 14px; font-weight: 600; }
+  .srow .s { font-size: 12px; color: #5F5F5F; }
+  .srow .chev { margin-left: auto; color: #8A94A6; }
+  .ico { flex-shrink: 0; margin-top: 1px; }
+  .card { border-radius: 12px; padding: 14px; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+  .card.amber { background: var(--amber-bg); border: 1px solid var(--amber-line); }
+  .card.info { background: var(--info-bg); border: 1px solid var(--info-line); }
+  .card .ct { font-size: 12px; font-weight: 700; margin: 0 0 2px; }
+  .card .cx { font-size: 12px; margin: 0; line-height: 1.45; }
+  .amber .ct, .amber .lbl { color: var(--amber-title); }
+  .amber .cx { color: var(--amber-text); }
+  .info .ct, .info .lbl { color: var(--info-title); }
+  .info .cx { color: var(--info-text); }
+  .lbl { font-size: 12px; font-weight: 600; margin: 8px 0 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 11px; border-radius: 6px; padding: 2px 8px; max-width: 12rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .amber .chip { background: var(--amber-chip); border: 1px solid var(--amber-line); color: var(--amber-title); }
+  .amber .chip.more { background: var(--amber-more); border: 0; font-weight: 600; color: #78350F; }
+  .info .chip { background: var(--info-chip); border: 1px solid var(--info-line); color: var(--info-title); }
+  .info .chip.more { background: var(--info-line); border: 0; font-weight: 600; }
+  .after { font-size: 12px; margin: 8px 0 0; }
+  .amber .after { color: var(--amber-text); }
+  .done { width: 100%; padding: 12px; border: 0; border-radius: 12px; color: #fff; font-weight: 700; font-size: 15px; background: linear-gradient(90deg, #032858, #064a9e); font-family: inherit; }
+  .new { outline: 2px dashed #7acc1f; outline-offset: 3px; position: relative; }
+  .new::after { content: "NEW"; position: absolute; top: -10px; right: 10px; background: #7acc1f; color: #101010; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 4px; }
+
+  /* phone */
+  .phone { width: 375px; max-width: 100%; border-radius: 34px; border: 10px solid #1B2433; background: #F7F8FA; overflow: hidden; color: #101010; }
+  .phone.dark { background: #0F1622; color: #F2F5FA; }
+  .bar { height: 26px; display: flex; justify-content: space-between; padding: 6px 18px 0; font-size: 11px; font-weight: 600; }
+  .sheet { background: #fff; border-radius: 22px 22px 0 0; margin-top: 10px; padding: 18px 16px 20px; }
+  .phone.dark .sheet { background: #161E2C; }
+  .phone .title { font-size: 20px; }
+  .phone .sub { font-size: 12px; }
+  .phone .card { padding: 12px; }
+  .phone .card .ct { font-size: 12px; }
+  .phone .card .cx { font-size: 11px; line-height: 16px; }
+  .phone .chip { font-size: 10px; max-width: 160px; }
+  .phone.dark .srow { background: #1C2638; border-color: #2A3650; }
+  .phone.dark .srow .s { color: #A9B4C5; }
+  .phone.dark .card.amber, .phone.dark .card.info { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+  .phone.dark .card .ct, .phone.dark .card .lbl, .phone.dark .chip { color: #F2F5FA; }
+  .phone.dark .card .cx, .phone.dark .after { color: #A9B4C5; }
+  .phone.dark .chip { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
+  .phone.dark .sub { color: #A9B4C5; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .tile .card { margin-bottom: 0; }
+  .tile p.why { font-size: 12px; color: var(--muted); margin: 10px 0 0; line-height: 1.45; }
+  .tablewrap { overflow-x: auto; border-radius: 12px; }
+  table { min-width: 760px; border-collapse: collapse; width: 100%; background: var(--card); border-radius: 12px; overflow: hidden; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--navy); color: #fff; font-weight: 600; }
+  code { font-size: 12px; background: rgba(3,40,88,.07); padding: 1px 4px; border-radius: 4px; }
+  .small { font-size: 12px; color: var(--muted); }
+  .frame-small { transform-origin: top left; }
+  @media (max-width: 700px) { .web, .phone { width: 100%; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Setup summary — what setup could not be sure of</h1>
+  <p class="lead">AI Quick Setup now checks every price against the file before it goes live. When it holds a price back, keeps a price the
+    provider already had, leaves out a line that is not a service, or could not finish reading, the "Setup complete" screen says so —
+    in plain words, with the names. Nothing else on the screen changes. Web (provider app) and phone (provider app) show the same cards
+    in the same order.</p>
+  <div class="note">
+    <b>Status:</b> rows approved by the owner in conversation on 2026-10-03 (PLAN-D §5, "Setup complete" rows); this sheet is drawn for the
+    record and is registered in <code>Data/knowledge-reading-accuracy/PLAN.md</code> §0A.<br>
+    <b>Where the words come from:</b> every card is the screen's own copy key, filled with the counts and names the server sends with the
+    finished setup. The two cards marked "server sentence" mirror sentences the server already sends for knowledge files, so the wording
+    stays the same across the product. Names in chips are the provider's own service names, exactly as saved.<br>
+    <b>Order:</b> after the existing "needs a price", "needs a category" and "offers skipped" cards: could not finish → prices without a
+    name → not added → kept your price → worth a look → part could not be read → long page.
+  </div>
+
+  <h2>1 · Everything at once (the worst case)</h2>
+  <p class="lead">A 4-page price list where the reading ran short on the last page, two prices sat on lines with no name, a booking fee
+    was found, one saved price was kept, one price was unusually high, a few words could not be carried over and page 3 was very long.
+    New cards are outlined in green on this sheet only.</p>
+  <div class="row">
+    <div>
+      <p class="label">Web · provider app · Setup complete</p>
+      <div class="web">
+        <div class="center">
+          <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="title">Setup complete</p>
+          <p class="sub">Here's what we set up from your file</p>
+        </div>
+        <p class="hint">Tap a row to open it</p>
+        <div class="srow"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Services</div><div class="s">12 created · 3 updated</div></div><span class="chev">›</span></div>
+        <div class="srow"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Categories</div><div class="s">1 category · 3 subcategories</div></div><span class="chev">›</span></div>
+
+        <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Pricing Missing</p>
+          <p class="cx">6 services need a price before customers can book them.</p>
+          <p class="lbl">Services:</p>
+          <div class="chips"><span class="chip">Gel polish</span><span class="chip">Full hands polish</span><span class="chip">Basic facial</span><span class="chip">Pedicure</span><span class="chip">Hair spa</span><span class="chip more">+1 more</span></div>
+        </div></div>
+
+        <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Some Prices Weren't Added</p>
+          <p class="cx">We couldn't finish reading your file closely, so we left 2 prices for you to add yourself. You can also send the same file again to try once more.</p>
+        </div></div>
+
+        <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Prices Without a Name</p>
+          <p class="cx">2 prices in your file had no service name right beside them, so we didn't add them. Add them yourself to the services that need a price.</p>
+        </div></div>
+
+        <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Not Added as Services</p>
+          <p class="cx">1 line in your file looks like a fee, a total or a condition, not something customers book, so we didn't add it:</p>
+          <div class="chips" style="margin-top:6px"><span class="chip">Booking fee</span></div>
+          <p class="after">If we got one wrong, add it yourself in Services.</p>
+        </div></div>
+
+        <div class="card info new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div>
+          <p class="ct">Your Saved Price Was Kept</p>
+          <p class="cx">1 service kept the price you already had. Your file shows a different price, but we couldn't be sure we read it right. Open Services if you want to change it.</p>
+          <div class="chips" style="margin-top:6px"><span class="chip">Haircut</span></div>
+        </div></div>
+
+        <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Prices Worth a Look</p>
+          <p class="cx">1 price is much higher than usual for your currency. We kept it exactly as your file shows — please check it's right.</p>
+          <div class="chips" style="margin-top:6px"><span class="chip">Bridal package</span></div>
+        </div></div>
+
+        <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+          <p class="ct">Part of Your File Couldn't Be Read</p>
+          <p class="cx">Part of your file couldn't be read, so some details may be missing. Our team has been told and will look into it.</p>
+        </div></div>
+
+        <div class="card info new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div>
+          <p class="ct">A Very Long Page</p>
+          <p class="cx">Page 3 is very long, so we read the first part of it in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</p>
+        </div></div>
+
+        <button class="done">Done</button>
+      </div>
+    </div>
+
+    <div>
+      <p class="label">Phone · provider app · Setup complete</p>
+      <div class="phone">
+        <div class="bar"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="sheet">
+          <div class="center">
+            <div class="tick" style="width:56px;height:56px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p class="title">Setup complete</p>
+            <p class="sub">Here's what we set up from your file</p>
+          </div>
+          <p class="hint">Tap a row to open it</p>
+          <div class="srow"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Services</div><div class="s">12 created · 3 updated</div></div><span class="chev">›</span></div>
+          <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div>
+            <p class="ct">Pricing Missing</p>
+            <p class="cx">6 services need a price before customers can book them.</p>
+            <div class="chips" style="margin-top:6px"><span class="chip">Gel polish</span><span class="chip">Full hands polish</span><span class="chip">Basic facial</span><span class="chip more">+3 more</span></div>
+          </div></div>
+          <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Some Prices Weren't Added</p><p class="cx">We couldn't finish reading your file closely, so we left 2 prices for you to add yourself. You can also send the same file again to try once more.</p></div></div>
+          <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Prices Without a Name</p><p class="cx">2 prices in your file had no service name right beside them, so we didn't add them. Add them yourself to the services that need a price.</p></div></div>
+          <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Not Added as Services</p><p class="cx">1 line in your file looks like a fee, a total or a condition, not something customers book, so we didn't add it:</p><div class="chips" style="margin-top:6px"><span class="chip">Booking fee</span></div><p class="after">If we got one wrong, add it yourself in Services.</p></div></div>
+          <div class="card info new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div><p class="ct">Your Saved Price Was Kept</p><p class="cx">1 service kept the price you already had. Your file shows a different price, but we couldn't be sure we read it right. Open Services if you want to change it.</p><div class="chips" style="margin-top:6px"><span class="chip">Haircut</span></div></div></div>
+          <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Prices Worth a Look</p><p class="cx">1 price is much higher than usual for your currency. We kept it exactly as your file shows — please check it's right.</p><div class="chips" style="margin-top:6px"><span class="chip">Bridal package</span></div></div></div>
+          <div class="card amber new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Part of Your File Couldn't Be Read</p><p class="cx">Part of your file couldn't be read, so some details may be missing. Our team has been told and will look into it.</p></div></div>
+          <div class="card info new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div><p class="ct">A Very Long Page</p><p class="cx">Page 3 is very long, so we read the first part of it in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>2 · Nothing to tell (the usual case)</h2>
+  <p class="lead">Every price was printed beside its service and checked: none of the new cards appears, and the screen is exactly what it is
+    today. A card shows only when its count is above zero.</p>
+  <div class="row">
+    <div>
+      <p class="label">Web</p>
+      <div class="web">
+        <div class="center">
+          <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="title">Setup complete</p>
+          <p class="sub">Here's what we set up from your file</p>
+        </div>
+        <p class="hint">Tap a row to open it</p>
+        <div class="srow"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Services</div><div class="s">8 created</div></div><span class="chev">›</span></div>
+        <div class="srow"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Profile updated</div><div class="s">Gopi Salon</div></div><span class="chev">›</span></div>
+        <button class="done">Done</button>
+      </div>
+    </div>
+    <div>
+      <p class="label">Phone · dark</p>
+      <div class="phone dark">
+        <div class="bar"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="sheet">
+          <div class="center">
+            <div class="tick" style="width:56px;height:56px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p class="title">Setup complete</p>
+            <p class="sub">Here's what we set up from your file</p>
+          </div>
+          <div class="srow" style="margin-top:14px"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d8a12" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></div><div><div class="t">Services</div><div class="s">8 created</div></div><span class="chev">›</span></div>
+          <div class="card info new"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div><p class="ct">Your Saved Price Was Kept</p><p class="cx">1 service kept the price you already had. Your file shows a different price, but we couldn't be sure we read it right. Open Services if you want to change it.</p><div class="chips" style="margin-top:6px"><span class="chip">Haircut</span></div></div></div>
+        </div>
+      </div>
+      <p class="small" style="max-width:375px">Dark phone theme: the cards take the app's glass colours, exactly like today's "needs a price" card.</p>
+    </div>
+  </div>
+
+  <h2>3 · Each card, one and many</h2>
+  <div class="grid">
+    <div class="tile">
+      <p class="label">Could not finish · many</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Some Prices Weren't Added</p><p class="cx">We couldn't finish reading your file closely, so we left 14 prices for you to add yourself. You can also send the same file again to try once more.</p></div></div>
+      <p class="why">Shown when the reading ran out of time, a page could not be read, or the file could only be read from its picture. This is the "limit reached" state of this screen. Count = prices held back for that reason.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Could not finish · no price held back</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Some Prices Weren't Added</p><p class="cx">We couldn't finish reading your file closely, so please check the details we added. You can also send the same file again to try once more.</p></div></div>
+      <p class="why">The reading stopped short but no price had to be held back: the details it added came from one reading, so the provider is asked to look.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Could not finish · one</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Some Prices Weren't Added</p><p class="cx">We couldn't finish reading your file closely, so we left 1 price for you to add yourself. You can also send the same file again to try once more.</p></div></div>
+    </div>
+    <div class="tile">
+      <p class="label">Prices without a name · one</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Prices Without a Name</p><p class="cx">1 price in your file had no service name right beside it, so we didn't add it. Add it yourself to the service that needs a price.</p></div></div>
+      <p class="why">A list printed as price, then name, then price… cannot be trusted to pair the right price with the right service.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Not added · many, long list</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Not Added as Services</p><p class="cx">7 lines in your file look like a fee, a total or a condition, not something customers book, so we didn't add them:</p>
+        <div class="chips" style="margin-top:6px"><span class="chip">Booking fee</span><span class="chip">Late cancellation charge</span><span class="chip">Total</span><span class="chip">Travel charge (outside city)</span><span class="chip">Card surcharge</span><span class="chip more">+2 more</span></div>
+        <p class="after">If we got one wrong, add it yourself in Services.</p></div></div>
+      <p class="why">Names are capped like today's "needs a price" list; the rest show as "+N more".</p>
+    </div>
+    <div class="tile">
+      <p class="label">Kept your saved price · many</p>
+      <div class="card info"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div><p class="ct">Your Saved Prices Were Kept</p><p class="cx">3 services kept the prices you already had. Your file shows different prices, but we couldn't be sure we read them right. Open Services if you want to change them.</p>
+        <div class="chips" style="margin-top:6px"><span class="chip">Haircut</span><span class="chip">Beard trim</span><span class="chip">Hair colour (root touch-up)</span></div></div></div>
+      <p class="why">Nothing for the provider to fix: their live price stayed live. Navy, not amber.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Worth a look · many</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Prices Worth a Look</p><p class="cx">2 prices are much higher than usual for your currency. We kept them exactly as your file shows — please check they're right.</p>
+        <div class="chips" style="margin-top:6px"><span class="chip">Bridal package</span><span class="chip">Wedding shoot</span></div></div></div>
+      <p class="why">The price stays live — this card only asks for a look.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Part could not be read · server sentence</p>
+      <div class="card amber"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="ct">Part of Your File Couldn't Be Read</p><p class="cx">Part of your file couldn't be read, so some details may be missing. Our team has been told and will look into it.</p></div></div>
+      <p class="why">Mirrors the knowledge sentence "Part of this file couldn't be saved…", worded for a file that was read for setup, not saved.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Long pages · many · server sentence</p>
+      <div class="card info"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01" stroke-linecap="round"/></svg><div><p class="ct">Very Long Pages</p><p class="cx">3 pages are very long, so we read the first part of each in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</p></div></div>
+      <p class="why">Mirrors the knowledge sentences for one long page and for several, word for word.</p>
+    </div>
+  </div>
+
+  <h2>4 · The other states of this screen</h2>
+  <div class="grid">
+    <div class="tile">
+      <p class="label">Loading — unchanged</p>
+      <p class="small">While the file is read, the existing "Reading your file…" progress screen shows. The cards on this sheet appear only on the finished screen, never mid-way.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Error — unchanged</p>
+      <p class="small">A file setup could not use at all keeps today's error screen ("Try again" / "Choose another file"). None of these cards appears on it.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Offline — unchanged</p>
+      <p class="small">Setup cannot start offline; today's message stands. A finished summary already on screen stays as it is.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Permission denied — unchanged</p>
+      <p class="small">A team member without the setup permission never reaches this screen (existing rule). Nothing new is shown to anyone else.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Limit reached</p>
+      <p class="small">"Some prices weren't added" (above) is this screen's limit card: the reading's time ran out. Amber, like every limit.</p>
+    </div>
+    <div class="tile">
+      <p class="label">Empty</p>
+      <p class="small">No card has anything to say: none is drawn (section 2).</p>
+    </div>
+  </div>
+
+  <h2>5 · Words and where they come from</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Card</th><th>Shown when</th><th>Web key (<code>public/lang/*.json</code>)</th><th>Phone key (<code>src/Locales/*.json</code>)</th><th>Source</th></tr>
+    <tr><td>Some prices weren't added</td><td><code>readingNotFinished</code> or <code>readingNotFinishedPriceCount</code> &gt; 0</td><td><code>AISetup.SummaryReadingNotFinishedTitle</code> · <code>…Text</code> · <code>…NoPricesText</code></td><td><code>SUMMARY_READING_NOT_FINISHED_TITLE</code> · <code>…_TEXT</code> · <code>…_NO_PRICES_TEXT</code></td><td>screen copy</td></tr>
+    <tr><td>Prices without a name</td><td><code>pricesWithoutNamesCount</code> &gt; 0</td><td><code>AISetup.SummaryPricesWithoutNamesTitle</code> · <code>…Text</code></td><td><code>SUMMARY_PRICES_WITHOUT_NAMES_TITLE</code> · <code>…_TEXT</code></td><td>screen copy</td></tr>
+    <tr><td>Not added as services</td><td><code>notOfferingCount</code> &gt; 0</td><td><code>AISetup.SummaryNotOfferingTitle</code> · <code>…Text</code> · <code>…After</code></td><td><code>SUMMARY_NOT_OFFERING_TITLE</code> · <code>…_TEXT</code> · <code>…_AFTER</code></td><td>screen copy; names from the server</td></tr>
+    <tr><td>We kept your saved price</td><td><code>savedPriceKeptCount</code> &gt; 0</td><td><code>AISetup.SummarySavedPriceKeptTitle</code> · <code>…Text</code></td><td><code>SUMMARY_SAVED_PRICE_KEPT_TITLE</code> · <code>…_TEXT</code></td><td>screen copy; names from the server</td></tr>
+    <tr><td>Prices worth a look</td><td><code>highPriceCount</code> &gt; 0</td><td><code>AISetup.SummaryHighPriceTitle</code> · <code>…Text</code></td><td><code>SUMMARY_HIGH_PRICE_TITLE</code> · <code>…_TEXT</code></td><td>screen copy; names from the server</td></tr>
+    <tr><td>Part of your file couldn't be read</td><td><code>contentNotSaved</code> is true</td><td><code>AISetup.SummaryContentNotReadTitle</code> · <code>…Text</code></td><td><code>SUMMARY_CONTENT_NOT_READ_TITLE</code> · <code>…_TEXT</code></td><td>mirrors server <code>Info_KnowledgeContentNotSaved</code></td></tr>
+    <tr><td>A very long page / Very long pages</td><td><code>pagesReadInPart</code> not empty</td><td><code>AISetup.SummaryLongPageTitle</code> · <code>…Text</code></td><td><code>SUMMARY_LONG_PAGE_TITLE</code> · <code>…_TEXT</code></td><td>mirrors server <code>Info_KnowledgePageTooLongToReadFully</code> / <code>…PagesTooLongToReadFully</code></td></tr>
+  </table></div>
+  <p class="small">The "+N more" chip is <code>AISetup.SummaryNamesMore</code> / <code>SUMMARY_NAMES_MORE</code>, shared by the three cards that list names. Every key exists in all five languages of each app (en, es, fr, gu, hi). Counts use each app's own plural rules.</p>
+</main>
+</body>
+</html>

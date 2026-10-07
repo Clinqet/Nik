@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Dundas",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Family-owned plumbing store and service in Dundas since 1980. Repairs, bathroom renovations, fixtures, water treatment, and drain cleaning.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 46,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "dysplumbing@gmail.com",
+      "businessPhone": "905-627-5657",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://dysplumbing.com/",
+        "other": []
+      },
+      "address": {
+        "street": "10 Foundry St",
+        "city": "Dundas",
+        "area": "Dundas",
+        "province": "ON",
+        "postalCode": "L9H 2V7",
+        "country": "Canada",
+        "formatted": "10 Foundry St, Dundas, ON L9H 2V7"
+      },
+      "serviceAreas": [
+        "Dundas",
+        "Ancaster",
+        "Hamilton",
+        "Flamborough"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Dundas",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Repairs & Service",
+          "description": "Toilets, drains, valves, faucets, water lines",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bathroom Renovations",
+          "description": "Fixtures, surrounds, shower doors, safety rails",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hot Water Tanks & Water Treatment",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Appliance Plumbing Hookups",
+          "description": "Dishwasher, fridge lines, washer hookups",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "16:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": false
+          }
+        ],
+        "notes": "Saturday & Sunday: when available"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://dysplumbing.com/contact.html",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://dysplumbing.com/index.html",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": "Batch 2; hours and email from official contact page"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-dundas-dys-plumbing-services",
+      "businessName": "Dy's Plumbing Services"
+    }
+  ]
+}

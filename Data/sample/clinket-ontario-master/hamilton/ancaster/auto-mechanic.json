@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Ancaster",
+    "category": "auto-mechanic",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "NAPA Autopro and Tirecraft in Ancaster — auto repair, maintenance, tires, oil & lube. Nation-wide warranty; roadside assistance.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@glendalemotors.ca",
+      "businessPhone": "905-648-4113",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://glendalemotors.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "407 Wilson St. E",
+        "city": "Ancaster",
+        "area": "Ancaster",
+        "province": "ON",
+        "postalCode": "L9G 2C4",
+        "country": "Canada",
+        "formatted": "407 Wilson St. E, Ancaster, ON L9G 2C4"
+      },
+      "serviceAreas": [
+        "Ancaster"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Ancaster",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Repair & Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Oil & Lube Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tires",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Car Wash",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Roadside Assistance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "17:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "17:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "17:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "17:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "17:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": "Text Us: 289-778-0694 also published on site"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://glendalemotors.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://glendalemotors.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.85,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-ancaster-glendale-motors",
+      "businessName": "Glendale Motors"
+    }
+  ]
+}

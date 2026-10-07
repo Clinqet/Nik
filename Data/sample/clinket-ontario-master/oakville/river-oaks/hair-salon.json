@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "river-oaks",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-river-oaks-lavie-hair-salon-barbershop",
+      "businessName": "LaVie Hair Salon & Barbershop",
+      "description": "Hair colour, styling, extensions and makeup. Private room available. Queensbury Crescent, River Oaks area.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "Laviesalonandspa@gmail.com",
+      "businessPhone": "905-338-6465",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://laviehairsalon.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "1534 Queensbury Crescent unit 7",
+        "postalCode": "L6H 5B2",
+        "area": "river-oaks",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1534 Queensbury Crescent unit 7, Oakville, ON L6H 5B2"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "river-oaks",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Colour & Highlighting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Extensions",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Makeup",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Barbershop Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://laviehairsalon.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    },
+    {
+      "id": "oakville-river-oaks-shear-concepts-salon",
+      "businessName": "Shear Concepts Salon",
+      "description": "Welcoming Oakville salon founded by Sheryl Lucas in 2001. Individualized cuts and colour on River Oaks Blvd.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 25,
+      "owner": {
+        "name": "Sheryl Lucas",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "support@shearconcepts.ca",
+      "businessPhone": "905-338-0440",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://shearconcepts.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "Unit 1, 201 River Oaks Blvd. W.",
+        "postalCode": "L6H 3S7",
+        "area": "river-oaks",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "Unit 1, 201 River Oaks Blvd. W., Oakville, ON L6H 3S7"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "river-oaks",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Styling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://shearconcepts.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

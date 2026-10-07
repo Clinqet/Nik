@@ -1,0 +1,528 @@
+{
+  "meta": {
+    "city": "Richmond Hill",
+    "area": "general",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "richmond-hill-general-richmond-hill-plumbing-group",
+      "businessName": "Richmond Hill Plumbing Group",
+      "description": "Owner-led Red Seal master plumber company. Residential, commercial, hydronic heating, backflow, drain camera.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": "Ben Taghva",
+        "email": "info@rhplumbing.ca",
+        "phone": "416-835-3535"
+      },
+      "businessEmail": "info@rhplumbing.ca",
+      "businessPhone": "416-835-3535",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://rhplumbing.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hydronic Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Backflow Prevention",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Camera Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://rhplumbing.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-general-mr-rooter-plumbing-of-richmond-hill-on",
+      "businessName": "Mr Rooter Plumbing of Richmond Hill ON",
+      "description": "24/7 residential and commercial plumbing franchise serving Richmond Hill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-773-7681",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.mrrooter.ca/richmond-hill/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Line",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Backflow Prevention",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.mrrooter.ca/richmond-hill/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-general-riva-plumbing",
+      "businessName": "Riva Plumbing",
+      "description": "Plumbing contractor listed for Richmond Hill service area.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-764-2900",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-general-everest-drain-plumbing",
+      "businessName": "Everest Drain & Plumbing",
+      "description": "Local drain and plumbing service listed for Richmond Hill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-773-7757",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": "L4B 1H3",
+        "area": "general",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://knowitlocal.com/best-plumbers-richmond-hill/",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

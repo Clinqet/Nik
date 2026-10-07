@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "general",
+    "category": "accountants",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "oakville-general-douglas-spence-cpa-ca",
+      "businessName": "Douglas Spence CPA CA",
+      "description": "Oakville chartered accountant serving Oakville and Mississauga.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": null,
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://dsacpaca.com/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Oakville",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "accountants",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Chartered Accounting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tax Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://dsacpaca.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": false,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "Phone not captured from public search snippet; website is primary contact."
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

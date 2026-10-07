@@ -1,0 +1,799 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "bramalea",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 5,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-bramalea-peel-heating-and-air-conditioning",
+      "businessName": "Peel Heating and Air Conditioning",
+      "description": "HVAC & plumbing since 1981. Furnaces, heat pumps, AC, drains, water heaters, 24/7 emergency. Westwyn Court, Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 45,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-498-2952",
+      "social": {
+        "facebook": "https://www.facebook.com/PeelHeatingAndAirConditioning",
+        "instagram": "https://www.instagram.com/peelheating",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.peelheating.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "40 Westwyn Ct",
+        "postalCode": "L6T 4T5",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "40 Westwyn Ct, Brampton, ON L6T 4T5"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Acton",
+        "Bolton",
+        "Malton",
+        "Meadowvale",
+        "Milton",
+        "Oakville",
+        "Orangeville"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        },
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Installation/Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "AC Installation/Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain & Sewer",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours / 24/7 emergency"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.peelheating.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        },
+        {
+          "url": "https://www.peelheating.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "brampton-bramalea-peatson-s-heating-air-conditioning-ltd",
+      "businessName": "Peatson's Heating & Air Conditioning Ltd",
+      "description": "Family-owned Brampton HVAC with 70+ years experience. Readers' Choice since 1996. Furnace, AC, IAQ, water heaters, 24/7 emergency, maintenance program.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 70,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-451-6704",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.peatsonsheatair.com/",
+        "other": []
+      },
+      "address": {
+        "street": "1-46B West Drive",
+        "postalCode": "L6T 3T6",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1-46B West Drive, Brampton, ON L6T 3T6"
+      },
+      "serviceAreas": [
+        "Brampton"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heating / Furnace",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Indoor Air Quality",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Maintenance Program",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency services"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.peatsonsheatair.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-bramalea-gm-heating-cooling-inc",
+      "businessName": "GM Heating & Cooling Inc",
+      "description": "Brampton HVAC — Lennox furnaces/AC, water heaters, ductwork, emergency repairs. Melanie Dr.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@gmheating.ca",
+      "businessPhone": "647-938-5352",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://gmheating.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "8 Melanie Dr Unit 8",
+        "postalCode": "L6T 4K8",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "8 Melanie Dr Unit 8, Brampton, ON L6T 4K8"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "AC Installation/Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Furnace",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Ductwork",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency HVAC",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "08:00",
+            "close": "21:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://gmheating.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-bramalea-parkaire-systems",
+      "businessName": "ParkAire Systems",
+      "description": "15+ years HVAC sales & service — AC, furnaces, heat pumps, gas fireplaces, maintenance plans. West Drive, Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 15,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-804-1491",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "99 West Dr",
+        "postalCode": "L6T 2J6",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "99 West Dr, Brampton, ON L6T 2J6"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heating Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Gas Fireplaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Maintenance Plans",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-bramalea-dr-hvac",
+      "businessName": "Dr HVAC",
+      "description": "Residential heating & cooling — AC/furnace repair & installation, preventative maintenance. Advance Blvd.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-457-4425",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1-215 Advance Blvd",
+        "postalCode": "L6T 4V9",
+        "area": "bramalea",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1-215 Advance Blvd, Brampton, ON L6T 4V9"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "bramalea",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "AC Repair & Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heating Repair & Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Preventative Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

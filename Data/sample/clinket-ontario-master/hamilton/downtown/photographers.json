@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Downtown",
+    "category": "photographers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "hamilton-downtown-marcin-skalij-photography",
+      "businessName": "Marcin Skalij Photography",
+      "description": "Photographer with public 647 listing serving GTA including Hamilton area work.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-962-2770",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Hamilton",
+        "area": "Downtown",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "GTA"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "photographers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Photography",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Digital+Photography%2C+Printing+%26+Imaging/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "Weak locality signal — phone from YP/Canpages synthesis. Prefer stronger local if available later."
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

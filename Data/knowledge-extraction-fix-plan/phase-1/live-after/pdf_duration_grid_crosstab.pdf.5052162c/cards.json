@@ -1,0 +1,162 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_0",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage menu",
+    "content": "Massage: Swedish | 30 min: $60 | 60 min: $90 | 90 min: $120\nMassage: Deep tissue | 30 min: $70 | 60 min: $100 | 90 min: $135\nMassage: Hot stone | 30 min: $75 | 60 min: $110 | 90 min: $150\nMassage: Prenatal | 30 min: $65 | 60 min: $95 | 90 min: $130",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_1",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Facials by skin type",
+    "content": "Hydrating | Express: $45 | Classic: $80 | Luxury: $120\nAnti-aging | Express: $55 | Classic: $95 | Luxury: $140\nAcne care | Express: $50 | Classic: $85 | Luxury: $125",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_2",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Massage and Facial Pricing Menu — overview\nA menu covering Swedish, Deep tissue, Hot stone, and Prenatal massages with typical prices by duration, plus Hydrating, Anti-aging, and Acne care facials with typical prices by facial category.\nMassage menu — 4 records\nMassage: Swedish (1), Deep tissue (1), Hot stone (1), Prenatal (1)\n30 min: $60 to $75 (typical)\n60 min: $90 to $110 (typical)\n90 min: $120 to $150 (typical)\nFacials by skin type — 3 records\nExpress: $45 to $55 (typical)\nClassic: $80 to $95 (typical)\nLuxury: $120 to $140 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_3",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage menu — Massage",
+    "content": "Massage and Facial Pricing Menu — overview — Massage menu — Massage\n4 records — Massage: Swedish (1), Deep tissue (1), Hot stone (1), Prenatal (1)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_4",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage menu — 30 min",
+    "content": "Massage and Facial Pricing Menu — overview — Massage menu — 30 min\n4 records — 30 min: $60 to $75 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_5",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage menu — 60 min",
+    "content": "Massage and Facial Pricing Menu — overview — Massage menu — 60 min\n4 records — 60 min: $90 to $110 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_6",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage menu — 90 min",
+    "content": "Massage and Facial Pricing Menu — overview — Massage menu — 90 min\n4 records — 90 min: $120 to $150 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_7",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Facials by skin type — Express",
+    "content": "Massage and Facial Pricing Menu — overview — Facials by skin type — Express\n3 records — Express: $45 to $55 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_8",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Facials by skin type — Classic",
+    "content": "Massage and Facial Pricing Menu — overview — Facials by skin type — Classic\n3 records — Classic: $80 to $95 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_5052162c79624be68cb0cbe2cec372fc_9",
+    "docName": "pdf_duration_grid_crosstab.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Facials by skin type — Luxury",
+    "content": "Massage and Facial Pricing Menu — overview — Facials by skin type — Luxury\n3 records — Luxury: $120 to $140 (typical)",
+    "docTitle": "Massage and Facial Pricing Menu",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

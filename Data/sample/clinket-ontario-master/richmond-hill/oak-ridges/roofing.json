@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "city": "Richmond Hill",
+    "area": "oak-ridges",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "richmond-hill-oak-ridges-top-roofing",
+      "businessName": "Top Roofing",
+      "description": "Roofing contractor based in Oak Ridges / Richmond Hill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-717-9338",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "104 Stoyell Dr",
+        "postalCode": "L4E 0M8",
+        "area": "oak-ridges",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "104 Stoyell Dr, Richmond Hill, ON L4E 0M8"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "oak-ridges",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-oak-ridges-boston-roofing",
+      "businessName": "Boston Roofing",
+      "description": "Re-shingling, eavestroughs, soffits, fascia, skylights, roof repair.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-833-3605",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "13262 Yonge St",
+        "postalCode": "L4E 2T2",
+        "area": "oak-ridges",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "13262 Yonge St, Richmond Hill, ON L4E 2T2"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "oak-ridges",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Re-shingling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestroughs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Soffits",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Fascia",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Skylights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

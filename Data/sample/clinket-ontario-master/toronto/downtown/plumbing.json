@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "downtown",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-downtown-priority-plumbing-drains",
+      "businessName": "Priority Plumbing & Drains",
+      "description": "Toronto plumbing, drain, sewer and water line services since 2001. Open 7 days. Dupont St location.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 25,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@priorityplumbing.ca",
+      "businessPhone": "416-762-8662",
+      "social": {
+        "facebook": "https://www.facebook.com/priorityplumbing",
+        "instagram": "https://www.instagram.com/priorityplumbing",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://priorityplumbing.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "1594 Dupont Street",
+        "postalCode": "M6P 3S7",
+        "area": "downtown",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1594 Dupont Street, Toronto, ON M6P 3S7"
+      },
+      "serviceAreas": [
+        "Downtown Toronto",
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "East York",
+        "York"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "downtown",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Line",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Line",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Fixture Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 7 days; also 647-427-8624"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://priorityplumbing.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        },
+        {
+          "url": "https://priorityplumbing.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

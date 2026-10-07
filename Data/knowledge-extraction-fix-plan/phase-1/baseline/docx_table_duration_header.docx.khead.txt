@@ -1,0 +1,25 @@
+# docx_table_duration_header.docx
+blocks=2 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Massage menu
+[  1] Table        p1
+      hasHeader=False caption= rows=5
+      | Massage | 30 min | 60 min | 90 min |
+      | Swedish | $60 | $90 | $120 |
+      | Deep tissue | $70 | $100 | $135 |
+      | Hot stone | $75 | $110 | $150 |
+      | Prenatal | $65 | $95 | $130 |
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Table] section='' page=1 tokens~41 img=-1
+    Massage menu
+    Massage | 30 min | 60 min | 90 min
+    Swedish | $60 | $90 | $120
+    Deep tissue | $70 | $100 | $135
+    Hot stone | $75 | $110 | $150
+    Prenatal | $65 | $95 | $130

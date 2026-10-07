@@ -1,0 +1,16 @@
+C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\d854391a-6cde-4e60-a132-e7df537f79e8\scratchpad\bin\cb\cb.exe
+C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\d854391a-6cde-4e60-a132-e7df537f79e8\scratchpad\bin\cb\cb.deps.json
+C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\d854391a-6cde-4e60-a132-e7df537f79e8\scratchpad\bin\cb\cb.runtimeconfig.json
+C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\d854391a-6cde-4e60-a132-e7df537f79e8\scratchpad\bin\cb\cb.dll
+C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\d854391a-6cde-4e60-a132-e7df537f79e8\scratchpad\bin\cb\cb.pdb
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.csproj.AssemblyReference.cache
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.AssemblyInfoInputs.cache
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.AssemblyInfo.cs
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.csproj.CoreCompileInputs.cache
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.csproj.Up2Date
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.dll
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\refint\cb.dll
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.pdb
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\cb.genruntimeconfig.cache
+C:\Nik\Data\knowledge-reading-accuracy\evidence\tools\cb\obj\Debug\net10.0\ref\cb.dll

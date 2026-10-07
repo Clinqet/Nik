@@ -1,0 +1,280 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "general",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-general-d-e-landscaping",
+      "businessName": "D&E Landscaping",
+      "description": "Commercial and industrial landscaping and property maintenance since 1999. Mavis Road. Family-owned.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 27,
+      "owner": {
+        "name": "Ed Torres",
+        "email": "info@landscapeyourway.ca",
+        "phone": "905-272-5287"
+      },
+      "businessEmail": "info@landscapeyourway.ca",
+      "businessPhone": "905-272-5287",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://landscapeyourway.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "3392 Mavis Road",
+        "postalCode": "L5C 1T8",
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "3392 Mavis Road, Mississauga, ON L5C 1T8"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snow and Ice Management",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Soft and Hard Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Irrigation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://landscapeyourway.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-general-green-meadows-landscape-management",
+      "businessName": "Green Meadows Landscape Management",
+      "description": "Commercial and residential landscaping, lawn maintenance, retaining walls, snowplowing. Loreland Ave.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-872-9039",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2380 Loreland Ave",
+        "postalCode": "L4X 2A6",
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2380 Loreland Ave, Mississauga, ON L4X 2A6"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Lawn Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Retaining Walls",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snowplowing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Landscaping+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

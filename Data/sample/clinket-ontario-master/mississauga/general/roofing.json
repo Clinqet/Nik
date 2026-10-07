@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "general",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-general-keating-roofing-contractors-ltd",
+      "businessName": "Keating Roofing Contractors Ltd",
+      "description": "Commercial and residential flat and sloped roofing, shingles, eavestroughing, skylights. Mattawa Ave.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-270-4100",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1713 Mattawa Ave",
+        "postalCode": "L4X 1K5",
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1713 Mattawa Ave, Mississauga, ON L4X 1K5"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Flat Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sloped Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Asphalt Shingles",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestroughing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Skylights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-general-d-angelo-and-sons-roofing-ltd",
+      "businessName": "D'Angelo and Sons Roofing Ltd",
+      "description": "Roof repair and install, shingles, skylights, soffit/eavestrough. Dundas St E.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-276-7776",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "224-1310 Dundas St E",
+        "postalCode": "L4Y 2C1",
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "224-1310 Dundas St E, Mississauga, ON L4Y 2C1"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Shingle Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Skylight Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestrough Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-general-gentech-roofing",
+      "businessName": "Gentech Roofing",
+      "description": "Commercial roofing systems, EPDM, torch-on, maintenance programs. Dundas St E.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-270-6799",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1590 Dundas St E",
+        "postalCode": "L4X 2Z2",
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1590 Dundas St E, Mississauga, ON L4X 2Z2"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Commercial Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "EPDM",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Roof Maintenance Programs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Re-roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

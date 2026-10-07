@@ -1,0 +1,514 @@
+{
+  "meta": {
+    "city": "Cambridge",
+    "area": "general",
+    "category": "handyman",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "cambridge-general-journeyman-renovator",
+      "businessName": "Journeyman Renovator",
+      "description": "Ed Schaefer — fully insured WSIB renovator with 35+ years. Drywall, painting, eavestroughs, flooring, decks across Cambridge, KW and Guelph.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 35,
+      "owner": {
+        "name": "Ed Schaefer",
+        "email": "journeymanreno@gmail.com",
+        "phone": "519-841-5204"
+      },
+      "businessEmail": "journeymanreno@gmail.com",
+      "businessPhone": "519-841-5204",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.journeymanrenovator.com/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Kitchener",
+        "Waterloo",
+        "Guelph",
+        "Brantford",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drywall",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestrough Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Gutter Guard Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flooring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Decks",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.journeymanrenovator.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painters/Cambridge+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "cambridge-general-gerry-s-home-repair",
+      "businessName": "Gerry's Home Repair",
+      "description": "Handyman serving Hespeler, Preston and Galt — deck & fence repairs, minor roof repairs, painting, custom carpentry.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "226-501-7756",
+      "social": {
+        "facebook": "https://www.facebook.com/profile.php",
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.gerryshomerepair.ca/handyman-in-cambridge/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": "N1H 5E3",
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Hespeler",
+        "Preston",
+        "Galt"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Deck & Fence Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Roofing Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Custom Carpentry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Shelving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.gerryshomerepair.ca/handyman-in-cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.gerryshomerepair.ca/handyman-in-cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "cambridge-general-hometown-fix",
+      "businessName": "Hometown Fix",
+      "description": "Handyman and renovation services for Cambridge — plumbing repairs, electrical installs, carpentry, painting, kitchen & bath remodelling. 30+ years.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@hometownfix.ca",
+      "businessPhone": "833-466-3349",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://hometownfix.ca/locations/handyman-cambridge/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "general",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Handyman Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Carpentry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drywall",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Kitchen Remodelling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bathroom Remodelling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://hometownfix.ca/locations/handyman-cambridge/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

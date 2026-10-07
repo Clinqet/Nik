@@ -1,0 +1,56 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_0",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી અજય પટેલ",
+    "content": "પાન મસાલા | ₹250\nશરબત | ₹800\nમીઠાઈ | ₹500\nપાણીની બોટલ | ₹5,000\nચા | ₹50",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_1",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી અજય પટેલ",
+    "content": "ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે.",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": "526c1daee4fe4ddebb9f384ad3987f0d:d81727f429f17040"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_526c1daee4fe4ddebb9f384ad3987f0d_2",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી — overview\nદસ્તાવેજમાં પાન મસાલા, શરબત, મીઠાઈ, પાણીની બોટલ અને ચાના નામ સાથે તેમની કિંમતો દર્શાવવામાં આવી છે.\nSections: શ્રી અજય પટેલ (5)",
+    "contentCjk": null,
+    "docTitle": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

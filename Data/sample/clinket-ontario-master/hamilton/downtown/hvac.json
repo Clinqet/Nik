@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Downtown",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T15:41:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-downtown-hamco-heating-cooling",
+      "businessName": "HAMCO Heating & Cooling",
+      "description": "Heating and air conditioning professionals serving Hamilton for over 80 years (since 1946). Furnaces, AC, heat pumps, boilers, water heaters, ductwork.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 80,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@hamco.ca",
+      "businessPhone": "905-527-1049",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://hamco.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "200 Queen St. North",
+        "postalCode": "L8R 2W3",
+        "formatted": "200 Queen St. North, Hamilton, Ontario L8R 2W3",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Dundas",
+        "Burlington",
+        "Ancaster"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Installation, Repair & Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Boilers",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Custom Ductwork",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://hamco.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    },
+    {
+      "id": "hamilton-downtown-hamilton-heating-and-cooling",
+      "businessName": "Hamilton Heating and Cooling",
+      "description": "Locally owned HVAC technicians providing heating, cooling, and indoor air quality services throughout Hamilton since 2000. 24/7 emergency service.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 26,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@hamiltonheatingandcooling.ca",
+      "businessPhone": "289-778-3090",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://hamiltonheatingandcooling.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "21 King St W, 5th Floor",
+        "postalCode": "L8P 4W7",
+        "formatted": "21 King St W, 5th Floor, Hamilton, ON L8P 4W7",
+        "city": "Hamilton",
+        "area": "Downtown",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Downtown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating Sales, Service and Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Humidifiers",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "16:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": "24/7 Emergency Service Available"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://hamiltonheatingandcooling.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,1328 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_0",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized yellow vehicle with two visible black wheels and a dark cab. Text: “NX-100” and “$12,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:a20ec481d60b9d88"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_1",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Compact excavator NX-100 - $12,500 Rental and purchase available. Delivery within 50 km included. NX-100 $12,500 Skid steer loader NX-105 - $14,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_2",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simple illustration of a yellow machine with two black wheels and a black upper section against a blue background. A white label reads “NX-105” and “$14,250.”",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:35fe0a602ea50f83"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_3",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-105 $14,250 Wheel loader NX-110 - $16,000 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_4",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow wheel loader with two black wheels and a black cab. Text: “NX-110” and “$16,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:cda00c205efbfe7e"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_5",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-110 $16,000 Telehandler NX-115 - $17,750 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_6",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simple illustration of a yellow wheeled machine with a black cab. Text: “NX-115” and “$17,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:5ff27c772816072c"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_7",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-115 $17,750 Scissor lift NX-120 - $19,500 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_8",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Simplified illustration of a yellow wheeled lift with a raised black platform. Text: “NX-120” and “$19,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:82d1d50f500fc627"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_9",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simple illustration of a yellow wheeled machine with a black rectangular component. A label reads “NX-125” and “$21,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:225b620ef9f62662"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_10",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-120 $19,500 Boom lift NX-125 - $21,250 Rental and purchase available. Delivery within 50 km included.\nNX-125 | $21,250\nNX-100 | $12,500\nCompact excavator NX-100 — $12,500\nRental and purchase available. Delivery within 50 km included.\nNX-105 | $14,250\nSkid steer loader NX-105 — $14,250\nRental and purchase available. Delivery within 50 km included.\nNX-110 | $16,000\nWheel loader NX-110 — $16,000\nRental and purchase available. Delivery within 50 km included.\nNX-115 | $17,750\nTelehandler NX-115 — $17,750\nRental and purchase available. Delivery within 50 km included.\nNX-120 | $19,500\nScissor lift NX-120 — $19,500\nRental and purchase available. Delivery within 50 km included.\nNX-125 | $21,250\nBoom lift NX-125 — $21,250",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_11",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_12",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Flat illustration of a yellow wheeled item with two black wheels and a black upright rectangular component. Label reads “NX-130” and “$23,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:8ed056a2c33422dd"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_13",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-130 $23,000 NX-130 Pallet jack NX-135 - $24,750 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_14",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simplified illustration of a yellow pallet jack with black wheels and handle. Text: “NX-135” and “$24,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:62e586224cf31e86"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_15",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-135 $24,750 Generator NX-140 - $26,500 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_16",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled generator with a black rectangular component on top. Text: “NX-140” and “$26,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:578e684bab451ebc"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_17",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-140 $26,500 Air compressor NX-145 - $28,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_18",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled air compressor with a black top housing and two black wheels. Text: “NX-145” and “$28,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:e48d9cb26bb58006"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_19",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-145 $28,250 Compact excavator NX-150 - $30,000 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_20",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow wheeled vehicle with a black cab. Text reads “NX-150” and “$30,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:88d66ec7663bb628"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_21",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A flat illustration of a yellow skid steer loader with a black cab and wheels. Text: “NX-155” and “$31,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:d8ac46f70c558ba6"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_22",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-150 $30,000 Skid steer loader NX-155 - $31,750 Rental and purchase available. Delivery within 50 km included.\nNX-155 | $31,750 | $23,000\nForklift NX-130 — $23,000\nRental and purchase available. Delivery within 50 km included.\nNX-135 | $24,750\nPallet jack NX-135 — $24,750\nRental and purchase available. Delivery within 50 km included.\nNX-140 | $26,500\nGenerator NX-140 — $26,500\nRental and purchase available. Delivery within 50 km included.\nNX-145 | $28,250\nAir compressor NX-145 — $28,250\nRental and purchase available. Delivery within 50 km included.\nNX-150 | $30,000\nCompact excavator NX-150 — $30,000\nRental and purchase available. Delivery within 50 km included.\nNX-155 | $31,750\nSkid steer loader NX-155 — $31,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 2,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_23",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled machine with a black cab. Text: “NX-160” and “$33,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:28b25ce6a609e664"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_24",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Wheel loader NX-160 - $33,500 NX-160 $33,500",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_25",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "$33,500\nWheel loader NX-160 — $33,500\nRental and purchase available. Delivery within 50 km included.\nTelehandler NX-165 - $35,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_26",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simple illustration of a yellow wheeled machine with a black rectangular upper section. Text: “NX-165” and “$35,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:7c72af4b1dff717a"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_27",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-165 $35,250 Scissor lift NX-170 - $37,000 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_28",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled machine with a black upper section. The label reads “NX-170” and “$37,000.”",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:eb81455a73b93e8c"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_29",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-170",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_30",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of yellow wheeled equipment with a white label reading “NX-175” and “$38,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:a40c5361ba9f8327"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_31",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "$37,000 Boom lift NX-175 - $38,750 Rental and purchase available. Delivery within 50 km included.\nNX-175 | $38,750\nNX-180 | $40,500\nNX-185 | $42,250",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_32",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled vehicle or piece of equipment against a blue background. The label reads “NX-180” and “$40,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:055e16b1b0786a91"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_33",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow, two-wheeled machine with a black rectangular component on top. Text: “NX-185” and “$42,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:acbce92c0fc9d0f4"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_34",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-165 | $35,250\nTelehandler NX-165 — $35,250\nRental and purchase available. Delivery within 50 km included.\nNX-170 | $37,000\nScissor lift NX-170 — $37,000\nRental and purchase available. Delivery within 50 km included.\nNX-175 | $38,750\nBoom lift NX-175 — $38,750\nRental and purchase available. Delivery within 50 km included.\nNX-180 | $40,500\nForklift NX-180 — $40,500\nRental and purchase available. Delivery within 50 km included.\nNX-185 | $42,250\nPallet jack NX-185 — $42,250",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 3,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_35",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simplified illustration of a yellow wheeled industrial vehicle. The label reads “NX-190” and “$44,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:675334ce7a1fbc8b"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_36",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Generator NX-190 - $44,000 NX-190 $44,000 $44,000",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_37",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Generator NX-190 — $44,000\nRental and purchase available. Delivery within 50 km included.\nAir compressor NX-195 - $45,750 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_38",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled machine with a dark rectangular component. A label reads “NX-195” and “$45,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:91596d93461ea17d"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_39",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-195 $45,750 Compact excavator NX-200 - $47,500 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_40",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simple illustration of an orange wheeled machine with a black cab-like section. Text: “NX-200” and “$47,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:b484846a948c46b3"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_41",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-200 $47,500 Skid steer loader NX-205 - $49,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_42",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A flat illustration of an orange wheeled construction vehicle with a black cab and wheels. Text: “NX-205” and “$49,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:8f50bc9cca288c65"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_43",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "A simplified illustration of a yellow wheel loader with two black wheels and a black cab. Text: “NX-210” and “$51,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:944a03bfabec8e0a"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_44",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-205 $49,250 Wheel loader NX-210 - $51,000 Rental and purchase available. Delivery within 50 km included.\nNX-210 | $51,000\nNX-215 | $52,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_45",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow box-shaped vehicle with two black wheels and a black rectangular component on top. A label reads “NX-215” and “$52,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:3f47b62aff9c9760"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_46",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-195 | $45,750\nAir compressor NX-195 — $45,750\nRental and purchase available. Delivery within 50 km included.\nNX-200 | $47,500\nCompact excavator NX-200 — $47,500\nRental and purchase available. Delivery within 50 km included.\nNX-205 | $49,250\nSkid steer loader NX-205 — $49,250\nRental and purchase available. Delivery within 50 km included.\nNX-210 | $51,000\nWheel loader NX-210 — $51,000\nRental and purchase available. Delivery within 50 km included.\nNX-215 | $52,750\nTelehandler NX-215 — $52,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 4,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_47",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow wheeled vehicle with a black cab. Label reads “NX-220” and “$54,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:88975080c691d4f9"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_48",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-220 $54,500 NX-220",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_49",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "Illustration of a yellow wheeled product with a black rectangular component. Label reads “NX-225” and “$56,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:bec183c2d27a5f8d"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_50",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "Boom lift NX-225 - $56,250 Rental and purchase available. Delivery within 50 km included. NX-225 $56,250 Forklift NX-230 - $58,000 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_51",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "A simple illustration of a yellow forklift. Text: “NX-230” and “$58,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:e8e7c0f3627a65f3"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_52",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "NX-230 $58,000 Pallet jack NX-235 - $59,750 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_53",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "Illustration of a yellow pallet jack with a black handle and two wheels. Label reads “NX-235” and “$59,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:6c1db05f7451c5a8"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_54",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "NX-235 $59,750 Generator NX-240 - $61,500 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_55",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "Illustration of a yellow wheeled generator. Text: “NX-240” and “$61,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:1ff20ce29af525e4"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_56",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "NX-240 $61,500 Air compressor NX-245 - $63,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_57",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "Illustration of a yellow wheeled machine with a dark upper housing. The label reads “NX-245” and “$63,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:b1bddda639c7f2a9"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_58",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue › Scissor lift NX-220 - $54,500",
+    "content": "NX-245 $63,250 NX-225 Rental and purchase available. Delivery within 50 km included. NX-230 Rental and purchase available. Delivery within 50 km included. NX-235 Rental and purchase available. Delivery within 50 km included. NX-240 Rental and purchase available. Delivery within 50 km included. NX-245 Air compressor NX-245 — $3,250",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 5,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_59",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled machine with a dark rectangular component on top. Label reads “NX-250” and “$65,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:0beb67b5a793e477"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_60",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Compact excavator NX-250 - $65,000 NX-250 $65,000",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_61",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "$65,000\nCompact excavator NX-250 — $65,000\nRental and purchase available. Delivery within 50 km included.\nSkid steer loader NX-255 - $66,750 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_62",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow skid steer loader. Text: “NX-255” and “$66,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:6593c3212f1a6d67"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_63",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-255 $66,750 Wheel loader NX-260 - $68,500 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_64",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Simple illustration of a yellow vehicle with two black wheels and a black upper section. Text: “NX-260” and “$68,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:838e0c7818baa42c"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_65",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-260 $68,500 Telehandler NX-265 - $70,250 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_66",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow wheeled machine with a black cab and two visible wheels. Label reads “NX-265” and “$70,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:7835f55e1038d8b6"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_67",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-265 $70,250 Scissor lift NX-270 - $72,000 Rental and purchase available. Delivery within 50 km included.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Text",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_68",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of yellow wheeled equipment with a black upper section. Text: “NX-270” and “$72,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:ab8d25421874a824"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_69",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of yellow wheeled equipment with a black upper section. Text: “NX-275” and “$73,750”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:b6d037bcc3734793"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_70",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-270 $72,000 Boom lift NX-275 - $73,750 Rental and purchase available. Delivery within 50 km included.\nNX-275 | $73,750\nNX-255 | $66,750\nSkid steer loader NX-255 — $66,750\nRental and purchase available. Delivery within 50 km included.\nNX-260 | $68,500\nWheel loader NX-260 — $68,500\nRental and purchase available. Delivery within 50 km included.\nNX-265 | $70,250\nTelehandler NX-265 — $70,250\nRental and purchase available. Delivery within 50 km included.\nNX-270 | $72,000\nScissor lift NX-270 — $72,000\nRental and purchase available. Delivery within 50 km included.\nNX-275 | $73,750\nBoom lift NX-275 — $73,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 6,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_71",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow wheeled machine with a dark rectangular block above it. Label reads “NX-280” and “$75,500”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:ffef5493833b9e77"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_72",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-280 | $75,500\nNX-280 | $75,500\nForklift NX-280 — $75,500\nRental and purchase available. Delivery within 50 km included.\nNX-285 | $77,250\nNX-290 | $79,000\nNX-295 | $80,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_73",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Stylized illustration of a yellow wheeled vehicle with a black upper section. Text: “NX-285” and “$77,250”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:9a1c0ba5f2ed7eff"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_74",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:d99b4937ca164e3e"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_75",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”.",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "88ddcdb8e72742318ce1021035983ec1:41e6a1bf8d6e48d3"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_76",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "Northline Equipment — 2026 catalogue",
+    "content": "NX-285 | $77,250\nPallet jack NX-285 — $77,250\nRental and purchase available. Delivery within 50 km included.\nNX-290 | $79,000\nGenerator NX-290 — $79,000\nRental and purchase available. Delivery within 50 km included.\nNX-295 | $80,750\nAir compressor NX-295 — $80,750",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "Table",
+    "pageNumber": 7,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_88ddcdb8e72742318ce1021035983ec1_77",
+    "docName": "pdf_equipment_catalogue_40_photos.pdf",
+    "docType": "Inventory",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Northline Equipment 2026 Catalogue — overview\nCatalogue of equipment available for rental and purchase, including excavators, loaders, lifts, telehandlers, forklifts, pallet jacks, generators and air compressors. Entries give model numbers and prices and note that delivery within 50 km is included.\nSections: Northline Equipment — 2026 catalogue, Scissor lift NX-220 - $54,500",
+    "contentCjk": null,
+    "docTitle": "Northline Equipment 2026 Catalogue",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

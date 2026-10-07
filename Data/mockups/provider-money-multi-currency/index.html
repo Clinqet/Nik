@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money in more than one currency — provider web + phone</title>
+<style>
+  :root{
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --amber:#F5A623; --blue:#2F80ED; --good:#34C759; --paper:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);
+       font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header.sheet p{margin:0;opacity:.85;max-width:78ch}
+  main{padding:24px 32px 64px;max-width:1500px;margin:0 auto}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+  .lede{color:var(--muted);margin:6px 0 16px;max-width:92ch}
+  .row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;
+              font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .web{width:404px}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B}
+  .phone .cap{border-radius:0}
+  .pad{padding:16px}
+  /* --- house widgets ------------------------------------------------- */
+  .tile{border:1px solid var(--line);border-radius:10px;padding:14px}
+  .tile .label{color:var(--muted);font-size:12px}
+  .amount{color:var(--ink);font-weight:700;font-size:26px;letter-spacing:-.4px;margin-top:2px}
+  .amount.sm{font-size:20px}
+  .also{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+  .also .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  .also ul{list-style:none;margin:6px 0 0;padding:0}
+  .also li{display:flex;justify-content:space-between;padding:3px 0;font-size:13px}
+  .also li b{color:var(--ink);font-weight:600}
+  .cardrow{display:flex;justify-content:space-between;align-items:baseline;
+           padding:9px 0;border-bottom:1px solid var(--line)}
+  .cardrow:last-child{border-bottom:0}
+  .cardrow .m{color:var(--ink);font-weight:600}
+  .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+  .pill.amber{background:#FFF6E5;color:#8A5A00;border:1px solid #FFE2AC}
+  .pill.blue{background:#EAF2FE;color:#1C5FBF;border:1px solid #CFE0FB}
+  .pill.grey{background:#F1F2F4;color:var(--muted);border:1px solid var(--line)}
+  .skel{background:linear-gradient(90deg,#EEF0F3 25%,#F7F8FA 37%,#EEF0F3 63%);border-radius:5px;height:11px}
+  .chart{height:92px;display:flex;align-items:flex-end;gap:7px;margin-top:10px}
+  .chart i{flex:1;background:var(--green);border-radius:3px 3px 0 0;display:block}
+  .axis{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:5px}
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);
+        padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  .rule{background:#F3FBEA;border:1px solid #D6F0B4;border-left:4px solid var(--green);
+        padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  table.words{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  table.words th,table.words td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.words th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px;color:#333}
+  .empty{color:var(--muted);text-align:center;padding:22px 10px;font-size:13px}
+</style>
+</head>
+<body>
+
+<header class="sheet">
+  <h1>Money in more than one currency</h1>
+  <p>Four provider surfaces add up amounts that may not be in the same money. This sheet draws every state of
+     each one, on the web and on the phone, and says where every word comes from. Nothing here changes when a
+     business only ever takes one currency — that is the first frame of every pair, and it is exactly what
+     ships today.</p>
+</header>
+
+<main>
+
+<div class="rule">
+  <b>The rule this sheet applies.</b> Amounts in different money are never added together. The screen leads
+  with the total in the currency the business itself bills in, and lists any other money underneath, untouched.
+  The symbol always belongs to the amount; the way the digits are grouped always belongs to the person reading.
+</div>
+
+<div class="note">
+  <b>Why this sheet exists.</b> Today one provider's dashboard reads <b>233510.1</b> for a single day. That is
+  ₹208,511.10 and C$24,999.00 added together — a number that is not any amount of money. It is live now on
+  business <code>LXDP8G</code>.
+</div>
+
+<!-- ============================================================ -->
+<h2>1 · Today's earnings <span class="n">dashboard tile — web and phone</span></h2>
+<p class="lede">The tile keeps one headline figure. When the day also holds money in another currency, a short
+   list appears beneath it. The headline never changes meaning: it is always the business's own money.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · one currency (unchanged — ships today)</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount">₹208,511.10</div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · two currencies</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount">₹208,511.10</div>
+      <div class="also">
+        <div class="k">Also paid today</div>
+        <ul><li><span>Canadian dollars</span><b>C$24,999.00</b></li></ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · three or more</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount">₹208,511.10</div>
+      <div class="also">
+        <div class="k">Also paid today</div>
+        <ul>
+          <li><span>Canadian dollars</span><b>C$24,999.00</b></li>
+          <li><span>US dollars</span><b>$1,200.00</b></li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:20px">
+  <div class="frame web">
+    <div class="cap">Web · nothing paid today</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount">₹0.00</div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · still loading</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="skel" style="width:58%;height:24px;margin-top:6px"></div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · could not be loaded</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount" style="color:var(--muted)">—</div>
+      <div style="color:var(--muted);font-size:12px;margin-top:4px">We could not load this just now.</div>
+    </div></div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · two currencies</div>
+    <div class="pad"><div class="tile">
+      <div class="label">Today's earnings</div>
+      <div class="amount sm">₹208,511.10</div>
+      <div class="also">
+        <div class="k">Also paid today</div>
+        <ul><li><span>Canadian dollars</span><b>C$24,999.00</b></li></ul>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>2 · Invoice totals <span class="n">the cards above the invoice list</span></h2>
+<p class="lede">Each card counts invoices in one state. When a state holds invoices in more than one currency,
+   the card shows the business's own money on the headline and names the rest below — the count always covers
+   every invoice, whatever money it is in.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · one currency (unchanged)</div>
+    <div class="pad">
+      <div class="tile"><div class="label">Paid · 12 invoices</div><div class="amount sm">₹208,511.10</div></div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · mixed</div>
+    <div class="pad">
+      <div class="tile">
+        <div class="label">Paid · 12 invoices</div>
+        <div class="amount sm">₹208,511.10 <span class="pill grey">11 invoices</span></div>
+        <div class="also">
+          <div class="k">Also paid</div>
+          <ul><li><span>Canadian dollars · 1 invoice</span><b>C$24,999.00</b></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · mixed</div>
+    <div class="pad">
+      <div class="tile">
+        <div class="label">Paid · 12 invoices</div>
+        <div class="amount sm">₹208,511.10</div>
+        <div style="color:var(--muted);font-size:12px">11 invoices</div>
+        <div class="also">
+          <div class="k">Also paid</div>
+          <ul><li><span>1 invoice</span><b>C$24,999.00</b></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>3 · The invoice list <span class="n">rows, and the total on a group</span></h2>
+<p class="lede">A row always shows its own money — that already works once each row is read individually. The
+   group heading adds up only the rows in the business's own money, and says so when it has left some out.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · a group with mixed rows</div>
+    <div class="pad">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <b style="color:var(--ink)">Due this week</b>
+        <span style="color:var(--ink);font-weight:700">₹78,999.00</span>
+      </div>
+      <div style="color:var(--muted);font-size:12px;margin-bottom:8px">
+        Plus C$24,999.00 in Canadian dollars
+      </div>
+      <div class="cardrow"><span>INV2608010299 · Meera S.</span><span class="m">₹57,000.00</span></div>
+      <div class="cardrow"><span>INV2608010300 · Rahul K.</span><span class="m">₹21,999.00</span></div>
+      <div class="cardrow"><span>INV2608010301 · Grace L.</span><span class="m">C$24,999.00</span></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · same group</div>
+    <div class="pad">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <b style="color:var(--ink);font-size:13px">Due this week</b>
+        <span style="color:var(--ink);font-weight:700;font-size:13px">₹78,999.00</span>
+      </div>
+      <div style="color:var(--muted);font-size:11px;margin:2px 0 8px">Plus C$24,999.00 in Canadian dollars</div>
+      <div class="cardrow"><span style="font-size:12px">INV…0299</span><span class="m" style="font-size:12px">₹57,000.00</span></div>
+      <div class="cardrow"><span style="font-size:12px">INV…0301</span><span class="m" style="font-size:12px">C$24,999.00</span></div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · no invoices in this group</div>
+    <div class="pad"><div class="empty">Nothing due this week.</div></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>4 · The earnings chart <span class="n">one chart cannot draw two currencies</span></h2>
+<p class="lede">The chart draws the business's own money only — bars of two different currencies side by side
+   would compare amounts that cannot be compared. Anything left out is named in one line under the chart, so
+   nothing disappears silently.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · one currency (unchanged)</div>
+    <div class="pad">
+      <div class="label" style="color:var(--muted);font-size:12px">Earnings · last 7 days</div>
+      <div class="amount sm">₹208,511.10</div>
+      <div class="chart"><i style="height:30%"></i><i style="height:64%"></i><i style="height:44%"></i>
+        <i style="height:88%"></i><i style="height:22%"></i><i style="height:57%"></i><i style="height:73%"></i></div>
+      <div class="axis"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · mixed — the chart stays in one money</div>
+    <div class="pad">
+      <div class="label" style="color:var(--muted);font-size:12px">Earnings · last 7 days</div>
+      <div class="amount sm">₹208,511.10</div>
+      <div class="chart"><i style="height:30%"></i><i style="height:64%"></i><i style="height:44%"></i>
+        <i style="height:88%"></i><i style="height:22%"></i><i style="height:57%"></i><i style="height:73%"></i></div>
+      <div class="axis"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+      <div style="color:var(--muted);font-size:12px;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)">
+        This chart shows Indian rupees. You were also paid <b style="color:var(--ink)">C$24,999.00</b> in this period.
+      </div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · mixed</div>
+    <div class="pad">
+      <div class="label" style="color:var(--muted);font-size:12px">Earnings · last 7 days</div>
+      <div class="amount sm">₹208,511.10</div>
+      <div class="chart"><i style="height:40%"></i><i style="height:70%"></i><i style="height:35%"></i>
+        <i style="height:90%"></i><i style="height:25%"></i><i style="height:60%"></i><i style="height:80%"></i></div>
+      <div style="color:var(--muted);font-size:11px;margin-top:8px">
+        Shows Indian rupees. Also paid <b style="color:var(--ink)">C$24,999.00</b>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:20px">
+  <div class="frame web">
+    <div class="cap">Web · chart still loading</div>
+    <div class="pad">
+      <div class="skel" style="width:40%"></div>
+      <div class="skel" style="width:62%;height:22px;margin-top:8px"></div>
+      <div class="chart" style="opacity:.35"><i style="height:30%"></i><i style="height:64%"></i><i style="height:44%"></i>
+        <i style="height:88%"></i><i style="height:22%"></i><i style="height:57%"></i><i style="height:73%"></i></div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Web · nothing earned in this period</div>
+    <div class="pad">
+      <div class="label" style="color:var(--muted);font-size:12px">Earnings · last 7 days</div>
+      <div class="empty">No payments in this period yet.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Web · this is not shown to your role</div>
+    <div class="pad">
+      <div class="empty">Your role does not include earnings.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>5 · Where every state's words come from</h2>
+<p class="lede">A screen that re-invents a sentence the server already sends will drift out of translation.
+   Every line above is one of these.</p>
+
+<table class="words">
+  <tr><th style="width:34%">What the reader sees</th><th style="width:28%">Where the words come from</th><th>Where the numbers come from</th></tr>
+  <tr><td>“Today's earnings”, “Paid · 12 invoices”, “Due this week”, “Earnings · last 7 days”</td>
+      <td>The screen's own copy, already translated in all five languages.</td>
+      <td>—</td></tr>
+  <tr><td><b>“Also paid today”</b> / <b>“Also paid”</b></td>
+      <td>New copy on the screen, one key per app, added in all five languages.</td>
+      <td>—</td></tr>
+  <tr><td><b>“Canadian dollars”</b> and every other currency name</td>
+      <td>New copy on the screen, one key per currency, in all five languages. Never a raw three-letter code — a
+          provider should not have to know that <code>CAD</code> means Canadian dollars.</td>
+      <td>The server names the currency; the screen turns it into words.</td></tr>
+  <tr><td><b>“Plus C$24,999.00 in Canadian dollars”</b></td>
+      <td>New copy on the screen with two blanks — the amount and the currency name.</td>
+      <td>The server sends each currency's own total separately.</td></tr>
+  <tr><td><b>“This chart shows Indian rupees. You were also paid C$24,999.00 in this period.”</b></td>
+      <td>New copy on the screen with two blanks.</td>
+      <td>Same.</td></tr>
+  <tr><td>“We could not load this just now.” · “No payments in this period yet.” · “Your role does not include earnings.”</td>
+      <td>The screen's existing copy — unchanged by this sheet.</td>
+      <td>—</td></tr>
+  <tr><td>Every amount: <b>₹208,511.10</b>, <b>C$24,999.00</b></td>
+      <td>—</td>
+      <td>The symbol belongs to the money. The digits are grouped the way the reader's own language groups
+          them — a Hindi reader sees ₹2,08,511.10 for the same amount.</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>6 · What does not change</h2>
+<ul class="lede" style="line-height:1.9">
+  <li><b>A business that only ever takes one currency sees exactly what it sees today.</b> Every "also" line,
+      every extra row and every caption is absent unless a second currency really exists. That is the first
+      frame of every pair above, and it is the overwhelming majority.</li>
+  <li><b>No count changes.</b> "12 invoices" still means twelve invoices; only the money is separated.</li>
+  <li><b>Nothing is hidden.</b> Money in another currency is always named and always shown in full. The one
+      thing that stops happening is two currencies being added into a single number.</li>
+  <li><b>No new page, no new tap.</b> Every state above is an existing tile, card, list heading or chart
+      caption growing at most two lines.</li>
+</ul>
+
+</main>
+</body>
+</html>

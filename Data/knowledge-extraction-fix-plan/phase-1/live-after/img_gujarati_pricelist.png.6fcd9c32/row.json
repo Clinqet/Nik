@@ -1,0 +1,52 @@
+{
+  "businessId": "SX3SG2",
+  "docId": "6fcd9c32ee6e4c8397c7babc7121a462",
+  "docName": "img_gujarati_pricelist.png",
+  "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 111530,
+  "pageCount": 1,
+  "passageCount": 7,
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "blobPath": "SX3SG2/6fcd9c32ee6e4c8397c7babc7121a462/img_gujarati_pricelist.png",
+  "sourceKind": "File",
+  "receptionistAccess": "AnswersAndSends",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-11T22:52:35.4471351Z",
+    "outcome": "Ran",
+    "candidateCount": 8,
+    "draftCount": 0,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false
+  },
+  "images": [
+    {
+      "imageId": "d81727f429f17040",
+      "page": 1,
+      "anchorPath": "2 414",
+      "blobPath": "SX3SG2/_images/6fcd9c32ee6e4c8397c7babc7121a462/d81727f429f17040.png",
+      "thumbPath": "SX3SG2/_images/6fcd9c32ee6e4c8397c7babc7121a462/d81727f429f17040.png.thumb.webp",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "kind": "TextSnapshot",
+      "caption": "શ્રી બ્યુટી પાર્લરનો સેવા-દર: વાળ કાપવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.",
+      "sendable": false,
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "source": "Upload",
+      "status": "ThumbReady"
+    }
+  ],
+  "id": "6fcd9c32ee6e4c8397c7babc7121a462",
+  "type": "KnowledgeDocument",
+  "_etag": "\"0900e485-0000-0200-0000-6aa486330000\"",
+  "createdAt": "2026-09-10T20:33:39.3187713Z",
+  "updatedAt": "2026-09-11T22:52:35.4874473Z",
+  "_rid": "789SAKsUF+S5BAAAAAAAAA==",
+  "_self": "dbs/789SAA==/colls/789SAKsUF+Q=/docs/789SAKsUF+S5BAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1789167155
+}

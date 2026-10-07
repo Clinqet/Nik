@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Knowledge — what the receptionist may do with each file</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013;
+      --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013;
+    --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+
+  header.masthead { padding:48px 0 28px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,44px); line-height:1.05; letter-spacing:-.02em; margin:0; text-wrap:balance; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:64ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; white-space:nowrap; }
+
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:52px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:86ch; }
+
+  .board { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 460px; min-width:0; }
+  .frame.w360 { flex:0 0 360px; max-width:100%; }
+  .frame.w520 { flex:1 1 520px; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .pad { padding:16px; }
+
+  .docline { font-size:12px; color:var(--ink-mute); margin:0 0 12px; }
+  .editor-title { font-family:var(--display); font-weight:700; font-size:16px; margin:0 0 2px; }
+
+  .box { border:1px solid var(--line); border-radius:14px; padding:13px; margin:12px 0 0; background:var(--surface); }
+  .box.first { margin-top:0; }
+  .box h4 { margin:0 0 3px; font-size:13.5px; font-weight:700; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .box .sub { margin:0 0 10px; font-size:12px; color:var(--ink-soft); }
+
+  .pill { display:inline-flex; align-items:center; border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; letter-spacing:.02em; border:1px solid var(--line-firm); color:var(--ink-mute); background:var(--surface-sunk); white-space:nowrap; }
+  .pill.ok { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .pill.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .pill.navy { background:var(--navy-soft); border-color:#C4D6EE; color:var(--navy); }
+  .pill.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .pill.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .pill.dash { border-style:dashed; background:var(--surface); }
+  .pill.proc { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+
+  .radio { display:flex; gap:9px; align-items:flex-start; padding:8px 10px; border:1px solid var(--line); border-radius:11px; margin-top:7px; background:var(--surface); }
+  .radio .dot { width:15px; height:15px; border-radius:50%; border:2px solid var(--line-firm); flex:none; margin-top:2px; }
+  .radio.on { border-color:#CFE9A4; background:var(--brand-soft); }
+  .radio.on .dot { border-color:var(--brand-deep); background:radial-gradient(circle at center, var(--brand-deep) 0 4px, transparent 4px); }
+  .radio .lab { font-size:12.5px; font-weight:600; }
+  .radio .lab small { display:block; font-weight:400; color:var(--ink-mute); font-size:11.5px; margin-top:1px; }
+  .radio.off { opacity:.5; }
+
+  .banner { display:flex; gap:9px; align-items:flex-start; border-radius:11px; padding:9px 11px; font-size:12px; margin-top:10px; border:1px solid var(--line); background:var(--surface-sunk); color:var(--ink-soft); }
+  .banner.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .banner.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .banner.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .banner.good { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .banner b { display:block; }
+
+  .spin { width:13px; height:13px; border-radius:50%; border:2px solid var(--line-firm); border-top-color:var(--brand-deep); display:inline-block; vertical-align:-2px; }
+
+  .foot { display:flex; gap:9px; justify-content:flex-end; margin-top:14px; }
+  .btn { border:1px solid var(--line-firm); border-radius:999px; padding:5px 14px; font-size:12.5px; font-weight:700; background:var(--surface); color:var(--ink); }
+  .btn.primary { background:var(--brand); border-color:#7FCB1F; color:#12200A; }
+
+  .input { border:1px solid var(--line); border-radius:11px; padding:8px 11px; font-size:12.5px; margin-top:6px; background:var(--surface); color:var(--ink); }
+  .input.tall { min-height:64px; color:var(--ink-soft); }
+  .flabel { display:block; font-size:12px; font-weight:700; color:var(--navy); margin-top:12px; }
+
+  .docrow { display:flex; gap:10px; align-items:flex-start; padding:11px 0; border-bottom:1px solid var(--line); }
+  .docrow:last-child { border-bottom:0; }
+  .doc-ico { width:32px; height:32px; border-radius:9px; background:var(--brand-soft); border:1px solid #CFE9A4; color:var(--brand-deep); display:grid; place-items:center; font-size:9.5px; font-weight:700; flex:none; }
+  .doc-main { min-width:0; flex:1; }
+  .doc-name { font-size:13px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .doc-meta { font-size:11.5px; color:var(--ink-mute); margin-top:2px; }
+  .dots { color:var(--ink-mute); font-weight:700; letter-spacing:2px; }
+  .faq-a { font-size:12px; color:var(--ink-soft); margin-top:2px; }
+
+  .phone { border:1px solid var(--line-firm); border-radius:22px; overflow:hidden; background:var(--surface); }
+  .phone-bar { background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:10px 14px; font-size:13px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+  .phone-body { padding:12px; }
+  .sheet { border:1px solid var(--line); border-radius:16px; padding:13px; background:var(--surface); }
+  .grab { width:38px; height:4px; border-radius:99px; background:var(--line-firm); margin:0 auto 10px; }
+  .field { border:1px solid var(--line); border-radius:11px; padding:8px 11px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; }
+  .field .k { color:var(--ink-mute); font-size:11px; display:block; }
+
+  .upload { border:1px dashed var(--line-firm); border-radius:14px; padding:14px; background:var(--surface-sunk); }
+  .filecard { border:1px solid var(--line); border-radius:12px; padding:10px 12px; background:var(--surface); margin-top:10px; }
+  .filecard .top { display:flex; gap:10px; align-items:center; justify-content:space-between; }
+  .filecard .name { font-size:12.5px; font-weight:700; }
+  .filecard .size { font-size:11px; color:var(--ink-mute); }
+  .picks { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:9px; }
+  .picks.one { grid-template-columns:1fr; }
+  .pick { border:1px solid var(--line); border-radius:10px; padding:6px 10px; font-size:12px; display:flex; justify-content:space-between; align-items:center; background:var(--surface); }
+  .pick .k { display:block; font-size:10.5px; color:var(--ink-mute); }
+  .pick .v { font-weight:600; }
+  .pick .c { color:var(--ink-mute); }
+  .menu { border:1px solid var(--line-firm); border-radius:12px; margin-top:6px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+  .menu .opt { padding:9px 12px; font-size:12.5px; border-bottom:1px solid var(--line); display:flex; gap:9px; align-items:flex-start; }
+  .menu .opt:last-child { border-bottom:0; }
+  .menu .opt small { display:block; color:var(--ink-mute); font-size:11.5px; font-weight:400; }
+  .menu .opt.on { background:var(--brand-soft); }
+  .menu .opt .tick { width:16px; flex:none; color:var(--brand-deep); font-weight:700; }
+  .narrow { max-width:328px; }
+
+  .tiles { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:10px; }
+  .tile { aspect-ratio:1; border-radius:10px; background:linear-gradient(135deg,var(--surface-sunk),var(--line)); border:1px solid var(--line); position:relative; }
+  .tile .tk { position:absolute; right:5px; top:5px; width:16px; height:16px; border-radius:50%; border:1.5px solid var(--line-firm); background:var(--surface); }
+  .tiles.dim .tile { opacity:.45; }
+
+  .note { font-size:12.5px; color:var(--ink-soft); margin:10px 0 0; }
+  .ann { border-left:3px solid var(--line-firm); padding:8px 0 8px 11px; margin:12px 0 0; font-size:12.5px; color:var(--ink-soft); }
+  .ann b { display:block; color:var(--ink); font-weight:700; margin-bottom:2px; }
+  .ann.good { border-left-color:var(--brand); }
+  .ann.ask { border-left-color:var(--warn); background:var(--warn-bg); border-radius:0 8px 8px 0; padding-right:11px; }
+  .ann.stop { border-left-color:var(--stop); background:var(--stop-bg); border-radius:0 8px 8px 0; padding-right:11px; }
+  .ann.done { border-left-color:var(--brand-deep); background:var(--brand-soft); border-radius:0 8px 8px 0; padding-right:11px; }
+
+  table.src { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  table.src th, table.src td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.src th { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); border-bottom-color:var(--line-firm); }
+  table.src code { font-family:var(--mono); font-size:11px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:0 4px; }
+  .scrollx { overflow-x:auto; }
+  .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+
+  .page-h { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; flex-wrap:wrap; }
+  .page-h h3 { font-family:var(--display); font-weight:700; font-size:18px; margin:0 0 2px; }
+  .page-h p { margin:0; font-size:12.5px; color:var(--ink-soft); max-width:52ch; }
+  .usage { font-size:12px; color:var(--ink-soft); text-align:right; }
+  .quiet { display:flex; gap:9px; align-items:center; font-size:12.5px; color:var(--brand-deep); background:var(--brand-soft); border:1px solid #DCEFC2; border-radius:12px; padding:9px 12px; margin-top:12px; }
+  .quiet a { font-weight:700; text-decoration:underline; margin-left:auto; white-space:nowrap; color:inherit; }
+  .invite { border:1px solid #DFFABD; background:#F4FDF9; border-radius:16px; padding:14px 16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+  .invite h5 { margin:0 0 3px; font-size:14.5px; font-weight:700; color:var(--navy); }
+  .invite p { margin:0; font-size:12.5px; color:#3c3c3c; max-width:60ch; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>What the receptionist may do with each file</h1>
+    <p>One question with three answers, per file <b>and per typed FAQ</b>, in the <b>AI Knowledge</b> editors and at upload
+      time — the mark it leaves on the row, the page when a business has <b>no</b> receptionist (nothing about it is
+      drawn), and the moment one is switched on. Every state, web and phone. It replaces the single “Send relevant details
+      to callers” switch of sheet <b>M6 §1</b> and the upload line of <b>knowledge-document-sharing v3</b>; the <b>Team
+      search</b> box is unchanged.</p>
+  </div>
+  <div class="stamp">
+    AI Knowledge · K1 · v3<br>
+    Drawn 2026-09-07<br>
+    Approved by waiver 2026-09-07
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<h2 class="rule">0 · <span>What this sheet changes, and what it leaves alone</span></h2>
+<p class="lede">Today a file has two settings: whether the receptionist may <b>send</b> its details to a caller, and who on
+  the <b>team</b> may find it. Nothing says whether the receptionist may <b>use</b> the file at all — so an internal document
+  is read aloud to callers the moment it is Ready. This sheet gives that question a home, hides it from a business that has
+  no receptionist, and shows it — with the saved answer — the day one is switched on.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>The items</span></div>
+    <div class="pad">
+      <div class="scrollx">
+      <table class="src">
+        <tr><th>Item</th><th>Today</th><th>Here</th></tr>
+        <tr><td><b>The receptionist box</b> in Document details</td><td>One switch: “Send relevant details to callers”</td><td>§1–§2 — one box, <b>three answers</b>: answers and can send · answers, never sends · not used. The switch’s two states are the first two answers</td></tr>
+        <tr><td><b>Typed FAQs</b></td><td>Always for callers, no control</td><td>§6 — the same box in the FAQ editor, saved with the FAQ; the same marks on FAQ rows</td></tr>
+        <tr><td><b>Upload time</b></td><td>One switch line per file</td><td>§3 — a third picker per file, beside Type and Link to offerings</td></tr>
+        <tr><td><b>The mark on the row</b></td><td>“Details can be sent” · “Not shared”, files only</td><td>§4 — “Details can be sent” · “Answers only” · <b>“Not for callers”</b>, files and FAQs, web and phone</td></tr>
+        <tr><td><b>A business with no receptionist</b></td><td>Cannot open the page (out of scope — the subscription change opens it)</td><td>§8 — <b>no box, no picker, no marks, no receptionist words</b>. Everything it adds is stored “not used”. The day the receptionist is switched on, the choice appears with that saved answer and the AI Voice Assistant page says where to go</td></tr>
+        <tr><td>The <b>Team search</b> box (M6)</td><td colspan="2">Unchanged. Its helper already says callers are not affected; the new box says the team is not affected</td></tr>
+      </table>
+      </div>
+      <div class="ann good"><b>Why a choice and not a second switch</b>A switch under a switch has a hidden state. Three answers in one
+        box say every outcome in words, and the box reads exactly like the Team search box beneath it. One idiom to learn.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">1 · <span>The box, settled — web</span></h2>
+<p class="lede">The three answers, each drawn as the settled state. The first frame shows the whole editor so the two boxes are
+  seen together the way the provider sees them.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · document editor · answers and can send (the default)</span><em>default</em></div>
+    <div class="pad">
+      <p class="editor-title">Price list 2026.pdf</p>
+      <p class="docline">PDF · 6 pages · Ready · Type: Price list</p>
+
+      <div class="box first">
+        <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+        <p class="sub">What your AI receptionist may do with this file when someone calls. This does not change who on your team can find it.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Answers callers and can send them the details<small>It answers from this file, and can send a caller just the relevant details to their WhatsApp or email — never the whole file.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything<small>It answers from this file aloud. Nothing from it is ever sent in writing.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist<small>Callers never hear anything from this file. Your team can still find it when they ask Clinket.</small></div></div>
+      </div>
+
+      <div class="box">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <p class="sub">Who can find this file when they ask Clinket a question. This does not change what callers hear.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team<small>Anyone who works here can find it.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only certain roles<small>Pick who can find it. You and your administrators always can.</small></div></div>
+      </div>
+
+      <div class="foot"><button class="btn">Cancel</button><button class="btn primary">Save</button></div>
+      <div class="ann"><b>Saves as it is tapped</b>Like both its neighbours. The editor’s Save is for the type and the linked
+        offerings only. The pill in the heading is the confirmation — no toast on success.</div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · answers, never sends</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill navy">Answers only</span></h4>
+        <p class="sub">What your AI receptionist may do with this file when someone calls. This does not change who on your team can find it.</p>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Answers callers, never sends anything<small>It answers from this file aloud. Nothing from it is ever sent in writing.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+      </div>
+      <div class="ann"><b>This is today’s “Not shared”</b>Same behaviour, said in full: the receptionist still answers from the file, and
+        nothing from it ever leaves in writing — no details, no pictures.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>WEB · not used by the receptionist</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill dash">Not used</span></h4>
+        <p class="sub">What your AI receptionist may do with this file when someone calls. This does not change who on your team can find it.</p>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Not used by the receptionist<small>Callers never hear anything from this file. Your team can still find it when they ask Clinket.</small></div></div>
+      </div>
+      <div class="ann good"><b>The new answer</b>The internal cost sheet, the staff rota, the supplier contract. Uploaded so the
+        team can ask about it, and a caller never hears a word of it. The Team search box beneath decides <em>which</em> colleagues.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">2 · <span>Every other state — web</span></h2>
+<p class="lede">Each one drawn, each one with its words named in §9. Where the Team search box already has the same state, the
+  same sentence is used — one sentence, one key.</p>
+
+<div class="cols">
+  <div class="frame">
+    <div class="frame-label"><span>Saving · then saved</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill dash">Not used</span> <span class="spin"></span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+        <div class="banner"><div>Saving…</div></div>
+      </div>
+      <p class="note">Then the line goes and the mark on the row behind changes. The filled dot is the confirmation.</p>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>Could not save</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+        <div class="radio on"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+        <div class="banner stop"><div><b>That did not save.</b>Your choice was put back. Try again.</div></div>
+      </div>
+      <p class="note">‼️ The choice goes back to what the server still holds. A box showing “Not used” over a file callers are
+        still being read from is the one lie this control must never tell. Re-tapping the answer is the retry.</p>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>No connection</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill navy">Answers only</span></h4>
+        <div class="radio off"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio on off"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio off"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+        <div class="banner warn"><div>You are offline. This cannot be changed until you are back.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>File still being read</span><em>changeable — approved</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill dash">Not used</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+        <div class="banner info"><div>You can choose this now. It takes effect as soon as the file is Ready.</div></div>
+      </div>
+      <div class="ann"><b>A change from the old switch</b>A long upload is exactly when somebody realises a file must never reach
+        callers. The Team search box already allows this; the platform keeps a choice made now safe through the run.</div>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>File being removed</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist</h4>
+        <div class="banner stop"><div>This file is being removed. Nothing can be changed on it.</div></div>
+      </div>
+      <p class="note">No pill — a file on its way out advertising an answer beside “nothing can be changed” states a setting for
+        something that is going away.</p>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>Not allowed to change it</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+        <p class="sub">Your receptionist answers callers from this file and can send them the details.</p>
+        <div class="banner"><div>Only the owner and administrators can change this.</div></div>
+      </div>
+      <div class="ann"><b>Read, never a dead control</b>The other two summaries: “Your receptionist answers callers from this file and never
+        sends anything from it.” · “Your receptionist does not use this file.”</div>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>Sending switched off for the whole platform</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>AI receptionist <span class="pill info">Answers callers</span></h4>
+        <p class="sub">What your AI receptionist may do with this file when someone calls. This does not change who on your team can find it.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Answers callers<small>It answers from this file aloud.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist<small>Callers never hear anything from this file. Your team can still find it when they ask Clinket.</small></div></div>
+      </div>
+      <div class="ann"><b>Two answers, not three</b>While the platform cannot send material at all, an answer promising to send it is
+        never drawn. A file that was “Answers &amp; sends” shows here as “Answers callers”; nothing is written.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">3 · <span>Upload time</span></h2>
+<p class="lede">The file card already carries two pickers. The choice becomes a third, one line per file, where the switch line
+  was. The long sentence rides the blue note once.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · upload · desktop and iPad</span><em>two files, different answers</em></div>
+    <div class="pad">
+      <div class="upload">
+        <div class="filecard">
+          <div class="top"><div><div class="name">Price list 2026.pdf</div><div class="size">233 kB</div></div><span class="dots">✕</span></div>
+          <div class="picks">
+            <div class="pick"><span><span class="k">Type</span><span class="v">Price list</span></span><span class="c">⌄</span></div>
+            <div class="pick"><span><span class="k">Link to offerings</span><span class="v">Not linked</span></span><span class="c">⌄</span></div>
+          </div>
+          <div class="picks one"><div class="pick"><span><span class="k">AI receptionist</span><span class="v">Answers &amp; sends details</span></span><span class="c">⌄</span></div></div>
+        </div>
+        <div class="filecard">
+          <div class="top"><div><div class="name">Dealer cost sheet.xlsx</div><div class="size">72 kB</div></div><span class="dots">✕</span></div>
+          <div class="picks">
+            <div class="pick"><span><span class="k">Type</span><span class="v">Price list</span></span><span class="c">⌄</span></div>
+            <div class="pick"><span><span class="k">Link to offerings</span><span class="v">Not linked</span></span><span class="c">⌄</span></div>
+          </div>
+          <div class="picks one"><div class="pick"><span><span class="k">AI receptionist</span><span class="v" style="color:var(--ink-mute)">Not used</span></span><span class="c">⌄</span></div></div>
+        </div>
+        <div class="banner info" style="margin-top:12px"><div>Processing usually takes under a minute per document. It can be searched the moment it shows Ready. Your AI receptionist can answer callers from these files and, if you allow it, send a caller just the relevant details to their WhatsApp or email — never the whole file. Choose “Not used” for internal material callers must never hear.</div></div>
+      </div>
+      <div class="ann"><b>Full width on purpose</b>Type and Link to offerings share a row; this one takes its own, so the answer is
+        readable in full at every width.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>WEB · the picker, open</span></div>
+    <div class="pad">
+      <div class="narrow">
+        <div class="pick"><span><span class="k">AI receptionist</span><span class="v">Answers &amp; sends details</span></span><span class="c">⌃</span></div>
+        <div class="menu">
+          <div class="opt on"><span class="tick">✓</span><span>Answers &amp; sends details<small>Answers callers from this file and can send them just the relevant details.</small></span></div>
+          <div class="opt"><span class="tick"></span><span>Answers only<small>Answers callers aloud. Nothing from this file is ever sent.</small></span></div>
+          <div class="opt"><span class="tick"></span><span>Not used<small>Callers never hear from this file. Your team can still find it.</small></span></div>
+        </div>
+      </div>
+      <div class="ann"><b>The platform’s own dropdown</b>The same control Type and Link to offerings use. Three options, no search box.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>WEB · 360 px</span></div>
+    <div class="pad">
+      <div class="narrow upload" style="padding:10px">
+        <div class="filecard">
+          <div class="top"><div><div class="name">Dealer cost sheet.xlsx</div><div class="size">72 kB</div></div><span class="dots">✕</span></div>
+          <div class="picks one">
+            <div class="pick"><span><span class="k">Type</span><span class="v">Price list</span></span><span class="c">⌄</span></div>
+            <div class="pick"><span><span class="k">Link to offerings</span><span class="v">Not linked</span></span><span class="c">⌄</span></div>
+            <div class="pick"><span><span class="k">AI receptionist</span><span class="v" style="color:var(--ink-mute)">Not used</span></span><span class="c">⌄</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Below the app’s <code>sm</code> breakpoint the pickers stack, as the two above already do.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">4 · <span>The mark on the row — files and FAQs</span></h2>
+<p class="lede">One mark for the receptionist, beside the type and the status. The two “used” marks appear only once a file is
+  Ready; the exclusion mark appears on any row that is not being removed. A typed FAQ is always Ready and wears the same marks.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · the list</span></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list 2026 <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill info">Details can be sent</span></div>
+          <div class="doc-meta">6 pages · 42 searchable parts · Added 12 Aug</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Warranty terms <span class="pill">Policy</span> <span class="pill ok">Ready</span> <span class="pill navy">Answers only</span></div>
+          <div class="doc-meta">3 pages · 11 searchable parts · Added 12 Aug</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">XLS</div>
+        <div class="doc-main">
+          <div class="doc-name">Dealer cost sheet <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill dash">Not for callers</span> <span class="pill warn">Found by the owner and admins only</span></div>
+          <div class="doc-meta">2 pages · 9 searchable parts · Added 18 Aug</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Staff rota <span class="pill">Other</span> <span class="pill proc"><span class="spin"></span> Processing</span> <span class="pill dash">Not for callers</span></div>
+          <div class="doc-meta">1 page · just now</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="ann"><b>Rules</b>“Details can be sent” keeps the owner-locked wording. “Answers only” replaces “Not shared”, which
+        could be read as “not used”. “Not for callers” is dashed like a thing switched off. The mark opens the editor for someone
+        who may change it and is plain text for everyone else — the setting first, then the action, in its spoken label.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>WEB · your FAQs</span></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-main">
+          <div class="doc-name">Do you take walk-ins? <span class="pill info">Details can be sent</span></div>
+          <div class="faq-a">Yes, every day until 5 pm — but a booking guarantees your slot.</div>
+        </div>
+        <span class="btn" style="padding:3px 10px">Edit</span>
+      </div>
+      <div class="docrow">
+        <div class="doc-main">
+          <div class="doc-name">How do we handle a refund internally? <span class="pill dash">Not for callers</span></div>
+          <div class="faq-a">Manager approves in the back office first, then the desk refunds to the same card.</div>
+        </div>
+        <span class="btn" style="padding:3px 10px">Edit</span>
+      </div>
+      <div class="ann good"><b>Same marks, same meaning</b>A FAQ is Ready the moment it is saved, so it never shows a processing state;
+        otherwise a FAQ row reads exactly like a file row. The second FAQ is the reason FAQs carry the choice at all.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the same rows</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Files</span></div>
+      <div class="phone-body">
+        <div class="docrow">
+          <div class="doc-ico">PDF</div>
+          <div class="doc-main">
+            <div class="doc-name">Price list 2026</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill">Price list</span><span class="pill ok">Ready</span><span class="pill info">Details can be sent</span></div>
+            <div class="doc-meta">12 Aug · 6 pages</div>
+          </div>
+        </div>
+        <div class="docrow">
+          <div class="doc-ico">XLS</div>
+          <div class="doc-main">
+            <div class="doc-name">Dealer cost sheet</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill">Price list</span><span class="pill ok">Ready</span><span class="pill dash">Not for callers</span><span class="pill warn">Owner and admins</span></div>
+            <div class="doc-meta">18 Aug · 2 pages</div>
+          </div>
+        </div>
+        <div class="docrow">
+          <div class="doc-main">
+            <div class="doc-name">Do you take walk-ins?</div>
+            <div class="faq-a">Yes, every day until 5 pm — but a booking guarantees your slot.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill info">Details can be sent</span></div>
+          </div>
+        </div>
+        <div class="docrow">
+          <div class="doc-main">
+            <div class="doc-name">How do we handle a refund internally?</div>
+            <div class="faq-a">Manager approves in the back office first…</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill dash">Not for callers</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>Same words on both platforms</b>Short enough for a phone row already, so — unlike the Team search mark —
+        it does not shorten.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">5 · <span>Pictures</span></h2>
+<p class="lede">The pictures strip lives inside the file and its ticks follow the file’s answer. Only “Answers and can send” can
+  send a picture.</p>
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · pictures under “Answers only” or “Not used”</span></div>
+    <div class="pad">
+      <div class="docrow" style="border:0;padding-top:0">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Spring brochure <span class="pill">Other</span> <span class="pill ok">Ready</span> <span class="pill navy">Answers only</span></div>
+          <div class="doc-meta">6 pictures · <u>Hide pictures</u></div>
+        </div>
+      </div>
+      <div class="banner"><div>Pictures can be sent only when your receptionist may send details from this file. Change that under AI receptionist.</div></div>
+      <div class="tiles dim">
+        <div class="tile"><span class="tk"></span></div><div class="tile"><span class="tk"></span></div><div class="tile"><span class="tk"></span></div>
+        <div class="tile"><span class="tk"></span></div><div class="tile"><span class="tk"></span></div><div class="tile"><span class="tk"></span></div>
+      </div>
+      <div class="ann"><b>One sentence, both answers</b>The ticks are dimmed and remembered, never erased.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">6 · <span>Typed FAQs — the same box, in the FAQ editor</span></h2>
+<p class="lede">A FAQ typed by a business without a receptionist is internal knowledge exactly like its files, so a FAQ carries the
+  same choice. It sits under the answer and is saved <b>with the FAQ’s own Save</b> — a FAQ is written and saved as one thing.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · add a FAQ · with the receptionist</span></div>
+    <div class="pad">
+      <p class="editor-title">Add FAQ</p>
+      <label class="flabel">Question</label>
+      <div class="input">Do you take walk-ins?</div>
+      <label class="flabel">Answer</label>
+      <div class="input tall">Yes, every day until 5 pm — but a booking guarantees your slot.</div>
+      <div class="box">
+        <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+        <p class="sub">What your AI receptionist may do with this answer when someone calls. Your whole team can always find it.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+      </div>
+      <div class="foot"><button class="btn">Cancel</button><button class="btn primary">Save FAQ</button></div>
+      <div class="ann"><b>Saved with the FAQ</b>No spinner in the heading here: the choice is part of what Save writes, exactly like the
+        question and the answer. Editing a FAQ shows the saved answer. The small print under each radio is dropped — the
+        explanation lives in the helper line, so a short form stays short.</div>
+      <div class="ann"><b>Why no Team search box</b>Every colleague can already find a typed answer — that rule stands (M6 §7).</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · add a FAQ · with the receptionist</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Add FAQ</span></div>
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <label class="flabel" style="margin-top:0">Question</label>
+          <div class="input">Do you take walk-ins?</div>
+          <label class="flabel">Answer</label>
+          <div class="input tall">Yes, every day until 5 pm — but a booking guarantees your slot.</div>
+          <div class="box">
+            <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+            <div class="radio on"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+          </div>
+          <div class="foot"><button class="btn" style="flex:1">Cancel</button><button class="btn primary" style="flex:1">Save FAQ</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>Bounded and scrolling</b>The FAQ editor already scrolls inside a bounded card behind the keyboard; the box
+        joins that scroll and Save stays on screen.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">7 · <span>The phone — the document editor, upload, and the states</span></h2>
+<p class="lede">The same rules, the phone’s own components. Three radios fit the bounded, scrolling editor; at upload the choice is a
+  picker row like Type and Linked work.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the document editor</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Edit</span></div>
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <p class="editor-title">Price list 2026.pdf</p>
+          <div class="field"><div><span class="k">Type</span>Price list</div><span class="dots">›</span></div>
+          <div class="field"><div><span class="k">Linked work</span>None</div><span class="dots">›</span></div>
+          <div class="box">
+            <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+            <p class="sub">What your AI receptionist may do with this file when someone calls. Your team is not affected.</p>
+            <div class="radio on"><div class="dot"></div><div class="lab">Answers callers and can send them the details</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Answers callers, never sends anything</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Not used by the receptionist</div></div>
+          </div>
+          <div class="box">
+            <h4>Team search <span class="pill ok">your team</span></h4>
+            <p class="sub">Who can find this file when they ask Clinket. Callers are not affected.</p>
+            <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+          </div>
+          <div class="foot"><button class="btn" style="flex:1">Cancel</button><button class="btn primary" style="flex:1">Save</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>Shorter helper, its own key</b>“Your team is not affected.” — the phone box has one line to give it, the same
+        shortening the Team search box already has.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · upload</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>Upload documents</span><span class="pill">2 files</span></div>
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <div class="filecard" style="margin-top:0">
+            <div class="top"><div><div class="name">Dealer cost sheet.xlsx</div><div class="size">72 kB</div></div><span class="dots">✕</span></div>
+            <div class="field"><div><span class="k">Document type</span>Price list</div><span class="dots">›</span></div>
+            <div class="field"><div><span class="k">Link to offerings</span>Not linked</div><span class="dots">›</span></div>
+            <div class="field"><div><span class="k">AI receptionist</span><span style="color:var(--ink-mute)">Not used</span></div><span class="dots">›</span></div>
+          </div>
+          <div class="banner info"><div>Processing usually takes under a minute per document. It can be searched the moment it shows Ready. Your AI receptionist can answer callers from these files and, if you allow it, send a caller just the relevant details — never the whole file. Choose “Not used” for internal material callers must never hear.</div></div>
+          <button class="btn primary" style="width:100%;margin-top:12px">Upload 2 files</button>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>A picker row, like its two neighbours</b>Tapping opens the same option sheet the type uses, with the three
+        answers and one line of small print each.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the other states</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Edit</span></div>
+      <div class="phone-body">
+        <div class="box first">
+          <h4>AI receptionist <span class="pill dash">Not used</span> <span class="spin"></span></h4>
+          <div class="banner"><div>Saving…</div></div>
+        </div>
+        <div class="box">
+          <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+          <div class="banner stop"><div><b>That did not save.</b>Your choice was put back. Try again.</div></div>
+        </div>
+        <div class="box">
+          <h4>AI receptionist <span class="pill navy">Answers only</span></h4>
+          <p class="sub">Your receptionist answers callers from this file and never sends anything from it.</p>
+          <div class="banner"><div>Only the owner and administrators can change this.</div></div>
+        </div>
+        <div class="box">
+          <h4>AI receptionist <span class="pill dash">Not used</span></h4>
+          <div class="banner info"><div>You can choose this now. It takes effect as soon as the file is Ready.</div></div>
+        </div>
+        <div class="box">
+          <h4>AI receptionist</h4>
+          <div class="banner stop"><div>This file is being removed. Nothing can be changed on it.</div></div>
+        </div>
+        <div class="box">
+          <h4>AI receptionist <span class="pill info">Answers &amp; sends details</span></h4>
+          <div class="banner warn"><div>You are offline. This cannot be changed until you are back.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>One frame, six states</b>Stacked for reading only — a provider sees one at a time, in the box’s own place.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">8 · <span>A business with no receptionist — nothing about it is drawn</span></h2>
+<p class="lede">The platform asks one question in one place: does this business have the AI receptionist? When the answer is no,
+  the page never mentions one. No box in either editor, no picker at upload, no marks on rows, and the page speaks of
+  <b>Clinket</b> and <b>your team</b>. Everything the business adds is stored as “not used” — so on the day the receptionist is
+  switched on, nothing becomes audible by itself.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · AI Knowledge · no receptionist</span></div>
+    <div class="pad">
+      <div class="page-h">
+        <div>
+          <h3>AI Knowledge</h3>
+          <p>Your business’s own material beyond your services: policies, price lists, spec sheets, FAQs. Your team can ask Clinket about all of it.</p>
+        </div>
+        <div class="usage"><b>3</b> of 20 documents<br><span style="color:var(--ink-mute)"><b>62</b> of about 2,000 searchable parts</span><br><span class="btn primary" style="display:inline-block;margin-top:8px">Upload documents</span></div>
+      </div>
+      <div class="docrow" style="margin-top:8px">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list 2026 <span class="pill">Price list</span> <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">6 pages · 42 searchable parts · Added 12 Aug</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">XLS</div>
+        <div class="doc-main">
+          <div class="doc-name">Dealer cost sheet <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill warn">Found by the owner and admins only</span></div>
+          <div class="doc-meta">2 pages · 9 searchable parts · Added 18 Aug</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Staff rota <span class="pill">Other</span> <span class="pill proc"><span class="spin"></span> Processing</span></div>
+          <div class="doc-meta">1 page · just now</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="ann good"><b>Only the team mark remains</b>The rows read exactly as they did before the receptionist existed on this
+        platform. A restricted file still says who can find it, because that is about the team.</div>
+      <div class="ann"><b>Where the “no” comes from</b>The server says so on the list itself, using the same switch the AI Voice
+        Assistant page uses to show either its form or its marketing content: a business that has paid for the receptionist
+        or is in its free trial has it, whether or not a number is assigned yet. The apps never decide it from their own
+        screens, so when the plans change — a search-only plan, a receptionist plan, both — one server rule moves and every
+        screen follows.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>WEB · document editor · no receptionist</span></div>
+    <div class="pad">
+      <p class="editor-title">Dealer cost sheet.xlsx</p>
+      <p class="docline">Excel · 2 pages · Ready · Type: Price list</p>
+      <div class="box first">
+        <h4>Team search <span class="pill warn">owner and admins</span></h4>
+        <p class="sub">Who can find this file when they ask Clinket a question.</p>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="banner warn"><div>With no role picked, only you and your administrators can find this file.</div></div>
+      </div>
+      <div class="foot"><button class="btn">Cancel</button><button class="btn primary">Save</button></div>
+      <div class="ann"><b>One box, and its helper loses a clause</b>“This does not change what callers hear” is not said to a business with
+        no callers to hear anything. The same shortening applies to the FAQ editor, which shows only the question and the answer.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>WEB · upload · no receptionist</span></div>
+    <div class="pad">
+      <div class="narrow upload" style="padding:10px">
+        <div class="filecard">
+          <div class="top"><div><div class="name">Dealer cost sheet.xlsx</div><div class="size">72 kB</div></div><span class="dots">✕</span></div>
+          <div class="picks one">
+            <div class="pick"><span><span class="k">Type</span><span class="v">Price list</span></span><span class="c">⌄</span></div>
+            <div class="pick"><span><span class="k">Link to offerings</span><span class="v">Not linked</span></span><span class="c">⌄</span></div>
+          </div>
+        </div>
+        <div class="banner info" style="margin-top:10px"><div>Processing usually takes under a minute per document. It can be searched the moment it shows Ready.</div></div>
+      </div>
+      <div class="ann"><b>Two pickers, the note in its plain form</b>The receptionist sentence of §3 is simply not appended.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>PHONE · the document editor · no receptionist</span></div>
+    <div class="phone" style="border-radius:0;border-left:0;border-right:0;border-bottom:0">
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <p class="editor-title">Dealer cost sheet.xlsx</p>
+          <div class="field"><div><span class="k">Type</span>Price list</div><span class="dots">›</span></div>
+          <div class="field"><div><span class="k">Linked work</span>None</div><span class="dots">›</span></div>
+          <div class="box">
+            <h4>Team search <span class="pill ok">your team</span></h4>
+            <p class="sub">Who can find this file when they ask Clinket.</p>
+            <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+          </div>
+          <div class="foot"><button class="btn" style="flex:1">Cancel</button><button class="btn primary" style="flex:1">Save</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule" style="margin-top:34px">8b · <span>The day the receptionist is switched on</span></h2>
+<p class="lede">Every item the business added while it had no receptionist is “not used”. The editors now show the choice with that
+  saved answer, and the AI Voice Assistant page — the place the receptionist’s own settings live — says where to go. One new
+  state, in the slot the knowledge invite already uses.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · AI Voice Assistant · items exist, none is used</span><em>the one new state</em></div>
+    <div class="pad">
+      <div class="invite">
+        <div>
+          <h5>Choose what your receptionist may answer from</h5>
+          <p>You’ve added documents or FAQs, but your receptionist isn’t using any of them yet. Choose which ones it may answer callers from.</p>
+        </div>
+        <span class="btn primary">Choose now →</span>
+      </div>
+      <div class="ann good"><b>Replaces the “Add your knowledge” invite for exactly this business</b>Telling them to add knowledge they
+        already added would be wrong; telling them to choose is the one true sentence. The button opens AI Knowledge, where
+        every row now wears “Not for callers” and every editor shows the choice.</div>
+    </div>
+    <div class="frame-label" style="border-top:1px solid var(--line)"><span>WEB · AI Voice Assistant · some used</span><em>unchanged words, a truer count</em></div>
+    <div class="pad">
+      <div class="quiet" style="margin-top:0;display:block">
+        <span style="display:block">✓ Your receptionist already knows your Clinket profile (services, prices, hours, offers), plus the 1 document and 1 FAQ you’ve added.</span>
+        <a style="display:inline-block;margin-top:6px">Manage your knowledge</a>
+      </div>
+      <div class="ann"><b>Counts only what the receptionist uses</b>Three documents exist; one is used, so it says one. A business that has
+        already chosen — some used, some not — is not reminded of a choice it made.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>WEB · AI Knowledge · the same rows, the day after</span></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list 2026 <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill dash">Not for callers</span></div>
+          <div class="doc-meta">6 pages · 42 searchable parts</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">XLS</div>
+        <div class="doc-main">
+          <div class="doc-name">Dealer cost sheet <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill dash">Not for callers</span> <span class="pill warn">Found by the owner and admins only</span></div>
+          <div class="doc-meta">2 pages · 9 searchable parts</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="ann"><b>Nothing decided for them</b>The provider opens the price list and picks “Answers callers and can send them the
+        details”; the cost sheet stays “Not used”. Two taps, both theirs.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">9 · <span>Where every word comes from</span></h2>
+<p class="lede">Screen words are the screen’s own, in the reader’s language. Server sentences arrive translated. Not one technical
+  word: no “flag”, “index”, “field”, “access”, “toggle”, “enabled”.</p>
+
+<div class="frame">
+  <div class="frame-label"><span>Every string on this sheet</span></div>
+  <div class="pad scrollx">
+    <table class="src">
+      <tr><th>Where</th><th>Words</th><th>From</th></tr>
+      <tr><td>Box heading</td><td>“AI receptionist”</td><td>Screen · web + phone</td></tr>
+      <tr><td>Box explanation, document editor (web)</td><td>“What your AI receptionist may do with this file when someone calls. This does not change who on your team can find it.”</td><td>Screen</td></tr>
+      <tr><td>Box explanation, document editor (phone)</td><td>“What your AI receptionist may do with this file when someone calls. Your team is not affected.”</td><td>Screen — its own key</td></tr>
+      <tr><td>Box explanation, FAQ editor (web)</td><td>“What your AI receptionist may do with this answer when someone calls. Your whole team can always find it.”</td><td>Screen — the phone drops the sentence (heading + radios only)</td></tr>
+      <tr><td>The three answers + small print (document editor, web)</td><td>“Answers callers and can send them the details” · “It answers from this file, and can send a caller just the relevant details to their WhatsApp or email — never the whole file.” — “Answers callers, never sends anything” · “It answers from this file aloud. Nothing from it is ever sent in writing.” — “Not used by the receptionist” · “Callers never hear anything from this file. Your team can still find it when they ask Clinket.”</td><td>Screen · the FAQ editor and the phone use the three labels without small print</td></tr>
+      <tr><td>Answer 1 while platform sending is off</td><td>“Answers callers” · “It answers from this file aloud.”</td><td>Screen</td></tr>
+      <tr><td>Heading pill and picker value</td><td>“Answers &amp; sends details” · “Answers only” · “Not used” · (sending off) “Answers callers”</td><td>Screen</td></tr>
+      <tr><td>Picker small print</td><td>“Answers callers from this file and can send them just the relevant details.” · “Answers callers aloud. Nothing from this file is ever sent.” · “Callers never hear from this file. Your team can still find it.”</td><td>Screen</td></tr>
+      <tr><td>Row mark (files and FAQs)</td><td>“Details can be sent” (kept) · “Answers only” · “Not for callers”</td><td>Screen — same words web and phone. Spoken label: the mark, then “Change what the receptionist may do with this file”</td></tr>
+      <tr><td>Upload note, with the receptionist</td><td>“Processing usually takes under a minute per document. It can be searched the moment it shows Ready.” + “Your AI receptionist can answer callers from these files and, if you allow it, send a caller just the relevant details to their WhatsApp or email — never the whole file. Choose “Not used” for internal material callers must never hear.”</td><td>Screen — two keys; the second is appended only with the receptionist</td></tr>
+      <tr><td>Read-only summaries</td><td>“Your receptionist answers callers from this file and can send them the details.” · “…and never sends anything from it.” · “Your receptionist does not use this file.” + “Only the owner and administrators can change this.” (kept)</td><td>Screen</td></tr>
+      <tr><td>Saving · could not save · offline · being removed</td><td>the Team search box’s four sentences, reused as-is</td><td>Screen</td></tr>
+      <tr><td>File still being read</td><td>“You can choose this now. It takes effect as soon as the file is Ready.”</td><td>Screen</td></tr>
+      <tr><td>Pictures line</td><td>“Pictures can be sent only when your receptionist may send details from this file. Change that under AI receptionist.”</td><td>Screen — replaces today’s sentence that named the switch</td></tr>
+      <tr><td><b>Page subtitle — two variants</b></td><td>with: today’s sentence, unchanged · without: “Your business’s own material beyond your services: policies, price lists, spec sheets, FAQs. Your team can ask Clinket about all of it.”</td><td>Screen — chosen by the server’s yes/no</td></tr>
+      <tr><td><b>FAQ section subtitle — two variants</b></td><td>with: “Quick answers your receptionist gives callers, typed right here, no file needed.” (unchanged) · without: “Quick answers about your business, typed right here, no file needed. Your team can ask Clinket about them.”</td><td>Screen</td></tr>
+      <tr><td><b>Empty-state title — two variants</b></td><td>with: “Teach your receptionist about your business” (unchanged) · without: “Teach Clinket about your business”</td><td>Screen</td></tr>
+      <tr><td>Team search helper without the receptionist</td><td>“Who can find this file when they ask Clinket a question.” (the callers clause dropped) · phone: “Who can find this file when they ask Clinket.”</td><td>Screen</td></tr>
+      <tr><td><b>Neutral rewrites, one sentence each, for everyone</b></td><td>delete a file: “Clinket stops using it immediately. This can’t be undone.” · delete a FAQ: “Clinket stops using it immediately.” · unlinked offerings: “Leave this empty and Clinket uses this material for any question. Link offerings only to point it at the right material faster.” · analysing / stalled notes end “Clinket already answers from this document / these documents.” · drafts: “AI Data Analytics failed. Clinket still uses this document.” · re-run bullets: “Clinket keeps answering from this document / your documents the whole time.”</td><td>Screen — a receptionist customer loses an incidental mention, nothing else</td></tr>
+      <tr><td>The enable moment (AI Voice Assistant page)</td><td>“Choose what your receptionist may answer from” · “You’ve added documents or FAQs, but your receptionist isn’t using any of them yet. Choose which ones it may answer callers from.” · “Choose now”</td><td>Screen — one new state in the existing invite slot</td></tr>
+      <tr><td>The knowledge summary</td><td>unchanged words; the counts are of items the receptionist uses</td><td>Screen — existing keys</td></tr>
+      <tr><td>Server refusals</td><td>a missing answer in the request · not found · being removed · saved by someone else first</td><td>Server — existing sentences plus one new for the missing answer, five languages</td></tr>
+    </table>
+    <div class="ann good"><b>Retired words</b>“Send relevant details to callers”, “Not shared”, the upload switch’s sentence — on both apps, in all
+      ten catalogues; the orphan sweep includes the test folders.</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">10 · <span>What is deliberately not here</span></h2>
+<div class="board">
+  <div class="frame">
+    <div class="pad">
+      <div class="scrollx">
+      <table class="src">
+        <tr><th>Not drawn</th><th>Why</th></tr>
+        <tr><td>A greyed-out receptionist box for a business without one</td><td>A disabled control about a thing you do not have is a question with no answer. The owner’s rule: do not show what they do not have.</td></tr>
+        <tr><td>A per-picture “not used” answer</td><td>Pictures already have their own tick, under the file’s answer.</td></tr>
+        <tr><td>A Team search box on a FAQ</td><td>Every colleague can already find a typed answer (M6 §7). Only the receptionist question is new for FAQs.</td></tr>
+        <tr><td>A reminder for a business that already chose</td><td>Some used, some not, is a decision. Only “none used, items exist” earns the message of §8b.</td></tr>
+        <tr><td>Changing several files at once</td><td>A list-screen feature with its own states. Not this sheet.</td></tr>
+        <tr><td>The page gate and the menu entry</td><td>Out of scope — the subscription change owns them. This sheet assumes the page is reachable.</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">11 · <span>Decisions</span></h2>
+<div class="board">
+  <div class="frame">
+    <div class="pad">
+      <div class="ann done"><b>Approved 2026-09-07</b>1 · Three answers in one box, not a second switch. 2 · The words: “AI receptionist”, the
+        three answers, the row marks “Details can be sent” · “Answers only” · “Not for callers”. 3 · A picker at upload, radios in the
+        editor. 4 · Changeable while the file is being read. 5 · The two registry reads on the phone path become one.</div>
+      <div class="ann done"><b>Approved 2026-09-07 (round 3) — and the sheet itself approved by waiver</b>A · Typed FAQs carry the same
+        choice (§4, §6). B · The choice is hidden, and the saved answer is “Not used”, for a business without the receptionist (§8);
+        “has the receptionist” means paid or in trial — the AI Voice Assistant page’s own switch. C · The words for a page both
+        kinds of business read (§9): three sentences get a second variant, the incidental mentions become neutral with Clinket
+        as the actor. D · The enable moment (§8b). E · A saved FAQ’s choice saves with the FAQ. The owner: “no mockup is needed
+        as long as you do it carefully and good looking… responsive… easy to understand… don’t forget the mobile app.” This
+        sheet is the drawing the build follows; `ANALYSIS.md` §5.0 carries the rules and `PLAN.md` the order.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

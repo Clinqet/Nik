@@ -1,0 +1,6 @@
+drafts=5
+- [Pending/Update] 'Balayage' price=180 max=260 type=range cur= needsReview=True mismatch=False priceText='$180–$260' src='Balayage' line='' cat='Salon & Beauty/Hair Coloring' dur= img=0 desc=''
+- [Pending/Update] 'Highlights' price=120 max= type=range cur= needsReview=True mismatch=False priceText='$120' src='Highlights from' line='' cat='Salon & Beauty/Hair Coloring' dur= img=0 desc='Starting at $120'
+- [Pending/Create] 'Colour - Long' price=70 max= type=fixed cur= needsReview=True mismatch=False priceText='$50 $70' src='Colour (short long)' line='' cat='Salon & Beauty/Hair Coloring' dur= img=0 desc='Long hair colour'
+- [Pending/Create] 'Haircut Men' price=20 max= type=fixed cur= needsReview=True mismatch=False priceText='$20' src='Haircut Men' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'Haircut Women' price=30 max= type=fixed cur= needsReview=True mismatch=False priceText='$30' src='Haircut Women' line='' cat='/' dur= img=0 desc=''

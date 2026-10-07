@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "maple",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-maple-king-s-power-electric-inc",
+      "businessName": "King's Power Electric Inc",
+      "description": "ESA Lic# 7006995 — residential/commercial electrical, panel upgrades, pot lights, free estimates. Based in Maple.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-558-2473",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "48 Golden Orchard Rd",
+        "postalCode": "L6A 0M6",
+        "area": "maple",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "48 Golden Orchard Rd, Vaughan, ON L6A 0M6"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "maple",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Service Panel Upgrade",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pot Lights & Fixtures",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Troubleshooting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Appliance Hook-ups",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-maple-reactance-electrical-services-limited",
+      "businessName": "Reactance Electrical Services Limited",
+      "description": "Electrical services based in Maple.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-303-8944",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "119 Pine Hollow Cres",
+        "postalCode": "L6A 2L6",
+        "area": "maple",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "119 Pine Hollow Cres, Vaughan, ON L6A 2L6"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "maple",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Electrical Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

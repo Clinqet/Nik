@@ -1,0 +1,13 @@
+cards=3
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_0 [Table] section='શ્રી અજય પટેલ' page=1 img= scripts=["Gujr","Latn"] chars=71 title='શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી' type='Document'
+    પાન મસાલા | ₹250
+    શરબત | ₹800
+    મીઠાઈ | ₹500
+    પાણીની બોટલ | ₹5,000
+    ચા | ₹50
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_1 [ImageCaption] section='શ્રી અજય પટેલ' page=1 img=526c1daee4fe4ddebb9f384ad3987f0d:d81727f429f17040 scripts=["Gujr","Latn"] chars=91 title='શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી' type='Document'
+    ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે.
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_2 [DocSummary] section='' page= img= scripts=["Gujr","Latn"] chars=175 title='શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી' type='Document'
+    શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી — overview
+    દસ્તાવેજમાં પાન મસાલા, શરબત, મીઠાઈ, પાણીની બોટલ અને ચાના નામ સાથે તેમની કિંમતો દર્શાવવામાં આવી છે.
+    Sections: શ્રી અજય પટેલ (5)

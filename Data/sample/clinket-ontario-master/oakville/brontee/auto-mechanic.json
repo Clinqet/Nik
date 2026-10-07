@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "brontee",
+    "category": "auto-mechanic",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-brontee-darby-auto-electric",
+      "businessName": "Darby Auto Electric",
+      "description": "Established in Oakville since 1962. Import and domestic auto electrical analysis, repairs, recharging.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 64,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-842-1820",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1033 Speers Rd",
+        "postalCode": "L6L 2X5",
+        "area": "brontee",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1033 Speers Rd, Oakville, ON L6L 2X5"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "brontee",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Electrical Analysis",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Battery Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Import & Domestic Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    },
+    {
+      "id": "oakville-brontee-gorski-auto-centre",
+      "businessName": "Gorski Auto Centre",
+      "description": "Auto repair garage on Speers Road in west Oakville / Bronte corridor.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-825-5845",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "4-1490 Speers Rd",
+        "postalCode": "L6L 2X6",
+        "area": "brontee",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "4-1490 Speers Rd, Oakville, ON L6L 2X6"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "brontee",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Car Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "downtown",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-downtown-luxe-salon-spa",
+      "businessName": "Luxe Salon & Spa",
+      "description": "Hair, nail and spa services — cuts, colour, balayage, bridal, facials, massage, waxing. Rambler Dr near downtown.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "437-837-4269",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "30 Rambler Dr",
+        "postalCode": "L6W 1E2",
+        "area": "downtown",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "30 Rambler Dr, Brampton, ON L6W 1E2"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "downtown",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircut and Color",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Balayage Highlights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bridal Hair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Spa Treatments",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Manicure and Pedicure",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Hair+Salons/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-downtown-bella-mia-hair-studio",
+      "businessName": "Bella Mia Hair Studio",
+      "description": "Full-family hair salon at Kingspoint Plaza — women's, men's, kids, bridal, waxing. Main Street North.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-457-7364",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "370 Main Street North",
+        "postalCode": "L6V 4A4",
+        "area": "downtown",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "370 Main Street North, Brampton, ON L6V 4A4"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "downtown",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Women's Hair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Men's Hair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Kids' Hair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bridal Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Waxing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Hair+Salons/Brampton+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

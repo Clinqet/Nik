@@ -1,0 +1,43 @@
+# md_pricelist.md
+blocks=6 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Glow Salon
+[  1] Heading      p1 H2
+      Our Services
+[  2] Table        p1
+      hasHeader=True caption= rows=4
+      | Service | Price | Duration |
+      | Haircut | $25 | 30 min |
+      | Colour | $80 | 90 min |
+      | Highlights | $120 | 120 min |
+[  3] Heading      p1 H2
+      Policies
+[  4] List         p1
+      - Deposit: 20% on bookings over $100
+      - Cancellation: 24 hours notice or 50% charge
+[  5] Paragraph    p1
+      Prices valid until 31 Dec 2026. Model TL1255 not available.
+      
+
+## INVENTORY
+Sections: Policies (3)
+3 records
+Service: Haircut (1), Colour (1), Highlights (1)
+Price: $25 to $120 (typical)
+Duration: 30 min (1), 90 min (1), 120 min (1)
+  [agg Service] 3 records — Service: Haircut (1), Colour (1), Highlights (1)
+  [agg Price] 3 records — Price: $25 to $120 (typical)
+  [agg Duration] 3 records — Duration: 30 min (1), 90 min (1), 120 min (1)
+
+## CARDS (3)  warnings=0
+--- card 0 [Table] section='Glow Salon › Our Services' page= tokens~38 img=-1
+    Service: Haircut | Price: $25 | Duration: 30 min
+    Service: Colour | Price: $80 | Duration: 90 min
+    Service: Highlights | Price: $120 | Duration: 120 min
+--- card 1 [Text] section='Glow Salon › Policies' page= tokens~21 img=-1
+    - Deposit: 20% on bookings over $100
+    - Cancellation: 24 hours notice or 50% charge
+--- card 2 [Text] section='Glow Salon › Policies' page= tokens~15 img=-1
+    Prices valid until 31 Dec 2026. Model TL1255 not available.

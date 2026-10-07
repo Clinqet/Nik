@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "general",
+    "category": "photographers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "oakville-general-rewind-photography",
+      "businessName": "Rewind Photography",
+      "description": "Husband-and-wife maternity, newborn and family photography studio in Oakville with secondary Mississauga location. 15+ years experience; newborn safety trained.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 15,
+      "owner": {
+        "name": "Dima & Julia",
+        "email": "info@rewindphotography.ca",
+        "phone": "647-832-4334"
+      },
+      "businessEmail": "info@rewindphotography.ca",
+      "businessPhone": "647-832-4334",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://rewindphotography.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "Harmsworth Sq (studio)",
+        "city": "Oakville",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Mississauga",
+        "Burlington",
+        "Milton",
+        "Etobicoke",
+        "Richmond Hill",
+        "Vaughan",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "photographers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Newborn Photography",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Maternity Sessions",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Family & Cake Smash",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "In-Home Photography",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://rewindphotography.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

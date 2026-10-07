@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "city": "Cambridge",
+    "area": "Galt",
+    "category": "massage-therapy",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "cambridge-galt-lifemark-physiotherapy-jamieson-townline",
+      "businessName": "Lifemark Physiotherapy Jamieson & Townline",
+      "description": "Physiotherapy and massage services in Cambridge.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "519-740-0527",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.lifemark.ca/clinics/cambridge/jamieson-and-town-line",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Cambridge",
+        "area": "Galt",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Cambridge"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "Galt",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "massage-therapy",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Physiotherapy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Massage Therapy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.lifemark.ca/clinics/cambridge/jamieson-and-town-line?serviceId=&locationId=&brand=1&locale=en",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

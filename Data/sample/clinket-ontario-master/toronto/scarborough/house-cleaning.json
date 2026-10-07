@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "scarborough",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-scarborough-aspenclean-toronto",
+      "businessName": "AspenClean Toronto",
+      "description": "Eco-friendly house cleaning & maid service since 2004. Natural products. Parkway Mall, Scarborough.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 22,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "toronto@aspenclean.com",
+      "businessPhone": "416-546-4593",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://aspenclean.com/",
+        "other": []
+      },
+      "address": {
+        "street": "85 Ellesmere Rd, #204",
+        "postalCode": "M1R 4B8",
+        "area": "scarborough",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "85 Ellesmere Rd, #204, Toronto, ON M1R 4B8"
+      },
+      "serviceAreas": [
+        "Scarborough",
+        "North York",
+        "Etobicoke",
+        "Toronto",
+        "Markham",
+        "Vaughan"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "scarborough",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Condo Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move In/Out Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Spring Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Green Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "10:00",
+            "close": "19:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "10:00",
+            "close": "19:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "10:00",
+            "close": "19:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "10:00",
+            "close": "19:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "10:00",
+            "close": "19:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "10:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://aspenclean.com/pages/toronto-house-cleaning-maid-services",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    },
+    {
+      "id": "toronto-scarborough-maple-leaf-cleaning-and-janitorial-services",
+      "businessName": "Maple Leaf Cleaning and Janitorial Services",
+      "description": "Residential and commercial cleaning. Pharmacy Ave, Scarborough.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-759-4679",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1095 Pharmacy Ave",
+        "postalCode": "M1R 2H2",
+        "area": "scarborough",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1095 Pharmacy Ave, Toronto, ON M1R 2H2"
+      },
+      "serviceAreas": [
+        "Toronto",
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "East York",
+        "York"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "scarborough",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Janitorial Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Cleaning+Service/North+York+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

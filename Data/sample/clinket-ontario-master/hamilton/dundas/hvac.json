@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Dundas",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "HVAC service, sales and installation — furnaces, air conditioners, fireplaces, hot water tanks, refrigeration.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@dgheatingandcoolinginc.com",
+      "businessPhone": "905-522-4967",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "334A Hatt St",
+        "city": "Dundas",
+        "area": "Dundas",
+        "province": "ON",
+        "postalCode": "L9H 2H9",
+        "country": "Canada",
+        "formatted": "334A Hatt St, Dundas, ON L9H 2H9"
+      },
+      "serviceAreas": [
+        "Dundas",
+        "Hamilton",
+        "GTA"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Dundas",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioners",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Fireplaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hot Water Tanks",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Refrigeration",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://411.ca/business/profile/2972063",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://www.mapquest.com/ca/ontario/d-g-heating-cooling-inc-375827390",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": "Batch 2; phone/email/address from Canada411 & MapQuest public listings; alt phones 905-512-3052, 905-628-3333"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-dundas-dg-heating-cooling-inc",
+      "businessName": "D G Heating & Cooling Inc"
+    }
+  ]
+}

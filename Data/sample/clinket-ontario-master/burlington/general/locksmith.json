@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "general",
+    "category": "locksmith",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "burlington-general-the-lock-hut-burlington",
+      "businessName": "The Lock Hut Burlington",
+      "description": "Locksmith and security systems for Burlington homes and businesses. Same company as Hamilton Lock Hut; Burlington line.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "security@thelockhut.ca",
+      "businessPhone": "905-637-9660",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.thelockhut.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Burlington",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Hamilton",
+        "Waterdown",
+        "Oakville"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "locksmith",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Locksmith",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Locksmith",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Locksmith 24hr",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.thelockhut.ca/contact-us",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "burlington-general-treco-locksmith-security",
+      "businessName": "Treco Locksmith & Security",
+      "description": "Fully mobile commercial, residential and automotive locksmith for Burlington and Hamilton. Automatic doors, AODA, master keys, car keys on site. 5.0 Google rating.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "andrew@tlocksmith.ca",
+      "businessPhone": "905-977-8476",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://tlocksmith.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Burlington",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Hamilton",
+        "Oakville",
+        "Stoney Creek",
+        "Grimsby",
+        "Caledonia"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "locksmith",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Commercial Locksmith",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Residential Rekey",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Automotive Keys",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Automatic Door Operators",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Access Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Locksmith",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": "Open 24 hours Mon-Sat"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://tlocksmith.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

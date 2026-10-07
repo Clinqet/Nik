@@ -1,0 +1,53 @@
+{
+  "businessId": "NKN607",
+  "docId": "97b1da102b6a46099d098e214c830396",
+  "docName": "img_pricelist_lowercase_inline.jpg",
+  "docTitle": "Nail Bar Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 48905,
+  "pageCount": 1,
+  "passageCount": 3,
+  "contentHash": "88AA6D4C9EFFC24A9CEB627B721DAA8B6D1568901562F046B504F1576424223F",
+  "blobPath": "NKN607/97b1da102b6a46099d098e214c830396/img_pricelist_lowercase_inline-20260925-052224-ef874a47656d.jpg",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:02:17.7299508Z",
+    "outcome": "Ran",
+    "candidateCount": 6,
+    "draftCount": 5,
+    "alreadyInCatalogCount": 1,
+    "notFullyScanned": false
+  },
+  "images": [
+    {
+      "imageId": "88aa6d4c9effc24a",
+      "page": 1,
+      "anchorPath": "nail bar",
+      "blobPath": "NKN607/_images/97b1da102b6a46099d098e214c830396/88aa6d4c9effc24a.jpg",
+      "thumbPath": "NKN607/_images/97b1da102b6a46099d098e214c830396/88aa6d4c9effc24a.jpg.thumb.webp",
+      "contentHash": "88aa6d4c9effc24a9ceb627b721daa8b6d1568901562f046b504f1576424223f",
+      "kind": "TextSnapshot",
+      "caption": "nail bar\nclassic manicure $30\ngel manicure $45\nspa pedicure $45\nacrylic full set $65\nnail art per nail $3\npolish change $15",
+      "captionContextHash": "D0C84A130B9863FA",
+      "sendable": false,
+      "width": 1419,
+      "height": 765,
+      "bytes": 48905,
+      "source": "Upload",
+      "status": "ThumbReady"
+    }
+  ],
+  "id": "97b1da102b6a46099d098e214c830396",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5b0b6ed9-0000-0200-0000-6ab6d3490000\"",
+  "createdAt": "2026-09-25T05:22:24.995208Z",
+  "updatedAt": "2026-09-25T20:02:17.7757199Z",
+  "_rid": "ezpkAL1hvTEKAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTEKAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366537
+}

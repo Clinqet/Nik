@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "north-york",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-north-york-homestar-heating-air-conditioning-inc",
+      "businessName": "Homestar Heating & Air Conditioning Inc",
+      "description": "Furnace, HVAC and AC repair/install across Toronto, Markham, Mississauga. Gordon Baker Rd, North York. Lennox dealer.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@ihomestar.com",
+      "businessPhone": "416-291-3001",
+      "social": {
+        "facebook": "https://www.facebook.com/pages/Homestar-Heating-and-Air-Conditioning/226536037503821",
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "http://www.ihomestar.com/",
+        "other": []
+      },
+      "address": {
+        "street": "606 Gordon Baker Rd",
+        "postalCode": "M2H 3B4",
+        "area": "north-york",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "606 Gordon Baker Rd, Toronto, ON M2H 3B4"
+      },
+      "serviceAreas": [
+        "North York",
+        "Toronto",
+        "Markham",
+        "Mississauga",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "north-york",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "AC Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Ductless Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "HVAC Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24-hour service advertised; also 416-491-4049"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "http://www.ihomestar.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        },
+        {
+          "url": "http://www.ihomestar.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "toronto-north-york-dave-white-heating-sheet-metal-ltd",
+      "businessName": "Dave White Heating & Sheet Metal Ltd",
+      "description": "Natural gas heating, geothermal, duct work specialist, air conditioning. Harrow Dr, North York. Serves Toronto and Etobicoke.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-802-9328",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "23 Harrow Dr",
+        "postalCode": "M6M 2X4",
+        "area": "north-york",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "23 Harrow Dr, Toronto, ON M6M 2X4"
+      },
+      "serviceAreas": [
+        "Toronto",
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "East York",
+        "York"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "north-york",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Forced-air Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Duct Work",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Geothermal Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    },
+    {
+      "id": "toronto-north-york-aaa-technical-services",
+      "businessName": "Aaa Technical Services",
+      "description": "Furnace, AC, heat pumps, boilers, tankless water heaters. Milvan Dr, North York. Sales, service and rental.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-745-3434",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "121 Milvan Dr",
+        "postalCode": "M9L 1Z8",
+        "area": "north-york",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "121 Milvan Dr, Toronto, ON M9L 1Z8"
+      },
+      "serviceAreas": [
+        "Toronto",
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "East York",
+        "York"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "north-york",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Boiler",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24h Emergency Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

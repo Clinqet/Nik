@@ -1,0 +1,265 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "streetsville",
+    "category": "auto-mechanic",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-streetsville-johnny-s-auto-centre-inc",
+      "businessName": "Johnny's Auto Centre Inc",
+      "description": "Complete maintenance and repairs, domestic and import. William St, Streetsville.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-826-2422",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "36 William St",
+        "postalCode": "L5M 1J3",
+        "area": "streetsville",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "36 William St, Mississauga, ON L5M 1J3"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "streetsville",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Oil Changes",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Brakes",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tires",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emissions Testing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "4 Wheel Alignment",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-streetsville-fix-auto-streetsville",
+      "businessName": "Fix Auto Streetsville",
+      "description": "Collision and body repair with lifetime body repair guarantee. Thomas St.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-858-0900",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "66 Thomas St",
+        "postalCode": "L5M 2P3",
+        "area": "streetsville",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "66 Thomas St, Mississauga, ON L5M 2P3"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "streetsville",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Collision Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Auto Body Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

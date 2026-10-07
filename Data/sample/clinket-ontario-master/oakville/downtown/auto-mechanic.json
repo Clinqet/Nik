@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "downtown",
+    "category": "auto-mechanic",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-downtown-urban-automotive-inc",
+      "businessName": "Urban Automotive Inc.",
+      "description": "Serving Oakville since 2004. Full-service maintenance, brakes, alignments, hybrids, ADAS calibration, safety certificates.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 22,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-845-3531",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "886 Winston Churchill Blvd",
+        "postalCode": "L6J 7X5",
+        "area": "downtown",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "886 Winston Churchill Blvd, Oakville, ON L6J 7X5"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "downtown",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Oil Changes",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Brake Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Wheel Alignments",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hybrid Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Safety Standards Certificates",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    },
+    {
+      "id": "oakville-downtown-oakville-import-auto-centre",
+      "businessName": "Oakville Import Auto Centre",
+      "description": "Import and domestic auto repair on Royal Windsor Drive: brakes, diagnostics, A/C, tires, tune-ups.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-351-5232",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2506 Royal Windsor Dr",
+        "postalCode": "L6J 7Y3",
+        "area": "downtown",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2506 Royal Windsor Dr, Oakville, ON L6J 7Y3"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "downtown",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Brakes",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Computer Diagnostics",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Oil Lube Filter",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tune Ups",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Auto+Repair+Garages/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

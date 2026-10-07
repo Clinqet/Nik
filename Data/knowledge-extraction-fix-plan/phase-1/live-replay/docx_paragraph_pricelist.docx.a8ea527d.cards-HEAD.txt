@@ -1,0 +1,6 @@
+# docx_paragraph_pricelist.docx.a8ea527d
+blocks=19 pageCount=0 docType=Other
+cards=1 imageCards=0 warnings=0
+
+--- card 0 [Text] section='' page= img= chars=371
+    Glow Salon Price List Haircut $25 Beard trim $15 Kids cut $18 Full head colour $80 Root touch up $55 Highlights $120 Keratin treatment $250 Blow dry $30 Updo $65 Deep conditioning $40 Scalp massage $35 Fringe trim $12 Massage & Body Back massage — $60 (45 min) Hot stone massage — $95 (75 min) Aromatherapy — $85 (60 min) Body scrub — $75 (60 min) Hair spa — $90 (90 min)

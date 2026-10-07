@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Hamilton",
+    "category": "handyman",
+    "scrapedAt": "2026-09-23T15:41:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-hamilton-jp-handyman",
+      "businessName": "JP Handyman",
+      "description": "Local handyman services in Hamilton for home repairs and odd jobs. Owner Neil.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Neil",
+        "email": "neil.jphandyman@gmail.com",
+        "phone": "905-867-2275"
+      },
+      "businessEmail": "neil.jphandyman@gmail.com",
+      "businessPhone": "905-867-2275",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://jphandy.ca/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Home Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Property Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://jphandy.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": "Website returned 500 on full fetch; phone/email from public search index snippets"
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-cardinal-handyman",
+      "businessName": "Cardinal Handyman",
+      "description": "Professional handyman services in Hamilton. Free estimates.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Matthew Clark",
+        "email": "matthew.clark@cardinalhandyman.ca",
+        "phone": "647-239-6832"
+      },
+      "businessEmail": "matthew.clark@cardinalhandyman.ca",
+      "businessPhone": "647-239-6832",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://cardinalhandyman.ca/",
+        "other": []
+      },
+      "address": {
+        "postalCode": "L0R 0A5",
+        "formatted": "Hamilton, Ontario L0R 0A5",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Handyman Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://cardinalhandyman.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-fixer-upper-upper",
+      "businessName": "Fixer Upper Upper",
+      "description": "One-person locally operated handyman business based in Hamilton. Pool opening and home repairs.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@fixerupperupper.com",
+      "businessPhone": "289-448-5124",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://fixerupperupper.com/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Ancaster",
+        "Dundas"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Home Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": "Free quotes, no hidden fees"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pool Opening",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://fixerupperupper.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://fixerupperupper.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-local-handyman-hamilton",
+      "businessName": "Local Handyman Hamilton",
+      "description": "Reliable, affordable & insured handyman services in Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "hamilton@localhandyman.com",
+      "businessPhone": "289-275-1139",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://localhandyman.com/hamilton",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Handyman Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://localhandyman.com/hamilton",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    }
+  ]
+}

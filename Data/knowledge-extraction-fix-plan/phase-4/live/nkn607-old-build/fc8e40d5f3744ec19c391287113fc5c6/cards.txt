@@ -1,0 +1,41 @@
+cards=9
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_0 [Table] section='Prices' page= img= scripts=["Latn"] chars=933 title='Hair Salon Prices and Policies' type='Document'
+    Service: Haircut | Price (Short hair): $25.00 | Price (Long hair): $35.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-01 | Notes: Walk-ins welcome
+    Service: Full head colour | Price (Short hair): $80.00 | Price (Long hair): $110.00 | Duration: 90 min | Discount: 15% | Valid from: 2026-01-02 | Notes: Includes toner Patch test 48h before Ask about Olaplex add-on
+    Service: Highlights | Price (Short hair): $120.00 | Price (Long hair): $160.00 | Duration: 120 min | Discount: 15% | Valid from: 2026-01-03 | Notes: Walk-ins welcome
+    Service: Keratin treatment | Price (Short hair): $250.00 | Price (Long hair): $320.00 | Duration: 180 min | Discount: 15% | Valid from: 2026-01-04 | Notes: Walk-ins welcome
+    Service: Blow dry | Price (Short hair): $30.00 | Price (Long hair): $40.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-05 | Notes: Walk-ins welcome
+    Service: Average short price | Price (Short hair): $101.00
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_1 [Table] section='Prices' page= img= scripts=["Latn"] chars=130 title='Hair Salon Prices and Policies' type='Document'
+    Treatment | Guarantee days | Redo policy
+    Keratin treatment | 7 | Free redo within a week
+    Full head colour | 5 | Toner refresh free
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_2 [Table] section='Sheet2' page= img= scripts=["Latn"] chars=71 title='Hair Salon Prices and Policies' type='Document'
+    Opening hours | Mon–Fri 9:00–18:00
+    Saturday | 10:00–16:00
+    Deposit | 20%
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_3 [DocSummary] section='' page= img= scripts=["Latn"] chars=624 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview
+    Lists services, short- and long-hair prices, durations, discounts, valid dates and notes. Also covers treatment guarantees and redo policies, opening hours, and the deposit.
+    Sections: Prices (9), Sheet2 (3)
+    6 records
+    Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)
+    Price (Short hair): $25.00 to $250.00 (typical)
+    Price (Long hair): $35.00 to $320.00 (typical)
+    Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)
+    Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_4 [DocAggregate] section='Service' page= img= scripts=["Latn"] chars=184 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview — Service
+    6 records — Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_5 [DocAggregate] section='Price (Short hair)' page= img= scripts=["Latn"] chars=122 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview — Price (Short hair)
+    6 records — Price (Short hair): $25.00 to $250.00 (typical)
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_6 [DocAggregate] section='Price (Long hair)' page= img= scripts=["Latn"] chars=120 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview — Price (Long hair)
+    6 records — Price (Long hair): $35.00 to $320.00 (typical)
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_7 [DocAggregate] section='Duration' page= img= scripts=["Latn"] chars=123 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview — Duration
+    6 records — Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)
+--- NKN607_fc8e40d5f3744ec19c391287113fc5c6_8 [DocAggregate] section='Valid from' page= img= scripts=["Latn"] chars=157 title='Hair Salon Prices and Policies' type='Document'
+    Hair Salon Prices and Policies — overview — Valid from
+    6 records — Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)

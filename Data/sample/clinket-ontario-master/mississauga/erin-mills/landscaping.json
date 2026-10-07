@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "erin-mills",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-erin-mills-oakly-landscaping",
+      "businessName": "Oakly Landscaping",
+      "description": "Full-service landscaping: design/build, interlock, sod, snow removal. Dundas St W, Erin Mills. Owner Mohamed Fayadh.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 10,
+      "owner": {
+        "name": "Mohamed Fayadh",
+        "email": "contact@oaklylandscaping.com",
+        "phone": "647-446-1346"
+      },
+      "businessEmail": "contact@oaklylandscaping.com",
+      "businessPhone": "647-446-1346",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://oaklylandscaping.com/",
+        "other": []
+      },
+      "address": {
+        "street": "3-3055 Dundas Street West Suite 134",
+        "postalCode": "L5L 3R8",
+        "area": "erin-mills",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "3-3055 Dundas Street West Suite 134, Mississauga, ON L5L 3R8"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Oakville",
+        "Etobicoke",
+        "Burlington",
+        "Milton",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "erin-mills",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Design & Build",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Interlock Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sod & Planting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Retaining Walls",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snow Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://oaklylandscaping.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-erin-mills-green-thumb-landscaping",
+      "businessName": "Green Thumb Landscaping",
+      "description": "Lawn and garden services. Erin Mills Parkway.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-896-3677",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2225 Erin Mills Parkway",
+        "postalCode": "L5K 1T8",
+        "area": "erin-mills",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2225 Erin Mills Parkway, Mississauga, ON L5K 1T8"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "erin-mills",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Lawn and Garden Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.canadapages.com/green-thumb-landscaping-mississauga-on-9058963677/",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

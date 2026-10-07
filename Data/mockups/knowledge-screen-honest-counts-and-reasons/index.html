@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Knowledge — the reason, and the real number</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013;
+      --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013;
+    --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+
+  header.masthead { padding:48px 0 28px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,44px); line-height:1.05; letter-spacing:-.02em; margin:0; text-wrap:balance; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:64ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; white-space:nowrap; }
+
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:52px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:86ch; }
+
+  .board { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 460px; min-width:0; }
+  .frame.w360 { flex:0 0 360px; max-width:100%; }
+  .frame.w520 { flex:1 1 520px; }
+  .frame.full { flex:1 1 100%; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .frame-label em.bad { color:var(--stop); }
+  .pad { padding:16px; }
+
+  .pill { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; letter-spacing:.02em; border:1px solid var(--line-firm); color:var(--ink-mute); background:var(--surface-sunk); white-space:nowrap; }
+  .pill.ok { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .pill.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .pill.navy { background:var(--navy-soft); border-color:#C4D6EE; color:var(--navy); }
+  .pill.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .pill.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+
+  .banner { display:flex; gap:9px; align-items:flex-start; border-radius:11px; padding:9px 11px; font-size:12px; margin-top:10px; border:1px solid var(--line); background:var(--surface-sunk); color:var(--ink-soft); }
+  .banner.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .banner.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .banner.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .banner.good { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .banner b { display:block; }
+
+  .before { border:1px dashed var(--stop); border-radius:11px; padding:9px 11px; background:var(--stop-bg); color:var(--stop); font-size:12px; margin-top:10px; }
+  .before b { display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; margin-bottom:3px; }
+  .after { border:1px solid #CFE9A4; border-radius:11px; padding:9px 11px; background:var(--brand-soft); color:var(--brand-deep); font-size:12px; margin-top:8px; }
+  .after b { display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; margin-bottom:3px; }
+
+  .spin { width:13px; height:13px; border-radius:50%; border:2px solid var(--line-firm); border-top-color:var(--info); display:inline-block; vertical-align:-2px; flex:none; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  .row { display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); border-radius:12px; padding:10px 11px; background:var(--surface); margin-bottom:8px; }
+  .row .thumb { width:32px; height:38px; border-radius:6px; background:var(--surface-sunk); border:1px solid var(--line-firm); flex:none; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:8.5px; color:var(--ink-mute); }
+  .row .body { min-width:0; flex:1 1 auto; }
+  .row .name { font-weight:600; font-size:13px; overflow-wrap:anywhere; }
+  .row .meta { font-size:11.5px; color:var(--ink-mute); margin-top:1px; }
+  .row .chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+
+  .tiles { display:grid; grid-template-columns:repeat(auto-fill,minmax(74px,1fr)); gap:8px; margin-top:4px; }
+  .tile { position:relative; aspect-ratio:1; border-radius:9px; background:linear-gradient(135deg,#dfe8f5,#c9d9ef); border:1px solid #B9CCE6; }
+  .tick { position:absolute; top:5px; right:5px; width:22px; height:22px; border-radius:7px; background:var(--surface); border:1px solid var(--line-firm); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--brand-deep); font-weight:700; }
+  .tick.hit { outline:2px dashed var(--info); outline-offset:6px; }
+  .hitnote { font-family:var(--mono); font-size:9.5px; color:var(--info); letter-spacing:.06em; }
+
+  .seg { display:inline-flex; border:1px solid var(--line-firm); border-radius:10px; overflow:hidden; }
+  .seg div { padding:6px 11px; font-size:12px; color:var(--ink-soft); background:var(--surface); border-right:1px solid var(--line); }
+  .seg div:last-child { border-right:0; }
+  .seg div.on { background:var(--brand); color:#0B2A00; font-weight:700; }
+  .seg div.off { color:var(--ink-mute); background:var(--surface-sunk); opacity:.55; }
+
+  .sw { display:inline-flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ink-soft); }
+  .sw .track { width:36px; height:20px; border-radius:999px; background:var(--line-firm); position:relative; flex:none; }
+  .sw .track i { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:var(--surface); box-shadow:0 1px 2px rgba(0,0,0,.25); }
+  .sw.on .track { background:var(--brand); } .sw.on .track i { left:18px; }
+
+  .ghost { background:var(--surface-sunk); border-radius:6px; display:block; height:10px; }
+  .ghost.t { height:13px; }
+  .ghost.w40 { width:40%; } .ghost.w60 { width:60%; } .ghost.w80 { width:80%; } .ghost.w30 { width:30%; }
+  .shimmer { position:relative; overflow:hidden; }
+  .shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); animation:sh 1.5s infinite; }
+  @keyframes sh { to { transform:translateX(100%); } }
+
+  .phone { width:340px; max-width:100%; border:1px solid var(--line-firm); border-radius:30px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; flex:none; }
+  .phone .status { height:26px; background:var(--surface-sunk); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 14px; font-family:var(--mono); font-size:9.5px; color:var(--ink-mute); }
+  .phone .navbar { display:flex; align-items:center; gap:9px; padding:10px 13px; border-bottom:1px solid var(--line); font-weight:600; font-size:14px; }
+  .phone .screen { padding:13px; }
+  .phone .tabbar { display:flex; border-top:1px solid var(--line); background:var(--surface-sunk); }
+  .phone .tabbar div { flex:1; text-align:center; padding:8px 0 11px; font-size:9.5px; color:var(--ink-mute); }
+  .phone .tabbar div.on { color:var(--brand-deep); font-weight:700; }
+
+  .note { font-size:12.5px; color:var(--ink-mute); margin:10px 0 0; }
+  .note b { color:var(--ink-soft); }
+
+  table.copy { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:10px; }
+  table.copy th, table.copy td { text-align:left; vertical-align:top; padding:7px 10px; border-bottom:1px solid var(--line); }
+  table.copy th { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); border-bottom:1px solid var(--line-firm); white-space:nowrap; }
+  table.copy code { font-family:var(--mono); font-size:11px; color:var(--navy); overflow-wrap:anywhere; }
+  .scrollx { overflow-x:auto; }
+  .item { font-family:var(--mono); font-size:10px; letter-spacing:.09em; color:var(--brand-deep); font-weight:600; }
+
+  footer { margin-top:56px; padding-top:18px; border-top:1px solid var(--line-firm); font-size:12px; color:var(--ink-mute); }
+  @media (max-width:640px) { body { padding:0 16px 60px; } .phone { width:100%; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>AI Knowledge — the reason, and the real number</h1>
+    <p>Thirteen places where the screen either threw away a sentence the server had already written, or
+      printed a number it had made up. Web and phone, every state. Governs <b>U‑05, U‑06, U‑12, U‑14, U‑15,
+      U‑18, U‑19, U‑20, U‑21, U‑22, U‑23, U‑24, U‑25</b>.</p>
+  </div>
+  <div class="stamp">
+    Sheet · knowledge-screen-honest-counts-and-reasons<br>
+    Drawn 2026-09-15 · Phase 3 of 4<br>
+    Approval waived by the owner (D4)<br>
+    Web 1440 / 1024 / 768 · Phone 375
+  </div>
+</header>
+
+<h2 class="rule"><span>1</span> &nbsp;<span class="item">U-05 · U-06</span> &nbsp;The server already said why. Show that.</h2>
+<p class="lede">Every refusal below is a sentence the server writes and translates. The screen used to discard
+  all of them for one line of generic advice — and that advice is wrong for every case, because the provider
+  repeats the one action that cannot work and never sees what to change.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Web · uploading four files, three refused</span><em class="bad">before</em></div>
+    <div class="pad">
+      <div class="row"><div class="thumb">PDF</div><div class="body"><div class="name">Rate card.pdf</div><div class="chips"><span class="pill ok">Added</span></div></div></div>
+      <div class="before"><b>What the screen said, three times</b>This file didn't upload. Try again.</div>
+      <p class="note">Three different problems, one useless sentence. "Try again" is advice that cannot
+        succeed for any of them.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Web · the same four files</span><em>after</em></div>
+    <div class="pad">
+      <div class="row"><div class="thumb">PDF</div><div class="body"><div class="name">Rate card.pdf</div><div class="chips"><span class="pill ok">Added</span></div></div></div>
+      <div class="row"><div class="thumb">ZIP</div><div class="body"><div class="name">All my files.zip</div>
+        <div class="banner stop" style="margin-top:6px"><div>We can't read this kind of file. Try a PDF, a Word
+          document, a spreadsheet, a picture or a plain text file.</div></div></div></div>
+      <div class="row"><div class="thumb">PDF</div><div class="body"><div class="name">Catalogue 2026.pdf</div>
+        <div class="banner stop" style="margin-top:6px"><div>This file is larger than 25 MB. Try splitting it,
+          or save it at a smaller size.</div></div></div></div>
+      <div class="row"><div class="thumb">DOC</div><div class="body"><div class="name">Policy.docx</div>
+        <div class="banner warn" style="margin-top:6px"><div>We started reading the file you're replacing.
+          Wait for it to finish, then replace it.</div></div></div></div>
+      <p class="note"><b>Per file, not per upload.</b> The one that worked says so and stays; each refusal
+        carries its own reason on its own row.</p>
+    </div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:22px">
+  <div class="phone">
+    <div class="status"><span>9:41</span><span>▮▮▮ ◗</span></div>
+    <div class="navbar"><span>‹</span><span>AI Knowledge</span></div>
+    <div class="screen">
+      <div class="banner stop" style="margin-top:0"><div><b>Policy.docx</b>We can't read this kind of file. Try
+        a PDF, a Word document, a spreadsheet, a picture or a plain text file.</div></div>
+      <div class="banner warn"><div><b>Deleting</b>This file is being read right now. Wait for it to finish, then
+        delete it.</div></div>
+      <p class="note" style="font-size:11.5px"><span class="item">U-06</span> The phone used to swallow the
+        refusal that comes back from a confirm — the dialog closed and nothing happened. It now shows the same
+        sentence the web does, from the same place.</p>
+    </div>
+    <div class="tabbar"><div>Home</div><div>Bookings</div><div>Ask</div><div class="on">Profile</div></div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span><span class="item">U-12</span> Phone · what the picker will let you choose</span><em>after</em></div>
+    <div class="pad">
+      <div class="banner good" style="margin-top:0"><div><b>Every accepted kind is offered</b>PDF · Word ·
+        Excel · PowerPoint · plain text · CSV · pictures — each one now named to the phone's file picker, so a
+        file the server would have accepted is no longer greyed out before the provider can pick it.</div></div>
+      <div class="before"><b>Before</b>The picker offered a short list and left out kinds the server accepts.
+        The provider concluded the product could not read them.</div>
+      <p class="note"><b>A refusal the provider never sees is worse than one they do</b> — there is nothing to
+        read and nothing to change.</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>2</span> &nbsp;<span class="item">U-14</span> &nbsp;Never store one thing and show another</h2>
+<p class="lede">The picker beside the file offers only "answers" while sending is switched off. The stored
+  default said "answers &amp; sends" regardless. The day sending is turned on, every file ever uploaded becomes
+  sendable to a stranger who phoned — without the provider ever choosing it.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Sending is OFF</span><em>after</em></div>
+    <div class="pad">
+      <div class="sw"><span class="track"><i></i></span> Send files to callers &nbsp;<span class="pill">Off</span></div>
+      <div style="margin-top:12px">
+        <div class="seg">
+          <div class="on">Answers from it</div>
+          <div class="off">Answers &amp; sends it</div>
+          <div>Not used</div>
+        </div>
+      </div>
+      <div class="after"><b>After</b>A new file, and a new FAQ, default to <b>Answers from it</b> — the same
+        thing the picker shows. What is stored is what is on screen.</div>
+      <p class="note">The middle choice is dimmed with the reason beside it, not hidden: hiding it makes the
+        switch above look unrelated to the file.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Sending is ON</span><em>unchanged</em></div>
+    <div class="pad">
+      <div class="sw on"><span class="track"><i></i></span> Send files to callers &nbsp;<span class="pill ok">On</span></div>
+      <div style="margin-top:12px">
+        <div class="seg">
+          <div>Answers from it</div>
+          <div class="on">Answers &amp; sends it</div>
+          <div>Not used</div>
+        </div>
+      </div>
+      <p class="note">With sending on, the old default was already the right one and nothing changes.</p>
+      <div class="banner info"><div><b>The rule in one line</b>The default is the most that the business's own
+        switch currently permits — never more.</div></div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>3</span> &nbsp;<span class="item">U-15 · U-18 · U-19</span> &nbsp;Pictures: a number that cannot be rewritten, and a tick you can hit</h2>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Web · a file with 40 pictures, 30 kept</span><em class="bad">before</em></div>
+    <div class="pad">
+      <div class="before"><b>Before — both numbers read off the tiles on screen</b>This file had 39 pictures.
+        We keep the 30 largest from any one file.<br><br>Deleting one of the kept pictures rewrote history: the
+        file "had" 39, then 38, then 37. The provider is told something about their own document that is
+        simply false, and it changes every time they tidy up.</div>
+      <div class="after"><b>After — what the cap left out, which no later edit can move</b>10 pictures in this
+        file were left out — we keep the largest ones from any one file.</div>
+      <p class="note">One picture left out says <b>“1 picture in this file was left out”</b>; the phone carries
+        the two forms as separate keys because its translation files count differently from the web's.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Web + phone · choosing pictures</span><em>after</em></div>
+    <div class="pad">
+      <div class="tiles">
+        <div class="tile"><span class="tick hit">✓</span></div>
+        <div class="tile"><span class="tick">✓</span></div>
+        <div class="tile"><span class="tick"></span></div>
+        <div class="tile"><span class="tick"></span></div>
+      </div>
+      <p class="note" style="margin-top:9px"><span class="item">U-18</span> <span class="hitnote">dashed
+        outline = the area that responds</span> — the tick stays 22&nbsp;px, but the area that answers a
+        finger is 44&nbsp;px. It was 22&nbsp;px on the phone, which is half the smallest target a thumb can
+        reliably hit.</p>
+      <div class="row" style="margin-top:12px"><div class="thumb">PDF</div><div class="body">
+        <div class="name">Kompressor-Datenblatt — Seite 3 — Hochauflösendes Foto.jpeg</div>
+        <div class="meta">4.1 MB</div></div></div>
+      <p class="note"><span class="item">U-19</span> The name wraps onto as many lines as it needs. Trimmed,
+        two spec sheets that differ only at the end look identical and the provider deletes the wrong one.</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>4</span> &nbsp;<span class="item">U-20 · U-25</span> &nbsp;Numbers the screen is allowed to say</h2>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Suggested services · price ranges</span><em>after</em></div>
+    <div class="pad">
+      <div class="row"><div class="thumb">$</div><div class="body">
+        <div class="name">Women's haircut</div>
+        <div class="meta">$45 – $65</div></div></div>
+      <div class="row"><div class="thumb">$</div><div class="body">
+        <div class="name">Beard trim</div>
+        <div class="meta">$20</div></div></div>
+      <div class="after"><b>One rule, three places</b>A range is shown only when the top of it is genuinely
+        higher than the bottom. Web, phone and the server now agree on that single sentence — before, the phone
+        showed “$20 – $20” where the web showed “$20”.</div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Suggested services · under a filter</span><em>after</em></div>
+    <div class="pad">
+      <div class="row"><div class="thumb">$</div><div class="body"><div class="name">Women's haircut</div></div></div>
+      <div class="row"><div class="thumb">$</div><div class="body"><div class="name">Colour — full head</div></div></div>
+      <div style="text-align:center;margin-top:4px"><span class="pill navy">Show more</span></div>
+      <div class="before"><b>Before</b>Show 18 more — a subtraction from a total that described the unfiltered
+        list. Under a filter it was simply wrong, and tapping it revealed three.</div>
+      <div class="after"><b>After</b>When the remainder is genuinely known, the number is shown. When it is not
+        — which is exactly the filtered case — the button says <b>Show more</b> and nothing else.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>5</span> &nbsp;<span class="item">U-21 · U-22 · U-23 · U-24</span> &nbsp;The phone behaves like the web</h2>
+
+<div class="board">
+  <div class="phone">
+    <div class="status"><span>9:41</span><span>▮▮▮ ◗</span></div>
+    <div class="navbar"><span>‹</span><span>AI Knowledge</span></div>
+    <div class="screen">
+      <div class="row shimmer"><div class="thumb"></div><div class="body"><span class="ghost t w80"></span><span class="ghost w40" style="margin-top:6px"></span></div></div>
+      <div class="row shimmer"><div class="thumb"></div><div class="body"><span class="ghost t w60"></span><span class="ghost w30" style="margin-top:6px"></span></div></div>
+      <div class="row shimmer"><div class="thumb"></div><div class="body"><span class="ghost t w80"></span><span class="ghost w40" style="margin-top:6px"></span></div></div>
+      <p class="note" style="font-size:11.5px"><span class="item">U-21</span> <b>State: loading.</b> Shapes in
+        the size of the rows that are coming, as on the web. A bare spinner over an empty screen reads as
+        broken.</p>
+    </div>
+    <div class="tabbar"><div>Home</div><div>Bookings</div><div>Ask</div><div class="on">Profile</div></div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span><span class="item">U-22</span> The same thing is called the same thing</span><em>after</em></div>
+    <div class="pad">
+      <div class="scrollx">
+      <table class="copy">
+        <tr><th>Where</th><th class="">Before</th><th>After — both apps</th></tr>
+        <tr><td>What the receptionist does with a file</td><td>“answers callers <i>word for word</i> from your own material”</td><td>“answers callers straight from your material”</td></tr>
+        <tr><td>How many more files fit</td><td>“You can add 3 more file(s)”</td><td>“You can add 3 more files” · “You can add 1 more file”</td></tr>
+        <tr><td>Leaving the delete dialog</td><td>“Cancel”</td><td>“Keep it”</td></tr>
+        <tr><td>The suggestions tab</td><td>“Suggestions”</td><td>“Service suggestions”</td></tr>
+      </table>
+      </div>
+      <p class="note"><b>“word for word” was a promise the product cannot keep</b> — a caller is answered in
+        their own language and in sentences, not read the document aloud. “(s)” is not a plural in any
+        language the app ships.</p>
+    </div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:22px">
+  <div class="frame w520">
+    <div class="frame-label"><span><span class="item">U-23</span> Leaving the screen</span><em>after</em></div>
+    <div class="pad">
+      <div class="before"><b>Before</b>A hand-typed address and a full page load. The whole dashboard was torn
+        down and rebuilt, the provider watched a white flash, and a renamed route would have led nowhere with
+        nothing to catch it.</div>
+      <div class="after"><b>After</b>The one route constant every other link uses, followed without reloading
+        the app.</div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span><span class="item">U-24</span> Refreshing the list</span><em>after</em></div>
+    <div class="pad">
+      <div class="before"><b>Before</b>Two ways to reload the same list, reached from different places. They
+        could disagree, and did — one of them left the counts above the list untouched.</div>
+      <div class="after"><b>After</b>One path. Pull to refresh, the button, and finishing an upload all go
+        through it, so the list and the counts above it can never drift apart.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>6</span> &nbsp;Where every sentence comes from</h2>
+<p class="lede">The server writes and translates every <i>reason</i>. The screen owns only the labels and the
+  counted sentences. Nothing on this sheet is assembled on the screen out of pieces.</p>
+
+<div class="scrollx">
+<table class="copy">
+  <tr><th>On screen</th><th>Web key</th><th>Phone key</th><th>Who writes it</th></tr>
+  <tr><td>Every refusal reason (kind, size, name, busy)</td><td colspan="2">no key — shown as sent</td><td><b>The server</b>, already translated</td></tr>
+  <tr><td>N pictures in this file were left out …</td><td><code>knowledge.images.capped</code></td><td><code>IMAGES_CAPPED_one</code> / <code>_other</code></td><td>The screen, from the number the server recorded when it read the file</td></tr>
+  <tr><td>Show more</td><td><code>knowledge.drafts.showMoreUnknown</code></td><td><code>DRAFTS_SHOW_MORE_UNKNOWN</code></td><td>The screen</td></tr>
+  <tr><td>You can add N more files — M in total.</td><td>existing key</td><td><code>COUNT_LIMIT_REMAINING_one</code> / <code>_other</code></td><td>The screen, from the plan's own numbers</td></tr>
+  <tr><td>Keep it</td><td>existing key</td><td><code>DELETE_CONFIRM_NO</code></td><td>The screen</td></tr>
+  <tr><td>Service suggestions</td><td>existing key</td><td><code>TABS_SUGGESTIONS</code></td><td>The screen</td></tr>
+  <tr><td>What your AI receptionist knows beyond your services…</td><td>existing key</td><td><code>SUBTITLE</code></td><td>The screen</td></tr>
+</table>
+</div>
+
+<p class="note">All five language files on both apps carry every new key: <code>en-US · es-US · fr-CA · gu-IN ·
+  hi-IN</code> on web, <code>en · es · fr · gu · hi</code> on the phone.</p>
+
+<h2 class="rule"><span>7</span> &nbsp;What this sheet supersedes</h2>
+<p class="lede"><code>knowledge-document-row-truth</code> (approved 2026-09-12) still governs the document
+  row's states — being read, read with gaps, retrying, failed, stopped, replaced, downloaded. This sheet
+  supersedes it on <b>three points only</b>: the pictures-kept sentence is now stated as what was left out;
+  the receptionist default follows the sending switch; and a refusal shows the server's own reason instead of
+  "Try again". Everything else in that sheet stands.</p>
+
+<footer>
+  Clinket · provider surfaces · sheet <code>knowledge-screen-honest-counts-and-reasons</code> ·
+  registered in <code>Data\knowledge-extraction-fix-plan\PLAN.md §Mockup register</code> and
+  <code>Data\mockups\REGISTER.md</code>.
+</footer>
+
+</div>
+</body>
+</html>

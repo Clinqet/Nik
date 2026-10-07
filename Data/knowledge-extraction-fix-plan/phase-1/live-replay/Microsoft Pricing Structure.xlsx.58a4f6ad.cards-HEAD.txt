@@ -1,0 +1,21 @@
+# Microsoft Pricing Structure.xlsx.58a4f6ad
+blocks=3 pageCount=0 docType=Other
+cards=3 imageCards=0 warnings=0
+
+--- card 0 [Table] section='Microsoft' page= img= chars=1201
+    Microsoft (2024 Costs (CAD)): Vendor Costs | Microsoft (2024 Costs (CAD)) (2): $638750 | Microsoft (2024 Costs (CAD)) (3): Based on 2.5M MAU's / year
+    Microsoft (2024 Costs (CAD)): Support Costs | Microsoft (2024 Costs (CAD)) (2): $0 | Microsoft (2024 Costs (CAD)) (3): For B2C this is included with Microsoft subscription
+    Microsoft (2024 Costs (CAD)): Implementation | Microsoft (2024 Costs (CAD)) (2): TBD | Microsoft (2024 Costs (CAD)) (3): This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Microsoft (2024 Costs (CAD)): Training | Microsoft (2024 Costs (CAD)) (2): TBD | Microsoft (2024 Costs (CAD)) (3): This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Microsoft (2024 Costs (CAD)): Total 2024 Costs | Microsoft (2024 Costs (CAD)) (2): $638750
+    Microsoft (2024 Costs (CAD)): 2025 Costs (CAD) | Microsoft (2024 Costs (CAD)) (2): 2025 Costs (CAD) | Microsoft (2024 Costs (CAD)) (3): 2025 Costs (CAD)
+--- card 1 [Table] section='Microsoft' page= img= chars=978
+    Microsoft (2024 Costs (CAD)): Vendor Costs | Microsoft (2024 Costs (CAD)) (2): $638750 | Microsoft (2024 Costs (CAD)) (3): Based on 2.5M MAU's / year
+    Microsoft (2024 Costs (CAD)): Support Costs | Microsoft (2024 Costs (CAD)) (2): $0 | Microsoft (2024 Costs (CAD)) (3): For B2C this is included with Microsoft subscription
+    Microsoft (2024 Costs (CAD)): Total 2025 Costs | Microsoft (2024 Costs (CAD)) (2): $638750
+    Microsoft (2024 Costs (CAD)): 2026 Costs (CAD) | Microsoft (2024 Costs (CAD)) (2): 2026 Costs (CAD) | Microsoft (2024 Costs (CAD)) (3): 2026 Costs (CAD)
+    Microsoft (2024 Costs (CAD)): Vendor Costs | Microsoft (2024 Costs (CAD)) (2): $638750 | Microsoft (2024 Costs (CAD)) (3): Based on 2.5M MAU's / year
+    Microsoft (2024 Costs (CAD)): Support Costs | Microsoft (2024 Costs (CAD)) (2): $0 | Microsoft (2024 Costs (CAD)) (3): For B2C this is included with Microsoft subscription
+    Microsoft (2024 Costs (CAD)): Total 2026 Costs | Microsoft (2024 Costs (CAD)) (2): $638750
+--- card 2 [Table] section='Microsoft' page= img= chars=65
+    Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year

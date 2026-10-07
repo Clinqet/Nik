@@ -1,0 +1,49 @@
+# Microsoft Pricing Structure.xlsx
+blocks=3 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Microsoft 
+[  1] Table        p1
+      hasHeader=False caption= rows=15
+      | Microsoft |  |  |
+      | 2024 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Implementation | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C |
+      | Training | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C |
+      | Total 2024 Costs | $638750 |  |
+      | 2025 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Total 2025 Costs | $638750 |  |
+      | 2026 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Total 2026 Costs | $638750 |  |
+[  2] Table        p1
+      hasHeader=False caption= rows=1
+      | Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year |
+
+## INVENTORY
+Sections: Microsoft (12)
+
+## CARDS (2)  warnings=0
+--- card 0 [Table] section='Microsoft' page= tokens~240 img=-1
+    Microsoft
+    2024 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Implementation | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Training | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C
+    Total 2024 Costs | $638750
+    2025 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Total 2025 Costs | $638750
+    2026 Costs (CAD)
+    Vendor Costs | $638750 | Based on 2.5M MAU's / year
+    Support Costs | $0 | For B2C this is included with Microsoft subscription
+    Total 2026 Costs | $638750
+--- card 1 [Table] section='Microsoft' page= tokens~17 img=-1
+    Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year

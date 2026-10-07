@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price on request</title>
+<style>
+:root{
+  /* LIVE app tokens (clinqetwebuserapp / clinqetwebpartnerapp) — no new values */
+  --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9; --paper:#FFFFFF;
+  --green:#97EF29; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0E7A3A;
+  --amber:#EA580C; --amber-soft:#FFF7ED; --amber-line:#FED7AA; --amber-ink:#9A3412;
+  --red:#FF3B30; --red-soft:#FFECEC; --info:#E4EEFB; --info-ink:#14477E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Lufga","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+header.sheet{background:var(--ink);color:#fff;padding:24px 32px}
+header.sheet h1{margin:0 0 6px;font-size:22px;font-weight:600}
+header.sheet p{margin:0;opacity:.85;font-size:13px;max-width:980px}
+main{padding:0 32px 64px;max-width:1500px}
+h2{color:var(--ink);font-size:17px;font-weight:600;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+.lead{color:var(--muted);font-size:13px;max-width:980px;margin:6px 0 0}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+.frame{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.frame .bd{padding:16px}
+.web{width:340px;max-width:100%}
+.web.wide{width:640px;max-width:100%}
+.phone{width:300px;max-width:100%;border-radius:26px;border:8px solid #22262B}
+.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.card .img{height:84px;background:linear-gradient(135deg,#E9EEF5,#DDE5EF)}
+.card .b{padding:11px 12px 12px}
+.nm{font-size:14px;font-weight:600;line-height:1.3}
+.biz{font-size:12px;color:var(--muted);margin-top:2px}
+.foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F3F5F7;margin-top:10px;padding-top:10px;gap:8px}
+.price{font-size:16px;font-weight:600;color:var(--ink)}
+.por{font-size:13px;font-weight:600;color:var(--ink)}
+.por small{display:block;font-size:11px;font-weight:500;color:var(--muted)}
+.call{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:#fff}
+.go{width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;border-radius:12px;padding:0 16px;font-weight:600;font-size:14px;border:1px solid transparent;font-family:inherit;white-space:nowrap}
+.btn.primary{background:var(--green);color:var(--body)}
+.btn.ghost{background:#fff;border-color:var(--line);color:var(--body)}
+.btn.full{width:100%}
+.svc{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;flex-wrap:wrap}
+.svc .l{min-width:0}
+.notice{display:flex;gap:10px;background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:12px;padding:10px 12px;font-size:13px}
+.notice b{color:var(--amber-ink);font-weight:600;display:block}
+.phonetag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--amber)}
+.box{border-radius:10px;padding:10px 12px;font-size:13px;margin-top:10px}
+.box.err{background:var(--red-soft);border:1px solid var(--red);color:var(--red)}
+.box.info{background:var(--info);border:1px solid #C7DBF6;color:var(--info-ink)}
+.box.ok{background:var(--green-soft);border:1px solid var(--green-line);color:var(--green-ink)}
+.chat{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.bubble{background:var(--green-soft);border:1px solid var(--green-line);border-radius:12px 12px 4px 12px;padding:8px 10px;font-size:13px;margin:8px 0 8px auto;max-width:85%}
+.input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;background:#fff}
+.seg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:6px 0 10px}
+.seg span{border:1px solid var(--line);border-radius:10px;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;text-align:center;padding:4px}
+.seg span.on{background:var(--green-soft);border-color:var(--green);color:var(--body)}
+label.l{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.nudge{display:flex;gap:10px;align-items:flex-start;background:var(--info);border:1px solid #C7DBF6;border-radius:12px;padding:10px 12px;font-size:13px;color:var(--info-ink)}
+.pill{display:inline-flex;border-radius:999px;padding:2px 10px;font-size:11px;font-weight:600}
+.pill.np{background:#F1F3F6;color:var(--muted)}
+.sk{background:linear-gradient(90deg,#EEF0F3,#F6F7F9,#EEF0F3);border-radius:8px;height:12px;margin:6px 0}
+table.copy{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:12.5px;margin-top:12px}
+table.copy th,table.copy td{padding:8px 10px;border-bottom:1px solid #F1F2F4;text-align:left;vertical-align:top}
+table.copy th{background:#FAFBFC;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+code{font-size:12px;background:#F1F3F6;padding:1px 5px;border-radius:5px}
+@media (max-width:700px){main{padding:0 16px 48px}header.sheet{padding:20px 16px}}
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>Price on request — customer web + phone, provider + admin web + phone</h1>
+  <p>Governs Data/admin-provider-setup/PLAN.md §4 (C5, C6, C11, C12). A service with no price is live everywhere and reads <b>"Price on request"</b> — never "Get a quote", which is the separate Get Quotes feature, and never $0. The customer can <b>Ask for price</b> (a chat with that provider) or <b>Call</b>. It cannot be added to the cart or booked online (unchanged). Live app tokens only.</p>
+</header>
+<main>
+
+<h2>1 · Search result card <span class="n">customer web + phone</span></h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Web · priced (unchanged)</div><div class="bd">
+    <div class="card"><div class="img"></div><div class="b">
+      <div class="nm">Drain cleaning</div><div class="biz">Joe's Plumbing · 3.8 km</div>
+      <div class="foot"><span class="price">$120</span><span style="display:flex;gap:8px"><span class="call">☎</span><span class="go">→</span></span></div>
+    </div></div>
+  </div></div>
+  <div class="frame web"><div class="cap">Web · no price (new line)</div><div class="bd">
+    <div class="card"><div class="img"></div><div class="b">
+      <div class="nm">Water heater install</div><div class="biz">Joe's Plumbing · 3.8 km</div>
+      <div class="foot"><span class="por">Price on request<small>Ask the provider for a price</small></span><span style="display:flex;gap:8px"><span class="call">☎</span><span class="go">→</span></span></div>
+    </div></div>
+  </div></div>
+  <div class="frame phone"><div class="cap">Phone · no price · prepared business</div><div class="bd">
+    <div class="card"><div class="img"></div><div class="b">
+      <div class="nm">Water heater install</div><div class="biz">Joe's Plumbing · 3.8 km</div>
+      <div class="foot"><span class="por">Price on request<small><span class="phonetag">ⓘ Phone booking only</span></small></span><span class="call">☎</span></div>
+    </div></div>
+  </div></div>
+</div>
+<p class="lead">No offer band, no visit-fee flag and no "total at checkout" note on a no-price card (they describe a total that does not exist). The Call button shows only when the business has a phone number — exactly as today.</p>
+
+<h2>2 · Provider page and service page <span class="n">customer web + phone</span></h2>
+<div class="row">
+  <div class="frame web wide"><div class="cap">Web · provider page · services</div><div class="bd">
+    <div class="svc"><div class="l"><div class="nm">Drain cleaning</div><div class="price" style="font-size:14px">$120</div></div><span style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn ghost">Call</span><span class="btn primary">Add</span></span></div>
+    <div class="svc"><div class="l"><div class="nm">Water heater install</div><div class="por">Price on request</div></div><span style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn ghost">Call</span><span class="btn primary">Ask for price</span></span></div>
+  </div></div>
+  <div class="frame phone"><div class="cap">Phone · service page</div><div class="bd">
+    <div class="nm" style="font-size:17px">Water heater install</div><div class="biz">Joe's Plumbing</div>
+    <div class="por" style="margin:10px 0">Price on request<small>Joe's Plumbing sets the price for each job. Ask them, or call.</small></div>
+    <span class="btn primary full">Ask for price</span>
+    <span class="btn ghost full" style="margin-top:8px">Call</span>
+  </div></div>
+</div>
+
+<h2>3 · Prepared business (provider has not signed in yet) <span class="n">PLAN §3.4 — online booking off</span></h2>
+<p class="lead">The existing notice and Call button, unchanged. "Ask for price" still works — the message waits in the business inbox.</p>
+<div class="row">
+  <div class="frame web wide"><div class="cap">Web · provider page top</div><div class="bd">
+    <div class="notice"><span>ⓘ</span><div><b>Online booking not available</b>This provider doesn't accept online bookings. Please tap the Call button to book any service.</div></div>
+    <div class="svc"><div class="l"><div class="nm">Water heater install</div><div class="por">Price on request</div></div><span style="display:flex;gap:8px"><span class="btn ghost">Call</span><span class="btn primary">Ask for price</span></span></div>
+    <div class="svc"><div class="l"><div class="nm">Drain cleaning</div><div class="price" style="font-size:14px">$120</div></div><span class="btn ghost">Call</span></div>
+  </div></div>
+</div>
+
+<h2>4 · "Ask for price" opens a chat with that provider</h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Web · chat, message filled in</div><div class="bd chat">
+    <div class="biz">Joe's Plumbing</div>
+    <div class="bubble">Hi, what's the price for Water heater install?</div>
+    <input class="input" value="Hi, what's the price for Water heater install?">
+    <span class="btn primary full" style="margin-top:8px">Send</span>
+  </div></div>
+  <div class="frame web"><div class="cap">States</div><div class="bd">
+    <div class="box info">Sign in to ask Joe's Plumbing for a price. <b>Sign in</b></div>
+    <div class="box err">We couldn't open the chat. Try again.</div>
+    <div class="box info">You're offline. Your message will send when you're back online.</div>
+    <div class="box ok">Sent. Joe's Plumbing will reply here.</div>
+    <div style="margin-top:12px"><div class="sk" style="width:70%"></div><div class="sk" style="width:40%"></div></div>
+  </div></div>
+  <div class="frame phone"><div class="cap">Phone · in a customer's cart</div><div class="bd">
+    <div class="box info">"Water heater install" no longer has a price, so it was taken out of your cart. Ask Joe's Plumbing for a price instead.</div>
+    <span class="btn primary full" style="margin-top:10px">Ask for price</span>
+  </div></div>
+</div>
+
+<h2>5 · Provider and admin service form — the fourth choice "No price yet" <span class="n">PLAN C5 — owner "Yes"</span></h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Provider web · service form</div><div class="bd">
+    <label class="l">How do you charge?</label>
+    <div class="seg"><span>One fixed price</span><span>A price range</span><span>An hourly rate</span><span class="on">No price yet</span></div>
+    <div class="nudge">ⓘ<div>Customers will see <b>Price on request</b> and can message or call you. Add a price later so they can book online.</div></div>
+    <span class="btn primary full" style="margin-top:12px">Save service</span>
+  </div></div>
+  <div class="frame phone"><div class="cap">Provider phone · service form</div><div class="bd">
+    <label class="l">How do you charge?</label>
+    <div class="seg"><span>Fixed</span><span>Range</span><span>Hourly</span><span class="on">No price yet</span></div>
+    <div class="nudge">ⓘ<div>Customers will see <b>Price on request</b>. Add a price later so they can book online.</div></div>
+    <span class="btn primary full" style="margin-top:12px">Save</span>
+  </div></div>
+  <div class="frame web"><div class="cap">Provider · services list</div><div class="bd">
+    <div class="svc"><div class="l"><div class="nm">Water heater install</div><span class="pill np">Price on request</span></div><span class="btn ghost">Add a price</span></div>
+    <div class="svc"><div class="l"><div class="nm">Drain cleaning</div><div class="price" style="font-size:14px">$120</div></div><span class="btn ghost">Edit</span></div>
+  </div></div>
+  <div class="frame web"><div class="cap">Admin web + phone · Services step</div><div class="bd">
+    <label class="l">How it is priced</label>
+    <div class="seg"><span>One fixed price</span><span>A price range</span><span>An hourly rate</span><span class="on">No price yet</span></div>
+    <p class="biz">Customers see "Price on request". The provider is reminded to add a price after they sign in.</p>
+    <span class="btn primary full" style="margin-top:8px">Save</span>
+  </div></div>
+</div>
+
+<h2>6 · Every string, its key and where it comes from <span class="n">5 languages each</span></h2>
+<table class="copy">
+<tr><th>Where</th><th>English</th><th>Source</th></tr>
+<tr><td>Price line (customer web + phone)</td><td>Price on request</td><td>new key: web <code>service.price.onRequest</code>, phone <code>SERVICE_PRICE.ON_REQUEST</code> (replaces the price-line use of "Get a quote")</td></tr>
+<tr><td>Card sub-line</td><td>Ask the provider for a price</td><td>new key, both apps</td></tr>
+<tr><td>Service page sub-line</td><td>{business} sets the price for each job. Ask them, or call.</td><td>new key, both apps</td></tr>
+<tr><td>Button</td><td>Ask for price</td><td>new key, both apps (replaces "Get a quote" on that button)</td></tr>
+<tr><td>Chat pre-fill</td><td>Hi, what's the price for {service}?</td><td>new key, both apps</td></tr>
+<tr><td>Cart removal</td><td>"{service}" no longer has a price, so it was taken out of your cart. Ask {business} for a price instead.</td><td>new key, both apps</td></tr>
+<tr><td>Online booking off notice</td><td>Online booking not available …</td><td>existing <code>businessProfile.CallOnlyNoticeTitle</code> / <code>CallOnlyNotice</code> (unchanged)</td></tr>
+<tr><td>Provider form choice + nudge</td><td>No price yet · Customers will see Price on request … · Add a price</td><td>new keys, provider web + phone; admin web/phone in English</td></tr>
+<tr><td>Retired</td><td>"needs a complete price before it can go live" · "won't appear in search results"</td><td>removed from API en/es/fr/gu/hi and partner web/phone</td></tr>
+</table>
+<p class="lead" style="margin-top:12px">Not on any screen: the knowledge-base service suggestions are unchanged (a suggestion still needs a price before approval), and the phone receptionist says the owner gives the price and books such a service only as "price to be confirmed by the owner" — never $0.</p>
+</main>
+</body>
+</html>

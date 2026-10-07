@@ -1,0 +1,73 @@
+# html_pricelist_mixed.html
+blocks=15 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Glow Salon
+[  1] Paragraph    p1
+      123 Lakeshore Rd, Oakville · 905-555-0142
+[  2] Heading      p1 H2
+      Hair
+[  3] Paragraph    p1
+      Haircut $25
+      Beard trim $15
+      Kids cut $18
+      Full head colour $80
+      Highlights $120
+[  4] Heading      p1 H2
+      Nails
+[  5] Table        p1
+      hasHeader=False caption= rows=3
+      | Manicure | $30 |
+      | Pedicure | $45 |
+      | Gel manicure | $55 |
+[  6] Heading      p1 H2
+      Massage
+[  7] Table        p1
+      hasHeader=True caption= rows=3
+      | Massage | 30 min | 60 min |
+      | Swedish | $60 | $90 |
+      | Deep tissue | $70 | $100 |
+[  8] Heading      p1 H2
+      Policies
+[  9] Paragraph    p1
+      Deposit
+[ 10] Paragraph    p1
+      20% on bookings over $100
+[ 11] Paragraph    p1
+      Cancellation
+[ 12] Paragraph    p1
+      24 hours notice or 50% charge
+[ 13] Paragraph    p1
+      The deposit is $50 for bridal trials and non-refundable within 48 hours.
+[ 14] Paragraph    p1
+      Open Tue–Sat 9–6 · Closed Mondays
+
+## INVENTORY
+Sections: Policies (6), Hair (5), Nails (3), Glow Salon (1)
+2 records
+Massage: Swedish (1), Deep tissue (1)
+30 min: $60 to $70 (typical)
+60 min: $90 to $100 (typical)
+  [agg Massage] 2 records — Massage: Swedish (1), Deep tissue (1)
+  [agg 30 min] 2 records — 30 min: $60 to $70 (typical)
+  [agg 60 min] 2 records — 60 min: $90 to $100 (typical)
+
+## CARDS (5)  warnings=0
+--- card 0 [Text] section='Glow Salon' page= tokens~11 img=-1
+    123 Lakeshore Rd, Oakville · 905-555-0142
+--- card 1 [Text] section='Glow Salon › Hair' page= tokens~19 img=-1
+    Haircut $25
+    Beard trim $15
+    Kids cut $18
+    Full head colour $80
+    Highlights $120
+--- card 2 [Table] section='Glow Salon › Nails' page= tokens~12 img=-1
+    Manicure | $30
+    Pedicure | $45
+    Gel manicure | $55
+--- card 3 [Table] section='Glow Salon › Massage' page= tokens~24 img=-1
+    Massage: Swedish | 30 min: $60 | 60 min: $90
+    Massage: Deep tissue | 30 min: $70 | 60 min: $100
+--- card 4 [Text] section='Glow Salon › Policies' page= tokens~46 img=-1
+    Deposit 20% on bookings over $100 Cancellation 24 hours notice or 50% charge The deposit is $50 for bridal trials and non-refundable within 48 hours. Open Tue–Sat 9–6 · Closed Mondays

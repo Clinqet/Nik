@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "city": "Richmond Hill",
+    "area": "oak-ridges",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "richmond-hill-oak-ridges-stan-mechanical-contractors-ltd",
+      "businessName": "Stan Mechanical Contractors Ltd",
+      "description": "Family-owned Richmond Hill plumber serving York Region for 20+ years. Toilet repair, drain cleaning, bathroom renovations. 24/7 emergency.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@plumberrichmondhill.ca",
+      "businessPhone": "905-883-4175",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.plumberrichmondhill.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "187 Humberland Dr",
+        "postalCode": "L4E 3S9",
+        "area": "oak-ridges",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "187 Humberland Dr, Richmond Hill, ON L4E 3S9"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "oak-ridges",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Toilet Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bathroom Renovation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hot Water Tank Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "17:00",
+            "closed": false
+          }
+        ],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.plumberrichmondhill.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "richmond-hill-oak-ridges-ifix-plumbing-drains",
+      "businessName": "iFix Plumbing & Drains",
+      "description": "Licensed Richmond Hill plumbing contractors for emergency plumbing, drain cleaning, sewer line repair. 24/7.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 10,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "ifixplumbingdrains@gmail.com",
+      "businessPhone": "647-691-2141",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://ifixplumbingdrains.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "81 N Lake Rd",
+        "postalCode": "L4E 0Y3",
+        "area": "oak-ridges",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "81 N Lake Rd, Richmond Hill, ON L4E 0Y3"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "oak-ridges",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Line Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Toilet Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://ifixplumbingdrains.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "general",
+    "category": "movers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "vaughan-general-available-movers",
+      "businessName": "Available Movers",
+      "description": "Moving company with Vaughan location on Keele St.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "437-999-1515",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://availablemovers.ca/markham",
+        "other": []
+      },
+      "address": {
+        "street": "7250 Keele St",
+        "city": "Vaughan",
+        "area": "general",
+        "postalCode": "L4K 1Z8",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "7250 Keele St, Vaughan, ON L4K 1Z8"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Markham",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Local Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://availablemovers.ca/markham",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "vaughan-general-kratos-moving-vaughan",
+      "businessName": "Kratos Moving Vaughan",
+      "description": "Vaughan movers — Done As Promised.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-406-0097",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.kratosmoving.com/vaughan/",
+        "other": []
+      },
+      "address": {
+        "street": "27 Roytec Rd Unit 8B #3",
+        "city": "Vaughan",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Local Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.kratosmoving.com/vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "vaughan-general-easy2go-movers-vaughan",
+      "businessName": "Easy2Go Movers Vaughan",
+      "description": "Moving company including piano moving serving Vaughan.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-202-8587",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://easy2gomovers.ca/vaughan/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Vaughan",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Piano Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://easy2gomovers.ca/vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

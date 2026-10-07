@@ -1,0 +1,31 @@
+docTitle=શ્રી બ્યુટી પાર્લર — રેટ કાર્ડ lang=gu pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
+summary: બ્યુટી પાર્લરની સેવાઓ અને ભાવનું રેટ કાર્ડ. તેમાં વાળ કપાવવા, દાઢી ટ્રિમ, ફેશિયલ, મસાજ, મૅનિક્યોર, પેડિક્યોર, હેર સ્પા, બ્રાઇડલ મેકઅપ અને અન્ય સેવાઓની કિંમતો, GST, હોમ વિઝિટ ચાર્જ તથા બુકિંગ માટેનો ફોન નંબર આપ્યો છે.
+[  0] Heading      p1 H1
+      શ્રી બ્યુટી પાર્લર — રેટ કાર્ડ
+[  1] Table        p1
+      hasHeader=True caption= rows=7
+      | સેવા | કિંમત |
+      | बाल कटवाना | ₹250 |
+      | दाढ़ी ट्रिम | ₹150 |
+      | फेशियल (गोल्ड) | ₹1,200 |
+      | मैनीक्योर | ₹300 |
+      | पेडीक्योर | ₹450 |
+      | हेयर स्पा | ₹1,500 |
+[  2] Heading      p1 H2
+      સેવાઓ અને ભાવ
+[  3] List         p1
+      - વાળ કપાવવા — ₹250
+      - ફેશિયલ — ₹800
+      - મસાજ — ₹500
+      - સંપૂર્ણ પીઠ પોલિશ સ્ક્રબ સાથે — ₹400
+      - બ્રાઇડલ મેકઅપ — ₹5,000
+[  4] Paragraph    p1
+      English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+      
+[  5] Heading      p1 H1
+      श्री ब्यूटी पार्लर - रेट कार्ड
+
+## captions
+## images
+## reviews
+  {"pageNumber":1,"verificationId":"202e043b-4025-462d-9472-f69c876129b1","discrepancies":[{"fields":["service name"],"reason":"'श्री ब्यूट' is absent; 'र्लर - रेट' reads 'ड'; 'य' was added; 'ड' reads '₹450'","location":"page 1, Heading 1","ocrReading":"# श्री ब्यूटी पार्लर - रेट कार्ड","firstAiReading":"पेडीक्योर | ₹450","passageIds":[],"thirdReading":"श्री ब्यूटी पार्लर — रेट कार्ड","selectedReading":"पेडीक्योर | ₹450","disposition":"ResolvedToSourceReading","remainingUncertainty":"the confirmed reading does not carry every word this passage holds, so the transcript was kept and the machine reading's line carried back"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '1 5'","ocrReading":"1 5 | ₹250","firstAiReading":"","sourceServiceName":"1 5","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'इशियस'","ocrReading":"इशियस | ₹800","firstAiReading":"","sourceServiceName":"इशियस","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '42118'","ocrReading":"42118 | ₹500","firstAiReading":"","sourceServiceName":"42118","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '417541212'","ocrReading":"417541212 | ₹400","firstAiReading":"","sourceServiceName":"417541212","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'WISSEL 78244'","ocrReading":"WISSEL 78244 | ₹5,000","firstAiReading":"","sourceServiceName":"WISSEL 78244","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"}]}

@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "general",
+    "category": "lawyers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "brampton-general-kamal-akhtar-law-office",
+      "businessName": "Kamal Akhtar Law Office",
+      "description": "Immigration lawyer serving Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Kamal Akhtar",
+        "email": null,
+        "phone": "289-216-4666"
+      },
+      "businessEmail": null,
+      "businessPhone": "289-216-4666",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.kamallawoffice.com/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Brampton",
+        "area": "general",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Brampton"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "lawyers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Immigration Law",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.kamallawoffice.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": "Street listed as Dolobram Trail in search; exact street number not confirmed — left null."
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

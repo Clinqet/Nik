@@ -1,0 +1,617 @@
+{
+  "meta": {
+    "city": "Cambridge",
+    "area": "downtown",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "cambridge-downtown-salon-g",
+      "businessName": "Salon G",
+      "description": "Downtown Galt hair salon — precision cuts, colour, highlights, balayage, men's cuts. Owner Gorete Capone.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Gorete Capone",
+        "email": null,
+        "phone": "519-221-0915"
+      },
+      "businessEmail": null,
+      "businessPhone": "519-221-0915",
+      "social": {
+        "facebook": null,
+        "instagram": "https://www.instagram.com/goretedoesmy_hair",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.salong.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "39 Water St",
+        "postalCode": "N1R 3C7",
+        "area": "downtown",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "39 Water St, Cambridge, ON N1R 3C7"
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Galt",
+        "Preston",
+        "Hespeler",
+        "Blair",
+        "Kitchener",
+        "Waterloo",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "downtown",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Women's Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Men's Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Highlights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Balayage",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "All Over Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Wash & Blow Dry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "UpDo",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "14:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.salong.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Hairdressers/Cambridge+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.salong.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "cambridge-downtown-vaniti-hair-co",
+      "businessName": "Vaniti Hair Co",
+      "description": "Luxury hair salon on Water Street North in historic Galt with Grand River views. 30 years. Colour, cuts, styling.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "Beauty@vanitihairco.ca",
+      "businessPhone": "519-740-7458",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.vanitihairco.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "26 Water St N Unit 102",
+        "postalCode": "N1R 3C7",
+        "area": "downtown",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "26 Water St N Unit 102, Cambridge, ON N1R 3C7"
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Galt",
+        "Preston",
+        "Hespeler",
+        "Blair",
+        "Kitchener",
+        "Waterloo",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "downtown",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Hair Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Styling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Highlights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Treatments",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": null,
+            "close": null,
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "10:00",
+            "close": "15:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "15:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": "Monday available by request"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.vanitihairco.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Hairdressers/Cambridge+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "cambridge-downtown-golden-scissors",
+      "businessName": "Golden Scissors",
+      "description": "Downtown Cambridge hair salon on Main Street — cuts, colour, highlights, extensions, wedding styles.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "519-623-7380",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "124 Main St",
+        "postalCode": "N1R 1V7",
+        "area": "downtown",
+        "city": "Cambridge",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "124 Main St, Cambridge, ON N1R 1V7"
+      },
+      "serviceAreas": [
+        "Cambridge",
+        "Galt",
+        "Preston",
+        "Hespeler",
+        "Blair",
+        "Kitchener",
+        "Waterloo",
+        "Guelph"
+      ],
+      "geo": {
+        "city": "Cambridge",
+        "area": "downtown",
+        "region": "Waterloo"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Women's Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Men's Haircut",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Highlights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hair Extension",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Wedding Updo",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Hairdressers/Cambridge+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

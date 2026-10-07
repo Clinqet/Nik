@@ -1,0 +1,23 @@
+# docx_trackchanges_footnote_header.docx
+blocks=5 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Glow Salon · 123 Lakeshore Rd, Oakville · 905-555-0142 · Open Tue–Sat 9–6
+[  1] Heading      p1 H1
+      Price notes
+[  2] Paragraph    p1
+      Haircut $25 per visit
+[  3] Paragraph    p1
+      Colour $80 [Long hair adds $20; prices exclude HST.]
+[  4] Paragraph    p1
+      Cancellations within 24 hours are charged 50%.
+
+## INVENTORY
+Sections: Price notes (3)
+
+## CARDS (2)  warnings=0
+--- card 0 [Text] section='' page= tokens~19 img=-1
+    Glow Salon · 123 Lakeshore Rd, Oakville · 905-555-0142 · Open Tue–Sat 9–6
+--- card 1 [Text] section='Price notes' page= tokens~31 img=-1
+    Haircut $25 per visit Colour $80 [Long hair adds $20; prices exclude HST.] Cancellations within 24 hours are charged 50%.

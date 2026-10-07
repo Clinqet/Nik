@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "city": "Richmond Hill",
+    "area": "mill-pond",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "richmond-hill-mill-pond-alpha-aire",
+      "businessName": "Alpha Aire",
+      "description": "Heat pump and furnace contractor in Richmond Hill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-668-6677",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "47 Nightstar Dr",
+        "postalCode": "L4C 8H8",
+        "area": "mill-pond",
+        "city": "Richmond Hill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "47 Nightstar Dr, Richmond Hill, ON L4C 8H8"
+      },
+      "serviceAreas": [
+        "Richmond Hill",
+        "Oak Ridges",
+        "Bayview Hill",
+        "Mill Pond",
+        "Langstaff",
+        "Markham",
+        "Vaughan",
+        "Aurora",
+        "Thornhill"
+      ],
+      "geo": {
+        "city": "Richmond Hill",
+        "area": "mill-pond",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Richmond+Hill+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

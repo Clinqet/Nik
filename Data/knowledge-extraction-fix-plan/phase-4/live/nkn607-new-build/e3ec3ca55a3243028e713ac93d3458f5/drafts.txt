@@ -1,0 +1,12 @@
+drafts=11
+- [Pending/Create] 'पेडीक्योर' price=450 max= type=fixed cur= needsReview=True mismatch=True priceText='₹450' src='पेडीक्योर' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'फेशियल (गोल्ड)' price=1200 max= type=fixed cur= needsReview=True mismatch=True priceText='₹1,200' src='फेशियल (गोल्ड)' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'बाल कटवाना' price=250 max= type=fixed cur= needsReview=True mismatch=True priceText='₹250' src='बाल कटवाना' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'मैनीक्योर' price=300 max= type=fixed cur= needsReview=True mismatch=True priceText='₹300' src='मैनीक्योर' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'બ્રાઇડલ મેકઅપ' price=5000 max= type=fixed cur= needsReview=True mismatch=True priceText='₹5,000' src='બ્રાઇડલ મેકઅપ' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'हेयर स्पा' price=1500 max= type=fixed cur= needsReview=True mismatch=True priceText='₹1,500' src='हेयर स्पा' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'दाढ़ी ट्रिम' price=150 max= type=fixed cur= needsReview=True mismatch=True priceText='₹150' src='दाढ़ी ट्रिम' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'મસાજ' price=500 max= type=fixed cur= needsReview=True mismatch=True priceText='₹500' src='મસાજ' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'Home visit adds' price=200 max= type=fixed cur= needsReview=True mismatch=True priceText='₹200.' src='Home visit adds' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'ફેશિયલ' price=800 max= type=fixed cur= needsReview=True mismatch=True priceText='₹800' src='ફેશિયલ' line='' cat='/' dur= img=0 desc=''
+- [Pending/Create] 'બ્યુટી ટ્રીટમેન્ટ સાથે' price=400 max= type=fixed cur= needsReview=True mismatch=True priceText='₹400' src='બ્યુટી ટ્રીટમેન્ટ સાથે' line='' cat='/' dur= img=0 desc=''

@@ -1,0 +1,10 @@
+--- phase-2-after/cards (content)
++++ new-build/cards (content)
+@@ -14,5 +14,5 @@
+     Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. Known for precision cuts and colour correction, with a loyal client base of over 300 regulars.
+ --- #5 [Text] section='PRIYA SHARMA › EXPERIENCE' page=1 img= scripts=["Latn"] chars=304 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
+     Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450; trained four apprentices to full-time stylists. City Cuts — Stylist (2013–2019) Managed 30 clients a week; ran the Saturday walk-in desk; expected salary in next role $85,000.
+---- #6 [Text] section='PRIYA SHARMA › EDUCATION' page=1 img= scripts=["Latn"] chars=202 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
+-    Marvel Beauty School, Diploma in Hairstyling (2012) Redken Colour Specialist (2021) Olaplex Pro (2022) | now sold at $450; trained four apprentices to full-time stylists. City Cuts - Stylist (2013-2019)
++--- #6 [Text] section='PRIYA SHARMA › EDUCATION' page=1 img= scripts=["Latn"] chars=51 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    Marvel Beauty School, Diploma in Hairstyling (2012)

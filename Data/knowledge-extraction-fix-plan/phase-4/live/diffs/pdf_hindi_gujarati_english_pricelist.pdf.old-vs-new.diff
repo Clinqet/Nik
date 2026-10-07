@@ -1,0 +1,76 @@
+--- old-build/cards (content)
++++ new-build/cards (content)
+@@ -1,27 +1,21 @@
+---- #0 [Table] section='श्री ब्यूटी पार्लर — रेट कार्ड' page=1 img= scripts=["Deva","Latn"] chars=185 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
++--- #0 [Table] section='श्री ब्यूटी पार्लर — रेट कार्ड' page=1 img= scripts=["Deva","Latn"] chars=185 title='श्री ब्यूटी पार्लर का रेट कार्ड' type='Document'
+     सेवा: बाल कटवाना | कीमत: ₹250
+     सेवा: दाढ़ी ट्रिम | कीमत: ₹150
+     सेवा: फेशियल (गोल्ड) | कीमत: ₹1,200
+     सेवा: मैनीक्योर | कीमत: ₹300
+     सेवा: पेडीक्योर | कीमत: ₹450
+     सेवा: हेयर स्पा | कीमत: ₹1,500
+---- #1 [Table] section='श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ' page=1 img= scripts=["Gujr","Deva","Latn"] chars=152 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
+-    સેવા: વાળ કપાવવા | ભાવ: ₹250
+-    સેવા: હેર સ્પા | ભાવ: ₹800
+-    સેવા: મસાજ | ભાવ: ₹500
+-    સેવા: મહેંદી ફુલ હેન્ડ સાથે | ભાવ: ₹400
+-    સેવા: બ્રાઇડલ મેકઅપ | ભાવ: ₹5,000
+---- #2 [Text] section='श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ' page=1 img= scripts=["Latn","Deva"] chars=82 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
++--- #1 [Table] section='श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ' page=1 img= scripts=["Gujr","Deva","Latn"] chars=96 title='श्री ब्यूटी पार्लर का रेट कार्ड' type='Document'
++    વાળ કપાવવા | ₹250
++    ફેશિયલ | ₹800
++    મસાજ | ₹500
++    બ્યુટી ટ્રીટમેન્ટ સાથે | ₹400
++    બ્રાઇડલ મેકઅપ | ₹5,000
++--- #2 [Text] section='श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ' page=1 img= scripts=["Latn","Deva"] chars=82 title='श्री ब्यूटी पार्लर का रेट कार्ड' type='Document'
+     English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+---- #4 [DocAggregate] section='श्री ब्यूटी पार्लर — रेट कार्ड — सेवा' page= img= scripts=["Deva","Latn"] chars=194 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
+-    श्री ब्यूटी पार्लर रेट कार्ड — overview — श्री ब्यूटी पार्लर — रेट कार्ड — सेवा
++--- #4 [DocAggregate] section='सेवा' page= img= scripts=["Deva","Latn"] chars=164 title='श्री ब्यूटी पार्लर का रेट कार्ड' type='Document'
++    श्री ब्यूटी पार्लर का रेट कार्ड — overview — सेवा
+     6 records — सेवा: बाल कटवाना (1), दाढ़ी ट्रिम (1), फेशियल (गोल्ड) (1), मैनीक्योर (1), पेडीक्योर (1), हेयर स्पा (1)
+---- #5 [DocAggregate] section='श्री ब्यूटी पार्लर — रेट कार्ड — कीमत' page= img= scripts=["Deva","Latn"] chars=122 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
+-    श्री ब्यूटी पार्लर रेट कार्ड — overview — श्री ब्यूटी पार्लर — रेट कार्ड — कीमत
++--- #5 [DocAggregate] section='कीमत' page= img= scripts=["Deva","Latn"] chars=92 title='श्री ब्यूटी पार्लर का रेट कार्ड' type='Document'
++    श्री ब्यूटी पार्लर का रेट कार्ड — overview — कीमत
+     6 records — कीमत: ₹150 to ₹1,500 (typical)
+---- #6 [DocAggregate] section='સેવાઓ અને ભાવ — સેવા' page= img= scripts=["Gujr","Latn","Deva"] chars=165 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
+-    श्री ब्यूटी पार्लर रेट कार्ड — overview — સેવાઓ અને ભાવ — સેવા
+-    5 records — સેવા: વાળ કપાવવા (1), હેર સ્પા (1), મસાજ (1), મહેંદી ફુલ હેન્ડ સાથે (1), બ્રાઇડલ મેકઅપ (1)
+---- #7 [DocAggregate] section='સેવાઓ અને ભાવ — ભાવ' page= img= scripts=["Latn","Deva","Gujr"] chars=103 title='श्री ब्यूटी पार्लर रेट कार्ड' type='Document'
+-    श्री ब्यूटी पार्लर रेट कार्ड — overview — સેવાઓ અને ભાવ — ભાવ
+-    5 records — ભાવ: ₹250 to ₹5,000 (typical)
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+-docTitle=श्री ब्यूटी पार्लर रेट कार्ड lang=hi pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
+-summary: दस्तावेज़ में हिंदी और गुजराती में ब्यूटी पार्लर की सेवाओं और उनकी कीमतों की सूची है। अंग्रेज़ी नोट में बताया गया है कि कीमतों में GST शामिल है, घर पर सेवा के लिए अतिरिक्त शुल्क है और बुकिंग के लिए फोन करना है।
++docTitle=श्री ब्यूटी पार्लर का रेट कार्ड lang=hi pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
++summary: दस्तावेज़ में बाल कटवाने, दाढ़ी ट्रिम, फेशियल, मैनीक्योर, पेडीक्योर, हेयर स्पा और अन्य ब्यूटी सेवाओं की कीमतें दी गई हैं। अंग्रेज़ी नोट्स में GST, होम विज़िट शुल्क और बुकिंग संपर्क की जानकारी है।
+ [  0] Heading      p1 H1
+       श्री ब्यूटी पार्लर — रेट कार्ड
+ [  1] Table        p1
+@@ -14,12 +14,12 @@
+ [  2] Heading      p1 H2
+       સેવાઓ અને ભાવ
+ [  3] Table        p1
+-      hasHeader=True caption= rows=6
+-      | સેવા | ભાવ |
++      hasHeader=False caption= rows=6
++      |  |  |
+       | વાળ કપાવવા | ₹250 |
+-      | હેર સ્પા | ₹800 |
++      | ફેશિયલ | ₹800 |
+       | મસાજ | ₹500 |
+-      | મહેંદી ફુલ હેન્ડ સાથે | ₹400 |
++      | બ્યુટી ટ્રીટમેન્ટ સાથે | ₹400 |
+       | બ્રાઇડલ મેકઅપ | ₹5,000 |
+ [  4] Paragraph    p1
+       English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+@@ -28,4 +28,4 @@
+ ## captions
+ ## images
+ ## reviews
+-  {"pageNumber":1,"verificationId":"b770fd1f-ad71-453e-99fc-4b29bf595fed","discrepancies":[{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '1 5'","ocrReading":"1 5 | ₹250","firstAiReading":"","sourceServiceName":"1 5","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'इशियस'","ocrReading":"इशियस | ₹800","firstAiReading":"","sourceServiceName":"इशियस","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["service name"],"reason":"'42118' reads 'મસાજ'","location":"page 1, table 2, row '42118', column 1","ocrReading":"42118","firstAiReading":"મસાજ","sourceServiceName":"42118","passageIds":[],"selectedReading":"મસાજ","disposition":"CandidateReadingRetained","remainingUncertainty":"no usable source reading, and the page does not print these characters as text"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '417541212'","ocrReading":"417541212 | ₹400","firstAiReading":"","sourceServiceName":"417541212","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'WISSEL 78244'","ocrReading":"WISSEL 78244 | ₹5,000","firstAiReading":"","sourceServiceName":"WISSEL 78244","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"}]}
++  {"pageNumber":1,"verificationId":"ad9dea0b-05a7-4952-b909-43bb08d9affc","discrepancies":[{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '1 5'","ocrReading":"1 5 | ₹250","firstAiReading":"","sourceServiceName":"1 5","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'इशियस'","ocrReading":"इशियस | ₹800","firstAiReading":"","sourceServiceName":"इशियस","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["service name"],"reason":"'42118' reads 'મસાજ'","location":"page 1, table 2, row '42118', column 1","ocrReading":"42118","firstAiReading":"મસાજ","sourceServiceName":"42118","passageIds":[],"selectedReading":"મસાજ","disposition":"CandidateReadingRetained","remainingUncertainty":"no usable source reading, and the page does not print these characters as text"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '417541212'","ocrReading":"417541212 | ₹400","firstAiReading":"","sourceServiceName":"417541212","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'WISSEL 78244'","ocrReading":"WISSEL 78244 | ₹5,000","firstAiReading":"","sourceServiceName":"WISSEL 78244","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"}]}

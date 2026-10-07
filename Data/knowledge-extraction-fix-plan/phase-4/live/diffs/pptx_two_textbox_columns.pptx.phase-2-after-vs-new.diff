@@ -1,0 +1,27 @@
+--- phase-2-after/cards (content)
++++ new-build/cards (content)
+@@ -1,4 +1,4 @@
+---- #0 [Table] section='Slide 1' page=1 img= scripts=["Latn"] chars=124 title='Salon Hair, Nail, and Waxing Services' type='Document'
++--- #0 [Table] section='Slide 1' page=1 img= scripts=["Latn"] chars=124 title='Glow Salon Service Menu' type='Document'
+     Glow Salon — Hair
+     Haircut | $25
+     Beard trim | $15
+@@ -6,15 +6,15 @@
+     Full head colour | $80
+     Root touch up | $55
+     Highlights | $120
+---- #1 [Table] section='Slide 2' page=2 img= scripts=["Latn"] chars=104 title='Salon Hair, Nail, and Waxing Services' type='Document'
++--- #1 [Table] section='Slide 2' page=2 img= scripts=["Latn"] chars=104 title='Glow Salon Service Menu' type='Document'
+     Nails
+     Service | Price | Time
+     Manicure | $30 | 30 min
+     Pedicure | $45 | 45 min
+     Gel manicure | $55 | 60 min
+---- #2 [Text] section='Slide 3' page=3 img= scripts=["Latn"] chars=6 title='Salon Hair, Nail, and Waxing Services' type='Document'
++--- #2 [Text] section='Slide 3' page=3 img= scripts=["Latn"] chars=6 title='Glow Salon Service Menu' type='Document'
+     Waxing
+---- #3 [Text] section='Slide 3' page=3 img= scripts=["Latn"] chars=87 title='Salon Hair, Nail, and Waxing Services' type='Document'
++--- #3 [Text] section='Slide 3' page=3 img= scripts=["Latn"] chars=87 title='Glow Salon Service Menu' type='Document'
+     - Upper lip – $8
+     - Eyebrows – $10
+     - Full legs – $45

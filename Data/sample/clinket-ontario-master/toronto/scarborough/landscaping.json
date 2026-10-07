@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "scarborough",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-scarborough-dawn-till-dusk-landscaping",
+      "businessName": "Dawn Till Dusk Landscaping",
+      "description": "Scarborough local landscaping crew. Lawn care, interlocking, garden design, seasonal cleanups, snow removal. 15+ years. Licensed, insured, WSIB.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 15,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "dtdlandscapingto@gmail.com",
+      "businessPhone": "647-893-3876",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.dawntilldusklandscaping.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "formatted": "Scarborough, ON",
+        "area": "scarborough",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Scarborough",
+        "North York",
+        "Pickering",
+        "Toronto"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "scarborough",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Lawn Care",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Interlocking",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Garden Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Seasonal Cleanup",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snow Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sod Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "07:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.dawntilldusklandscaping.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

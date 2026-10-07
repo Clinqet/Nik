@@ -1,0 +1,8 @@
+# img_pricelist_lowercase_inline.jpg.e20a44eb
+blocks=8 pageCount=1 docType=Other
+cards=1 imageCards=1 warnings=0
+
+--- card 0 [Text] section='nail bar' page=1 img= chars=114
+    classic manicure $30 gel manicure $45 spa pedicure $45 acrylic full set $65 nail art per nail $3 polish change $15
+--- card 1 [ImageCaption] section='nail bar' page=1 img=0 chars=0
+    

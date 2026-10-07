@@ -1,0 +1,114 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_0",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "PRIYA SHARMA",
+    "content": "Senior Hair Stylist 416-555-0199 priya@example.com",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_1",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "SKILLS",
+    "content": "Balayage Keratin Bridal styling Colour correction",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_2",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "CERTIFICATIONS",
+    "content": "Redken Colour Specialist 2021 Olaplex Pro 2022",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_3",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "PROFILE",
+    "content": "Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_4",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "EXPERIENCE",
+    "content": "Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000.",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_5",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "EDUCATION",
+    "content": "Marvel Beauty School, Diploma 2012",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_b67f3100cd6840dda56822fff26d1242_6",
+    "docName": "docx_two_column_table_resume.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Priya Sharma Senior Hair Stylist Resume — overview\nResume for Priya Sharma, a Senior Hair Stylist, covering skills in balayage, keratin, bridal styling and colour correction; Redken and Olaplex certifications; salon experience at Glow Salon and City Cuts; and a Marvel Beauty School diploma.\nSections: SKILLS (4), EXPERIENCE (4), PRIYA SHARMA (3), CERTIFICATIONS (2), PROFILE (1), EDUCATION (1)",
+    "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

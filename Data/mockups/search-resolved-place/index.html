@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which place we searched — the resolved-location chip — customer web + phone</title>
+<style>
+  :root{
+    /* LIVE app tokens, read from clinqetwebpartnerapp/tailwind.config.js — not new values. */
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0e7a3a;
+    --amber:#F5A623; --amber-ink:#9A5B00; --amber-soft:#FFF7E8; --amber-line:#F1D9A7;
+      --info:#E4EEFB; --info-line:#C7DBF6; --info-ink:#14477E;  /* ‼️ NO raw blue — #2F80ED is NOT in tailwind.config.js */
+    --red:#B3261E; --red-soft:#FCECEA; --red-line:#F2C4C0;
+    --paper:#FFFFFF; --card:#F5F5F5; --inset:#F7F8FA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header.sheet p{margin:0;opacity:.82;font-size:13px;max-width:940px}
+  main{padding:0 32px 64px}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .frame .bd{padding:14px}
+  .web{width:400px;max-width:100%}
+  .web.wide{width:620px}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B;max-width:100%}
+
+  /* — the search bar and the chip that sits under it — */
+  .sbar{display:flex;gap:8px;align-items:stretch}
+  .sbar .q{flex:1;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper);font-size:14px;color:var(--body);min-height:42px;display:flex;align-items:center}
+  .sbar .q .ph{color:var(--muted)}
+  .sbar .go{background:var(--green);color:#0a0a0a;border-radius:12px;padding:0 16px;font-size:14px;font-weight:600;display:flex;align-items:center}
+
+  /* ‼️ A MAP PIN, NOT A CIRCLE, AND IN BRAND GREEN — this is what the customer app already does
+     (`AboutTab.jsx:236` renders FaMapMarkerAlt in text-[#97EF29]). A ring says nothing about place,
+     and it rendered as near-black. The mask lets one glyph take each state's colour. */
+  .chip{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:5px 11px 5px 10px;font-size:12px;border:1px solid var(--line);background:var(--paper);color:var(--body);max-width:100%}
+  .chip .pin{width:13px;height:15px;flex:none;background:var(--green);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/></svg>") center/contain no-repeat;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/></svg>") center/contain no-repeat}
+  .chip .pin.mute{background:#B9BEC6}
+  .chip .pin.warn{background:var(--amber)}
+  .chip b{font-weight:600}
+  .chip .ch{color:var(--ink);font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:2px}
+  .chip.ghost{background:var(--inset);color:var(--muted)}
+  .chip.warnc{background:var(--amber-soft);border-color:var(--amber-line);color:var(--amber-ink)}
+  .chip .txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chiprow{margin-top:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+  .skel{background:linear-gradient(90deg,#EEF0F3 25%,#F7F8FA 37%,#EEF0F3 63%);border-radius:999px;height:24px;width:190px}
+
+  .sheetp{background:var(--paper);border-radius:14px;border:1px solid var(--line);padding:14px;box-shadow:0 12px 32px rgba(3,40,88,.12)}
+  .sheetp h3{margin:0 0 3px;font-size:15px;color:var(--ink)}
+  .sheetp p{margin:0 0 10px;font-size:12px;color:var(--muted)}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);font-size:13px}
+  .opt:last-of-type{border-bottom:0}
+  .opt .pin{width:12px;height:14px;flex:none;margin-top:3px;background:#B9BEC6;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z'/></svg>") center/contain no-repeat}
+  .opt.sel .pin{background:var(--green)}
+  .opt .nm{display:block;font-weight:600;color:var(--body)}
+  .opt .sub{display:block;font-size:11px;color:var(--muted);margin-top:1px}
+  .opt.sel{background:var(--green-soft);margin:0 -8px;padding-left:12px;padding-right:12px;border-radius:9px}
+  .grab{width:44px;height:4px;border-radius:2px;background:#D9D9D9;margin:0 auto 12px}
+
+  .panel{margin-top:11px;border-radius:12px;padding:10px 13px;font-size:12px;line-height:17px}
+  .panel.info{background:var(--info);border:1px solid var(--info-line);color:var(--info-ink)}
+  .panel.grey{background:var(--inset);border:1px solid var(--line);color:var(--muted)}
+  .panel.amber{background:var(--amber-soft);border:1px solid var(--amber-line);color:var(--amber-ink)}
+
+  .btn{display:inline-block;border-radius:12px;padding:9px 14px;font-size:13px;font-weight:600;border:1px solid transparent}
+  .btn.go{background:var(--green);color:#0a0a0a}
+  .btn.out{background:var(--paper);border-color:var(--line);color:var(--body)}
+
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  .rule{background:var(--green-soft);border:1px solid var(--green-line);border-left:4px solid var(--green);padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  .rule b{color:#2F5300}
+  .bad{background:var(--red-soft);border:1px solid var(--red-line);border-left:4px solid var(--red);padding:11px 13px;border-radius:6px;color:#7A1A14;font-size:13px;margin:14px 0}
+
+  table.words,table.st{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  table.words th,table.words td,table.st th,table.st td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.words th,table.st th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px;color:#333}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink);font-size:14px}
+  .tiny{font-size:11px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+
+<header class="sheet">
+  <h1>Which place we searched — the resolved-location chip</h1>
+  <p>Customer web + phone. Type “London” and we pick one — London, Ontario or London, England — and never say which. From Phase 3 that choice also decides <b>which country's index answers you</b>, so picking the wrong one silently returns an entirely different country's providers. This chip says what we chose and lets it be changed in one tap. Eight states, drawn for approval; nothing is built.</p>
+</header>
+
+<main>
+
+<h2>Amendment · 2026-09-24 <span class="n">four changes the owner approved in conversation — they supersede the frames below where they differ</span></h2>
+
+<div class="rule">
+  <b>What changed, and why.</b> The owner approved four recommendations on 2026-09-24 (“nothing misleading, accurate, easy to understand”).
+  <b>1 · No location:</b> the chip names the country whose providers are shown — it never says “everywhere” when one country answered. The “Anywhere in {country}” picker option is <b>removed</b>: it was built without an approved design and duplicated state 6.
+  <b>2 · A device location searches at once:</b> results never wait for the place name. A location is a point searched by <b>distance</b>; its name is a label that fills in when it arrives (state 1 until then).
+  <b>3 · A place the customer picked keeps the words they picked:</b> the chip says “Near Burlington, ON”, not whatever street address the point happens to name.
+  <b>4 · “Which London?” lists the server’s own choices</b> — up to five, the one we searched first and selected — never a list the screen invents.
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">6a · No location — the visitor’s country answered</div>
+    <div class="bd">
+      <span class="chip ghost"><span class="pin mute"></span><span class="txt">Showing providers across <b>Canada</b></span><span class="ch">Set a location</span></span>
+      <div class="panel grey">The country is the server’s own word (<code>resolvedPlace.countryName</code>, already in the reader’s language). True: these results come from that one country.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">6b · No location and no known country</div>
+    <div class="bd">
+      <span class="chip ghost"><span class="pin mute"></span><span class="txt">No location set — showing providers from all our countries</span><span class="ch">Set a location</span></span>
+      <div class="panel grey">Only when the server names no country (<code>coverage: Unknown</code>) — then every country this site serves answered.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">4 · Device location — results first, the name follows</div>
+    <div class="bd">
+      <div class="skel"></div>
+      <div class="panel grey">The results are already on screen, searched by distance around the point. The placeholder becomes <b>Near your location · Hamilton, Ontario</b> the moment the name arrives — or <b>Near your location</b> if it never does. ‼️ The name is never a filter.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Picked place — the customer’s own words</div>
+    <div class="bd">
+      <span class="chip"><span class="pin"></span><span class="txt">Near <b>Burlington, ON</b></span><span class="ch">Change</span></span>
+      <div class="panel grey">The label the customer chose in the picker, kept for as long as that place is in use. A new pick replaces it; a device fix replaces it with state 4.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Which London? — the server’s choices, the searched one first</div>
+    <div class="bd">
+      <div class="sheetp">
+        <h3>Which London?</h3>
+        <p>We searched the first one. Pick another to see its providers.</p>
+        <div class="opt sel"><span class="pin"></span><span><span class="nm">London, Ontario</span><span class="sub">Canada</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">London, England</span><span class="sub">United Kingdom</span></span></div>
+        <div style="display:flex;gap:9px;justify-content:flex-end;margin-top:12px">
+          <span class="btn out">Cancel</span><span class="btn go">Use this place</span>
+        </div>
+      </div>
+      <div class="panel grey">Each row is one entry of <code>resolvedPlace.choices</code> (place · country). A distance is added only when the device knows where it is — never guessed. A choice in a country we do not serve still shows, and picking it gives that state’s honest answer.</div>
+    </div>
+  </div>
+  <div class="frame phone">
+    <div class="topbar"><span>Search</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="sbar"><div class="q" style="font-size:13px">plumber</div></div>
+      <div class="chiprow">
+        <span class="chip ghost"><span class="pin mute"></span><span class="txt">Showing providers across <b>Canada</b></span></span>
+      </div>
+      <span class="chip" style="margin-top:6px"><span class="pin mute"></span><span class="txt">Set a location</span></span>
+      <div class="panel grey">Phone: the same words; the action wraps to its own line rather than cutting the country.</div>
+    </div>
+  </div>
+</div>
+
+<table class="words">
+  <tr><th style="width:26%">Where</th><th style="width:34%">English</th><th>Key</th></tr>
+  <tr><td>Chip — no location, one country</td><td>Showing providers across {country}</td><td><code>search.location.noneCountry</code> <i>(new)</i></td></tr>
+  <tr><td>Chip — no location, no country</td><td>No location set — showing providers from all our countries</td><td><code>search.location.noneAll</code> <i>(new — replaces <code>search.location.none</code>)</i></td></tr>
+  <tr><td>Picker — “Anywhere in {country}”</td><td colspan="2">‼️ removed, with every key and test that served only it</td></tr>
+</table>
+
+<div class="bad">
+  <b>Why this is not cosmetic.</b> Before Phase 3 a mis-resolved city gave slightly-off results. After Phase 3 it routes the whole query to another country's index — and the customer has no way to tell that is what happened. <b>The dangerous case is being confidently wrong</b>, which is precisely the case a “show it only when ambiguous” design would hide. So the chip is <b>always present</b> whenever a location was used.
+</div>
+
+<div class="note">
+  <b>‼️ WHAT EXISTS TODAY: NOTHING. This is entirely new.</b> Verified — there is <b>no location indicator of any kind</b> on the customer search results page. <code>SearchBox.jsx</code> uses a city only as hidden context for suggestions and never displays it. So a customer searching today has <b>no way at all</b> to see, or change, which place we searched.
+  <b>Where it goes:</b> the <b>customer search results page</b> (<code>app/(customer)/services/(search)/page.js</code>), directly under the search bar and above the first result — and the same position in the phone app's search screen. The picker it opens is the <b>existing</b> location surface in each app (<code>LocationPermissionModal.jsx</code> on web, <code>LocationPickerModal.tsx</code> on phone), not a new one.
+</div>
+
+<div class="note">
+  <b>‼️ THE MARKER — corrected twice, 2026-09-22, both times after the owner looked at it.</b>
+  The first draft drew a <b>ring</b> in navy, which the owner read as black. It was wrong on <b>two</b> counts: the colour, and — more importantly — <b>a circle says nothing about a place.</b>
+  <b>The customer app already has the answer.</b> <code>AboutTab.jsx:236</code> renders <code>FaMapMarkerAlt</code> in <code>text-[#97EF29]</code>. So the marker here is a <b>solid map pin in brand green <code>#97EF29</code></b>, the exact treatment the app already uses for a location — grey <code>#B9BEC6</code> when nothing is set, amber <code>#F5A623</code> when something needs attention. It is a plain map pin, not a decorative or AI-looking glyph.
+  <b>And the action.</b> The first draft used <code>#2F80ED</code>, carried over from an older sheet — <b>that blue is not in <code>tailwind.config.js</code> at all.</b> The app has no raw blue. ‼️ <b>Brand green cannot be used for text</b> — a thin lime word on white is illegible — so the action is <b>brand navy <code>#032858</code>, underlined</b>, which is the app's own ink and reads unmistakably as a link. <b>Green carries the icon; navy carries the words.</b>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>1 · Where it lives <span class="n">directly under the search bar, above the results</span></h2>
+
+<div class="row">
+  <div class="frame web wide">
+    <div class="cap">Web — the normal, confident case</div>
+    <div class="bd">
+      <div class="sbar">
+        <div class="q">plumber</div>
+        <div class="go">Search</div>
+      </div>
+      <div class="chiprow">
+        <span class="chip"><span class="pin"></span><span class="txt">Near <b>London, Ontario</b></span><span class="ch">Change</span></span>
+      </div>
+      <div class="panel grey">28 results · the chip is quiet, single-line, and never pushes the results down by more than one row.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>2 · All eight states <span class="n">every one the server can actually produce</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">1 · Resolving</div>
+    <div class="bd"><div class="skel"></div>
+      <div class="panel grey">A placeholder of the same height, so nothing jumps when the name arrives.</div></div>
+  </div>
+  <div class="frame web">
+    <div class="cap">2 · Resolved — one clear match</div>
+    <div class="bd">
+      <span class="chip"><span class="pin"></span><span class="txt">Near <b>London, Ontario</b></span><span class="ch">Change</span></span>
+      <div class="panel grey">The country is implied by the place name. It is spelled out only when it is not obvious — see state 8.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">3 · Ambiguous — we picked one, and say so</div>
+    <div class="bd">
+      <span class="chip warnc"><span class="pin warn"></span><span class="txt">Near <b>London, Ontario</b> — not the one you meant?</span><span class="ch">Change</span></span>
+      <div class="panel amber">Shown when the geocoder returned more than one plausible place. ‼️ We still <b>commit to one</b> and show results — we never block on a question.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">4 · Using the device's location</div>
+    <div class="bd">
+      <span class="chip"><span class="pin"></span><span class="txt">Near <b>your location</b> · Hamilton, Ontario</span><span class="ch">Change</span></span>
+      <div class="panel grey">Coordinates have no name, so we name the place they fall in. If that reverse lookup fails, the chip reads simply <b>Near your location</b>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">5 · Could not look the place up</div>
+    <div class="bd">
+      <span class="chip warnc"><span class="pin warn"></span><span class="txt">We could not check <b>“Londonn”</b></span><span class="ch">Set a location</span></span>
+      <div class="panel amber">Results are still shown, using whatever location we had before. ‼️ <b>The chip never claims a place we did not resolve.</b></div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">6 · No location at all</div>
+    <div class="bd">
+      <span class="chip ghost"><span class="pin mute"></span><span class="txt">No location set — showing results from everywhere</span><span class="ch">Set a location</span></span>
+      <div class="panel grey">The existing “add a location” prompt, now stated in the same place as every other location fact.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">7 · Offline</div>
+    <div class="bd">
+      <span class="chip ghost"><span class="pin mute"></span><span class="txt">Near <b>London, Ontario</b> · offline</span></span>
+      <div class="panel grey">The last known place, stated as last-known. ‼️ <b>Change is removed</b>, not greyed — a control that cannot work should not be offered.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">8 · ‼️ Routed to a different country than the device is in</div>
+    <div class="bd">
+      <span class="chip warnc"><span class="pin warn"></span><span class="txt">Showing providers in <b>Canada</b>, near Niagara Falls</span><span class="ch">Change</span></span>
+      <div class="panel amber">The border case. The customer is metres from another country, so the COUNTRY is named explicitly rather than implied. ‼️ This is a <b>correct</b> answer and must never be labelled degraded or uncertain.</div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>‼️ State 8 gets its own wording for a reason.</b> When the search crosses into the country-fan-out path the result is flagged internally as reduced-confidence. <b>That flag must not reach this chip</b> when the location itself was resolved cleanly — a correct answer displayed as broken teaches the customer to distrust a system that is working.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>3 · Changing it <span class="n">the chip opens the picker the apps already have</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web — ambiguity resolved in one tap</div>
+    <div class="bd">
+      <div class="sheetp">
+        <h3>Which London?</h3>
+        <p>We searched the first one. Pick another to see its providers.</p>
+        <div class="opt sel"><span class="pin"></span><span><span class="nm">London, Ontario</span><span class="sub">Canada · 190 km away</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">London, England</span><span class="sub">United Kingdom · 5,900 km away</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">New London, Connecticut</span><span class="sub">United States · 780 km away</span></span></div>
+        <div style="display:flex;gap:9px;justify-content:flex-end;margin-top:12px">
+          <span class="btn out">Cancel</span><span class="btn go">Use this place</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web — setting a location from scratch</div>
+    <div class="bd">
+      <div class="sheetp">
+        <h3>Where should we search?</h3>
+        <p>So we can show you providers who can actually reach you.</p>
+        <div class="sbar" style="margin-bottom:6px"><div class="q"><span class="ph">Town, city or postcode</span></div></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">Use my current location</span><span class="sub">We will ask your browser for permission</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">Home — 14 Queen St, Hamilton</span><span class="sub">Your saved address</span></span></div>
+        <div style="display:flex;gap:9px;justify-content:flex-end;margin-top:12px">
+          <span class="btn out">Cancel</span><span class="btn go">Search here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Interaction rules, binding.</b> The whole chip is tappable, not only the word <b>Change</b> — a 12 px word is not a tap target.
+  ‼️ <b>Changing the place re-runs the search immediately</b>; there is no second Apply step.
+  The picker is the <b>existing</b> location surface in each app, not a new one.
+  Cancel leaves the current place and the current results untouched.
+  ‼️ <b>The chip never blocks results</b> — even ambiguous and failed states show results underneath.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>4 · Phone <span class="n">customer app · same eight states, phone-native picker</span></h2>
+
+<div class="row">
+  <div class="frame phone">
+    <div class="topbar"><span>Search</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="sbar"><div class="q" style="font-size:13px">plumber</div></div>
+      <div class="chiprow">
+        <span class="chip"><span class="pin"></span><span class="txt">Near <b>London, Ontario</b></span><span class="ch">Change</span></span>
+      </div>
+      <div class="panel grey">28 results</div>
+      <div style="height:64px;border:1px solid var(--line);border-radius:12px;margin-top:10px;background:var(--inset)"></div>
+      <div style="height:64px;border:1px solid var(--line);border-radius:12px;margin-top:8px;background:var(--inset)"></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="topbar"><span>Search</span></div>
+    <div class="bd" style="padding:12px;background:#EDEFF2">
+      <div style="opacity:.4"><div class="sbar"><div class="q" style="font-size:13px">plumber</div></div></div>
+      <div style="height:120px"></div>
+      <div class="sheetp" style="box-shadow:none;border-radius:20px 20px 0 0;margin:0 -12px -12px">
+        <div class="grab"></div>
+        <h3>Which London?</h3>
+        <p>We searched the first one.</p>
+        <div class="opt sel"><span class="pin"></span><span><span class="nm">London, Ontario</span><span class="sub">Canada · 190 km</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">London, England</span><span class="sub">United Kingdom · 5,900 km</span></span></div>
+        <div class="opt"><span class="pin"></span><span><span class="nm">New London, Connecticut</span><span class="sub">United States · 780 km</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="topbar"><span>Search</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="sbar"><div class="q" style="font-size:13px">plumber</div></div>
+      <div class="chiprow">
+        <span class="chip warnc"><span class="pin warn"></span><span class="txt">Providers in <b>Canada</b>, near Niagara Falls</span></span>
+      </div>
+      <span class="chip" style="margin-top:6px"><span class="pin mute"></span><span class="txt">Change</span></span>
+      <div class="panel amber">‼️ On a narrow screen the chip <b>wraps the action onto its own line</b> rather than truncating the place name. The place is the information; <b>Change</b> is not.</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Responsive rules, binding.</b> ‼️ <b>The place name is never truncated to fit the action</b> — below the breakpoint the action wraps to a second line, as drawn.
+  The chip is one line wherever it fits and at most two lines ever; a very long place name ellipsises <b>only the trailing part of the place</b>, never the country.
+  The chip is sticky with the search bar on web so it stays visible while scrolling results; on phone it scrolls away with the header.
+  Tap target at least 44 px tall including the padding.
+  No horizontal scrolling at any width.
+  The picker is a centred dialog on web and a bottom sheet on phone, dismissed by swiping down.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>5 · What drives each state <span class="n">so the UI and the server can never disagree</span></h2>
+
+<table class="st">
+  <tr><th style="width:22%">State</th><th style="width:30%">Server condition</th><th>Chip</th></tr>
+  <tr><td>1 Resolving</td><td>request in flight</td><td>placeholder of equal height</td></tr>
+  <tr><td>2 Resolved</td><td>a place resolved, one candidate</td><td>Near <b>{place}</b> · Change</td></tr>
+  <tr><td>3 Ambiguous</td><td>a place resolved, more than one candidate</td><td>amber · “not the one you meant?” · Change</td></tr>
+  <tr><td>4 Device location</td><td>coordinates used, name reverse-resolved</td><td>Near <b>your location</b> · {place}</td></tr>
+  <tr><td>4b Device, unnamed</td><td>coordinates used, reverse lookup failed</td><td>Near <b>your location</b> — ‼️ no invented place name</td></tr>
+  <tr><td>5 Lookup failed</td><td>geocoder error or zero candidates</td><td>amber · “We could not check {input}” · Set a location</td></tr>
+  <tr><td>6 No location</td><td>no coordinates, no city, no saved address</td><td>grey · “showing results from everywhere”</td></tr>
+  <tr><td>7 Offline</td><td>client offline, last known place cached</td><td>grey · “· offline” · ‼️ no action offered</td></tr>
+  <tr><td>8 Cross-country</td><td>resolved country ≠ the device's country</td><td>amber · country named explicitly · ‼️ NOT marked degraded</td></tr>
+</table>
+
+<div class="note">
+  <b>‼️ The two facts the server must send, and neither exists today.</b> The geocoder currently returns only coordinates and a formatted address — <b>it does not return a country</b>. Phase 3 adds the resolved <b>country code and country name</b> to <code>GeocodingResult</code> and carries them, with the formatted place, on <code>SearchResponseDto</code>. <b>The chip renders the server's words; it never composes a place name of its own.</b>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>6 · Every word <span class="n">one key per string · five languages · web and phone</span></h2>
+
+<table class="words">
+  <tr><th style="width:26%">Where</th><th style="width:34%">English</th><th>Key</th></tr>
+  <tr><td>Chip — resolved</td><td>Near {place}</td><td><code>search.location.near</code></td></tr>
+  <tr><td>Chip — device location</td><td>Near your location</td><td><code>search.location.device</code></td></tr>
+  <tr><td>Chip — device, named</td><td>Near your location · {place}</td><td><code>search.location.deviceNamed</code></td></tr>
+  <tr><td>Chip — ambiguous</td><td>Near {place} — not the one you meant?</td><td><code>search.location.ambiguous</code></td></tr>
+  <tr><td>Chip — lookup failed</td><td>We could not check “{input}”</td><td><code>search.location.failed</code></td></tr>
+  <tr><td>Chip — none</td><td>No location set — showing results from everywhere</td><td><code>search.location.none</code></td></tr>
+  <tr><td>Chip — offline</td><td>Near {place} · offline</td><td><code>search.location.offline</code></td></tr>
+  <tr><td>Chip — cross-country</td><td>Showing providers in {country}, near {place}</td><td><code>search.location.crossCountry</code></td></tr>
+  <tr><td>Action — change</td><td>Change</td><td><code>search.location.change</code></td></tr>
+  <tr><td>Action — set</td><td>Set a location</td><td><code>search.location.set</code></td></tr>
+  <tr><td>Picker title — ambiguous</td><td>Which {place}?</td><td><code>search.location.picker.which</code></td></tr>
+  <tr><td>Picker hint — ambiguous</td><td>We searched the first one. Pick another to see its providers.</td><td><code>search.location.picker.whichHint</code></td></tr>
+  <tr><td>Picker title — set</td><td>Where should we search?</td><td><code>search.location.picker.title</code></td></tr>
+  <tr><td>Picker hint — set</td><td>So we can show you providers who can actually reach you.</td><td><code>search.location.picker.hint</code></td></tr>
+  <tr><td>Picker field</td><td>Town, city or postcode</td><td><code>search.location.picker.placeholder</code></td></tr>
+  <tr><td>Picker option</td><td>Use my current location</td><td><code>search.location.picker.useDevice</code></td></tr>
+  <tr><td>Picker option sub</td><td>We will ask your browser for permission</td><td><code>search.location.picker.useDeviceHint</code></td></tr>
+  <tr><td>Picker option sub (phone)</td><td>We will ask for permission</td><td><code>search.location.picker.useDeviceHintApp</code></td></tr>
+  <tr><td>Picker saved address</td><td>Your saved address</td><td><code>search.location.picker.saved</code></td></tr>
+  <tr><td>Picker confirm</td><td>Use this place</td><td><code>search.location.picker.confirm</code></td></tr>
+  <tr><td>Picker confirm (set)</td><td>Search here</td><td><code>search.location.picker.search</code></td></tr>
+  <tr><td>Picker cancel</td><td>Cancel</td><td><code>common.cancel</code> <i>(exists)</i></td></tr>
+  <tr><td>Candidate distance</td><td>{distance} away</td><td><code>search.location.picker.distance</code></td></tr>
+</table>
+
+<div class="note">
+  <b>‼️ No technical word reaches this screen.</b> Not “geocode”, “resolve”, “fallback”, “degraded”, “index”, “country pair” or “fan-out”. The customer reads <b>place</b>, <b>location</b>, <b>near</b>, <b>change</b>, <b>could not check</b>. Amber is used for “you may want to look at this”, never red — nothing has failed from the customer's point of view.
+</div>
+
+<div class="note">
+  <b>What this sheet does NOT settle, and must not be assumed from it.</b> The states drawn here are examples. The implementing session must work through every case it finds — permission denied after being granted, a saved address in a country we do not serve, a place that resolves to open ocean, a country we serve that has no index pair yet, a place name longer than the chip at 320 px, right-to-left layout, and anything else — and design for each one deliberately.
+</div>
+
+</main>
+</body>
+</html>

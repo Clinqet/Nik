@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "general",
+    "category": "movers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "brampton-general-touchwood-movers-brampton",
+      "businessName": "TouchWood Movers Brampton",
+      "description": "TouchWood Movers Brampton office location.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-428-9740",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.touchwoodmovers.com/contact-us/",
+        "other": []
+      },
+      "address": {
+        "street": "62 Princeton Terrace",
+        "city": "Brampton",
+        "area": "general",
+        "postalCode": "L6S 3S8",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "62 Princeton Terrace, Brampton, ON L6S 3S8"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "general",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.touchwoodmovers.com/contact-us/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

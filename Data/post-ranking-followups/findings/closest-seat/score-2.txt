@@ -1,0 +1,33 @@
+===== nkn607
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                   115/149       155     274  27/35    32/35
+reserve 1 closest @2                  115/149       155     274  27/35    32/35
+reserve 1 closest @end                115/149       155     274  27/35    32/35
+reserve 2 closest @2                  115/149       156     275  27/35    32/35
+reserve 2 closest @end                115/149       156     275  27/35    32/35
+reserve 3 closest @2                  116/149       156     276  27/35    32/35
+reserve 3 closest @end                116/149       156     276  27/35    32/35
+reserve 2 closest @2 near .97         115/149       155     274  27/35    32/35
+reserve 3 closest @2 near .95         117/149       153     274  27/35    32/35
+===== cars-in
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    17/52        159     176   6/22     8/22
+reserve 1 closest @2                   26/52        150     176   6/22    17/22
+reserve 1 closest @end                 26/52        150     176   6/22    17/22
+reserve 2 closest @2                   35/52        141     176   6/22    19/22
+reserve 2 closest @end                 35/52        141     176   6/22    19/22
+reserve 3 closest @2                   36/52        140     176   6/22    19/22
+reserve 3 closest @end                 36/52        140     176   6/22    19/22
+reserve 2 closest @2 near .97          31/52        145     176   6/22    19/22
+reserve 3 closest @2 near .95          34/52        142     176   6/22    19/22
+===== prices-ca
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    34/38         62      96   6/12    12/12
+reserve 1 closest @2                   34/38         62      96   6/12    12/12
+reserve 1 closest @end                 34/38         62      96   6/12    12/12
+reserve 2 closest @2                   34/38         62      96   6/12    12/12
+reserve 2 closest @end                 34/38         62      96   6/12    12/12
+reserve 3 closest @2                   34/38         62      96   6/12    12/12
+reserve 3 closest @end                 34/38         62      96   6/12    12/12
+reserve 2 closest @2 near .97          34/38         62      96   6/12    12/12
+reserve 3 closest @2 near .95          34/38         62      96   6/12    12/12

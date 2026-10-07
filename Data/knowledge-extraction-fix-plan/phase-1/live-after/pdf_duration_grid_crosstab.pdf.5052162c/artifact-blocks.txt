@@ -1,0 +1,23 @@
+docTitle=Massage and Facial Pricing Menu lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: A menu covering Swedish, Deep tissue, Hot stone, and Prenatal massages with typical prices by duration, plus Hydrating, Anti-aging, and Acne care facials with typical prices by facial category.
+[  0] Heading      p1 H1
+      Massage menu
+[  1] Table        p1
+      hasHeader=True caption= rows=5
+      | Massage | 30 min | 60 min | 90 min |
+      | Swedish | $60 | $90 | $120 |
+      | Deep tissue | $70 | $100 | $135 |
+      | Hot stone | $75 | $110 | $150 |
+      | Prenatal | $65 | $95 | $130 |
+[  2] Heading      p1 H1
+      Facials by skin type
+[  3] Table        p1
+      hasHeader=True caption= rows=4
+      |  | Express | Classic | Luxury |
+      | Hydrating | $45 | $80 | $120 |
+      | Anti-aging | $55 | $95 | $140 |
+      | Acne care | $50 | $85 | $125 |
+
+## captions
+## images
+## reviews

@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "general",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-general-bloom-landscape",
+      "businessName": "Bloom Landscape",
+      "description": "Family-owned landscaping serving York Region & Toronto 20+ years. Property maintenance, hardscape, synthetic grass.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@bloomlandscape.ca",
+      "businessPhone": "416-220-5000",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://bloomlandscape.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "formatted": "Toronto / York Region, ON",
+        "area": "general",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "North York",
+        "Scarborough",
+        "Etobicoke",
+        "Toronto",
+        "Vaughan",
+        "Markham"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "general",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Property Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hardscape",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Synthetic Grass",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://bloomlandscape.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

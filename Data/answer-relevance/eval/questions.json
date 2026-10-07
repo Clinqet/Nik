@@ -1,0 +1,354 @@
+{
+ "business": "NKN607",
+ "note": "P4-E-26 retrieval test set. A card is RELEVANT when its content matches `relevant` (a regex over the card's stored content) and it belongs to one of `docs` when given. `acceptable` cards (overviews of a relevant document) are neither required nor counted as wrong. Renderings are what the model fills per alphabet the business writes in (Latn, Gujr, Deva); the first is the question's own.",
+ "questions": [
+  {
+   "id": "Q01",
+   "renderings": {
+    "Latn": "What is the week rate for rentals?",
+    "Gujr": "ભાડા માટે અઠવાડિયાનો દર શું છે?",
+    "Deva": "किराये के लिए साप्ताहिक दर क्या है?"
+   },
+   "relevant": "Week rate"
+  },
+  {
+   "id": "Q02",
+   "renderings": {
+    "Latn": "How much is a haircut?",
+    "Gujr": "વાળ કપાવવાની કિંમત કેટલી છે?",
+    "Deva": "बाल कटवाने की कीमत कितनी है?"
+   },
+   "relevant": "(?i)haircut \\$|haircut \\||Haircut \\$|Service: Haircut \\||बाल कटवाना|વાળ કપાવવા|Haircut Men|haircut \\|"
+  },
+  {
+   "id": "Q03",
+   "renderings": {
+    "Deva": "बाल कटवाने की कीमत क्या है?",
+    "Latn": "What is the price of a haircut?",
+    "Gujr": "વાળ કપાવવાની કિંમત શું છે?"
+   },
+   "relevant": "(?i)haircut \\$|Service: Haircut \\||बाल कटवाना|વાળ કપાવવા|Haircut Men|Haircut \\|"
+  },
+  {
+   "id": "Q04",
+   "renderings": {
+    "Gujr": "પાન મસાલાની કિંમત શું છે?",
+    "Latn": "What is the price of pan masala?",
+    "Deva": "पान मसाला की कीमत क्या है?"
+   },
+   "relevant": "પાન મસાલા \\|",
+   "acceptable": "પાન મસાલા|પાંચ વસ્તુઓ"
+  },
+  {
+   "id": "Q05",
+   "renderings": {
+    "Latn": "What is the price of pan masala?",
+    "Gujr": "પાન મસાલાની કિંમત શું છે?",
+    "Deva": "पान मसाला की कीमत क्या है?"
+   },
+   "relevant": "પાન મસાલા \\|",
+   "acceptable": "પાન મસાલા|પાંચ વસ્તુઓ"
+  },
+  {
+   "id": "Q06",
+   "renderings": {
+    "Latn": "Is a deposit required?",
+    "Gujr": "શું ડિપોઝિટ જરૂરી છે?",
+    "Deva": "क्या जमा राशि ज़रूरी है?"
+   },
+   "relevant": "Deposit \\| 20%|Deposit of \\$20|Deposit \\$50"
+  },
+  {
+   "id": "Q07",
+   "renderings": {
+    "Latn": "Do you sell gift cards?",
+    "Gujr": "શું તમે ગિફ્ટ કાર્ડ વેચો છો?",
+    "Deva": "क्या आप गिफ्ट कार्ड बेचते हैं?"
+   },
+   "relevant": null
+  },
+  {
+   "id": "Q08",
+   "renderings": {
+    "Latn": "What time do you open on Saturday?",
+    "Gujr": "શનિવારે તમે કેટલા વાગ્યે ખોલો છો?",
+    "Deva": "शनिवार को आप कितने बजे खुलते हैं?"
+   },
+   "relevant": "Saturday \\| 10:00"
+  },
+  {
+   "id": "Q09",
+   "renderings": {
+    "Latn": "How much is the NX-245 air compressor?",
+    "Gujr": "NX-245 એર કોમ્પ્રેસરની કિંમત કેટલી છે?",
+    "Deva": "NX-245 एयर कंप्रेसर की कीमत कितनी है?"
+   },
+   "relevant": "NX-245"
+  },
+  {
+   "id": "Q10",
+   "renderings": {
+    "Latn": "What languages does Priya speak?",
+    "Gujr": "પ્રિયા કઈ ભાષાઓ બોલે છે?",
+    "Deva": "प्रिया कौन सी भाषाएँ बोलती है?"
+   },
+   "relevant": "^English, Hindi, Gujarati$"
+  },
+  {
+   "id": "Q11",
+   "renderings": {
+    "Latn": "How much does a Volvo EC210 excavator cost?",
+    "Gujr": "Volvo EC210 એક્સકેવેટરની કિંમત કેટલી છે?",
+    "Deva": "Volvo EC210 एक्सकेवेटर की कीमत कितनी है?"
+   },
+   "relevant": "Volvo EC210"
+  },
+  {
+   "id": "Q12",
+   "renderings": {
+    "Latn": "Is there a charge for home visits?",
+    "Gujr": "ઘરે આવવા માટે કોઈ ચાર્જ છે?",
+    "Deva": "क्या घर पर आने का कोई शुल्क है?"
+   },
+   "relevant": "Home visit adds"
+  },
+  {
+   "id": "Q13",
+   "renderings": {
+    "Latn": "What is the co-pay per visit?",
+    "Gujr": "દરેક મુલાકાત માટે કો-પે કેટલો છે?",
+    "Deva": "प्रति विज़िट को-पे कितना है?"
+   },
+   "relevant": "Co-pay per visit"
+  },
+  {
+   "id": "Q14",
+   "renderings": {
+    "Latn": "How much is a timing belt replacement?",
+    "Gujr": "ટાઇમિંગ બેલ્ટ બદલવાનો ખર્ચ કેટલો છે?",
+    "Deva": "टाइमिंग बेल्ट बदलने का खर्च कितना है?"
+   },
+   "relevant": "Timing belt"
+  },
+  {
+   "id": "Q15",
+   "renderings": {
+    "Latn": "What warranty do you give on car repairs?",
+    "Gujr": "કાર રિપેર પર તમે કઈ વોરંટી આપો છો?",
+    "Deva": "कार रिपेयर पर आप कौन सी वारंटी देते हैं?"
+   },
+   "relevant": "Warranty: 12 months"
+  },
+  {
+   "id": "Q16",
+   "renderings": {
+    "Latn": "How much is a gel manicure?",
+    "Gujr": "જેલ મેનીક્યોરની કિંમત કેટલી છે?",
+    "Deva": "जेल मैनीक्योर की कीमत कितनी है?"
+   },
+   "relevant": "(?i)gel manicure"
+  },
+  {
+   "id": "Q17",
+   "renderings": {
+    "Latn": "How much is a hot stone massage?",
+    "Gujr": "હોટ સ્ટોન મસાજની કિંમત કેટલી છે?",
+    "Deva": "हॉट स्टोन मसाज की कीमत कितनी है?"
+   },
+   "relevant": "(?i)hot stone"
+  },
+  {
+   "id": "Q18",
+   "renderings": {
+    "Deva": "फेशियल की कीमत क्या है?",
+    "Latn": "What is the price of a facial?",
+    "Gujr": "ફેશિયલની કિંમત શું છે?"
+   },
+   "relevant": "फेशियल \\(|ફેશિયલ \\||Facial classic|Facials by skin type|Hydrating \\|"
+  },
+  {
+   "id": "Q19",
+   "renderings": {
+    "Gujr": "મસાજનો ભાવ શું છે?",
+    "Latn": "What is the price of a massage?",
+    "Deva": "मसाज की कीमत क्या है?"
+   },
+   "relevant": "(?i)મસાજ \\||massage: swedish|back massage|hot stone massage|scalp massage \\|"
+  },
+  {
+   "id": "Q20",
+   "renderings": {
+    "Latn": "What is the monthly mortgage payment?",
+    "Gujr": "માસિક મોર્ટગેજ ચુકવણી કેટલી છે?",
+    "Deva": "मासिक मॉर्गेज भुगतान कितना है?"
+   },
+   "relevant": "Total Paid"
+  },
+  {
+   "id": "Q21",
+   "renderings": {
+    "Latn": "How much does Microsoft cost per year?",
+    "Gujr": "Microsoft નો વાર્ષિક ખર્ચ કેટલો છે?",
+    "Deva": "Microsoft का सालाना खर्च कितना है?"
+   },
+   "relevant": "Vendor Costs|Current Vendor Cost"
+  },
+  {
+   "id": "Q22",
+   "renderings": {
+    "Latn": "What is your cancellation policy?",
+    "Gujr": "તમારી રદ કરવાની નીતિ શું છે?",
+    "Deva": "आपकी रद्द करने की नीति क्या है?"
+   },
+   "relevant": "notice for cancellations"
+  },
+  {
+   "id": "Q23",
+   "renderings": {
+    "Latn": "Do you do bridal makeup?",
+    "Gujr": "શું તમે બ્રાઇડલ મેકઅપ કરો છો?",
+    "Deva": "क्या आप ब्राइडल मेकअप करते हैं?"
+   },
+   "relevant": "બ્રાઇડલ મેકઅપ|Bridal package",
+   "acceptable": "(?i)bridal"
+  },
+  {
+   "id": "Q24",
+   "renderings": {
+    "Latn": "What is the dose of amoxicillin?",
+    "Gujr": "એમોક્સિસિલિનનો ડોઝ કેટલો છે?",
+    "Deva": "एमोक्सिसिलिन की खुराक कितनी है?"
+   },
+   "relevant": "Amoxicillin \\| Dose"
+  },
+  {
+   "id": "Q25",
+   "renderings": {
+    "Latn": "How much is a sick note?",
+    "Gujr": "સિક નોટ માટે કેટલો ચાર્જ છે?",
+    "Deva": "सिक नोट का शुल्क कितना है?"
+   },
+   "relevant": "Sick note \\| Fee"
+  },
+  {
+   "id": "Q26",
+   "renderings": {
+    "Latn": "What does a full detail cost for a large car?",
+    "Gujr": "મોટી કાર માટે ફુલ ડિટેલનો ખર્ચ કેટલો છે?",
+    "Deva": "बड़ी कार के लिए फुल डिटेल का खर्च कितना है?"
+   },
+   "relevant": "Package: Full detail"
+  },
+  {
+   "id": "Q27",
+   "renderings": {
+    "Latn": "Do you have a skid steer loader for sale?",
+    "Gujr": "શું તમારી પાસે વેચાણ માટે સ્કિડ સ્ટીયર લોડર છે?",
+    "Deva": "क्या आपके पास बिक्री के लिए स्किड स्टीयर लोडर है?"
+   },
+   "relevant": "(?i)skid steer"
+  },
+  {
+   "id": "Q28",
+   "renderings": {
+    "Latn": "How much is a pedicure?",
+    "Gujr": "પેડિક્યોરની કિંમત કેટલી છે?",
+    "Deva": "पेडीक्योर की कीमत कितनी है?"
+   },
+   "relevant": "(?i)pedicure|पेडीक्योर"
+  },
+  {
+   "id": "Q29",
+   "renderings": {
+    "Latn": "Do you offer dog grooming?",
+    "Gujr": "શું તમે કૂતરાની ગ્રૂમિંગ કરો છો?",
+    "Deva": "क्या आप कुत्तों की ग्रूमिंग करते हैं?"
+   },
+   "relevant": null
+  },
+  {
+   "id": "Q30",
+   "renderings": {
+    "Latn": "How much is the tea?",
+    "Gujr": "ચાની કિંમત કેટલી છે?",
+    "Deva": "चाय की कीमत कितनी है?"
+   },
+   "relevant": "ચા \\| ₹50",
+   "acceptable": "ચા ₹50"
+  },
+  {
+   "id": "Q31",
+   "renderings": {
+    "Latn": "Is parking available?",
+    "Gujr": "શું પાર્કિંગ ઉપલબ્ધ છે?",
+    "Deva": "क्या पार्किंग उपलब्ध है?"
+   },
+   "relevant": null
+  },
+  {
+   "id": "Q32",
+   "renderings": {
+    "Deva": "किराये के लिए साप्ताहिक दर क्या है?",
+    "Latn": "What is the weekly rental rate?",
+    "Gujr": "ભાડા માટે અઠવાડિયાનો દર શું છે?"
+   },
+   "relevant": "Week rate"
+  },
+  {
+   "id": "Q33",
+   "renderings": {
+    "Gujr": "ભાડા માટે અઠવાડિયાનો દર શું છે?",
+    "Latn": "What is the weekly rental rate?",
+    "Deva": "किराये के लिए साप्ताहिक दर क्या है?"
+   },
+   "relevant": "Week rate"
+  },
+  {
+   "id": "Q34",
+   "renderings": {
+    "Latn": "Is there a guarantee on keratin treatment?",
+    "Gujr": "કેરાટિન ટ્રીટમેન્ટ પર ગેરંટી છે?",
+    "Deva": "क्या केराटिन ट्रीटमेंट पर गारंटी है?"
+   },
+   "relevant": "Keratin treatment \\| 7"
+  },
+  {
+   "id": "Q35",
+   "renderings": {
+    "Latn": "How many years of experience does Priya have?",
+    "Gujr": "પ્રિયાને કેટલા વર્ષનો અનુભવ છે?",
+    "Deva": "प्रिया को कितने साल का अनुभव है?"
+   },
+   "relevant": "12 years of salon experience"
+  },
+  {
+   "id": "Q36",
+   "browse": true,
+   "renderings": {
+    "Latn": "What services do you offer?",
+    "Gujr": "તમે કઈ સેવાઓ આપો છો?",
+    "Deva": "आप कौन सी सेवाएँ देते हैं?"
+   },
+   "relevant": "(?i)overview|Service:|Haircut|manicure|massage|detail"
+  },
+  {
+   "id": "Q37",
+   "browse": true,
+   "renderings": {
+    "Latn": "What equipment do you sell?",
+    "Gujr": "તમે કયા સાધનો વેચો છો?",
+    "Deva": "आप कौन से उपकरण बेचते हैं?"
+   },
+   "relevant": "(?i)NX-\\d{3}|Northline|excavator|loader|forklift|compressor"
+  },
+  {
+   "id": "Q38",
+   "renderings": {
+    "Latn": "NX-195",
+    "Gujr": "NX-195",
+    "Deva": "NX-195"
+   },
+   "relevant": "NX-195"
+  }
+ ]
+}

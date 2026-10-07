@@ -1,0 +1,450 @@
+<title>Source grouping — M9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#1B4F8A; --info-bg:#E9F1FA;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) { @media (prefers-color-scheme: dark) {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B; --brand:#97EF29; --brand-deep:#B8F76A;
+    --warn:#E0A44A; --warn-bg:#2A2013; --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#8FC0F0; --info-bg:#13202B;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  } }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B; --brand:#97EF29; --brand-deep:#B8F76A;
+    --warn:#E0A44A; --warn-bg:#2A2013; --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#8FC0F0; --info-bg:#13202B;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:15px; line-height:1.5; margin:0; padding:28px 20px 80px; }
+  .wrap { max-width:1180px; margin:0 auto; }
+  h1 { font-family:var(--display); font-size:26px; margin:0 0 6px; letter-spacing:-.01em; }
+  h2 { font-family:var(--display); font-size:17px; margin:38px 0 4px; letter-spacing:-.005em; }
+  h3 { font-family:var(--display); font-size:13.5px; margin:20px 0 8px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.07em; }
+  p  { margin:0 0 10px; color:var(--ink-soft); max-width:78ch; }
+  .lede { font-size:15.5px; color:var(--ink-soft); max-width:80ch; }
+  code, .mono { font-family:var(--mono); font-size:12.5px; }
+  .rule { border:1px solid var(--line); border-left:3px solid var(--brand); background:var(--surface); border-radius:10px; padding:12px 14px; margin:12px 0 18px; }
+  .rule b { color:var(--ink); }
+  .grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); align-items:start; }
+  .frame { border:1px solid var(--line); background:var(--surface); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }
+  .frame > figcaption { font-size:12px; color:var(--ink-mute); padding:8px 12px; border-bottom:1px solid var(--line); background:var(--surface-sunk); font-weight:600; letter-spacing:.02em; }
+  .pad { padding:14px; }
+  .phone { max-width:340px; margin:0 auto; }
+  .phone .pad { padding:12px; }
+
+  /* ---- the drawn control ---- */
+  .sources-head { display:flex; align-items:center; gap:8px; margin:0 0 10px; }
+  .sources-head .lbl { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .sources-head .cnt { background:var(--surface-sunk); border-radius:999px; padding:1px 8px; font-size:11px; font-weight:700; color:var(--ink-soft); }
+
+  .doc { border:1px solid var(--line); border-radius:12px; background:var(--surface); overflow:hidden; }
+  .doc + .doc { margin-top:10px; }
+  .doc-head { display:flex; gap:10px; align-items:flex-start; padding:11px 12px; }
+  .doc-ico { flex:none; width:26px; height:26px; border-radius:8px; background:#EAF9D8; color:var(--brand-deep); display:grid; place-items:center; font-size:13px; }
+  :root[data-theme="dark"] .doc-ico { background:#1D2A17; }
+  .doc-name { font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.3; overflow-wrap:anywhere; }
+  .doc-meta { font-size:11.5px; color:var(--ink-mute); margin-top:2px; }
+
+  .parts { border-top:1px solid var(--line); }
+  .part { display:flex; gap:9px; padding:9px 12px; align-items:flex-start; }
+  .part + .part { border-top:1px dashed var(--line); }
+  .part.cited { background:#F7FEEF; }
+  :root[data-theme="dark"] .part.cited { background:#16210F; }
+  .n { flex:none; min-width:20px; height:20px; padding:0 5px; border-radius:6px; background:var(--brand); color:#101010; font-size:11px; font-weight:700; display:grid; place-items:center; }
+  .n.off { background:var(--surface-sunk); color:var(--ink-mute); }
+  .part-txt { font-size:12.5px; color:var(--ink-soft); line-height:1.45; overflow-wrap:anywhere; }
+  .part-txt b { color:var(--ink); font-weight:600; }
+  .kv { font-family:var(--mono); font-size:11.5px; }
+
+  .doc-foot { border-top:1px solid var(--line); padding:8px 12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .btn { border:1px solid var(--line-firm); background:var(--surface); border-radius:999px; padding:3px 11px; font-size:11.5px; font-weight:600; color:var(--ink); font-family:var(--body); }
+  .btn.ghost { color:var(--ink-soft); }
+  .note { font-size:11.5px; color:var(--ink-mute); }
+
+  .band { border-radius:9px; padding:9px 11px; font-size:12.5px; line-height:1.45; }
+  .band.warn { background:var(--warn-bg); color:var(--warn); border:1px solid #EBD8B4; }
+  .band.stop { background:var(--stop-bg); color:var(--stop); border:1px solid #EFC9C9; }
+  .band.info { background:var(--info-bg); color:var(--info); border:1px solid #C9DCF0; }
+  .band b { font-weight:700; }
+  :root[data-theme="dark"] .band.warn { border-color:#4A3A1C; }
+  :root[data-theme="dark"] .band.stop { border-color:#4A2626; }
+  :root[data-theme="dark"] .band.info { border-color:#24384A; }
+
+  .skel { height:10px; border-radius:5px; background:var(--surface-sunk); margin:6px 0; }
+
+  table { border-collapse:collapse; width:100%; font-size:13px; margin:10px 0 6px; display:block; overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th { background:var(--surface-sunk); font-weight:700; font-size:12px; color:var(--ink-soft); white-space:nowrap; }
+  td { color:var(--ink-soft); }
+  td b { color:var(--ink); }
+
+  .bad, .good { border-radius:10px; padding:11px 13px; font-size:13px; }
+  .bad { background:var(--stop-bg); border:1px solid #EFC9C9; color:var(--stop); }
+  .good { background:#F1FBE4; border:1px solid #D2EBAE; color:var(--brand-deep); }
+  :root[data-theme="dark"] .good { background:#16210F; border-color:#2E4419; }
+  :root[data-theme="dark"] .bad { border-color:#4A2626; }
+  ul { margin:6px 0 10px; padding-left:20px; color:var(--ink-soft); max-width:78ch; }
+  li { margin:3px 0; }
+  hr { border:0; border-top:1px solid var(--line); margin:34px 0 0; }
+</style>
+
+<div class="wrap">
+
+<h1>M9 · How a cited source appears</h1>
+<p class="lede">Supersedes <b>M2</b> on three points. Everything else in M2 stands — no download anywhere, the
+shared excerpt renderer, <i>Show page N</i> for genuinely paginated files, and the two panels.</p>
+
+<div class="rule">
+  <b>The rule.</b> A source card is a <b>document</b>. The parts of it the answer used are listed inside that
+  one card, each with the number the answer cites. A document never appears twice.
+</div>
+
+<h2>Why</h2>
+<p>Measured on live CA dev, business <code>SX3SG2</code>, 2026-09-05. The question
+<i>"What's included in a 2019 FMC/LINK-BELT 250 (M1163480)?"</i> returned <b>four</b> cards — all four the same
+document (<code>bd76d101d9434b75b441b54900511c56</code>), the same title, the same subtitle
+<i>"records"</i>, no page numbers, and only <code>[1]</code> actually quoted in the answer. That file is a
+scraped inventory holding <b>664 stored parts</b>, one per machine, so "the document" is never what the member
+wanted to look at — <b>the machine row is</b>.</p>
+
+<div class="grid">
+  <div class="bad"><b>Today.</b> Four identical cards. Nothing tells them apart, nothing says which one the
+    answer used, and every one of them offers a <i>Show text</i> that fails.</div>
+  <div class="good"><b>M9.</b> One card for the document, four numbered parts inside it, the cited one marked,
+    each showing the words it contributed — and no control that cannot work.</div>
+</div>
+
+<h2>§1 · Web — the normal case</h2>
+<div class="grid">
+  <figure class="frame">
+    <figcaption>01 · four parts of one document, one of them cited</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 document</span></div>
+      <div class="doc">
+        <div class="doc-head">
+          <div class="doc-ico">▤</div>
+          <div>
+            <div class="doc-name">Toromont machine inventory records</div>
+            <div class="doc-meta">The answer used 4 parts of this document</div>
+          </div>
+        </div>
+        <div class="parts">
+          <div class="part cited">
+            <span class="n">1</span>
+            <div class="part-txt"><span class="kv"><b>2019 FMC/LINK-BELT 250</b> · stock M1163480 · serial
+              LB250-8841 · hours 3,102 · Hamilton, ON</span></div>
+          </div>
+          <div class="part">
+            <span class="n off">2</span>
+            <div class="part-txt"><span class="kv"><b>2022 FMC/LINK-BELT 300X4</b> · stock MT41842A · hours 1,884</span></div>
+          </div>
+          <div class="part">
+            <span class="n off">3</span>
+            <div class="part-txt"><span class="kv"><b>2019 HAMM H10I</b> · stock MC065160 · hours 2,640</span></div>
+          </div>
+          <div class="part">
+            <span class="n off">4</span>
+            <div class="part-txt">branches — Brandon MB · Cambridge ON · Candiac QC · Charlottetown PE …</div>
+          </div>
+        </div>
+        <div class="doc-foot">
+          <button class="btn ghost">Show the whole document</button>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <figure class="frame">
+    <figcaption>02 · two documents, mixed — grouping is per document, order follows the first number in each</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">2 documents</span></div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Toromont machine inventory records</div>
+          <div class="doc-meta">The answer used 2 parts of this document</div></div></div>
+        <div class="parts">
+          <div class="part cited"><span class="n">1</span><div class="part-txt"><span class="kv"><b>2019 FMC/LINK-BELT 250</b> · stock M1163480</span></div></div>
+          <div class="part cited"><span class="n">3</span><div class="part-txt"><span class="kv"><b>2022 FMC/LINK-BELT 300X4</b> · stock MT41842A</span></div></div>
+        </div>
+        <div class="doc-foot"><button class="btn ghost">Show the whole document</button></div>
+      </div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Caterpillar model specifications reference</div>
+          <div class="doc-meta">The answer used 1 part of this document · page 4</div></div></div>
+        <div class="parts">
+          <div class="part cited"><span class="n">2</span><div class="part-txt">Operating weight 24 900 kg. Bucket
+            capacity 1.19 m³. Tier 4 Final engine.</div></div>
+        </div>
+        <div class="doc-foot"><button class="btn">Show page 4</button></div>
+      </div>
+    </div>
+  </figure>
+</div>
+
+<h3>Rules this draws</h3>
+<ul>
+  <li><b>The count names parts, never "passages", "chunks" or "results".</b> "The answer used 4 parts of this
+    document."</li>
+  <li><b>A part the answer did not quote is still listed, dimmed.</b> It was read; hiding it would overstate how
+    narrowly the answer was grounded. The cited ones carry the brand-green number.</li>
+  <li><b>A part shows its own words immediately.</b> No request, so it cannot fail — see §3.</li>
+  <li><b>Documents are ordered by their lowest number</b>, so the order matches the reading order of the answer.</li>
+  <li><b>Page belongs to the document line</b> when every part shares one, and to the part when they differ.</li>
+</ul>
+
+<h2>§2 · Web — one part only</h2>
+<p>Most answers cite one part of one document. Grouping chrome that says "1 part" is noise, so it collapses.</p>
+<div class="grid">
+  <figure class="frame">
+    <figcaption>03 · a single part — no count line, no group frame</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 document</span></div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Cancellation and deposit policy</div>
+          <div class="doc-meta">page 2</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt">A deposit of 20%
+          is taken at booking and is refundable up to 48 hours before the appointment.</div></div></div>
+        <div class="doc-foot"><button class="btn">Show page 2</button></div>
+      </div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>04 · a typed answer — it IS the whole source, so there is nothing behind it</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 answer</span></div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">✎</div><div>
+          <div class="doc-name">Do you take walk-ins?</div>
+          <div class="doc-meta">Your own typed answer</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt">Walk-ins are
+          welcome before 4pm on weekdays.</div></div></div>
+      </div>
+    </div>
+  </figure>
+</div>
+
+<h2>§3 · The control that used to fail</h2>
+<div class="rule">
+  <b>Measured, 2026-09-05:</b> across the whole CA dev store there is <b>exactly ONE</b> saved whole-document
+  text — and it belongs to another business. Every one of <code>SX3SG2</code>'s three documents 404s. The
+  document text is written by the ingest pipeline only since <b>2026-08-29</b>; anything loaded before that has
+  none, and a document over the size cap never gets one at all.
+  <br><br>
+  So <b>"Show the whole document" is only ever drawn when the whole document is actually there.</b> The words the
+  answer used are carried with the answer itself and are always shown.
+</div>
+<div class="grid">
+  <figure class="frame">
+    <figcaption>05 · whole document available — a secondary action</figcaption>
+    <div class="pad">
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div>
+        <div class="doc-name">Cancellation and deposit policy</div>
+        <div class="doc-meta">The answer used 2 parts of this document</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt">A deposit of 20% is taken at booking…</div></div></div>
+        <div class="doc-foot"><button class="btn ghost">Show the whole document</button></div>
+      </div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>06 · ‼️ whole document NOT available — the row simply ends. No button, no error, no red.</figcaption>
+    <div class="pad">
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div>
+        <div class="doc-name">Toromont machine inventory records</div>
+        <div class="doc-meta">The answer used 4 parts of this document</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt"><span class="kv"><b>2019 FMC/LINK-BELT 250</b> · stock M1163480</span></div></div></div>
+      </div>
+      <p class="note" style="margin-top:8px">Nothing is drawn where the button was. The member already has the
+        words that produced the answer; there is no second thing to promise.</p>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>07 · opened, and it was cut — the warning comes BEFORE the first word</figcaption>
+    <div class="pad">
+      <div class="band warn"><b>This is only part of the document.</b> It is long, so the rest is not shown here.</div>
+      <div style="margin-top:10px" class="part-txt">source: toromontequip.com · record_class: machine · record_count: 685 …</div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>08 · opened while offline — a connection problem, never a missing document</figcaption>
+    <div class="pad">
+      <div class="band warn"><b>You are offline.</b> Reconnect to see this.</div>
+    </div>
+  </figure>
+</div>
+
+<h2>§4 · Every other state</h2>
+<div class="grid">
+  <figure class="frame">
+    <figcaption>09 · the answer is still being written — cards arrive as they are found</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 document</span></div>
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div>
+        <div class="doc-name">Toromont machine inventory records</div>
+        <div class="doc-meta">The answer used 1 part of this document</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt"><span class="kv"><b>2019 FMC/LINK-BELT 250</b> · stock M1163480</span></div></div></div>
+      </div>
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div style="flex:1">
+        <div class="skel" style="width:62%"></div><div class="skel" style="width:38%;height:8px"></div></div></div>
+      </div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>10 · a reopened conversation — no cards at all, and the reason is said</figcaption>
+    <div class="pad">
+      <div class="band info">The wording of this answer is exactly what was given at the time. The sources are not
+        listed again for a saved answer.</div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>11 · a part whose words could not be laid out — the part is still listed</figcaption>
+    <div class="pad">
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div>
+        <div class="doc-name">Site survey notes</div>
+        <div class="doc-meta">The answer used 2 parts of this document</div></div></div>
+        <div class="parts">
+          <div class="part cited"><span class="n">1</span><div class="part-txt">Access is via the rear gate only.</div></div>
+          <div class="part"><span class="n off">2</span><div class="part-txt" style="color:var(--ink-mute);font-style:italic">This part has no readable text.</div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <figure class="frame">
+    <figcaption>12 · a picture the answer used — unchanged from M2, drawn under the cards</figcaption>
+    <div class="pad">
+      <div class="doc"><div class="doc-head"><div class="doc-ico">▤</div><div>
+        <div class="doc-name">Showroom photos</div>
+        <div class="doc-meta">The answer used 1 part of this document</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt">Front-of-house counter, refitted March.</div></div></div>
+      </div>
+      <p class="note" style="margin-top:8px">The picture strip is unchanged and still sits with the answer, not
+        inside a source card.</p>
+    </div>
+  </figure>
+</div>
+
+<h2>§5 · Phone</h2>
+<p>Same rules, one column, and the parts stack. The number stays on the left so the eye can find the one the
+answer quoted.</p>
+<div class="grid">
+  <figure class="frame phone">
+    <figcaption>13 · phone · grouped</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 document</span></div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Toromont machine inventory records</div>
+          <div class="doc-meta">The answer used 4 parts</div></div></div>
+        <div class="parts">
+          <div class="part cited"><span class="n">1</span><div class="part-txt"><span class="kv"><b>2019 FMC/LINK-BELT 250</b><br>stock M1163480 · hours 3,102</span></div></div>
+          <div class="part"><span class="n off">2</span><div class="part-txt"><span class="kv"><b>2022 FMC/LINK-BELT 300X4</b><br>stock MT41842A</span></div></div>
+          <div class="part"><span class="n off">3</span><div class="part-txt"><span class="kv"><b>2019 HAMM H10I</b><br>stock MC065160</span></div></div>
+          <div class="part"><span class="n off">4</span><div class="part-txt">branches — Brandon MB · Cambridge ON …</div></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">‼️ On a phone the count line drops the words "of this document" —
+        the document's name is directly above it.</p>
+    </div>
+  </figure>
+  <figure class="frame phone">
+    <figcaption>14 · phone · one part, page-based document</figcaption>
+    <div class="pad">
+      <div class="sources-head"><span class="lbl">Sources</span><span class="cnt">1 document</span></div>
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Cancellation and deposit policy</div>
+          <div class="doc-meta">page 2</div></div></div>
+        <div class="parts"><div class="part cited"><span class="n">1</span><div class="part-txt">A deposit of 20% is taken at booking and is refundable up to 48 hours before.</div></div></div>
+        <div class="doc-foot"><button class="btn">Show page 2</button></div>
+      </div>
+    </div>
+  </figure>
+  <figure class="frame phone">
+    <figcaption>15 · phone · nothing more to open</figcaption>
+    <div class="pad">
+      <div class="doc">
+        <div class="doc-head"><div class="doc-ico">▤</div><div>
+          <div class="doc-name">Hamilton equipment inventory</div>
+          <div class="doc-meta">The answer used 2 parts</div></div></div>
+        <div class="parts">
+          <div class="part cited"><span class="n">1</span><div class="part-txt"><span class="kv"><b>2021 BOBCAT E20</b> · stock M1066660</span></div></div>
+          <div class="part"><span class="n off">2</span><div class="part-txt"><span class="kv"><b>2020 CASE CX37C</b> · stock MT41338A</span></div></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+</div>
+
+<h2>§6 · Where every state's words come from</h2>
+<table>
+  <thead><tr><th>What is drawn</th><th>Source of the words</th></tr></thead>
+  <tbody>
+    <tr><td><b>Document name</b></td><td>Server — the document's own title, already on the card</td></tr>
+    <tr><td><b>"The answer used 4 parts of this document"</b></td><td>Screen copy key, ICU plural (web) / <code>_one</code>·<code>_other</code> (phone). ‼️ New key</td></tr>
+    <tr><td><b>The words of a part</b></td><td>Server — the same excerpt the answer was built from, now carried on the wire</td></tr>
+    <tr><td><b>"This part has no readable text"</b></td><td>Screen copy key. ‼️ New key</td></tr>
+    <tr><td><b>page N</b> / <b>Show page N</b></td><td>Unchanged from M2</td></tr>
+    <tr><td><b>"Show the whole document"</b></td><td>Existing key, reused — drawn only when the server said it exists</td></tr>
+    <tr><td><b>"This is only part of the document"</b></td><td>Existing truncated keys, unchanged</td></tr>
+    <tr><td><b>Offline</b></td><td>Existing offline keys, unchanged</td></tr>
+    <tr><td><b>Saved-answer notice</b></td><td>Existing replay keys, unchanged</td></tr>
+  </tbody>
+</table>
+<p>‼️ <b>ONE key retires — <code>BusinessSearch.Source.ShowText</code></b> (web) /
+<code>BUSINESS_SEARCH.SOURCE.SHOW_TEXT</code> (phone), replaced by <code>ShowWholeDocument</code>. Removed from
+all ten catalogues, and a dangling-reference sweep confirms nothing reads it.</p>
+<p>‼️ <b>CORRECTED AS BUILT, 2026-09-05.</b> An earlier draft of this sheet said three keys retire, including
+<code>TextUnavailableTitle</code> and the server's <code>BusinessSearch_Error_TextUnavailable</code>.
+<b>That was wrong and they are KEPT.</b> Withholding the control removes the case where it is offered for a
+document that has none — it does <i>not</i> remove the case where the text exists at the moment the card is
+drawn and is gone, or unreadable, by the time the member taps. Retiring those two would have left that
+outcome with no words at all. A control that can still fail needs a sentence for when it does.</p>
+
+<h2>§7 · What this does NOT change</h2>
+<ul>
+  <li><b>The numbering.</b> The answer still cites one number per part, and the server still mints them. Grouping
+    is presentation only — a <code>[1]</code> in the answer still resolves to exactly one part.</li>
+  <li><b>No download, anywhere.</b> M2's rule stands.</li>
+  <li><b>Work sources</b> (bookings, quotes, invoices, customers…) are untouched — they are one record each, so
+    they never group. M5 §10 stands.</li>
+  <li><b>Who may see what.</b> The per-document audience rule is unchanged and still decides whether a document
+    is reachable at all.</li>
+  <li><b>The picture strip</b> stays with the answer.</li>
+</ul>
+
+<h2>§8 · What it costs</h2>
+<ul>
+  <li><b>One extra field on the wire per source</b> — the words the answer already read. Capped at the same
+    snippet limit the model is given, so the response grows by at most <code>SnippetMaxChars</code> per card.</li>
+  <li><b>Fewer requests, not more.</b> Opening a part costs nothing; today every open is an HTTP call that
+    usually 404s.</li>
+  <li><b>No new storage, no new index field, no new container.</b> Nothing here engages §0.7.</li>
+</ul>
+
+<hr>
+<p class="note" style="margin-top:14px">Sheet M9 · drawn 2026-09-05 · supersedes M2 on grouping, on the excerpt
+being carried and drawn, and on never offering a control that cannot work. Register in
+<code>PLAN.md</code> §0 on approval.</p>
+
+</div>

@@ -1,0 +1,22 @@
+--- phase-2-after/cards (content)
++++ new-build/cards (content)
+@@ -23,8 +23,8 @@
+     Service: AC recharge — bay 2 | Price: $155
+     Service: Diagnostic scan — bay 2 | Price: $100
+     Service: Coolant flush — bay 2 | Price: $135
+---- #1 [Text] section='Northside Auto Repair — service menu 2026' page=1 img= scripts=["Latn"] chars=117 title='Northside Auto Repair Service Menu 2026' type='Document'
+-    \* All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.
++--- #1 [Text] section='Northside Auto Repair — service menu 2026' page=1 img= scripts=["Latn"] chars=116 title='Northside Auto Repair Service Menu 2026' type='Document'
++    * All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.
+ --- #2 [Table] section='Northside Auto Repair — service menu 2026' page=2 img= scripts=["Latn"] chars=1141 title='Northside Auto Repair Service Menu 2026' type='Document'
+     Service: Transmission service — bay 2 | Price: $265
+     Service: Spark plugs (4-cyl) — bay 2 | Price: $165
+@@ -55,7 +55,7 @@
+     Service: Wheel alignment — bay 4 | Price: $135
+     Service: Battery replacement — bay 4 | Price: $195
+     Service: AC recharge — bay 4 | Price: $165
+-    Service: Diagnostic scan — bay 4 | Price: $110
++    Service: Diagnostic scan - bay 4 | Price: $110
+     Service: Coolant flush — bay 4 | Price: $145
+     Service: Transmission service — bay 4 | Price: $275
+     Service: Spark plugs (4-cyl) — bay 4 | Price: $175

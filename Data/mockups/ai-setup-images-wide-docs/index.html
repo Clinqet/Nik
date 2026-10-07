@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Quick Profile Setup — Wide Documents + Photos (Mockup)</title>
+<style>
+  :root {
+    --navy: #032858; --navy2: #064a9e; --green: #97EF29; --ink: #101010;
+    --muted: #5F5F5F; --line: #E8EDF5; --pillbg: #EEF3FA; --chev: #B9C2D0;
+    --amberbg: #FEF9EC; --amberline: #F5E5BE; --amber: #B45309; --pagebg: #F2F5F9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga', 'Segoe UI', system-ui, sans-serif; background: var(--pagebg); color: var(--ink); padding: 28px; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; max-width: 980px; line-height: 1.5; }
+  .grid { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+  .frame { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; box-shadow: 0 6px 24px rgba(3,40,88,.06); }
+  .frame h2 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--navy); margin-bottom: 2px; }
+  .frame .tag { display:inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--green); color: var(--navy); margin-bottom: 10px; }
+  .frame .tag.gray { background: #E7EBF2; color: var(--muted); }
+  .notes { font-size: 11px; color: var(--muted); margin-top: 12px; max-width: 460px; line-height: 1.55; }
+  .notes b { color: var(--navy); }
+  .notes li { margin-left: 16px; margin-top: 3px; }
+
+  /* dialog shells */
+  .weblg { width: 480px; background: #fff; border-radius: 24px; border: 1px solid var(--line); overflow: hidden; }
+  .mob { width: 340px; background: #fff; border-radius: 28px; border: 6px solid #10182814; overflow: hidden; }
+  .dlg-body { padding: 20px; }
+  .center { text-align: center; }
+  .check { width: 64px; height: 64px; border-radius: 50%; background: var(--green); display:flex; align-items:center; justify-content:center; margin: 6px auto 12px; }
+  .check svg { width: 30px; height: 30px; }
+  .h-title { font-size: 22px; font-weight: 800; }
+  .h-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .h-hint { font-size: 11.5px; color: #8b94a3; margin: 10px 0 14px; }
+
+  .row { display: flex; align-items: center; gap: 12px; text-align: left; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(16,16,16,.04); }
+  .row.new { outline: 2px solid var(--green); outline-offset: 1px; }
+  .icn { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--navy2)); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .icn svg { width: 18px; height: 18px; }
+  .rt { flex: 1; min-width: 0; }
+  .rt .t { font-size: 13px; font-weight: 700; }
+  .rt .s { font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pill { font-size: 12px; font-weight: 700; color: var(--navy); background: var(--pillbg); border-radius: 999px; padding: 3px 10px; flex-shrink: 0; }
+  .chev { color: var(--chev); font-size: 16px; flex-shrink: 0; }
+  .newchip { font-size: 9px; font-weight: 800; color: var(--navy); background: var(--green); border-radius: 999px; padding: 1px 6px; vertical-align: 2px; margin-left: 6px; }
+
+  .warn { background: var(--amberbg); border: 1px solid var(--amberline); border-radius: 14px; padding: 12px 14px; text-align: left; margin-bottom: 10px; }
+  .warn .wt { color: var(--amber); font-weight: 700; font-size: 12.5px; display:flex; gap:6px; align-items:center; }
+  .warn .wb { color: var(--amber); font-size: 11.5px; margin-top: 4px; line-height: 1.45; }
+  .chips { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: #FDF3D7; border: 1px solid #F1DFAE; color: #8a5a10; font-size: 11px; border-radius: 999px; padding: 3px 10px; }
+
+  .btn { display: block; width: 100%; text-align: center; background: linear-gradient(90deg, var(--navy), var(--navy2)); color: #fff; font-weight: 700; font-size: 14.5px; border-radius: 14px; padding: 14px; margin-top: 6px; }
+
+  /* upload card bits */
+  .infocard { background: #F6F8FB; border-radius: 14px; padding: 14px; text-align: left; font-size: 12px; }
+  .infocard h4 { font-size: 12.5px; display: flex; gap: 6px; align-items: center; margin-bottom: 8px; }
+  .infocard li { margin-left: 0; list-style: none; margin-top: 6px; color: var(--muted); line-height: 1.45; }
+  .infocard li b { color: var(--ink); }
+  .tip { background: #EFF4FF; border-left: 3px solid var(--navy); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #33415c; text-align: left; margin-top: 10px; line-height: 1.5; }
+  .drop { border: 2px dashed #BFE989; background: #FAFFF2; border-radius: 16px; padding: 22px; text-align: center; margin-top: 12px; }
+  .drop .fname { font-weight: 700; margin-top: 8px; font-size: 13px; }
+  .drop .fmeta { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+  .err { background: #FDF2F2; border: 1px solid #F5C6C6; color: #B42318; border-radius: 14px; padding: 12px 14px; font-size: 12px; text-align: left; line-height: 1.5; }
+  .err b { display: block; margin-bottom: 3px; }
+
+  /* progress */
+  .ring { width: 120px; height: 120px; border-radius: 50%; margin: 6px auto 16px; background: conic-gradient(var(--navy) 0 62%, #E7EBF2 62% 100%); display: flex; align-items: center; justify-content: center; }
+  .ring .inner { width: 96px; height: 96px; border-radius: 50%; background: #fff; display:flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; }
+  .steps { text-align: left; max-width: 300px; margin: 0 auto; }
+  .step { display: flex; gap: 10px; align-items: center; font-size: 13px; color: #9aa3b2; padding: 5px 0; }
+  .step .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #D7DDE7; flex-shrink: 0; display:flex;align-items:center;justify-content:center; }
+  .step.done { color: #6b7280; text-decoration: line-through; }
+  .step.done .dot { background: var(--green); border-color: var(--green); }
+  .step.active { color: var(--ink); font-weight: 700; }
+  .step.active .dot { border-color: var(--navy); }
+  .step.active .dot::after { content:""; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+  .wait { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+  .banner { background: var(--navy); color: #fff; border-radius: 12px; padding: 9px 12px; font-size: 11px; margin-bottom: 12px; line-height: 1.45; }
+  .banner b { color: var(--green); }
+  section { margin-bottom: 40px; }
+  .sechead { font-size: 15px; font-weight: 800; color: var(--navy); margin: 30px 0 12px; }
+</style>
+</head>
+<body>
+
+<h1>AI Quick Profile Setup — wide document types + photo routing</h1>
+<p class="sub">
+  Mockup for owner approval before any integrated UI code (web <b>and</b> mobile). Only the elements outlined in
+  <span style="color:#4c9b06;font-weight:700">green</span> are new — everything else is today's shipped dialog, unchanged.
+  Copy shown is the proposed English source; every string ships as a localization key in all 5 languages on both apps.
+</p>
+
+<!-- ============================================================= -->
+<div class="sechead">1 · Setup Complete — photos were added (WEB, profile context)</div>
+<div class="grid">
+<div class="frame">
+  <h2>Web · 480px dialog</h2><span class="tag">STATE: photos added</span>
+  <div class="weblg"><div class="dlg-body center">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="h-title">Setup Complete!</div>
+    <div class="h-sub">Here's what we set up for you</div>
+    <div class="h-hint">Open any item below to review what we added</div>
+
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+      <div class="rt"><div class="t">Services</div><div class="s">2 created, 1 updated · 2 photos added</div></div>
+      <span class="pill">3</span><span class="chev">›</span>
+    </div>
+
+    <div class="row new">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="rt"><div class="t">Portfolio<span class="newchip">NEW</span></div><div class="s">5 photos added to showcase your work</div></div>
+      <span class="pill">5</span><span class="chev">›</span>
+    </div>
+
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 7l-9 9-4-4"/><path d="M3 12l3 3"/></svg></div>
+      <div class="rt"><div class="t">Categories</div><div class="s">1 category, 2 subcategories</div></div>
+      <span class="chev">›</span>
+    </div>
+
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <div class="rt"><div class="t">Business Profile Updated</div><div class="s">Sunshine Salon · Profile photo added</div></div>
+      <span class="chev">›</span>
+    </div>
+
+    <div class="warn">
+      <div class="wt">⚠ Pricing Missing</div>
+      <div class="wb">3 services have no price set. Go to Services to add pricing. Services without a price won't appear in search results.</div>
+      <div class="chips"><span class="chip">Balayage</span><span class="chip">Highlights</span><span class="chip">Permanent Smoothing</span></div>
+    </div>
+
+    <div class="btn">Done</div>
+  </div></div>
+  <div class="notes"><b>What's new</b>
+    <li><b>Portfolio row</b> — appears only when <code>portfolioPhotoCount &gt; 0</code>; pill = count; taps deep-link to the Portfolio page via <code>openSummaryTarget</code> (same idiom as every other row).</li>
+    <li><b>Services subtitle</b> gains "· N photos added" only when <code>serviceImageCount &gt; 0</code>.</li>
+    <li><b>Profile subtitle</b> gains "Profile photo added" only when <code>profileImageSet</code>.</li>
+    <li>Skipped / low-quality photos are <b>not</b> surfaced — the dialog reports what was added; skips ride analytics.</li>
+    <li>All other rows, warnings, order, spacing: byte-identical to today.</li>
+  </div>
+</div>
+
+<div class="frame">
+  <h2>Web · project also created</h2><span class="tag">STATE: photos + 1 project</span>
+  <div class="weblg"><div class="dlg-body center">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="h-title">Setup Complete!</div>
+    <div class="h-sub">Here's what we set up for you</div>
+    <div class="h-hint">Open any item below to review what we added</div>
+    <div class="row new">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="rt"><div class="t">Portfolio<span class="newchip">NEW</span></div><div class="s">1 project created · 7 photos added</div></div>
+      <span class="pill">7</span><span class="chev">›</span>
+    </div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+      <div class="rt"><div class="t">Services</div><div class="s">4 created</div></div>
+      <span class="pill">4</span><span class="chev">›</span>
+    </div>
+    <div class="btn">Done</div>
+  </div></div>
+  <div class="notes"><b>Project creation (strict gates, appsettings-toggleable)</b>
+    <li>A project is created <b>only</b> when its title appears <b>verbatim</b> in the document under an explicit project/gallery section, and the photos assigned to it sit inside that section.</li>
+    <li>Optional fields (completion date, client name) are written only when explicitly stated — never invented. Anything short of that ⇒ photos go to the global Photos tab instead.</li>
+    <li>Subtitle shows both parts only when both happened.</li>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================= -->
+<div class="sechead">2 · Onboarding variant + no-photos state (WEB)</div>
+<div class="grid">
+<div class="frame">
+  <h2>Web · onboarding context</h2><span class="tag">STATE: onboarding (rows do not navigate)</span>
+  <div class="weblg"><div class="dlg-body center">
+    <div class="banner">Onboarding guard: identical visuals, but every row (including the new Portfolio row) routes through <b>openSummaryTarget</b> — the dialog closes and <b>no navigation happens</b>, so the wizard can never be bypassed. A guard test pins this on web + mobile.</div>
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="h-title">Setup Complete!</div>
+    <div class="h-sub">Here's what we set up for you</div>
+    <div class="row new">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="rt"><div class="t">Portfolio<span class="newchip">NEW</span></div><div class="s">5 photos added to showcase your work</div></div>
+      <span class="pill">5</span><span class="chev">›</span>
+    </div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <div class="rt"><div class="t">Business Profile Updated</div><div class="s">Sunshine Salon · Profile photo added</div></div>
+      <span class="chev">›</span>
+    </div>
+    <div class="btn">Done</div>
+  </div></div>
+  <div class="notes">
+    <li>Bonus during onboarding: photos added to the portfolio complete the <b>Portfolio onboarding step</b> automatically, and the wizard header progress refreshes immediately (cache invalidation fix).</li>
+    <li>The step page the provider is standing on refreshes its own data the moment the dialog completes — profile photo, address, socials appear right away (web + mobile).</li>
+  </div>
+</div>
+
+<div class="frame">
+  <h2>Web · no photos found</h2><span class="tag gray">STATE: unchanged vs today</span>
+  <div class="weblg"><div class="dlg-body center">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="h-title">Setup Complete!</div>
+    <div class="h-sub">Here's what we set up for you</div>
+    <div class="h-hint">Open any item below to review what we added</div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+      <div class="rt"><div class="t">Services</div><div class="s">3 updated</div></div>
+      <span class="pill">3</span><span class="chev">›</span>
+    </div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 7l-9 9-4-4"/><path d="M3 12l3 3"/></svg></div>
+      <div class="rt"><div class="t">Categories</div><div class="s">1 category, 2 subcategories</div></div>
+      <span class="chev">›</span>
+    </div>
+    <div class="btn">Done</div>
+  </div></div>
+  <div class="notes">
+    <li>When the document carries no usable photos (or all were low-quality/logo/decorative), the dialog is <b>exactly today's dialog</b> — no empty Portfolio row, no "0 photos" noise.</li>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================= -->
+<div class="sechead">3 · Upload card — new types + refusal hints (WEB)</div>
+<div class="grid">
+<div class="frame">
+  <h2>Web · upload state</h2><span class="tag">STATE: new copy + accept list</span>
+  <div class="weblg"><div class="dlg-body">
+    <div class="center">
+      <div class="icn" style="margin:0 auto 10px; width:46px;height:46px;border-radius:50%"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4L12 3z" fill="#97EF29"/></svg></div>
+      <div class="h-title" style="font-size:19px">Quick Profile Setup</div>
+      <div class="h-sub">Upload a document and we'll set up your profile for you</div>
+    </div>
+    <div style="display:flex; gap:10px; margin-top:14px">
+      <div class="infocard" style="flex:1">
+        <h4>ⓘ What you can upload</h4>
+        <li><b>Menu or Price List</b> — your services and prices will be picked up</li>
+        <li><b>Flyer or Brochure</b> — your business details will be found</li>
+        <li><b>PDF, Word, Excel, PowerPoint, web page, photo, or text file</b> — information and photos will be read and filled in</li>
+      </div>
+      <div class="tip" style="flex:1; margin-top:0">
+        <b>Helpful tip</b><br>
+        For the best results, upload a clear document. Menus, flyers, price lists, brochures, catalogs — anything with your business info works great! Photos inside it can be added too.
+      </div>
+    </div>
+    <div class="drop">
+      <div style="width:42px;height:42px;border-radius:12px;background:var(--green);margin:0 auto;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="22" fill="none" stroke="#032858" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round"/></svg></div>
+      <div class="fname">spring-price-list.xlsx</div>
+      <div class="fmeta">148 kB · Ready to upload</div>
+      <div style="color:var(--navy);font-weight:700;font-size:12px;margin-top:6px">Change File</div>
+    </div>
+    <div class="btn"><svg viewBox="0 0 24 24" width="15" style="vertical-align:-2px;margin-right:7px"><path d="M12 2.5l2.1 5.9 5.9 2.1-5.9 2.1L12 18.5l-2.1-5.9L4 10.5l5.9-2.1L12 2.5z" fill="#97EF29"/></svg>Start AI Auto-Fill</div>
+  </div></div>
+  <div class="notes"><b>What's new</b>
+    <li><b>Start button icon:</b> the lightning bolt is replaced by the platform's single AI mark — the green four-point sparkle (same glyph as the dialog header and FloatingAIButtons) — on both apps.</li>
+    <li>Accepted: <b>.pdf .docx .xlsx .pptx .html .htm .txt .md + photos (.jpg .jpeg .png .gif .webp .tiff .bmp .heic*)</b> + .json (dealer catalog, web only). *HEIC converted in-browser as today.</li>
+    <li>Size limit raised to <b>20 MB</b> (matches Knowledge).</li>
+    <li>Upload-card copy updated (2 keys); note/tip card structure untouched per the owner mandate — only the type sentence changes.</li>
+  </div>
+</div>
+
+<div class="frame">
+  <h2>Web · unsupported type</h2><span class="tag">STATE: refusal with convert hint</span>
+  <div class="weblg"><div class="dlg-body">
+    <div class="center">
+      <div class="h-title" style="font-size:19px">Quick Profile Setup</div>
+      <div class="h-sub">Upload a document and we'll set up your profile for you</div>
+    </div>
+    <div class="err" style="margin-top:14px">
+      <b>We can't read .csv files</b>
+      Spreadsheets saved as CSV can be misread and get your prices wrong. Open it in Excel, save it as <b>Excel (.xlsx)</b>, and upload that instead.
+    </div>
+    <div class="drop" style="border-color:#D7DDE7;background:#FAFBFD">
+      <div style="color:var(--muted);font-size:12.5px">Drag &amp; drop or <span style="color:var(--navy);font-weight:700">browse files</span></div>
+    </div>
+    <div class="btn" style="opacity:.45"><svg viewBox="0 0 24 24" width="15" style="vertical-align:-2px;margin-right:7px"><path d="M12 2.5l2.1 5.9 5.9 2.1-5.9 2.1L12 18.5l-2.1-5.9L4 10.5l5.9-2.1L12 2.5z" fill="#97EF29"/></svg>Start AI Auto-Fill</div>
+  </div></div>
+  <div class="notes">
+    <li>Same convert-hint pattern Knowledge ships: <b>.csv/.tsv/.xls → "save as Excel (.xlsx)"</b>, <b>.doc → "save as Word (.docx)"</b>, <b>.ppt → "save as PowerPoint (.pptx)"</b> (allowed here because .pptx is unconditional on this surface). Anything else gets the generic unsupported-type message.</li>
+    <li>Checked client-side before upload on both apps; server enforces the same list with localized error keys.</li>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================= -->
+<div class="sechead">4 · Progress — real, event-driven steps (WEB + identical on mobile)</div>
+<div class="grid">
+<div class="frame">
+  <h2>Web · processing</h2><span class="tag">STATE: live progress, new photos step</span>
+  <div class="weblg"><div class="dlg-body center">
+    <div class="ring"><div class="inner">62%<span style="font-size:10px;color:var(--muted);font-weight:600">working…</span></div></div>
+    <div class="steps">
+      <div class="step done"><span class="dot"><svg viewBox="0 0 24 24" width="10" fill="none" stroke="#032858" stroke-width="4"><path d="M5 13l4 4L19 7"/></svg></span> Reading your document...</div>
+      <div class="step done"><span class="dot"><svg viewBox="0 0 24 24" width="10" fill="none" stroke="#032858" stroke-width="4"><path d="M5 13l4 4L19 7"/></svg></span> Picking out key details...</div>
+      <div class="step active"><span class="dot"></span> Setting up your profile...</div>
+      <div class="step"><span class="dot"></span> Adding your photos...</div>
+      <div class="step"><span class="dot"></span> Almost done...</div>
+    </div>
+    <div class="wait">⏳ This usually takes 1-2 minutes. Please wait...</div>
+  </div></div>
+  <div class="notes"><b>What's new</b>
+    <li>One new step label: <b>"Adding your photos..."</b> — shown only while the photo phase runs; documents with no photos skip straight past it.</li>
+    <li><b>Steps now advance on real server events</b> (part of the mandated defect fixes): the server already streams SSE progress events; web switches to a streaming reader, mobile to incremental XHR reads. The % animation still eases smoothly <i>within</i> a phase, but phase changes are driven by the actual pipeline — no more sitting at 90% blind.</li>
+    <li>Visual design of the ring + steps is unchanged.</li>
+  </div>
+</div>
+
+<div class="frame">
+  <h2>Mobile · 340px</h2><span class="tag">STATE: Setup Complete (parity)</span>
+  <div class="mob"><div class="dlg-body center">
+    <div class="check" style="width:56px;height:56px"><svg viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="3" width="26"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="h-title" style="font-size:19px">Setup Complete!</div>
+    <div class="h-sub">Here's what we set up for you</div>
+    <div class="h-hint">Open any item below to review what we added</div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+      <div class="rt"><div class="t">Services</div><div class="s">2 created · 2 photos added</div></div>
+      <span class="pill">2</span><span class="chev">›</span>
+    </div>
+    <div class="row new">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <div class="rt"><div class="t">Portfolio<span class="newchip">NEW</span></div><div class="s">5 photos added to showcase your work</div></div>
+      <span class="pill">5</span><span class="chev">›</span>
+    </div>
+    <div class="row">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <div class="rt"><div class="t">Business Profile Updated</div><div class="s">Sunshine Salon · Profile photo added</div></div>
+      <span class="chev">›</span>
+    </div>
+    <div class="btn">View My Profile</div>
+  </div></div>
+  <div class="notes">
+    <li>Mobile mirrors the web <b>rendering rules</b>: same conditions, same counts, i18next <code>_one/_other</code> plurals ×5 locales.</li>
+    <li>Mobile file picker widens to the same document types (extension-gated like the Knowledge picker); .json stays web-only as today.</li>
+    <li>Onboarding context: identical guard — rows close the sheet, never navigate (second layer: <code>isAppShellMounted</code>).</li>
+  </div>
+</div>
+</div>
+
+<p class="sub" style="margin-top:8px">
+  <b>States deliberately not changed:</b> error/retry screens, the "Service settings" block, billing toggles, Pricing-Missing / Offers-Need-Review warnings, Done button behavior per platform. <b>Silent by design:</b> photos that were skipped (blurry, tiny, logos not used, decorative, over the cap) add no row and no warning — the dialog reports what exists now; skip counts ride analytics.
+</p>
+
+</body>
+</html>

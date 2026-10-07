@@ -1,0 +1,46 @@
+# docx_prose_then_pricelist.docx
+blocks=1 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Table        p1
+      hasHeader=False caption= rows=16
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 1 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 2 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 3 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 4 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 5 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 6 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 7 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 8 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible. |
+      | Haircut | $25 |
+      | Beard trim | $15 |
+      | Kids cut | $18 |
+      | Full head colour | $80 |
+      | Root touch up | $55 |
+      | Highlights | $120 |
+      | Keratin treatment | $250 |
+      | Blow dry | $30 |
+
+## INVENTORY
+
+
+## CARDS (3)  warnings=0
+--- card 0 [Table] section='' page=1 tokens~480 img=-1
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 1 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 2 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 3 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 4 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 5 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+--- card 1 [Table] section='' page=1 tokens~192 img=-1
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 6 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 7 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+--- card 2 [Table] section='' page=1 tokens~133 img=-1
+    Welcome to Glow Salon. We have served the Oakville community since 2009 with friendly, professional stylists who care about your hair. Paragraph 8 talks about our story, our products and our team, and about how we book appointments and handle walk-ins on busy Saturdays. Our stylists train every season on the newest colour techniques. We use ammonia-free products wherever possible.
+    Haircut | $25
+    Beard trim | $15
+    Kids cut | $18
+    Full head colour | $80
+    Root touch up | $55
+    Highlights | $120
+    Keratin treatment | $250
+    Blow dry | $30

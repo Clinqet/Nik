@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "woodbridge",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-woodbridge-woodbridge-gta-climatecare",
+      "businessName": "Woodbridge GTA ClimateCare",
+      "description": "HVAC cooperative member serving Vaughan/Woodbridge 50+ years — furnaces, AC, heat pumps, duct cleaning, showroom.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 50,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-360-8832",
+      "social": {
+        "facebook": "https://www.facebook.com/ClimateCareCanada",
+        "instagram": "https://www.instagram.com/climatecarecan",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.climatecare.com/locations/woodbridge-gta-climatecare-hvac-vaughan/",
+        "other": []
+      },
+      "address": {
+        "street": "285 Jevlan Drive",
+        "postalCode": "L4L 8G6",
+        "area": "woodbridge",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "285 Jevlan Drive, Vaughan, ON L4L 8G6"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "woodbridge",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioners",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Duct Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Gas Fireplaces",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.climatecare.com/locations/woodbridge-gta-climatecare-hvac-vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        },
+        {
+          "url": "https://www.climatecare.com/locations/woodbridge-gta-climatecare-hvac-vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "vaughan-woodbridge-cryogen-mechanical",
+      "businessName": "Cryogen Mechanical",
+      "description": "Commercial refrigeration, cold rooms, ice machines and HVAC service in Woodbridge.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-581-3493",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "6-6150 Highway 7",
+        "postalCode": "L4H 0R6",
+        "area": "woodbridge",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "6-6150 Highway 7, Vaughan, ON L4H 0R6"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "woodbridge",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Commercial Refrigeration",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Walk-in Cooler/Freezer Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "HVAC Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Ice Machine",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          }
+        ],
+        "notes": "24/7 emergency service advertised"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+%26+Air+Conditioning/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

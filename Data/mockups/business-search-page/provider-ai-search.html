@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v2 — Business Search / "Ask Clinket" (AI answers over your own documents, services and business data)</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --green-pick: #DFFABD; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #F5F5F5;
+    --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+    --ok-bg: #EAFBF0; --ok-ink: #0e7a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1320px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.5; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 980px; line-height: 1.55; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w980 { width: 980px; max-width: 100%; }
+  .w760 { width: 760px; max-width: 100%; }
+  .w560 { width: 560px; max-width: 100%; }
+  .w400 { width: 400px; max-width: 100%; }
+  .w360 { width: 360px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:normal; line-height:1.3; }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-border); }
+  .pill.navy { background: #fff; color: var(--navy); border-color: rgba(3,40,88,.35); }
+  .chip { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:6px 12px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--muted); white-space:nowrap; cursor:pointer; }
+  .chip.on { background: var(--green-pick); border-color:#CBE9A6; color:#101010; }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.xs { padding:5px 10px; font-size:11.5px; }
+  .btn.link { border:none; background:transparent; color:var(--navy); text-decoration:underline; text-underline-offset:3px; padding:4px 2px; font-weight:600; }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--muted); }
+  .banner { display:flex; gap:8px; border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.45; align-items:flex-start; }
+  .banner.info { background: var(--info-bg); border:1px solid var(--info-border); color: var(--navy); }
+  .banner.danger { background: var(--danger-bg); border:1px solid var(--danger-border); color: var(--danger); }
+  .banner.warn { background: var(--warn-bg); border:1px solid var(--warn-border); color: var(--warn); }
+  .banner.ok { background: var(--ok-bg); border:1px solid #bdebca; color: var(--ok-ink); }
+  .banner .grow { flex:1; min-width:160px; }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann.ask { background:#FBFCFF; border-color:#C7DBF6; color:var(--navy); }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; background:#F3F3F3; padding:1px 5px; border-radius:5px; }
+  svg.i { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+  svg.i.lg { width:22px; height:22px; }
+
+  /* ---------- app chrome (web) ---------- */
+  .shell { display:flex; min-height:420px; }
+  .rail { width:212px; background:var(--navy); color:#fff; padding:14px 10px; flex:none; }
+  .rail .logo { font-weight:800; letter-spacing:.02em; font-size:15px; padding:6px 10px 14px; }
+  .rail .item { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:10px; font-size:13px; color:#DCE4F0; margin-bottom:2px; }
+  .rail .item.on { background:rgba(151,239,41,.16); color:#fff; box-shadow: inset 3px 0 0 var(--green); }
+  .rail .item.new { outline:1.5px dashed var(--green); outline-offset:-1.5px; }
+  .rail .grp { font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#8FA3C2; padding:12px 12px 6px; }
+  .main { flex:1; min-width:0; background:var(--bg); }
+  .topbar { display:flex; align-items:center; gap:12px; padding:10px 18px; background:#fff; border-bottom:1px solid var(--border); }
+  .topbar .crumb { font-size:13px; color:var(--muted); flex:none; }
+  .topbar .spacer { flex:1; }
+  .topbar .avatar { width:30px; height:30px; border-radius:999px; background:#E4EEFB; border:1px solid var(--info-border); flex:none; }
+  .topbar .ws { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--navy); border:1px solid var(--border); border-radius:999px; padding:5px 10px; }
+  .gsearch { display:flex; align-items:center; gap:8px; background:var(--field); border:1px solid var(--border); border-radius:999px; padding:8px 12px; font-size:13px; color:var(--faint); width:360px; max-width:100%; }
+  .gsearch.new { outline:1.5px dashed var(--green); outline-offset:2px; }
+  .gsearch kbd { font-family: inherit; font-size:10.5px; color:var(--muted); background:#fff; border:1px solid var(--border); border-radius:6px; padding:1px 6px; margin-left:auto; }
+  .content { padding:18px; }
+
+  .btn.new-ask { background: linear-gradient(135deg,#032858,#064a9e); border-color:#032858; color:#fff; font-weight:700; outline:1.5px dashed var(--green); outline-offset:2px; }
+  .btn.new-ask svg { stroke:var(--green); }
+  .askpanel { margin-top:14px; background:#fff; border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:0 18px 50px rgba(3,40,88,.14); outline:1.5px dashed var(--green); outline-offset:3px; }
+  .askpanel-h { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--navy); margin-bottom:10px; }
+  /* ---------- search page ---------- */
+  .page-h h2 { font-size:18px; color:#1a1a1a; font-weight:500; }
+  .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:560px; line-height:1.45; }
+  .askbox { display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:12px 14px; margin-top:14px; }
+  .askbox:focus-within, .askbox.focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(151,239,41,.25); }
+  .askbox .ph { flex:1; font-size:14px; color:var(--faint); }
+  .askbox .txt { flex:1; font-size:14px; color:var(--ink); }
+  .askbox .go { width:36px; height:36px; border-radius:999px; background:var(--green); display:flex; align-items:center; justify-content:center; color:#101010; flex:none; }
+  .askbox .go.off { background:#EDEDED; color:#B5B5B5; }
+  .examples { margin-top:14px; }
+  .examples .lbl { font-size:12px; color:var(--faint); margin-bottom:8px; }
+  .qa { margin-top:18px; }
+  .q { font-size:15px; font-weight:600; color:var(--navy); display:flex; gap:10px; align-items:flex-start; }
+  .q .you { font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); padding-top:3px; flex:none; }
+  .status { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--navy); background:var(--info-bg); border:1px solid var(--info-border); border-radius:999px; padding:6px 12px; margin-top:12px; width:max-content; max-width:100%; }
+  .spin { width:14px; height:14px; border-radius:999px; border:2px solid rgba(3,40,88,.25); border-top-color:var(--navy); animation: sp .9s linear infinite; flex:none; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  .answer { margin-top:14px; background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px 18px; font-size:13.5px; line-height:1.6; }
+  .answer h3 { font-size:14.5px; color:var(--navy); margin:12px 0 6px; }
+  .answer h3:first-child { margin-top:0; }
+  .answer p { margin:0 0 8px; }
+  .answer ul { margin:0 0 8px 18px; }
+  .answer li { margin-bottom:3px; }
+  .answer table { width:100%; border-collapse:collapse; font-size:12.5px; margin:6px 0 10px; }
+  .answer th, .answer td { border:1px solid var(--border); padding:6px 9px; text-align:left; }
+  .answer th { background:#FAFAFB; color:var(--navy); font-weight:600; }
+  .cite { display:inline-flex; align-items:center; justify-content:center; min-width:18px; height:18px; border-radius:6px; background:var(--green-soft); border:1px solid #CBE9A6; color:#3F7A00; font-size:10.5px; font-weight:700; padding:0 4px; vertical-align:2px; margin-left:2px; cursor:pointer; }
+  .cite.svc { background:var(--info-bg); border-color:var(--info-border); color:var(--navy); }
+  .caret { display:inline-block; width:8px; height:15px; background:var(--navy); vertical-align:-2px; margin-left:2px; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+  .imgrow { display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 10px; }
+  .imgtile { width:112px; height:84px; border-radius:10px; border:1px solid var(--border); background: linear-gradient(135deg,#d9e7f5,#f1f5f9); display:flex; align-items:flex-end; overflow:hidden; position:relative; cursor:pointer; }
+  .imgtile span { font-size:10px; color:#fff; background:rgba(3,40,88,.72); padding:3px 6px; width:100%; line-height:1.3; }
+  .ansfoot { display:flex; gap:8px; align-items:center; margin-top:10px; padding-top:10px; border-top:1px solid var(--hair); flex-wrap:wrap; }
+  .ansfoot .meta { font-size:11.5px; color:var(--faint); margin-left:auto; }
+  .sources { margin-top:16px; }
+  .sources h4 { font-size:13px; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .srcgrid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:10px; }
+  .src { border:1px solid var(--border); border-radius:12px; background:#fff; padding:11px 12px; display:flex; gap:10px; align-items:flex-start; min-width:0; }
+  .src .ico { width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex:none; }
+  .src .ico.doc { background:var(--green-soft); border:1px solid #DCEFC2; color:#3F7A00; }
+  .src .ico.svc { background:var(--info-bg); border:1px solid var(--info-border); color:var(--navy); }
+  .src .body { flex:1; min-width:0; }
+  .src .t { font-size:13px; font-weight:600; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .src .m { font-size:11.5px; color:var(--faint); margin-top:2px; line-height:1.4; }
+  .src .crumb { font-size:11.5px; color:var(--muted); margin-top:2px; display:flex; align-items:center; gap:3px; flex-wrap:wrap; }
+  .src .crumb b { color:var(--ink); font-weight:600; }
+  .src .snip { font-size:12px; color:var(--muted); margin-top:6px; padding:7px 9px; border-left:3px solid var(--green-pick); background:#FAFAFB; border-radius:0 8px 8px 0; line-height:1.45; }
+  .src .acts { display:flex; gap:10px; margin-top:7px; flex-wrap:wrap; }
+  .followup { display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--border); border-radius:999px; padding:9px 9px 9px 14px; margin-top:16px; }
+  .followup .ph { flex:1; font-size:13px; color:var(--faint); }
+  .followup .go { width:32px; height:32px; border-radius:999px; background:var(--green); display:flex; align-items:center; justify-content:center; color:#101010; flex:none; }
+  .empty { text-align:center; padding:26px 16px; }
+  .empty .ico { width:44px; height:44px; border-radius:12px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; color:#3F7A00; }
+  .empty h3 { font-size:15px; color:var(--navy); font-weight:600; }
+  .empty p { font-size:12.5px; color:var(--muted); margin-top:5px; line-height:1.5; max-width:420px; margin-left:auto; margin-right:auto; }
+  .skel { height:14px; border-radius:7px; background:linear-gradient(90deg,#F1F1F1,#F8F8F8,#F1F1F1); background-size:200% 100%; animation: sh 1.4s infinite; margin-bottom:8px; }
+  .skel.w60 { width:60%; } .skel.w80 { width:80%; } .skel.w40 { width:40%; }
+  @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .history { margin-top:20px; }
+  .history .lbl { font-size:12px; color:var(--faint); margin-bottom:6px; }
+  .hrow { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted); padding:7px 0; border-bottom:1px solid var(--hair); }
+  .hrow:last-child { border-bottom:none; }
+
+  /* ---------- mobile chrome ---------- */
+  .mhead { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#fff; border-bottom:1px solid var(--border); }
+  .mhead .t { font-size:16px; font-weight:600; color:var(--ink); }
+  .mhead .icons { display:flex; gap:12px; color:var(--navy); }
+  .mtabs { display:flex; justify-content:space-around; padding:8px 4px 10px; background:#fff; border-top:1px solid var(--border); }
+  .mtab { display:flex; flex-direction:column; align-items:center; gap:3px; font-size:10.5px; color:var(--faint); width:64px; }
+  .mtab.on { color:var(--navy); font-weight:700; }
+  .mtab.new { outline:1.5px dashed var(--green); outline-offset:2px; border-radius:8px; }
+  .mbody { padding:14px; background:var(--bg); min-height:420px; }
+  .mbody .askbox { border-radius:14px; padding:10px 12px; margin-top:0; }
+  .mbody .answer { padding:13px 14px; font-size:13px; }
+  .mbody .srcgrid { grid-template-columns: 1fr; }
+  .sheet { border-top:1px solid var(--border); background:#fff; border-radius:18px 18px 0 0; padding:12px 14px 16px; }
+  .sheet .grab { width:36px; height:4px; border-radius:2px; background:#DDD; margin:0 auto 12px; }
+
+  /* ---------- knowledge document editor (audience) ---------- */
+  .editor { padding:16px; }
+  .editor h3 { font-size:15px; color:var(--navy); font-weight:600; }
+  .editor .doc-line { font-size:12px; color:var(--faint); margin-top:3px; }
+  .box { border:1px solid var(--border); border-radius:14px; padding:14px; margin-top:14px; background:#fff; }
+  .box h4 { font-size:13px; color:var(--navy); font-weight:700; display:flex; gap:8px; align-items:center; }
+  .box h4 .pill { font-weight:600; }
+  .box p.sub { font-size:12px; color:var(--muted); margin-top:3px; line-height:1.45; }
+  .switch { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; }
+  .switch .lab { font-size:13px; font-weight:600; }
+  .switch .lab small { display:block; font-size:11.5px; color:var(--muted); font-weight:400; margin-top:2px; }
+  .tog { width:44px; height:26px; border-radius:999px; background:var(--green); position:relative; flex:none; }
+  .tog::after { content:""; position:absolute; top:3px; left:21px; width:20px; height:20px; border-radius:999px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.2); }
+  .tog.off { background:#D9D9D9; }
+  .tog.off::after { left:3px; }
+  .radio { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border:1.5px solid var(--border); border-radius:12px; margin-top:8px; cursor:pointer; }
+  .radio.on { border-color: var(--green); background: var(--green-soft); box-shadow: inset 0 0 0 1px var(--green); }
+  .radio .dot { width:18px; height:18px; border-radius:999px; border:2px solid #C9C9C9; flex:none; margin-top:1px; background:#fff; }
+  .radio.on .dot { border-color:var(--green); background: radial-gradient(circle, #101010 0 4px, #fff 5px); }
+  .radio .lab { font-size:13px; font-weight:600; }
+  .radio .lab small { display:block; font-size:11.5px; color:var(--muted); font-weight:400; margin-top:2px; line-height:1.4; }
+  .roles { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; padding-left:28px; }
+  .footer-acts { display:flex; gap:8px; justify-content:flex-end; margin-top:14px; }
+  .docrow { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); }
+  .docrow:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; font-size:11px; color:#3F7A00; font-weight:700; }
+  .doc-main { flex:1; min-width:0; }
+  .doc-name { font-size:13.5px; font-weight:600; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .doc-meta { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .dots { width:28px; height:28px; border-radius:999px; background:#F1F1F1; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--muted); letter-spacing:1px; flex:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Business Search — mockup v2 (for approval)
+  <span>One search field for the whole business: it answers from the provider's own documents and services first (this build), and from bookings, leads, quotes, availability and money with the asking member's permissions (phase 2). Every answer streams in, shows the pictures it found, and ends with the sources it used. Nothing here is technical wording the provider has to learn. Decisions being requested are in the blue "Decision" boxes; yellow boxes explain a rule; green boxes say why a choice was made.</span>
+</h1>
+
+<!-- ============================================================= -->
+<div class="section-title">1. Where it lives (web) — THREE OPTIONS FOR YOU TO PICK</div>
+<div class="section-sub">Your note on the screenshot was right: a search field sitting next to the page title <b>"Bookings"</b> reads as though it filters that page — and your app already uses a "Search" box as an in-page filter on about a dozen screens, so people are trained to read it that way. Here are three ways to remove the confusion. Every option keeps the same page underneath (<code>/dashboard/search</code>) and the same left-rail entry; they differ only in what sits in the top bar.</div>
+
+<div class="board">
+  <div class="frame w980">
+    <div class="frame-label"><span>OPTION A — an "Ask Clinket" BUTTON in the header, opening a panel over the page</span><em>Recommended</em></div>
+    <div class="shell">
+      <div class="rail">
+        <div class="logo">Clinket</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/></svg>Dashboard</div>
+        <div class="item new"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask Clinket</div>
+        <div class="item on"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Bookings</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Leads</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M15 3v4h4"/></svg>Invoices</div>
+      </div>
+      <div class="main">
+        <div class="topbar">
+          <div class="crumb" style="font-size:16px;font-weight:700;color:var(--ink)">Bookings</div>
+          <div class="spacer"></div>
+          <button class="btn new-ask"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg>Ask Clinket</button>
+          <div class="ws">Sunrise Salon</div>
+          <div class="avatar"></div>
+        </div>
+        <div class="content">
+          <div class="skel w40" style="height:18px"></div><div class="skel w80"></div><div class="skel w60"></div>
+          <div class="askpanel">
+            <div class="askpanel-h"><b>Ask Clinket</b><span class="pill">anything about your business</span><span style="margin-left:auto;color:var(--faint)">✕</span></div>
+            <div class="askbox focus" style="margin-top:0"><svg class="i lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="ph">Ask anything about your business…</div><div class="go off"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div class="chips" style="margin-top:10px"><span class="chip">Cancellation policy?</span><span class="chip">Which services have a warranty?</span><span class="chip">Bookings this week</span><span class="chip">Any offer running?</span></div>
+            <div class="note" style="margin-top:10px">Press Enter (or the arrow) and it opens the full <b>Ask Clinket</b> page with the answer already streaming.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann good"><b>What the panel does when you type</b>The panel is an <b>entry point, not a second answer screen</b>. You type, press Enter or the arrow, and it takes you straight to the full <b>Ask Clinket</b> page (<code>/dashboard/search</code>) with your question already running and the answer streaming in. That means one answer surface to build and maintain, room for the sources, pictures and follow-ups, and a page you can bookmark, share and go Back from. The panel keeps only the question box, the suggestion chips and your recent questions.</div><div class="ann good"><b>Why this is my recommendation</b>A <b>button cannot be mistaken for a filter</b> — that was your whole objection. It sits in the right-hand cluster where your bell / share / logout buttons already live, so it is the pattern people already know. It works identically on every page, and the panel can show the whole answer without leaving the page you were on. The page title keeps the left side to itself.</div>
+      <div class="ann"><b>Cost of this option</b>One new header button + a panel. Slightly more work than a plain field, because the panel has to host the streaming answer and the sources.</div>
+    </div>
+  </div>
+
+  <div class="frame w980">
+    <div class="frame-label"><span>OPTION B — keep a FIELD, but move it to the right and brand it</span></div>
+    <div class="shell">
+      <div class="rail">
+        <div class="logo">Clinket</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/></svg>Dashboard</div>
+        <div class="item new"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask Clinket</div>
+        <div class="item on"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Bookings</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Leads</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M15 3v4h4"/></svg>Invoices</div>
+      </div>
+      <div class="main">
+        <div class="topbar">
+          <div class="crumb" style="font-size:16px;font-weight:700;color:var(--ink)">Bookings</div>
+          <div class="spacer"></div>
+          <div class="gsearch new" style="width:290px"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3"/><circle cx="12" cy="12" r="3.2"/></svg>Ask Clinket anything…</div>
+          <div class="ws">Sunrise Salon</div>
+          <div class="avatar"></div>
+        </div>
+        <div class="content">
+          <div class="skel w40" style="height:18px"></div><div class="skel w80"></div><div class="skel w60"></div><div class="skel w40"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>What changed from the version you saw</b>The field is no longer beside the page title — it sits on the right, next to your workspace chip, and it carries the AI mark plus the words <b>"Ask Clinket anything…"</b> instead of a bare magnifier.</div>
+      <div class="ann" style="background:#FFF7E8;border-color:#F1D9A7;color:#9A5B00"><b>Remaining risk</b>It is still a text box in a header, and your app teaches people that a text box with a magnifier filters the current list. Moving and renaming it reduces that reading; it does not remove it.</div>
+    </div>
+  </div>
+
+  <div class="frame w980">
+    <div class="frame-label"><span>OPTION C — nothing in the header; the left rail (and the mobile menu) only</span></div>
+    <div class="shell">
+      <div class="rail">
+        <div class="logo">Clinket</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/></svg>Dashboard</div>
+        <div class="item new"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Ask Clinket</div>
+        <div class="item on"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Bookings</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Leads</div>
+        <div class="item"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M15 3v4h4"/></svg>Invoices</div>
+      </div>
+      <div class="main">
+        <div class="topbar">
+          <div class="crumb" style="font-size:16px;font-weight:700;color:var(--ink)">Bookings</div>
+          <div class="spacer"></div>
+          <div class="ws">Sunrise Salon</div>
+          <div class="avatar"></div>
+        </div>
+        <div class="content">
+          <div class="skel w40" style="height:18px"></div><div class="skel w80"></div><div class="skel w60"></div><div class="skel w40"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann good"><b>Zero confusion, zero header change</b>Nothing can be mistaken for anything. The header is untouched, which also means no risk to the layout at small widths.</div>
+      <div class="ann" style="background:#FFF7E8;border-color:#F1D9A7;color:#9A5B00"><b>The cost</b>It is one extra click from wherever you are, and a feature with no presence in the header gets used less. If you pick this, the rail entry should sit high (right under Dashboard) so it is always in view.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>THE THREE, SIDE BY SIDE</span></div>
+    <div class="pad">
+      <table class="rules">
+        <tr><th></th><th>A — Button</th><th>B — Field, moved</th><th>C — Rail only</th></tr>
+        <tr><td>Can it be mistaken for a page filter?</td><td><b>No</b></td><td>Reduced, not gone</td><td><b>No</b></td></tr>
+        <tr><td>Reachable from every page</td><td>Yes, one click</td><td>Yes, type immediately</td><td>Two clicks</td></tr>
+        <tr><td>Fastest to start typing</td><td>One click first</td><td><b>Fastest</b></td><td>Slowest</td></tr>
+        <tr><td>Header space used at 1024px</td><td>One button</td><td>290px field</td><td><b>None</b></td></tr>
+        <tr><td>Matches an existing pattern in your app</td><td><b>Yes</b> (bell / share / logout)</td><td>No precedent in the top bar</td><td>Yes (rail)</td></tr>
+        <tr><td>Build effort</td><td>Medium</td><td>Low</td><td><b>Lowest</b></td></tr>
+      </table>
+      <div class="ann ask"><b>Decision 2 — pick A, B or C</b>My recommendation is <b>A</b>: it is the only one that both removes the confusion you spotted <i>and</i> keeps the feature one gesture away on every page. On phones all three behave the same — a magnifier in the dashboard header plus a menu row — because a phone header has no room for a field either way.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">2. The Search page (web) — every state</div>
+<div class="section-sub">Route <code>/dashboard/search</code>. States: empty, running (streaming), answered with sources and pictures, nothing found, error/time-out, permission-denied (phase 2), daily limit reached. The answer is written by the assistant; the <b>sources are never written by the assistant</b> — the platform lists exactly the documents and services it actually read.</div>
+
+<div class="board">
+  <div class="frame w980">
+    <div class="frame-label"><span>WEB · /dashboard/search · EMPTY (first visit)</span></div>
+    <div class="pad">
+      <div class="page-h"><h2>Ask Clinket</h2><p>Ask in your own words. Answers come from your documents, your services and — for team members with access — your bookings, leads, quotes and payments.</p></div>
+      <div class="askbox focus"><svg class="i lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="ph">Ask anything about your business…</div><div class="go off"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="examples"><div class="lbl">Try asking</div>
+        <div class="chips"><span class="chip">What is our cancellation policy?</span><span class="chip">Which services include a warranty?</span><span class="chip">How much is a bridal package?</span><span class="chip">Show my bookings this week</span><span class="chip">How many leads did we get last week?</span></div>
+      </div>
+      <div class="history"><div class="lbl">Recent</div>
+        <div class="hrow"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Do we offer keratin treatment for curly hair?</div>
+        <div class="hrow"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Warranty on tile installation</div>
+      </div>
+      <div class="ann"><b>Example chips are localized fixed copy, not generated</b>The last two chips appear only when the member has permission to see bookings / leads (phase 2). "Recent" is kept per device in the browser/app storage — nothing new is stored on the server for it.</div>
+    </div>
+  </div>
+
+  <div class="frame w980">
+    <div class="frame-label"><span>WEB · RUNNING — the answer streams in while the sources area shows a skeleton</span></div>
+    <div class="pad">
+      <div class="askbox"><svg class="i lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="txt">What is our cancellation policy and do we charge a fee?</div><div class="go"><svg class="i" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></div></div>
+      <div class="status"><span class="spin"></span>Looking through your documents and services…</div>
+      <div class="answer">
+        <h3>Cancellation policy</h3>
+        <p>Clients can cancel or move an appointment free of charge up to <b>24 hours</b> before the start time <span class="cite">1</span>. Cancellations inside 24 hours are charged <b>50% of the service price</b>, and no-shows are charged in full <span class="cite">1</span>. For bridal and group bookings the deposit is non-refundable <span class="cite">2</span><span class="caret"></span></p>
+      </div>
+      <div class="sources"><h4>Sources</h4>
+        <div class="srcgrid"><div class="src"><div class="skel" style="width:32px;height:32px;border-radius:9px;margin:0"></div><div class="body"><div class="skel w60"></div><div class="skel w80"></div></div></div><div class="src"><div class="skel" style="width:32px;height:32px;border-radius:9px;margin:0"></div><div class="body"><div class="skel w60"></div><div class="skel w80"></div></div></div></div>
+      </div>
+      <div class="ann good"><b>Why the stop square replaces the arrow</b>Pressing it cancels the request on the server too (the stream is closed, the model call is aborted), so an abandoned question never keeps spending.</div>
+    </div>
+  </div>
+
+  <div class="frame w980">
+    <div class="frame-label"><span>WEB · ANSWERED — pictures inline, numbered sources, document + service cards, follow-up</span><em>Core screen</em></div>
+    <div class="pad">
+      <div class="qa">
+        <div class="q"><span class="you">You</span>Which facial treatments do we offer, what do they cost, and do you have a picture of the hydrafacial machine?</div>
+        <div class="answer">
+          <h3>Facial treatments</h3>
+          <p>You currently list four facial treatments. Prices below are from your price list; the HydraFacial is also in your services with an online booking price <span class="cite">1</span><span class="cite svc">3</span>.</p>
+          <table><tr><th>Treatment</th><th>Duration</th><th>Price</th></tr>
+            <tr><td>Classic facial</td><td>45 min</td><td>$65</td></tr>
+            <tr><td>Deep-cleansing facial</td><td>60 min</td><td>$85</td></tr>
+            <tr><td>HydraFacial</td><td>60 min</td><td>$149</td></tr>
+            <tr><td>Anti-ageing facial</td><td>75 min</td><td>$120</td></tr></table>
+          <p>The HydraFacial uses the Elite MD machine shown in your equipment catalogue; the manual recommends a patch test for sensitive skin <span class="cite">2</span>.</p>
+          <div class="imgrow"><div class="imgtile"><span>HydraFacial Elite MD — equipment catalogue, p. 4</span></div><div class="imgtile"><span>Treatment room set-up — p. 6</span></div></div>
+          <p>Bookings for facials are available Tuesday to Saturday <span class="cite svc">3</span>.</p>
+          <div class="ansfoot"><button class="btn xs"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a1 1 0 0 1 1-1h9"/></svg>Copy</button><button class="btn xs ghost">Helpful</button><button class="btn xs ghost">Not helpful</button><span class="meta">Answered from 2 documents and 1 service</span></div>
+        </div>
+        <div class="sources"><h4>Sources <span class="pill">3</span></h4>
+          <div class="srcgrid">
+            <div class="src"><div class="ico doc"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M15 3v4h4 M9 12h6M9 16h6"/></svg></div><div class="body"><div class="t"><span class="cite">1</span>Price list 2026</div><div class="m">PDF · Page 2 · "Facials"</div><div class="snip">Classic facial 45 min $65 · Deep-cleansing facial 60 min $85 · HydraFacial 60 min $149 · Anti-ageing facial 75 min $120</div><div class="acts"><button class="btn link xs">Show page 2</button><button class="btn link xs">Open the original file</button></div></div></div>
+            <div class="src"><div class="ico doc"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M15 3v4h4 M9 12h6M9 16h6"/></svg></div><div class="body"><div class="t"><span class="cite">2</span>Equipment catalogue</div><div class="m">PDF · Page 4 · "HydraFacial Elite MD" · 2 pictures</div><div class="snip">Recommended patch test for sensitive skin 24 h before the first treatment…</div><div class="acts"><button class="btn link xs">Show page 4</button><button class="btn link xs">Open the original file</button></div></div></div>
+            <div class="src"><div class="ico svc"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16v11H4z M8 7V5h8v2"/></svg></div><div class="body"><div class="t"><span class="cite svc">3</span>HydraFacial</div><div class="crumb">Beauty &amp; Wellness <svg class="i" style="width:12px;height:12px" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg> Facials <svg class="i" style="width:12px;height:12px" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg> <b>HydraFacial</b></div><div class="m">Your service · $149 · Approved · online booking on</div><div class="acts"><button class="btn link xs">Open service</button></div></div></div>
+          </div>
+        </div>
+        <div class="followup"><div class="ph">Ask a follow-up…</div><div class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      </div>
+      <div class="ann"><b>Rules the screen follows</b>Numbered markers in the text point to the cards below; green = one of your documents, blue = one of your services. The grey quote under each card is the exact text the answer used — already on screen, costs nothing. Pictures shown are only pictures the assistant actually found in the cited documents; tapping opens the full-size viewer used on the Knowledge page. "Page 2" appears only for files that really have pages (PDF, slides, scans) — never for Word/Excel/web files.</div>
+      <div class="ann good"><b>Your cost question is solved better than a download link</b>You asked whether there is a cheaper alternative to letting people open the file. There is, and we already have it: when a PDF or a scan is processed we keep <b>each page as text</b>. So the first action is <b>"Show page 4"</b> — it opens the whole page, reads a few kilobytes, renders in the same panel on web and phone, and needs no PDF viewer and no file download at all. <b>"Open the original file"</b> stays as a second, deliberate action for anyone who wants the real document. Word, Excel and web files are not stored page by page and have no real page number, so they show the section instead.</div>
+      <div class="ann good"><b>Why sources are built by the platform, not the assistant</b>The assistant may only refer to what the search returned; the cards are generated from those results. A made-up reference simply has nothing to attach to, so it cannot appear. This is also the guardrail against ever showing another business's material: every result is checked against the signed-in business before it reaches the assistant.</div>
+      <div class="ann good"><b>Page numbers come free</b>Every searchable piece of text already stores the page it came from (verified in code: the knowledge index has a <code>pageNumber</code> field, real for PDFs, scans and slide decks). No index change and no re-processing is needed — only a display rule: the page is shown for files that really have pages (PDF, photos, PowerPoint = "Slide N") and hidden for Word, Excel, web and text files, where the stored value is a placeholder.</div>
+      <div class="ann ask"><b>Decision 4 — follow-up questions</b>Recommended yes (a short conversation memory, few turns, kept briefly). Alternative: every question stands alone (cheapest, less natural).</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · NOTHING FOUND (honest, never a guess)</span></div>
+    <div class="pad">
+      <div class="q"><span class="you">You</span>Do we offer drone roof inspections?</div>
+      <div class="answer"><p>I couldn't find anything about drone roof inspections in your documents or services.</p><p style="color:var(--muted)">If you do offer it, add it as a service or upload a document about it on the <b>AI Knowledge</b> page, and it will show up here.</p></div>
+      <div class="ann"><b>Rule</b>When the search returns nothing, the assistant says so and stops. It never fills the gap from general knowledge about the trade.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · ERROR / TIME-OUT</span></div>
+    <div class="pad">
+      <div class="q"><span class="you">You</span>What is our cancellation policy?</div>
+      <div class="banner danger" style="margin-top:12px"><div class="grow"><b>Something went wrong while searching.</b> Your question was not lost — try again.</div><button class="btn small">Try again</button></div>
+      <div class="banner warn" style="margin-top:10px"><div class="grow"><b>The search took too long.</b> Here is what was found so far — the answer may be incomplete.</div></div>
+      <div class="ann"><b>Rule</b>A time-out keeps the partial answer on screen and says it is partial. A lost connection shows "Try again" and re-sends the same question. Nothing auto-retries in a loop.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · PERMISSION DENIED (phase 2 — business questions)</span></div>
+    <div class="pad">
+      <div class="q"><span class="you">You</span>How much did we receive through invoices last week?</div>
+      <div class="answer"><p>You don't have access to payment and invoice information. Ask the business owner or an admin.</p></div>
+      <div class="ann good"><b>Why this is safe</b>The assistant is never given the ability to look up something the signed-in member cannot see — the payment lookup simply does not exist for a technician. The refusal wording is fixed platform copy; no figures are ever fetched first and hidden later.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · DAILY LIMIT REACHED</span></div>
+    <div class="pad">
+      <div class="askbox"><svg class="i lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="ph">Ask anything about your business…</div><div class="go off"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="banner warn" style="margin-top:12px"><div class="grow"><b>You've reached today's search limit.</b> Searching resets at midnight. Your recent answers stay available.</div></div>
+      <div class="ann ask"><b>Decision 5 — the limit</b>A per-business daily number of questions (a setting, not code). Suggested 200 per business per day, 60 per member. Purpose: a runaway script or a shared login cannot run up an AI bill.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>WEB at 360px (responsive proof)</span></div>
+    <div class="mbody" style="min-height:0">
+      <div class="page-h"><h2>Ask Clinket</h2></div>
+      <div class="askbox" style="margin-top:10px"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="ph">Ask anything…</div><div class="go" style="width:32px;height:32px"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="answer" style="margin-top:12px"><p><b>Cancellation policy</b></p><p>Free up to 24 hours before <span class="cite">1</span>; inside 24 hours 50% of the price is charged <span class="cite">1</span>.</p></div>
+      <div class="sources"><h4>Sources</h4><div class="srcgrid"><div class="src"><div class="ico doc"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/></svg></div><div class="body"><div class="t"><span class="cite">1</span>Salon policies</div><div class="m">PDF · Page 1</div><div class="acts"><button class="btn link xs">Show page 1</button></div></div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<div class="section-title">3. Mobile (provider app) — same rules, native chrome</div>
+<div class="section-sub">The app's bottom bar is Dashboard · Bookings · ⊕ · Leads · Inbox and has no free slot, so it does not become a tab. Entry points (dashed = new): a magnifier icon in the Dashboard header row (title · language · bell · share · avatar today) and an "Ask Clinket" row in the Profile menu beside "AI Knowledge" (the guaranteed entrance). Same states as web; cards stack; the breadcrumb wraps; tapping a picture opens the same viewer the Knowledge screen uses; "Open the original file" opens the file in the phone's browser.</div>
+
+<div class="board">
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · where it lives — Dashboard header icon + Profile row (dashed = new)</span></div>
+    <div class="mhead"><div class="t">Dashboard</div><div class="icons"><svg class="i lg" style="outline:1.5px dashed var(--green);outline-offset:3px;border-radius:6px" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><span class="pill" style="padding:2px 7px">EN</span><svg class="i lg" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z M10 20a2 2 0 0 0 4 0"/></svg><svg class="i lg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div></div>
+    <div class="mbody" style="min-height:0;padding-bottom:6px">
+      <div class="skel w60" style="height:18px"></div><div class="skel w80"></div><div class="skel w40"></div>
+      <div class="note" style="margin-top:14px">Profile menu → "Your business" group:</div>
+      <div class="docrow" style="padding:10px 0"><div class="doc-ico" style="background:#fff;border-color:var(--border)"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/></svg></div><div class="doc-main"><div class="doc-name">AI Voice Assistant</div></div></div>
+      <div class="docrow" style="padding:10px 0"><div class="doc-ico" style="background:#fff;border-color:var(--border)"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z M9 12h6M9 16h6"/></svg></div><div class="doc-main"><div class="doc-name">AI Knowledge</div></div></div>
+      <div class="docrow" style="padding:10px 0;outline:1.5px dashed var(--green);outline-offset:-1px;border-radius:10px"><div class="doc-ico"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div><div class="doc-main"><div class="doc-name">Ask Clinket</div><div class="doc-meta">Ask anything about your business</div></div></div>
+    </div>
+    <div class="mtabs"><div class="mtab on">Dashboard</div><div class="mtab">Bookings</div><div class="mtab" style="color:var(--green)">⊕</div><div class="mtab">Leads</div><div class="mtab">Inbox</div></div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · Search screen · EMPTY</span></div>
+    <div class="mhead"><div class="t">Ask Clinket</div><div class="icons"></div></div>
+    <div class="mbody">
+      <div class="askbox focus"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><div class="ph">Ask anything about your business…</div><div class="go off" style="width:32px;height:32px"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="examples"><div class="lbl">Try asking</div><div class="chips"><span class="chip">Cancellation policy?</span><span class="chip">Services with a warranty</span><span class="chip">Bridal package price</span></div></div>
+      <div class="history"><div class="lbl">Recent</div><div class="hrow">Keratin treatment for curly hair?</div></div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · RUNNING</span></div>
+    <div class="mhead"><div class="t">Ask Clinket</div><div class="icons"></div></div>
+    <div class="mbody">
+      <div class="askbox"><div class="txt">Cancellation policy and fee?</div><div class="go" style="width:32px;height:32px"><svg class="i" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></div></div>
+      <div class="status"><span class="spin"></span>Looking through your documents…</div>
+      <div class="answer"><p>Clients can cancel free of charge up to <b>24 hours</b> before <span class="cite">1</span>. Inside 24 hours<span class="caret"></span></p></div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · ANSWERED with sources</span></div>
+    <div class="mhead"><div class="t">Ask Clinket</div><div class="icons"></div></div>
+    <div class="mbody">
+      <div class="answer"><p><b>Facial treatments</b></p><p>Four facials are listed; the HydraFacial is also a bookable service <span class="cite">1</span><span class="cite svc">3</span>.</p>
+        <table><tr><th>Treatment</th><th>Price</th></tr><tr><td>Classic facial</td><td>$65</td></tr><tr><td>HydraFacial</td><td>$149</td></tr></table>
+        <div class="imgrow"><div class="imgtile" style="width:100px;height:74px"><span>Elite MD — p. 4</span></div></div>
+        <div class="ansfoot"><button class="btn xs">Copy</button><span class="meta">2 documents · 1 service</span></div></div>
+      <div class="sources"><h4>Sources</h4><div class="srcgrid">
+        <div class="src"><div class="ico doc"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/></svg></div><div class="body"><div class="t"><span class="cite">1</span>Price list 2026</div><div class="m">PDF · Page 2 · "Facials"</div><div class="acts"><button class="btn link xs">Open the original file</button><button class="btn link xs">Show page</button></div></div></div>
+        <div class="src"><div class="ico svc"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16v11H4z"/></svg></div><div class="body"><div class="t"><span class="cite svc">3</span>HydraFacial</div><div class="crumb">Beauty &amp; Wellness › Facials › <b>HydraFacial</b></div><div class="acts"><button class="btn link xs">Open service</button></div></div></div>
+      </div></div>
+      <div class="followup"><div class="ph">Ask a follow-up…</div><div class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · ERROR · PERMISSION · LIMIT (stacked for space)</span></div>
+    <div class="mbody">
+      <div class="banner danger"><div class="grow"><b>Something went wrong while searching.</b></div><button class="btn small">Try again</button></div>
+      <div class="answer" style="margin-top:10px"><p>You don't have access to payment and invoice information. Ask the business owner or an admin.</p></div>
+      <div class="banner warn" style="margin-top:10px"><div class="grow"><b>You've reached today's search limit.</b> Resets at midnight.</div></div>
+      <div class="ann"><b>Parity rule</b>Mobile matches the web rendering rules: same states, same copy keys, same picture/preview rules, same "page only for paged files" rule. Not the same components.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<div class="section-title">4. Who can find a document in team search — the document editor (AI Knowledge page)</div>
+<div class="section-sub">Today a document has one switch for callers ("Send details to callers"). Team search adds ONE question, in its own clearly separated box, in plain words. Default: everyone on the team can find every document (nothing changes for existing documents). Restricting a document never affects what the phone receptionist tells callers — the two boxes say so.</div>
+
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · document details editor (existing modal) · NEW "Team search" box</span><em>Recommended</em></div>
+    <div class="editor">
+      <h3>Price list 2026.pdf</h3>
+      <div class="doc-line">PDF · 6 pages · Ready · Type: Price list · Linked service: none</div>
+      <div class="box">
+        <h4>Phone receptionist <span class="pill info">callers</span></h4>
+        <p class="sub">What the AI receptionist may do with this file when someone calls.</p>
+        <div class="switch"><div class="lab">Send details to callers<small>Callers can receive the details found in this file by WhatsApp or email.</small></div><div class="tog"></div></div>
+      </div>
+      <div class="box">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <p class="sub">Who can find this file when searching inside the Clinket app. This does not change what callers hear.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team<small>Every team member who can use Search.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only these roles<small>Pick the roles that may find this file. The primary owner and administrators always can.</small></div></div>
+        <div class="roles" style="opacity:.55"><span class="chip on">Owner</span><span class="chip">Administrator</span><span class="chip">Operations manager</span><span class="chip">Dispatcher</span><span class="chip">Technician</span><span class="chip">Finance</span></div>
+      </div>
+      <div class="footer-acts"><button class="btn">Cancel</button><button class="btn primary">Save</button></div>
+      <div class="ann good"><b>Why two boxes with two different labels</b>The owner's concern was confusion between "for the receptionist" and "for my team". Each box names its audience in its heading and says in one line that it does not affect the other. There is no third state, no "internal search index", no technical word.</div>
+      <div class="ann"><b>Rule</b>Owners and administrators always see every document. Restricting is done per document, never per FAQ — typed FAQs stay visible to the whole team because callers can already hear them.</div>
+      <div class="ann ask"><b>Decision 9 — who may search knowledge at all</b>Today the Knowledge PAGE is visible only to owners, administrators, operations managers and dispatchers (the "AI voice assistant settings" permission). If Search kept that rule, a technician could never find a document — which defeats "everyone on my team". Recommended: Search is open to every team member; what each member can FIND is decided by this document setting (and, in phase 2, by their existing booking/lead/invoice permissions). No new permission key is needed.</div>
+      <div class="ann ask"><b>Decision 6 — where the setting is stored</b>One new field on the knowledge document record ("who may find it in team search" + the chosen roles). No change to the search index: when a member searches, the platform first checks the business's document list (small, one read) and excludes the files that member may not see. Needs the shape approval table.</div>
+    </div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · "Only these roles" selected · and the document row afterwards</span></div>
+    <div class="editor">
+      <div class="box" style="margin-top:0">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only these roles<small>Pick the roles that may find this file. The primary owner and administrators always can.</small></div></div>
+        <div class="roles"><span class="chip on">Owner</span><span class="chip on">Administrator</span><span class="chip on">Operations manager</span><span class="chip">Dispatcher</span><span class="chip">Technician</span><span class="chip on">Finance</span></div>
+        <div class="banner info" style="margin-top:10px"><div class="grow">Members with other roles will not see this file in Search. Callers are not affected.</div></div>
+      </div>
+      <div class="note" style="margin-top:14px">The document row on the Knowledge page afterwards:</div>
+      <div class="docrow"><div class="doc-ico">PDF</div><div class="doc-main"><div class="doc-name">Staff commission plan 2026 <span class="pill">Ready</span> <span class="pill navy">Team search: 4 roles</span></div><div class="doc-meta">Uploaded 12 Aug · 6 pages · Type: Policy</div></div><div class="dots">···</div></div>
+      <div class="docrow"><div class="doc-ico">PDF</div><div class="doc-main"><div class="doc-name">Price list 2026 <span class="pill">Ready</span></div><div class="doc-meta">Uploaded 12 Aug · 6 pages · Type: Price list</div></div><div class="dots">···</div></div>
+      <div class="ann"><b>Rule</b>The quiet navy pill appears only when a document is restricted; the default (everyone) shows nothing extra — the row stays as calm as today. The role list is the business's own roles, in its own words.</div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>MOBILE · document details sheet · same two boxes</span></div>
+    <div class="mhead"><div class="t">AI Knowledge</div><div class="icons"></div></div>
+    <div class="mbody" style="padding:0 0 12px">
+      <div class="sheet"><div class="grab"></div>
+        <h3 style="font-size:15px;color:var(--navy)">Price list 2026.pdf</h3>
+        <div class="box"><h4>Phone receptionist <span class="pill info">callers</span></h4><div class="switch"><div class="lab">Send details to callers</div><div class="tog"></div></div></div>
+        <div class="box"><h4>Team search <span class="pill ok">your team</span></h4><p class="sub">This does not change what callers hear.</p>
+          <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+          <div class="radio"><div class="dot"></div><div class="lab">Only these roles</div></div></div>
+        <div class="footer-acts"><button class="btn" style="flex:1">Cancel</button><button class="btn primary" style="flex:1">Save</button></div>
+      </div>
+      <div class="ann" style="margin:10px 14px 0"><b>Parity note</b>If the mobile app has no document details editor today (to be confirmed in the findings), this sheet is the minimum that ships with it — the caller switch and the team-search question together, never one without the other.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<div class="section-title">5. Business questions with the member's permissions (phase 2 — planned now, built after phase 1)</div>
+<div class="section-sub">Same search field, same screen. The difference is invisible to the user and structural underneath: the assistant only receives the lookups the signed-in member is allowed to use.</div>
+
+<div class="board">
+  <div class="frame w980">
+    <div class="pad">
+      <table class="rules">
+        <tr><th>What the member asks</th><th>Owner / admin sees</th><th>A technician sees</th><th>Where the rule comes from</th></tr>
+        <tr><td>"Show my bookings this week"</td><td>Their own bookings (the word "my")</td><td>Their own bookings</td><td>Existing booking permission + "assigned to me" scope</td></tr>
+        <tr><td>"Show all bookings for Gaurav this week"</td><td>Gaurav's bookings</td><td>"You can only see your own bookings."</td><td>Booking permission + team/all scope; the name is matched against the team member list</td></tr>
+        <tr><td>"How many leads did we get last week?"</td><td>The count and a short list</td><td>Only if the role may see leads</td><td>Existing leads permission</td></tr>
+        <tr><td>"How many quotes did Gaurav send last week?"</td><td>The count</td><td>"You don't have access to other members' quotes."</td><td>Quotes permission + scope</td></tr>
+        <tr><td>"What is our availability set to?"</td><td>The weekly hours</td><td>The weekly hours (if the role may view the calendar)</td><td>Availability/calendar permission</td></tr>
+        <tr><td>"How much did we receive through invoices last week?"</td><td>The total and the invoice count</td><td>"You don't have access to payment and invoice information."</td><td>Invoice/payments permission — never granted to technicians</td></tr>
+      </table>
+      <div class="ann good"><b>Why this cannot leak</b>Every lookup runs inside the same permission checks the app's own pages use (the exact same rules that decide which pages and buttons a member sees today). The assistant is only told about the lookups the member may use, and each lookup checks again in code. The phone receptionist has none of these lookups, so a caller can never ask "how many bookings do I have".</div>
+      <div class="ann ask"><b>Decision 7 — phase split</b>Recommended: phase 1 = documents + services search (this mockup, sections 1–3) and the team-search setting (section 4, designed together so the data rule is right from day one); phase 2 = business questions (this section). Alternative: everything in one phase (longer before anything ships).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<div class="section-title">6. Every control → what serves it (no-stub map)</div>
+<div class="section-sub">Filled from the code findings; anything marked "new" is built in the phase named — nothing is drawn that will not exist.</div>
+<div class="board"><div class="frame w980"><div class="pad">
+  <table class="rules">
+    <tr><th>Control / state</th><th>Served by</th><th>Exists today?</th></tr>
+    <tr><td>Ask / follow-up (streamed answer)</td><td>New provider-search route in the main API (streaming), reusing the existing knowledge search + service catalogue search services</td><td><i style="color:var(--danger);font-style:normal;font-weight:700">New — phase 1</i></td></tr>
+    <tr><td>Stop</td><td>Client closes the stream; the server cancels the model call</td><td>New — phase 1</td></tr>
+    <tr><td>Sources — document card (title, page, section)</td><td>Comes back with the answer (from the search results); the page is already stored with every piece of text — only a new result shape that carries it</td><td>New result shape — phase 1</td></tr>
+    <tr><td>Open the original file</td><td>New short-lived private link for the original file (opens inline in the browser); today no route returns the original to the provider (verified)</td><td>New — phase 1</td></tr>
+    <tr><td>Show page</td><td>Already in the response — no call</td><td>—</td></tr>
+    <tr><td>Pictures inline + viewer</td><td>Existing knowledge picture storage + the existing short-lived picture links (<code>GET knowledge/documents/{docId}/images</code>, thumbnail + full size); the answer carries links only for the pictures it actually cites, minted by the server; same viewer as the Knowledge page</td><td>Exists (reused) + links minted per answer — phase 1</td></tr>
+    <tr><td>Sources — service card + breadcrumb + Open service</td><td>Service and category names from the existing catalogue search and category lookups; opens the existing service editor (web route / mobile <code>AddService</code> screen)</td><td>Exists (reused)</td></tr>
+    <tr><td>Try asking chips / Recent</td><td>Fixed localized copy / device storage</td><td>—</td></tr>
+    <tr><td>Helpful / Not helpful</td><td>Existing analytics event pipeline (one new event type)</td><td>New event — phase 1 (or drop, Decision 8)</td></tr>
+    <tr><td>Daily limit</td><td>Existing AI rate-limiting pattern (new policy entry, values in settings)</td><td>New policy — phase 1</td></tr>
+    <tr><td>Team search box (save)</td><td>New field on the knowledge document + the existing document edit route extended</td><td>New — phase 1 (shape approval)</td></tr>
+    <tr><td>Role chips</td><td>Existing business roles list</td><td>Exists (reused)</td></tr>
+    <tr><td>Business questions (phase 2)</td><td>New permission-checked lookups in the main API over the existing booking/quote/invoice list queries (which already narrow to "assigned to me" for technicians), lead counts, availability, team roster and insights — the same rules the app's pages use today</td><td>New — phase 2</td></tr>
+  </table>
+  <div class="ann ask"><b>Decision 8 — "Helpful / Not helpful"</b>Recommended keep (one analytics event; it is how answer quality is measured after launch). Say drop if you prefer a cleaner footer.</div>
+</div></div></div>
+
+</div>
+</body>
+</html>

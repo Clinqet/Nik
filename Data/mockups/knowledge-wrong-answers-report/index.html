@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report wrong answers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --app-ink:#101010; --app-mute:#919191; --app-soft:#5F5F5F; --app-line:#F0F0F0;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --app:"Lufga","Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013; --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --app-ink:#EAF2E6; --app-mute:#8A9A8D; --app-soft:#B4C2B6; --app-line:#253028;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013; --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --app-ink:#EAF2E6; --app-mute:#8A9A8D; --app-soft:#B4C2B6; --app-line:#253028;
+  }
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 16px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  header.masthead { padding:44px 0 26px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:18px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,42px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:66ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:48px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:88ch; }
+  .board { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 520px; min-width:0; }
+  .frame.w360 { flex:0 1 360px; }
+  .frame.full { flex:1 1 100%; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .pad { padding:14px 16px; }
+  .note { font-size:12.5px; color:var(--ink-soft); padding:10px 16px 14px; border-top:1px dashed var(--line); }
+  .note b { color:var(--ink); }
+
+  /* the app's own row, as KnowledgePage.jsx draws it */
+  .app { font-family:var(--app); }
+  .row { display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--app-line); }
+  .row:last-child { border-bottom:0; }
+  .tile { width:34px; height:34px; border-radius:9px; background:#F4FFE4; border:1px solid #DCEFC2; display:grid; place-items:center; flex:none; color:#3F7A00; font-size:10px; font-weight:700; }
+  .tile.proc { background:#EEF2FF; border-color:#C7D7FE; color:#3730A3; }
+  .main { min-width:0; flex:1; }
+  .name { display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:13.5px; font-weight:600; color:var(--app-ink); }
+  .chip { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:1px 8px; font-size:11px; font-weight:600; border:1px solid #E7E7E7; background:#F5F5F5; color:#5F5F5F; white-space:nowrap; }
+  .chip.ok { background:#F4FFE4; border-color:#CFE9A4; color:#3F7A00; }
+  .chip.proc { background:#EEF2FF; border-color:#C7D7FE; color:#3730A3; }
+  .chip.navy { background:#EAF0F9; border-color:#C4D6EE; color:#032858; }
+  .meta { font-size:11.5px; color:var(--app-mute); margin-top:2px; display:flex; flex-wrap:wrap; align-items:center; gap:4px 6px; }
+  .acts { display:flex; gap:6px; align-items:center; margin-left:auto; flex:none; }
+  .rb { border:1px solid #E5E5E5; border-radius:12px; padding:5px 12px; font-size:12px; font-weight:600; background:#fff; color:#101010; }
+  .rb.danger { color:#B42318; border-color:#F3D0CC; }
+  .dots { width:30px; height:30px; border-radius:10px; border:1px solid #E5E5E5; display:grid; place-items:center; color:#5F5F5F; font-weight:700; }
+
+  /* THE NEW CONTROL */
+  .report { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; color:#032858; padding:2px 0; border-radius:6px; }
+  .report svg { width:13px; height:13px; flex:none; }
+  .report u { text-decoration:underline; text-underline-offset:2px; }
+  .report.sending { color:var(--app-soft); }
+  .report.done { color:#3F7A00; }
+  .report.again { color:#3F7A00; }
+  .report.fail { color:#B42318; }
+  .report.off { color:var(--app-mute); }
+  .sep { color:#C9C9C9; }
+  .spin { width:11px; height:11px; border-radius:50%; border:2px solid #D7D7D7; border-top-color:#3730A3; display:inline-block; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation:none; } }
+  .focusring { outline:2px solid #97EF29; outline-offset:2px; }
+
+  /* phone */
+  .phone { border:1px solid var(--line-firm); border-radius:24px; overflow:hidden; background:var(--surface); max-width:360px; }
+  .pbar { padding:12px 14px; font-size:14px; font-weight:600; display:flex; gap:10px; align-items:center; border-bottom:1px solid var(--app-line); font-family:var(--app); color:var(--app-ink); }
+  .pbody { padding:6px 14px 14px; }
+  .prow { display:flex; gap:10px; padding:12px 0; border-bottom:1px solid var(--app-line); }
+  .prow:last-child { border-bottom:0; }
+  .tap { min-height:44px; display:inline-flex; align-items:center; }
+  .pbtn { display:flex; align-items:center; justify-content:center; gap:7px; min-height:46px; border-radius:14px; border:1px solid #E5E5E5; font-size:13.5px; font-weight:600; color:#032858; background:#fff; margin-top:10px; }
+  .pbtn.done { border-color:#CFE9A4; background:#F4FFE4; color:#3F7A00; }
+  .pbtn.fail { border-color:#F3D0CC; background:#FEF3F2; color:#B42318; }
+  .pbtn.off { color:#919191; background:#F7F7F7; }
+  .toast { margin-top:10px; border-radius:12px; padding:10px 12px; font-size:12.5px; background:#101F33; color:#fff; display:flex; gap:8px; align-items:center; }
+
+  /* the admin side */
+  .alert { border:1px solid var(--line); border-radius:13px; padding:13px; background:var(--surface); font-size:13px; }
+  .alert h4 { margin:0 0 4px; font-size:14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .sev { border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; background:var(--warn-bg); color:var(--warn); border:1px solid #E9CD9A; }
+  dl.kv { display:grid; grid-template-columns:max-content 1fr; gap:3px 14px; margin:10px 0 0; font-size:12.5px; }
+  dl.kv dt { color:var(--ink-mute); }
+  dl.kv dd { margin:0; font-family:var(--mono); font-size:11.5px; word-break:break-all; }
+
+  .options { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .opt { border:1px solid var(--line); border-radius:14px; padding:13px 14px; background:var(--surface); }
+  .opt.rec { border-color:#B9DE86; box-shadow:0 0 0 3px var(--brand-soft); }
+  .opt h4 { margin:0 0 6px; font-size:13.5px; }
+  .opt p { margin:3px 0; font-size:13px; color:var(--ink-soft); }
+  .tag { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-deep); }
+
+  table.t { width:100%; border-collapse:collapse; font-size:12.5px; }
+  table.t th, table.t td { text-align:left; vertical-align:top; padding:7px 9px; border-bottom:1px solid var(--line); }
+  table.t th { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-mute); font-weight:700; }
+  table.t code { font-family:var(--mono); font-size:11px; }
+  .scroll { overflow-x:auto; }
+  ul.tight { margin:6px 0; padding-left:20px; font-size:13.5px; color:var(--ink-soft); }
+  ul.tight li { margin:3px 0; }
+  .q { border-left:3px solid var(--warn); background:var(--warn-bg); padding:10px 13px; border-radius:0 10px 10px 0; font-size:13.5px; margin:10px 0; }
+  .q b { color:var(--warn); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>Report wrong answers</h1>
+    <p>A visible, one-tap way for a provider to say "answers from this file are wrong". One tap sends one alert to the team, who look at that file's readings. Nothing else happens, and nothing is promised.</p>
+  </div>
+  <div class="stamp">Sheet · knowledge-wrong-answers-report<br>Drawn 2026-10-03<br>Status: ✅ approved 2026-10-03 (W1)<br>Replaces the rejected "tell our team" idea</div>
+</header>
+
+<h2 class="rule"><span>01</span> · Why, in one paragraph</h2>
+<p class="lede">The provider never sees what we saved from their file. They only see the answers it produces, in Ask Clinket and on calls. When an answer is wrong, they need one obvious place to say so, right on the file, not inside the "…" menu. It is an error report, not feedback: no note box, no "our team", no reply promised. The confirmation says only what is true: it was reported, and we will check the file.</p>
+
+<h2 class="rule"><span>02</span> · The words — pick one</h2>
+<div class="options">
+  <div class="opt rec">
+    <div class="tag">Recommended · W1</div>
+    <h4>Report wrong answers</h4>
+    <p>After the tap: <b>Reported. We'll check this file.</b></p>
+    <p>Starts with what you do, so it reads as a button on a busy row. Three plain words; fits one phone line in all five languages. Screen readers hear the file name too.</p>
+  </div>
+  <div class="opt">
+    <div class="tag">W2</div>
+    <h4>Wrong answers? Report it</h4>
+    <p>After the tap: <b>Reported. We'll check this file.</b></p>
+    <p>Friendly question form. Slightly longer, and a question is easier to read past on a row.</p>
+  </div>
+  <div class="opt">
+    <div class="tag">W3</div>
+    <h4>This file gives wrong answers</h4>
+    <p>After the tap: <b>Reported. We'll check this file.</b></p>
+    <p>Closest to your own words, but it reads as a statement, not a button.</p>
+  </div>
+</div>
+<p class="lede" style="margin-top:14px">All frames below use W1.</p>
+
+<h2 class="rule"><span>03</span> · Web — the file list (laptop and iPad)</h2>
+<p class="lede">The control sits at the end of the file's own info line (pages · size · date), on every <b>Ready</b> file, for <b>every member who can see the file</b>. It is not behind the "…" menu and does not need the manage permission: anyone who saw a wrong answer can report it. It is a flag icon plus underlined navy text, the same style as the row's other links ("Show pictures", "Linked to …"). Every state replaces the text in place, so the row never jumps.</p>
+<div class="board">
+  <div class="frame full app">
+    <div class="frame-label"><span>A1–A6 · one row per state</span><em>1280 px</em></div>
+    <div class="pad">
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company1_home_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span> <span class="chip navy">Answers and can send</span></div>
+          <div class="meta">5 pages · 255 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg><u>Report wrong answers</u></span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company1_auto_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">2 pages · 161 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report sending"><span class="spin" aria-hidden="true"></span>Reporting…</span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company2_auto_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">2 pages · 198 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Reported. We'll check this file.</span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company2_home_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">8 pages · 284 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report again"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Already reported today. We'll check this file.</span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">DOC</div>
+        <div class="main">
+          <div class="name">Salon price list.docx <span class="chip">Word</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">2 pages · 48 KB · Added Sep 30 <span class="sep">·</span>
+            <span class="report fail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Couldn't send the report. <u>Try again</u></span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">XLS</div>
+        <div class="main">
+          <div class="name">Menu 2026.xlsx <span class="chip">Excel</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">1 sheet · 22 KB · Added Sep 28 <span class="sep">·</span>
+            <span class="report off" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg>You're offline. You can report it when you're back online.</span>
+          </div>
+        </div>
+        <div class="acts"><span class="rb">Replace</span><span class="rb danger">Delete</span><span class="dots">⋯</span></div>
+      </div>
+    </div>
+    <div class="note"><b>A1</b> ready · <b>A2</b> sending (the link is inert while it sends; a second click does nothing) · <b>A3</b> reported · <b>A4</b> already reported today (the server says so; one report per person, per file, per day) · <b>A5</b> could not send (only the words "Try again" are the button) · <b>A6</b> offline (shown greyed and inert; the browser's online event brings back A1 on its own). Keyboard: the control is a real button, reached by Tab, with a visible green focus ring; its accessible name includes the file name ("Report wrong answers: company1_home_quote.pdf"). Each state change is announced politely to screen readers.</div>
+    <div class="note"><b>Superseded 2026-10-03 (owner ruling):</b> NOTHING is stored, so there is no "already reported" state (the A4 row above is dropped). Every tap is its own alert, bounded per member per hour (<code>Voice:Knowledge:WrongAnswerReportsPerMemberPerHour</code>, 10). The focus ring is navy <code>#032858</code> per the brand mandate (the green ring drawn here is superseded). The sending spinner uses each app's own tone.</div>
+  </div>
+
+  <div class="frame app">
+    <div class="frame-label"><span>A7 · files with nothing to answer from</span><em>control hidden</em></div>
+    <div class="pad">
+      <div class="row">
+        <div class="tile proc">PDF</div>
+        <div class="main">
+          <div class="name">Brochure.pdf <span class="chip">PDF</span> <span class="chip proc">Reading</span></div>
+          <div class="meta">12 of 46 pages · Added just now</div>
+        </div>
+        <div class="acts"><span class="dots">⋯</span></div>
+      </div>
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">scan.pdf <span class="chip">PDF</span> <span class="chip" style="background:#FEF3F2;border-color:#F3D0CC;color:#B42318">Couldn't read</span></div>
+          <div class="meta">Added Oct 1</div>
+        </div>
+        <div class="acts"><span class="rb">Read again</span><span class="rb danger">Delete</span></div>
+      </div>
+    </div>
+    <div class="note"><b>Hidden</b>, never disabled, while a file is being read, could not be read, has stopped, or is being deleted: none of these is answering anyone, so there is nothing to report. It appears the moment the file is Ready. A file being <i>replaced</i> hides it too, because the report would not say which version answered.</div>
+  </div>
+
+  <div class="frame app">
+    <div class="frame-label"><span>A8 · a team member who can only view</span><em>same control</em></div>
+    <div class="pad">
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company1_home_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">5 pages · 255 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg><u>Report wrong answers</u></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="tile">PDF</div>
+        <div class="main">
+          <div class="name">company1_home_quote.pdf <span class="chip">PDF</span> <span class="chip ok">Ready</span></div>
+          <div class="meta">5 pages · 255 KB · Added Oct 2 <span class="sep">·</span>
+            <span class="report fail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>You can no longer see this file, so it can't be reported.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">A view-only member sees no Replace, Delete or "…", as today, but <b>does</b> see the report: they hear the wrong answers too. <b>A9</b> (second row): the server refused because the member's access to this file was removed while the page was open. That is the only "not allowed" case, because a member who cannot see a file never sees its row.</div>
+  </div>
+</div>
+
+<h2 class="rule"><span>04</span> · Web — the file's own page</h2>
+<div class="board">
+  <div class="frame app">
+    <div class="frame-label"><span>B1 · document page header</span><em>laptop</em></div>
+    <div class="pad">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:12px;color:#919191">AI Knowledge ›</div>
+          <div style="font-size:20px;font-weight:600;color:var(--app-ink)">company1_home_quote.pdf</div>
+          <div class="meta" style="margin-top:4px"><span class="chip ok">Ready</span> 5 pages · 255 KB · Added Oct 2</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="rb" style="display:inline-flex;gap:6px;align-items:center;color:#032858"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg>Report wrong answers</span>
+          <span class="rb">Download</span>
+        </div>
+      </div>
+      <div style="margin-top:12px;height:120px;border:1px dashed #D9DDD3;border-radius:14px;display:grid;place-items:center;color:#919191;font-size:12px">the file's preview (unchanged)</div>
+    </div>
+    <div class="note">The same control as an outlined button beside Download, for every member who can open the page. States as A2–A6 and A9, shown inside the button. After a report the button stays disabled and reads "Reported. We'll check this file."</div>
+  </div>
+</div>
+
+<h2 class="rule"><span>05</span> · Phone app — list and file screen</h2>
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>C1–C3 · knowledge list</span><em>375 px</em></div>
+    <div class="pad">
+      <div class="phone app">
+        <div class="pbar">‹ &nbsp;AI Knowledge</div>
+        <div class="pbody">
+          <div class="prow">
+            <div class="tile">PDF</div>
+            <div class="main">
+              <div class="name">company1_home_quote.pdf</div>
+              <div class="meta"><span class="chip ok">Ready</span> 5 pages · 255 KB</div>
+              <span class="tap"><span class="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg><u>Report wrong answers</u></span></span>
+            </div>
+            <div class="dots" style="flex:none">⋯</div>
+          </div>
+          <div class="prow">
+            <div class="tile">PDF</div>
+            <div class="main">
+              <div class="name">company1_auto_quote.pdf</div>
+              <div class="meta"><span class="chip ok">Ready</span> 2 pages · 161 KB</div>
+              <span class="tap"><span class="report done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Reported. We'll check this file.</span></span>
+            </div>
+            <div class="dots" style="flex:none">⋯</div>
+          </div>
+          <div class="prow">
+            <div class="tile">PDF</div>
+            <div class="main">
+              <div class="name">company2_auto_quote.pdf</div>
+              <div class="meta"><span class="chip ok">Ready</span> 2 pages · 198 KB</div>
+              <span class="tap"><span class="report fail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Couldn't send. <u>Try again</u></span></span>
+            </div>
+            <div class="dots" style="flex:none">⋯</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Its own line under the file's info, with a 44-point tap area. A light haptic tap on success. Sending shows the spinner in place; offline shows the greyed sentence of A6. Never inside the "…" sheet.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>C4–C6 · the file's own screen</span><em>375 px</em></div>
+    <div class="pad">
+      <div class="phone app">
+        <div class="pbar">‹ &nbsp;company1_home_quote.pdf</div>
+        <div class="pbody">
+          <div class="meta"><span class="chip ok">Ready</span> 5 pages · 255 KB · Added Oct 2</div>
+          <div style="margin-top:10px;height:110px;border:1px dashed #D9DDD3;border-radius:14px;display:grid;place-items:center;color:#919191;font-size:12px">preview (unchanged)</div>
+          <div class="pbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 1-1h11l-1.5 4L16 11H5"/></svg>Report wrong answers</div>
+          <div class="pbtn done"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Reported. We'll check this file.</div>
+          <div class="pbtn off">You're offline. You can report it when you're back online.</div>
+        </div>
+      </div>
+    </div>
+    <div class="note">A full-width outlined button under the preview: <b>C4</b> ready, <b>C5</b> reported (stays, disabled), <b>C6</b> offline. Sending, already reported, could not send and access removed use the A-row words inside the same button.</div>
+  </div>
+</div>
+
+<h2 class="rule"><span>06</span> · What the team receives</h2>
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>D1 · admin alert (admin web and admin phone)</span><em>internal English</em></div>
+    <div class="pad">
+      <div class="alert">
+        <h4><span class="sev">Medium</span> A provider reported wrong answers from a file</h4>
+        <div style="color:var(--ink-soft)">Sample business (NKN607) · company1_home_quote.pdf · reported by Alex P. (Owner) on the web app, Oct 3 09:14 UTC</div>
+        <dl class="kv">
+          <dt>Business</dt><dd>NKN607 · Sample business</dd>
+          <dt>File</dt><dd>e79abbd8196144d4ba7c9babded8276c · company1_home_quote.pdf · Ready · 5 pages</dd>
+          <dt>Version</dt><dd>6B0AF574…B1FE (the bytes that were answering)</dd>
+          <dt>Reported by</dt><dd>member id · name · role</dd>
+          <dt>From</dt><dd>web app / phone app</dd>
+          <dt>Last reading</dt><dd>read Oct 2 21:07 · nothing lost · 0 values unconfirmed · notices: none</dd>
+          <dt>Where to look</dt><dd>source, machine reading, page readings and saved reading: the five storage prefixes for this file</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="note">A new alert type of its own, appended at the end of the list, with labels on admin web and admin phone. Medium, because a person reported it but it is not yet confirmed. The alert's wording is internal English (CLAUDE.md §0.10). The team's work after this is a person's decision, as the owner said.</div>
+  </div>
+</div>
+
+<h2 class="rule"><span>07</span> · Server rules (proposed — please confirm)</h2>
+<ul class="tight">
+  <li><b>Who:</b> any member of the business whose access lets them see this file (the same rule as the file list). Tenant-isolated: the file must belong to the caller's current business. No manage permission needed.</li>
+  <li><b>When:</b> only a Ready file. Any other state is refused with a sentence the screen shows.</li>
+  <li><s><b>One alert per person, per file, per version, per day:</b> the alert's id is derived from (business, file, version, member, UTC day). A double tap, a retry and a Service Bus redelivery all become the same single alert (the alert processor already de-duplicates by id).</s> <b>Superseded 2026-10-03 (owner ruling):</b> nothing is stored; every tap is its own alert, bounded only by the per-member hourly limit (<code>Voice:Knowledge:WrongAnswerReportsPerMemberPerHour</code>, 10).</li>
+  <li><b>Rate limit:</b> the API's existing per-user limiter, plus at most a small number of reports per member per hour across all files (a setting, not a constant).</li>
+  <li><b>Nothing else happens:</b> no re-reading, no notice on the row, no email, no reply.</li>
+</ul>
+<div class="q"><b>Your decision — "already reported" after the page reloads.</b> Without a new stored field, the screen cannot know after a reload that you reported earlier today. A second tap then answers "Already reported today. We'll check this file." (A4), and no second alert is sent. <b>Recommended: this, with no new field.</b> The alternative is a stored "reported on" date per file and member, which is a §0.7 schema change. <b>Superseded 2026-10-03 (owner ruling):</b> nothing is stored and there is no "already reported" answer; after a reload the report is simply offered again.</div>
+
+<h2 class="rule"><span>08</span> · Every word on the screen, and where it comes from</h2>
+<div class="frame full" style="margin-top:8px">
+  <div class="scroll pad">
+    <table class="t">
+      <thead><tr><th>State</th><th>English (W1)</th><th>Web key (public/lang ×5)</th><th>Phone key (src/Locales ×5)</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Ready</td><td>Report wrong answers</td><td><code>knowledge.report.action</code></td><td><code>KNOWLEDGE.REPORT_ACTION</code></td><td>screen copy</td></tr>
+        <tr><td>Ready (accessible name)</td><td>Report wrong answers: {name}</td><td><code>knowledge.report.actionNamed</code></td><td><code>KNOWLEDGE.REPORT_ACTION_NAMED</code></td><td>screen copy</td></tr>
+        <tr><td>Sending</td><td>Reporting…</td><td><code>knowledge.report.sending</code></td><td><code>KNOWLEDGE.REPORT_SENDING</code></td><td>screen copy</td></tr>
+        <tr><td>Reported</td><td>Reported. We'll check this file.</td><td><code>knowledge.report.done</code></td><td><code>KNOWLEDGE.REPORT_DONE</code></td><td>screen copy, shown on the server's success answer</td></tr>
+        <tr><td>Already reported</td><td>Already reported today. We'll check this file.</td><td><code>knowledge.report.already</code></td><td><code>KNOWLEDGE.REPORT_ALREADY</code></td><td>screen copy, shown when the server says "already" — <b>superseded 2026-10-03, not built</b></td></tr>
+        <tr><td>Could not send</td><td>Couldn't send the report. / Try again</td><td><code>knowledge.report.failed</code> / <code>knowledge.report.retry</code></td><td><code>KNOWLEDGE.REPORT_FAILED</code> / <code>KNOWLEDGE.REPORT_RETRY</code></td><td>screen copy</td></tr>
+        <tr><td>Offline</td><td>You're offline. You can report it when you're back online.</td><td><code>knowledge.report.offline</code></td><td><code>KNOWLEDGE.REPORT_OFFLINE</code></td><td>screen copy</td></tr>
+        <tr><td>Refused (not Ready, access removed)</td><td>e.g. "You can no longer see this file, so it can't be reported."</td><td colspan="2">— (the server's own translated sentence, five server catalogues)</td><td><code>Knowledge_ReportNotAllowed</code>, <code>Knowledge_ReportNotReady</code> in <code>Resources/Localization/{en,es,fr,gu,hi}.json</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

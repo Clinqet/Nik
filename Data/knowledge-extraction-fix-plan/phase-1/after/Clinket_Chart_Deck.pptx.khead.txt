@@ -1,0 +1,35 @@
+# Clinket_Chart_Deck.pptx
+blocks=3 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Treatment prices 2026
+[  1] Table        p1
+      hasHeader=True caption=Treatment prices rows=5
+      | Service | Price |
+      | Gel manicure | 45 |
+      | Pedicure | 35 |
+      | Full set acrylics | 60 |
+      | Nail art | 15 |
+[  2] List         p1
+      - Treatment prices
+      - Service
+      - Price in pounds
+
+## INVENTORY
+Sections: Treatment prices 2026 (7)
+4 records
+Service: Gel manicure (1), Pedicure (1), Full set acrylics (1), Nail art (1)
+  [agg Service] 4 records — Service: Gel manicure (1), Pedicure (1), Full set acrylics (1), Nail art (1)
+
+## CARDS (2)  warnings=0
+--- card 0 [Table] section='Treatment prices 2026' page= tokens~38 img=-1
+    Treatment prices
+    Service: Gel manicure | Price: 45
+    Service: Pedicure | Price: 35
+    Service: Full set acrylics | Price: 60
+    Service: Nail art | Price: 15
+--- card 1 [Text] section='Treatment prices 2026' page= tokens~12 img=-1
+    - Treatment prices
+    - Service
+    - Price in pounds

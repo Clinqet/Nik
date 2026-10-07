@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Hamilton",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Roofing, siding, gutters, windows and doors with 45+ years experience and 30,000+ projects. Serves Stoney Creek and Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 45,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@gerrysroofing.ca",
+      "businessPhone": "905-549-7112",
+      "social": {
+        "facebook": "https://www.facebook.com/gerrysroofing.ca",
+        "instagram": "https://www.instagram.com/gerrysroofing.ca",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.gerrysroofing.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "49 Morley Street",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "postalCode": "L8H 3R6",
+        "country": "Canada",
+        "formatted": "49 Morley Street, Hamilton, ON L8H 3R6"
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Stoney Creek"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Roofing Repair & Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Siding Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestroughs / Gutters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Windows & Doors",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Skylights & Sun Tunnels",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.gerrysroofing.ca/service-areas/stoney-creek",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://www.gerrysroofing.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.85,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-hamilton-gerrys-roofing-siding",
+      "businessName": "Gerry's Roofing & Siding Inc."
+    }
+  ]
+}

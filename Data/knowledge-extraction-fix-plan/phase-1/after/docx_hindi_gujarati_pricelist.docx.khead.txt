@@ -1,0 +1,36 @@
+# docx_hindi_gujarati_pricelist.docx
+blocks=4 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      रेट कार्ड
+[  1] Paragraph    p1
+      बाल कटवाना ₹250
+      दाढ़ी ट्रिम ₹150
+      फेशियल ₹800
+      मैनीक्योर ₹300
+[  2] Heading      p1 H1
+      સેવાઓ
+[  3] Table        p1
+      hasHeader=False caption= rows=5
+      | વાળ કાપવા | ₹250 |
+      | ફેશિયલ | ₹800 |
+      | મસાજ | ₹500 |
+      | સંપૂર્ણ પીઠ પોલિશ | ₹400 |
+      | સ્ક્રબ સાથે |
+
+## INVENTORY
+Sections: रेट कार्ड (4), સેવાઓ (4)
+
+## CARDS (2)  warnings=0
+--- card 0 [Text] section='रेट कार्ड' page= tokens~37 img=-1
+    बाल कटवाना ₹250
+    दाढ़ी ट्रिम ₹150
+    फेशियल ₹800
+    मैनीक्योर ₹300
+--- card 1 [Table] section='સેવાઓ' page= tokens~50 img=-1
+    વાળ કાપવા | ₹250
+    ફેશિયલ | ₹800
+    મસાજ | ₹500
+    સંપૂર્ણ પીઠ પોલિશ | ₹400
+    સ્ક્રબ સાથે

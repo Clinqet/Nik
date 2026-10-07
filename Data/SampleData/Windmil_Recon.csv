@@ -1,0 +1,2 @@
+ResponseTime,TransactionId,AcknowledgementToken,SuccessfulItems,FailedItems,ErrorCodes,ErrorMessages,ErrorSources,HttpStatus
+9/23/2025 4:55:52 PM +00:00,99325092300488200000746001,7cbf0020-ea49-4752-b091-97c07a59b158,"[{""pointTransactionId"": ""25092300488200000746001"" ,pointType: ""Earn""}]","[{""pointTransactionId"": ""25092300488200000746001"" ,pointType: ""Earn""}]",4007,Duplicate Transaction,PointTransactionId,207

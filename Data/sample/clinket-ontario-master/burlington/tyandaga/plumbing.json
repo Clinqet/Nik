@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "tyandaga",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-tyandaga-glenn-richardson-plumbing-heating",
+      "businessName": "Glenn Richardson Plumbing & Heating",
+      "description": "Family owned and operated since 1951. Plumbing, heating, boilers, backflow, drain CCTV, water heaters. Serving Burlington, Hamilton and surrounding area.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 70,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-335-2945",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2413 Industrial St",
+        "postalCode": "L7P 1A6",
+        "area": "tyandaga",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2413 Industrial St, Burlington, ON L7P 1A6"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "tyandaga",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Boiler Installation & Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Backflow Preventer Testing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "In-Floor Radiant Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain CCTV Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers/Burlington+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    },
+    {
+      "id": "burlington-tyandaga-stait-mechanical",
+      "businessName": "Stait Mechanical",
+      "description": "Residential plumbing and drain cleaning. Open 24 hours.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-336-3333",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2531 Cavendish Dr",
+        "postalCode": "L7P 4J5",
+        "area": "tyandaga",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2531 Cavendish Dr, Burlington, ON L7P 4J5"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "tyandaga",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers/Burlington+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    }
+  ]
+}

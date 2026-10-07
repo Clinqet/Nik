@@ -1,0 +1,25 @@
+# docx_no_currency_pricelist.docx
+blocks=7 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Rate card (all prices in rupees)
+[  1] Paragraph    p1
+      Haircut 250 Beard trim 150 Kids cut 180 Full head colour 800 Root touch up 550 Highlights 1200 Keratin treatment 2500 Blow dry 300
+[  2] Paragraph    p1
+      Nails
+[  3] Paragraph    p1
+      Manicure 300
+[  4] Paragraph    p1
+      Pedicure 450
+[  5] Paragraph    p1
+      Gel manicure 550
+[  6] Paragraph    p1
+      Nail art 200
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='' page=1 tokens~57 img=-1
+    Rate card (all prices in rupees) Haircut 250 Beard trim 150 Kids cut 180 Full head colour 800 Root touch up 550 Highlights 1200 Keratin treatment 2500 Blow dry 300 Nails Manicure 300 Pedicure 450 Gel manicure 550 Nail art 200

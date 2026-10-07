@@ -1,0 +1,277 @@
+{
+ "sessionId": "90809af6caf44399813895d21950158b",
+ "businessId": "NKN607",
+ "lastActivity": "2026-09-25T20:33:51.2864631Z",
+ "turns": [
+  {
+   "role": "user",
+   "content": "What is the week rate for rentals?",
+   "citations": null,
+   "images": null
+  },
+  {
+   "role": "assistant",
+   "content": "The week rate for rentals is $1400.[1]",
+   "citations": [
+    {
+     "number": 1,
+     "kind": "Document",
+     "title": "Northline Equipment 2026 Equipment Catalogue",
+     "subtitle": "Northline Equipment — 2026 catalogue",
+     "docId": "a7b016876f384987864438cacfcb4f36",
+     "page": 6,
+     "excerpt": [
+      {
+       "text": "RENTAL RATES 5"
+      },
+      {
+       "text": "Day rate"
+      },
+      {
+       "text": "$350"
+      },
+      {
+       "text": "Week rate"
+      },
+      {
+       "text": "$1400"
+      },
+      {
+       "text": "Month rate"
+      },
+      {
+       "text": "$4370"
+      },
+      {
+       "text": "Delivery"
+      },
+      {
+       "text": "$95"
+      }
+     ],
+     "hasFullText": true
+    },
+    {
+     "number": 2,
+     "kind": "Document",
+     "title": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+     "subtitle": "શ્રી અજય પટેલ",
+     "docId": "526c1daee4fe4ddebb9f384ad3987f0d",
+     "page": 1,
+     "excerpt": [
+      {
+       "text": "ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે."
+      }
+     ],
+     "hasFullText": true,
+     "channel": "picture-description"
+    },
+    {
+     "number": 3,
+     "kind": "Document",
+     "title": "श्री ब्यूटी पार्लर का रेट कार्ड",
+     "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+     "excerpt": [
+      {
+       "text": "श्री ब्यूटी पार्लर का रेट कार्ड — overview\nदस्तावेज़ में बाल कटवाने, दाढ़ी ट्रिम, फेशियल, मैनीक्योर, पेडीक्योर, हेयर स्पा और अन्य ब्यूटी सेवाओं की कीमतें दी गई हैं। अंग्रेज़ी नोट्स में GST, होम विज़िट शुल्क और बुकिंग संपर्क की जानकारी है।\nSections: સેવાઓ અને ભાવ\n6 records\nसेवा: बाल कटवाना (1), दाढ़ी ट्रिम (1), फेशियल (गोल्ड) (1), मैनीक्योर (1), पेडीक्योर (1), हेयर स्पा (1)\nकीमत: ₹150 to ₹1,500 (typical)"
+      }
+     ],
+     "hasFullText": true,
+     "channel": "generated-overview"
+    },
+    {
+     "number": 4,
+     "kind": "Document",
+     "title": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+     "subtitle": "શ્રી અજય પટેલ",
+     "docId": "526c1daee4fe4ddebb9f384ad3987f0d",
+     "page": 1,
+     "excerpt": [
+      {
+       "text": "પાન મસાલા"
+      },
+      {
+       "text": "₹250"
+      },
+      {
+       "text": "શરબત"
+      },
+      {
+       "text": "₹800"
+      },
+      {
+       "text": "મીઠાઈ"
+      },
+      {
+       "text": "₹500"
+      },
+      {
+       "text": "પાણીની બોટલ"
+      },
+      {
+       "text": "₹5,000"
+      }
+     ],
+     "hasFullText": true
+    },
+    {
+     "number": 5,
+     "kind": "Document",
+     "title": "श्री ब्यूटी पार्लर का रेट कार्ड",
+     "subtitle": "श्री ब्यूटी पार्लर — रेट कार्ड",
+     "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+     "page": 1,
+     "excerpt": [
+      {
+       "label": "सेवा",
+       "text": "बाल कटवाना"
+      },
+      {
+       "label": "कीमत",
+       "text": "₹250"
+      },
+      {
+       "label": "सेवा",
+       "text": "दाढ़ी ट्रिम"
+      },
+      {
+       "label": "कीमत",
+       "text": "₹150"
+      },
+      {
+       "label": "सेवा",
+       "text": "फेशियल (गोल्ड)"
+      },
+      {
+       "label": "कीमत",
+       "text": "₹1,200"
+      },
+      {
+       "label": "सेवा",
+       "text": "मैनीक्योर"
+      },
+      {
+       "label": "कीमत",
+       "text": "₹300"
+      }
+     ],
+     "hasFullText": true
+    },
+    {
+     "number": 6,
+     "kind": "Document",
+     "title": "श्री ब्यूटी पार्लर का रेट कार्ड",
+     "subtitle": "श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ",
+     "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+     "page": 1,
+     "excerpt": [
+      {
+       "text": "વાળ કપાવવા"
+      },
+      {
+       "text": "₹250"
+      },
+      {
+       "text": "ફેશિયલ"
+      },
+      {
+       "text": "₹800"
+      },
+      {
+       "text": "મસાજ"
+      },
+      {
+       "text": "₹500"
+      },
+      {
+       "text": "બ્યુટી ટ્રીટમેન્ટ સાથે"
+      },
+      {
+       "text": "₹400"
+      }
+     ],
+     "hasFullText": true
+    },
+    {
+     "number": 7,
+     "kind": "Document",
+     "title": "श्री ब्यूटी पार्लर का रेट कार्ड",
+     "subtitle": "श्री ब्यूटी पार्लर — रेट कार्ड › સેવાઓ અને ભાવ",
+     "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+     "page": 1,
+     "excerpt": [
+      {
+       "text": "English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book."
+      }
+     ],
+     "hasFullText": true
+    },
+    {
+     "number": 8,
+     "kind": "Document",
+     "title": "श्री ब्यूटी पार्लर का रेट कार्ड",
+     "subtitle": "कीमत",
+     "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+     "excerpt": [
+      {
+       "text": "श्री ब्यूटी पार्लर का रेट कार्ड — overview — कीमत\n6 records — कीमत: ₹150 to ₹1,500 (typical)"
+      }
+     ],
+     "hasFullText": true,
+     "channel": "generated-overview"
+    },
+    {
+     "number": 9,
+     "kind": "Service",
+     "title": "Highlights",
+     "subtitle": "Salon & Beauty › Hair Coloring",
+     "serviceId": "b6064adf-c9af-4222-91b8-138cd3042c4f",
+     "published": false
+    },
+    {
+     "number": 10,
+     "kind": "Service",
+     "title": "Permanent Smoothing",
+     "subtitle": "Salon & Beauty › Hair Treatments (Keratin & Smoothing)",
+     "serviceId": "e0c7adc8-bfcd-4b70-8df5-1fe364ff9dcf",
+     "published": false
+    },
+    {
+     "number": 11,
+     "kind": "Service",
+     "title": "Balayage",
+     "subtitle": "Salon & Beauty › Hair Coloring",
+     "serviceId": "a8a439a8-60d0-48eb-924f-7e86d806750a",
+     "published": false
+    },
+    {
+     "number": 12,
+     "kind": "Service",
+     "title": "Full Face",
+     "subtitle": "Salon & Beauty › Waxing Services",
+     "serviceId": "c80ab632-cfd7-4419-bcaf-1f40117d4179"
+    },
+    {
+     "number": 13,
+     "kind": "Service",
+     "title": "Eyebrows",
+     "subtitle": "Salon & Beauty › Eyebrow & Lash Services",
+     "serviceId": "76507b11-a305-4f2a-a4ee-3f83b6dcff63"
+    },
+    {
+     "number": 14,
+     "kind": "Service",
+     "title": "D-Tan Hands Treatment",
+     "subtitle": "Wellness & Body Care › Spa Services",
+     "serviceId": "2457c8a7-80e8-4162-a9b4-6b1a634ca538"
+    }
+   ],
+   "images": [
+    {
+     "docId": "526c1daee4fe4ddebb9f384ad3987f0d",
+     "imageId": "d81727f429f17040"
+    }
+   ]
+  }
+ ]
+}

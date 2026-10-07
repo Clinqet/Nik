@@ -1,0 +1,75 @@
+{
+  "contentHash": "88AA6D4C9EFFC24A9CEB627B721DAA8B6D1568901562F046B504F1576424223F",
+  "pipelineFingerprint": "5081f0f3ced54220be3c9dd2df57a62a:15c02f92315c494c88a56f0c26829c3f:4f4db4de3626484eb6f8dfdca752a1f1:cap=1",
+  "docName": "img_pricelist_lowercase_inline.jpg",
+  "pageCount": 1,
+  "docTitle": "Nail Bar Price List",
+  "docSummary": "Lists prices for classic and gel manicures, spa pedicures, acrylic full sets, nail art per nail, and polish changes.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "nail bar",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "List",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [
+        "classic manicure $30",
+        "gel manicure $45",
+        "spa pedicure $45",
+        "acrylic full set $65",
+        "nail art per nail $3",
+        "polish change $15"
+      ],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "nail bar\nclassic manicure $30\ngel manicure $45\nspa pedicure $45\nacrylic full set $65\nnail art per nail $3\npolish change $15"
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "88aa6d4c9effc24a",
+      "contentHash": "88aa6d4c9effc24a9ceb627b721daa8b6d1568901562f046b504f1576424223f",
+      "blobPath": "NKN607/_images/97b1da102b6a46099d098e214c830396/88aa6d4c9effc24a.jpg",
+      "width": 1419,
+      "height": 765,
+      "bytes": 48905,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "nail bar"
+    }
+  ],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "unreadablePictures": 0,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionPagesFailedTransiently": 0,
+  "visionRenderFailed": false,
+  "reviews": [],
+  "unpairedPriceLines": 0
+}

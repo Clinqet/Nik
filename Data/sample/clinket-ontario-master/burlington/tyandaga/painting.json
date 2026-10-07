@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "tyandaga",
+    "category": "painting",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-tyandaga-olivers-interiors",
+      "businessName": "Olivers Interiors",
+      "description": "Interior design, interior/exterior painting, drywall, cabinet resurfacing, restoration.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-638-0049",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1407 Winterberry",
+        "postalCode": "L7P 4T4",
+        "area": "tyandaga",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1407 Winterberry, Burlington, ON L7P 4T4"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "tyandaga",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Cabinet Resurfacing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drywall",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Bathroom Remodeling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painting+Contractors/Burlington+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    },
+    {
+      "id": "burlington-tyandaga-quality-painters",
+      "businessName": "Quality Painters",
+      "description": "House painting in Tyandaga / northwest Burlington.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-336-0392",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1388 Ester Dr",
+        "postalCode": "L7P 1L6",
+        "area": "tyandaga",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1388 Ester Dr, Burlington, ON L7P 1L6"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "tyandaga",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painting+Contractors/Burlington+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    }
+  ]
+}

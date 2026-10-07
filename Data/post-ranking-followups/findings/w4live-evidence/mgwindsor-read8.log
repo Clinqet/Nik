@@ -1,0 +1,1502 @@
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      ServiceBusService initialized successfully with queues: booking-emails-dev, quote-emails-dev, booking-timeout-check-dev, notifications-dev, booking-reminders-dev, provider-confirmation-requests-dev, booking-cancellations-dev, login-attempts-dev, user-activities-dev, email-notifications-dev, analytics-events-dev, customer-identity-sync-dev
+  -> queued 6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264394197959480
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Localization directory set to: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources/Localization
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\en.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: en
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\hi.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: hi
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\gu.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: gu
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\fr.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: fr
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\es.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: es
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      CategoryCacheService initialized - Caching: True, Duration: 24 hours, Key: GlobalCategories
+info: Clinqet.Infrastructure.Services.Search.AzureAIFoundryEmbeddingService[0]
+      EmbeddingService initialized: Model=text-embedding-3-large, MaxBatch=2048, MaxTokensPerRequest=40000, MaxLength=30000, CacheEntries=5000 (~59 MB)
+pass 1 [6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264394197959480]: continuation 0, pictures 0, attempt 1, fresh False, readings so far 0, AI spent 0
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Processing knowledge ingest for doc 55af3e34aeb546fdb2279ca720af18d5, business 6TCWOI, DeliveryCount=1, MessageId=6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264394197959480
+info: Clinqet.Infrastructure.Services.Knowledge.KnowledgeContentArtifactStore[0]
+      Knowledge content artefact for 55af3e34aeb546fdb2279ca720af18d5 does not match current bytes/pipeline; recomputing.
+info: Clinqet.Infrastructure.Services.Knowledge.KnowledgeExtractionCache[0]
+      Document read for 55af3e34aeb546fdb2279ca720af18d5 came from the bank; Document Intelligence was not called.
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4407.8937ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4428.5685ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1051 (cached 0), completion 392 (reasoning 341), finish stop, estCostUsd 0.000301
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4648.0612ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4648.4564ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1142 (cached 0), completion 531 (reasoning 384), finish stop, estCostUsd 0.000380
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6134.7233ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6135.0746ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1144 (cached 0), completion 761 (reasoning 600), finish stop, estCostUsd 0.000495
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7149.3897ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7149.6202ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1199 (cached 0), completion 1068 (reasoning 891), finish stop, estCostUsd 0.000654
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 11969.2022ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 11969.4441ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1389 (cached 0), completion 1901 (reasoning 1504), finish stop, estCostUsd 0.001089
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3046.2011ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3046.4849ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1030 (cached 0), completion 276 (reasoning 197), finish stop, estCostUsd 0.000241
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2461.925ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2462.1358ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1034 (cached 0), completion 112 (reasoning 80), finish stop, estCostUsd 0.000159
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 17887.0137ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 17887.2783ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1365 (cached 0), completion 3284 (reasoning 2882), finish stop, estCostUsd 0.001778
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8403.7933ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8403.9713ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1248 (cached 0), completion 1521 (reasoning 1244), finish stop, estCostUsd 0.000885
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3289.5966ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3289.8668ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1147 (cached 0), completion 203 (reasoning 151), finish stop, estCostUsd 0.000216
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9680.0409ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9680.1986ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1058 (cached 0), completion 1234 (reasoning 1163), finish stop, estCostUsd 0.000723
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9170.4448ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9170.7217ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1092 (cached 0), completion 1301 (reasoning 1243), finish stop, estCostUsd 0.000760
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7298.7629ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7298.9405ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1252 (cached 0), completion 1015 (reasoning 854), finish stop, estCostUsd 0.000633
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 12913.1361ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 12913.4358ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1292 (cached 0), completion 2052 (reasoning 1847), finish stop, estCostUsd 0.001155
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8841.9744ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8842.1586ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1355 (cached 0), completion 1244 (reasoning 1024), finish stop, estCostUsd 0.000758
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4704.3942ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4704.5698ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1113 (cached 0), completion 564 (reasoning 446), finish stop, estCostUsd 0.000393
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4080.6178ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4080.8412ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1043 (cached 0), completion 443 (reasoning 370), finish stop, estCostUsd 0.000326
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5648.9358ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5649.088ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1175 (cached 0), completion 598 (reasoning 422), finish stop, estCostUsd 0.000416
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6569.4638ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6569.7007ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1340 (cached 0), completion 1155 (reasoning 884), finish stop, estCostUsd 0.000712
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6212.4558ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6212.7357ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1176 (cached 0), completion 905 (reasoning 662), finish stop, estCostUsd 0.000570
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9604.6709ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9604.845ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1096 (cached 0), completion 1325 (reasoning 1214), finish stop, estCostUsd 0.000772
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6397.3639ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6397.5952ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3478 (cached 3072), completion 509 (reasoning 426), finish stop, estCostUsd 0.006516
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4265.7319ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4265.9162ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3595 (cached 0), completion 44 (reasoning 0), finish stop, estCostUsd 0.00763
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 11307.4929ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 11307.6638ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1417 (cached 0), completion 1693 (reasoning 1459), finish stop, estCostUsd 0.000988
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5059.0362ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5059.153ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1359 (cached 0), completion 566 (reasoning 390), finish stop, estCostUsd 0.000419
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 17960.86ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 17961.0135ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1267 (cached 0), completion 2633 (reasoning 2560), finish stop, estCostUsd 0.001443
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9190.4699ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9190.7365ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1148 (cached 0), completion 1173 (reasoning 1024), finish stop, estCostUsd 0.000701
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8969.8789ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8970.03ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1129 (cached 0), completion 1186 (reasoning 1034), finish stop, estCostUsd 0.000706
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4261.9577ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4262.1422ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3522 (cached 3072), completion 198 (reasoning 148), finish stop, estCostUsd 0.003494
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4821.073ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4821.2472ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1077 (cached 0), completion 420 (reasoning 310), finish stop, estCostUsd 0.000318
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4161.815ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4161.9702ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 939 (cached 0), completion 431 (reasoning 364), finish stop, estCostUsd 0.000309
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9187.6663ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9187.7727ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1248 (cached 0), completion 1338 (reasoning 1227), finish stop, estCostUsd 0.000794
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8208.2591ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8208.6218ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3899 (cached 3456), completion 547 (reasoning 361), finish stop, estCostUsd 0.007047
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5215.8723ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5216.0421ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1107 (cached 0), completion 622 (reasoning 512), finish stop, estCostUsd 0.000422
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 10431.9747ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 10432.1516ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1247 (cached 0), completion 1523 (reasoning 1351), finish stop, estCostUsd 0.000886
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4644.6162ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4644.7939ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1314 (cached 0), completion 403 (reasoning 293), finish stop, estCostUsd 0.000333
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3039.1911ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3039.3773ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1033 (cached 0), completion 267 (reasoning 200), finish stop, estCostUsd 0.000237
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4749.2244ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4749.3373ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3542 (cached 0), completion 202 (reasoning 151), finish stop, estCostUsd 0.009104
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7569.2293ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7569.564ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1179 (cached 0), completion 992 (reasoning 810), finish stop, estCostUsd 0.000614
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5768.1541ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5768.2762ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 4164 (cached 3712), completion 417 (reasoning 236), finish stop, estCostUsd 0.005816
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6471.1773ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6471.4389ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1024 (cached 0), completion 763 (reasoning 700), finish stop, estCostUsd 0.000484
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 25361.1429ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 25361.2735ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3740 (cached 0), completion 2822 (reasoning 2560), finish stop, estCostUsd 0.0357
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6167.3863ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6167.5617ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1103 (cached 0), completion 827 (reasoning 713), finish stop, estCostUsd 0.000524
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 19199.4806ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 19199.7466ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 3698 (cached 3200), completion 2087 (reasoning 1871), finish stop, estCostUsd 0.022506
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4929.5633ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4929.6859ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1060 (cached 0), completion 596 (reasoning 503), finish stop, estCostUsd 0.000404
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4998.2493ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4998.3897ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1079 (cached 0), completion 621 (reasoning 512), finish stop, estCostUsd 0.000418
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5496.7069ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5496.8607ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1154 (cached 0), completion 754 (reasoning 654), finish stop, estCostUsd 0.000492
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 6590.9509ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 6591.0851ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1225 (cached 0), completion 1112 (reasoning 890), finish stop, estCostUsd 0.000678
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7590.7272ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7590.8456ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1024 (cached 0), completion 1013 (reasoning 947), finish stop, estCostUsd 0.000609
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7131.3065ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7131.6069ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1174 (cached 0), completion 939 (reasoning 825), finish stop, estCostUsd 0.000587
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3513.9273ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3514.0375ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1151 (cached 0), completion 447 (reasoning 295), finish stop, estCostUsd 0.000339
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3641.7336ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3641.8987ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1246 (cached 0), completion 437 (reasoning 285), finish stop, estCostUsd 0.000343
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5764.8384ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5764.9721ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1282 (cached 0), completion 792 (reasoning 512), finish stop, estCostUsd 0.000524
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5865.8118ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5865.9582ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1268 (cached 0), completion 927 (reasoning 664), finish stop, estCostUsd 0.000590
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7846.107ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7846.2259ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1211 (cached 0), completion 1091 (reasoning 846), finish stop, estCostUsd 0.000667
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 15930.007ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 15930.1664ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1342 (cached 0), completion 2631 (reasoning 2382), finish stop, estCostUsd 0.001450
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8211.5987ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8212.0646ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1363 (cached 0), completion 1288 (reasoning 1023), finish stop, estCostUsd 0.000780
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 11745.9443ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 11746.2772ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1440 (cached 0), completion 1792 (reasoning 1499), finish stop, estCostUsd 0.00104
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 7460.0785ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 7460.3379ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1428 (cached 0), completion 1152 (reasoning 830), finish stop, estCostUsd 0.000719
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 10239.5586ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 10239.6771ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1289 (cached 0), completion 1668 (reasoning 1368), finish stop, estCostUsd 0.000963
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 13532.3983ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 13532.6406ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1504 (cached 0), completion 2196 (reasoning 1838), finish stop, estCostUsd 0.001248
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 12166.493ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 12166.5917ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1020 (cached 0), completion 1315 (reasoning 1254), finish stop, estCostUsd 0.000760
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8961.5954ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8961.7291ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1420 (cached 0), completion 1234 (reasoning 939), finish stop, estCostUsd 0.000759
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 10073.3494ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 10073.486ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1630 (cached 0), completion 1609 (reasoning 1271), finish stop, estCostUsd 0.000968
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 17128.34ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 17128.6496ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1164 (cached 0), completion 2436 (reasoning 2195), finish stop, estCostUsd 0.001334
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 8427.1582ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 8427.2483ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1205 (cached 0), completion 1137 (reasoning 947), finish stop, estCostUsd 0.000689
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5788.0179ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5788.136ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1101 (cached 0), completion 706 (reasoning 589), finish stop, estCostUsd 0.000463
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 16005.8622ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 16005.9834ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1182 (cached 0), completion 2682 (reasoning 2350), finish stop, estCostUsd 0.001459
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4297.6008ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4297.6957ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1094 (cached 0), completion 441 (reasoning 341), finish stop, estCostUsd 0.000330
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 14903.7346ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 14903.8454ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1326 (cached 0), completion 2398 (reasoning 2048), finish stop, estCostUsd 0.001332
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9711.4495ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9711.5664ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1521 (cached 0), completion 1865 (reasoning 1201), finish stop, estCostUsd 0.001085
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 17836.3755ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 17836.6759ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1379 (cached 0), completion 3240 (reasoning 2796), finish stop, estCostUsd 0.001758
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 11132.465ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 11132.6594ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1418 (cached 0), completion 1707 (reasoning 1354), finish stop, estCostUsd 0.000995
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 18568.4104ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 18568.5575ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1440 (cached 0), completion 3592 (reasoning 2470), finish stop, estCostUsd 0.00194
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 13785.0196ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 13785.1436ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1778 (cached 0), completion 2222 (reasoning 1536), finish stop, estCostUsd 0.001289
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 15286.5347ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 15286.6964ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1508 (cached 0), completion 2785 (reasoning 2357), finish stop, estCostUsd 0.001543
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 17586.0319ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 17586.1482ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1561 (cached 0), completion 3378 (reasoning 2103), finish stop, estCostUsd 0.001845
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 18146.8144ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 18147.1927ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1745 (cached 0), completion 3381 (reasoning 2256), finish stop, estCostUsd 0.001865
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 14524.538ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 14524.678ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1487 (cached 0), completion 2479 (reasoning 1903), finish stop, estCostUsd 0.001388
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 23091.3706ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 23091.5548ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1672 (cached 0), completion 4622 (reasoning 3248), finish stop, estCostUsd 0.002478
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9056.667ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9056.7763ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1056 (cached 0), completion 1331 (reasoning 1267), finish stop, estCostUsd 0.000771
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4531.6299ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4531.7767ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1041 (cached 0), completion 418 (reasoning 352), finish stop, estCostUsd 0.000313
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 16025.3821ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 16025.6884ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1869 (cached 0), completion 2877 (reasoning 1635), finish stop, estCostUsd 0.001625
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 11093.3543ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 11093.5036ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1491 (cached 0), completion 2018 (reasoning 1444), finish stop, estCostUsd 0.001158
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 10010.703ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 10010.7866ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 1127 (cached 0), completion 1496 (reasoning 1418), finish stop, estCostUsd 0.000861
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 22563.8458ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 22563.9507ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-luna (Bulk): prompt 2186 (cached 1792), completion 4403 (reasoning 3041), finish stop, estCostUsd 0.002259
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: Clinqet.Infrastructure.Services.AI.VisionDocumentTranscriptionService[0]
+      Vision transcription for 55af3e34aeb546fdb2279ca720af18d5: 44 transcribed, 0 from cache, 2 kept OCR text, 2 kept the machine reading after a source check, 8 page(s) source-checked, 6 read in sections, 46 page(s) in 224.9s.
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/1.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/1.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1121.4102ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1121.5188ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/2.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/2.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 655.3171ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 655.6432ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 951.5479ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 951.6678ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 660.5105ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 660.6034ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 633.0035ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 633.3457ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 642.2385ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 642.4726ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/3.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 849.7463ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 849.8318ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 868.3781ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 868.6141ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 647.5584ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 647.914ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/4.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 430.5989ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 430.6995ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/5.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/5.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 569.9629ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 570.0735ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/6.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/6.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 812.9499ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 813.0474ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 896.2516ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 896.6526ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 696.5996ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 696.7613ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/9.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1034.5147ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1034.6672ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1049.0109ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1049.3199ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 685.9151ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 686.2411ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/10.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 654.5683ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 654.6975ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 527.2416ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 527.3353ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 647.3887ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 647.4859ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/12.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 657.5922ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 657.6935ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/13.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/13.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 501.0047ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 501.1269ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/13.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/13.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 586.6726ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 586.7769ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/14.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/14.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 711.3788ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 711.5018ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/16.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/16.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 746.7869ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 746.9033ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/16.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/16.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 835.564ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 835.6803ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/17.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/17.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 847.287ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 847.4706ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 910.6043ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 910.725ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 734.1146ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 734.213ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/18.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 562.0655ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 562.1706ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/19.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/19.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 689.9854ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 690.0857ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/19.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/19.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 892.5184ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 893.0932ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 968.8354ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 968.9688ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 890.8924ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 890.9714ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/20.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 860.8968ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 861.0292ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/23.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/23.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1224.1125ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1224.5008ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/25.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/25.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 909.5444ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 909.6479ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/25.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/25.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 940.6453ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 940.8579ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/26.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/26.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1141.4963ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1141.6088ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 887.763ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 887.8651ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1093.3714ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1093.6203ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 954.785ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 955.0242ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/28.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 884.6683ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 884.8378ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/30.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/30.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1213.5059ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1213.6234ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 742.7899ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 742.9212ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 1119.4703ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 1119.5693ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/32.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 625.5952ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 625.7688ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 715.4049ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 715.4968ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 805.4367ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 805.5772ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 740.3363ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 740.429ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.4?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 513.3194ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 513.417ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.5?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 622.621ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 622.711ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.6?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.6?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 653.4101ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 653.4966ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.7?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.7?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 688.3697ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 688.4705ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.8?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.8?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 810.54ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 810.663ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.9?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.9?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 635.6477ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 635.7619ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.10?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/33.10?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 694.6446ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 694.7595ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/34.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/34.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 555.3436ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 555.4914ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 723.8069ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 723.9384ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.2?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 802.9569ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 803.0642ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/35.3?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 695.0489ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 695.4728ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/45.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/45.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 590.8978ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 591.0086ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/46.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/b2d41290-3bd9-475d-8773-7db3f00c0632/figures/46.1?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 600.6276ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 600.7455ms - 200
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5: 39 whole-page PDF figure(s) filtered as the page itself.
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2076.1032ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2076.2151ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F1-knowledge-describe on gpt-6-luna (Bulk): prompt 2655 (cached 0), completion 184 (reasoning 103), finish stop, estCostUsd 0.000358
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5: 39 image(s) were deliberately skipped at extraction (metafile/SVG/relative-URL, or a PDF's whole-page figure).
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5: picture bfb9f716a4b7e88f (4520x1549) is picture 7b4b9e02421b361c (4529x1552) at another size; one picture is kept.
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5: picture cbaa61ff3e629d1c (4506x1545) is picture 7b4b9e02421b361c (4529x1552) at another size; one picture is kept.
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[101]
+      Received HTTP response headers after 1183.8203ms - 200
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[101]
+      End processing HTTP request after 1185.1252ms - 200
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5 indexed: 361 cards, 46 pages, business 6TCWOI.
+  pass 1 took 416s; row Ready progress  /
+ingest finished in 416s after 1 pass(es)
+PICTURE DESCRIPTIONS: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 (reasoning 0) tokens, 0s in calls, $0.0000
+PICTURE TEXT READER: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 tokens, 0s, $0.0000
+PICTURE TEXT VERIFIER: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 tokens, 0s, $0.0000
+PICTURE TEXT DOCUMENT INTELLIGENCE: 0 call(s), 0 page(s)
+info: Clinqet.Infrastructure.Data.COSMOS.SelectedCategoryRepository[0]
+      Getting selected categories for business 6TCWOI
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cache miss, fetching from database
+info: Clinqet.Infrastructure.Data.COSMOS.CategoryRepository[0]
+      Getting global categories
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cache miss, fetching from database
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cached successfully - Count: 340, Expiration: 24 hours
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cached successfully - Count: 340, Expiration: 24 hours
+info: Clinqet.Infrastructure.Data.COSMOS.CategoryRepository[0]
+      Getting custom categories for business 6TCWOI
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryPromptService[0]
+      Category prompt built and cached - Categories: 341, ScopeCountry: (none), ScopeCity: (none), CacheKey: CategoryPrompt_456D452B83C01667
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2999.4578ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2999.7606ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage G1-draft-offering-judge on gpt-6-luna (Bulk): prompt 1720 (cached 0), completion 407 (reasoning 256), finish stop, estCostUsd 0.000376
+analytics job ran
+info: Clinqet.Communications.Services.KnowledgeServiceDraftAnalyticsJob[0]
+      Clinket AI Data Analytics finished for doc 55af3e34aeb546fdb2279ca720af18d5 (business 6TCWOI) on attempt 1 in 8s.
+ROW {"docId":"55af3e34aeb546fdb2279ca720af18d5","docName":"MG Windsor EV - Brochure.pdf","status":"Ready","pageCount":46,"passageCount":361,"failureReasonKey":null,"readingNotices":[{"key":"Info_KnowledgeValueUnconfirmed","args":null}],"images":114,"drafts":{"runAt":"2026-10-01T08:24:05.4393769Z","outcome":"Ran","candidateCount":5,"draftCount":0,"alreadyInCatalogCount":0,"notFullyScanned":false,"judgeRemovedCount":5,"failureReasonKey":null}}

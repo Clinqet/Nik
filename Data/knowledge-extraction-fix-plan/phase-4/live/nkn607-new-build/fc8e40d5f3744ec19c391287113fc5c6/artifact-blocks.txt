@@ -1,0 +1,30 @@
+docTitle=Hair Salon Prices and Opening Information lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Lists prices for salon services by hair length, durations, discounts, valid-from dates and service notes. Also covers treatment guarantees and redo policies, opening hours and deposit terms.
+[  0] Heading      p1 H1
+      Prices
+[  1] Table        p1
+      hasHeader=True caption= rows=8
+      | Service | Price | Price | Duration | Discount | Valid from | Notes |
+      |  | Short hair | Long hair |
+      | Haircut | $25.00 | $35.00 | 30 min | 15% | 2026-01-01 | Walk-ins welcome |
+      | Full head colour | $80.00 | $110.00 | 90 min | 15% | 2026-01-02 | Includes toner Patch test 48h before Ask about Olaplex add-on |
+      | Highlights | $120.00 | $160.00 | 120 min | 15% | 2026-01-03 | Walk-ins welcome |
+      | Keratin treatment | $250.00 | $320.00 | 180 min | 15% | 2026-01-04 | Walk-ins welcome |
+      | Blow dry | $30.00 | $40.00 | 30 min | 15% | 2026-01-05 | Walk-ins welcome |
+      | Average short price | $101.00 |
+[  2] Table        p1
+      hasHeader=False caption= rows=3
+      | Treatment | Guarantee days | Redo policy |
+      | Keratin treatment | 7 | Free redo within a week |
+      | Full head colour | 5 | Toner refresh free |
+[  3] Heading      p1 H1
+      Sheet2
+[  4] Table        p1
+      hasHeader=False caption= rows=3
+      | Opening hours | Mon–Fri 9:00–18:00 |
+      | Saturday | 10:00–16:00 |
+      | Deposit | 20% |
+
+## captions
+## images
+## reviews

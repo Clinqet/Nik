@@ -1,0 +1,32 @@
+docTitle=GLOW SALON Price List lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=1 captions=1 reviews=0
+summary: A GLOW SALON price list covering haircuts, beard trims, kids’ cuts, full head colour, root touch ups, highlights, keratin treatments, blow dries, updos and deep conditioning.
+[  0] Heading      p1 H1
+      GLOW SALON
+[  1] List         p1
+      - Haircut — $25
+      - Beard trim — $15
+      - Kids cut — $18
+      - Full head colour — $80
+      - Root touch up — $55
+      - Highlights — $120
+      - Keratin treatment — $250
+      - Blow dry — $30
+      - Updo — $65
+      - Deep conditioning — $40
+[  2] ImageMarker  p1 img#0 alt=
+
+## captions
+  [0] GLOW SALON
+Haircut — $25
+Beard trim — $15
+Kids cut — $18
+Full head colour — $80
+Root touch up — $55
+Highlights — $120
+Keratin treatment — $250
+Blow dry — $30
+Updo — $65
+Deep conditioning — $40
+## images
+  idx=0 id=e3e8c23d814b659d 1437x1089 79490B kind=TextSnapshot src=Upload q=Ok refused=False
+## reviews

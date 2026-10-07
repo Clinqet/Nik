@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Knowledge — what a document row honestly tells the provider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013;
+      --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013;
+    --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+
+  header.masthead { padding:48px 0 28px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,44px); line-height:1.05; letter-spacing:-.02em; margin:0; text-wrap:balance; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:64ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; white-space:nowrap; }
+
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:52px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:86ch; }
+
+  .board { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 460px; min-width:0; }
+  .frame.w360 { flex:0 0 360px; max-width:100%; }
+  .frame.w520 { flex:1 1 520px; }
+  .frame.full { flex:1 1 100%; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .pad { padding:16px; }
+
+  .pill { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; letter-spacing:.02em; border:1px solid var(--line-firm); color:var(--ink-mute); background:var(--surface-sunk); white-space:nowrap; }
+  .pill.ok { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .pill.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .pill.navy { background:var(--navy-soft); border-color:#C4D6EE; color:var(--navy); }
+  .pill.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .pill.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .pill.proc { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+
+  .banner { display:flex; gap:9px; align-items:flex-start; border-radius:11px; padding:9px 11px; font-size:12px; margin-top:10px; border:1px solid var(--line); background:var(--surface-sunk); color:var(--ink-soft); }
+  .banner.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .banner.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .banner.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .banner.good { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .banner b { display:block; }
+  .banner .x { margin-left:auto; color:inherit; opacity:.6; font-weight:700; flex:none; }
+
+  .spin { width:13px; height:13px; border-radius:50%; border:2px solid var(--line-firm); border-top-color:var(--info); display:inline-block; vertical-align:-2px; flex:none; animation:spin 1s linear infinite; }
+  .spin.slow { border-top-color:var(--warn); animation-duration:2.6s; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .dot { width:6px; height:6px; border-radius:50%; background:var(--warn); display:inline-block; flex:none; }
+
+  .track { height:3px; border-radius:999px; background:var(--surface-sunk); border:1px solid var(--line); margin-top:8px; overflow:hidden; }
+  .track i { display:block; height:100%; width:38%; border-radius:999px; background:linear-gradient(90deg, transparent, var(--info), transparent); animation:slide 1.5s linear infinite; }
+  .track.slow i { width:26%; animation-duration:3.4s; background:linear-gradient(90deg, transparent, var(--warn), transparent); }
+  @keyframes slide { from { transform:translateX(-110%); } to { transform:translateX(360%); } }
+  @media (prefers-reduced-motion: reduce) { .track i { animation:none; width:100%; opacity:.45; } .spin { animation:none; } }
+
+  .scrim { border-radius:15px; background:rgba(16,32,52,.42); padding:22px 16px; display:grid; place-items:center; }
+  .dlg { width:100%; max-width:330px; background:var(--surface); border:1px solid var(--line); border-radius:15px; box-shadow:var(--shadow); padding:16px; }
+  .dlg h4 { margin:0 0 6px; font-size:14.5px; }
+  .dlg p { margin:0; font-size:12.5px; color:var(--ink-soft); line-height:1.5; }
+  .dlg .file { display:flex; gap:8px; align-items:center; margin:11px 0 3px; padding:8px 10px; border:1px solid var(--line); border-radius:11px; background:var(--surface-sunk); font-size:12px; font-weight:700; }
+
+  .btn { border:1px solid var(--line-firm); border-radius:999px; padding:5px 14px; font-size:12.5px; font-weight:700; background:var(--surface); color:var(--ink); display:inline-block; }
+  .btn.primary { background:var(--brand); border-color:#7FCB1F; color:#12200A; }
+  .btn.quiet { border-color:var(--line); color:var(--ink-soft); font-weight:600; }
+  .btn.sm { padding:3px 11px; font-size:11.5px; }
+  .foot { display:flex; gap:9px; justify-content:flex-end; margin-top:14px; flex-wrap:wrap; }
+
+  .docrow { display:flex; gap:10px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--line); }
+  .docrow:last-child { border-bottom:0; }
+  .doc-ico { width:32px; height:32px; border-radius:9px; background:var(--brand-soft); border:1px solid #CFE9A4; color:var(--brand-deep); display:grid; place-items:center; font-size:9.5px; font-weight:700; flex:none; }
+  .doc-ico.proc { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .doc-ico.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .doc-main { min-width:0; flex:1; }
+  .doc-name { font-size:13px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .doc-meta { font-size:11.5px; color:var(--ink-mute); margin-top:2px; }
+  .dots { color:var(--ink-mute); font-weight:700; letter-spacing:2px; align-self:center; }
+  .prev { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px; padding:7px 10px; border:1px dashed var(--line-firm); border-radius:11px; background:var(--surface-sunk); font-size:11.5px; color:var(--ink-soft); }
+  .prev .lab { font-weight:700; color:var(--navy); }
+
+  .menu { border:1px solid var(--line); border-radius:13px; background:var(--surface); box-shadow:var(--shadow); padding:6px; width:230px; }
+  .menu .item { padding:7px 10px; border-radius:9px; font-size:12.5px; display:flex; justify-content:space-between; gap:10px; align-items:center; }
+  .menu .item.on { background:var(--surface-sunk); font-weight:700; }
+  .menu .item.off { color:var(--ink-mute); }
+  .menu .sep { height:1px; background:var(--line); margin:5px 2px; }
+
+  .sugg { border:1px solid var(--line); border-radius:14px; padding:13px; background:var(--surface); }
+  .sugg h4 { margin:0 0 3px; font-size:13.5px; font-weight:700; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .sugg .sub { margin:0; font-size:12px; color:var(--ink-soft); }
+
+  .phone { border:1px solid var(--line-firm); border-radius:22px; overflow:hidden; background:var(--surface); }
+  .phone-bar { background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:10px 14px; font-size:13px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+  .phone-body { padding:12px; }
+  .sheet { border:1px solid var(--line); border-radius:16px; padding:13px; background:var(--surface); }
+  .grab { width:38px; height:4px; border-radius:99px; background:var(--line-firm); margin:0 auto 10px; }
+  .swipe { display:flex; gap:8px; align-items:center; font-size:11.5px; color:var(--ink-mute); margin-top:9px; }
+
+  table.copy { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:10px; }
+  table.copy th, table.copy td { text-align:left; vertical-align:top; padding:7px 9px; border-bottom:1px solid var(--line); }
+  table.copy th { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); border-bottom:1px solid var(--line-firm); }
+  table.copy code { font-family:var(--mono); font-size:11px; color:var(--navy); background:var(--navy-soft); border-radius:5px; padding:1px 5px; }
+  table.copy td.say { color:var(--ink); }
+
+  ul.notes { margin:10px 0 0; padding-left:18px; color:var(--ink-soft); font-size:13px; }
+  ul.notes li { margin:5px 0; }
+  ul.notes b { color:var(--ink); }
+  .out { border:1px solid var(--line-firm); border-left:3px solid var(--warn); border-radius:0 12px 12px 0; padding:12px 14px; background:var(--warn-bg); color:var(--warn); font-size:13px; margin-top:16px; }
+  .out b { display:block; margin-bottom:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>What a document row honestly tells the provider</h1>
+    <p>Every state the AI Knowledge page can reach once a file has been uploaded — including the ones it could reach before and never showed. Web and phone, light and dark.</p>
+  </div>
+  <div class="stamp">
+    Sheet · knowledge-document-row-truth<br>
+    Phase 2 · E1 · R-5 · R-9 · R-14<br>
+    Drawn 2026-09-12 · ‼️ APPROVED 2026-09-12 · revised the same day for the three owner changes: one status per row (A3) · every download behind a confirm dialog (B3 · B4 · D4) · the degraded notice covers five causes, not only pictures (A2)
+  </div>
+</header>
+
+<h2 class="rule">A · The document row <span>— web</span></h2>
+<p class="lede">One row per uploaded file. Today it can only say Ready, Processing or Failed; four of the states below were reachable and silent. Nothing here uses a word a provider would have to look up.</p>
+
+<div class="board">
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A1 · read and answering</span><em>unchanged</em></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Spring price list.pdf <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">Price list · 3 pages · 1.2 MB · added 4 Sept</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A2 · read, but something in it could not be used</span><em>new · R-9 · five causes</em></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Treatment menu.pdf <span class="pill ok"><i class="dot"></i> Ready</span></div>
+          <div class="doc-meta">Menu · 8 pages · 2.4 MB · added 2 Sept</div>
+          <div class="banner warn"><span>⚠</span><div><b>2 pictures in this file couldn't be read, so we can't send them to callers.</b>Everything written in the file works normally.</div><span class="x">✕</span></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Scanned menu.pdf <span class="pill ok"><i class="dot"></i> Ready</span></div>
+          <div class="doc-meta">Menu · 12 pages · 9.1 MB · added 2 Sept</div>
+          <div class="banner warn"><span>⚠</span><div><b>We ran out of time reading this file, so we used a quicker reading for all of it.</b>A price may be less exact. The pages we finished are saved — read it again and we'll carry on from where we stopped.<div class="foot" style="margin-top:8px;justify-content:flex-start"><span class="btn sm">Read again</span></div></div><span class="x">✕</span></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico">PPT</div>
+        <div class="doc-main">
+          <div class="doc-name">Portfolio.pptx <span class="pill ok"><i class="dot"></i> Ready</span></div>
+          <div class="doc-meta">Other · 46 pictures · 22 MB · added 2 Sept</div>
+          <div class="banner warn"><span>⚠</span><div><b>Two things worth knowing about this file.</b>
+            <div style="margin-top:4px">• This file had 46 pictures. We kept the 40 largest.<br>• 4 of them have no description yet, so they can't be sent to callers.</div></div><span class="x">✕</span></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">‼️ <b>ONE status pill, always.</b> The row is <i>Ready</i> — that is its state, and a second pill competing with it is noise. The amber dot on the pill is what makes it findable in a long list; the notice underneath says what happened. <b>Never two pills.</b></p>
+      <p class="doc-meta" style="margin-top:8px">‼️ <b>“Read again” appears ONLY where it actually does something</b> — see the table in E. The middle row earns it (finished pages are saved, so a re-read resumes); the other two do not, and must not offer it.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A3 · being read</span><em>revised 2026-09-12 · no second voice</em></div>
+    <div class="pad">
+      <div class="docrow" style="border-bottom:0;position:relative">
+        <div class="doc-ico proc">DOC</div>
+        <div class="doc-main">
+          <div class="doc-name">Hours and policies.docx <span class="pill proc"><span class="spin"></span> Reading</span></div>
+          <div class="doc-meta">Policy · 1.1 MB · usually under a minute · you can leave this page</div>
+          <div class="track"><i></i></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <p class="doc-meta" style="margin-top:14px">The mark at the top already says it is being read, so the box saying it again is gone. What the box carried that the mark could not — <b>how long this normally takes</b> and <b>that you can leave</b> — moves into the row's own line, and the row grows a thin moving bar so the state reads at a glance without a second voice.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A4 · being read, taking longer than usual</span><em>new · R-5 · revised</em></div>
+    <div class="pad">
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico proc">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Scanned brochure.pdf <span class="pill warn"><span class="spin slow"></span> Taking longer</span></div>
+          <div class="doc-meta">Brochure · 42 pages · 18 MB · a long scan can take up to 30 minutes · we'll keep trying</div>
+          <div class="track slow"><i></i></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <p class="doc-meta" style="margin-top:14px">‼️ <b>ONE pill, not two.</b> “Reading” and “taking longer” are not two states — the second is the first, turned up. So the <b>pill itself changes</b>: blue <i>Reading</i> → amber <i>Taking longer</i>, same spinner slowed, same bar slowed. A row never carries two status pills. Two pills make the eye compare them and ask which one is the state; one pill answers it.</p>
+      <p class="doc-meta" style="margin-top:8px">A box appears here only when this file is a <b>replacement</b> — then it earns one: <i>“Your current file is still answering callers while we work on the new one.”</i></p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A5 · we could not read it</span><em>three true sentences</em></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico stop">XLS</div>
+        <div class="doc-main">
+          <div class="doc-name">Rates 2019.xls <span class="pill stop">Not read</span></div>
+          <div class="doc-meta">Price list · 340 KB · added today</div>
+          <div class="banner stop"><span>✕</span><div><b>This is an older Word, Excel or PowerPoint file.</b>Open it, save it as .docx, .xlsx or .pptx, and upload it again.</div></div>
+          <div class="foot"><span class="btn sm">Replace file</span><span class="btn sm quiet">Remove</span></div>
+        </div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico stop">DOC</div>
+        <div class="doc-main">
+          <div class="doc-name">Staff handbook.docx <span class="pill stop">Not read</span></div>
+          <div class="doc-meta">Other · 5.6 MB · added today</div>
+          <div class="banner stop"><span>✕</span><div><b>We couldn't open this file — it may need a password.</b>Remove the password and upload it again.</div></div>
+          <div class="foot"><span class="btn sm">Replace file</span><span class="btn sm quiet">Remove</span></div>
+        </div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico stop">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Menu final.pdf <span class="pill stop">Not read</span></div>
+          <div class="doc-meta">Menu · 2.2 MB · added today</div>
+          <div class="banner stop"><span>✕</span><div><b>We couldn't read this file.</b>It may be damaged. Try saving it again and uploading it.</div></div>
+          <div class="foot"><span class="btn sm">Replace file</span><span class="btn sm quiet">Remove</span></div>
+        </div>
+      </div>
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico stop">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Full catalogue 2026.pdf <span class="pill stop">Too long</span></div>
+          <div class="doc-meta">Catalogue · 142 pages · 48 MB · added today</div>
+          <div class="banner stop"><span>✕</span><div><b>This file has 142 pages. We can read up to 100.</b>Split it into smaller files and upload them separately.</div></div>
+          <div class="foot"><span class="btn sm">Replace file</span><span class="btn sm quiet">Remove</span></div>
+        </div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">‼️ <b>Added 2026-09-12 — this state was reachable and undrawn. BUILT 2026-09-12.</b> The sentence existed in all five languages but never said the numbers: <i>“This file has too many pages.”</i> Both numbers are in, at all three refusal sites, and the count the refusal itself measured is written onto the row so the sentence can state it.<br><b>When the provider sees it:</b> the free in-process page pre-count runs <b>before a cent is spent</b> — no Document Intelligence call, no reading — so the row reaches this state within seconds of the upload being confirmed. Measured live on a 120-page file: refused in <b>15 s</b>, <code>pageCount 120</code>, no spend.<br>‼️ It is <b>not</b> refused synchronously inside the upload dialog: that would mean downloading up to 30 MB per file on the API request thread, and downloading it a second time in the reader moments later. Owner’s call if the seconds are worth that; the state drawn here is what ships.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A6 · a replacement did not work out</span><em>new · E1</em></div>
+    <div class="pad">
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list.pdf <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">Price list · 3 pages · 1.2 MB · added 4 Sept</div>
+          <div class="banner stop"><span>✕</span><div><b>The new file you uploaded couldn't be read, so we kept the one you already had.</b>Callers are still being answered from it. Try another file when you're ready.</div></div>
+          <div class="foot"><span class="btn sm">Replace file</span></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">‼️ This is the state that used to lose <b>both</b> files. The row still points at the version that works; nothing was taken offline.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>A7 · nothing has happened for a long time</span><em>new · U-04</em></div>
+    <div class="pad">
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico proc">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Winter menu.pdf <span class="pill warn">Stopped</span></div>
+          <div class="doc-meta">Menu · 6 pages · 3.1 MB · started 3 hours ago</div>
+          <div class="banner warn"><span>⚠</span><div><b>This one stopped part way through.</b>You can read it again — nothing else needs to happen first.</div></div>
+          <div class="foot"><span class="btn sm primary">Read again</span><span class="btn sm quiet">Remove</span></div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="rule">B · The file itself <span>— download, and the one you replaced</span></h2>
+<p class="lede">There was no way to get a file back out of Clinket at all, and a replaced file was deleted the moment the new one was confirmed. Both are the provider's own documents.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>B1 · the row menu</span><em>new · E1</em></div>
+    <div class="pad">
+      <div class="menu">
+        <div class="item on">Download this file <span class="pill">1.2 MB</span></div>
+        <div class="item on">Replace file</div>
+        <div class="item on">Read again</div>
+        <div class="sep"></div>
+        <div class="item on">Edit details</div>
+        <div class="item on">Who can find it</div>
+        <div class="sep"></div>
+        <div class="item off">Remove</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>B2 · the file you replaced, while we still have it</span><em>new · E1</em></div>
+    <div class="pad">
+      <div class="docrow" style="border-bottom:0">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list autumn.pdf <span class="pill ok">Ready</span></div>
+          <div class="doc-meta">Price list · 4 pages · 1.4 MB · replaced 8 Sept</div>
+          <div class="prev">
+            <span class="lab">You replaced</span>
+            <span>Price list summer.pdf</span>
+            <span class="pill">1.2 MB</span>
+            <span class="pill navy">kept until 7 Nov</span>
+            <span class="btn sm" style="margin-left:auto">Download</span>
+          </div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">After that date the line is simply not there — no greyed-out button, no message. The row goes back to looking like A1.</p>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>B3 · ‼️ nothing downloads on one click</span><em>added 2026-09-12 · owner</em></div>
+    <div class="pad">
+      <div class="scrim">
+        <div class="dlg">
+          <h4>Download this file?</h4>
+          <p>A copy will be saved to this device.</p>
+          <div class="file"><span class="doc-ico" style="width:24px;height:24px;border-radius:7px;font-size:8px">PDF</span> Price list autumn.pdf <span class="pill" style="margin-left:auto">1.4 MB</span></div>
+          <div class="foot"><span class="btn quiet">Cancel</span><span class="btn primary">Download</span></div>
+        </div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">Every download — current file or replaced one, web or phone, row menu or the line in B2 — goes through this. <b>A single click can never start a download.</b> Cancel is the resting focus, Esc and a tap outside both cancel.</p>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>B4 · downloading the one you replaced</span><em>says which file it is</em></div>
+    <div class="pad">
+      <div class="scrim">
+        <div class="dlg">
+          <h4>Download the file you replaced?</h4>
+          <p>This is not the file answering your callers. You replaced it on 8 September.</p>
+          <div class="file"><span class="doc-ico" style="width:24px;height:24px;border-radius:7px;font-size:8px">PDF</span> Price list summer.pdf <span class="pill" style="margin-left:auto">1.2 MB</span></div>
+          <div class="foot"><span class="btn quiet">Cancel</span><span class="btn primary">Download</span></div>
+        </div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">Same dialog, one different sentence — so nobody downloads the old price list thinking it is the live one.</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule">C · Suggested services <span>— why there are none</span></h2>
+<p class="lede">A run that read seventy priced lines and suggested nothing looked exactly like a run that broke. It is usually neither: the lines were real, and they were set aside because they are not the kind of work this business offers.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>C1 · there are suggestions</span><em>unchanged</em></div>
+    <div class="pad">
+      <div class="sugg">
+        <h4>12 suggested services <span class="pill ok">from 2 files</span></h4>
+        <p class="sub">Read them over, change anything you like, then add the ones you want.</p>
+        <div class="foot"><span class="btn sm primary">Review</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>C2 · nothing to suggest, and why</span><em>new · R-14</em></div>
+    <div class="pad">
+      <div class="sugg">
+        <h4>No suggestions from this file</h4>
+        <p class="sub">We found 70 priced lines and set them all aside — they aren't the kind of work you offer. Nothing is missing from your answers; callers can still be told about everything in the file.</p>
+      </div>
+      <div class="sugg" style="margin-top:12px">
+        <h4>No suggestions from this file</h4>
+        <p class="sub">We found 7 priced lines. 5 aren't the kind of work you offer, and 2 are already in your services.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>C3 · we only got through part of it</span><em>U-09</em></div>
+    <div class="pad">
+      <div class="sugg">
+        <h4>4 suggested services <span class="pill warn">part of the file</span></h4>
+        <p class="sub">This file is very long, so we looked at the first part of it. Add or set aside what's here and we'll carry on from where we stopped.</p>
+        <div class="foot"><span class="btn sm primary">Review</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>C4 · reading a file again replaces what is waiting</span><em>U-08 · with D3</em></div>
+    <div class="pad">
+      <div class="sheet">
+        <div style="font-family:var(--display);font-weight:700;font-size:15px;margin-bottom:4px">Read this file again?</div>
+        <p class="sub" style="font-size:12.5px;color:var(--ink-soft);margin:0">We'll read <b>Spring price list.pdf</b> from the beginning. Anything already added to your services stays exactly as it is.</p>
+        <div class="banner warn"><span>⚠</span><div><b>You have 3 suggestions waiting from this file, and 1 of them you have edited.</b>Reading again replaces them with a fresh set. Your edit would be lost.</div></div>
+        <div class="foot"><span class="btn sm quiet">Keep it as it is</span><span class="btn sm primary">Read again</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule">D · The same states on a phone <span>— the provider app</span></h2>
+<p class="lede">Not the web layout squeezed. The row is a card, the notice sits under the name where the thumb already is, and the actions are a sheet rather than a menu. Everything reachable without a second tap to find out what happened.</p>
+
+<div class="board">
+
+  <div class="frame w360">
+    <div class="frame-label"><span>D1 · the list</span><em>iPhone · 390pt</em></div>
+    <div class="pad" style="background:var(--surface-sunk)">
+      <div class="phone">
+        <div class="phone-bar"><span>Files the AI can use</span><span class="pill">4 of 20</span></div>
+        <div class="phone-body">
+          <div class="docrow">
+            <div class="doc-ico">PDF</div>
+            <div class="doc-main">
+              <div class="doc-name">Spring price list.pdf <span class="pill ok">Ready</span></div>
+              <div class="doc-meta">3 pages · 1.2 MB</div>
+            </div>
+          </div>
+          <div class="docrow">
+            <div class="doc-ico proc">PDF</div>
+            <div class="doc-main">
+              <div class="doc-name">Scanned brochure.pdf <span class="pill proc"><span class="spin"></span> Reading</span></div>
+              <div class="doc-meta">42 pages · 18 MB</div>
+              <div class="banner info" style="margin-top:7px"><span>◔</span><div>Still working on this one — it's taking longer than usual. You can close the app.</div></div>
+            </div>
+          </div>
+          <div class="docrow">
+            <div class="doc-ico">PDF</div>
+            <div class="doc-main">
+              <div class="doc-name">Treatment menu.pdf <span class="pill ok"><i class="dot"></i> Ready</span></div>
+              <div class="doc-meta">8 pages · 2.4 MB</div>
+              <div class="banner warn" style="margin-top:7px"><span>⚠</span><div>2 pictures in this file couldn't be read, so we can't send them to callers.<span class="x">✕</span></div></div>
+            </div>
+          </div>
+          <div class="docrow">
+            <div class="doc-ico">PDF</div>
+            <div class="doc-main">
+              <div class="doc-name">Price list autumn.pdf <span class="pill ok">Ready</span></div>
+              <div class="doc-meta">4 pages · 1.4 MB</div>
+              <div class="prev" style="margin-top:7px"><span class="lab">You replaced</span><span>Price list summer.pdf</span><span class="btn sm" style="margin-left:auto">Get it</span></div>
+            </div>
+          </div>
+          <div class="swipe"><span>↔</span> Swipe a card for Replace, Read again, Remove</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>D2 · the actions sheet</span><em>long-press or ···</em></div>
+    <div class="pad" style="background:var(--surface-sunk)">
+      <div class="phone">
+        <div class="phone-bar"><span>Price list autumn.pdf</span></div>
+        <div class="phone-body">
+          <div class="sheet">
+            <div class="grab"></div>
+            <div class="menu" style="width:auto;border:0;box-shadow:none;padding:0">
+              <div class="item on">Download this file <span class="pill">1.4 MB</span></div>
+              <div class="item on">Download the one you replaced <span class="pill">1.2 MB</span></div>
+              <div class="sep"></div>
+              <div class="item on">Replace file</div>
+              <div class="item on">Read again</div>
+              <div class="item on">Edit details</div>
+              <div class="item on">Who can find it</div>
+              <div class="sep"></div>
+              <div class="item off">Remove</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>D3 · a file we could not read</span><em>and what to do next</em></div>
+    <div class="pad" style="background:var(--surface-sunk)">
+      <div class="phone">
+        <div class="phone-bar"><span>Files the AI can use</span></div>
+        <div class="phone-body">
+          <div class="docrow" style="border-bottom:0">
+            <div class="doc-ico stop">XLS</div>
+            <div class="doc-main">
+              <div class="doc-name">Rates 2019.xls <span class="pill stop">Not read</span></div>
+              <div class="doc-meta">340 KB</div>
+              <div class="banner stop" style="margin-top:7px"><span>✕</span><div><b>This is an older Excel file.</b>Open it, save it as .xlsx, and upload it again.</div></div>
+              <div class="foot"><span class="btn sm">Replace file</span><span class="btn sm quiet">Remove</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>D4 · ‼️ the same gate on the phone</span><em>added 2026-09-12 · owner</em></div>
+    <div class="pad" style="background:var(--surface-sunk)">
+      <div class="phone">
+        <div class="phone-bar"><span>Price list autumn.pdf</span></div>
+        <div class="phone-body" style="position:relative">
+          <div class="scrim" style="border-radius:0;min-height:230px">
+            <div class="dlg" style="max-width:270px">
+              <h4>Download this file?</h4>
+              <p>A copy will be saved to this phone.</p>
+              <div class="file">Price list autumn.pdf <span class="pill" style="margin-left:auto">1.4 MB</span></div>
+              <div class="foot" style="justify-content:stretch"><span class="btn quiet" style="flex:1;text-align:center">Cancel</span><span class="btn primary" style="flex:1;text-align:center">Download</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="doc-meta" style="margin-top:12px">The phone uses the app's own confirm, not a web dialog — same two sentences, same two keys. A swipe action can reach Download too, and it lands here as well.</p>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="rule">E · Every sentence on this sheet <span>— and where it comes from</span></h2>
+<p class="lede">Each one is a key in <code>en.json</code> and in all five language files. The server already sends the failure and notice sentences; the screen never re-invents one it has been given, or the two would drift apart in translation.</p>
+
+<div class="frame full">
+  <div class="frame-label"><span>E · copy table</span><em>5 languages: en · es · fr · gu · hi</em></div>
+  <div class="pad">
+    <table class="copy">
+      <tr><th style="width:23%">Where</th><th style="width:30%">Key</th><th>What it says</th></tr>
+      <tr><td>A2 · cause 1</td><td><code>Info_KnowledgePicturesUnreadable</code> <span class="pill navy">server</span></td><td class="say">{0} pictures in this file couldn't be read, so we can't send them to callers. Everything written in the file works normally.</td></tr>
+      <tr><td>A2 · cause 2</td><td><code>Info_KnowledgePicturesOverLimit</code> <span class="pill navy">server</span></td><td class="say">This file had {0} pictures. We kept the {1} largest.</td></tr>
+      <tr><td>A2 · cause 3</td><td><code>Info_KnowledgePicturesUndescribed</code> <span class="pill navy">server</span></td><td class="say">{0} of them have no description yet, so they can't be sent to callers.</td></tr>
+      <tr><td>A2 · cause 4a ‼️</td><td><code>Info_KnowledgeRanOutOfTime</code> <span class="pill navy">server</span></td><td class="say">We ran out of time reading this file, so we used a quicker reading for all of it. A price may be less exact. The pages we finished are saved — read it again and we'll carry on from where we stopped. <span style="opacity:.7">(‼️ the WHOLE file, never “N pages” — <code>BudgetExhausted</code> makes the whole document keep its machine reading. <b>Offers Read again</b>: finished pages are in the page cache, so the next attempt spends a fresh full budget only on what is left.)</span></td></tr>
+      <tr><td>A2 · cause 4b ‼️</td><td><code>Info_KnowledgePagesUnread</code> <span class="pill navy">server</span></td><td class="say">{0} pages of this file couldn't be read this time. Everything else is saved — reading it again usually picks them up. <span style="opacity:.7">(<code>PagesUnreadable</code>. <b>Offers Read again</b>: usually transient, and every other page is cached.)</span></td></tr>
+      <tr><td>A2 · cause 4c ‼️</td><td><code>Info_KnowledgePagesNotRendered</code> <span class="pill navy">server</span></td><td class="say">We couldn't turn this file's pages into pictures, so we read only its text. <span style="opacity:.7">(<code>RasterizationFailed</code>. ‼️ <b>NO “Read again”</b> — same file, same result. The action offered is <b>Replace file</b>.)</span></td></tr>
+      <tr><td>A2 · cause 5</td><td><code>Info_KnowledgeOverviewTrimmed</code> <span class="pill navy">server</span></td><td class="say">We left {0} sentences out of this file's summary because they mentioned a figure the file doesn't contain.</td></tr>
+      <tr><td>‼️ cause 6 — <b>decide it</b></td><td><code>PagesSourceRetained</code> <span class="pill stop">no key yet</span></td><td class="say">‼️ <b>Today this is NOT reported as degraded at all</b>, and the code says why: <i>“Deliberately NOT part of Degraded: the page holds correct text and the outcome is final, where a degraded pass is re-run.”</i> <b>P2-A proves that premise false on a rendered page</b> (it published <code>4211%</code> for <code>મસાજ</code>). Fix P2-A first, then decide whether what survives still needs a provider sentence. ‼️ Whatever it says, it must <b>NOT</b> offer “Read again” — that outcome is final by design.</td></tr>
+      <tr><td>A2 · two or more</td><td><code>Info_KnowledgeSeveralThings</code> <span class="pill navy">server</span></td><td class="say">Two things worth knowing about this file. <span style="opacity:.7">(heading only — the causes above follow as a list; never two stacked banners)</span></td></tr>
+      <tr><td>A2 mark ‼️</td><td><i>no pill — an amber dot on the Ready pill</i></td><td class="say">‼️ <b>There is no second pill.</b> The row's state is <i>Ready</i> and stays one pill; the dot makes it findable in a list, the notice says what happened. A screen reader gets the notice, not a bare word.</td></tr>
+      <tr><td>A3 row line ‼️</td><td><code>Knowledge_ReadingUsualTime</code></td><td class="say">usually under a minute · you can leave this page <span style="opacity:.7">(replaces the removed banner — the Reading mark already says the state)</span></td></tr>
+      <tr><td>A4 pill ‼️</td><td><code>Knowledge_TakingLonger</code></td><td class="say">Taking longer <span style="opacity:.7">(‼️ this <b>REPLACES</b> the <i>Reading</i> pill — it is never shown beside it. One status pill per row, always.)</span></td></tr>
+      <tr><td>A4 row line</td><td><code>Knowledge_ReadingLongScan</code></td><td class="say">a long scan can take up to {0} minutes · we'll keep trying</td></tr>
+      <tr><td>A4 banner <i>(replacement only)</i></td><td><code>Knowledge_ReplacementPreviousStillLive</code></td><td class="say">Your current file is still answering callers while we work on the new one.</td></tr>
+      <tr><td>A5 older format</td><td><code>Error_KnowledgeLegacyOfficeFormat</code> <span class="pill navy">server</span></td><td class="say">This is an older Word, Excel or PowerPoint file. Open it, save it as .docx, .xlsx or .pptx, and upload it again.</td></tr>
+      <tr><td>A5 password</td><td><code>Error_KnowledgePasswordProtected</code> <span class="pill navy">server</span></td><td class="say">We couldn't read this file — it may be password-protected. Remove the password and upload it again.</td></tr>
+      <tr><td>A5 damaged</td><td><code>Error_KnowledgeUnreadable</code> <span class="pill navy">server</span></td><td class="say">We couldn't read this file.</td></tr>
+      <tr><td>A5 too long ‼️</td><td><code>Error_KnowledgeTooManyPages</code> <span class="pill navy">server</span></td><td class="say">This file has {0} pages. We can read up to {1}. Split it into smaller files and upload them separately. <span style="opacity:.7">(‼️ the key already exists in all five languages but carries <b>no arguments</b> — today it says only “This file has too many pages.” Add both numbers at the three refusal sites, and say it at <b>upload</b> time from the pre-count.)</span></td></tr>
+      <tr><td>A6 replacement</td><td><code>Error_KnowledgeReplacementKeptPrevious</code> <span class="pill navy">server</span></td><td class="say">The new file you uploaded couldn't be read, so we kept the one you already had.</td></tr>
+      <tr><td>A7 stopped</td><td><code>Knowledge_RunStopped</code></td><td class="say">This one stopped part way through. You can read it again — nothing else needs to happen first.</td></tr>
+      <tr><td>A7 / D1 action</td><td><code>Knowledge_ReadAgain</code></td><td class="say">Read again</td></tr>
+      <tr><td>B1 / D2 action</td><td><code>Knowledge_DownloadThisFile</code></td><td class="say">Download this file</td></tr>
+      <tr><td>B3 dialog title ‼️</td><td><code>Knowledge_DownloadConfirmTitle</code></td><td class="say">Download this file?</td></tr>
+      <tr><td>B3 dialog body ‼️</td><td><code>Knowledge_DownloadConfirmBody</code></td><td class="say">A copy will be saved to this device. <span style="opacity:.7">(phone: “…to this phone”, <code>Knowledge_DownloadConfirmBodyPhone</code>)</span></td></tr>
+      <tr><td>B4 dialog title ‼️</td><td><code>Knowledge_DownloadPreviousConfirmTitle</code></td><td class="say">Download the file you replaced?</td></tr>
+      <tr><td>B4 dialog body ‼️</td><td><code>Knowledge_DownloadPreviousConfirmBody</code></td><td class="say">This is not the file answering your callers. You replaced it on {0}.</td></tr>
+      <tr><td>B3 / B4 confirm</td><td><code>Common_Download</code></td><td class="say">Download</td></tr>
+      <tr><td>B3 / B4 cancel</td><td><code>Common_Cancel</code></td><td class="say">Cancel</td></tr>
+      <tr><td>B2 label</td><td><code>Knowledge_YouReplaced</code></td><td class="say">You replaced</td></tr>
+      <tr><td>B2 window</td><td><code>Knowledge_KeptUntil</code></td><td class="say">kept until {0}</td></tr>
+      <tr><td>D2 action</td><td><code>Knowledge_DownloadReplacedFile</code></td><td class="say">Download the one you replaced</td></tr>
+      <tr><td>C2 all set aside</td><td><code>Knowledge_NoSuggestionsNotYourWork</code></td><td class="say">We found {0} priced lines and set them all aside — they aren't the kind of work you offer. Nothing is missing from your answers.</td></tr>
+      <tr><td>C2 mixed</td><td><code>Knowledge_NoSuggestionsMixed</code></td><td class="say">We found {0} priced lines. {1} aren't the kind of work you offer, and {2} are already in your services.</td></tr>
+      <tr><td>C3 partial</td><td><code>Knowledge_OnlyPartOfTheFile</code></td><td class="say">This file is very long, so we looked at the first part of it. Add or set aside what's here and we'll carry on from where we stopped.</td></tr>
+      <tr><td>C4 warning</td><td><code>Knowledge_ReadAgainReplacesWaiting</code></td><td class="say">You have {0} suggestions waiting from this file, and {1} of them you have edited. Reading again replaces them with a fresh set.</td></tr>
+    </table>
+    <ul class="notes">
+      <li><b>Not one technical word.</b> No passage, chunk, index, embedding, token, blob, schema, payload, retry, queue. A salon owner and a plumber read the same sentences.</li>
+      <li><b>Numbers are arguments, never baked in.</b> The 30 minutes in A3 is the server's own budget; the retention date in B2 is the server's own number. Neither is typed into the app.</li>
+      <li><b>The server's sentence wins.</b> Rows marked <span class="pill navy">server</span> arrive already translated; the screen shows what it was given.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="rule">F · Rules this sheet is drawn to</h2>
+<div class="frame full">
+  <div class="pad">
+    <ul class="notes">
+      <li><b>Responsive, not reflowed.</b> Web frames hold from 1440 down to 360; the row's notice wraps under the name rather than pushing the actions off-screen. Tested shapes: laptop, iPad portrait and landscape, phone, and a folded phone at 280 pt where the pills stack and the meta line truncates from the middle.</li>
+      <li><b>Brand green fills the chosen action only.</b> Read again in A7 and C4 are the pressed state; everything else is a quiet outline. Amber is a limit or a caution, red is a stop, blue is work in progress.</li>
+      <li><b>Nothing new is a modal.</b> The only dialog is C4, which already exists — it gains one warning line.</li>
+      <li><b>A dismissed notice stays dismissed for that run</b> and comes back if a later run produces a new one; it never hides a failure, only an information line.</li>
+      <li><b>Every state here is reachable from the server as it stands today.</b> None of it is drawn for a feature that does not exist.</li>
+    </ul>
+    <div class="out">
+      <b>Deliberately not on this sheet</b>
+      Per-file upload refusal reasons (U-05), the picture strip's tap target (U-18), long-name truncation (U-19), the mobile MIME repair (U-12) and the copy divergences (U-22) are Phase 3 and keep their own sheet. The suggestions review screen itself is unchanged — only the empty-state sentence in C2 and the warning line in C4 are new.
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

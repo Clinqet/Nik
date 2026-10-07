@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "general",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-general-bosco-roofing-son",
+      "businessName": "Bosco Roofing & Son",
+      "description": "Residential and commercial roofing. 24 hour emergency. Asphalt, metal, skylights, siding, soffit, fascia & eaves. 50 year warranty options.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-633-8555",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "4140 Fairview St",
+        "postalCode": "L7L 4Y8",
+        "city": "Burlington",
+        "area": "general",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "4140 Fairview St, Burlington, ON L7L 4Y8"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flat Roof",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Metal Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Skylight Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Siding Soffit Fascia",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24 Hour Emergency Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Burlington+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Own number — a calmer card, and a way out that is never blocked</title>
+<style>
+@font-face{font-family:Lufga;src:url('fonts/LufgaRegular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:Lufga;src:url('fonts/LufgaSemiBold.woff') format('woff');font-weight:600;font-display:swap}
+:root{
+  /* the approved surface tokens (voice-keep-your-number, 2026-09-15) — nothing invented */
+  --ink:#032858; --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-ink:#3A6410; --green-line:#bdebca; --green-wash:#F4FFF8;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00; --amber-soft:#FFF7ED; --amber-deep:#92400E; --amber-card:#FFFBEB; --amber-edge:#FDE68A;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E; --red:#FF3B30;
+  --blue-bg:#EAF3FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B; --blue-live:#3B82F6;
+  --ok-bg:#EAFBF0; --ok-ink:#0e7a3a;
+  --r-lg:16px; --r:12px;
+  --sh:0 1px 2px rgba(3,40,88,.05),0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06),0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased;padding:0 20px 90px}
+h1,h2,h3,h4,p{margin:0}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.15em}
+.wrap{max-width:1180px;margin:0 auto}
+
+header.masthead{padding:44px 0 24px;border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between}
+.masthead h1{font-size:clamp(26px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;font-weight:600}
+.masthead p{margin-top:8px;color:var(--muted);max-width:70ch}
+.stamp{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:right;line-height:1.8}
+.stamp b{color:var(--amber-ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(245,245,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -20px;padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+nav.jump a{text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid transparent}
+nav.jump a:hover{border-color:var(--line);background:var(--card);color:var(--ink)}
+h2.rule{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:52px 0 6px;padding-bottom:8px;border-bottom:1px solid #d3d9e3;font-weight:600}
+h2.rule span{color:var(--green-ink)}
+.lede{color:var(--muted);margin:0 0 20px;max-width:92ch}
+.lede b{color:var(--text)}
+.board{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;flex:1 1 460px;min-width:0}
+.frame.w360{flex:0 1 360px;max-width:100%}
+.frame.w560{flex:1 1 520px}
+.frame-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;background:var(--hair);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.frame-label em{font-style:normal;color:var(--green-ink);font-weight:600;text-align:right}
+.frame-label b.was{color:var(--red-ink)}
+.frame-label b.new{color:var(--blue-ink)}
+.why{padding:10px 14px 12px;border-top:1px dashed #d3d9e3;font-size:12.5px;color:var(--muted);background:var(--tint)}
+.why b{color:var(--text)}
+.pad{padding:16px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:var(--r);padding:14px 16px;font-size:13.5px;color:var(--muted);margin:22px 0 18px}
+.callout b{color:var(--text)}
+.callout.warn{border-left-color:var(--amber-ink);background:var(--amber-bg)}
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;margin-top:6px}
+.finding{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.finding .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.finding .who b{color:var(--blue-ink)}
+.finding h4{font-size:14.5px;margin-top:6px;color:var(--text)}
+.finding p{font-size:13px;color:var(--muted);margin-top:6px}
+.finding p b{color:var(--text)}
+table.copy{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px}
+table.copy th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.copy td{padding:8px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.copy code{font-family:var(--mono);font-size:11px;background:var(--hair);padding:1px 6px;border-radius:5px;color:var(--ink);word-break:break-all}
+table.copy .say{color:var(--text)}
+table.copy s{color:var(--faint)}
+.tbl-scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 8px}
+.chip{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:1px 8px;border:1px solid var(--line);white-space:nowrap}
+.chip.new{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+.chip.chg{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.chip.gone{background:var(--red-bg);border-color:var(--red-line);color:var(--red-ink)}
+.chip.same{background:var(--hair);color:var(--muted)}
+
+/* ─── the built partner app ─── */
+/* the built dialog scale, identical on web and in the app: title 18/700, body 14, note 12.5, buttons 14/600.
+   The icon lines up with the title's FIRST line (36px circle, 24px line, 6px offset), so a wrapped title never floats. */
+.verdict{display:flex;align-items:flex-start;gap:12px;padding-right:40px}
+.vi{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none}
+.vi .i{width:18px;height:18px}
+.vi.done{background:var(--ok-bg);color:var(--ok-ink)}
+.vi.mute{background:#F1F1F1;color:#5F5F5F}
+.vi.spinwrap{background:var(--blue-bg)}
+.live-dot{position:relative;width:12px;height:12px;border-radius:50%;background:var(--blue-live)}
+.live-dot::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--blue-live);opacity:.55;animation:ping 1.2s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{75%,100%{transform:scale(2.1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.live-dot::before{animation:none}}
+.t18{font-size:18px;font-weight:700;color:var(--text);line-height:24px;padding-top:6px}
+.body{font-size:14px;color:#374151;line-height:1.55;margin-top:12px}
+.note{font-size:12.5px;color:#6B7280;line-height:1.55;margin-top:8px}
+.acts{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:12px;padding:11px 18px;font-size:14px;font-weight:600;background:var(--card);color:var(--text);white-space:nowrap;line-height:1.2}
+.btn.pri{background:var(--green);border-color:var(--green)}
+.btn.sm{padding:7px 13px;font-size:13px;border-radius:9px}
+.btn.danger{color:var(--red);border-color:rgba(255,59,48,.4);background:#fff}
+.link{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
+.strip .bar{height:3px;border-radius:99px;background:var(--line)}
+.strip .lab{font-size:11px;text-align:center;color:#9CA3AF;margin-top:6px;line-height:1.35}
+.strip .on .bar{background:var(--blue-live)}
+.strip .on .lab{color:var(--ink);font-weight:600}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid var(--blue-line);border-top-color:var(--blue-ink);display:inline-block;animation:spin 1s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+
+/* the own-number card on the page (built shape) */
+.ocard{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.ocard.connected{border-color:var(--green-line);background:linear-gradient(180deg,var(--green-wash),#fff)}
+.ocard.fail{border-color:var(--amber-edge);background:var(--amber-card)}
+.ocard .head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.pill{font-size:11px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok-ink)}
+.pill.warn{background:var(--amber-soft);color:var(--amber-deep)}
+.pill.mute{background:#F1F1F1;color:#5F5F5F}
+.ocard .num{font-size:18px;font-weight:700}
+.ocard .chg{font-size:13px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:#9FB3D1}
+.ocard .date{font-size:12px;color:#6B7280}
+.ocard .say{font-size:13px;color:#374151;margin-top:10px;line-height:1.55}
+.ocard .say b{color:var(--text)}
+.ocard .aside{font-size:12px;color:#6B7280;margin-top:4px;line-height:1.5}
+.ocard .aside.warn{color:var(--amber-deep)}
+.ocard .aside .link{font-size:12px;text-decoration:underline;text-underline-offset:3px;margin-left:2px}
+.ocard .links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:14px}
+.ocard .disc{margin-top:14px;padding-bottom:14px}
+.ocard .exp{display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;margin-top:0;border-top:1px solid var(--line);font-size:13.5px;font-weight:600}
+.ocard .exp + .exp{margin-top:12px}
+.ocard .exp .i{color:#9CA3AF}
+.ocard .howlist{list-style:none;padding:10px 0 0;margin:0;display:flex;flex-direction:column;gap:10px}
+.ocard .howlist b{display:block;font-size:13px;color:var(--text)}
+.ocard .howlist span{font-size:12.5px;color:#4B5563}
+.ocard .tip{font-size:12px;color:var(--ink);background:#EEF3FB;border-radius:8px;padding:8px 12px;margin-top:12px;line-height:1.5}
+.ocard .hear{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px}
+.ocard .hear .link{text-decoration:underline;text-underline-offset:3px}
+.hl{box-shadow:0 0 0 2px var(--blue-line);border-radius:6px;padding:1px 3px;margin:-1px -3px}
+.was-links .link{opacity:.95}
+
+/* laptop dialog on the dimmed page */
+.stage{background:linear-gradient(0deg,rgba(0,0,0,.38),rgba(0,0,0,.38)),repeating-linear-gradient(90deg,#ECEEF2 0 220px,#F5F5F5 220px 100%);padding:28px 18px;display:grid;place-items:center}
+.dlg{position:relative;background:#fff;border-radius:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);width:100%;max-width:470px;padding:24px}
+.xbtn{position:absolute;top:12px;right:12px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:#5F5F5F;background:#fff}
+
+/* provider app */
+.phone{width:100%;max-width:330px;margin:0 auto;border:1px solid #c9d2c6;border-radius:32px;overflow:hidden;background:#FAFAFB;box-shadow:var(--sh-lift);display:flex;flex-direction:column}
+.phone .sb{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600;background:#fff}
+.phone .hdr{display:flex;align-items:center;gap:10px;padding:8px 14px 12px;background:#fff;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+.phone .scrbody{padding:14px;display:flex;flex-direction:column;gap:12px;margin:0}
+.phone .ocard{padding:14px}
+.phone .ocard .num{font-size:16px}
+.phone .ocard .links{gap:10px 14px}
+.phone .scr{background:linear-gradient(0deg,rgba(3,40,88,.30),rgba(3,40,88,.30)),#FAFAFB;height:84px}
+.phone .sheet{background:#fff;border-radius:22px 22px 0 0;padding:10px 18px 22px;position:relative;margin-top:-20px}
+.phone .grab{width:40px;height:5px;border-radius:999px;background:#D3D9E3;margin:0 auto 16px}
+.phone .sheet .xbtn{top:18px;right:14px;width:30px;height:30px;border:0;background:transparent}
+.phone .sheet .acts{flex-direction:column;align-items:stretch;margin-top:18px}
+.phone .sheet .btn{width:100%;border-radius:14px;padding:13px 16px;font-size:15px}
+.pw .ocard .num{font-size:16px}
+.pw{width:100%;max-width:330px;margin:0 auto;border:1px solid #c9d2c6;border-radius:32px;overflow:hidden;background:#F5F5F5;box-shadow:var(--sh-lift);display:flex;flex-direction:column}
+.pw .sb{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600;background:#fff}
+.pw .inner{padding:12px}
+.pw .url{background:#F2F2F2;border-top:1px solid var(--line);padding:9px 16px 14px;display:flex;justify-content:center}
+.pw .url span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:12px;color:#374151}
+
+@media (max-width:760px){body{padding:0 12px 60px}nav.jump{margin:0 -12px;padding:8px 12px}.frame.w360,.frame.w560{flex:1 1 100%}.dlg{padding:20px}.stage{padding:18px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>Own number — a calmer card, and a way out that is never blocked</h1>
+    <p>Four links under the connected sentence become two. Every other action moves to where a provider would look for it.
+      And "Disconnect my number" can no longer be refused because they checked their number a few times this hour.</p>
+  </div>
+  <div class="stamp">Approved 2026-09-18 · built web + app + server<br><b>R1 as approved: a PROVEN number’s disconnect is never limited</b><br>Amends the action row only of<br>voice-own-number-honest-status ·<br>voice-keep-your-number ·<br>voice-assistant-page-density</div>
+</header>
+
+<nav class="jump">
+  <a href="#card">1 · The card</a><a href="#states">2 · Every state</a><a href="#how">3 · How it works</a>
+  <a href="#phone">4 · Phone</a><a href="#disconnect">5 · Disconnect</a><a href="#rules">6 · What you are approving</a><a href="#copy">7 · Copy</a>
+</nav>
+
+<!-- ═══════════════════════════ 1 ═══════════════════════════ -->
+<h2 class="rule" id="card"><span>1</span> · The card: four links become two</h2>
+<p class="lede">The two things a provider does after connecting are <b>test it</b> and <b>tune it</b>. They stay in the row. Changing the
+  number sits beside the number. Hearing the assistant sits in "How it works". "Disconnect my number" stays exactly where you placed it
+  (PLAN D-35).</p>
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · connected</span><b class="was">Today (built)</b></div>
+    <div class="pad">
+      <div class="ocard connected was-links">
+        <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="date">Last checked Sep 18</span></div>
+        <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+        <p class="aside">Callers reach your assistant about 20 seconds after they dial — a normal wait.</p>
+        <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span><span class="link">Call your assistant to hear it</span><span class="link">Use a different number</span></div>
+        <div class="disc"><span class="btn sm danger">Disconnect my number</span></div>
+        <div class="exp">How it works <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="exp">What's not supported <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+      </div>
+    </div>
+    <div class="why">Four links wrap onto two lines above a red button: <b>five controls with equal weight</b>, and nothing says which one matters.</div>
+  </div>
+
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · connected</span><b class="new">Proposed</b></div>
+    <div class="pad">
+      <div class="ocard connected">
+        <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg hl">Change</span><span class="date">Last checked Sep 18</span></div>
+        <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+        <p class="aside">Callers reach your assistant about 20 seconds after they dial — a normal wait.</p>
+        <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+        <div class="disc"><span class="btn sm danger">Disconnect my number</span></div>
+        <div class="exp">How it works <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="exp">What's not supported <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+      </div>
+    </div>
+    <div class="why"><b>One line of two links.</b> "Change" sits beside the number it changes — the settings field already says
+      "change it on your number card", and now that sentence points at a control in <b>every</b> state (today it points at nothing when the
+      line isn't connected).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ 2 ═══════════════════════════ -->
+<h2 class="rule" id="states"><span>2</span> · Every state, proposed</h2>
+<p class="lede">No state shows more than <b>two</b> controls in its row. Where a state has a question to answer, the answer sits inside the sentence
+  that asks it.</p>
+<div class="board">
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Connected · callers wait too long</span><em>past 30 s</em></div>
+    <div class="pad"><div class="ocard connected">
+      <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+      <p class="say">Your phone rings for <b>25</b> seconds, then your assistant answers.</p>
+      <p class="aside warn">Callers wait about 40 seconds before your assistant answers, and some hang up before that. A shorter ring time gets them answered sooner — you would have less time to pick up yourself.</p>
+      <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+    </div></div>
+    <div class="why">The fix the sentence names is the link right under it.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Connected · last check was answered</span><b class="new">moved</b></div>
+    <div class="pad"><div class="ocard connected">
+      <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+      <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+      <p class="aside warn">Your last check was answered before it reached your assistant. If that wasn't you, your voicemail did. <span class="link hl">No, I didn't pick up</span></p>
+      <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+    </div></div>
+    <div class="why">"No, I didn't pick up" leaves the row and sits in the sentence it answers — today it was a third link.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Connected · ring time changed</span><em>unchanged</em></div>
+    <div class="pad"><div class="ocard connected">
+      <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span></div>
+      <p class="say">You changed the ring time to <b>15</b> seconds. Dial the new code on your phone, then check it works.</p>
+      <div class="links"><span class="btn sm pri">Show me the code</span><span class="link">Check again</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Your assistant answers every call</span><em>unchanged</em></div>
+    <div class="pad"><div class="ocard connected">
+      <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Set up with you Sep 18</span></div>
+      <p class="say"><b>Your assistant answers every call</b> to this number. Your phone doesn't ring.</p>
+      <p class="aside">To go back to ringing first, or to disconnect, dial <b style="font-family:var(--mono);color:var(--ink)">##002#</b>. The same one code turns everything off. We'll check it took.</p>
+      <div class="links"><span class="link">Check again</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Not checked yet</span><b class="new">+ Change</b></div>
+    <div class="pad"><div class="ocard">
+      <div class="head"><span class="pill mute">Not checked yet</span><span class="num">+1 (289) 698-1655</span><span class="chg hl">Change</span></div>
+      <p class="say">We haven't confirmed a missed call reaches your assistant yet. Once your codes are dialled, checking takes about a minute.</p>
+      <div class="links"><span class="btn sm pri">Check it now</span><span class="link">Back to the codes</span></div>
+    </div></div>
+    <div class="why">Today a typo in the number could not be fixed from here at all.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Voicemail picked up first</span><b class="new">+ Change</b></div>
+    <div class="pad"><div class="ocard fail">
+      <div class="head"><span class="pill warn">Your voicemail picked up first</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span></div>
+      <p class="say">At <b>15</b> seconds, your voicemail answers before your assistant can. Choose a shorter ring, then we'll check it again.</p>
+      <div class="links"><span class="btn sm pri">Choose a shorter ring</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>We didn't get the call</span><b class="new">+ Change</b></div>
+    <div class="pad"><div class="ocard fail">
+      <div class="head"><span class="pill warn">We didn't get the call</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span></div>
+      <p class="say">Your phone rang, but the call never reached your assistant. Usually this means code 1 didn't save. Let's dial it again.</p>
+      <div class="links"><span class="btn sm pri">Back to the codes</span><span class="link">Check again</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>We couldn't reach that number</span><em>no Change here</em></div>
+    <div class="pad"><div class="ocard fail">
+      <div class="head"><span class="pill warn">We couldn't reach that number</span><span class="num">+1 (289) 698-1655</span></div>
+      <p class="say">Check the number is right and your phone has signal, then try again.</p>
+      <div class="links"><span class="btn sm pri">Check the number</span><span class="link">Try again</span></div>
+    </div></div>
+    <div class="why">The button already opens the number step, so a "Change" beside the number would be the same control twice.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>The call was answered · not connected</span><em>unchanged</em></div>
+    <div class="pad"><div class="ocard fail">
+      <div class="head"><span class="pill warn">The call was answered</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span></div>
+      <p class="say">Something answered your phone before it reached your assistant. If that wasn't you, your voicemail did.</p>
+      <div class="links"><span class="btn sm pri">Call me again</span><span class="link">No, I didn't pick up</span></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ 3 ═══════════════════════════ -->
+<h2 class="rule" id="how"><span>3</span> · How it works — where "Call your assistant to hear it" goes</h2>
+<p class="lede">"How it works" is <b>open when the card first loads</b>, so the link is still visible on arrival — it just sits with the lines that
+  explain what a caller hears, instead of competing with "Check again". It opens the same "Hear your assistant" window as today.</p>
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · How it works open</span><b class="new">Proposed</b></div>
+    <div class="pad"><div class="ocard connected">
+      <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+      <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+      <p class="aside">Callers reach your assistant about 20 seconds after they dial — a normal wait.</p>
+      <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+      <div class="disc"><span class="btn sm danger">Disconnect my number</span></div>
+      <div class="exp">How it works <svg class="i" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg></div>
+      <ul class="howlist">
+        <li><b>Don't pick up, or silence the ring</b><span>Your assistant answers and tells you what they wanted.</span></li>
+        <li><b>Phone off or no signal</b><span>Your assistant answers straight away.</span></li>
+        <li><b>Decline the call (red button)</b><span>It goes to your voicemail. Your assistant stays out of it. Use this for calls you don't want it handling.</span></li>
+        <li><b>Answer it yourself</b><span>A normal private call. Not recorded, not summarised.</span></li>
+      </ul>
+      <p class="tip">Tip: to silence a ring without declining, press the side button once, never twice.</p>
+      <div class="hear"><span class="link hl">Call your assistant to hear it</span></div>
+      <div class="exp" style="margin-top:14px">What's not supported <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ 4 ═══════════════════════════ -->
+<h2 class="rule" id="phone"><span>4</span> · Provider app and the phone browser</h2>
+<p class="lede">The same two links, the same "Change" beside the number, word for word. On a narrow screen the date drops under the number.</p>
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>Provider app · connected</span><b class="new">Proposed</b></div>
+    <div class="pad" style="background:var(--hair)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>100%</span></div>
+        <div class="hdr"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg> AI Assistant</div>
+        <div class="scrbody">
+          <div class="ocard connected">
+            <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+            <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+            <p class="aside">Callers reach your assistant about 20 seconds after they dial — a normal wait.</p>
+            <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+            <div class="disc"><span class="btn sm danger">Disconnect my number</span></div>
+            <div class="exp">How it works <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Provider app · last check answered</span><b class="new">Proposed</b></div>
+    <div class="pad" style="background:var(--hair)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>100%</span></div>
+        <div class="hdr"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg> AI Assistant</div>
+        <div class="scrbody">
+          <div class="ocard connected">
+            <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+            <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+            <p class="aside warn">Your last check was answered before it reached your assistant. If that wasn't you, your voicemail did. <span class="link">No, I didn't pick up</span></p>
+            <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Web on a phone (390)</span><b class="new">Proposed</b></div>
+    <div class="pad" style="background:var(--hair)">
+      <div class="pw">
+        <div class="sb"><span>9:41</span><span>100%</span></div>
+        <div class="inner">
+          <div class="ocard connected">
+            <div class="head"><span class="pill ok">Connected</span><span class="num">+1 (289) 698-1655</span><span class="chg">Change</span><span class="date">Last checked Sep 18</span></div>
+            <p class="say">Your phone rings for <b>10</b> seconds, then your assistant answers.</p>
+            <p class="aside">Callers reach your assistant about 20 seconds after they dial — a normal wait.</p>
+            <div class="links"><span class="link">Check again</span><span class="link">Adjust ring time</span></div>
+            <div class="disc"><span class="btn sm danger">Disconnect my number</span></div>
+          </div>
+        </div>
+        <div class="url"><span>business.clinket.com</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ 5 ═══════════════════════════ -->
+<h2 class="rule" id="disconnect"><span>5</span> · Disconnect is never blocked by how often you checked</h2>
+<div class="callout warn"><b>What happened on 17–18 Sep.</b> Connecting only saves your number and shows the codes — no call is placed, so no limit
+  applies. Every <b>check</b> places a real call, and all checks shared one limit of five an hour — the disconnect check too. So after testing,
+  "Disconnect my number" was refused while "connect" still worked. That limit is also counted separately on each of our servers and starts
+  again after a restart, which is why some presses were refused and one went through. <b>Nothing disconnects a number in the background</b>:
+  for a live assistant the only way out of own-number mode is a disconnect check that proves the forward is off — so one of your presses did
+  start a check, and it finished after the window showing the refusal had stopped watching.</div>
+
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · today, after 5 checks this hour</span><b class="was">refused</b></div>
+    <div class="stage"><div class="dlg"><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi mute"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="t18">We couldn't start the check</span></div>
+      <p class="body">You've checked your number a few times in the last hour. Try again a little later.</p>
+      <div class="acts"><span class="btn pri">Close</span></div></div></div>
+    <div class="why">Your phone forward is already off, but we can’t prove it — so your Clinket number stays in own-number mode.</div>
+  </div>
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · proposed, the same moment</span><b class="new">check runs</b></div>
+    <div class="stage"><div class="dlg"><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi spinwrap"><span class="live-dot"></span></span><span class="t18">Making sure it's off…</span></div>
+      <p class="body">We're calling your phone. <b>Please don't answer.</b> This time the call should go to your voicemail or ring until it stops, not to your assistant.</p>
+      <div class="strip">
+        <div class="on"><div class="bar"></div><div class="lab">Calling</div></div>
+        <div class="on"><div class="bar"></div><div class="lab">Your phone should be ringing</div></div>
+        <div><div class="bar"></div><div class="lab">Voicemail or rings out</div></div>
+      </div>
+      <div class="acts"><span class="btn">Stop</span></div></div></div>
+    <div class="why">Disconnecting has its <b>own</b> allowance, so checking your line can never use it up. One check at a time still applies.</div>
+  </div>
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · proposed, it was already off</span><b class="new">new</b></div>
+    <div class="stage"><div class="dlg"><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi done"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t18">Your number is disconnected</span></div>
+      <p class="body">It was already off. Nothing more to do.</p>
+      <p class="note">Your Clinket number keeps working, and you can reconnect any time.</p>
+      <div class="acts"><span class="btn pri">Done</span></div></div></div>
+    <div class="why">Your exact case: a check you started earlier finished while this window was open. Today this said “Connect your own number first.”</div>
+  </div>
+  <div class="frame w560">
+    <div class="frame-label"><span>Laptop · proposed, 5 disconnect checks in an hour</span><b class="new">the only ceiling left</b></div>
+    <div class="stage"><div class="dlg"><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi mute"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="t18">We couldn't start the check</span></div>
+      <p class="body">We've placed several test calls to your number in the last hour, so we can't place another yet. You can try again within the hour. If calls still reach your assistant, ask your carrier to turn off call forwarding.</p>
+      <div class="acts"><span class="btn pri">Close</span></div></div></div>
+    <div class="why">Only after 5 disconnect checks inside one hour — or the day’s 15 checks <b>and</b> 5 more, which says “until tomorrow” instead. By then the code isn’t taking, and the fix is the carrier’s.</div>
+  </div>
+  <div class="frame w360">
+    <div class="frame-label"><span>Provider app · the same moment</span><b class="new">check runs</b></div>
+    <div class="pad" style="background:var(--hair)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>100%</span></div>
+        <div class="scr"></div>
+        <div class="sheet"><div class="grab"></div><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi spinwrap"><span class="live-dot"></span></span><span class="t18">Making sure it's off…</span></div>
+      <p class="body">We're calling your phone. <b>Please don't answer.</b> This time the call should go to your voicemail or ring until it stops, not to your assistant.</p>
+      <div class="strip">
+        <div class="on"><div class="bar"></div><div class="lab">Calling</div></div>
+        <div class="on"><div class="bar"></div><div class="lab">Your phone should be ringing</div></div>
+        <div><div class="bar"></div><div class="lab">Voicemail or rings out</div></div>
+      </div>
+      <div class="acts"><span class="btn">Stop</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="frame w360">
+    <div class="frame-label"><span>Provider app · it was already off</span><b class="new">new</b></div>
+    <div class="pad" style="background:var(--hair)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>100%</span></div>
+        <div class="scr"></div>
+        <div class="sheet"><div class="grab"></div><div class="xbtn"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <div class="verdict"><span class="vi done"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t18">Your number is disconnected</span></div>
+      <p class="body">It was already off. Nothing more to do.</p>
+      <p class="note">Your Clinket number keeps working, and you can reconnect any time.</p>
+      <div class="acts"><span class="btn pri">Done</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ 6 ═══════════════════════════ -->
+<h2 class="rule" id="rules"><span>6</span> · What you are approving</h2>
+<div class="findings">
+  <div class="finding"><div class="who"><b>R1</b> · the way out</div>
+    <h4>Disconnecting gets its own hourly allowance, separate from checking</h4>
+    <p>Five disconnect checks an hour, counted apart from the five for connecting and checking — so testing your line can never use up your
+      way out. Leaving must never be harder than joining. "One check at a time" still applies.</p></div>
+  <div class="finding"><div class="who"><b>R2</b> · the daily ceiling</div>
+    <h4>It still counts toward the daily 15, and may go 5 past it</h4>
+    <p>So a provider who spent all 15 testing can still leave. <b>Why not unlimited:</b> a check calls whatever number was typed in, and a
+      number is typed in before anything proves it's theirs. With no ceiling, "type a stranger's number, disconnect, repeat" would ring that
+      stranger as fast as the calls can finish. With these two, the worst case stays where it is today: five an hour, about 20 a day.</p></div>
+  <div class="finding"><div class="who"><b>R3</b> · the messages</div>
+    <h4>Every refusal says the real reason and what to do</h4>
+    <p>Safe to say: it only describes the provider's own use, it's what every service does when it slows you down, and knowing the limit doesn't
+      let anyone exceed it. Messages only need to stay vague when they would reveal something about <b>someone else</b> — like sign-in saying
+      whether an email has an account. We still never show which of our numbers places the test call.</p></div>
+  <div class="finding"><div class="who"><b>R4</b> · the card</div>
+    <h4>Two links, and everything else where you'd look for it</h4>
+    <p>"Check again · Adjust ring time" in the row. "Change" beside the number (except where the button already says "Check the number").
+      "Call your assistant to hear it" at the end of How it works. "No, I didn't pick up" inside the sentence it answers. Disconnect unchanged.</p></div>
+  <div class="finding"><div class="who"><b>R5</b> · after a refusal</div>
+    <h4>The window looks again before it shows an error</h4>
+    <p>If a disconnect is refused, the window re-reads your assistant first. If the number is already off, it says so instead of an error —
+      web and phone.</p></div>
+  <div class="finding"><div class="who"><b>Not changed</b> · deliberately</div>
+    <h4>The hourly limit for connecting and checking stays</h4>
+    <p>It's what stops a typed-in stranger's phone being called five times in five minutes. It is counted per server, so the wording says
+      "within the hour" rather than promising an exact time we can't guarantee.</p></div>
+</div>
+
+<!-- ═══════════════════════════ 7 ═══════════════════════════ -->
+<h2 class="rule" id="copy"><span>7</span> · Copy (English; translated into es, fr, gu, hi in both apps and the server)</h2>
+<div class="tbl-scroll"><table class="copy">
+  <tr><th></th><th>Where</th><th>Today</th><th>Proposed</th></tr>
+  <tr><td><span class="chip chg">changed</span></td><td>Checking too often (connect, check again)</td>
+    <td><s>You've checked your number a few times in the last hour. Try again a little later.</s></td>
+    <td class="say">Each check makes a real call to your phone, so we limit them to a few an hour. You can check again within the hour.</td></tr>
+  <tr><td><span class="chip chg">changed</span></td><td>Daily limit</td>
+    <td><s>You've reached today's limit for checking your number. Try again tomorrow.</s></td>
+    <td class="say">Each check makes a real call to your phone, so there's a daily limit. You can check again tomorrow.</td></tr>
+  <tr><td><span class="chip new">new</span></td><td>Disconnect, 5 disconnect checks this hour</td>
+    <td><s>(the checking sentence)</s></td>
+    <td class="say">We've placed several test calls to your number in the last hour, so we can't place another yet. You can try again within the hour. If calls still reach your assistant, ask your carrier to turn off call forwarding.</td></tr>
+  <tr><td><span class="chip new">new</span></td><td>Disconnect, past the day's checks + 5</td>
+    <td><s>(the hourly sentence)</s></td>
+    <td class="say">We've placed a lot of test calls to your number today, so we can't place another until tomorrow. If calls still reach your assistant, ask your carrier to turn off call forwarding.</td></tr>
+  <tr><td><span class="chip new">new</span></td><td>Disconnect, already off (window)</td>
+    <td><s>Connect your own number first.</s></td>
+    <td class="say">Your number is disconnected · It was already off. Nothing more to do.</td></tr>
+  <tr><td><span class="chip new">new</span></td><td>Disconnect, already off (server, if the window cannot re-read)</td>
+    <td><s>Connect your own number first.</s></td>
+    <td class="say">Your number is already disconnected.</td></tr>
+  <tr><td><span class="chip new">new</span></td><td>Beside the number</td><td>—</td><td class="say">Change</td></tr>
+  <tr><td><span class="chip gone">removed</span></td><td>Card row</td><td><s>Use a different number</s></td><td>replaced by "Change"</td></tr>
+  <tr><td><span class="chip same">moved</span></td><td>End of How it works</td><td>Call your assistant to hear it</td><td>same words, new place</td></tr>
+  <tr><td><span class="chip same">moved</span></td><td>Inside the "answered" sentence</td><td>No, I didn't pick up</td><td>same words, new place</td></tr>
+  <tr><td><span class="chip same">same</span></td><td>A check is still running</td><td colspan="2">We're already checking your number. Give it a moment.</td></tr>
+</table></div>
+
+</div>
+</body>
+</html>

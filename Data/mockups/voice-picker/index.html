@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Assistant voice — the two best voices first, and samples in your language</title>
+<style>
+@font-face{font-family:Lufga;src:url('fonts/LufgaRegular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:Lufga;src:url('fonts/LufgaSemiBold.woff') format('woff');font-weight:600;font-display:swap}
+:root{
+  /* house surface tokens (voice-own-number-card-actions, approved 2026-09-18) — nothing invented */
+  --ink:#032858; --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-soft:#F4FFE4; --green-ink:#3A6410;
+  --blue-bg:#EEF3FB; --blue-line:#CEDDFB; --blue-ink:#1B4C9B;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00;
+  --grey-btn:#F2F2F2; --grey-btn-hover:#E7E7E7; --icon:#5F5F5F;
+  --r-lg:16px; --r:14px;
+  --sh:0 1px 2px rgba(3,40,88,.05),0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06),0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  /* provider app, dark (src/theme darkTheme) */
+  --d-bg:#000; --d-glass:rgba(255,255,255,.06); --d-glass2:rgba(255,255,255,.12); --d-border:rgba(255,255,255,.12);
+  --d-text:#fff; --d-sub:rgba(235,235,245,.78); --d-mute:rgba(235,235,245,.55); --d-green-soft:rgba(151,239,41,.15); --on-green:#0A1F0A;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased;padding:0 20px 90px}
+h1,h2,h3,h4,p{margin:0}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1240px;margin:0 auto}
+header.masthead{padding:44px 0 24px;border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between}
+.masthead h1{font-size:clamp(26px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;font-weight:600;max-width:24ch}
+.masthead p{margin-top:8px;color:var(--muted);max-width:74ch}
+.stamp{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:right;line-height:1.8}
+.stamp b{color:var(--amber-ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(245,245,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -20px;padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+nav.jump a{text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid transparent}
+nav.jump a:hover{border-color:var(--line);background:var(--card);color:var(--ink)}
+h2.rule{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:52px 0 6px;padding-bottom:8px;border-bottom:1px solid #d3d9e3;font-weight:600}
+h2.rule span{color:var(--green-ink)}
+.lede{color:var(--muted);margin:0 0 20px;max-width:96ch}
+.lede b{color:var(--text)}
+.board{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;flex:1 1 460px;min-width:0}
+.frame.full{flex:1 1 100%}
+.frame.w400{flex:0 1 400px;max-width:100%}
+.frame-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;background:var(--hair);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.frame-label em{font-style:normal;color:var(--green-ink);font-weight:600;text-align:right}
+.frame-label b.was{color:var(--red-ink)}
+.frame-label b.new{color:var(--blue-ink)}
+.why{padding:10px 14px 12px;border-top:1px dashed #d3d9e3;font-size:12.5px;color:var(--muted);background:var(--tint)}
+.why b{color:var(--text)}
+.pad{padding:18px}
+.scroll-x{overflow-x:auto}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted);margin:22px 0 18px}
+.callout b{color:var(--text)}
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;margin-top:6px}
+.finding{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.finding .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.finding .who b{color:var(--blue-ink)}
+.finding h4{font-size:14.5px;margin-top:6px;color:var(--text)}
+.finding p{font-size:13px;color:var(--muted);margin-top:6px}
+.finding p b{color:var(--text)}
+table.copy{width:100%;border-collapse:collapse;font-size:12.5px;min-width:900px}
+table.copy th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.copy td{padding:8px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.copy code{font-family:var(--mono);font-size:11px;background:var(--hair);padding:1px 6px;border-radius:5px;color:var(--ink);word-break:break-all}
+.tbl-scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 8px}
+.chip{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:1px 8px;border:1px solid var(--line);white-space:nowrap}
+.chip.new{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+.chip.chg{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.chip.gone{background:var(--red-bg);border-color:var(--red-line);color:var(--red-ink)}
+
+/* ─── partner web: the voice section ─── */
+.sec-h{font-size:14px;font-weight:600;color:var(--text)}
+.sec-h .req{color:#FF3B30;margin-left:2px}
+.hint{display:flex;align-items:flex-start;gap:8px;margin-top:6px;font-size:12.5px;color:#4B5563;line-height:1.5}
+.hint .i{width:16px;height:16px;margin-top:2px;color:var(--ink)}
+.hint b{color:var(--text);font-weight:600}
+.group-l{font-size:12px;font-weight:600;color:#6B7280;margin:18px 0 8px;letter-spacing:.02em}
+.grid-rec{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px;margin-top:14px}
+.grid-more{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:10px}
+.vc{position:relative;display:flex;align-items:center;gap:12px;padding:12px 10px 12px 14px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:border-color .18s,background-color .18s,box-shadow .18s;min-width:0}
+.vc:hover{background:#FAFAFA}
+.vc.rec{padding:16px 12px 16px 16px}
+.vc.sel{border-color:var(--green);background:var(--green-soft)}
+.vc.sel:hover{background:var(--green-soft)}
+.vc.focus{outline:2px solid var(--ink);outline-offset:2px}
+.radio{width:20px;height:20px;border-radius:50%;border:1.5px solid #9CA3AF;flex:none;transition:border-width .18s,border-color .18s}
+.vc.sel .radio{border:6px solid var(--green)}
+.vc .txt{flex:1;min-width:0}
+.vc .nm{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
+.vc.rec .nm{font-size:15px}
+.vc .ds{font-size:12.5px;color:#6B7280;line-height:1.4;margin-top:2px}
+.badge{font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--ink);background:var(--blue-bg);border:1px solid var(--blue-line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.eq{display:inline-flex;align-items:flex-end;gap:2px;height:12px}
+.eq i{display:block;width:3px;border-radius:2px;background:var(--green-ink);animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(1){height:5px;animation-delay:-.3s}.eq i:nth-child(2){height:11px;animation-delay:-.6s}.eq i:nth-child(3){height:7px}
+@keyframes eq{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+.eq i{transform-origin:bottom}
+@media (prefers-reduced-motion:reduce){.eq i{animation:none}}
+.pb{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--grey-btn);color:var(--icon);flex:none;border:0}
+.pb .i{width:18px;height:18px}
+.pb .i.fill{fill:currentColor;stroke:none}
+.pb.hov{background:var(--grey-btn-hover)}
+.pb.on{background:var(--green);color:var(--text)}
+.pb .ring{position:absolute;inset:-3px;width:50px;height:50px;transform:rotate(-90deg)}
+.pb .ring circle{fill:none;stroke-width:3}
+.pb .ring .trk{stroke:rgba(3,40,88,.12)}
+.pb .ring .val{stroke:var(--ink);stroke-linecap:round;stroke-dasharray:150.8;stroke-dashoffset:90}
+.pb .spin{width:20px;height:20px;border-radius:50%;border:2.5px solid #D1D5DB;border-top-color:var(--ink);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.pb .spin{animation:none;border-top-color:#D1D5DB;border-right-color:var(--ink)}}
+.err{display:flex;align-items:flex-start;gap:8px;margin-top:12px;font-size:12.5px;color:var(--red-ink)}
+.err .i{width:16px;height:16px;margin-top:2px}
+.notice{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:var(--amber-bg);border:1px solid var(--amber-line);font-size:12.5px;color:#7A4A00;margin-top:12px}
+.notice .i{width:16px;height:16px;margin-top:2px;color:var(--amber-ink)}
+.skel{height:64px;border-radius:14px;background:linear-gradient(90deg,#F1F3F7 0,#F8F9FB 40%,#F1F3F7 80%);background-size:200% 100%;animation:sh 1.4s ease-in-out infinite}
+@keyframes sh{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+/* device-width frames */
+.dev{margin:0 auto;border:1px solid #d6dbe3;border-radius:18px;background:#fff;overflow:hidden;box-shadow:var(--sh-lift)}
+.dev .bar{height:26px;background:#F2F2F2;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 10px}
+.dev .bar i{width:8px;height:8px;border-radius:50%;background:#D8DCE3;display:block}
+.dev .bar span{margin-left:10px;font-family:var(--mono);font-size:10px;color:var(--faint)}
+.dev .body{padding:16px}
+.d768{width:768px}.d1024{width:1024px}.d390{width:390px}.d360{width:360px}
+.pagecard{border:1px solid #E5E7EB;border-radius:16px;padding:18px}
+.pagecard h3{font-size:20px;font-weight:600;color:#111827}
+.pagecard .sub{font-size:13px;color:#6B7280;margin-top:2px}
+
+/* ─── provider app ─── */
+.phone{width:100%;max-width:340px;margin:0 auto;border:1px solid #c9d2c6;border-radius:34px;overflow:hidden;background:#FFFFFF;box-shadow:var(--sh-lift);display:flex;flex-direction:column;position:relative}
+.phone .sb{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600}
+.phone .hdr{display:flex;align-items:center;gap:10px;padding:6px 14px 12px;border-bottom:1px solid #EEF0F3;font-weight:600;font-size:16px;color:var(--ink)}
+.phone .hdr .i{width:20px;height:20px}
+.phone .scr{padding:16px;display:flex;flex-direction:column;gap:8px}
+.m-l{font-size:14px;font-weight:600;color:var(--ink)}
+.m-l .req{color:#FF3B30}
+.m-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-top:6px}
+.m-cur{display:flex;align-items:center;gap:12px;padding:14px 12px 14px 14px}
+.m-cur .txt{flex:1;min-width:0}
+.m-nm{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:15px;font-weight:600;color:var(--text)}
+.m-ds{font-size:12.5px;color:#5F5F5F;margin-top:2px}
+.m-row{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 14px;border-top:1px solid #EEF0F3;font-size:14px;font-weight:600;color:var(--ink)}
+.m-row .i{width:18px;height:18px;color:#8e8e93}
+.m-hint{font-size:12px;color:#5F5F5F;line-height:1.5;margin-top:6px}
+.m-dim{background:rgba(0,0,0,.5);height:120px}
+.sheet{background:#fff;border-radius:24px 24px 0 0;padding:10px 16px 20px;margin-top:-22px;position:relative}
+.grab{width:40px;height:5px;border-radius:999px;background:#D3D9E3;margin:0 auto 14px}
+.sheet h4{font-size:17px;font-weight:600;color:var(--ink)}
+.sheet .m-hint{margin:4px 0 10px}
+.s-l{font-size:12px;font-weight:600;color:#8e8e93;margin:12px 0 6px}
+.s-item{display:flex;align-items:center;gap:12px;padding:10px 10px 10px 12px;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;background:#fff}
+.s-item.sel{border-color:var(--green);background:var(--green-soft)}
+.s-item.press{background:#F3F4F6;transform:scale(.985)}
+.s-item .radio{width:22px;height:22px}
+.s-item.sel .radio{border:7px solid var(--green)}
+.s-item .txt{flex:1;min-width:0}
+.btn-pri{display:flex;align-items:center;justify-content:center;height:50px;border-radius:14px;background:var(--green);color:var(--ink);font-size:15px;font-weight:600;margin-top:10px}
+.toast{position:absolute;left:16px;right:16px;bottom:22px;background:#101010;color:#fff;border-radius:12px;padding:12px 14px;font-size:13px;display:flex;gap:8px;align-items:flex-start;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.toast .i{width:16px;height:16px;margin-top:2px;color:#FF8A80}
+/* dark */
+.phone.dark{background:var(--d-bg);border-color:#333}
+.dark .sb{color:#fff}
+.dark .hdr{color:#fff;border-color:rgba(255,255,255,.08)}
+.dark .m-l{color:#fff}
+.dark .m-card{background:var(--d-glass);border-color:var(--d-border)}
+.dark .m-nm{color:#fff}.dark .m-ds{color:var(--d-sub)}.dark .m-hint{color:var(--d-sub)}
+.dark .m-row{color:#fff;border-color:rgba(255,255,255,.08)}
+.dark .m-row .i{color:var(--d-mute)}
+.dark .badge{background:var(--d-glass2);border-color:var(--d-border);color:#fff}
+.dark .pb{background:var(--d-glass2);color:#fff}
+.dark .pb.on{background:var(--green);color:var(--on-green)}
+.dark .pb .ring .trk{stroke:rgba(255,255,255,.18)}
+.dark .pb .ring .val{stroke:var(--green)}
+.dark .pb .spin{border-color:rgba(255,255,255,.2);border-top-color:#fff}
+.dark .sheet{background:#1C1C1E}
+.dark .grab{background:rgba(255,255,255,.25)}
+.dark .sheet h4{color:#fff}
+.dark .s-l{color:var(--d-mute)}
+.dark .s-item{background:var(--d-glass);border-color:var(--d-border)}
+.dark .s-item.sel{background:var(--d-green-soft);border-color:var(--green)}
+.dark .radio{border-color:var(--d-mute)}
+.dark .eq i{background:var(--green)}
+.dark .btn-pri{color:var(--on-green)}
+.dark .m-dim{background:rgba(0,0,0,.82)}
+.dark .notice{background:rgba(245,158,11,.14);border-color:rgba(245,158,11,.3);color:#F6C667}
+.dark .notice .i{color:#F6C667}
+@media (max-width:760px){body{padding:0 12px 60px}nav.jump{margin:0 -12px;padding:8px 12px}.pad{padding:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></symbol>
+  <symbol id="stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/></symbol>
+  <symbol id="lang" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="vol" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+</svg>
+
+<header class="masthead">
+  <div>
+    <h1>Assistant voice — the two best voices first, and samples in your language</h1>
+    <p>The picker leads with Marin and Cedar, the voices that sound most natural on a phone call, and pre-selects the first one for a new
+      assistant. Each voice plays a ten-second sample in the language the provider chose for their callers. The descriptions now say how each voice
+      really sounds, so a provider looking for "calm" is no longer steered to a weaker voice. Web and the provider phone app ship together.</p>
+  </div>
+  <div class="stamp">Drawn 2026-09-25 · <b>approved as drawn 2026-09-25</b><br>Programme: voice-realtime-2.1 PLAN §6 (B1)<br>Replaces the voice block of the setup form<br>web + provider app · all five languages</div>
+</header>
+
+<nav class="jump">
+  <a href="#laptop">1 · Laptop</a><a href="#states">2 · Every state</a><a href="#widths">3 · Every width</a>
+  <a href="#app">4 · Phone app</a><a href="#dark">5 · Dark mode</a><a href="#rules">6 · What you are approving</a><a href="#copy">7 · Words</a>
+</nav>
+
+<!-- ═══════════════════════ 1 ═══════════════════════ -->
+<h2 class="rule" id="laptop"><span>1</span> · Laptop: today, and proposed</h2>
+<p class="lede">Today ten equal cards sit in alphabetical order, so Cedar is fourth and Marin seventh, and every sample is the same English sentence of about three seconds.
+  Proposed: the two recommended voices lead as larger cards, the other eight follow in a tidy grid, and the line above says which language the samples play in.</p>
+<div class="board">
+  <div class="frame full">
+    <div class="frame-label"><span>Laptop 1280 · setup form · voice section</span><b class="was">Today (built)</b></div>
+    <div class="pad">
+      <div class="sec-h">Assistant voice<span class="req">*</span></div>
+      <div class="grid-more" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px">
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Alloy · balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#vol"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ash · calm and steady</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ballad · warm storyteller</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Cedar · grounded and friendly</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div>
+        <div class="vc" style="opacity:.55"><span class="radio"></span><div class="txt"><div class="nm">… six more, Marin seventh</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div>
+      </div>
+      <p style="font-size:12px;color:#6B7280;margin-top:8px">Tap a voice to hear a short sample of how your assistant will sound.</p>
+    </div>
+    <div class="why">Nothing is chosen for a new assistant, so the form refuses to finish until one is picked. <b>"Calm and steady" points at Ash</b>, which is not one of the two best voices. A failed sample does nothing at all.</div>
+  </div>
+
+  <div class="frame full">
+    <div class="frame-label"><span>Laptop 1280 · setup form · voice section · main language French</span><b class="new">Proposed</b></div>
+    <div class="pad">
+      <div class="sec-h">Assistant voice<span class="req">*</span></div>
+      <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Samples play in <b>French</b>, your main language.</span></p>
+
+      <div class="grid-rec">
+        <div class="vc rec sel"><span class="radio"></span>
+          <div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div>
+          <span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc rec"><span class="radio"></span>
+          <div class="txt"><div class="nm">Cedar <span class="badge">Recommended</span></div><div class="ds">Relaxed and friendly</div></div>
+          <span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+      </div>
+
+      <div class="group-l">More voices</div>
+      <div class="grid-more">
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Alloy</div><div class="ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ash</div><div class="ds">Deep and steady</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ballad</div><div class="ds">Warm storyteller</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Coral</div><div class="ds">Bright and upbeat</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Echo</div><div class="ds">Confident and direct</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Sage</div><div class="ds">Soft and light</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Shimmer</div><div class="ds">Energetic and crisp</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Verse</div><div class="ds">Expressive and lively</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+      </div>
+    </div>
+    <div class="why"><b>Marin is already chosen</b> for a new assistant, because it is first in the server's list. Selected keeps the form's own green border and wash.
+      <b>"Recommended" is navy on pale blue, never green</b>, because green means "chosen". The grid fits the space it has: as many 220-pixel cards as fit across, two on an iPad, one on a phone.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ 2 ═══════════════════════ -->
+<h2 class="rule" id="states"><span>2</span> · Every state</h2>
+<p class="lede">One sample plays at a time. <b>Tapping a card chooses it and plays it</b>, as today. The round button only plays or stops, without choosing. Choosing another voice,
+  changing the main language, or leaving the page stops what is playing.</p>
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>Sample — loading · playing · finished</span><em>web</em></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:10px">
+      <div class="vc rec sel"><span class="radio"></span>
+        <div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div>
+        <span class="pb"><span class="spin" aria-hidden="true"></span></span></div>
+      <div class="vc rec sel"><span class="radio"></span>
+        <div class="txt"><div class="nm">Marin <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div>
+        <span class="pb on"><svg class="ring" viewBox="0 0 50 50"><circle class="trk" cx="25" cy="25" r="24"/><circle class="val" cx="25" cy="25" r="24"/></svg><svg class="i fill"><use href="#stop"/></svg></span></div>
+      <div class="vc rec sel"><span class="radio"></span>
+        <div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div>
+        <span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+    </div>
+    <div class="why"><b>Loading</b>: a spinner in the button until sound starts. <b>Playing</b>: the button fills green (pressed), shows Stop, and a navy ring fills over the ten seconds; three small bars move beside the name. <b>Finished</b>: back to Play. With reduced motion the bars and ring stay still.</div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Could not play · keyboard focus</span><em>web</em></div>
+    <div class="pad">
+      <div class="grid-more" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Coral</div><div class="ds">Bright and upbeat</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc focus"><span class="radio"></span><div class="txt"><div class="nm">Echo</div><div class="ds">Confident and direct</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+      </div>
+      <p class="err" role="status"><svg class="i"><use href="#alert"/></svg><span>We couldn't play that sample. Please check your connection and try again.</span></p>
+    </div>
+    <div class="why">Today a failed sample does nothing. Now one plain line appears under the voices and clears on the next try. <b>Focus is a navy ring</b>; the arrow keys move the choice between voices (as radio buttons do) without playing, and the play button is its own stop on Tab.</div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Which language the samples play in</span><em>web · three cases</em></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:14px">
+      <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Samples play in <b>Hindi</b>, your main language.</span></p>
+      <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Choose your main language above to hear the samples in it. Until then they play in English.</span></p>
+      <p class="hint"><svg class="i"><use href="#lang"/></svg><span>There's no <b>Tamil</b> sample yet, so the samples play in English.</span></p>
+    </div>
+    <div class="why">Samples exist for all six languages callers can use today (English, French, Spanish, Hindi, Punjabi, Gujarati). The third line only appears if a language is added later without samples. <b>Changing the main language stops a sample that is playing.</b></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>A saved voice we no longer offer</span><em>web</em></div>
+    <div class="pad">
+      <div class="notice"><svg class="i"><use href="#alert"/></svg><span>Your assistant uses a voice we no longer offer. It keeps working until you choose one of the voices below and save.</span></div>
+      <div class="grid-rec" style="margin-top:12px">
+        <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Cedar <span class="badge">Recommended</span></div><div class="ds">Relaxed and friendly</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+      </div>
+    </div>
+    <div class="why">Nothing is pre-selected here, because a saved choice is never overwritten. The server refuses to save a voice that is not on its list, so saving asks the provider to <b>choose a voice first</b> with the form's existing "Please choose a voice" line.</div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>No voices from the server</span><em>web + app</em></div>
+    <div class="pad">
+      <div class="sec-h" style="color:#9CA3AF">(no voice section)</div>
+      <p style="font-size:12.5px;color:#6B7280;margin-top:8px">The whole voice block is hidden and a missing voice never blocks saving. This is today's behaviour, kept and tested.</p>
+    </div>
+    <div class="why">The voice list is loaded with the rest of the page, which already shows its own loading skeleton, so the voice block never appears half-loaded.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ 3 ═══════════════════════ -->
+<h2 class="rule" id="widths"><span>3</span> · Every width, drawn at real size</h2>
+<p class="lede">No horizontal scroll and no clipped words at any size. Descriptions wrap onto a second line rather than cutting off, which matters in Hindi and Gujarati.
+  A large monitor looks like the laptop, because the settings card stops growing at 1080 pixels.</p>
+<div class="board">
+  <div class="frame full">
+    <div class="frame-label"><span>iPad landscape 1024 and portrait 768</span><em>scroll sideways to see the whole frame on a small screen</em></div>
+    <div class="pad scroll-x" style="display:flex;gap:22px;align-items:flex-start">
+      <div class="dev d1024"><div class="bar"><i></i><i></i><i></i><span>1024 × 768</span></div><div class="body">
+        <div class="pagecard">
+          <div class="sec-h">Assistant voice<span class="req">*</span></div>
+          <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Samples play in <b>English</b>, your main language.</span></p>
+          <div class="grid-rec">
+            <div class="vc rec sel"><span class="radio"></span><div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Cedar <span class="badge">Recommended</span></div><div class="ds">Relaxed and friendly</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          </div>
+          <div class="group-l">More voices</div>
+          <div class="grid-more">
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Alloy</div><div class="ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ash</div><div class="ds">Deep and steady</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ballad</div><div class="ds">Warm storyteller</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Coral</div><div class="ds">Bright and upbeat</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc" style="opacity:.5"><span class="radio"></span><div class="txt"><div class="nm">… four more</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          </div>
+        </div></div></div>
+      <div class="dev d768"><div class="bar"><i></i><i></i><i></i><span>768 × 1024</span></div><div class="body">
+        <div class="pagecard">
+          <div class="sec-h">Assistant voice<span class="req">*</span></div>
+          <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Samples play in <b>English</b>, your main language.</span></p>
+          <div class="grid-rec">
+            <div class="vc rec sel"><span class="radio"></span><div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Cedar <span class="badge">Recommended</span></div><div class="ds">Relaxed and friendly</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          </div>
+          <div class="group-l">More voices</div>
+          <div class="grid-more">
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Alloy</div><div class="ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ash</div><div class="ds">Deep and steady</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="vc" style="opacity:.5"><span class="radio"></span><div class="txt"><div class="nm">… six more</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          </div>
+        </div></div></div>
+    </div>
+  </div>
+
+  <div class="frame full">
+    <div class="frame-label"><span>Phone web 390 and 360 · the 360 frame in Hindi</span><em>one column; every button stays 44 × 44</em></div>
+    <div class="pad scroll-x" style="display:flex;gap:22px;align-items:flex-start;justify-content:center">
+      <div class="dev d390"><div class="bar"><i></i><i></i><i></i><span>390 · iPhone</span></div><div class="body" style="padding:12px">
+        <div class="sec-h">Assistant voice<span class="req">*</span></div>
+        <p class="hint"><svg class="i"><use href="#lang"/></svg><span>Samples play in <b>Spanish</b>, your main language.</span></p>
+        <div class="grid-rec" style="gap:10px">
+          <div class="vc rec sel"><span class="radio"></span><div class="txt"><div class="nm">Marin <span class="badge">Recommended</span></div><div class="ds">Warm and calm</div></div><span class="pb on"><svg class="ring" viewBox="0 0 50 50"><circle class="trk" cx="25" cy="25" r="24"/><circle class="val" cx="25" cy="25" r="24"/></svg><svg class="i fill"><use href="#stop"/></svg></span></div>
+          <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Cedar <span class="badge">Recommended</span></div><div class="ds">Relaxed and friendly</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        </div>
+        <div class="group-l">More voices</div>
+        <div class="grid-more">
+          <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Alloy</div><div class="ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Ash</div><div class="ds">Deep and steady</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="vc" style="opacity:.5"><span class="radio"></span><div class="txt"><div class="nm">… six more</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        </div>
+      </div></div>
+      <div class="dev d360" lang="hi"><div class="bar"><i></i><i></i><i></i><span>360 · Android · हिन्दी</span></div><div class="body" style="padding:12px">
+        <div class="sec-h">असिस्टेंट की आवाज़<span class="req">*</span></div>
+        <p class="hint"><svg class="i"><use href="#lang"/></svg><span>नमूने <b>हिन्दी</b> में सुनाई देंगे — आपकी मुख्य भाषा।</span></p>
+        <div class="grid-rec" style="gap:10px">
+          <div class="vc rec sel"><span class="radio"></span><div class="txt"><div class="nm">Marin <span class="badge">सुझाई गई</span></div><div class="ds">गर्मजोशी भरी और शांत</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="vc rec"><span class="radio"></span><div class="txt"><div class="nm">Cedar <span class="badge">सुझाई गई</span></div><div class="ds">सहज और मिलनसार</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        </div>
+        <div class="group-l">और आवाज़ें</div>
+        <div class="grid-more">
+          <div class="vc"><span class="radio"></span><div class="txt"><div class="nm">Echo</div><div class="ds">आत्मविश्वास भरी और सीधी</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="vc" style="opacity:.5"><span class="radio"></span><div class="txt"><div class="nm">…</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="why">The long Hindi words wrap under the name and never push the play button off the card. The badge drops under the name if the name and badge don't fit on one line.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ 4 ═══════════════════════ -->
+<h2 class="rule" id="app"><span>4</span> · Provider phone app</h2>
+<p class="lede">The app complements its own form rather than copying the web. The chosen voice stays on the form with its own play button, and
+  <b>"Choose another voice" opens a bottom sheet</b>, the same pattern the form already uses for the main language. Tapping a row chooses it, plays it and gives a light tap of haptic
+  feedback. Playback stops when the sheet closes, when the screen is left, and <b>when the app goes to the background</b>. The samples ship inside the app, so they also play offline.</p>
+<div class="board">
+  <div class="frame w400">
+    <div class="frame-label"><span>Setup form · the voice row</span><b class="was">Today (built)</b></div>
+    <div class="pad">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="hdr"><svg class="i"><use href="#back"/></svg>AI Assistant</div>
+        <div class="scr">
+          <div class="m-l">Voice <span class="req">*</span></div>
+          <div class="m-card"><div class="m-cur"><span class="radio"></span><div class="txt"><div class="m-nm" style="font-size:14px">Alloy — balanced and clear</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div></div>
+          <div class="m-card"><div class="m-cur"><span class="radio"></span><div class="txt"><div class="m-nm" style="font-size:14px">Ash — calm and steady</div></div><span class="pb"><svg class="i"><use href="#vol"/></svg></span></div></div>
+          <div class="m-card" style="opacity:.5"><div class="m-cur"><span class="radio"></span><div class="txt"><div class="m-nm" style="font-size:14px">… eight more</div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="why">Ten rows of the server's <b>English</b> label, in every language the app is set to. Nothing is chosen for a new assistant.</div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Setup form · the voice row</span><b class="new">Proposed</b></div>
+    <div class="pad">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="hdr"><svg class="i"><use href="#back"/></svg>AI Assistant</div>
+        <div class="scr">
+          <div class="m-l">Voice <span class="req">*</span></div>
+          <div class="m-card">
+            <div class="m-cur"><div class="txt"><div class="m-nm">Marin <span class="badge">Recommended</span></div><div class="m-ds">Warm and calm</div></div>
+              <span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+            <div class="m-row">Choose another voice <svg class="i"><use href="#chev"/></svg></div>
+          </div>
+          <div class="m-hint">Samples play in French, your main language.</div>
+        </div>
+      </div>
+    </div>
+    <div class="why">One card instead of ten rows: the form gets shorter and the choice is obvious. The play button is 44 × 44; the whole "Choose another voice" row is the target.</div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>The voice sheet · Cedar playing</span><b class="new">Proposed</b></div>
+    <div class="pad">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="m-dim"></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <h4>Choose a voice</h4>
+          <div class="m-hint">Samples play in French, your main language.</div>
+          <div class="s-item"><span class="radio"></span><div class="txt"><div class="m-nm">Marin <span class="badge">Recommended</span></div><div class="m-ds">Warm and calm</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="s-item sel"><span class="radio"></span><div class="txt"><div class="m-nm">Cedar <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> <span class="badge">Recommended</span></div><div class="m-ds">Relaxed and friendly</div></div>
+            <span class="pb on"><svg class="ring" viewBox="0 0 50 50"><circle class="trk" cx="25" cy="25" r="24"/><circle class="val" cx="25" cy="25" r="24"/></svg><svg class="i fill"><use href="#stop"/></svg></span></div>
+          <div class="s-l">More voices</div>
+          <div class="s-item press"><span class="radio"></span><div class="txt"><div class="m-nm">Alloy</div><div class="m-ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="s-item"><span class="radio"></span><div class="txt"><div class="m-nm">Ash</div><div class="m-ds">Deep and steady</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="btn-pri">Done</div>
+        </div>
+      </div>
+    </div>
+    <div class="why">The list scrolls inside the sheet. Alloy shows the <b>press state</b> (a soft grey and a slight shrink, like the app's other lists). "Done" closes the sheet; the choice is already made. Screen readers hear each row as a radio button with its name, description and whether it is chosen.</div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Could not play · a voice no longer offered</span><em>app</em></div>
+    <div class="pad">
+      <div class="phone" style="min-height:420px">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="hdr"><svg class="i"><use href="#back"/></svg>AI Assistant</div>
+        <div class="scr">
+          <div class="m-l">Voice <span class="req">*</span></div>
+          <div class="notice" style="margin-top:6px"><svg class="i"><use href="#alert"/></svg><span>Your assistant uses a voice we no longer offer. It keeps working until you choose one of our voices and save.</span></div>
+          <div class="m-card"><div class="m-row" style="border-top:0">Choose a voice <svg class="i"><use href="#chev"/></svg></div></div>
+        </div>
+        <div class="toast"><svg class="i"><use href="#alert"/></svg><span>We couldn't play that sample. Please try again.</span></div>
+      </div>
+    </div>
+    <div class="why">A failed sample uses the app's own toast, as it does today, with warmer words. A sample shipped in the app can only fail if the device refuses to play it, so there is no "you're offline" message.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ 5 ═══════════════════════ -->
+<h2 class="rule" id="dark"><span>5</span> · Dark mode (provider app)</h2>
+<p class="lede">The app's own dark palette: black page, glass cards, the same brand green for chosen and pressed, dark text on green. The "Recommended" badge becomes white on glass, so it still never looks chosen.</p>
+<div class="board">
+  <div class="frame w400">
+    <div class="frame-label"><span>Dark · the voice row</span><em>app</em></div>
+    <div class="pad" style="background:#0b0b0c">
+      <div class="phone dark">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="hdr"><svg class="i"><use href="#back"/></svg>AI Assistant</div>
+        <div class="scr">
+          <div class="m-l">Voice <span class="req">*</span></div>
+          <div class="m-card">
+            <div class="m-cur"><div class="txt"><div class="m-nm">Marin <span class="badge">Recommended</span></div><div class="m-ds">Warm and calm</div></div><span class="pb"><span class="spin"></span></span></div>
+            <div class="m-row">Choose another voice <svg class="i"><use href="#chev"/></svg></div>
+          </div>
+          <div class="m-hint">Choose your main language above to hear the samples in it. Until then they play in English.</div>
+        </div>
+      </div>
+    </div>
+    <div class="why">Shown loading and with no main language chosen yet.</div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Dark · the voice sheet · Marin playing</span><em>app</em></div>
+    <div class="pad" style="background:#0b0b0c">
+      <div class="phone dark">
+        <div class="sb"><span>9:41</span><span>●●●</span></div>
+        <div class="m-dim"></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <h4>Choose a voice</h4>
+          <div class="m-hint">Samples play in Hindi, your main language.</div>
+          <div class="s-item sel"><span class="radio"></span><div class="txt"><div class="m-nm">Marin <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> <span class="badge">Recommended</span></div><div class="m-ds">Warm and calm</div></div>
+            <span class="pb on"><svg class="ring" viewBox="0 0 50 50"><circle class="trk" cx="25" cy="25" r="24"/><circle class="val" cx="25" cy="25" r="24"/></svg><svg class="i fill"><use href="#stop"/></svg></span></div>
+          <div class="s-item"><span class="radio"></span><div class="txt"><div class="m-nm">Cedar <span class="badge">Recommended</span></div><div class="m-ds">Relaxed and friendly</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="s-l">More voices</div>
+          <div class="s-item"><span class="radio"></span><div class="txt"><div class="m-nm">Alloy</div><div class="m-ds">Balanced and clear</div></div><span class="pb"><svg class="i fill"><use href="#play"/></svg></span></div>
+          <div class="btn-pri">Done</div>
+        </div>
+      </div>
+    </div>
+    <div class="why">Contrast is checked in the app's own dark-mode test; the green ring and dark stop icon on green both pass AA.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ 6 ═══════════════════════ -->
+<h2 class="rule" id="rules"><span>6</span> · What you are approving</h2>
+<div class="findings">
+  <div class="finding"><div class="who"><b>Order and default</b></div><h4>The server's list decides both</h4>
+    <p>The voice list on the server now starts <b>Marin, Cedar</b>, then the rest as they are today. A new assistant, or one saved without a voice, starts on the <b>first voice in that list</b>. A saved voice is never changed. If the list arrives after the form, the default is applied once, only while nothing is chosen.</p></div>
+  <div class="finding"><div class="who"><b>The badge</b></div><h4>"Recommended" comes from the server, not from the screen</h4>
+    <p>Each voice in the server's list gets a <b>recommended</b> yes/no, sent to both apps, so moving the badge is a setting change and never an app release. Only Marin and Cedar are marked.</p></div>
+  <div class="finding"><div class="who"><b>Samples</b></div><h4>Ten seconds, in the caller's language</h4>
+    <p>Sixty new samples (ten voices × English, French, Spanish, Hindi, Punjabi, Gujarati), recorded with the new assistant model and matched in loudness. The <b>main language</b> picks which one plays; English when none is chosen. Hindi and Punjabi use the female or male wording to match the voice. The old three-second English samples are removed.</p></div>
+  <div class="finding"><div class="who"><b>Playing</b></div><h4>One at a time, and it always stops</h4>
+    <p>Choosing, changing the main language, leaving the page, closing the sheet or sending the app to the background stops the sample. A failure is said in plain words, never silent.</p></div>
+  <div class="finding"><div class="who"><b>Words</b></div><h4>Honest descriptions, the names untranslated</h4>
+    <p>"Calm and steady" (Ash) becomes <b>"Deep and steady"</b>, "Gentle and reassuring" (Sage) becomes <b>"Soft and light"</b>, and Marin is now <b>"Warm and calm"</b>. Voice names stay as names in every language (Spanish and French had translated "Cedar"). The phone app stops showing the server's English label.</p></div>
+  <div class="finding"><div class="who"><b>Accessibility</b></div><h4>Radio buttons, readable names, a navy focus ring</h4>
+    <p>The voices are a radio group (arrow keys on web), each play button is named "Play Marin's sample" / "Stop the sample" in the provider's language, targets are 44 × 44, and text contrast is AA on both themes.</p></div>
+</div>
+
+<!-- ═══════════════════════ 7 ═══════════════════════ -->
+<h2 class="rule" id="copy"><span>7</span> · Every word, and where it comes from</h2>
+<p class="lede">All screen copy; none comes from the server any more. Web keys live in <code>public/lang/{en-US,es-US,fr-CA,gu-IN,hi-IN}.json</code>, app keys in <code>src/Locales/{en,es,fr,gu,hi}.json</code>, in all five languages.
+  <b>{language}</b> is the language's own name, written by the device. French and Spanish use the feminine form because "voix" and "voz" are feminine; Gujarati uses the masculine because "અવાજ" is masculine.</p>
+<div class="tbl-scroll">
+<table class="copy">
+  <thead><tr><th>Web key</th><th>App key</th><th>English</th><th>Hindi</th><th>Gujarati</th><th>French</th><th>Spanish</th><th></th></tr></thead>
+  <tbody>
+    <tr><td><code>voiceAssistant.form.voice</code></td><td><code>VOICE_ASSISTANT.VOICE_LABEL</code></td><td>Assistant voice · Voice (app)</td><td>असिस्टेंट की आवाज़</td><td>આસિસ્ટન્ટનો અવાજ</td><td>Voix de l'assistant</td><td>Voz del asistente</td><td><span class="chip chg">es fixed</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.recommended</code></td><td><code>…VOICE_RECOMMENDED</code></td><td>Recommended</td><td>सुझाई गई</td><td>ભલામણ કરેલ</td><td>Recommandée</td><td>Recomendada</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.more</code></td><td><code>…VOICE_MORE</code></td><td>More voices</td><td>और आवाज़ें</td><td>વધુ અવાજો</td><td>Autres voix</td><td>Más voces</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.sampleLanguage</code></td><td><code>…VOICE_SAMPLE_LANGUAGE</code></td><td>Samples play in {language}, your main language.</td><td>नमूने {language} में सुनाई देंगे — आपकी मुख्य भाषा।</td><td>નમૂના {language}માં સંભળાશે — તમારી મુખ્ય ભાષા.</td><td>Les extraits sont lus en {language}, votre langue principale.</td><td>Las muestras suenan en {language}, su idioma principal.</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.sampleNoLanguage</code></td><td><code>…VOICE_SAMPLE_NO_LANGUAGE</code></td><td>Choose your main language above to hear the samples in it. Until then they play in English.</td><td>नमूने अपनी भाषा में सुनने के लिए ऊपर अपनी मुख्य भाषा चुनें। तब तक वे अंग्रेज़ी में सुनाई देंगे।</td><td>નમૂના તમારી ભાષામાં સાંભળવા ઉપર તમારી મુખ્ય ભાષા પસંદ કરો. ત્યાં સુધી તે અંગ્રેજીમાં સંભળાશે.</td><td>Choisissez votre langue principale ci-dessus pour entendre les extraits dans cette langue. D'ici là, ils sont lus en anglais.</td><td>Elija su idioma principal arriba para escuchar las muestras en ese idioma. Mientras tanto, suenan en inglés.</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.sampleFallback</code></td><td><code>…VOICE_SAMPLE_FALLBACK</code></td><td>There's no {language} sample yet, so the samples play in English.</td><td>अभी {language} में नमूना नहीं है, इसलिए नमूने अंग्रेज़ी में सुनाई देंगे।</td><td>હજી {language}માં નમૂનો નથી, તેથી નમૂના અંગ્રેજીમાં સંભળાશે.</td><td>Il n'y a pas encore d'extrait en {language} : les extraits sont lus en anglais.</td><td>Aún no hay muestra en {language}, así que las muestras suenan en inglés.</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.play</code></td><td><code>…VOICE_PLAY</code></td><td>Play {voice}'s sample</td><td>{voice} का नमूना सुनें</td><td>{voice}નો નમૂનો સાંભળો</td><td>Écouter l'extrait de {voice}</td><td>Escuchar la muestra de {voice}</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.stop</code></td><td><code>…VOICE_STOP</code></td><td>Stop the sample</td><td>नमूना रोकें</td><td>નમૂનો બંધ કરો</td><td>Arrêter l'extrait</td><td>Detener la muestra</td><td><span class="chip new">new</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.playFailed</code></td><td><code>…VOICE_PREVIEW_FAILED</code></td><td>We couldn't play that sample. Please check your connection and try again. · app: We couldn't play that sample. Please try again.</td><td>हम यह नमूना नहीं चला सके। कृपया अपना कनेक्शन जाँचें और फिर से कोशिश करें। · ऐप: हम यह नमूना नहीं चला सके। कृपया फिर से कोशिश करें।</td><td>અમે આ નમૂનો વગાડી શક્યા નહીં. કૃપા કરીને તમારું કનેક્શન તપાસો અને ફરી પ્રયાસ કરો. · એપ: અમે આ નમૂનો વગાડી શક્યા નહીં. કૃપા કરીને ફરી પ્રયાસ કરો.</td><td>Impossible de lire cet extrait. Vérifiez votre connexion et réessayez. · app : Impossible de lire cet extrait. Réessayez.</td><td>No pudimos reproducir esta muestra. Revise su conexión e inténtelo de nuevo. · app: No pudimos reproducir esta muestra. Inténtelo de nuevo.</td><td><span class="chip chg">app reworded</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.retired</code></td><td><code>…VOICE_RETIRED</code></td><td>Your assistant uses a voice we no longer offer. It keeps working until you choose one of the voices below and save.</td><td>आपका असिस्टेंट ऐसी आवाज़ इस्तेमाल करता है जो अब हम नहीं देते। जब तक आप नीचे से कोई आवाज़ चुनकर सेव नहीं करते, वह ऐसे ही काम करता रहेगा।</td><td>તમારો આસિસ્ટન્ટ એવો અવાજ વાપરે છે જે હવે અમે આપતા નથી. તમે નીચેથી કોઈ અવાજ પસંદ કરીને સેવ ન કરો ત્યાં સુધી તે આમ જ કામ કરતો રહેશે.</td><td>Votre assistant utilise une voix que nous ne proposons plus. Elle continue de fonctionner jusqu'à ce que vous choisissiez une des voix ci-dessous et enregistriez.</td><td>Su asistente usa una voz que ya no ofrecemos. Seguirá funcionando hasta que elija una de las voces de abajo y guarde.</td><td><span class="chip new">new</span></td></tr>
+    <tr><td>—</td><td><code>…VOICE_CHOOSE_ANOTHER</code> · <code>…VOICE_CHOOSE</code> · <code>…VOICE_SHEET_TITLE</code> · <code>…VOICE_DONE</code></td><td>Choose another voice · Choose a voice · Choose a voice · Done</td><td>दूसरी आवाज़ चुनें · आवाज़ चुनें · आवाज़ चुनें · हो गया</td><td>બીજો અવાજ પસંદ કરો · અવાજ પસંદ કરો · અવાજ પસંદ કરો · થઈ ગયું</td><td>Choisir une autre voix · Choisir une voix · Choisir une voix · Terminé</td><td>Elegir otra voz · Elegir una voz · Elegir una voz · Listo</td><td><span class="chip new">new (app)</span></td></tr>
+    <tr><td><code>voiceAssistant.voice.{id}</code></td><td><code>…VOICE_NAME.{ID}</code></td><td>Marin · Cedar · Alloy · Ash · Ballad · Coral · Echo · Sage · Shimmer · Verse</td><td colspan="4">the same names in every language (today es says "Cedro" and fr "Cèdre")</td><td><span class="chip chg">name only</span></td></tr>
+    <tr><td rowspan="10"><code>voiceAssistant.voice.{id}.description</code></td><td rowspan="10"><code>…VOICE_DESCRIPTION.{ID}</code></td><td>Marin — Warm and calm</td><td>गर्मजोशी भरी और शांत</td><td>હૂંફાળો અને શાંત</td><td>Chaleureuse et calme</td><td>Cálida y tranquila</td><td rowspan="10"><span class="chip new">new</span></td></tr>
+    <tr><td>Cedar — Relaxed and friendly</td><td>सहज और मिलनसार</td><td>હળવો અને મૈત્રીપૂર્ણ</td><td>Détendue et amicale</td><td>Relajada y amable</td></tr>
+    <tr><td>Alloy — Balanced and clear</td><td>संतुलित और साफ़</td><td>સંતુલિત અને સ્પષ્ટ</td><td>Équilibrée et claire</td><td>Equilibrada y clara</td></tr>
+    <tr><td>Ash — Deep and steady</td><td>गहरी और स्थिर</td><td>ઘેરો અને સ્થિર</td><td>Grave et posée</td><td>Grave y firme</td></tr>
+    <tr><td>Ballad — Warm storyteller</td><td>गर्मजोशी भरी, किस्सागो जैसी</td><td>હૂંફાળો, વાર્તાકાર જેવો</td><td>Chaleureuse, comme un conteur</td><td>Cálida, como un narrador</td></tr>
+    <tr><td>Coral — Bright and upbeat</td><td>चमकदार और उत्साही</td><td>તેજસ્વી અને ઉત્સાહી</td><td>Lumineuse et enjouée</td><td>Brillante y alegre</td></tr>
+    <tr><td>Echo — Confident and direct</td><td>आत्मविश्वास भरी और सीधी</td><td>આત્મવિશ્વાસભર્યો અને સીધો</td><td>Assurée et directe</td><td>Segura y directa</td></tr>
+    <tr><td>Sage — Soft and light</td><td>कोमल और हल्की</td><td>કોમળ અને હળવો</td><td>Douce et légère</td><td>Suave y ligera</td></tr>
+    <tr><td>Shimmer — Energetic and crisp</td><td>ऊर्जावान और स्पष्ट</td><td>ઊર્જાવાન અને સ્પષ્ટ</td><td>Énergique et nette</td><td>Enérgica y nítida</td></tr>
+    <tr><td>Verse — Expressive and lively</td><td>भावपूर्ण और जीवंत</td><td>ભાવસભર અને જીવંત</td><td>Expressive et vivante</td><td>Expresiva y animada</td></tr>
+    <tr><td><code>voiceAssistant.form.previewVoice</code> · <code>…previewHint</code></td><td><code>…PREVIEW_VOICE</code> · <code>…PREVIEW_HINT</code></td><td colspan="5">replaced by the language line and the named play / stop words above</td><td><span class="chip gone">removed</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout"><b>Not changed by this sheet:</b> every other part of the setup form, the settings the assistant uses on a call, and the voice the caller hears.
+  That voice is still exactly the one chosen here.</div>
+
+</div>
+</body>
+</html>

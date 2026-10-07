@@ -1,0 +1,2922 @@
+{
+  "contentHash": "B635491EEC64580C9C6075A527A08D99DC308D4D84CF316A3270140C3E41A3BD",
+  "pipelineFingerprint": "5081f0f3ced54220be3c9dd2df57a62a:15c02f92315c494c88a56f0c26829c3f:4f4db4de3626484eb6f8dfdca752a1f1:cap=1",
+  "docName": "pdf_equipment_catalogue_40_photos.pdf",
+  "pageCount": 7,
+  "docTitle": "Northline Equipment 2026 Catalogue",
+  "docSummary": "Catalogue of equipment available for rental and purchase, including excavators, loaders, lifts, telehandlers, forklifts, pallet jacks, generators and air compressors. Entries give model numbers and prices and note that delivery within 50 km is included.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 0
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Compact excavator NX-100 - $12,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-100\n$12,500\nSkid steer loader NX-105 - $14,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-105\n$14,250\nWheel loader NX-110 - $16,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 2
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-110\n$16,000\nTelehandler NX-115 - $17,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 3
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-115\n$17,750\nScissor lift NX-120 - $19,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 4
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-120\n$19,500\nBoom lift NX-125 - $21,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 5
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-125",
+            "$21,250"
+          ],
+          [
+            "NX-100",
+            "$12,500"
+          ],
+          [
+            "Compact excavator NX-100 — $12,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-105",
+            "$14,250"
+          ],
+          [
+            "Skid steer loader NX-105 — $14,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-110",
+            "$16,000"
+          ],
+          [
+            "Wheel loader NX-110 — $16,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-115",
+            "$17,750"
+          ],
+          [
+            "Telehandler NX-115 — $17,750"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-120",
+            "$19,500"
+          ],
+          [
+            "Scissor lift NX-120 — $19,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-125",
+            "$21,250"
+          ],
+          [
+            "Boom lift NX-125 — $21,250"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Rental and purchase available. Delivery within 50 km included.",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": true,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 6
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-130\n$23,000\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-130  \nPallet jack NX-135 - $24,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 7
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-135\n$24,750\nGenerator NX-140 - $26,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 8
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-140\n$26,500\nAir compressor NX-145 - $28,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 9
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-145\n$28,250\nCompact excavator NX-150 - $30,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 10
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-150\n$30,000\nSkid steer loader NX-155 - $31,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": 11
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-155",
+            "$31,750",
+            "$23,000"
+          ],
+          [
+            "Forklift NX-130 — $23,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-135",
+            "$24,750"
+          ],
+          [
+            "Pallet jack NX-135 — $24,750"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-140",
+            "$26,500"
+          ],
+          [
+            "Generator NX-140 — $26,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-145",
+            "$28,250"
+          ],
+          [
+            "Air compressor NX-145 — $28,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-150",
+            "$30,000"
+          ],
+          [
+            "Compact excavator NX-150 — $30,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-155",
+            "$31,750"
+          ],
+          [
+            "Skid steer loader NX-155 — $31,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 2,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 12
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Wheel loader NX-160 - $33,500\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-160",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": true,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$33,500\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$33,500  \nWheel loader NX-160 — $33,500  \nRental and purchase available. Delivery within 50 km included.\nTelehandler NX-165 - $35,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 13
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-165\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$35,250\nScissor lift NX-170 - $37,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 14
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-170\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$37,000\nBoom lift NX-175 - $38,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 15
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-175",
+            "$38,750"
+          ],
+          [
+            "NX-180",
+            "$40,500"
+          ],
+          [
+            "NX-185",
+            "$42,250"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 16
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": 17
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-165",
+            "$35,250"
+          ],
+          [
+            "Telehandler NX-165 — $35,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-170",
+            "$37,000"
+          ],
+          [
+            "Scissor lift NX-170 — $37,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-175",
+            "$38,750"
+          ],
+          [
+            "Boom lift NX-175 — $38,750"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-180",
+            "$40,500"
+          ],
+          [
+            "Forklift NX-180 — $40,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-185",
+            "$42,250"
+          ],
+          [
+            "Pallet jack NX-185 — $42,250"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 3,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 18
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Generator NX-190 - $44,000\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-190",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": true,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$44,000\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$44,000\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Generator NX-190 — $44,000  \nRental and purchase available. Delivery within 50 km included.\nAir compressor NX-195 - $45,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 19
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-195\n$45,750\nCompact excavator NX-200 - $47,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 20
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-200\n$47,500\nSkid steer loader NX-205 - $49,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 21
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-205\n$49,250\nWheel loader NX-210 - $51,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 22
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-210",
+            "$51,000"
+          ],
+          [
+            "NX-215",
+            "$52,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": 23
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-195",
+            "$45,750"
+          ],
+          [
+            "Air compressor NX-195 — $45,750"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-200",
+            "$47,500"
+          ],
+          [
+            "Compact excavator NX-200 — $47,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-205",
+            "$49,250"
+          ],
+          [
+            "Skid steer loader NX-205 — $49,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-210",
+            "$51,000"
+          ],
+          [
+            "Wheel loader NX-210 — $51,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-215",
+            "$52,750"
+          ],
+          [
+            "Telehandler NX-215 — $52,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 4,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 24
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-220\n$54,500\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-220  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 3,
+      "text": "Scissor lift NX-220 - $54,500",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 25
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Boom lift NX-225 - $56,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-225\n$56,250\nForklift NX-230 - $58,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 26
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-230\n$58,000\nPallet jack NX-235 - $59,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 27
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-235\n$59,750\nGenerator NX-240 - $61,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 28
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-240\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$61,500\nAir compressor NX-245 - $63,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": 29
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-245\n$63,250\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-225  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-230  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-235  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-240  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-245  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Air compressor NX-245 — $3,250  \n",
+      "listItems": [],
+      "pageNumber": 5,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 30
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Compact excavator NX-250 - $65,000\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-250",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": true,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$65,000\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "$65,000  \nCompact excavator NX-250 — $65,000  \nRental and purchase available. Delivery within 50 km included.\nSkid steer loader NX-255 - $66,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 31
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-255\n$66,750\nWheel loader NX-260 - $68,500 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 32
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-260\n$68,500\nTelehandler NX-265 - $70,250 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 33
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-265\n$70,250\nScissor lift NX-270 - $72,000 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 34
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "NX-270\n$72,000\nBoom lift NX-275 - $73,750 Rental and purchase available. Delivery within 50 km included.\n",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": 35
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-275",
+            "$73,750"
+          ],
+          [
+            "NX-255",
+            "$66,750"
+          ],
+          [
+            "Skid steer loader NX-255 — $66,750"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-260",
+            "$68,500"
+          ],
+          [
+            "Wheel loader NX-260 — $68,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-265",
+            "$70,250"
+          ],
+          [
+            "Telehandler NX-265 — $70,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-270",
+            "$72,000"
+          ],
+          [
+            "Scissor lift NX-270 — $72,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-275",
+            "$73,750"
+          ],
+          [
+            "Boom lift NX-275 — $73,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 6,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northline Equipment — 2026 catalogue",
+      "listItems": [],
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": 36
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-280",
+            "$75,500"
+          ],
+          [
+            "NX-280",
+            "$75,500"
+          ],
+          [
+            "Forklift NX-280 — $75,500"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-285",
+            "$77,250"
+          ],
+          [
+            "NX-290",
+            "$79,000"
+          ],
+          [
+            "NX-295",
+            "$80,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": 37
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": 38
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": 39
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "NX-285",
+            "$77,250"
+          ],
+          [
+            "Pallet jack NX-285 — $77,250"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-290",
+            "$79,000"
+          ],
+          [
+            "Generator NX-290 — $79,000"
+          ],
+          [
+            "Rental and purchase available. Delivery within 50 km included."
+          ],
+          [
+            "NX-295",
+            "$80,750"
+          ],
+          [
+            "Air compressor NX-295 — $80,750"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 7,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {
+    "0": "Stylized yellow vehicle with two visible black wheels and a dark cab. Text: “NX-100” and “$12,500”.",
+    "1": "A simple illustration of a yellow machine with two black wheels and a black upper section against a blue background. A white label reads “NX-105” and “$14,250.”",
+    "2": "Stylized illustration of a yellow wheel loader with two black wheels and a black cab. Text: “NX-110” and “$16,000”.",
+    "3": "A simple illustration of a yellow wheeled machine with a black cab. Text: “NX-115” and “$17,750”.",
+    "4": "Simplified illustration of a yellow wheeled lift with a raised black platform. Text: “NX-120” and “$19,500”.",
+    "5": "A simple illustration of a yellow wheeled machine with a black rectangular component. A label reads “NX-125” and “$21,250”.",
+    "6": "Flat illustration of a yellow wheeled item with two black wheels and a black upright rectangular component. Label reads “NX-130” and “$23,000”.",
+    "7": "A simplified illustration of a yellow pallet jack with black wheels and handle. Text: “NX-135” and “$24,750”.",
+    "8": "Illustration of a yellow wheeled generator with a black rectangular component on top. Text: “NX-140” and “$26,500”.",
+    "9": "Illustration of a yellow wheeled air compressor with a black top housing and two black wheels. Text: “NX-145” and “$28,250”.",
+    "10": "Stylized illustration of a yellow wheeled vehicle with a black cab. Text reads “NX-150” and “$30,000”.",
+    "11": "A flat illustration of a yellow skid steer loader with a black cab and wheels. Text: “NX-155” and “$31,750”.",
+    "12": "Illustration of a yellow wheeled machine with a black cab. Text: “NX-160” and “$33,500”.",
+    "13": "A simple illustration of a yellow wheeled machine with a black rectangular upper section. Text: “NX-165” and “$35,250”.",
+    "14": "Illustration of a yellow wheeled machine with a black upper section. The label reads “NX-170” and “$37,000.”",
+    "15": "Illustration of yellow wheeled equipment with a white label reading “NX-175” and “$38,750”.",
+    "16": "Illustration of a yellow wheeled vehicle or piece of equipment against a blue background. The label reads “NX-180” and “$40,500”.",
+    "17": "Illustration of a yellow, two-wheeled machine with a black rectangular component on top. Text: “NX-185” and “$42,250”.",
+    "18": "A simplified illustration of a yellow wheeled industrial vehicle. The label reads “NX-190” and “$44,000”.",
+    "19": "Illustration of a yellow wheeled machine with a dark rectangular component. A label reads “NX-195” and “$45,750”.",
+    "20": "A simple illustration of an orange wheeled machine with a black cab-like section. Text: “NX-200” and “$47,500”.",
+    "21": "A flat illustration of an orange wheeled construction vehicle with a black cab and wheels. Text: “NX-205” and “$49,250”.",
+    "22": "A simplified illustration of a yellow wheel loader with two black wheels and a black cab. Text: “NX-210” and “$51,000”.",
+    "23": "Stylized illustration of a yellow box-shaped vehicle with two black wheels and a black rectangular component on top. A label reads “NX-215” and “$52,750”.",
+    "24": "Stylized illustration of a yellow wheeled vehicle with a black cab. Label reads “NX-220” and “$54,500”.",
+    "25": "Illustration of a yellow wheeled product with a black rectangular component. Label reads “NX-225” and “$56,250”.",
+    "26": "A simple illustration of a yellow forklift. Text: “NX-230” and “$58,000”.",
+    "27": "Illustration of a yellow pallet jack with a black handle and two wheels. Label reads “NX-235” and “$59,750”.",
+    "28": "Illustration of a yellow wheeled generator. Text: “NX-240” and “$61,500”.",
+    "29": "Illustration of a yellow wheeled machine with a dark upper housing. The label reads “NX-245” and “$63,250”.",
+    "30": "Illustration of a yellow wheeled machine with a dark rectangular component on top. Label reads “NX-250” and “$65,000”.",
+    "31": "Illustration of a yellow skid steer loader. Text: “NX-255” and “$66,750”.",
+    "32": "Simple illustration of a yellow vehicle with two black wheels and a black upper section. Text: “NX-260” and “$68,500”.",
+    "33": "Stylized illustration of a yellow wheeled machine with a black cab and two visible wheels. Label reads “NX-265” and “$70,250”.",
+    "34": "Illustration of yellow wheeled equipment with a black upper section. Text: “NX-270” and “$72,000”.",
+    "35": "Stylized illustration of yellow wheeled equipment with a black upper section. Text: “NX-275” and “$73,750”.",
+    "36": "Illustration of a yellow wheeled machine with a dark rectangular block above it. Label reads “NX-280” and “$75,500”.",
+    "37": "Stylized illustration of a yellow wheeled vehicle with a black upper section. Text: “NX-285” and “$77,250”.",
+    "38": "Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”.",
+    "39": "Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "a20ec481d60b9d88",
+      "contentHash": "a20ec481d60b9d881a16da17f80e315ce669ffa0a55da91e044c2a3438c5e16a",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/a20ec481d60b9d88.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23922,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 1,
+      "imageId": "35fe0a602ea50f83",
+      "contentHash": "35fe0a602ea50f8367b13c4f6a2b973f13557b7c609fcb28141f853578da6056",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/35fe0a602ea50f83.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23550,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 2,
+      "imageId": "cda00c205efbfe7e",
+      "contentHash": "cda00c205efbfe7e5d4cf7f17d930d00abfd19597eafd1bfc59d739d89c6aea7",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/cda00c205efbfe7e.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23691,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 3,
+      "imageId": "5ff27c772816072c",
+      "contentHash": "5ff27c772816072c6b6ee23adced4e859a021f96960461f6d5a548fd6ec1b0cc",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/5ff27c772816072c.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24626,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 4,
+      "imageId": "82d1d50f500fc627",
+      "contentHash": "82d1d50f500fc6274676d51b71fdf9004324ab301e9e864acfd048c35419f98e",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/82d1d50f500fc627.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24681,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 5,
+      "imageId": "225b620ef9f62662",
+      "contentHash": "225b620ef9f62662a6f8f811de1b3fc0b6c9acac22c65dd82afe9dfcc15c128e",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/225b620ef9f62662.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25302,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 6,
+      "imageId": "8ed056a2c33422dd",
+      "contentHash": "8ed056a2c33422dddbf1256c1e104c6ba78458c21ce5c7a3b56aaacc05a15bbc",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/8ed056a2c33422dd.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25074,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 7,
+      "imageId": "62e586224cf31e86",
+      "contentHash": "62e586224cf31e86ee75062f4b9bd313d6358bece1dceff9742a6193af48cc41",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/62e586224cf31e86.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24737,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 8,
+      "imageId": "578e684bab451ebc",
+      "contentHash": "578e684bab451ebcc83a158a4eb9fd9bcb1777d10e389b7fdf823a6a69cd8627",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/578e684bab451ebc.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23489,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 9,
+      "imageId": "e48d9cb26bb58006",
+      "contentHash": "e48d9cb26bb58006688c2d65e031867a164115933ff4da3730f657195faabf75",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/e48d9cb26bb58006.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23804,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 10,
+      "imageId": "88d66ec7663bb628",
+      "contentHash": "88d66ec7663bb6281236c614b79333eb194369e90eb01a16651e31300538cd56",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/88d66ec7663bb628.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24325,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 11,
+      "imageId": "d8ac46f70c558ba6",
+      "contentHash": "d8ac46f70c558ba6a4718a7eb2af8aa5871e0f63c79c2bb22702c2b8c50db5e2",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/d8ac46f70c558ba6.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23934,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 2,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 12,
+      "imageId": "28b25ce6a609e664",
+      "contentHash": "28b25ce6a609e6646d43d50b42bd6f837d4617e7b2182c15c6af1f5506480b43",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/28b25ce6a609e664.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23883,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 13,
+      "imageId": "7c72af4b1dff717a",
+      "contentHash": "7c72af4b1dff717a2b9ede973ca8bf4900734ae88bce7d0180d1ef3e67adce62",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/7c72af4b1dff717a.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24161,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 14,
+      "imageId": "eb81455a73b93e8c",
+      "contentHash": "eb81455a73b93e8c886c1980d10d26a3cdd61e4273863ddb305c48c40b477f13",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/eb81455a73b93e8c.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23653,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 15,
+      "imageId": "a40c5361ba9f8327",
+      "contentHash": "a40c5361ba9f832793c835f892c6c859096930590c2108eb7c58a94568527579",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/a40c5361ba9f8327.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25264,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 16,
+      "imageId": "055e16b1b0786a91",
+      "contentHash": "055e16b1b0786a9175dbc9f1a73d5e0801f038c9c538146aed74b979f811234e",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/055e16b1b0786a91.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25700,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 17,
+      "imageId": "acbce92c0fc9d0f4",
+      "contentHash": "acbce92c0fc9d0f47a181a9a8a2e34c6de24f974753a4a4c4b109bdb2714172d",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/acbce92c0fc9d0f4.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24570,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 3,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 18,
+      "imageId": "675334ce7a1fbc8b",
+      "contentHash": "675334ce7a1fbc8bdb4ba9ef9639231eae30ff140378e417f6f32da0ba6a6162",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/675334ce7a1fbc8b.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24392,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 19,
+      "imageId": "91596d93461ea17d",
+      "contentHash": "91596d93461ea17d48ae8abd74760d29a98ca1fd56d63804d47ab3b1f526118b",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/91596d93461ea17d.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24322,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 20,
+      "imageId": "b484846a948c46b3",
+      "contentHash": "b484846a948c46b385a6aaf9f8110fd19691cf3467f3720c6e842cae3f404be7",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/b484846a948c46b3.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24959,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 21,
+      "imageId": "8f50bc9cca288c65",
+      "contentHash": "8f50bc9cca288c6578f6b7c62ae563b83193f8bbb3a5978d60a62c78398fd5a2",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/8f50bc9cca288c65.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25570,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 22,
+      "imageId": "944a03bfabec8e0a",
+      "contentHash": "944a03bfabec8e0a194c5908f3bb1ea08ab267321fbbeebf94417b890c247c3f",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/944a03bfabec8e0a.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23079,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 23,
+      "imageId": "3f47b62aff9c9760",
+      "contentHash": "3f47b62aff9c976039707f1ba523d953b35f3993229792d7d4c2f349a25cd239",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/3f47b62aff9c9760.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23738,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 4,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 24,
+      "imageId": "88975080c691d4f9",
+      "contentHash": "88975080c691d4f9350dd8720c516b9e83bbf5957f1d1641059b83540e7f05ba",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/88975080c691d4f9.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23919,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 25,
+      "imageId": "bec183c2d27a5f8d",
+      "contentHash": "bec183c2d27a5f8df4de73f4eb14d3cd8893cad48d70de7a9902b2cb8a343b34",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/bec183c2d27a5f8d.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24527,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Scissor lift NX-220 - $54,500"
+    },
+    {
+      "index": 26,
+      "imageId": "e8e7c0f3627a65f3",
+      "contentHash": "e8e7c0f3627a65f32f3c95b8dd747898ad3f2ff77fa72a6911377e45c0968bd2",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/e8e7c0f3627a65f3.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24960,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Scissor lift NX-220 - $54,500"
+    },
+    {
+      "index": 27,
+      "imageId": "6c1db05f7451c5a8",
+      "contentHash": "6c1db05f7451c5a8cf6de2dd216c049618be29541088c02c06d4fa8ce8ba8869",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/6c1db05f7451c5a8.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24357,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Scissor lift NX-220 - $54,500"
+    },
+    {
+      "index": 28,
+      "imageId": "1ff20ce29af525e4",
+      "contentHash": "1ff20ce29af525e4a7979996d13fa44759271953ce97ba83017af62b77bbe810",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/1ff20ce29af525e4.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24518,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Scissor lift NX-220 - $54,500"
+    },
+    {
+      "index": 29,
+      "imageId": "b1bddda639c7f2a9",
+      "contentHash": "b1bddda639c7f2a9881d7bbb0d6511faa120602873dce4d233bde20b84fe1839",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/b1bddda639c7f2a9.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25162,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 5,
+      "anchorPath": "Scissor lift NX-220 - $54,500"
+    },
+    {
+      "index": 30,
+      "imageId": "0beb67b5a793e477",
+      "contentHash": "0beb67b5a793e477dc29ec3c5511d8c7c12ed7bebc90f114164bc36aea3a58e0",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/0beb67b5a793e477.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25136,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 31,
+      "imageId": "6593c3212f1a6d67",
+      "contentHash": "6593c3212f1a6d67561ce94b7c8dcfb3f9681d4245579823599fde5d982219c2",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/6593c3212f1a6d67.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25397,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 32,
+      "imageId": "838e0c7818baa42c",
+      "contentHash": "838e0c7818baa42c284a6bbaa6a5d002491beb26a830f7a29824b25c19d3cc89",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/838e0c7818baa42c.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24740,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 33,
+      "imageId": "7835f55e1038d8b6",
+      "contentHash": "7835f55e1038d8b6eb411856f84ad3f7c736bcf13b7148f805b8e5e35abbd478",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/7835f55e1038d8b6.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24144,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 34,
+      "imageId": "ab8d25421874a824",
+      "contentHash": "ab8d25421874a8241f1da165814d24678646524ccb7abdb67644155809fb8a38",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/ab8d25421874a824.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23847,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 35,
+      "imageId": "b6d037bcc3734793",
+      "contentHash": "b6d037bcc373479394020717ee45a931df56ed7526896a15150c18d2adf6e1d8",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/b6d037bcc3734793.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24456,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 6,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 36,
+      "imageId": "ffef5493833b9e77",
+      "contentHash": "ffef5493833b9e777a6bd2f0a9b9295875b371f561a538bd9317327e0b4ccd72",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/ffef5493833b9e77.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 25121,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 7,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 37,
+      "imageId": "9a1c0ba5f2ed7eff",
+      "contentHash": "9a1c0ba5f2ed7eff60b6545fda467dce08f802113a62cd021ad6208ba9fdfe94",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/9a1c0ba5f2ed7eff.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24758,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 7,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 38,
+      "imageId": "d99b4937ca164e3e",
+      "contentHash": "d99b4937ca164e3e44041bdb4c11f79bd91a6a24bb41471a3818d0f86bb24330",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/d99b4937ca164e3e.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 24421,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 7,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    },
+    {
+      "index": 39,
+      "imageId": "41e6a1bf8d6e48d3",
+      "contentHash": "41e6a1bf8d6e48d3851c4fbe74481f884faf383eef5a670834fb88f5a6c04353",
+      "blobPath": "NKN607/_images/88ddcdb8e72742318ce1021035983ec1/41e6a1bf8d6e48d3.jpg",
+      "width": 900,
+      "height": 600,
+      "bytes": 23855,
+      "kind": "Product",
+      "source": "Native",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 7,
+      "anchorPath": "Northline Equipment — 2026 catalogue"
+    }
+  ],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "unreadablePictures": 0,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionPagesFailedTransiently": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "037da78a-7938-4e6a-b223-f3a3c0a6b656",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$12,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 3",
+          "ocrReading": "",
+          "firstAiReading": "$12,500",
+          "passageIds": [],
+          "thirdReading": "$12,500",
+          "selectedReading": "$12,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$12,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 4",
+          "ocrReading": "",
+          "firstAiReading": "**Compact excavator NX-100 — $12,500**",
+          "passageIds": [],
+          "thirdReading": "Compact excavator NX-100 — $12,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Compact excavator NX-100 — $12,500**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$14,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$14,250",
+          "passageIds": [],
+          "thirdReading": "$14,250",
+          "selectedReading": "$14,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$14,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "**Skid steer loader NX-105 — $14,250**",
+          "passageIds": [],
+          "thirdReading": "Skid steer loader NX-105 — $14,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Skid steer loader NX-105 — $14,250**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$16,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$16,000",
+          "passageIds": [],
+          "thirdReading": "$16,000",
+          "selectedReading": "$16,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$16,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "**Wheel loader NX-110 — $16,000**",
+          "passageIds": [],
+          "thirdReading": "Wheel loader NX-110 — $16,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Wheel loader NX-110 — $16,000**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$17,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$17,750",
+          "passageIds": [],
+          "thirdReading": "$17,750",
+          "selectedReading": "$17,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$17,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "**Telehandler NX-115 — $17,750**",
+          "passageIds": [],
+          "thirdReading": "Telehandler NX-115 — $17,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Telehandler NX-115 — $17,750**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$19,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 19",
+          "ocrReading": "",
+          "firstAiReading": "$19,500",
+          "passageIds": [],
+          "thirdReading": "$19,500",
+          "selectedReading": "$19,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$19,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 20",
+          "ocrReading": "",
+          "firstAiReading": "**Scissor lift NX-120 — $19,500**",
+          "passageIds": [],
+          "thirdReading": "Scissor lift NX-120 — $19,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Scissor lift NX-120 — $19,500**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$21,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 23",
+          "ocrReading": "",
+          "firstAiReading": "$21,250",
+          "passageIds": [],
+          "thirdReading": "$21,250",
+          "selectedReading": "$21,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$21,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 1, Paragraph 24",
+          "ocrReading": "",
+          "firstAiReading": "**Boom lift NX-125 — $21,250**",
+          "passageIds": [],
+          "thirdReading": "Boom lift NX-125 — $21,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Boom lift NX-125 — $21,250**",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "verificationId": "af6e8a96-d320-46c5-a0d0-ec7c69aa39de",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$24,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$24,750",
+          "passageIds": [],
+          "thirdReading": "$24,750",
+          "selectedReading": "$24,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$24,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "**Pallet jack NX-135 — $24,750**",
+          "passageIds": [],
+          "thirdReading": "Pallet jack NX-135 — $24,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Pallet jack NX-135 — $24,750**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$26,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$26,500",
+          "passageIds": [],
+          "thirdReading": "$26,500",
+          "selectedReading": "$26,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$26,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "**Generator NX-140 — $26,500**",
+          "passageIds": [],
+          "thirdReading": "Generator NX-140 — $26,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Generator NX-140 — $26,500**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$28,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$28,250",
+          "passageIds": [],
+          "thirdReading": "$28,250",
+          "selectedReading": "$28,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$28,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "**Air compressor NX-145 — $28,250**",
+          "passageIds": [],
+          "thirdReading": "Air compressor NX-145 — $28,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Air compressor NX-145 — $28,250**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$30,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 19",
+          "ocrReading": "",
+          "firstAiReading": "$30,000",
+          "passageIds": [],
+          "thirdReading": "$30,000",
+          "selectedReading": "$30,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$30,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 20",
+          "ocrReading": "",
+          "firstAiReading": "**Compact excavator NX-150 — $30,000**",
+          "passageIds": [],
+          "thirdReading": "Compact excavator NX-150 — $30,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Compact excavator NX-150 — $30,000**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$31,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 23",
+          "ocrReading": "",
+          "firstAiReading": "$31,750",
+          "passageIds": [],
+          "thirdReading": "$31,750",
+          "selectedReading": "$31,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$31,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 2, Paragraph 24",
+          "ocrReading": "",
+          "firstAiReading": "**Skid steer loader NX-155 — $31,750**",
+          "passageIds": [],
+          "thirdReading": "Skid steer loader NX-155 — $31,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Skid steer loader NX-155 — $31,750**",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    },
+    {
+      "pageNumber": 3,
+      "verificationId": "d7a3017d-afcf-4171-a557-7ac4507629c2",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$33,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 3",
+          "ocrReading": "",
+          "firstAiReading": "$33,500",
+          "passageIds": [],
+          "thirdReading": "$33,500",
+          "selectedReading": "$33,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$33,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 4",
+          "ocrReading": "",
+          "firstAiReading": "Wheel loader NX-160 — $33,500",
+          "passageIds": [],
+          "thirdReading": "Wheel loader NX-160 — $33,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Wheel loader NX-160 — $33,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$35,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$35,250",
+          "passageIds": [],
+          "thirdReading": "$35,250",
+          "selectedReading": "$35,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$35,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "Telehandler NX-165 — $35,250",
+          "passageIds": [],
+          "thirdReading": "Telehandler NX-165 — $35,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Telehandler NX-165 — $35,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$37,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$37,000",
+          "passageIds": [],
+          "thirdReading": "$37,000",
+          "selectedReading": "$37,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$37,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "Scissor lift NX-170 — $37,000",
+          "passageIds": [],
+          "thirdReading": "Scissor lift NX-170 — $37,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Scissor lift NX-170 — $37,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$38,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$38,750",
+          "passageIds": [],
+          "thirdReading": "$38,750",
+          "selectedReading": "$38,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$38,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 3, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "Boom lift NX-175 — $38,750",
+          "passageIds": [],
+          "thirdReading": "Boom lift NX-175 — $38,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Boom lift NX-175 — $38,750",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    },
+    {
+      "pageNumber": 4,
+      "verificationId": "63608121-0db7-4f15-a8f4-45a8e2c36131",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$44,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 3",
+          "ocrReading": "",
+          "firstAiReading": "$44,000",
+          "passageIds": [],
+          "thirdReading": "$44,000",
+          "selectedReading": "$44,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$44,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 4",
+          "ocrReading": "",
+          "firstAiReading": "Generator NX-190 — $44,000",
+          "passageIds": [],
+          "thirdReading": "Generator NX-190 — $44,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Generator NX-190 — $44,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$45,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$45,750",
+          "passageIds": [],
+          "thirdReading": "$45,750",
+          "selectedReading": "$45,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$45,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "Air compressor NX-195 — $45,750",
+          "passageIds": [],
+          "thirdReading": "Air compressor NX-195 — $45,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Air compressor NX-195 — $45,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$47,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$47,500",
+          "passageIds": [],
+          "thirdReading": "$47,500",
+          "selectedReading": "$47,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$47,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "Compact excavator NX-200 — $47,500",
+          "passageIds": [],
+          "thirdReading": "Compact excavator NX-200 — $47,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Compact excavator NX-200 — $47,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$49,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$49,250",
+          "passageIds": [],
+          "thirdReading": "$49,250",
+          "selectedReading": "$49,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$49,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "Skid steer loader NX-205 — $49,250",
+          "passageIds": [],
+          "thirdReading": "Skid steer loader NX-205 — $49,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Skid steer loader NX-205 — $49,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$51,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 19",
+          "ocrReading": "",
+          "firstAiReading": "$51,000",
+          "passageIds": [],
+          "thirdReading": "$51,000",
+          "selectedReading": "$51,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$51,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 4, Paragraph 20",
+          "ocrReading": "",
+          "firstAiReading": "Wheel loader NX-210 — $51,000",
+          "passageIds": [],
+          "thirdReading": "Wheel loader NX-210 — $51,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "Wheel loader NX-210 — $51,000",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    },
+    {
+      "pageNumber": 5,
+      "verificationId": "d0d67c06-e116-49c6-a17a-2c49507c9f5c",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$54,500' reads '$4,500'",
+          "location": "page 5, Heading 1",
+          "ocrReading": "### Scissor lift NX-220 - $54,500",
+          "firstAiReading": "**Scissor lift NX-220 — $4,500**",
+          "passageIds": [],
+          "thirdReading": "Scissor lift NX-220 — $54,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "### Scissor lift NX-220 - $54,500",
+          "disposition": "ResolvedToSourceReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$4,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 3",
+          "ocrReading": "",
+          "firstAiReading": "$4,500",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$4,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 4",
+          "ocrReading": "",
+          "firstAiReading": "**Scissor lift NX-220 — $4,500**",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$6,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$6,250",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$6,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "**Boom lift NX-225 — $6,250**",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$8,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$8,000",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$8,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "**Forklift NX-230 — $8,000**",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$9,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$9,750",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$9,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "**Pallet jack NX-235 — $9,750**",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$1,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 19",
+          "ocrReading": "",
+          "firstAiReading": "$1,500",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$1,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 20",
+          "ocrReading": "",
+          "firstAiReading": "**Generator NX-240 — $1,500**",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$3,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 5, Paragraph 23",
+          "ocrReading": "",
+          "firstAiReading": "$3,250",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "CandidateUnitNotOnPage"
+        }
+      ]
+    },
+    {
+      "pageNumber": 6,
+      "verificationId": "4f65f2ef-8132-4e87-bc50-e09b4da98547",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$65,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 3",
+          "ocrReading": "",
+          "firstAiReading": "$65,000",
+          "passageIds": [],
+          "thirdReading": "$65,000",
+          "selectedReading": "$65,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$65,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 4",
+          "ocrReading": "",
+          "firstAiReading": "**Compact excavator NX-250 — $65,000**",
+          "passageIds": [],
+          "thirdReading": "Compact excavator NX-250 — $65,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Compact excavator NX-250 — $65,000**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$66,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 7",
+          "ocrReading": "",
+          "firstAiReading": "$66,750",
+          "passageIds": [],
+          "thirdReading": "$66,750",
+          "selectedReading": "$66,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$66,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 8",
+          "ocrReading": "",
+          "firstAiReading": "**Skid steer loader NX-255 — $66,750**",
+          "passageIds": [],
+          "thirdReading": "Skid steer loader NX-255 — $66,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Skid steer loader NX-255 — $66,750**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$68,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 11",
+          "ocrReading": "",
+          "firstAiReading": "$68,500",
+          "passageIds": [],
+          "thirdReading": "$68,500",
+          "selectedReading": "$68,500",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$68,500' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 12",
+          "ocrReading": "",
+          "firstAiReading": "**Wheel loader NX-260 — $68,500**",
+          "passageIds": [],
+          "thirdReading": "Wheel loader NX-260 — $68,500\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Wheel loader NX-260 — $68,500**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$70,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 15",
+          "ocrReading": "",
+          "firstAiReading": "$70,250",
+          "passageIds": [],
+          "thirdReading": "$70,250",
+          "selectedReading": "$70,250",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$70,250' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 16",
+          "ocrReading": "",
+          "firstAiReading": "**Telehandler NX-265 — $70,250**",
+          "passageIds": [],
+          "thirdReading": "Telehandler NX-265 — $70,250\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Telehandler NX-265 — $70,250**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$72,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 19",
+          "ocrReading": "",
+          "firstAiReading": "$72,000",
+          "passageIds": [],
+          "thirdReading": "$72,000",
+          "selectedReading": "$72,000",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$72,000' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 20",
+          "ocrReading": "",
+          "firstAiReading": "**Scissor lift NX-270 — $72,000**",
+          "passageIds": [],
+          "thirdReading": "Scissor lift NX-270 — $72,000\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Scissor lift NX-270 — $72,000**",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$73,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 23",
+          "ocrReading": "",
+          "firstAiReading": "$73,750",
+          "passageIds": [],
+          "thirdReading": "$73,750",
+          "selectedReading": "$73,750",
+          "disposition": "ResolvedToCandidateReading"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'$73,750' is in the transcript and nowhere in the machine reading of this page",
+          "location": "page 6, Paragraph 24",
+          "ocrReading": "",
+          "firstAiReading": "**Boom lift NX-275 — $73,750**",
+          "passageIds": [],
+          "thirdReading": "Boom lift NX-275 — $73,750\nRental and purchase available. Delivery within 50 km included.",
+          "selectedReading": "**Boom lift NX-275 — $73,750**",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

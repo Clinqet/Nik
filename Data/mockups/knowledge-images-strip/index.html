@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge pictures — v3 (approved)</title>
+<style>
+  :root{
+    --brand:#97EF29; --navy:#032858; --ink:#101010; --ink2:#5F5F5F; --ink3:#919191;
+    --line:#E7E7E7; --hair:#F0F0F0; --bg:#F6F7F5; --soft:#F5F5F5;
+    --indigoLine:#C7D7FE; --indigoBg:#EEF2FF; --indigoInk:#3730A3;
+    --greenSoft:#EEF9E2; --greenLine:#DCEFC2; --greenInk:#3F7A00;
+    --danger:#EF4444; --dangerSoft:#FEE2E2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"Lufga","Segoe UI",system-ui,-apple-system,sans-serif}
+  .wrap{max-width:1200px;margin:0 auto;padding:26px 20px 90px}
+  h1{font-size:26px;margin:0 0 6px;font-weight:600}
+  .sub{color:var(--ink2);font-size:14px;margin:0 0 20px;line-height:1.6;max-width:900px}
+  h2{font-size:16px;margin:36px 0 4px;font-weight:600}
+  h2 .n{display:inline-block;min-width:22px;color:var(--ink3);font-weight:500}
+  .why{color:var(--ink2);font-size:12.5px;margin:0 0 12px;line-height:1.65;max-width:960px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:0 0 9px;font-weight:600}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
+  .scrollx{overflow-x:auto}
+
+  /* ---------- the real page ---------- */
+  .page{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .tabs{display:flex;gap:8px;align-items:flex-end;border-bottom:1px solid #E5E7EB;margin-bottom:4px}
+  .tab{padding:9px 14px;font-size:13.5px;font-weight:600;color:var(--ink2);border-bottom:3px solid transparent;
+       display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+  .tab.on{color:var(--navy);border-bottom-color:var(--brand)}
+  .tab .b{font-size:11px;font-weight:700;border-radius:99px;padding:1px 8px;background:#EDF1F7;color:var(--navy)}
+
+  .docrow{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--hair)}
+  .docrow:last-child{border-bottom:0}
+  .ficon{width:34px;height:34px;border-radius:9px;background:var(--greenSoft);border:1px solid var(--greenLine);
+         display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:14px;color:var(--greenInk)}
+  .dbody{flex:1;min-width:0}
+  .dtitle{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .dname{font-size:13.5px;font-weight:600}
+  .pill{font-size:11px;font-weight:600;border-radius:99px;padding:2px 8px;white-space:nowrap}
+  .pill.type{border:1px solid var(--line);background:var(--soft);color:var(--ink2)}
+  .pill.ready{border:1px solid var(--greenLine);background:var(--greenSoft);color:var(--greenInk)}
+  .pill.proc{border:1px solid #FCE7A2;background:#FFF8E6;color:#7A5B00}
+  .pill.share{border:1px solid var(--indigoLine);background:var(--indigoBg);color:var(--indigoInk)}
+  .pill.noshare{border:1px dashed var(--line);background:#fff;color:var(--ink3)}
+  .meta{font-size:11.5px;color:var(--ink3);margin-top:3px}
+  .navyline{font-size:11.5px;color:var(--navy);margin-top:3px}
+  .navyline a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .kebab{color:#C9C9C9;font-size:17px;padding:0 4px}
+
+  /* ---------- picture panel ---------- */
+  .picline{font-size:11.5px;color:var(--navy);margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .picline .dot{color:var(--ink3)}
+  .picline a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .picpanel{margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#FCFDFB}
+  .picpanel .ph1{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
+  .picpanel .ph1 b{font-size:12.5px;font-weight:600}
+  .hide{font-size:11.5px;color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .hint{font-size:11.5px;color:var(--ink3);line-height:1.55;margin:0 0 10px}
+  .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+  .tiles.c4{grid-template-columns:repeat(4,1fr)}
+  .tiles.c3{grid-template-columns:repeat(3,1fr)}
+  .tile{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#EDEDED;cursor:pointer}
+  .tile .ph{width:100%;height:100%;display:block;background:#F0F0F0}
+  .tick{position:absolute;top:5px;right:5px;width:21px;height:21px;border-radius:99px;display:flex;
+        align-items:center;justify-content:center;font-size:11px;font-weight:700;
+        background:rgba(255,255,255,.93);color:var(--ink3);border:1px solid rgba(0,0,0,.10)}
+  .tick.on{background:var(--brand);color:var(--ink);border-color:transparent}
+  .spin{width:10px;height:10px;border:2px solid var(--ink3);border-top-color:transparent;border-radius:99px;
+        display:inline-block;animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .ovl{position:absolute;inset:0;background:rgba(255,255,255,.64);display:flex;align-items:center;
+       justify-content:center;font-size:10.5px;color:var(--ink2)}
+  .dim{opacity:.42}
+  .more{margin-top:9px;width:100%;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px;
+        font-size:12px;font-weight:600;color:var(--navy);cursor:pointer;font-family:inherit}
+  .empty{border:1px dashed var(--line);border-radius:10px;padding:14px;text-align:center;font-size:12px;
+         color:var(--ink3);background:#fff}
+  .warn{display:flex;gap:7px;background:#FFF8E6;border:1px solid #FCE7A2;border-radius:9px;padding:7px 9px;
+        font-size:11.5px;color:#7A5B00;line-height:1.5;margin-bottom:9px}
+  .info{display:flex;gap:7px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 9px;
+        font-size:11.5px;color:var(--ink2);line-height:1.5;margin-bottom:9px}
+
+  /* ---------- viewer ---------- */
+  .viewer{background:#111;border-radius:13px;overflow:hidden;max-width:400px}
+  .vImg{aspect-ratio:4/3;background:linear-gradient(135deg,#5C6B58,#8FA089);display:flex;align-items:center;
+        justify-content:center;color:#fff;font-size:11.5px;opacity:.92}
+  .vBar{background:#191919;padding:12px 13px;color:#fff}
+  .vCap{font-size:12.5px;line-height:1.55}
+  .vMeta{font-size:11px;color:#9A9A9A;margin-top:4px}
+  .vActs{display:flex;gap:8px;margin-top:12px}
+  .vBtn{flex:1;border-radius:9px;padding:8px;font-size:12px;font-weight:600;text-align:center;
+        border:1px solid rgba(255,255,255,.22);color:#fff}
+  .vBtn.pri{background:var(--brand);color:var(--ink);border-color:transparent}
+  .vBtn.del{color:#FF8A8A;border-color:rgba(255,138,138,.4)}
+
+  /* ---------- confirm dialog ---------- */
+  .scrim{background:#000000bd;border-radius:13px;padding:24px 16px;display:flex;justify-content:center}
+  .dlg{background:#fff;border-radius:12px;width:100%;max-width:320px;padding:20px;text-align:center}
+  .dlgIco{width:44px;height:44px;border-radius:99px;background:var(--dangerSoft);margin:0 auto 12px;
+          display:flex;align-items:center;justify-content:center;font-size:19px}
+  .dlgT{font-size:19px;font-weight:500;line-height:1.25}
+  .dlgB{font-size:12.5px;color:var(--ink2);margin-top:8px;line-height:1.55}
+  .dlgP{font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.5}
+  .dlgActs{display:flex;gap:10px;margin-top:16px}
+  .bKeep{flex:1;border:1px solid var(--brand);background:#fff;color:var(--ink);border-radius:9px;padding:9px;
+         font-size:12.5px;font-weight:500;font-family:inherit}
+  .bDel{flex:1;border:0;background:var(--danger);color:#fff;border-radius:9px;padding:9px;font-size:12.5px;
+        font-weight:500;font-family:inherit}
+  .oneThumb{width:44px;height:44px;border-radius:7px;margin:11px auto 0;background:linear-gradient(135deg,#8FA089,#B8C7AE)}
+
+  /* ---------- phones ---------- */
+  .phones{display:flex;gap:16px;flex-wrap:wrap}
+  .phone{width:286px;border:9px solid #1A1A1A;border-radius:30px;overflow:hidden;background:#fff;flex:0 0 auto}
+  .pTop{background:#1A1A1A;height:19px}
+  .pBody{padding:11px;min-height:420px}
+  .grab{width:34px;height:4px;border-radius:99px;background:#DDD;margin:0 auto 11px}
+
+  table{border-collapse:collapse;width:100%;font-size:12.5px;background:#fff;border:1px solid var(--line);
+        border-radius:12px;overflow:hidden}
+  th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:var(--soft);font-weight:600;font-size:11.5px}
+  tr:last-child td{border-bottom:0}
+  code{background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:11.5px}
+  .verdict{background:#fff;border:2px solid var(--brand);border-radius:14px;padding:16px;margin-top:14px}
+  .verdict b{display:block;margin-bottom:6px;font-size:13.5px}
+  .verdict p{margin:0 0 10px;font-size:12.5px;color:var(--ink2);line-height:1.65}
+  .verdict p:last-child{margin-bottom:0}
+  .rec{display:inline-block;background:var(--brand);color:var(--ink);border-radius:99px;padding:1px 8px;
+       font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:middle}
+  .no{display:inline-block;background:#EFEFEF;color:var(--ink2);border-radius:99px;padding:1px 8px;
+      font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:middle}
+  .changed{background:#F3FBEA;border:1px solid var(--greenLine);border-radius:12px;padding:13px 16px;margin-bottom:6px}
+  .changed li{font-size:12.5px;color:#2F5410;line-height:1.7}
+  .pro{font-size:12px;line-height:1.7;margin:0;padding-left:17px;color:var(--ink2)}
+  .pro li b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Pictures from a knowledge file</h1>
+  <p class="sub">
+    Provider web + provider mobile · shown inside the real Knowledge page · every state · v3.
+  </p>
+
+  <div class="changed">
+    <strong style="font-size:12.5px;color:#2F5410">APPROVED 2026-08-25 — Option A (inside the document, no third tab), built as drawn</strong>
+    <ul style="margin:8px 0 0;padding-left:18px">
+      <li><b>Can it be hidden again?</b> Yes — it is hidden by <em>default</em>. §2 shows collapsed → open → hidden again.</li>
+      <li><b>Also approved and shipped:</b> “Review below” → <b>“Review”</b> (the link switches TAB, so “below” was
+          stale), and the <em>Service suggestions</em> tab still highlights on arrival but <b>only while its count is
+          above zero</b> — approving the last suggestion inside the cue window used to leave a ring around an empty tab.</li>
+      <li><b>Separate tab, like Service suggestions?</b> §3 draws both, side by side, and says which I would build
+          and why. Your call.</li>
+      <li><b>How does it sit with the existing document list?</b> §1 and §2 are the real page — real tabs, real
+          chips, real wording out of <code>en-US.json</code>.</li>
+      <li><b>What do we show as the thumbnail?</b> §8 names the exact field, and why a grid never pulls the
+          full-size picture.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">1</span> The page as it is today, plus one quiet line</h2>
+  <p class="why">
+    Nothing moves. Each document keeps its title, type, status, sharing pill, its meta line and its
+    “services suggested” line. Pictures add <b>one more line of the same kind</b> — the idiom this row already
+    uses three times. Closed, a file with pictures costs eleven words.
+  </p>
+  <div class="panel">
+    <div class="page">
+      <div class="tabs">
+        <div class="tab on">Documents &amp; FAQs</div>
+        <div class="tab">Service suggestions <span class="b">3</span></div>
+      </div>
+
+      <div class="docrow">
+        <div class="ficon">📄</div>
+        <div class="dbody">
+          <div class="dtitle">
+            <span class="dname">Spring catalogue</span>
+            <span class="pill type">Price list</span>
+            <span class="pill ready">Ready</span>
+            <span class="pill share">Details can be sent</span>
+          </div>
+          <div class="meta">24 pages · 18 parts · 2.4 MB · Added 21 Aug</div>
+          <div class="navyline">Linked to Bathroom tiling, Floor tiling <a>+3 more</a></div>
+          <div class="navyline">3 services suggested · <a>Review</a></div>
+          <div class="picline"><span>6 pictures · 4 can be sent</span><span class="dot">·</span><a>Show pictures</a></div>
+        </div>
+        <div class="kebab">⋮</div>
+      </div>
+
+      <div class="docrow">
+        <div class="ficon">📄</div>
+        <div class="dbody">
+          <div class="dtitle">
+            <span class="dname">Cancellation policy</span>
+            <span class="pill type">Policy</span>
+            <span class="pill ready">Ready</span>
+            <span class="pill noshare">Not shared</span>
+          </div>
+          <div class="meta">2 pages · 4 parts · 48 KB · Added 19 Aug</div>
+        </div>
+        <div class="kebab">⋮</div>
+      </div>
+
+      <div class="docrow">
+        <div class="ficon">📄</div>
+        <div class="dbody">
+          <div class="dtitle">
+            <span class="dname">Installation guide</span>
+            <span class="pill type">Guide</span>
+            <span class="pill proc">Processing</span>
+          </div>
+          <div class="meta">6.1 MB · Added just now</div>
+        </div>
+        <div class="kebab">⋮</div>
+      </div>
+
+      <div class="docrow">
+        <div class="ficon">📄</div>
+        <div class="dbody">
+          <div class="dtitle">
+            <span class="dname">Trade price sheet</span>
+            <span class="pill type">Price list</span>
+            <span class="pill ready">Ready</span>
+            <span class="pill share">Details can be sent</span>
+          </div>
+          <div class="meta">3 pages · 11 parts · 210 KB · Added 12 Aug</div>
+          <div class="picline"><span>28 pictures · 19 can be sent</span><span class="dot">·</span><a>Show pictures</a></div>
+        </div>
+        <div class="kebab">⋮</div>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:12px">
+      A file with no pictures says nothing at all — <em>Cancellation policy</em> and <em>Installation guide</em>
+      are unchanged. Absence never earns a row.
+    </p>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">2</span> Open · and hidden again</h2>
+  <p class="why">
+    “Show pictures” opens the grid <b>in place</b>, under its own document — the file's name and its sharing pill
+    stay on screen above the tiles, so there is never a moment of “which file are these from?”. “Hide” closes it.
+    Only one document is ever open at a time.
+  </p>
+  <div class="panel">
+    <div class="page">
+      <div class="docrow" style="border-bottom:0">
+        <div class="ficon">📄</div>
+        <div class="dbody">
+          <div class="dtitle">
+            <span class="dname">Spring catalogue</span>
+            <span class="pill type">Price list</span>
+            <span class="pill ready">Ready</span>
+            <span class="pill share">Details can be sent</span>
+          </div>
+          <div class="meta">24 pages · 18 parts · 2.4 MB · Added 21 Aug</div>
+          <div class="picline"><span>6 pictures · 4 can be sent</span></div>
+
+          <div class="picpanel">
+            <div class="ph1">
+              <b>Pictures in this file</b>
+              <span class="hide">Hide</span>
+            </div>
+            <p class="hint">
+              Ticked pictures can be sent to a caller during a call. Tap a picture to see it larger.
+            </p>
+            <div class="tiles">
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#B08A8A,#D0B0B0)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:#E4E4E4"></div><div class="tick"></div></div>
+              <div class="tile"><div class="ph" style="background:#ECECEC"></div><div class="tick"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="kebab">⋮</div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div>
+        <p class="lbl">Hidden again — identical to before it was opened</p>
+        <div class="page">
+          <div class="docrow" style="border-bottom:0">
+            <div class="ficon">📄</div>
+            <div class="dbody">
+              <div class="dtitle">
+                <span class="dname">Spring catalogue</span>
+                <span class="pill type">Price list</span>
+                <span class="pill ready">Ready</span>
+                <span class="pill share">Details can be sent</span>
+              </div>
+              <div class="meta">24 pages · 18 parts · 2.4 MB · Added 21 Aug</div>
+              <div class="picline"><span>6 pictures · 4 can be sent</span><span class="dot">·</span><a>Show pictures</a></div>
+            </div>
+            <div class="kebab">⋮</div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:9px">
+          The count on the line is live — untick one and it reads “3 can be sent” before the panel is even closed.
+        </p>
+      </div>
+      <div>
+        <p class="lbl">Tapping a tile — the viewer</p>
+        <div class="viewer">
+          <div class="vImg">the picture, full size</div>
+          <div class="vBar">
+            <div class="vCap">A white gloss porcelain floor tile, 60 × 60 cm, shown in a bathroom setting.</div>
+            <div class="vMeta">Page 4 · Product photo</div>
+            <div class="vActs">
+              <div class="vBtn pri">✓ Can be sent</div>
+              <div class="vBtn del">Delete</div>
+            </div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:9px">
+          The caption is what Clinket AI understands the picture to be — and what it will say about it on a call.
+          Showing it is the only way the provider can judge whether it should go out.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">3</span> Your question: a third tab, or inside the document?</h2>
+  <p class="why">
+    Both drawn honestly. The difference is not decoration — it decides whether a picture keeps its document.
+  </p>
+  <div class="panel">
+    <div class="grid2">
+
+      <div>
+        <p class="lbl">Option A — inside the document<span class="rec">what I would build</span></p>
+        <div class="page">
+          <div class="tabs">
+            <div class="tab on">Documents &amp; FAQs</div>
+            <div class="tab">Service suggestions <span class="b">3</span></div>
+          </div>
+          <div class="docrow" style="border-bottom:0;padding-bottom:4px">
+            <div class="ficon">📄</div>
+            <div class="dbody">
+              <div class="dtitle"><span class="dname">Spring catalogue</span><span class="pill share">Details can be sent</span></div>
+              <div class="picline"><span>6 pictures · 4 can be sent</span><span class="dot">·</span><a>Show pictures</a></div>
+              <div class="picpanel" style="margin-top:8px">
+                <div class="tiles c4">
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:#E4E4E4"></div><div class="tick"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="pro">
+          <li><b>The document is always on screen.</b> Its name and its sharing pill sit directly above the tiles,
+              so the rule “this file is not shared, so its pictures cannot go out” needs no explaining.</li>
+          <li><b>Nothing new to learn.</b> It is the same “quiet line + underlined action” the row already uses
+              for offerings and for suggested services.</li>
+          <li><b>Costs nothing when unused.</b> Closed by default; a business with no pictures sees no change at all.</li>
+          <li><b>One trip.</b> The tiles for one document are one request, made when the panel opens.</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="lbl">Option B — a third tab<span class="no">not recommended</span></p>
+        <div class="page">
+          <div class="tabs">
+            <div class="tab">Documents &amp; FAQs</div>
+            <div class="tab">Service suggestions <span class="b">3</span></div>
+            <div class="tab on">Pictures <span class="b">34</span></div>
+          </div>
+          <div style="padding:12px 0">
+            <div class="meta" style="margin:0 0 7px">From <b style="color:#101010">Spring catalogue</b></div>
+            <div class="tiles c4">
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:#E4E4E4"></div><div class="tick"></div></div>
+            </div>
+            <div class="meta" style="margin:11px 0 7px">From <b style="color:#101010">Trade price sheet</b></div>
+            <div class="tiles c4">
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#7E9B8A,#A9C2B3)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#9A8FA6,#C0B6C9)"></div><div class="tick on">✓</div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A6A08F,#C9C4B6)"></div><div class="tick"></div></div>
+              <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8F97A6,#B6BCC9)"></div><div class="tick on">✓</div></div>
+            </div>
+          </div>
+        </div>
+        <ul class="pro">
+          <li><b>It has to rebuild the document list anyway</b> — every picture needs its file named above it, so
+              the tab becomes a second, worse copy of the page next door.</li>
+          <li><b>The sharing switch is on the other tab.</b> A provider unticking pictures here cannot see that the
+              whole file is already not shared, so the ticks do nothing and nothing on screen says so.</li>
+          <li><b>The badge would lie.</b> A count next to “Service suggestions” means work waiting. Pictures need no
+              decision — they arrive already set. A standing “34” trains people to ignore badges.</li>
+          <li><b>It costs the whole library.</b> Opening the tab must fetch every document's pictures, where the
+              panel fetches one document's.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <b>Why “Service suggestions” earned a tab and pictures do not</b>
+      <p>
+        Suggestions are a <b>queue of work that arrives on its own</b>: they pile up, they carry a pending count,
+        they are approved or dismissed in a batch, and the provider genuinely does not care which file each came
+        from. A tab is exactly right for that.
+      </p>
+      <p>
+        Pictures are the opposite. They are <b>part of a file</b>, they arrive already decided, there is no queue
+        and no batch, and the one control that governs them — “Send relevant details to callers” — belongs to that
+        file. Take a picture away from its document and you have to reintroduce the document on every tile.
+      </p>
+      <p>
+        So: <b>Option A</b>, inside the document, hidden until asked for. If you would rather have the tab, say so
+        and I will build B instead — it is the same tiles and the same rules either way.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">4</span> Deleting — always a dialog</h2>
+  <p class="why">
+    The same dialog as deleting a portfolio project — red circle, plain title, brand-green outline on the safe
+    button. Two additions, both because they are true and not obvious: the picture itself, so nobody deletes the
+    wrong one, and one line saying it will not come back when the file is read again.
+  </p>
+  <div class="panel">
+    <div class="grid2">
+      <div>
+        <p class="lbl">Confirm</p>
+        <div class="scrim">
+          <div class="dlg">
+            <div class="dlgIco">🗑</div>
+            <div class="dlgT">Delete this picture?</div>
+            <div class="oneThumb"></div>
+            <div class="dlgB">Callers will no longer be able to receive it.</div>
+            <div class="dlgP">It stays deleted even if this file is processed again. Your file is not changed —
+              only what Clinket AI keeps from it.</div>
+            <div class="dlgActs"><button class="bKeep">No, keep it</button><button class="bDel">Yes, delete</button></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lbl">Deleting · and the one case it is refused</p>
+        <div class="scrim">
+          <div class="dlg">
+            <div class="dlgIco">🗑</div>
+            <div class="dlgT">Delete this picture?</div>
+            <div class="oneThumb"></div>
+            <div class="dlgB">Callers will no longer be able to receive it.</div>
+            <div class="dlgActs">
+              <button class="bKeep" style="opacity:.5">No, keep it</button>
+              <button class="bDel"><span class="spin" style="border-color:#fff;border-top-color:transparent"></span></button>
+            </div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:10px">
+          While that file is being re-read, deleting is refused with “Wait until this file has finished
+          processing.” — a run rewrites the whole picture list on finishing, so a delete accepted mid-run would be
+          undone by it. Same rule the ticks already follow.
+        </p>
+        <p class="hint">
+          There is no <b>add</b>. Every picture here came out of the provider's own file; an uploaded one would
+          make that untrue. Pictures a provider chooses already have a home — the portfolio.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">5</span> A lot of pictures</h2>
+  <p class="why">
+    Twelve tiles is two calm rows at six across. The rest are one tap away with the exact number on the button.
+    Above 40 in one file we stop keeping them — and we say so, rather than quietly losing them.
+  </p>
+  <div class="panel">
+    <div class="grid2">
+      <div>
+        <p class="lbl">28 pictures</p>
+        <div class="picpanel">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="tiles">
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#B08A8A,#D0B0B0)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#7E9B8A,#A9C2B3)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#9A8FA6,#C0B6C9)"></div><div class="tick"></div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A6A08F,#C9C4B6)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8F97A6,#B6BCC9)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A68F8F,#C9B6B6)"></div><div class="tick"></div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA69B,#B6C9C0)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A69B8F,#C9C0B6)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8F8FA6,#B6B6C9)"></div><div class="tick on">✓</div></div>
+          </div>
+          <button class="more">Show 16 more</button>
+        </div>
+      </div>
+      <div>
+        <p class="lbl">The file held more than we keep</p>
+        <div class="picpanel">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="warn"><span>⚠</span><span>This file had 63 pictures. We kept the 40 largest — the rest were
+            too small to be useful on a call.</span></div>
+          <div class="tiles">
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#B08A8A,#D0B0B0)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#7E9B8A,#A9C2B3)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#9A8FA6,#C0B6C9)"></div><div class="tick"></div></div>
+          </div>
+          <button class="more">Show 34 more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">6</span> Every other state</h2>
+  <div class="panel">
+    <div class="grid2">
+
+      <div>
+        <p class="lbl">a · Still being read · b · read, none found</p>
+        <div class="picpanel" style="margin-bottom:10px">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="empty">Pictures appear once this file has been read.</div>
+        </div>
+        <div class="picpanel">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="empty">There are no pictures in this file.</div>
+        </div>
+        <p class="hint" style="margin-top:9px">Neither of these draws a line on the closed row at all — the row
+          only offers “Show pictures” when there is at least one.</p>
+      </div>
+
+      <div>
+        <p class="lbl">c · thumbnails still being made · d · one we cannot draw</p>
+        <div class="picpanel">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="tiles c4">
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph"></div><div class="ovl">Processing…</div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph"></div><div class="ovl">Processing…</div><div class="tick"></div></div>
+            <div class="tile"><div class="ph"></div><div class="tick on">✓</div></div>
+          </div>
+          <p class="hint" style="margin:9px 0 0">
+            The veil is the platform's existing <code>image.processing</code> treatment. The fourth tile is plain
+            grey — its picture could not be fetched — and it can still be ticked: a thumbnail is only how we draw
+            it, never whether it can be sent.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="lbl">e · the document is not shared</p>
+        <div class="page">
+          <div class="docrow" style="border-bottom:0">
+            <div class="ficon">📄</div>
+            <div class="dbody">
+              <div class="dtitle"><span class="dname">Internal margins</span><span class="pill type">Price list</span>
+                <span class="pill ready">Ready</span><span class="pill noshare">Not shared</span></div>
+              <div class="picline"><span>6 pictures</span></div>
+              <div class="picpanel">
+                <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+                <div class="info"><span>ⓘ</span><span>Nothing from this file is sent to callers, so its pictures
+                  cannot be either. Turn on “Send relevant details to callers” to choose pictures.</span></div>
+                <div class="tiles c4 dim">
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick"></div></div>
+                  <div class="tile"><div class="ph" style="background:#E4E4E4"></div><div class="tick"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="kebab">⋮</div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:9px">
+          The line loses “4 can be sent”, because none can. The ticks are remembered, not erased — switching the
+          file back on restores exactly the choices that were made.
+        </p>
+      </div>
+
+      <div>
+        <p class="lbl">f · saving · failed save · view-only</p>
+        <div class="picpanel">
+          <div class="ph1"><b>Pictures in this file</b><span class="hide">Hide</span></div>
+          <div class="tiles c4">
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick"><span class="spin"></span></div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+            <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick"></div></div>
+            <div class="tile"><div class="ph" style="background:#E4E4E4"></div><div class="tick on">✓</div></div>
+          </div>
+          <p class="hint" style="margin:9px 0 0">
+            <b>Saving</b> — the tick spins where it is. <b>Failed</b> — it snaps back to what it was and the usual
+            red toast appears; a tick that looks saved and is not would be the worst outcome here.
+            <b>View-only</b> — a team member without the voice-settings permission sees the tiles and the viewer,
+            with no ticks and no Delete drawn at all.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">7</span> Mobile — same rules, three across</h2>
+  <p class="why">
+    The provider app's Knowledge screen has the same rows; the panel opens in place there too. Tapping a tile
+    opens the picture full-screen, and Delete uses the app's own confirm dialog.
+  </p>
+  <div class="panel">
+    <div class="phones">
+
+      <div class="phone">
+        <div class="pTop"></div>
+        <div class="pBody">
+          <div class="tabs" style="margin-bottom:9px">
+            <div class="tab on" style="padding:7px 8px;font-size:12px">Documents</div>
+            <div class="tab" style="padding:7px 8px;font-size:12px">Suggestions <span class="b">3</span></div>
+          </div>
+          <div class="docrow" style="padding:10px 0">
+            <div class="ficon" style="width:28px;height:28px;font-size:12px">📄</div>
+            <div class="dbody">
+              <div class="dtitle"><span class="dname" style="font-size:12.5px">Spring catalogue</span></div>
+              <div class="dtitle" style="margin-top:4px"><span class="pill ready">Ready</span><span class="pill share">Details can be sent</span></div>
+              <div class="meta">24 pages · 18 parts</div>
+              <div class="picline"><span>6 pictures · 4 can be sent</span></div>
+              <div class="picline"><a>Show pictures</a></div>
+            </div>
+          </div>
+          <div class="docrow" style="padding:10px 0;border-bottom:0">
+            <div class="ficon" style="width:28px;height:28px;font-size:12px">📄</div>
+            <div class="dbody">
+              <div class="dtitle"><span class="dname" style="font-size:12.5px">Cancellation policy</span></div>
+              <div class="dtitle" style="margin-top:4px"><span class="pill ready">Ready</span><span class="pill noshare">Not shared</span></div>
+              <div class="meta">2 pages · 4 parts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="pTop"></div>
+        <div class="pBody">
+          <div class="docrow" style="padding:10px 0;border-bottom:0">
+            <div class="ficon" style="width:28px;height:28px;font-size:12px">📄</div>
+            <div class="dbody">
+              <div class="dtitle"><span class="dname" style="font-size:12.5px">Spring catalogue</span></div>
+              <div class="dtitle" style="margin-top:4px"><span class="pill share">Details can be sent</span></div>
+              <div class="picline"><span>6 pictures · 4 can be sent</span></div>
+              <div class="picpanel">
+                <div class="ph1"><b style="font-size:12px">Pictures in this file</b><span class="hide">Hide</span></div>
+                <div class="tiles c3" style="gap:7px">
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#8FA089,#B8C7AE)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#A38B6B,#C9B191)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#6E8AA6,#9DB4C9)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph" style="background:linear-gradient(135deg,#B08A8A,#D0B0B0)"></div><div class="tick on">✓</div></div>
+                  <div class="tile"><div class="ph"></div><div class="ovl">Processing…</div><div class="tick"></div></div>
+                  <div class="tile"><div class="ph" style="background:#ECECEC"></div><div class="tick"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="pTop"></div>
+        <div class="pBody" style="padding:0;background:#111">
+          <div class="vImg" style="aspect-ratio:3/4">the picture, full size</div>
+          <div class="vBar">
+            <div class="vCap">A white gloss porcelain floor tile, 60 × 60 cm, shown in a bathroom setting.</div>
+            <div class="vMeta">Page 4 · Product photo</div>
+            <div class="vActs" style="flex-direction:column">
+              <div class="vBtn pri">✓ Can be sent</div>
+              <div class="vBtn del">Delete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="pTop"></div>
+        <div class="pBody" style="display:flex;align-items:center;justify-content:center;background:#00000055">
+          <div class="dlg" style="max-width:238px;padding:17px">
+            <div class="dlgIco" style="width:38px;height:38px;font-size:16px">🗑</div>
+            <div class="dlgT" style="font-size:16px">Delete this picture?</div>
+            <div class="oneThumb" style="width:38px;height:38px"></div>
+            <div class="dlgB" style="font-size:11.5px">Callers will no longer be able to receive it.</div>
+            <div class="dlgP" style="font-size:10.5px">It stays deleted even if this file is processed again.</div>
+            <div class="dlgActs"><button class="bKeep" style="font-size:12px">Cancel</button><button class="bDel" style="font-size:12px">Delete</button></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">8</span> The rendering contract</h2>
+  <p class="why">
+    What each part draws and from which field. Both apps follow this table, so “mobile mirrors web” stays a rule
+    a reviewer can check rather than a hope.
+  </p>
+  <div class="scrollx">
+  <table>
+    <tr><th style="width:19%">Part</th><th style="width:33%">Source</th><th>Rule</th></tr>
+    <tr><td>Everything here</td><td><code>imagesEnabled</code></td>
+        <td>Off ⇒ no line, no panel, and no picture request is ever made.</td></tr>
+    <tr><td>The closed line</td><td><code>imageCount</code>, <code>sendableImageCount</code></td>
+        <td>Drawn only when <code>imageCount &gt; 0</code>. Never a picture URL — this list re-reads itself
+            every few seconds while anything is processing.</td></tr>
+    <tr><td>Tile picture</td><td><code>thumbnailUrl</code></td>
+        <td>Absent ⇒ grey tile, plus “Processing…” while the thumbnail is still being made. A grid never pulls
+            full-size pictures — forty of them is tens of megabytes.</td></tr>
+    <tr><td>Viewer picture</td><td><code>getOriginalSrc(image)</code> → <code>url</code></td>
+        <td>The app's existing shared helper. These have an original and a thumbnail only — no medium — so the
+            viewer takes the original, one at a time.</td></tr>
+    <tr><td>Tick</td><td><code>sendable</code></td>
+        <td>Brand green when on. Disabled and dimmed while the file's own switch is off.</td></tr>
+    <tr><td>Caption</td><td><code>caption</code></td>
+        <td>Viewer only. Missing ⇒ the line is left out, never replaced with a placeholder sentence.</td></tr>
+    <tr><td>Page line</td><td><code>page</code></td>
+        <td>Only files that genuinely have pages carry one; a Word or Excel picture shows its kind alone.</td></tr>
+    <tr><td>Cap warning</td><td><code>droppedImages</code></td>
+        <td>Drawn only when &gt; 0, and always with both numbers.</td></tr>
+    <tr><td>Show more</td><td>—</td><td>12 tiles, then the exact remaining count on the button.</td></tr>
+    <tr><td>Delete</td><td>—</td><td>Viewer only, always through the dialog, never from a tile.</td></tr>
+    <tr><td>Add</td><td>—</td><td>Does not exist, deliberately.</td></tr>
+  </table>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="n">9</span> The two rules you asked me to confirm</h2>
+  <div class="verdict">
+    <b>1 · A picture follows its document, then the provider decides<span class="rec">as you described</span></b>
+    <p>
+      A picture can be sent only when the file's “Send relevant details to callers” switch is on <b>and</b> that
+      picture is ticked. Switch off ⇒ nothing from the file goes out, pictures included — and the ticks are kept
+      exactly as they were, ready for when it goes back on.
+    </p>
+    <p>
+      Where the ticks start: a photo, a product shot or a diagram starts <b>ticked</b>; a logo, decoration, or a
+      screenshot of text starts <b>unticked</b> — the rule you approved in the design (§13.2). A starting point
+      only; every one can be changed. A picture Clinket AI could not describe also starts unticked, because it
+      could not be spoken about on a call.
+    </p>
+  </div>
+  <div class="verdict">
+    <b>2 · Delete yes, add no<span class="rec">as you described</span></b>
+    <p>
+      Delete removes the picture from Clinket AI and from storage, and it <b>stays</b> deleted when the file is
+      read again later. Without that, re-processing a file would quietly bring back every picture the provider
+      had removed.
+    </p>
+    <p>
+      No add. This panel describes what is inside the provider's own file and every picture in it can be traced
+      to a page of that file. Uploading one would break that, and pictures a provider chooses already have a
+      home — the portfolio.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

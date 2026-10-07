@@ -1,0 +1,31 @@
+docTitle=श्री ब्यूटी पार्लर रेट कार्ड lang=hi pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
+summary: दस्तावेज़ में हिंदी और गुजराती में ब्यूटी पार्लर की सेवाओं और उनकी कीमतों की सूची है। अंग्रेज़ी नोट में बताया गया है कि कीमतों में GST शामिल है, घर पर सेवा के लिए अतिरिक्त शुल्क है और बुकिंग के लिए फोन करना है।
+[  0] Heading      p1 H1
+      श्री ब्यूटी पार्लर — रेट कार्ड
+[  1] Table        p1
+      hasHeader=True caption= rows=7
+      | सेवा | कीमत |
+      | बाल कटवाना | ₹250 |
+      | दाढ़ी ट्रिम | ₹150 |
+      | फेशियल (गोल्ड) | ₹1,200 |
+      | मैनीक्योर | ₹300 |
+      | पेडीक्योर | ₹450 |
+      | हेयर स्पा | ₹1,500 |
+[  2] Heading      p1 H2
+      સેવાઓ અને ભાવ
+[  3] Table        p1
+      hasHeader=True caption= rows=6
+      | સેવા | ભાવ |
+      | વાળ કપાવવા | ₹250 |
+      | હેર સ્પા | ₹800 |
+      | મસાજ | ₹500 |
+      | મહેંદી ફુલ હેન્ડ સાથે | ₹400 |
+      | બ્રાઇડલ મેકઅપ | ₹5,000 |
+[  4] Paragraph    p1
+      English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+      
+
+## captions
+## images
+## reviews
+  {"pageNumber":1,"verificationId":"b770fd1f-ad71-453e-99fc-4b29bf595fed","discrepancies":[{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '1 5'","ocrReading":"1 5 | ₹250","firstAiReading":"","sourceServiceName":"1 5","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'इशियस'","ocrReading":"इशियस | ₹800","firstAiReading":"","sourceServiceName":"इशियस","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["service name"],"reason":"'42118' reads 'મસાજ'","location":"page 1, table 2, row '42118', column 1","ocrReading":"42118","firstAiReading":"મસાજ","sourceServiceName":"42118","passageIds":[],"selectedReading":"મસાજ","disposition":"CandidateReadingRetained","remainingUncertainty":"no usable source reading, and the page does not print these characters as text"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row '417541212'","ocrReading":"417541212 | ₹400","firstAiReading":"","sourceServiceName":"417541212","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 2, row 'WISSEL 78244'","ocrReading":"WISSEL 78244 | ₹5,000","firstAiReading":"","sourceServiceName":"WISSEL 78244","passageIds":[],"selectedReading":"","disposition":"SourceUnitNotOnPage"}]}

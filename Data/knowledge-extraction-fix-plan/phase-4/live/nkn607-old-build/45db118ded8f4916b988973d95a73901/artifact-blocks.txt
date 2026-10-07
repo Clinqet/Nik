@@ -1,0 +1,42 @@
+docTitle=Service, Detailing, and Equipment Price Cards lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: A rate card for ProFix Home Services, a detailing menu with exterior wash, interior detail, and full detail packages by size, and a rupee card listing prices for excavator, backhoe, and loader machinery.
+[  0] Heading      p1 H1
+      ProFix Home Services — rate card
+[  1] Paragraph    p1
+      Service call $95/hr (minimum 1 hour)  
+      After-hours call $150/hr  
+      Lawn cut $45/visit  
+      Porcelain tile installation $3/sq ft  
+      Storage unit rental $120/month  
+      Excavator rental $350/day  
+      Haircut Men $20 Women $30  
+      Colour $50 / $70 (short / long)  
+      Highlights from $120  
+      Repairs $80+  
+      Consultation Free  
+      Balayage $180–$260  
+      Gutter cleaning US$45 per visit  
+      Pressure washing 30 - 45 per hour  
+      Deposit $50 on all bookings over $300  
+      Total for package deal $1,250 (save $150)
+      
+[  2] Heading      p1 H2
+      Detailing menu
+[  3] Table        p1
+      hasHeader=True caption= rows=4
+      | Package | Small | Medium | Large |
+      | Exterior wash | $25 | $30 | $40 |
+      | Interior detail | $80 | $100 | $130 |
+      | Full detail | $150 | $180 | $220 |
+[  4] Heading      p1 H2
+      Rupee card
+[  5] Table        p1
+      hasHeader=True caption= rows=4
+      | Machine | Price (INR) |
+      | Volvo EC210 excavator | 1,05,00,000 |
+      | JCB 3DX backhoe | 32,50,000 |
+      | Bobcat S70 loader | 18,75,000 |
+
+## captions
+## images
+## reviews

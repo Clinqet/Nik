@@ -1,0 +1,45 @@
+# docx_bold_pseudo_headings.docx
+blocks=6 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      HAIR
+[  1] Table        p1
+      hasHeader=False caption= rows=3
+      | Haircut | $25 |
+      | Colour | $80 |
+      | Highlights | $120 |
+[  2] Paragraph    p1
+      NAILS
+[  3] Table        p1
+      hasHeader=False caption= rows=3
+      | Manicure | $30 |
+      | Pedicure | $45 |
+      | Gel manicure | $55 |
+[  4] Paragraph    p1
+      WAXING
+[  5] Table        p1
+      hasHeader=False caption= rows=3
+      | Upper lip | $8 |
+      | Full legs | $45 |
+      | Underarms | $15 |
+
+## INVENTORY
+
+
+## CARDS (3)  warnings=0
+--- card 0 [Table] section='' page=1 tokens~13 img=-1
+    HAIR
+    Haircut | $25
+    Colour | $80
+    Highlights | $120
+--- card 1 [Table] section='' page=1 tokens~14 img=-1
+    NAILS
+    Manicure | $30
+    Pedicure | $45
+    Gel manicure | $55
+--- card 2 [Table] section='' page=1 tokens~14 img=-1
+    WAXING
+    Upper lip | $8
+    Full legs | $45
+    Underarms | $15

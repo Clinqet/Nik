@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "thornhill",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-thornhill-primex-electric-ltd",
+      "businessName": "Primex Electric Ltd",
+      "description": "Licensed & insured electrical — panel upgrades, renovations, chandelier installs, 24-hour emergency. Thornhill.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-771-0166",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "64 Forest Park Cres",
+        "postalCode": "L3T 2M7",
+        "area": "thornhill",
+        "city": "Thornhill",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "64 Forest Park Cres, Thornhill, ON L3T 2M7"
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "thornhill",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Panel Upgrades",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Renovations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24 Hour Emergency Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

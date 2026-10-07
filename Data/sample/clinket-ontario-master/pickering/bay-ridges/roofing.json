@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "city": "Pickering",
+    "area": "bay-ridges",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "pickering-bay-ridges-hamlet-roofing",
+      "businessName": "Hamlet Roofing",
+      "description": "Residential and flat roofing, eavestroughing, emergency repairs in Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-239-8503",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1786 Bayly St",
+        "postalCode": "L1W 3N4",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1786 Bayly St, Pickering, ON L1W 3N4"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flat Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestroughing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "pickering-bay-ridges-arruda-roofing",
+      "businessName": "Arruda Roofing",
+      "description": "Roofing contractors on Redwood Lane, Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-831-3904",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1321 Redwood Lane",
+        "postalCode": "L1X 1C4",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1321 Redwood Lane, Pickering, ON L1X 1C4"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

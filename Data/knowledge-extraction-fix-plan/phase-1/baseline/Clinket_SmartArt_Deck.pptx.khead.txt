@@ -1,0 +1,23 @@
+# Clinket_SmartArt_Deck.pptx
+blocks=2 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Slide 1
+[  1] List         p1
+      - Book online
+      - we confirm within 2 hours
+      - Review
+      - Technician arrives
+      - Review
+
+## INVENTORY
+Sections: Slide 1 (5)
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='Slide 1' page=1 tokens~20 img=-1
+    - Book online
+    - we confirm within 2 hours
+    - Review
+    - Technician arrives
+    - Review

@@ -1,0 +1,27 @@
+===== nkn607
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                   115/149       155     274  27/35    32/35
+outside-window 1 closest near None    115/149       155     274  27/35    32/35
+outside-window 2 closest near None    115/149       155     274  27/35    32/35
+outside-window 3 closest near None    115/149       155     274  27/35    32/35
+outside-window 2 closest near 0.95    115/149       155     274  27/35    32/35
+outside-window 3 closest near 0.95    115/149       155     274  27/35    32/35
+outside-window 3 closest near 0.9     115/149       155     274  27/35    32/35
+===== cars-in
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    17/52        159     176   6/22     8/22
+outside-window 1 closest near None     25/52        151     176   6/22    16/22
+outside-window 2 closest near None     34/52        142     176   6/22    18/22
+outside-window 3 closest near None     34/52        142     176   6/22    18/22
+outside-window 2 closest near 0.95     32/52        144     176   6/22    18/22
+outside-window 3 closest near 0.95     33/52        143     176   6/22    18/22
+outside-window 3 closest near 0.9      34/52        142     176   6/22    18/22
+===== prices-ca
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    34/38         62      96   6/12    12/12
+outside-window 1 closest near None     34/38         62      96   6/12    12/12
+outside-window 2 closest near None     34/38         62      96   6/12    12/12
+outside-window 3 closest near None     34/38         62      96   6/12    12/12
+outside-window 2 closest near 0.95     34/38         62      96   6/12    12/12
+outside-window 3 closest near 0.95     34/38         62      96   6/12    12/12
+outside-window 3 closest near 0.9      34/38         62      96   6/12    12/12

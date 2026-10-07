@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "Downtown",
+    "category": "dental",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "brampton-downtown-bramrose-dental-office-dr-winston-law",
+      "businessName": "Bramrose Dental Office (Dr. Winston Law)",
+      "description": "Family dentist in downtown Brampton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Dr. Winston Law",
+        "email": null,
+        "phone": "905-450-5800"
+      },
+      "businessEmail": null,
+      "businessPhone": "905-450-5800",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.drwinstonlaw.com/",
+        "other": []
+      },
+      "address": {
+        "street": "295A Queen St E",
+        "city": "Brampton",
+        "area": "Downtown",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Brampton"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "downtown",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "dental",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Family Dentistry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Dental Exams",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Dental Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.drwinstonlaw.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

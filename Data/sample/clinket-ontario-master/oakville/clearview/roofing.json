@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "clearview",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-clearview-sharp-exteriors-inc",
+      "businessName": "Sharp Exteriors Inc",
+      "description": "Roofing, eavestroughs, siding and windows on Wyecroft Road. Asphalt and cedar shingles, emergency roof repair.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@sharpexteriors.com",
+      "businessPhone": "905-844-9599",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://sharpexteriors.com/",
+        "other": []
+      },
+      "address": {
+        "street": "215 Wyecroft Rd",
+        "postalCode": "L6K 3S3",
+        "area": "clearview",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "215 Wyecroft Rd, Oakville, ON L6K 3S3"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "clearview",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Asphalt Shingles",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Cedar Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestrough Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Window Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://sharpexteriors.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://sharpexteriors.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "oakville-clearview-martin-beckett-o",
+      "businessName": "Martin Beckett O",
+      "description": "Asphalt, cedar, slate and flat roofs; Velux skylights; insurance claim experts. Lakeshore Rd W.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-849-1926",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "128 Lakeshore Rd W",
+        "postalCode": "L6K 1E3",
+        "area": "clearview",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "128 Lakeshore Rd W, Oakville, ON L6K 1E3"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "clearview",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Asphalt Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Cedar and Slate Roofs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flat Roofs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Velux Skylights",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Insurance Claim Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Roofing+Contractors/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

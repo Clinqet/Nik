@@ -1,0 +1,376 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "brontee",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-brontee-a-mckenna-plumbing",
+      "businessName": "A. McKenna Plumbing",
+      "description": "Oakville plumbing service based on Wallace Road in Bronte. Open 24 hours.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-510-4965",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1426 Wallace Rd, Unit 3",
+        "postalCode": "L6L 2Y2",
+        "area": "brontee",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1426 Wallace Rd, Unit 3, Oakville, ON L6L 2Y2"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "brontee",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    },
+    {
+      "id": "oakville-brontee-plumbwize-plumbing-and-drain-services-oakville",
+      "businessName": "PlumbWize Plumbing and Drain Services Oakville",
+      "description": "Drain and plumbing specialists serving Oakville: Kitec replacement, sump pumps, high-pressure jetting, camera inspection, faucets and fixtures.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-842-6222",
+      "social": {
+        "facebook": "https://www.facebook.com/plumbwizeplumbingdrains",
+        "instagram": "https://www.instagram.com/plumbwizeplumbinganddrains",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.plumbwize.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "2115 S Service Rd W #7",
+        "postalCode": "L6L 5W2",
+        "area": "brontee",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2115 S Service Rd W #7, Oakville, ON L6L 5W2"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "brontee",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "24/7 Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Kitec Replacement",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Camera Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sump Pump Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.plumbwize.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://www.plumbwize.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "oakville-brontee-r-roszell-plumbing-heating-ltd",
+      "businessName": "R Roszell Plumbing & Heating Ltd",
+      "description": "Plumbing and heating contractor on Wyecroft Road in west Oakville.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-844-0418",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "2345 Wyecroft Rd",
+        "postalCode": "L6L 6L8",
+        "area": "brontee",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2345 Wyecroft Rd, Oakville, ON L6L 6L8"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "brontee",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Contractors",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Oakville+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

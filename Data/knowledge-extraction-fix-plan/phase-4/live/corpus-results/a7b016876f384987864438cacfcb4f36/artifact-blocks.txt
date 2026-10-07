@@ -1,0 +1,511 @@
+docTitle=Northline Equipment 2026 Equipment Catalogue lang=en pages=7 visionDegraded=False imageLaneDegraded=False dropped=0 images=40 captions=40 reviews=6
+summary: Catalogue of equipment available for rental and purchase, with model identifiers, prices and delivery information. Includes rental rates for equipment, daily, weekly and monthly rates, delivery charges and damage waiver terms.
+[  0] Heading      p1 H1
+      Northline Equipment — 2026 catalogue
+[  1] ImageMarker  p1 img#0 alt=
+[  2] Heading      p1 H2
+      RENTAL RATES 1
+[  3] Table        p1
+      hasHeader=False caption= rows=6
+      |  |  |
+      | Day rate | $190 |
+      | Week rate | $760 |
+      | Month rate | $2450 |
+      | Delivery | $95 |
+      | Damage waiver | 12% |
+[  4] Heading      p1 H2
+      Compact excavator NX-100 — $12,500
+[  5] Paragraph    p1
+      Rental and purchase available. Delivery within 50 km included.
+      Skid steer loader NX-105 - $14,250 Rental and purchase available. Delivery within 50 km included.
+      
+[  6] ImageMarker  p1 img#1 alt=
+[  7] Paragraph    p1
+      NX-105
+      $14,250
+      Wheel loader NX-110 - $16,000
+      
+[  8] ImageMarker  p1 img#2 alt=
+[  9] Paragraph    p1
+      NX-110
+      $16,000
+      Telehandler NX-115 - $17,750 Rental and purchase available. Delivery within 50 km included.
+      
+[ 10] ImageMarker  p1 img#3 alt=
+[ 11] Paragraph    p1
+      NX-115
+      $17,750
+      Scissor lift NX-120 - $19,500 Rental and purchase available. Delivery within 50 km included.
+      
+[ 12] ImageMarker  p1 img#4 alt=
+[ 13] Paragraph    p1
+      NX-120
+      $19,500
+      Boom lift NX-125 - $21,250 Rental and purchase available. Delivery within 50 km included.
+      
+[ 14] ImageMarker  p1 img#5 alt=
+[ 15] Table        p1
+      hasHeader=False caption= rows=10
+      | NX-125 | $21,250 |
+      | NX-105 | $14,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-110 | $16,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-115 | $17,750 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-120 | $19,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-125 | $21,250 |
+[ 16] Paragraph    p1
+      Rental and purchase available. Delivery within 50 km included.
+[ 17] Heading      p2 H1
+      Northline Equipment — 2026 catalogue
+[ 18] ImageMarker  p2 img#6 alt=
+[ 19] Table        p2
+      hasHeader=False caption= rows=2
+      | NX-130 | $23,000 |
+      | NX-130 | $23,000 |
+[ 20] ImageMarker  p2 img#7 alt=
+[ 21] Paragraph    p2
+      Forklift NX-130 — $23,000  
+      Rental and purchase available. Delivery within 50 km included.
+      NX-135
+      $24,750
+      
+[ 22] ImageMarker  p2 img#8 alt=
+[ 23] Paragraph    p2
+      NX-135  
+      $24,750
+      
+[ 24] Paragraph    p2
+      Pallet jack NX-135 — $24,750  
+      Rental and purchase available. Delivery within 50 km included.
+      
+[ 25] Heading      p2 H2
+      RENTAL RATES 2
+[ 26] Table        p2
+      hasHeader=False caption= rows=6
+      |  |  |
+      | Day rate | $230 |
+      | Week rate | $920 |
+      | Month rate | $2930 |
+      | Delivery | $95 |
+      | Damage waiver | 12% |
+[ 27] Table        p2
+      hasHeader=False caption= rows=10
+      | Generator NX-140 — $26,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-145 | $28,250 |
+      | Air compressor NX-145 — $28,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-150 | $30,000 |
+      | Compact excavator NX-150 — $30,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-155 | $31,750 |
+      | Skid steer loader NX-155 — $31,750 |
+[ 28] Paragraph    p2
+      Rental and purchase available. Delivery within 50 km included.
+      Air compressor NX-145 - $28,250 Rental and purchase available. Delivery within 50 km included.
+[ 29] ImageMarker  p2 img#9 alt=
+[ 30] Paragraph    p2
+      NX-145
+      $28,250
+      Compact excavator NX-150 - $30,000 Rental and purchase available. Delivery within 50 km included.
+      
+[ 31] ImageMarker  p2 img#10 alt=
+[ 32] Paragraph    p2
+      NX-150
+      $30,000
+      Skid steer loader NX-155 - $31,750 Rental and purchase available. Delivery within 50 km included.
+      
+[ 33] ImageMarker  p2 img#11 alt=
+[ 34] Paragraph    p2
+      NX-155
+      $31,750
+      
+[ 35] Heading      p3 H1
+      Northline Equipment — 2026 catalogue
+[ 36] ImageMarker  p3 img#12 alt=
+[ 37] Paragraph    p3
+      Wheel loader NX-160 - $33,500
+      
+[ 38] Paragraph    p3
+      NX-160
+[ 39] Paragraph    p3
+      $33,500
+      
+[ 40] Paragraph    p3
+      $33,500
+      
+[ 41] Paragraph    p3
+      Wheel loader NX-160 — $33,500  
+      Rental and purchase available. Delivery within 50 km included.
+      Telehandler NX-165 - $35,250 Rental and purchase available. Delivery within 50 km included.
+      
+[ 42] ImageMarker  p3 img#13 alt=
+[ 43] Paragraph    p3
+      NX-165
+      
+[ 44] Paragraph    p3
+      $35,250
+      Scissor lift NX-170 - $37,000 Rental and purchase available. Delivery within 50 km included.
+      
+[ 45] ImageMarker  p3 img#14 alt=
+[ 46] Paragraph    p3
+      NX-170
+      
+[ 47] Paragraph    p3
+      $37,000
+      Boom lift NX-175 - $38,750 Rental and purchase available. Delivery within 50 km included.
+      
+[ 48] ImageMarker  p3 img#15 alt=
+[ 49] ImageMarker  p3 img#16 alt=
+[ 50] Table        p3
+      hasHeader=False caption= rows=11
+      | NX-175 | $38,750 |
+      | NX-165 | $35,250 |
+      | Telehandler NX-165 — $35,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-170 | $37,000 |
+      | Scissor lift NX-170 — $37,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-175 | $38,750 |
+      | Boom lift NX-175 — $38,750 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | RENTAL RATES 3 |
+[ 51] Table        p3
+      hasHeader=False caption= rows=6
+      |  |  |
+      | Day rate | $270 |
+      | Week rate | $1080 |
+      | Month rate | $3410 |
+      | Delivery | $95 |
+      | Damage waiver | 12% |
+[ 52] Table        p3
+      hasHeader=False caption= rows=5
+      | Forklift NX-180 — $40,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-185 | $42,250 |
+      | Pallet jack NX-185 — $42,250 |
+      | NX-185 | $42,250 |
+[ 53] ImageMarker  p3 img#17 alt=
+[ 54] Heading      p4 H1
+      Northline Equipment — 2026 catalogue
+[ 55] ImageMarker  p4 img#18 alt=
+[ 56] Paragraph    p4
+      Generator NX-190 - $44,000
+      
+[ 57] Paragraph    p4
+      NX-190
+[ 58] Paragraph    p4
+      $44,000
+      
+[ 59] Paragraph    p4
+      $44,000
+      
+[ 60] Paragraph    p4
+      Generator NX-190 — $44,000  
+      Rental and purchase available. Delivery within 50 km included.
+      Air compressor NX-195 - $45,750 Rental and purchase available. Delivery within 50 km included.
+      
+[ 61] ImageMarker  p4 img#19 alt=
+[ 62] Paragraph    p4
+      NX-195
+      $45,750
+      Compact excavator NX-200 - $47,500 Rental and purchase available. Delivery within 50 km included.
+      
+[ 63] ImageMarker  p4 img#20 alt=
+[ 64] Paragraph    p4
+      NX-200
+      $47,500
+      Skid steer loader NX-205 - $49,250 Rental and purchase available. Delivery within 50 km included.
+      
+[ 65] ImageMarker  p4 img#21 alt=
+[ 66] Paragraph    p4
+      NX-205
+      $49,250
+      Wheel loader NX-210 - $51,000 Rental and purchase available. Delivery within 50 km included.
+      
+[ 67] ImageMarker  p4 img#22 alt=
+[ 68] Table        p4
+      hasHeader=False caption= rows=2
+      | NX-210 | $51,000 |
+      | NX-215 | $52,750 |
+[ 69] ImageMarker  p4 img#23 alt=
+[ 70] Table        p4
+      hasHeader=False caption= rows=14
+      | NX-195 | $45,750 |
+      | Air compressor NX-195 — $45,750 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-200 | $47,500 |
+      | Compact excavator NX-200 — $47,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-205 | $49,250 |
+      | Skid steer loader NX-205 — $49,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-210 | $51,000 |
+      | Wheel loader NX-210 — $51,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-215 | $52,750 |
+      | Telehandler NX-215 — $52,750 |
+[ 71] Heading      p5 H1
+      Northline Equipment — 2026 catalogue
+[ 72] ImageMarker  p5 img#24 alt=
+[ 73] Heading      p5 H2
+      RENTAL RATES 4
+[ 74] Table        p5
+      hasHeader=False caption= rows=6
+      |  |  |
+      | Day rate | $310 |
+      | Week rate | $1240 |
+      | Month rate | $3890 |
+      | Delivery | $95 |
+      | Damage waiver | 12% |
+[ 75] Paragraph    p5
+      Scissor lift NX-220 — $54,500  
+      Rental and purchase available. Delivery within 50 km included.
+      Boom lift NX-225 - $56,250 Rental and purchase available. Delivery within 50 km included.
+      
+[ 76] ImageMarker  p5 img#25 alt=
+[ 77] Paragraph    p5
+      NX-225
+      $56,250
+      Forklift NX-230 - $58,000 Rental and purchase available. Delivery within 50 km included.
+      
+[ 78] ImageMarker  p5 img#26 alt=
+[ 79] Paragraph    p5
+      NX-230
+      $58,000
+      Pallet jack NX-235 - $59,750 Rental and purchase available. Delivery within 50 km included.
+      
+[ 80] ImageMarker  p5 img#27 alt=
+[ 81] Paragraph    p5
+      NX-235
+      $59,750
+      Generator NX-240 - $61,500 Rental and purchase available. Delivery within 50 km included.
+      
+[ 82] ImageMarker  p5 img#28 alt=
+[ 83] Paragraph    p5
+      NX-240
+      $61,500
+      Air compressor NX-245 - $63,250 Rental and purchase available. Delivery within 50 km included.
+      
+[ 84] ImageMarker  p5 img#29 alt=
+[ 85] Table        p5
+      hasHeader=False caption= rows=15
+      | NX-245 | $63,250 |
+      | NX-225 | $56,250 |
+      | Boom lift NX-225 — $56,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-230 | $58,000 |
+      | Forklift NX-230 — $58,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-235 | $59,750 |
+      | Pallet jack NX-235 — $59,750 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-240 | $61,500 |
+      | Generator NX-240 — $61,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-245 | $63,250 |
+      | Air compressor NX-245 — $63,250 |
+[ 86] Heading      p6 H1
+      Northline Equipment — 2026 catalogue
+[ 87] ImageMarker  p6 img#30 alt=
+[ 88] Paragraph    p6
+      Compact excavator NX-250 - $65,000 Rental and purchase available. Delivery within 50 km included.
+      
+[ 89] Paragraph    p6
+      NX-250
+[ 90] Paragraph    p6
+      $65,000
+      
+[ 91] Paragraph    p6
+      $65,000
+      
+[ 92] Paragraph    p6
+      Compact excavator NX-250 — $65,000  
+      Rental and purchase available. Delivery within 50 km included.
+      
+[ 93] Paragraph    p6
+      NX-255  
+      $66,750
+      
+[ 94] Paragraph    p6
+      Skid steer loader NX-255 — $66,750  
+      Rental and purchase available. Delivery within 50 km included.
+      
+[ 95] Paragraph    p6
+      RENTAL RATES 5
+      
+[ 96] Table        p6
+      hasHeader=False caption= rows=6
+      |  |  |
+      | Day rate | $350 |
+      | Week rate | $1400 |
+      | Month rate | $4370 |
+      | Delivery | $95 |
+      | Damage waiver | 12% |
+[ 97] Table        p6
+      hasHeader=False caption= rows=10
+      | Wheel loader NX-260 — $68,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-265 | $70,250 |
+      | Telehandler NX-265 — $70,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-270 | $72,000 |
+      | Scissor lift NX-270 — $72,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-275 | $73,750 |
+      | Boom lift NX-275 — $73,750 |
+[ 98] Paragraph    p6
+      Rental and purchase available. Delivery within 50 km included.
+      Skid steer loader NX-255 - $66,750 Rental and purchase available. Delivery within 50 km included.
+[ 99] ImageMarker  p6 img#31 alt=
+[100] ImageMarker  p6 img#32 alt=
+[101] Paragraph    p6
+      NX-255
+      $66,750
+      Telehandler NX-265 - $70,250 Rental and purchase available. Delivery within 50 km included.
+      
+[102] ImageMarker  p6 img#33 alt=
+[103] Paragraph    p6
+      NX-265
+      $70,250
+      Scissor lift NX-270 - $72,000 Rental and purchase available. Delivery within 50 km included.
+      
+[104] ImageMarker  p6 img#34 alt=
+[105] Paragraph    p6
+      NX-270
+      $72,000
+      Boom lift NX-275 - $73,750 Rental and purchase available. Delivery within 50 km included.
+      
+[106] ImageMarker  p6 img#35 alt=
+[107] Paragraph    p6
+      NX-275
+      $73,750
+      
+[108] Heading      p7 H1
+      Northline Equipment — 2026 catalogue
+[109] ImageMarker  p7 img#36 alt=
+[110] Table        p7
+      hasHeader=False caption= rows=7
+      | NX-280 | $75,500 |
+      | NX-280 | $75,500 |
+      | Forklift NX-280 — $75,500 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-285 | $77,250 |
+      | NX-290 | $79,000 |
+      | NX-295 | $80,750 |
+[111] ImageMarker  p7 img#37 alt=
+[112] ImageMarker  p7 img#38 alt=
+[113] ImageMarker  p7 img#39 alt=
+[114] Table        p7
+      hasHeader=False caption= rows=8
+      | NX-285 | $77,250 |
+      | Pallet jack NX-285 — $77,250 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-290 | $79,000 |
+      | Generator NX-290 — $79,000 |
+      | Rental and purchase available. Delivery within 50 km included. |
+      | NX-295 | $80,750 |
+      | Air compressor NX-295 — $80,750 |
+
+## captions
+  [0] RENTAL RATES 1
+Day rate $190
+Week rate $760
+Month rate $2450
+Delivery $95
+Damage waiver 12%
+  [7] RENTAL RATES 2
+Day rate $230
+Week rate $920
+Month rate $2930
+Delivery $95
+Damage waiver 12%
+  [15] Text listing rental rates: “RENTAL RATES 3”, “Day rate $270”, “Week rate $1080”, “Month rate $3410”, “Delivery $95”, and “Damage waiver 12%”.
+  [24] Text reads: “RENTAL RATES 4”; “Day rate” — “$310”; “Week rate” — “$1240”; “Month rate” — “$3890”; “Delivery” — “$95”; “Damage waiver” — “12%”.
+  [31] Text showing rental rates: “RENTAL RATES 5”, “Day rate $350”, “Week rate $1400”, “Month rate $4370”, “Delivery $95”, and “Damage waiver 12%”.
+  [1] Illustration of a yellow skid steer loader with the text “NX-105” and “$14,250”.
+  [2] Simple illustration of a yellow wheel loader with two black wheels and a dark cab. The label reads “NX-110” and “$16,000.”
+  [3] A simple illustration of a yellow wheeled machine with a black cab. Text: “NX-115” and “$17,750”.
+  [4] Simplified illustration of a yellow wheeled lift with a raised black platform. Text: “NX-120” and “$19,500”.
+  [5] A simple illustration of a yellow wheeled machine with a black rectangular component. A label reads “NX-125” and “$21,250”.
+  [6] Flat illustration of a yellow wheeled item with two black wheels and a black upright rectangular component. Label reads “NX-130” and “$23,000”.
+  [8] Illustration of a yellow forklift. Text: “NX-135” and “$24,750”.
+  [9] Illustration of a yellow wheeled machine with a black top section. Text: “NX-145” and “$28,250.”
+  [10] Stylized illustration of a yellow wheeled vehicle with a black cab. Text reads “NX-150” and “$30,000”.
+  [11] A flat illustration of a yellow skid steer loader with a black cab and wheels. Text: “NX-155” and “$31,750”.
+  [12] Stylized illustration of a yellow wheeled unit with a black rectangular section on top. The label reads “NX-160” and “$33,500.”
+  [13] Stylized yellow vehicle with two black wheels and a black cab. Text: “NX-165” and “$35,250”.
+  [14] Illustration of a yellow wheeled machine with a black upper section. The label reads “NX-170” and “$37,000.”
+  [16] Illustration of yellow wheeled equipment with a white label reading “NX-175” and “$38,750”.
+  [17] Illustration of a yellow, two-wheeled machine with a black rectangular component on top. Text: “NX-185” and “$42,250”.
+  [18] Flat illustration of a yellow vehicle with two black wheels and a dark cab, against a sky and road. Label: “NX-190” and “$44,000”.
+  [19] Illustration of a yellow wheeled machine with a dark rectangular component. A label reads “NX-195” and “$45,750”.
+  [20] A simple illustration of an orange wheeled machine with a black cab-like section. Text: “NX-200” and “$47,500”.
+  [21] A flat illustration of an orange wheeled construction vehicle with a black cab and wheels. Text: “NX-205” and “$49,250”.
+  [22] A simplified illustration of a yellow wheel loader with two black wheels and a black cab. Text: “NX-210” and “$51,000”.
+  [23] Stylized illustration of a yellow box-shaped vehicle with two black wheels and a black rectangular component on top. A label reads “NX-215” and “$52,750”.
+  [25] A simplified illustration of a yellow wheeled machine with a dark rectangular upper section. Text: “NX-225” and “$56,250”.
+  [26] A simple illustration of a yellow forklift. Text: “NX-230” and “$58,000”.
+  [27] Illustration of a yellow pallet jack with a black handle and two wheels. Label reads “NX-235” and “$59,750”.
+  [28] Illustration of a yellow wheeled generator. Text: “NX-240” and “$61,500”.
+  [29] Illustration of a yellow trailer-mounted air compressor with two black wheels. Text: “NX-245” and “$63,250”.
+  [30] Illustration of a yellow wheeled machine with a black component on top. A label reads “NX-250” and “$65,000”.
+  [32] Simplified illustration of a yellow skid steer loader with a black cab and two wheels. Text: “NX-255” and “$66,750”.
+  [33] A simple illustration of a yellow vehicle with two black wheels and a black cab. A label reads “NX-265” and “$70,250”.
+  [34] Illustration of yellow wheeled equipment with a black upper section. Text: “NX-270” and “$72,000”.
+  [35] Stylized illustration of yellow wheeled equipment with a black upper section. Text: “NX-275” and “$73,750”.
+  [36] A stylized yellow wheeled vehicle with a black rectangular upper section. The label reads “NX-280” and “$75,500”.
+  [37] Stylized illustration of a yellow wheeled vehicle with a black upper section. Text: “NX-285” and “$77,250”.
+  [38] Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”.
+  [39] Illustration of a yellow box-shaped wheeled item with a black rectangular section. Label reads “NX-290” and “$79,000”.
+## images
+  idx=0 id=6e1cacc0966d4e72 916x624 39429B kind=TextSnapshot src=Native q=Ok refused=False
+  idx=7 id=8835050b8851bdbb 916x624 39693B kind=TextSnapshot src=Native q=Ok refused=False
+  idx=15 id=45ed29917548618f 916x624 39810B kind=TextSnapshot src=Native q=Ok refused=False
+  idx=24 id=e5dca898efb74228 916x624 39778B kind=TextSnapshot src=Native q=Ok refused=False
+  idx=31 id=2e177af80328fd83 916x624 39719B kind=TextSnapshot src=Native q=Ok refused=False
+  idx=1 id=35fe0a602ea50f83 900x600 23550B kind=Product src=Native q=Ok refused=False
+  idx=2 id=cda00c205efbfe7e 900x600 23691B kind=Product src=Native q=Ok refused=False
+  idx=3 id=5ff27c772816072c 900x600 24626B kind=Product src=Native q=Ok refused=False
+  idx=4 id=82d1d50f500fc627 900x600 24681B kind=Product src=Native q=Ok refused=False
+  idx=5 id=225b620ef9f62662 900x600 25302B kind=Product src=Native q=Ok refused=False
+  idx=6 id=8ed056a2c33422dd 900x600 25074B kind=Product src=Native q=Ok refused=False
+  idx=8 id=62e586224cf31e86 900x600 24737B kind=Product src=Native q=Ok refused=False
+  idx=9 id=e48d9cb26bb58006 900x600 23804B kind=Product src=Native q=Ok refused=False
+  idx=10 id=88d66ec7663bb628 900x600 24325B kind=Product src=Native q=Ok refused=False
+  idx=11 id=d8ac46f70c558ba6 900x600 23934B kind=Product src=Native q=Ok refused=False
+  idx=12 id=28b25ce6a609e664 900x600 23883B kind=Product src=Native q=Ok refused=False
+  idx=13 id=7c72af4b1dff717a 900x600 24161B kind=Product src=Native q=Ok refused=False
+  idx=14 id=eb81455a73b93e8c 900x600 23653B kind=Product src=Native q=Ok refused=False
+  idx=16 id=a40c5361ba9f8327 900x600 25264B kind=Product src=Native q=Ok refused=False
+  idx=17 id=acbce92c0fc9d0f4 900x600 24570B kind=Product src=Native q=Ok refused=False
+  idx=18 id=675334ce7a1fbc8b 900x600 24392B kind=Product src=Native q=Ok refused=False
+  idx=19 id=91596d93461ea17d 900x600 24322B kind=Product src=Native q=Ok refused=False
+  idx=20 id=b484846a948c46b3 900x600 24959B kind=Product src=Native q=Ok refused=False
+  idx=21 id=8f50bc9cca288c65 900x600 25570B kind=Product src=Native q=Ok refused=False
+  idx=22 id=944a03bfabec8e0a 900x600 23079B kind=Product src=Native q=Ok refused=False
+  idx=23 id=3f47b62aff9c9760 900x600 23738B kind=Product src=Native q=Ok refused=False
+  idx=25 id=bec183c2d27a5f8d 900x600 24527B kind=Product src=Native q=Ok refused=False
+  idx=26 id=e8e7c0f3627a65f3 900x600 24960B kind=Product src=Native q=Ok refused=False
+  idx=27 id=6c1db05f7451c5a8 900x600 24357B kind=Product src=Native q=Ok refused=False
+  idx=28 id=1ff20ce29af525e4 900x600 24518B kind=Product src=Native q=Ok refused=False
+  idx=29 id=b1bddda639c7f2a9 900x600 25162B kind=Product src=Native q=Ok refused=False
+  idx=30 id=0beb67b5a793e477 900x600 25136B kind=Product src=Native q=Ok refused=False
+  idx=32 id=6593c3212f1a6d67 900x600 25397B kind=Product src=Native q=Ok refused=False
+  idx=33 id=7835f55e1038d8b6 900x600 24144B kind=Product src=Native q=Ok refused=False
+  idx=34 id=ab8d25421874a824 900x600 23847B kind=Product src=Native q=Ok refused=False
+  idx=35 id=b6d037bcc3734793 900x600 24456B kind=Product src=Native q=Ok refused=False
+  idx=36 id=ffef5493833b9e77 900x600 25121B kind=Product src=Native q=Ok refused=False
+  idx=37 id=9a1c0ba5f2ed7eff 900x600 24758B kind=Product src=Native q=Ok refused=False
+  idx=38 id=d99b4937ca164e3e 900x600 24421B kind=Product src=Native q=Ok refused=False
+  idx=39 id=41e6a1bf8d6e48d3 900x600 23855B kind=Product src=Native q=Ok refused=False
+## reviews
+  {"pageNumber":1,"verificationId":"e896abfe-6ac8-4388-98ad-5891d99a9be3","discrepancies":[{"fields":["price"],"reason":"'$2450' reads '$250'","location":"page 1, table 1, row 'Month rate', column 2","ocrReading":"$2450","firstAiReading":"$250","sourceServiceName":"Month rate","passageIds":[],"thirdReading":"$2450","selectedReading":"$2450","disposition":"ResolvedToSourceReading"},{"fields":["price"],"reason":"'$250' is in the transcript and nowhere in the machine reading of this page","location":"page 1, table 1, row 'Month rate'","ocrReading":"","firstAiReading":"Month rate | $250","sourceServiceName":"Month rate","passageIds":[],"thirdReading":"Month rate | $2450","selectedReading":"Month rate | $250","disposition":"ResolvedToCandidateReading","remainingUncertainty":"the source check did not confirm this value, which was kept for review"},{"fields":["service name"],"reason":"'$14,250' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Paragraph 6","ocrReading":"","firstAiReading":"$14,250","passageIds":[],"thirdReading":"$14,250","selectedReading":"$14,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$14,250' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Heading 7","ocrReading":"","firstAiReading":"## Skid steer loader NX-105 — $14,250","passageIds":[],"selectedReading":"","disposition":"CandidateUnitNotOnPage"},{"fields":["service name"],"reason":"'$16,000' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Paragraph 10","ocrReading":"","firstAiReading":"$16,000","passageIds":[],"thirdReading":"$16,000","selectedReading":"$16,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$16,000' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Heading 11","ocrReading":"","firstAiReading":"## Wheel loader NX-110 — $16,000","passageIds":[],"selectedReading":"","disposition":"CandidateUnitNotOnPage"},{"fields":["service name"],"reason":"'$17,750' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Paragraph 14","ocrReading":"","firstAiReading":"$17,750","passageIds":[],"thirdReading":"$17,750","selectedReading":"$17,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$17,750' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Heading 15","ocrReading":"","firstAiReading":"## Telehandler NX-115 — $17,750","passageIds":[],"selectedReading":"","disposition":"CandidateUnitNotOnPage"},{"fields":["service name"],"reason":"'$19,500' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Paragraph 18","ocrReading":"","firstAiReading":"$19,500","passageIds":[],"thirdReading":"$19,500","selectedReading":"$19,500","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$19,500' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Heading 19","ocrReading":"","firstAiReading":"## Scissor lift NX-120 — $19,500","passageIds":[],"selectedReading":"","disposition":"CandidateUnitNotOnPage"},{"fields":["service name"],"reason":"'$21,250' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Paragraph 22","ocrReading":"","firstAiReading":"$21,250","passageIds":[],"thirdReading":"$21,250","selectedReading":"$21,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$21,250' is in the transcript and nowhere in the machine reading of this page","location":"page 1, Heading 23","ocrReading":"","firstAiReading":"## Boom lift NX-125 — $21,250","passageIds":[],"selectedReading":"","disposition":"CandidateUnitNotOnPage"}]}
+  {"pageNumber":2,"verificationId":"550e9de8-a6b4-4d34-a65d-ae6951dec5fb","discrepancies":[{"fields":["service name"],"reason":"'$28,250' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 14","ocrReading":"","firstAiReading":"$28,250","passageIds":[],"thirdReading":"$28,250","selectedReading":"$28,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$28,250' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 15","ocrReading":"","firstAiReading":"**Air compressor NX-145 — $28,250**","passageIds":[],"thirdReading":"Air compressor NX-145 — $28,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Air compressor NX-145 — $28,250**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$30,000' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 18","ocrReading":"","firstAiReading":"$30,000","passageIds":[],"thirdReading":"$30,000","selectedReading":"$30,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$30,000' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 19","ocrReading":"","firstAiReading":"**Compact excavator NX-150 — $30,000**","passageIds":[],"thirdReading":"Compact excavator NX-150 — $30,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Compact excavator NX-150 — $30,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$31,750' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 22","ocrReading":"","firstAiReading":"$31,750","passageIds":[],"thirdReading":"$31,750","selectedReading":"$31,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$31,750' is in the transcript and nowhere in the machine reading of this page","location":"page 2, Paragraph 23","ocrReading":"","firstAiReading":"**Skid steer loader NX-155 — $31,750**","passageIds":[],"thirdReading":"Skid steer loader NX-155 — $31,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Skid steer loader NX-155 — $31,750**","disposition":"ResolvedToCandidateReading"}]}
+  {"pageNumber":3,"verificationId":"2916ce48-6422-4b95-83f8-3b1ff0b2e0d0","discrepancies":[{"fields":["service name"],"reason":"'$33,500' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 3","ocrReading":"","firstAiReading":"$33,500","passageIds":[],"thirdReading":"$33,500","selectedReading":"$33,500","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$33,500' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 4","ocrReading":"","firstAiReading":"**Wheel loader NX-160 — $33,500**","passageIds":[],"thirdReading":"Wheel loader NX-160 — $33,500\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Wheel loader NX-160 — $33,500**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$35,250' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 7","ocrReading":"","firstAiReading":"$35,250","passageIds":[],"thirdReading":"$35,250","selectedReading":"$35,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$35,250' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 8","ocrReading":"","firstAiReading":"**Telehandler NX-165 — $35,250**","passageIds":[],"thirdReading":"Telehandler NX-165 — $35,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Telehandler NX-165 — $35,250**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$37,000' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 11","ocrReading":"","firstAiReading":"$37,000","passageIds":[],"thirdReading":"$37,000","selectedReading":"$37,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$37,000' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 12","ocrReading":"","firstAiReading":"**Scissor lift NX-170 — $37,000**","passageIds":[],"thirdReading":"Scissor lift NX-170 — $37,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Scissor lift NX-170 — $37,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$38,750' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 15","ocrReading":"","firstAiReading":"$38,750","passageIds":[],"thirdReading":"$38,750","selectedReading":"$38,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$38,750' is in the transcript and nowhere in the machine reading of this page","location":"page 3, Paragraph 16","ocrReading":"","firstAiReading":"**Boom lift NX-175 — $38,750**","passageIds":[],"thirdReading":"Boom lift NX-175 — $38,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Boom lift NX-175 — $38,750**","disposition":"ResolvedToCandidateReading"}]}
+  {"pageNumber":4,"verificationId":"0fabf283-4351-4187-832c-c318b7931f52","discrepancies":[{"fields":["service name"],"reason":"'$44,000' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 3","ocrReading":"","firstAiReading":"$44,000","passageIds":[],"thirdReading":"$44,000","selectedReading":"$44,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$44,000' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 4","ocrReading":"","firstAiReading":"**Generator NX-190 — $44,000**","passageIds":[],"thirdReading":"Generator NX-190 — $44,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Generator NX-190 — $44,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$45,750' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 7","ocrReading":"","firstAiReading":"$45,750","passageIds":[],"thirdReading":"$45,750","selectedReading":"$45,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$45,750' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 8","ocrReading":"","firstAiReading":"**Air compressor NX-195 — $45,750**","passageIds":[],"thirdReading":"Air compressor NX-195 — $45,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Air compressor NX-195 — $45,750**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$47,500' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 11","ocrReading":"","firstAiReading":"$47,500","passageIds":[],"thirdReading":"$47,500","selectedReading":"$47,500","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$47,500' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 12","ocrReading":"","firstAiReading":"**Compact excavator NX-200 — $47,500**","passageIds":[],"thirdReading":"Compact excavator NX-200 — $47,500\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Compact excavator NX-200 — $47,500**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$49,250' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 15","ocrReading":"","firstAiReading":"$49,250","passageIds":[],"thirdReading":"$49,250","selectedReading":"$49,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$49,250' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 16","ocrReading":"","firstAiReading":"**Skid steer loader NX-205 — $49,250**","passageIds":[],"thirdReading":"Skid steer loader NX-205 — $49,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Skid steer loader NX-205 — $49,250**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$51,000' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 19","ocrReading":"","firstAiReading":"$51,000","passageIds":[],"thirdReading":"$51,000","selectedReading":"$51,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$51,000' is in the transcript and nowhere in the machine reading of this page","location":"page 4, Paragraph 20","ocrReading":"","firstAiReading":"**Wheel loader NX-210 — $51,000**","passageIds":[],"thirdReading":"Wheel loader NX-210 — $51,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Wheel loader NX-210 — $51,000**","disposition":"ResolvedToCandidateReading"}]}
+  {"pageNumber":5,"verificationId":"c1d3f64a-5d97-4306-acf3-d804e88339f5","discrepancies":[{"fields":["service name"],"reason":"'$56,250' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 6","ocrReading":"","firstAiReading":"$56,250","passageIds":[],"thirdReading":"$56,250","selectedReading":"$56,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$56,250' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 7","ocrReading":"","firstAiReading":"**Boom lift NX-225 — $56,250**","passageIds":[],"thirdReading":"Boom lift NX-225 — $56,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Boom lift NX-225 — $56,250**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$58,000' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 10","ocrReading":"","firstAiReading":"$58,000","passageIds":[],"thirdReading":"$58,000","selectedReading":"$58,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$58,000' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 11","ocrReading":"","firstAiReading":"**Forklift NX-230 — $58,000**","passageIds":[],"thirdReading":"Forklift NX-230 — $58,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Forklift NX-230 — $58,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$59,750' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 14","ocrReading":"","firstAiReading":"$59,750","passageIds":[],"thirdReading":"$59,750","selectedReading":"$59,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$59,750' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 15","ocrReading":"","firstAiReading":"**Pallet jack NX-235 — $59,750**","passageIds":[],"thirdReading":"Pallet jack NX-235 — $59,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Pallet jack NX-235 — $59,750**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$61,500' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 18","ocrReading":"","firstAiReading":"$61,500","passageIds":[],"thirdReading":"$61,500","selectedReading":"$61,500","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$61,500' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 19","ocrReading":"","firstAiReading":"**Generator NX-240 — $61,500**","passageIds":[],"thirdReading":"Generator NX-240 — $61,500\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Generator NX-240 — $61,500**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$63,250' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 22","ocrReading":"","firstAiReading":"$63,250","passageIds":[],"thirdReading":"$63,250","selectedReading":"$63,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$63,250' is in the transcript and nowhere in the machine reading of this page","location":"page 5, Paragraph 23","ocrReading":"","firstAiReading":"**Air compressor NX-245 — $63,250**","passageIds":[],"thirdReading":"Air compressor NX-245 — $63,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Air compressor NX-245 — $63,250**","disposition":"ResolvedToCandidateReading"}]}
+  {"pageNumber":6,"verificationId":"d6e9de2d-11e2-4a51-8e43-f37bfa13487e","discrepancies":[{"fields":["service name"],"reason":"'$65,000' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 3","ocrReading":"","firstAiReading":"$65,000","passageIds":[],"thirdReading":"$65,000","selectedReading":"$65,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$65,000' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 4","ocrReading":"","firstAiReading":"**Compact excavator NX-250 — $65,000**","passageIds":[],"thirdReading":"Compact excavator NX-250 — $65,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Compact excavator NX-250 — $65,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$66,750' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 7","ocrReading":"","firstAiReading":"$66,750","passageIds":[],"thirdReading":"$66,750","selectedReading":"$66,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$66,750' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 8","ocrReading":"","firstAiReading":"**Skid steer loader NX-255 — $66,750**","passageIds":[],"thirdReading":"Skid steer loader NX-255 — $66,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Skid steer loader NX-255 — $66,750**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$70,250' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 14","ocrReading":"","firstAiReading":"$70,250","passageIds":[],"thirdReading":"$70,250","selectedReading":"$70,250","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$70,250' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 15","ocrReading":"","firstAiReading":"**Telehandler NX-265 — $70,250**","passageIds":[],"thirdReading":"Telehandler NX-265 — $70,250\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Telehandler NX-265 — $70,250**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$72,000' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 18","ocrReading":"","firstAiReading":"$72,000","passageIds":[],"thirdReading":"$72,000","selectedReading":"$72,000","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$72,000' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 19","ocrReading":"","firstAiReading":"**Scissor lift NX-270 — $72,000**","passageIds":[],"thirdReading":"Scissor lift NX-270 — $72,000\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Scissor lift NX-270 — $72,000**","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$73,750' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 22","ocrReading":"","firstAiReading":"$73,750","passageIds":[],"thirdReading":"$73,750","selectedReading":"$73,750","disposition":"ResolvedToCandidateReading"},{"fields":["service name"],"reason":"'$73,750' is in the transcript and nowhere in the machine reading of this page","location":"page 6, Paragraph 23","ocrReading":"","firstAiReading":"**Boom lift NX-275 — $73,750**","passageIds":[],"thirdReading":"Boom lift NX-275 — $73,750\nRental and purchase available. Delivery within 50 km included.","selectedReading":"**Boom lift NX-275 — $73,750**","disposition":"ResolvedToCandidateReading"}]}

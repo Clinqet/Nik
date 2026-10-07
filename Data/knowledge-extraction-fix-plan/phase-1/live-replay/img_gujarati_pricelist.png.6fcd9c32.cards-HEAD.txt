@@ -1,0 +1,12 @@
+# img_gujarati_pricelist.png.6fcd9c32
+blocks=3 pageCount=1 docType=Other
+cards=1 imageCards=1 warnings=0
+
+--- card 0 [Table] section='શ્રી બ્યુટી પાર્લર' page=1 img= chars=146
+    સેવા: વાળ કપાવવા | કિંમત: ₹250
+    સેવા: ફેશિયલ | કિંમત: ₹800
+    સેવા: મસાજ | કિંમત: ₹500
+    સેવા: બ્રાઇડલ મેકઅપ | કિંમત: ₹5,000
+    સેવા: થ્રેડિંગ | કિંમત: ₹50
+--- card 1 [ImageCaption] section='શ્રી બ્યુટી પાર્લર' page=1 img=0 chars=0
+    

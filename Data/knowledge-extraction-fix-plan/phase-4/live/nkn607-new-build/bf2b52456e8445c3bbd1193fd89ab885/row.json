@@ -1,0 +1,40 @@
+{
+  "businessId": "NKN607",
+  "docId": "bf2b52456e8445c3bbd1193fd89ab885",
+  "docName": "pdf_headerless_price_table.pdf",
+  "docTitle": "Nails & Lashes Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "readingNotices": [
+    {
+      "key": "Info_KnowledgeValueUnconfirmed"
+    }
+  ],
+  "sizeBytes": 27595,
+  "pageCount": 1,
+  "passageCount": 3,
+  "contentHash": "B8210D35CD5B9243548EEE305C94B243456203CDA713F8CB1A99F04112C444BE",
+  "blobPath": "NKN607/bf2b52456e8445c3bbd1193fd89ab885/pdf_headerless_price_table-20260925-052208-ea2857cbafe2.pdf",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:05:47.129233Z",
+    "outcome": "Ran",
+    "candidateCount": 16,
+    "draftCount": 14,
+    "alreadyInCatalogCount": 1,
+    "notFullyScanned": false,
+    "judgeRemovedCount": 1
+  },
+  "id": "bf2b52456e8445c3bbd1193fd89ab885",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5c0beb59-0000-0200-0000-6ab6d41b0000\"",
+  "createdAt": "2026-09-25T05:22:08.8262175Z",
+  "updatedAt": "2026-09-25T20:05:47.1795287Z",
+  "_rid": "ezpkAL1hvTECAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTECAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366747
+}

@@ -1,0 +1,15 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,4 +1,4 @@
+-docTitle=pdf_duration_grid_crosstab lang= pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
++docTitle=pdf_duration_grid_crosstab lang= pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+ summary: 
+ [  0] Heading      p1 H1
+       Massage menu
+@@ -21,4 +21,3 @@
+ ## captions
+ ## images
+ ## reviews
+-  {"pageNumber":1,"verificationId":"3d47d6be-cbb6-4709-9fb0-182b5ebea164","discrepancies":[{"fields":["text"],"reason":"'Classic' reads 'Clasic'","location":"page 1, table 2, row 1, column 3","ocrReading":"Classic","firstAiReading":"Clasic","sourceServiceName":"","passageIds":[],"thirdReading":"| Express | Classic | Luxury |\n| Hydrating | $45 | $80 | $120 |\n| Anti-aging | $55 | $95 | $140 |\n| Acne care | $50 | $85 | $125 |","selectedReading":"Classic","disposition":"ResolvedToSourceReading"}]}

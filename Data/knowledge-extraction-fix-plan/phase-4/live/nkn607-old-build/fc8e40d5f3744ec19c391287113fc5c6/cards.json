@@ -1,0 +1,155 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_0",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Prices",
+    "content": "Service: Haircut | Price (Short hair): $25.00 | Price (Long hair): $35.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-01 | Notes: Walk-ins welcome\nService: Full head colour | Price (Short hair): $80.00 | Price (Long hair): $110.00 | Duration: 90 min | Discount: 15% | Valid from: 2026-01-02 | Notes: Includes toner Patch test 48h before Ask about Olaplex add-on\nService: Highlights | Price (Short hair): $120.00 | Price (Long hair): $160.00 | Duration: 120 min | Discount: 15% | Valid from: 2026-01-03 | Notes: Walk-ins welcome\nService: Keratin treatment | Price (Short hair): $250.00 | Price (Long hair): $320.00 | Duration: 180 min | Discount: 15% | Valid from: 2026-01-04 | Notes: Walk-ins welcome\nService: Blow dry | Price (Short hair): $30.00 | Price (Long hair): $40.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-05 | Notes: Walk-ins welcome\nService: Average short price | Price (Short hair): $101.00",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "Table",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_1",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Prices",
+    "content": "Treatment | Guarantee days | Redo policy\nKeratin treatment | 7 | Free redo within a week\nFull head colour | 5 | Toner refresh free",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "Table",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_2",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Sheet2",
+    "content": "Opening hours | Mon–Fri 9:00–18:00\nSaturday | 10:00–16:00\nDeposit | 20%",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "Table",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_3",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Hair Salon Prices and Policies — overview\nLists services, short- and long-hair prices, durations, discounts, valid dates and notes. Also covers treatment guarantees and redo policies, opening hours, and the deposit.\nSections: Prices (9), Sheet2 (3)\n6 records\nService: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)\nPrice (Short hair): $25.00 to $250.00 (typical)\nPrice (Long hair): $35.00 to $320.00 (typical)\nDuration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)\nValid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_4",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Service",
+    "content": "Hair Salon Prices and Policies — overview — Service\n6 records — Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_5",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Price (Short hair)",
+    "content": "Hair Salon Prices and Policies — overview — Price (Short hair)\n6 records — Price (Short hair): $25.00 to $250.00 (typical)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_6",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Price (Long hair)",
+    "content": "Hair Salon Prices and Policies — overview — Price (Long hair)\n6 records — Price (Long hair): $35.00 to $320.00 (typical)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_7",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Duration",
+    "content": "Hair Salon Prices and Policies — overview — Duration\n6 records — Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_fc8e40d5f3744ec19c391287113fc5c6_8",
+    "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Valid from",
+    "content": "Hair Salon Prices and Policies — overview — Valid from\n6 records — Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)",
+    "contentCjk": null,
+    "docTitle": "Hair Salon Prices and Policies",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

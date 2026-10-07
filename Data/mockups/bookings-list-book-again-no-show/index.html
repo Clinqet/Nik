@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My bookings — book again after the provider didn't come</title>
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858;
+    --warn:#9A5B00; --warn-bg:#FBF1E0; --warn-line:#F2D9AE;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; }
+  .wrap { max-width:1100px; margin:0 auto; }
+  .masthead { padding:44px 0 10px; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,38px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:72ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:44px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  .row-frames { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 520px; min-width:0; }
+  .frame.phone { flex:0 0 360px; max-width:100%; }
+  .frame-cap { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-mute); background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:7px 14px; }
+  .bk { padding:14px 16px; border-top:1px solid var(--line); }
+  .bk:first-of-type { border-top:0; }
+  .top { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .svc { font-weight:700; font-size:14px; }
+  .chip { font-size:11px; border-radius:999px; padding:1px 9px; font-weight:700; }
+  .c-done { color:var(--brand-deep); background:var(--brand-soft); }
+  .c-noshow { color:#5F5F5F; background:#F0F0F0; }
+  .c-cancel { color:#5F5F5F; background:#F0F0F0; }
+  .meta { font-size:12px; color:var(--ink-mute); margin-top:4px; }
+  .btn { display:inline-block; font-size:13px; border-radius:12px; padding:6px 14px; margin-top:10px; font-weight:700; background:var(--brand); color:var(--navy); border:1px solid var(--brand); }
+  .btn.wait { opacity:.6; }
+  .toast { margin:10px 16px 16px; border:1px solid var(--warn-line); background:var(--warn-bg); color:var(--warn); border-radius:10px; padding:8px 10px; font-size:12.5px; }
+  .state { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px; }
+  table.copy { width:100%; border-collapse:collapse; font-size:13px; margin-top:6px; display:block; overflow-x:auto; }
+  table.copy th, table.copy td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.copy th { background:var(--surface-sunk); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-mute); }
+  code { font-family:var(--mono); font-size:12px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .rules { margin:0; padding-left:20px; color:var(--ink-soft); max-width:92ch; }
+  .rules li { margin:7px 0; } .rules b { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div>
+      <h1>My bookings — book again after the provider didn't come</h1>
+      <p>The booking's own page already offers "Book again" when the provider didn't come. The list card now offers it
+         too, so the customer who was let down can rebook in one tap, on web and in the app.</p>
+    </div>
+    <div class="stamp">Sheet · bookings-list-book-again-no-show<br>post-ranking-followups §7<br>APPROVED 2026-09-29</div>
+  </div>
+
+  <h2 class="rule">1 · The list — Cancelled tab (where a no-show booking sits)</h2>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Customer web — My bookings</div>
+      <div class="bk"><div class="state">A · the provider didn't come · NEW button</div>
+        <div class="top"><span class="svc">Deep home cleaning · Sparkle Pros</span><span class="chip c-noshow">The provider didn't come</span></div>
+        <div class="meta">Tue 29 Sep · 10:00 · 2 services</div><span class="btn">Book Again</span></div>
+      <div class="bk"><div class="state">B · cancelled · unchanged, no button</div>
+        <div class="top"><span class="svc">Window cleaning · Clear View</span><span class="chip c-cancel">Cancelled</span></div>
+        <div class="meta">Fri 25 Sep · 14:00</div></div>
+      <div class="bk"><div class="state">C · adding to cart</div>
+        <div class="top"><span class="svc">Deep home cleaning · Sparkle Pros</span><span class="chip c-noshow">The provider didn't come</span></div>
+        <div class="meta">Tue 29 Sep · 10:00 · 2 services</div><span class="btn wait">Book Again</span></div>
+      <div class="toast"><div class="state">D · a service is no longer offered (existing toast)</div>Couldn&rsquo;t repeat this booking. Please add the service manually.</div>
+    </div>
+    <div class="frame phone">
+      <div class="frame-cap">Customer phone app — Bookings</div>
+      <div class="bk"><div class="state">A</div>
+        <div class="svc">Deep home cleaning</div><div class="meta">Sparkle Pros · Tue 29 Sep · 10:00</div>
+        <div style="margin-top:6px"><span class="chip c-noshow">The provider didn't come</span></div><span class="btn">Book Again</span></div>
+      <div class="bk"><div class="state">B</div>
+        <div class="svc">Window cleaning</div><div class="meta">Clear View · Fri 25 Sep</div>
+        <div style="margin-top:6px"><span class="chip c-cancel">Cancelled</span></div></div>
+    </div>
+  </div>
+
+  <h2 class="rule">2 · Rules</h2>
+  <ul class="rules">
+    <li><b>Same action as every other list card</b>: the booking's services are added to the cart and the cart opens (today's list behaviour after a completed booking). One button, one behaviour, across the list.</li>
+    <li><b>Shown for</b>: Completed (today) and "The provider didn't come" (new). Never for Cancelled, declined or a customer no-show on the LIST (the detail page keeps its own rules unchanged).</li>
+    <li><b>A service that is gone</b> or a provider that stopped taking bookings: the existing failure toast, nothing added.</li>
+  </ul>
+
+  <h2 class="rule">3 · Where the words come from</h2>
+  <table class="copy">
+    <tr><th>Words</th><th>Source (all existing — no new copy)</th></tr>
+    <tr><td>Book Again</td><td>web <code>myBookings.bookAgain</code> · phone <code>BOOKINGS.BOOK_AGAIN</code></td></tr>
+    <tr><td>The provider didn't come</td><td>web <code>myBookings.status.NoShowProvider</code> · phone <code>BOOKINGS.STATUS_PROVIDER_NO_SHOW</code></td></tr>
+    <tr><td>Toasts</td><td>web <code>myBookings.bookAgain.toast</code> / <code>myBookings.bookAgain.failed</code> · phone <code>BOOKINGS.BOOK_AGAIN_TOAST</code> / <code>BOOKINGS.BOOK_AGAIN_FAILED</code></td></tr>
+  </table>
+</div>
+</body>
+</html>

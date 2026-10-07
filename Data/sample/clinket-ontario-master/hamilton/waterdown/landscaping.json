@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Waterdown",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Landscaping and hardscaping serving Waterdown and Greater Hamilton — patios, interlock driveways, steps, and walls.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Josh",
+        "email": "josh@millstlandscaping.ca",
+        "phone": null
+      },
+      "businessEmail": "josh@millstlandscaping.ca",
+      "businessPhone": "289-707-5590",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://millstlandscaping.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Waterdown",
+        "area": "Waterdown",
+        "province": "ON",
+        "postalCode": null,
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Waterdown",
+        "Burlington",
+        "Hamilton",
+        "Grimsby",
+        "Oakville",
+        "Carlisle",
+        "Dundas",
+        "Niagara"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Waterdown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hardscaping",
+          "description": "Patios, interlock driveways, steps, walls",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://millstlandscaping.ca/waterdown-landscaping",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": "Clearly branded Waterdown page; street HQ not on fetched page"
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00",
+      "id": "hamilton-waterdown-mill-st-landscaping",
+      "businessName": "Mill St. Landscaping"
+    }
+  ]
+}

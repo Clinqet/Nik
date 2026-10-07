@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Clinket — whose words a source is</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013;
+      --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013;
+    --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+
+  header.masthead { padding:48px 0 28px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,44px); line-height:1.05; letter-spacing:-.02em; margin:0; text-wrap:balance; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:64ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; white-space:nowrap; }
+
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:52px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:86ch; }
+
+  .board { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 460px; min-width:0; }
+  .frame.w360 { flex:0 0 360px; max-width:100%; }
+  .frame.w520 { flex:1 1 520px; }
+  .frame.full { flex:1 1 100%; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .pad { padding:16px; }
+
+  .pill { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; letter-spacing:.02em; border:1px solid var(--line-firm); color:var(--ink-mute); background:var(--surface-sunk); white-space:nowrap; }
+  .pill.ok { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .pill.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .pill.navy { background:var(--navy-soft); border-color:#C4D6EE; color:var(--navy); }
+  .pill.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .pill.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+
+  .banner { display:flex; gap:9px; align-items:flex-start; border-radius:11px; padding:9px 11px; font-size:12px; margin-top:10px; border:1px solid var(--line); background:var(--surface-sunk); color:var(--ink-soft); }
+  .banner.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .banner.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .banner.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .banner.good { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .banner b { display:block; }
+
+  .spin { width:13px; height:13px; border-radius:50%; border:2px solid var(--line-firm); border-top-color:var(--info); display:inline-block; vertical-align:-2px; flex:none; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* ---- the answer + its sources ---- */
+  .answer { font-size:14px; color:var(--ink); }
+  .answer .q { font-weight:600; color:var(--ink); margin:0 0 10px; }
+  .answer .a { margin:0 0 4px; color:var(--ink-soft); }
+  .cite { display:inline-flex; align-items:center; justify-content:center; min-width:17px; height:17px; padding:0 4px; border-radius:5px; background:var(--navy-soft); color:var(--navy); border:1px solid #C4D6EE; font-family:var(--mono); font-size:10px; font-weight:600; vertical-align:1px; }
+
+  .srcgroup { margin-top:14px; border-top:1px solid var(--line); padding-top:12px; }
+  .srcgroup h4 { font-family:var(--display); font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-mute); margin:0 0 9px; font-weight:700; }
+
+  .src { display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); border-radius:12px; padding:10px 11px; background:var(--surface); margin-bottom:8px; }
+  .src + .src { margin-top:0; }
+  .src .thumb { width:34px; height:40px; border-radius:6px; background:var(--surface-sunk); border:1px solid var(--line-firm); flex:none; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:8.5px; color:var(--ink-mute); letter-spacing:.06em; }
+  .src .thumb.pic { background:linear-gradient(135deg,#dfe8f5,#c9d9ef); color:#2d4a72; border-color:#B9CCE6; }
+  .src .body { min-width:0; flex:1 1 auto; }
+  .src .name { font-weight:600; font-size:13px; color:var(--ink); overflow-wrap:anywhere; }
+  .src .meta { font-size:11.5px; color:var(--ink-mute); margin-top:1px; }
+  .src .chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+  .src .snippet { font-size:12px; color:var(--ink-soft); margin-top:7px; padding-left:9px; border-left:2px solid var(--line-firm); }
+  .src .hint { font-size:11.5px; color:var(--warn); margin-top:6px; }
+  .src .open { font-size:11.5px; color:var(--brand-deep); font-weight:600; white-space:nowrap; align-self:center; flex:none; }
+
+  .ghost { background:var(--surface-sunk); border-radius:6px; display:block; height:10px; }
+  .ghost.t { height:13px; }
+  .ghost.w40 { width:40%; } .ghost.w60 { width:60%; } .ghost.w80 { width:80%; } .ghost.w30 { width:30%; }
+  .shimmer { position:relative; overflow:hidden; }
+  .shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); animation:sh 1.5s infinite; }
+  @keyframes sh { to { transform:translateX(100%); } }
+
+  /* ---- phone ---- */
+  .phone { width:340px; max-width:100%; border:1px solid var(--line-firm); border-radius:30px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; flex:none; }
+  .phone .status { height:26px; background:var(--surface-sunk); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 14px; font-family:var(--mono); font-size:9.5px; color:var(--ink-mute); }
+  .phone .navbar { display:flex; align-items:center; gap:9px; padding:10px 13px; border-bottom:1px solid var(--line); font-weight:600; font-size:14px; }
+  .phone .screen { padding:13px; }
+  .phone .tabbar { display:flex; border-top:1px solid var(--line); background:var(--surface-sunk); }
+  .phone .tabbar div { flex:1; text-align:center; padding:8px 0 11px; font-size:9.5px; color:var(--ink-mute); }
+  .phone .tabbar div.on { color:var(--brand-deep); font-weight:700; }
+
+  .note { font-size:12.5px; color:var(--ink-mute); margin:10px 0 0; }
+  .note b { color:var(--ink-soft); }
+
+  table.copy { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:10px; }
+  table.copy th, table.copy td { text-align:left; vertical-align:top; padding:7px 10px; border-bottom:1px solid var(--line); }
+  table.copy th { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); border-bottom:1px solid var(--line-firm); white-space:nowrap; }
+  table.copy code { font-family:var(--mono); font-size:11px; color:var(--navy); overflow-wrap:anywhere; }
+  .scrollx { overflow-x:auto; }
+
+  .gap { border:1px dashed var(--warn); background:var(--warn-bg); color:var(--warn); border-radius:13px; padding:13px 15px; margin-top:16px; }
+  .gap h3 { font-family:var(--display); font-size:13px; margin:0 0 6px; letter-spacing:.02em; }
+  .gap p { margin:0; font-size:13px; }
+
+  footer { margin-top:56px; padding-top:18px; border-top:1px solid var(--line-firm); font-size:12px; color:var(--ink-mute); }
+  @media (max-width:640px) { body { padding:0 16px 60px; } .phone { width:100%; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>Ask Clinket — whose words a source is</h1>
+    <p>Every source under an answer says where its words came from: the provider's own document, a photo our
+      system looked at, or a summary our system wrote. Web and phone, every state. Governs <b>X-01</b>.</p>
+  </div>
+  <div class="stamp">
+    Sheet · business-search-source-whose-words<br>
+    Drawn 2026-09-15 · Phase 3 of 4<br>
+    Approval waived by the owner (D4)<br>
+    Web 1440 / 1024 / 768 · Phone 375
+  </div>
+</header>
+
+<h2 class="rule"><span>1</span> &nbsp;The rule</h2>
+<p class="lede">A source can carry three kinds of words, and only the first kind is the provider's. The default
+  is <b>always the AI's own words</b> — a source nobody has classified must never borrow a price list's
+  authority.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>Kind 1 — the document's own words</span><em>no mark</em></div>
+    <div class="pad">
+      <div class="src">
+        <div class="thumb">PDF</div>
+        <div class="body">
+          <div class="name">Spring price list 2026.pdf</div>
+          <div class="meta">Page 2</div>
+          <div class="snippet">Haircut — women, long — $65</div>
+        </div>
+        <div class="open">Open</div>
+      </div>
+      <p class="note">Nothing is added. <b>The absence of a mark is the message</b> — it can only ever mean
+        "these are your own words", so an ordinary source stays quiet and costs the reader nothing.</p>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Kind 2 — a photo our system read</span><em>marked</em></div>
+    <div class="pad">
+      <div class="src">
+        <div class="thumb pic">IMG</div>
+        <div class="body">
+          <div class="name">Showroom floor — compressor.jpg</div>
+          <div class="meta">Picture 4</div>
+          <div class="chips"><span class="pill info">Described by AI from a photo</span></div>
+          <div class="snippet">Atlas Copco GA 22 rotary screw compressor, red housing, floor-standing.</div>
+          <div class="hint">Not the document's own words — check the file before repeating a name, a code or a
+            price from it.</div>
+        </div>
+        <div class="open">Open</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Kind 3 — a summary our system wrote</span><em>marked</em></div>
+    <div class="pad">
+      <div class="src">
+        <div class="thumb">DOC</div>
+        <div class="body">
+          <div class="name">Cancellation &amp; refund policy.docx</div>
+          <div class="meta">Whole document</div>
+          <div class="chips"><span class="pill info">Summary written by AI</span></div>
+          <div class="snippet">Covers deposits, late cancellations within 24 hours, and no-shows.</div>
+          <div class="hint">Not the document's own words — check the file before repeating a name, a code or a
+            price from it.</div>
+        </div>
+        <div class="open">Open</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>2</span> &nbsp;Web — the answer and its sources</h2>
+<p class="lede">The marks sit on the source card, never in the answer text. The answer is one voice; the
+  sources are where that voice got each part, and the reader checks a number by looking at the source it came
+  from.</p>
+
+<div class="board">
+  <div class="frame full">
+    <div class="frame-label"><span>Ask Clinket · 1440 and 1024 — mixed sources, the ordinary case</span><em>state: answered</em></div>
+    <div class="pad">
+      <div class="answer">
+        <p class="q">What do you charge for a long‑hair cut, and do you take deposits?</p>
+        <p class="a">A long‑hair cut is $65 <span class="cite">1</span>. Deposits are taken on appointments over
+          $100, and a cancellation inside 24 hours keeps the deposit <span class="cite">2</span>.</p>
+        <div class="srcgroup">
+          <h4>Where this came from</h4>
+          <div class="src">
+            <div class="thumb">PDF</div>
+            <div class="body">
+              <div class="name"><span class="cite">1</span> &nbsp;Spring price list 2026.pdf</div>
+              <div class="meta">Page 2</div>
+              <div class="snippet">Haircut — women, long — $65</div>
+            </div>
+            <div class="open">Open</div>
+          </div>
+          <div class="src">
+            <div class="thumb">DOC</div>
+            <div class="body">
+              <div class="name"><span class="cite">2</span> &nbsp;Cancellation &amp; refund policy.docx</div>
+              <div class="meta">Page 1</div>
+              <div class="snippet">A cancellation made less than 24 hours before the appointment forfeits the
+                deposit.</div>
+            </div>
+            <div class="open">Open</div>
+          </div>
+          <div class="src">
+            <div class="thumb pic">IMG</div>
+            <div class="body">
+              <div class="name">Reception desk photo.png</div>
+              <div class="meta">Picture 1</div>
+              <div class="chips">
+                <span class="pill info">Described by AI from a photo</span>
+                <span class="pill warn">Not published</span>
+              </div>
+              <div class="snippet">Price board showing three service lines and a deposit note.</div>
+              <div class="hint">Not the document's own words — check the file before repeating a name, a code or
+                a price from it.</div>
+            </div>
+            <div class="open">Open</div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>Two marks stack and never merge.</b> "Not published" is about who may see the file;
+        "Described by AI from a photo" is about whose words are inside it. They answer different questions and a
+        source can need both.</p>
+    </div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:22px">
+  <div class="frame w520">
+    <div class="frame-label"><span>768 — the tablet width</span><em>same rules, one column</em></div>
+    <div class="pad">
+      <div class="src">
+        <div class="thumb pic">IMG</div>
+        <div class="body">
+          <div class="name">Kompressor-Datenblatt — Seite 3 — Hochauflösendes Foto.jpeg</div>
+          <div class="meta">Picture 3</div>
+          <div class="chips"><span class="pill info">Described by AI from a photo</span></div>
+          <div class="snippet">Specification plate: 22 kW, 8 bar, 3.6 m³/min.</div>
+          <div class="hint">Not the document's own words — check the file before repeating a name, a code or a
+            price from it.</div>
+        </div>
+        <div class="open">Open</div>
+      </div>
+      <p class="note"><b>A long file name wraps; it is never cut.</b> Two spec sheets whose names differ only
+        at the end are indistinguishable when trimmed, and the provider picks the wrong one.</p>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Long answer, many sources</span><em>state: more than fits</em></div>
+    <div class="pad">
+      <div class="src"><div class="thumb">PDF</div><div class="body"><div class="name">Service menu.pdf</div><div class="meta">Page 1</div></div><div class="open">Open</div></div>
+      <div class="src"><div class="thumb">PDF</div><div class="body"><div class="name">Service menu.pdf</div><div class="meta">Page 4</div></div><div class="open">Open</div></div>
+      <div class="src"><div class="thumb">DOC</div><div class="body"><div class="name">Terms.docx</div><div class="meta">Page 2</div></div><div class="open">Open</div></div>
+      <div style="text-align:center;margin-top:4px"><span class="pill navy">Show more</span></div>
+      <p class="note"><b>"Show more", with no number.</b> The screen only ever knows how many it was handed —
+        printing "Show 12 more" when the list was trimmed before it arrived invents a count. When the real
+        remainder <i>is</i> known, the number is shown.</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule"><span>3</span> &nbsp;Phone — the same rules, the phone's own strengths</h2>
+<p class="lede">Nothing is dropped for being small. The mark is a chip on the same row; the explanation is one
+  tap away instead of always-on, because a phone column cannot afford a permanent second sentence on every
+  card.</p>
+
+<div class="board">
+  <div class="phone">
+    <div class="status"><span>9:41</span><span>▮▮▮ ◗</span></div>
+    <div class="navbar"><span>‹</span><span>Ask Clinket</span></div>
+    <div class="screen">
+      <div class="answer">
+        <p class="q" style="font-size:13px">What does the compressor cost?</p>
+        <p class="a" style="font-size:13px">The GA 22 is listed at $18,400 <span class="cite">1</span>.</p>
+      </div>
+      <div class="srcgroup">
+        <h4>Where this came from</h4>
+        <div class="src" style="padding:9px">
+          <div class="thumb">PDF</div>
+          <div class="body">
+            <div class="name" style="font-size:12.5px"><span class="cite">1</span> &nbsp;Equipment list.pdf</div>
+            <div class="meta">Page 6</div>
+          </div>
+        </div>
+        <div class="src" style="padding:9px">
+          <div class="thumb pic">IMG</div>
+          <div class="body">
+            <div class="name" style="font-size:12.5px">Showroom floor.jpg</div>
+            <div class="meta">Picture 4</div>
+            <div class="chips"><span class="pill info">Described by AI from a photo</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="font-size:11.5px">Tapping the chip opens the same sentence the web shows inline.</p>
+    </div>
+    <div class="tabbar"><div>Home</div><div>Bookings</div><div class="on">Ask</div><div>Profile</div></div>
+  </div>
+
+  <div class="phone">
+    <div class="status"><span>9:41</span><span>▮▮▮ ◗</span></div>
+    <div class="navbar"><span>‹</span><span>Ask Clinket</span></div>
+    <div class="screen">
+      <div class="banner info" style="margin-top:0"><span class="spin"></span><div><b>Reading your files…</b></div></div>
+      <div class="srcgroup">
+        <h4>Where this came from</h4>
+        <div class="src shimmer" style="padding:9px">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="ghost t w80"></span>
+            <span class="ghost w40" style="margin-top:6px"></span>
+          </div>
+        </div>
+        <div class="src shimmer" style="padding:9px">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="ghost t w60"></span>
+            <span class="ghost w30" style="margin-top:6px"></span>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="font-size:11.5px"><b>State: loading.</b> Shapes, not a spinner over an empty
+        panel — the phone now shows the same skeletons the web does.</p>
+    </div>
+    <div class="tabbar"><div>Home</div><div>Bookings</div><div class="on">Ask</div><div>Profile</div></div>
+  </div>
+
+  <div class="phone">
+    <div class="status"><span>9:41</span><span>▮▮▮ ◗</span></div>
+    <div class="navbar"><span>‹</span><span>Ask Clinket</span></div>
+    <div class="screen">
+      <div class="answer">
+        <p class="a" style="font-size:13px">I couldn't find anything about that in your files.</p>
+      </div>
+      <div class="banner" style="margin-top:12px"><div><b>State: nothing to show</b>No sources, and the source
+        area is not drawn at all — an empty heading over nothing reads as a fault.</div></div>
+      <div class="banner stop"><div><b>State: your connection dropped</b>Your answer stopped part way. Tap to
+        ask again.</div></div>
+      <div class="banner warn"><div><b>State: not yours to open</b>This file belongs to a part of the business
+        you don't have access to.</div></div>
+      <p class="note" style="font-size:11.5px">A source the member may not open still shows its name and its
+        mark — hiding the row would make the answer look like it came from nowhere.</p>
+    </div>
+    <div class="tabbar"><div>Home</div><div>Bookings</div><div class="on">Ask</div><div>Profile</div></div>
+  </div>
+</div>
+
+<h2 class="rule"><span>4</span> &nbsp;What the words are, and where each one comes from</h2>
+<p class="lede">Every sentence on this sheet is either a key on the screen or a sentence the server already
+  sends, translated. Nothing is composed on the screen from parts.</p>
+
+<div class="scrollx">
+<table class="copy">
+  <tr><th>On screen</th><th>Web key</th><th>Phone key</th><th>Who writes it</th></tr>
+  <tr>
+    <td>Described by AI from a photo</td>
+    <td><code>businessSearch.source.aiWritten.picture</code></td>
+    <td><code>BUSINESS_SEARCH.SOURCE.AI_PICTURE</code></td>
+    <td>The screen, from the mark on the source</td>
+  </tr>
+  <tr>
+    <td>Summary written by AI</td>
+    <td><code>businessSearch.source.aiWritten.overview</code></td>
+    <td><code>BUSINESS_SEARCH.SOURCE.AI_OVERVIEW</code></td>
+    <td>The screen, from the mark on the source</td>
+  </tr>
+  <tr>
+    <td>Not the document's own words — check the file before repeating a name, a code or a price from it.</td>
+    <td><code>businessSearch.source.aiWritten.hint</code></td>
+    <td>same key, shown on tap</td>
+    <td>The screen</td>
+  </tr>
+  <tr>
+    <td>Not published</td>
+    <td colspan="2">existing key, unchanged</td>
+    <td>The screen, from the file's own setting</td>
+  </tr>
+  <tr>
+    <td>Show more</td>
+    <td><code>knowledge.drafts.showMoreUnknown</code></td>
+    <td><code>DRAFTS_SHOW_MORE_UNKNOWN</code></td>
+    <td>The screen — used only when the remainder is not known</td>
+  </tr>
+  <tr>
+    <td>Every failure sentence in the states above</td>
+    <td colspan="2">no new key</td>
+    <td><b>The server</b>, already translated — the screen shows it as sent</td>
+  </tr>
+</table>
+</div>
+
+<p class="note">All five language files carry every new key on both apps: <code>en-US · es-US · fr-CA ·
+  gu-IN · hi-IN</code> on web, <code>en · es · fr · gu · hi</code> on the phone. The phone's counted
+  sentences are two sibling keys (<code>_one</code> / <code>_other</code>); the web's are one string with the
+  count inside it. Same sentence, two grammars.</p>
+
+<div class="gap">
+  <h3>✅ The one gap this sheet drew is now closed</h3>
+  <p>A <b>reopened</b> answer used to lose its marks: each source is rebuilt field by field from what was
+    stored, and the stored source had nowhere to keep "whose words this was" — so the same answer looked more
+    trustworthy the second time it was read. <b>Closed 2026-09-15</b> with one nullable stored field, and
+    proven live: five marked sources identical between the live answer and the reopened one, including the
+    photo. Absent still means the provider's own words, so a conversation stored before the change renders
+    exactly as it did.</p>
+</div>
+
+<h2 class="rule"><span>5</span> &nbsp;What this sheet supersedes</h2>
+<p class="lede">Nothing. It is the first sheet for the source card's truth marks. The card's layout, grouping
+  and open behaviour stay exactly as <code>business-search-sources</code> and
+  <code>business-search-source-grouping</code> drew them — this adds one chip row and one explanation line to
+  a card those sheets already govern, and changes neither.</p>
+
+<footer>
+  Clinket · provider surfaces · sheet <code>business-search-source-whose-words</code> ·
+  registered in <code>Data\knowledge-extraction-fix-plan\PLAN.md §Mockup register</code> and
+  <code>Data\mockups\REGISTER.md</code>.
+</footer>
+
+</div>
+</body>
+</html>

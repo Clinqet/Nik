@@ -1,0 +1,63 @@
+# docx_two_column_table_resume.docx
+blocks=21 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H2
+      PRIYA SHARMA
+[  1] Paragraph    p1
+      Senior Hair Stylist
+[  2] Paragraph    p1
+      416-555-0199
+[  3] Paragraph    p1
+      priya@example.com
+[  4] Heading      p1 H2
+      SKILLS
+[  5] Paragraph    p1
+      Balayage
+[  6] Paragraph    p1
+      Keratin
+[  7] Paragraph    p1
+      Bridal styling
+[  8] Paragraph    p1
+      Colour correction
+[  9] Heading      p1 H2
+      CERTIFICATIONS
+[ 10] Paragraph    p1
+      Redken Colour Specialist 2021
+[ 11] Paragraph    p1
+      Olaplex Pro 2022
+[ 12] Heading      p1 H2
+      PROFILE
+[ 13] Paragraph    p1
+      Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.
+[ 14] Heading      p1 H2
+      EXPERIENCE
+[ 15] Paragraph    p1
+      Glow Salon — Senior Stylist (2019–present)
+[ 16] Paragraph    p1
+      Grew colour revenue 40% in two years; introduced the bridal package now sold at $450.
+[ 17] Paragraph    p1
+      City Cuts — Stylist (2013–2019)
+[ 18] Paragraph    p1
+      Managed 30 clients a week; expected salary $85,000.
+[ 19] Heading      p1 H2
+      EDUCATION
+[ 20] Paragraph    p1
+      Marvel Beauty School, Diploma 2012
+
+## INVENTORY
+Sections: SKILLS (4), EXPERIENCE (4), PRIYA SHARMA (3), CERTIFICATIONS (2), PROFILE (1), EDUCATION (1)
+
+## CARDS (6)  warnings=0
+--- card 0 [Text] section='PRIYA SHARMA' page= tokens~13 img=-1
+    Senior Hair Stylist 416-555-0199 priya@example.com
+--- card 1 [Text] section='SKILLS' page= tokens~13 img=-1
+    Balayage Keratin Bridal styling Colour correction
+--- card 2 [Text] section='CERTIFICATIONS' page= tokens~12 img=-1
+    Redken Colour Specialist 2021 Olaplex Pro 2022
+--- card 3 [Text] section='PROFILE' page= tokens~31 img=-1
+    Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.
+--- card 4 [Text] section='EXPERIENCE' page= tokens~53 img=-1
+    Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000.
+--- card 5 [Text] section='EDUCATION' page= tokens~9 img=-1
+    Marvel Beauty School, Diploma 2012

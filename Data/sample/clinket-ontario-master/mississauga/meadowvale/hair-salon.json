@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "meadowvale",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-meadowvale-meadowvale-hair-salon-inc",
+      "businessName": "Meadowvale Hair Salon Inc.",
+      "description": "Davines Elite salon: cuts, colour, balayage. Pro Beauty Suites, Heartland / Matheson Blvd W.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "meadowvalehairsalon@gmail.com",
+      "businessPhone": "905-858-7575",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.mississaugahairsalon.com/",
+        "other": []
+      },
+      "address": {
+        "street": "650 Matheson Blvd. W Unit 1 - Suite 6",
+        "postalCode": null,
+        "area": "meadowvale",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "650 Matheson Blvd. W Unit 1 - Suite 6, Mississauga, ON"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "meadowvale",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Balayage",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Monday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Tuesday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Thursday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "10:00",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "15:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.mississaugahairsalon.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    },
+    {
+      "id": "mississauga-meadowvale-your-choice-salon-and-spa",
+      "businessName": "Your Choice Salon And Spa",
+      "description": "Full-service walk-in salon and spa: cuts, colour, threading, manicures, waxing, laser. Copenhagen Rd.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-819-4595",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "7205 Copenhagen Rd",
+        "postalCode": "L5N 2C6",
+        "area": "meadowvale",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "7205 Copenhagen Rd, Mississauga, ON L5N 2C6"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "meadowvale",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hair Colour",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Manicure / Pedicure",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Waxing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Laser Hair Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "09:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "10:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/bus/Ontario/Mississauga/Your-Choice-Salon-And-Spa/6661832.html",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:00:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Clinket_TwoColumn_CV.docx
+blocks=8 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Priya Shah - Senior Stylist
+[  1] Paragraph    p1
+      Employment
+[  2] Paragraph    p1
+      Sunrise Salon, 2021 to date - Senior Stylist
+[  3] Paragraph    p1
+      Bloom Hair, 2018 to 2021 - Stylist
+[  4] Paragraph    p1
+      Skills
+[  5] Paragraph    p1
+      Balayage and colour correction
+[  6] Paragraph    p1
+      Bridal styling
+[  7] Paragraph    p1
+      Keratin treatments
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='' page=1 tokens~48 img=-1
+    Priya Shah - Senior Stylist Employment Sunrise Salon, 2021 to date - Senior Stylist Bloom Hair, 2018 to 2021 - Stylist Skills Balayage and colour correction Bridal styling Keratin treatments

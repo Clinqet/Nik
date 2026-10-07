@@ -1,0 +1,1056 @@
+setting Voice__Knowledge__Vision__TranscribeDeploymentName = gpt-5.6-luna
+setting AzureDocumentIntelligence__VisionAiDeploymentName = gpt-5.6-luna
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      ServiceBusService initialized successfully with queues: booking-emails-dev, quote-emails-dev, booking-timeout-check-dev, notifications-dev, booking-reminders-dev, provider-confirmation-requests-dev, booking-cancellations-dev, login-attempts-dev, user-activities-dev, email-notifications-dev, analytics-events-dev, customer-identity-sync-dev
+info: Clinqet.Infrastructure.Services.Storage.AzureStorageService[0]
+      Container provider-knowledge created or already exists with access type None
+uploaded photos-108.html as 765ee5fabe06470d8952b53b795feea3
+info: Clinqet.Infrastructure.Services.Search.AzureAIFoundryEmbeddingService[0]
+      EmbeddingService initialized: Model=text-embedding-3-large, MaxBatch=2048, MaxTokensPerRequest=40000, MaxLength=30000, CacheEntries=5000 (~59 MB)
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Localization directory set to: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources/Localization
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources\Localization\en.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3506 localization strings for language: en
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources\Localization\hi.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3506 localization strings for language: hi
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources\Localization\gu.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3506 localization strings for language: gu
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources\Localization\fr.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3506 localization strings for language: fr
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Release\net10.0\Resources\Localization\es.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3506 localization strings for language: es
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      CategoryCacheService initialized - Caching: True, Duration: 24 hours, Key: GlobalCategories
+pass 1 [live-854727518fe64b0ea086cd5b9e243a22]: continuation 0, pictures 0, attempt 1, fresh False, readings so far 0, AI spent 0
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Processing knowledge ingest for doc 765ee5fabe06470d8952b53b795feea3, business 6TCWOI, DeliveryCount=1, MessageId=live-854727518fe64b0ea086cd5b9e243a22
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1600.7243ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1613.2498ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F1-knowledge-describe on gpt-6-luna (Bulk): prompt 2271 (cached 0), completion 123 (reasoning 65), finish stop, estCostUsd 0.000289
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2330.0397ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2330.5226ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 134 (reasoning 85), finish stop, estCostUsd 0.000329
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2112.3528ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2112.6152ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 121 (reasoning 72), finish stop, estCostUsd 0.000313
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1707.1909ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1707.8511ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 85 (reasoning 43), finish stop, estCostUsd 0.000270
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2243.5619ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2244.4211ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 113 (reasoning 69), finish stop, estCostUsd 0.000303
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1947.6907ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1947.8911ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 99 (reasoning 56), finish stop, estCostUsd 0.000287
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1479.8445ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1480.1207ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 56 (reasoning 0), finish stop, estCostUsd 0.000235
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1895.149ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1895.4122ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 80 (reasoning 27), finish stop, estCostUsd 0.000264
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1784.4151ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1784.8787ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 98 (reasoning 47), finish stop, estCostUsd 0.000285
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1746.469ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1747.1789ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 88 (reasoning 42), finish stop, estCostUsd 0.000273
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2428.3854ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2428.5895ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 159 (reasoning 105), finish stop, estCostUsd 0.000359
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1425.0842ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1425.3009ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 839 (cached 0), completion 35 (reasoning 0), finish stop, estCostUsd 0.000210
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2947.6506ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2947.8534ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 811 (cached 0), completion 225 (reasoning 186), finish stop, estCostUsd 0.000432
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1737.3501ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1737.5945ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 811 (cached 0), completion 89 (reasoning 47), finish stop, estCostUsd 0.000269
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1613.1282ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1613.4935ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 763 (cached 0), completion 93 (reasoning 57), finish stop, estCostUsd 0.000264
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3062.7106ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3062.9357ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 763 (cached 0), completion 186 (reasoning 130), finish stop, estCostUsd 0.000376
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1909.5533ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1909.7346ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 739 (cached 0), completion 96 (reasoning 50), finish stop, estCostUsd 0.000263
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1439.9464ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1440.2121ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 739 (cached 0), completion 39 (reasoning 0), finish stop, estCostUsd 0.000195
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1338.5529ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1338.7567ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 743 (cached 0), completion 38 (reasoning 0), finish stop, estCostUsd 0.000194
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2012.861ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2013.5477ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 719 (cached 0), completion 123 (reasoning 79), finish stop, estCostUsd 0.000291
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1810.4962ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1810.7147ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 715 (cached 0), completion 48 (reasoning 0), finish stop, estCostUsd 0.000201
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2810.4633ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2811.0612ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 715 (cached 0), completion 199 (reasoning 140), finish stop, estCostUsd 0.000382
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2020.6166ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2021.0416ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 715 (cached 0), completion 48 (reasoning 0), finish stop, estCostUsd 0.000201
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1738.783ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1739.2169ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 715 (cached 0), completion 42 (reasoning 0), finish stop, estCostUsd 0.000193
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1830.8646ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1831.0426ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 715 (cached 0), completion 88 (reasoning 47), finish stop, estCostUsd 0.000249
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2048.494ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2049.1987ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 102 (reasoning 61), finish stop, estCostUsd 0.000261
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1484.4771ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1484.6355ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 37 (reasoning 0), finish stop, estCostUsd 0.000183
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1609.983ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1610.6681ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 56 (reasoning 0), finish stop, estCostUsd 0.000205
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2564.4624ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2564.615ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 166 (reasoning 113), finish stop, estCostUsd 0.000337
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1661.5534ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1662.0255ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 695 (cached 0), completion 47 (reasoning 0), finish stop, estCostUsd 0.000195
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3047.5435ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3048.773ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 695 (cached 0), completion 222 (reasoning 177), finish stop, estCostUsd 0.000405
+  -> queued 6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures1
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 765ee5fabe06470d8952b53b795feea3: 40 of 108 picture(s) described; picture pass 1 is queued.
+  pass 1 took 98s; row Processing progress Pictures 40/108
+pass 2 [6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures1]: continuation 0, pictures 1, attempt 1, fresh False, readings so far 0, AI spent 31
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Processing knowledge ingest for doc 765ee5fabe06470d8952b53b795feea3, business 6TCWOI, DeliveryCount=1, MessageId=6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures1
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1630.8142ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1630.9564ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 695 (cached 0), completion 44 (reasoning 0), finish stop, estCostUsd 0.000192
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2445.1881ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2450.7951ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 695 (cached 0), completion 170 (reasoning 105), finish stop, estCostUsd 0.000343
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2586.1837ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2586.5309ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 695 (cached 0), completion 168 (reasoning 117), finish stop, estCostUsd 0.000341
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2586.0199ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2586.1487ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 176 (reasoning 120), finish stop, estCostUsd 0.000349
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1520.8634ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1520.9786ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 41 (reasoning 0), finish stop, estCostUsd 0.000187
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1721.2702ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1721.3882ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 93 (reasoning 54), finish stop, estCostUsd 0.000250
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1312.0597ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1312.1747ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 37 (reasoning 0), finish stop, estCostUsd 0.000183
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1525.857ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1525.9762ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 49 (reasoning 0), finish stop, estCostUsd 0.000197
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1928.407ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1928.8305ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 120 (reasoning 64), finish stop, estCostUsd 0.000282
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2553.1451ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2553.2605ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 183 (reasoning 123), finish stop, estCostUsd 0.000358
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2627.3334ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2627.4601ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 219 (reasoning 164), finish stop, estCostUsd 0.000401
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2127.6176ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2127.9743ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 90 (reasoning 47), finish stop, estCostUsd 0.000246
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1932.818ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1932.9599ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 118 (reasoning 59), finish stop, estCostUsd 0.000280
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2026.41ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2026.7475ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 691 (cached 0), completion 116 (reasoning 65), finish stop, estCostUsd 0.000277
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2429.6694ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2430.2244ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 671 (cached 0), completion 142 (reasoning 84), finish stop, estCostUsd 0.000305
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2142.5106ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2142.6209ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 671 (cached 0), completion 118 (reasoning 68), finish stop, estCostUsd 0.000276
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2420.0636ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2420.3529ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 671 (cached 0), completion 136 (reasoning 84), finish stop, estCostUsd 0.000297
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1754.0264ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1754.1824ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 667 (cached 0), completion 43 (reasoning 0), finish stop, estCostUsd 0.000185
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1224.7765ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1225.0542ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 667 (cached 0), completion 46 (reasoning 0), finish stop, estCostUsd 0.000189
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3622.1841ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3622.5299ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 671 (cached 0), completion 295 (reasoning 228), finish stop, estCostUsd 0.000488
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1852.5665ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1852.6748ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 671 (cached 0), completion 108 (reasoning 67), finish stop, estCostUsd 0.000264
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2545.5954ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2545.8153ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 667 (cached 0), completion 52 (reasoning 0), finish stop, estCostUsd 0.000196
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1529.3451ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1529.5384ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 643 (cached 0), completion 48 (reasoning 0), finish stop, estCostUsd 0.000186
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4109.9391ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4110.0565ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 643 (cached 0), completion 315 (reasoning 268), finish stop, estCostUsd 0.000507
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1938.7411ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1938.8432ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 647 (cached 0), completion 50 (reasoning 0), finish stop, estCostUsd 0.000189
+  -> queued 6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures2
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 765ee5fabe06470d8952b53b795feea3: 80 of 108 picture(s) described; picture pass 2 is queued.
+  pass 2 took 109s; row Processing progress Pictures 80/108
+pass 3 [6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures2]: continuation 0, pictures 2, attempt 1, fresh False, readings so far 0, AI spent 56
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Processing knowledge ingest for doc 765ee5fabe06470d8952b53b795feea3, business 6TCWOI, DeliveryCount=1, MessageId=6TCWOI:765ee5fabe06470d8952b53b795feea3:Full:639264212376829385:pictures2
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2767.3132ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2767.4488ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 643 (cached 0), completion 186 (reasoning 105), finish stop, estCostUsd 0.000352
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3640.7859ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3640.958ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 643 (cached 0), completion 306 (reasoning 256), finish stop, estCostUsd 0.000496
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2253.9363ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2254.0879ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 647 (cached 0), completion 133 (reasoning 85), finish stop, estCostUsd 0.000289
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2758.8042ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2759.0845ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 647 (cached 0), completion 179 (reasoning 123), finish stop, estCostUsd 0.000344
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1603.9087ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1604.1084ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 647 (cached 0), completion 78 (reasoning 40), finish stop, estCostUsd 0.000223
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2301.4907ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2301.7876ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 643 (cached 0), completion 179 (reasoning 130), finish stop, estCostUsd 0.000343
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 1742.5747ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 1742.6663ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 619 (cached 0), completion 50 (reasoning 0), finish stop, estCostUsd 0.000184
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 4947.8109ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 4947.9549ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 623 (cached 0), completion 422 (reasoning 366), finish stop, estCostUsd 0.000631
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2461.8144ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2462.2568ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 619 (cached 0), completion 147 (reasoning 108), finish stop, estCostUsd 0.000300
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 2111.3219ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 2111.5772ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 599 (cached 0), completion 112 (reasoning 65), finish stop, estCostUsd 0.000254
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3189.5067ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3189.6454ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 599 (cached 0), completion 263 (reasoning 176), finish stop, estCostUsd 0.000435
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3162.4009ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3162.6449ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 599 (cached 0), completion 231 (reasoning 167), finish stop, estCostUsd 0.000397
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 3036.1255ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 3036.4819ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F2-knowledge-image-caption on gpt-5.6-luna (Bulk): prompt 599 (cached 0), completion 280 (reasoning 221), finish stop, estCostUsd 0.000456
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 963.4604ms - 202
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 963.7337ms - 202
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/f49f2fc7-7f86-4dff-b301-e8d585208673?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/f49f2fc7-7f86-4dff-b301-e8d585208673?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 260.4277ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 260.6846ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5188.5631ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5188.9254ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-5.6-luna (Bulk): prompt 587 (cached 0), completion 560 (reasoning 469), finish stop, estCostUsd 0.000789
+info: Clinqet.Infrastructure.Services.AI.VisionDocumentTranscriptionService[0]
+      Vision transcription for 765ee5fabe06470d8952b53b795feea3: 1 transcribed, 0 from cache, 0 kept OCR text, 0 kept the machine reading after a source check, 0 page(s) source-checked, 0 read in sections, 1 page(s) in 5.7s.
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 297.9455ms - 202
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 298.06ms - 202
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[100]
+      Start processing HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/676b500f-e39a-49ad-b757-8af4181a05fe?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[100]
+      Sending HTTP request GET https://clinket-doc-in-nonprod.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout/analyzeResults/676b500f-e39a-49ad-b757-8af4181a05fe?*
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.ClientHandler[101]
+      Received HTTP response headers after 266.7189ms - 200
+info: System.Net.Http.HttpClient.IDocumentIntelligenceService.LogicalHandler[101]
+      End processing HTTP request after 267.1ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5325.1412ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5325.3673ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-5.6-luna (Bulk): prompt 674 (cached 0), completion 681 (reasoning 512), finish stop, estCostUsd 0.000952
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-5.6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 9818.8665ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 9818.954ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-5.6-luna (Bulk): prompt 843 (cached 0), completion 1233 (reasoning 1024), finish stop, estCostUsd 0.001648
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-sol/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 20221.9482ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 20222.106ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage F3-knowledge-transcribe-vision on gpt-6-sol (Bulk): prompt 657 (cached 0), completion 2785 (reasoning 2560), finish stop, estCostUsd 0.029164
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Sent message to queue admin-alerts-dev, MessageType: AdminAlertMessage
+info: Clinqet.Infrastructure.Services.AI.VisionDocumentTranscriptionService[0]
+      Vision transcription for 765ee5fabe06470d8952b53b795feea3: 1 transcribed, 0 from cache, 0 kept OCR text, 0 kept the machine reading after a source check, 1 page(s) source-checked, 0 read in sections, 1 page(s) in 38.8s.
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[101]
+      Received HTTP response headers after 814.0704ms - 200
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[101]
+      End processing HTTP request after 814.1669ms - 200
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 765ee5fabe06470d8952b53b795feea3 indexed: 229 cards, (null) pages, business 6TCWOI.
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=83aa929b802d81db
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=ab8582d55ded1974
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=229b2ef6c66fe534
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=74f87e7343930e99
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=8ce6c9555ead0bdf
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=112f73f84a16c677
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=814908be5a96beee
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=58368b5b5865e0c0
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1e0ded8ca0cc174d
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=61676d47da5cb767
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=5802d1b9955f6e64
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1068f6f62f6b312b
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=2b5472b8591e4bc7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=412367a405381022
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=2413342c6cfa11e1
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=0c7dd36be9cbf31e
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e3efc0a61af85997
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=2403f8068bd91cff
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=573e021b2cfa764d
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=95bc60e24e17bef2
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=a4ba3d1a2c494946
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=0dd6e8601a4823a6
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=2814da3fc091bf29
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=ddc3e55fffa8fb86
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=c00bb471b8b4c991
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1c4348803e838bab
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=b4e979725762323f
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e435769f81b2b34a
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=bbb37a754b9debd3
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=8a285edb034a96e0
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=17ca08438ebeaf8c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1b75e3eb17662ae8
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=ad34c89c461fbf8a
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1fc70769c07b15d4
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=42adaf2fb314006c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=64e3bcfb7700d49d
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=c2555eaee51db000
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=71730bdb9f4c0777
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=90514b9fdfeb13a7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=acf0b14b2773a0f1
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=71d3b34f1606d451
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=a762cf6c3ee69836
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=f04252b89b7ab913
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=097a0ba266d5c86c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=13ec452d31693466
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=d03bc18fabb3b250
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=caa0dcb300579ae1
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=f946344d9a75ccdd
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=0e1c8fe95d9133a9
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=5234e2d5c9eabcd5
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=461821fb38049596
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=953a66344c148db0
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=7be5f104e7d7adac
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=af8dc78c411a91fe
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=198511a72518a7b7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e08ff0fd6788fe12
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=dca8cc7f9c19be34
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=9e1fcbc284f9946c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=463ce79b8d128205
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=ebd10e53047c78e0
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=9678c3476c158cab
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=a4397e7b07831caf
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=c0fbb731e81fa7e7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=acc8b229c31bf265
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=31bd8f6df78fd38f
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=0d00d426734c2886
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=00d514c816784e7f
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=7a3b522ef8dbafa3
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=4f1c39207aec6fc7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=41b80527e9fb5caf
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=66ca4c4e45aa6fb1
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=6017235ac74ec016
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=8bccf3bc5f70b7f7
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=1a1452e8eafc6159
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=4459fdf64eaa4f06
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=604bf1fa7a2830d2
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=7c3d936f1a19a49c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=685f92a48079bbe4
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=3e81855dc550c2b3
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e4c585726cba1266
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=f596cc7972e85ac4
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=f12d2f84175f8f3c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=84af617bf128cc3c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=0f28da5c1ae5f144
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=dba1daea67faf263
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e5b1eaa547f08009
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=611fa66716410a51
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=8d0a62a0cf46f9f5
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=69425dfc7bd1a525
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e365024278be2de0
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=998cf0c3e3cb6503
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=cae29886166b5558
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=2e784f4ea7793cac
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=5fd0b11ba49f0c58
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=e407e5a63ba7bac1
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=b20fc0ae601ab90b
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=7260747277084b68
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=66800835a6c46fe4
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=66080548d0f4818c
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=b566d84dea79990d
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=766413abc9b120b3
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=7068e78b6233f5dc
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=bb34c1db244b707f
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=bc9ab9872b7249d2
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=4abff4f7c98e084f
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=d1acf60e203169c9
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=a76d6a5682198fa4
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      Posted media-derivative message to media-derivatives-dev: KnowledgeImage doc=765ee5fabe06470d8952b53b795feea3 pk=6TCWOI item=841faa19f74aaea7
+  pass 3 took 200s; row Ready progress  /
+ingest finished in 407s after 3 pass(es)
+PICTURE DESCRIPTIONS: 68 call(s), 0 failed, prompt 48148 (cached 0), completion 8555 (reasoning 5192) tokens, 150s in calls, $0.0199
+PICTURE TEXT READER: 3 call(s), 0 failed, prompt 2104 (cached 0), completion 2474 tokens, 20s, $0.0034
+PICTURE TEXT VERIFIER: 1 call(s), 0 failed, prompt 657 (cached 0), completion 2785 tokens, 20s, $0.0292
+PICTURE TEXT DOCUMENT INTELLIGENCE: 2 call(s), 2 page(s)
+analytics job ran
+info: Clinqet.Communications.Services.KnowledgeServiceDraftAnalyticsJob[0]
+      Clinket AI Data Analytics finished for doc 765ee5fabe06470d8952b53b795feea3 (business 6TCWOI) on attempt 1 in 3s.
+ROW {"docId":"765ee5fabe06470d8952b53b795feea3","docName":"photos-108.html","status":"Ready","pageCount":null,"passageCount":229,"failureReasonKey":null,"readingNotices":null,"images":108,"drafts":{"runAt":"2026-10-01T03:20:49.2257795Z","outcome":"Ran","candidateCount":0,"draftCount":0,"alreadyInCatalogCount":0,"notFullyScanned":false,"judgeRemovedCount":0,"failureReasonKey":null}}

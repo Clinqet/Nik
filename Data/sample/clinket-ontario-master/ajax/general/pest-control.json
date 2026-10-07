@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "city": "Ajax",
+    "area": "general",
+    "category": "pest-control",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "ajax-general-profix-pest-control-ajax",
+      "businessName": "ProFix Pest Control Ajax",
+      "description": "Pest control for Ajax via GTA ProFix Durham coverage.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@gtaprofix.ca",
+      "businessPhone": "437-800-1917",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://gtaprofix.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Ajax",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Ajax",
+        "Downtown Ajax",
+        "Pickering Village",
+        "Meadow Ridge",
+        "Pickering",
+        "Whitby",
+        "Durham"
+      ],
+      "geo": {
+        "city": "Ajax",
+        "area": "general",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "pest-control",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Pest Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://gtaprofix.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

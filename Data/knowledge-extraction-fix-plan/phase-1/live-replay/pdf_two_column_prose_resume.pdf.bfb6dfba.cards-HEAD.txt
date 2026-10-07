@@ -1,0 +1,10 @@
+# pdf_two_column_prose_resume.pdf.bfb6dfba
+blocks=10 pageCount=1 docType=Other
+cards=3 imageCards=0 warnings=0
+
+--- card 0 [Text] section='PRIYA SHARMA' page=1 img= chars=191
+    Senior Hair Stylist · Toronto, ON · 416-555-0199 · priya@example.com SKILLS | PROFILE - Bridal styling · Colour correction | EXPERIENCE English, Hindi, Gujarati | salary in next role $85,000.
+--- card 1 [Text] section='PRIYA SHARMA' page=1 img= chars=323
+    - Keratin treatments | leading a team of six and mentoring apprentices. Known for precision cuts · Team leadership | Glow Salon - Senior Stylist (2019-present) CERTIFICATIONS | Grew colour revenue 40% in two years; introduced the bridal package LANGUAGES | Managed 30 clients a week; ran the Saturday walk-in desk; expected
+--- card 2 [Text] section='PRIYA SHARMA › EDUCATION' page=1 img= chars=51
+    Marvel Beauty School, Diploma in Hairstyling (2012)

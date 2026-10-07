@@ -1,0 +1,431 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "general",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-general-clean-proper",
+      "businessName": "Clean Proper",
+      "description": "House cleaning services in Vaughan.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "hello@cleanproper.ca",
+      "businessPhone": "647-695-6878",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://cleanproper.ca/locations/vaughan/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Residential Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://cleanproper.ca/locations/vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        },
+        {
+          "url": "https://cleanproper.ca/locations/vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "vaughan-general-inspireclean",
+      "businessName": "InspireClean",
+      "description": "Professional house cleaning services in Vaughan, ON.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-991-4312",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://inspireclean.ca/house-cleaning-service-vaughan/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://inspireclean.ca/house-cleaning-service-vaughan/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-general-comomaintenance",
+      "businessName": "ComoMaintenance",
+      "description": "Property maintenance including cleaning for Vaughan properties.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@comomaintenance.com",
+      "businessPhone": "905-392-0480",
+      "social": {
+        "facebook": "https://www.facebook.com/Comomaintenanceservices",
+        "instagram": "https://www.instagram.com/comomaintenance",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.comomaintenance.com/property-maintenance-vaughan",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Property Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.comomaintenance.com/property-maintenance-vaughan",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        },
+        {
+          "url": "https://www.comomaintenance.com/property-maintenance-vaughan",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "vaughan-general-maidpro-vaughan",
+      "businessName": "MaidPro Vaughan",
+      "description": "Professional maid and house cleaning serving Vaughan.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-807-0408",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Maid Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.maidpro.com/",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

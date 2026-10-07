@@ -1,0 +1,26 @@
+# txt_three_line_name_desc_price.txt
+blocks=1 images=0 skipped=0 lost=0 pages=1 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Table        p1
+      hasHeader=False caption= rows=7
+      | Massage menu |
+      | Deep tissue massage |
+      | 60 minutes of firm pressure | $90 |
+      | Swedish massage |
+      | Relaxing full body treatment | $80 |
+      | Hot stone massage |
+      | Heated basalt stones | $110 |
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Table] section='' page=1 tokens~41 img=-1
+    Massage menu
+    Deep tissue massage
+    60 minutes of firm pressure | $90
+    Swedish massage
+    Relaxing full body treatment | $80
+    Hot stone massage
+    Heated basalt stones | $110

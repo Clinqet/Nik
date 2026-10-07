@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provider Trust — what a score does to ranking</title>
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0; --warn-line:#F2D9AE;
+    --stop:#A32C2C; --stop-bg:#FAEBEB; --stop-line:#EFC9C9;
+    --info:#3730A3; --info-bg:#EEF2FF; --info-line:#C7D7FE;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  .masthead { padding:44px 0 10px; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,40px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:72ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:48px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:88ch; }
+  .row-frames { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 640px; min-width:0; }
+  .frame.phone { flex:0 0 360px; max-width:100%; }
+  .frame-cap { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-mute); background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:7px 14px; }
+  .pad { padding:16px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
+  .tile { border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
+  .tile .k { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-mute); font-weight:700; }
+  .tile .v { font-family:var(--display); font-size:26px; font-weight:700; line-height:1.1; margin-top:2px; }
+  .tile .h { font-size:11.5px; color:var(--ink-mute); margin-top:4px; }
+  .eff { margin-top:8px; border-top:1px dashed var(--line-firm); padding-top:6px; font-size:12px; line-height:1.5; }
+  .eff .up { color:var(--brand-deep); font-weight:700; }
+  .eff .down { color:var(--stop); font-weight:700; }
+  .eff .flat { color:var(--ink-mute); }
+  .factor { display:flex; flex-wrap:wrap; gap:14px; align-items:stretch; margin-top:14px; }
+  .fbox { flex:1 1 220px; border:1px solid var(--line); border-radius:12px; padding:10px 12px; background:var(--surface-sunk); }
+  .fbox .k { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-mute); font-weight:700; }
+  .fbox .big { font-family:var(--display); font-size:24px; font-weight:700; }
+  .fbox .sub { font-size:12px; color:var(--ink-soft); }
+  .pos { color:var(--brand-deep); } .neg { color:var(--stop); }
+  .form { border:1px solid var(--line); border-radius:12px; padding:14px; margin-top:16px; }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+  .lab { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-mute); font-weight:700; }
+  .inp { border:1px solid var(--line-firm); border-radius:10px; padding:8px 10px; font-size:14px; margin-top:4px; background:var(--surface); }
+  .inp.ph { color:var(--ink-mute); }
+  .inp.on { border-color:var(--navy); box-shadow:0 0 0 2px var(--navy-soft); }
+  .preview { margin-top:12px; border:1px solid var(--info-line); background:var(--info-bg); color:var(--info); border-radius:10px; padding:10px 12px; font-size:13px; }
+  .preview table { border-collapse:collapse; width:100%; margin-top:6px; font-size:12.5px; color:var(--ink); }
+  .preview td, .preview th { border-top:1px solid var(--info-line); padding:5px 6px; text-align:left; }
+  .preview th { color:var(--info); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+  .quiet { background:var(--surface-sunk); border-color:var(--line); color:var(--ink-soft); }
+  .errbox { background:var(--warn-bg); border-color:var(--warn-line); color:var(--warn); }
+  .btn { display:inline-block; font-size:13px; border:1px solid var(--line-firm); background:var(--surface); color:var(--ink); border-radius:12px; padding:6px 14px; margin-top:12px; }
+  .btn.go { background:var(--brand); border-color:var(--brand); color:var(--navy); font-weight:700; }
+  table.legend, table.copy { width:100%; border-collapse:collapse; font-size:13px; margin-top:6px; display:block; overflow-x:auto; }
+  table.legend th, table.legend td, table.copy th, table.copy td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.legend th, table.copy th { background:var(--surface-sunk); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-mute); }
+  code { font-family:var(--mono); font-size:12px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .rules { margin:0; padding-left:20px; color:var(--ink-soft); max-width:92ch; }
+  .rules li { margin:7px 0; } .rules b { color:var(--ink); }
+  .state { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); margin:14px 0 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>Provider Trust — what a score does to ranking</h1>
+      <p>Each score shows its effect on ranking, the page shows the provider's total ranking factor, and while an admin
+         types an override the page shows — before saving — exactly what it will change. Every number is calculated by
+         the server with the one ranking formula search itself uses.</p>
+    </div>
+    <div class="stamp">Sheet · provider-trust-ranking-effect<br>post-ranking-followups §7 (§12.5)<br>Admin only · English (admin app convention)<br>APPROVED 2026-09-29</div>
+  </div>
+
+  <h2 class="rule">1 · The scores, each with its effect — admin web</h2>
+  <p class="lede">Example provider measured at Response 50, Reliability 50, Acceptance 50, Completeness 80, verified.</p>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Admin web — Provider Trust · Ranking scores card</div>
+      <div class="pad">
+        <div class="tiles">
+          <div class="tile"><div class="k">Response</div><div class="v">50</div><div class="h">Measured · replies inside opening hours</div>
+            <div class="eff"><span class="up">+5.0% boost</span><br><span class="flat">No penalty (penalty starts below 40)</span></div></div>
+          <div class="tile"><div class="k">Reliability</div><div class="v">50</div><div class="h">Measured · bookings kept</div>
+            <div class="eff"><span class="up">+5.0% boost</span><br><span class="down">×0.80 penalty</span> <span class="flat">(below 70)</span></div></div>
+          <div class="tile"><div class="k">Acceptance</div><div class="v">50</div><div class="h">Measured · requests accepted</div>
+            <div class="eff"><span class="flat">No boost (acceptance only penalises)</span><br><span class="down">×0.92 penalty</span> <span class="flat">(below 65)</span></div></div>
+          <div class="tile"><div class="k">Completeness</div><div class="v">80</div><div class="h">Profile, prices, photos</div>
+            <div class="eff"><span class="up">+2.0% boost</span><br><span class="flat">Never penalises</span></div></div>
+        </div>
+        <div class="factor">
+          <div class="fbox"><div class="k">Ranking factor — browse lists</div><div class="big neg">×0.83</div>
+            <div class="sub">Boost ×1.13 (scores +12.0%, verified +1.2%) × penalty ×0.73</div></div>
+          <div class="fbox"><div class="k">Ranking factor — typed searches</div><div class="big neg">×0.78</div>
+            <div class="sub">Boost is halved when the customer types words; the penalty is not</div></div>
+          <div class="fbox"><div class="k">Compared with</div><div class="big">×1.00</div>
+            <div class="sub">A provider with no boost and no penalty</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame phone">
+      <div class="frame-cap">Admin phone app — same card, stacked</div>
+      <div class="pad">
+        <div class="tiles" style="grid-template-columns:1fr 1fr">
+          <div class="tile"><div class="k">Response</div><div class="v">50</div><div class="eff"><span class="up">+5.0%</span> · <span class="flat">no penalty</span></div></div>
+          <div class="tile"><div class="k">Reliability</div><div class="v">50</div><div class="eff"><span class="up">+5.0%</span> · <span class="down">×0.80</span></div></div>
+          <div class="tile"><div class="k">Acceptance</div><div class="v">50</div><div class="eff"><span class="flat">—</span> · <span class="down">×0.92</span></div></div>
+          <div class="tile"><div class="k">Completeness</div><div class="v">80</div><div class="eff"><span class="up">+2.0%</span></div></div>
+        </div>
+        <div class="factor">
+          <div class="fbox"><div class="k">Browse lists</div><div class="big neg">×0.83</div></div>
+          <div class="fbox"><div class="k">Typed searches</div><div class="big neg">×0.78</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">2 · Typing an override — the effect before saving</h2>
+  <p class="lede">The admin sets Reliability to 80 (for example, the drop came from a verified outage). The preview
+     updates as they type (half a second after they stop), and nothing is saved until they press Save.</p>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Admin web — override form with live preview</div>
+      <div class="pad">
+        <div class="form">
+          <div class="grid3">
+            <div><div class="lab">Response (0–100)</div><div class="inp ph">Measured: 50</div><div style="font-size:11px;color:var(--ink-mute);margin-top:3px">Leave empty to keep 50</div></div>
+            <div><div class="lab">Reliability (0–100)</div><div class="inp on">80</div><div style="font-size:11px;color:var(--ink-mute);margin-top:3px">Measured: 50</div></div>
+            <div><div class="lab">Acceptance (0–100)</div><div class="inp ph">Measured: 50</div><div style="font-size:11px;color:var(--ink-mute);margin-top:3px">Leave empty to keep 50</div></div>
+          </div>
+          <div class="state">A · preview</div>
+          <div class="preview">
+            <b>If you save this override</b>
+            <table>
+              <tr><th>Score</th><th>Measured</th><th>With override</th></tr>
+              <tr><td>Reliability</td><td>50 · +5.0% · ×0.80</td><td>80 · +8.0% · no penalty</td></tr>
+              <tr><td>Browse lists</td><td>×0.83</td><td><b class="pos">×1.07</b></td></tr>
+              <tr><td>Typed searches</td><td>×0.78</td><td><b class="pos">×0.99</b></td></tr>
+            </table>
+          </div>
+          <div class="state">B · calculating</div>
+          <div class="preview quiet">Working out the effect…</div>
+          <div class="state">C · could not calculate (the save is still allowed)</div>
+          <div class="preview errbox">We couldn't work out the effect just now. You can still save — ranking will use these numbers either way.</div>
+          <div class="state">D · a value outside 0–100</div>
+          <div class="preview errbox">Scores go from 0 to 100.</div>
+          <div class="lab" style="margin-top:12px">Why are you overriding? *</div>
+          <div class="inp ph">e.g. scores dropped during a verified outage, ticket #4471</div>
+          <span class="btn go">Save override</span> <span class="btn">Cancel</span>
+        </div>
+      </div>
+    </div>
+    <div class="frame phone">
+      <div class="frame-cap">Admin phone app — preview under the fields</div>
+      <div class="pad">
+        <div class="lab">Reliability (0–100)</div><div class="inp on">80</div>
+        <div class="preview" style="margin-top:10px"><b>If you save this</b><br>Browse lists: ×0.83 → <b class="pos">×1.07</b><br>Typed searches: ×0.78 → <b class="pos">×0.99</b></div>
+        <span class="btn go">Save override</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">3 · The legend (under the card, both apps)</h2>
+  <table class="legend">
+    <tr><th>Score</th><th>Boost</th><th>Penalty</th></tr>
+    <tr><td>Response</td><td>up to +10% at 100 (score ÷ 100 × 10%)</td><td>below 40, down to ×0.80 at 10</td></tr>
+    <tr><td>Reliability</td><td>up to +10% at 100</td><td>below 70, down to ×0.55 at 25</td></tr>
+    <tr><td>Acceptance</td><td>none</td><td>below 65, down to ×0.75 at 20</td></tr>
+    <tr><td>Completeness</td><td>up to +2.5% at 100</td><td>none</td></tr>
+    <tr><td>Verified / badge / plan / new in the area</td><td>+1.2% / +0.8% / up to +2.5% / +0.5%</td><td>none</td></tr>
+    <tr><td colspan="3">Boosts add up and stop at +27.5%. Penalties multiply and never go below ×0.50. On a typed search the boost is halved and the penalty is not. A score that is not measured yet never costs a penalty.</td></tr>
+  </table>
+
+  <h2 class="rule">4 · Rules</h2>
+  <ul class="rules">
+    <li><b>One formula.</b> Every number here comes from the server running the same <code>ProviderBoostComposer</code> that search runs, with the live settings — the page never computes an effect of its own, so it can never show a number ranking does not use.</li>
+    <li><b>The legend's numbers are the live settings</b>, read from the server with the scores, never written in the page.</li>
+    <li><b>Not measured yet</b> (fewer than the minimum samples): the tile says "Not measured yet", the effect line says "Counted as 75 for the boost · no penalty until measured" — the real rule.</li>
+    <li><b>Every box shows the measured number</b> ("Measured: 50"); an empty box keeps it, and it keeps updating nightly. The box is never pre-filled with it — saving an untouched form would freeze today's number as an override. Not measured yet ⇒ "Not measured yet".</li>
+    <li><b>Expired override</b>: the preview compares against the measured numbers; the expired value plays no part.</li>
+    <li><b>Permission</b>: admin only, like the rest of Provider Trust; the preview endpoint refuses anyone else.</li>
+    <li><b>Search sync</b>: the factor shown is what ranking uses once the provider is reindexed — the card's existing search-sync line keeps saying when that is.</li>
+  </ul>
+
+  <h2 class="rule">5 · Where the words come from</h2>
+  <table class="copy">
+    <tr><th>Words</th><th>Source</th></tr>
+    <tr><td>Every percentage, multiplier and threshold</td><td>the server (<code>GET …/admin/providers/{businessId}/scores</code> gains the effects; a new <code>POST …/scores/preview</code> returns them for proposed numbers)</td></tr>
+    <tr><td>Labels ("Browse lists", "If you save this override", legend text)</td><td>admin screen copy, English — the admin app has no translations anywhere (0 of 66 screens); this card follows it</td></tr>
+  </table>
+
+</div>
+</body>
+</html>

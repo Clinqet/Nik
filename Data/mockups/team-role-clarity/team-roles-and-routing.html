@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — Role clarity + Notification routing</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --ink: #171717;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga', 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 80px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 22px; } h1 span { color: var(--faint); font-weight: 400; font-size: 14px; display: block; margin-top: 4px; }
+  .section-title { margin: 44px 0 6px; font-size: 17px; color: var(--navy); }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 860px; line-height: 1.5; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; }
+  .frame-web { width: 720px; max-width: 100%; }
+  .frame-mobile { width: 360px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+  .pill { display: inline-flex; align-items: center; gap: 4px; border-radius: 999px; padding: 3px 9px; font-size: 11px; font-weight: 600; background: #F5F5F5; color: var(--muted); border: 1px solid var(--border); }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.click { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: #fff; color: var(--ink); cursor: pointer; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; }
+  .btn.small { padding: 6px 12px; font-size: 12px; }
+  .banner { display: flex; gap: 8px; border-radius: 12px; padding: 10px 12px; font-size: 12.5px; line-height: 1.45; align-items: flex-start; }
+  .banner.info { background: var(--info-bg); border: 1px solid var(--info-border); color: var(--navy); }
+  .banner.warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn); }
+  .banner.danger { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger); }
+  .banner.ok { background: var(--green-soft); border: 1px solid #CBE9A6; color: #3F7A00; }
+  .ico { width: 15px; height: 15px; flex: none; margin-top: 1px; }
+  .note { font-size: 12px; color: var(--faint); line-height: 1.5; }
+  .annotation { background: #FFFDE7; border: 1px dashed #E0D890; color: #6b5d00; border-radius: 10px; padding: 8px 10px; font-size: 12px; line-height: 1.45; margin-top: 10px; }
+  .kbd { font-family: Consolas, monospace; font-size: 11px; background: #F5F5F5; border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+
+  /* modal shells */
+  .modal { border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 18px 50px rgba(3,40,88,.14); background: #fff; overflow: hidden; }
+  .modal-h { padding: 14px 18px; border-bottom: 1px solid var(--hair); font-weight: 700; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .modal-b { padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+  .modal-f { padding: 12px 18px; border-top: 1px solid var(--hair); display: flex; justify-content: flex-end; gap: 8px; background: #FAFAFB; }
+  .x { color: var(--faint); font-size: 18px; line-height: 1; cursor: pointer; }
+
+  /* role dialog rows */
+  .acc-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 2px; border-bottom: 1px solid var(--hair); }
+  .acc-row:last-child { border-bottom: none; }
+  .acc-name { font-size: 13.5px; font-weight: 500; }
+  .lvl { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+  .lvl.full { background: var(--green-soft); color: #3F7A00; border: 1px solid #CBE9A6; }
+  .lvl.view { background: var(--info-bg); color: var(--navy); border: 1px solid var(--info-border); }
+  .lvl.own  { background: #FFF4E0; color: #8A5A00; border: 1px solid #EED9AE; }
+  .lvl.ownview { background: #FFF9EE; color: #8A5A00; border: 1px solid #EED9AE; }
+  .lvl.ltd  { background: #F5F5F5; color: var(--muted); border: 1px solid var(--border); }
+  .no-acc { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* radio option cards (routing) */
+  .opt { display: flex; gap: 10px; border: 1px solid var(--border); border-radius: 12px; padding: 11px 12px; cursor: pointer; background: #fff; align-items: flex-start; }
+  .opt.on { border-color: var(--green); background: var(--green-soft); box-shadow: 0 0 0 1px var(--green); }
+  .radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #C9C9C9; flex: none; margin-top: 2px; background: #fff; }
+  .opt.on .radio { border-color: #101010; background: var(--green); box-shadow: inset 0 0 0 3px var(--green-soft); }
+  .opt b { font-size: 13.5px; display: block; }
+  .opt p { font-size: 12px; color: var(--muted); line-height: 1.45; margin-top: 2px; }
+  .opt.on p { color: #3c3c3c; }
+
+  .member-row { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-bottom: 1px solid var(--hair); }
+  .member-row:last-child { border-bottom: none; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none; }
+  .avatar.g { background: #3F7A00; }
+  .checkbox { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid #C9C9C9; flex: none; background: #fff; }
+  .checkbox.on { background: var(--green); border-color: var(--green); position: relative; }
+  .checkbox.on::after { content: ""; position: absolute; left: 4.5px; top: 1.5px; width: 4px; height: 8px; border: solid #101010; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+  .fixed-row { display: flex; gap: 10px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--hair); }
+  .fixed-row:last-child { border-bottom: none; }
+
+  .skel { border-radius: 8px; background: linear-gradient(90deg,#EFEFEF,#F8F8F8,#EFEFEF); height: 13px; }
+  .state-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 14px; }
+
+  table.copy { border-collapse: collapse; width: 100%; font-size: 12.5px; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  table.copy th, table.copy td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  table.copy th { background: #FAFAFB; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); }
+  table.copy td:first-child { white-space: nowrap; color: var(--navy); font-weight: 600; width: 34%; }
+
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Team — role clarity &amp; notification routing
+    <span>Mockup for approval · 2026-08-14 · covers provider web AND provider mobile · every state shown or explicitly N/A</span>
+  </h1>
+  <div class="toc">
+    <span class="pill info">1 · Role detail dialog ("See more")</span>
+    <span class="pill info">2 · Where it opens from</span>
+    <span class="pill info">3 · Notification routing — redesigned</span>
+    <span class="pill info">4 · All states</span>
+    <span class="pill info">5 · Exact copy inventory</span>
+  </div>
+
+  <!-- ═══════════════════════════ 1 · ROLE DETAIL DIALOG ═══════════════════════════ -->
+  <div class="section-title">1 · Role detail dialog — what a role really allows, in plain words</div>
+  <div class="section-sub">
+    Opens from <b>See more</b> on the invite screen, from any <b>role chip</b> on the team list, and from the role chips in the
+    member dialog. The rows are <b>derived from the real permission grants on the server</b> — never hand-written — so they can
+    never drift from what the server actually enforces. The wording is a small fixed set of phrases, fully localized.
+  </div>
+
+  <div class="board">
+
+    <!-- Technician (narrow role) -->
+    <div class="frame" style="width:430px">
+      <div class="frame-label">Web · dialog · Technician (a narrow role)</div>
+      <div class="pad" style="background:#EDEFF3">
+        <div class="modal">
+          <div class="modal-h">Technician <span class="x">✕</span></div>
+          <div class="modal-b">
+            <p class="note" style="font-size:12.5px; color:var(--muted)">
+              Does the work assigned to them and nothing else. Sees only their own bookings, customers and conversations.
+            </p>
+            <div>
+              <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:2px">What they can do</p>
+              <div class="acc-row"><span class="acc-name">Bookings</span><span class="lvl own">Their assigned jobs only</span></div>
+              <div class="acc-row"><span class="acc-name">Customer chats</span><span class="lvl own">Their assigned jobs only</span></div>
+              <div class="acc-row"><span class="acc-name">Customers</span><span class="lvl ownview">Their assigned jobs — view only</span></div>
+              <div class="acc-row"><span class="acc-name">Leads &amp; quotes</span><span class="lvl ownview">Their assigned jobs — view only</span></div>
+              <div class="acc-row"><span class="acc-name">Invoices</span><span class="lvl ownview">Their assigned jobs — view only</span></div>
+              <div class="acc-row"><span class="acc-name">Services &amp; catalogue</span><span class="lvl view">View only</span></div>
+              <div class="acc-row"><span class="acc-name">Calendar &amp; availability</span><span class="lvl view">View only</span></div>
+              <div class="acc-row"><span class="acc-name">Business profile &amp; public page</span><span class="lvl view">View only</span></div>
+            </div>
+            <div>
+              <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:6px">No access to</p>
+              <div class="no-acc">
+                <span class="pill">Payments &amp; payouts</span>
+                <span class="pill">Team &amp; activity</span>
+                <span class="pill">Reviews</span>
+                <span class="pill">Insights &amp; AI tools</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-f"><button class="btn">Close</button></div>
+        </div>
+        <div class="annotation">Rows come from the role's real grants. "Their assigned jobs only" = they can open and work on
+          what is assigned to them, and nothing else. Groups with zero access fold into the grey chips — one glance answers
+          "can this person touch money?".</div>
+      </div>
+    </div>
+
+    <!-- Administrator -->
+    <div class="frame" style="width:430px">
+      <div class="frame-label">Web · dialog · Administrator (broad role)</div>
+      <div class="pad" style="background:#EDEFF3">
+        <div class="modal">
+          <div class="modal-h">Administrator <span class="x">✕</span></div>
+          <div class="modal-b">
+            <p class="note" style="font-size:12.5px; color:var(--muted)">
+              Runs the business day to day and manages the team. Cannot transfer ownership or change the payout account.
+            </p>
+            <div class="banner ok">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Everything in Complete Hair &amp; Beauty, except two things:</span>
+            </div>
+            <ul style="padding-left:22px; font-size:13px; color:var(--muted); display:flex; flex-direction:column; gap:4px">
+              <li>Transfer ownership</li>
+              <li>Change the payout account</li>
+            </ul>
+            <p class="note">Those two always stay with the primary owner.</p>
+          </div>
+          <div class="modal-f"><button class="btn">Close</button></div>
+        </div>
+        <div class="annotation">Broad roles get the short honest answer — a 12-row table saying "Full access" twelve times
+          teaches nothing. Same pattern as the existing primary-owner card, and the two exceptions are derived from the
+          catalogue, never typed by hand.</div>
+      </div>
+    </div>
+
+    <!-- Sales representative -->
+    <div class="frame" style="width:430px">
+      <div class="frame-label">Web · dialog · Sales representative (mixed role)</div>
+      <div class="pad" style="background:#EDEFF3">
+        <div class="modal">
+          <div class="modal-h">Sales representative <span class="x">✕</span></div>
+          <div class="modal-b">
+            <p class="note" style="font-size:12.5px; color:var(--muted)">
+              Wins new work: responds to leads, prepares and sends quotes, and talks to prospective customers.
+            </p>
+            <div>
+              <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:2px">What they can do</p>
+              <div class="acc-row"><span class="acc-name">Leads &amp; quotes</span><span class="lvl full">Full access</span></div>
+              <div class="acc-row"><span class="acc-name">Customers</span><span class="lvl ltd">View, plus: add, edit</span></div>
+              <div class="acc-row"><span class="acc-name">Customer chats</span><span class="lvl ltd">View, plus: reply</span></div>
+              <div class="acc-row"><span class="acc-name">Bookings</span><span class="lvl ltd">View, plus: create</span></div>
+              <div class="acc-row"><span class="acc-name">Services &amp; catalogue</span><span class="lvl view">View only</span></div>
+              <div class="acc-row"><span class="acc-name">Calendar &amp; availability</span><span class="lvl view">View only</span></div>
+              <div class="acc-row"><span class="acc-name">Reviews</span><span class="lvl view">View only</span></div>
+              <div class="acc-row"><span class="acc-name">Insights &amp; AI tools</span><span class="lvl ltd">View, plus: AI assistant</span></div>
+              <div class="acc-row"><span class="acc-name">Business profile &amp; public page</span><span class="lvl view">View only</span></div>
+            </div>
+            <div>
+              <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:6px">No access to</p>
+              <div class="no-acc">
+                <span class="pill">Invoices</span>
+                <span class="pill">Payments &amp; payouts</span>
+                <span class="pill">Team &amp; activity</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-f"><button class="btn">Close</button></div>
+        </div>
+        <div class="annotation">"View, plus: …" appears when a role can do one or two specific things in an area — honest
+          without listing every permission. When a role holds most actions in an area, it reads "Full access".</div>
+      </div>
+    </div>
+
+    <!-- Primary owner -->
+    <div class="frame" style="width:430px">
+      <div class="frame-label">Web · dialog · Primary owner (unchanged pattern)</div>
+      <div class="pad" style="background:#EDEFF3">
+        <div class="modal">
+          <div class="modal-h">Primary owner <span class="x">✕</span></div>
+          <div class="modal-b">
+            <div class="banner ok">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V9l4 3 4-7 4 7 4-3v11"/></svg>
+              <span>They can do everything in Complete Hair &amp; Beauty.</span>
+            </div>
+            <p style="font-size:13px; font-weight:600">Two things only the primary owner can do:</p>
+            <ul style="padding-left:22px; font-size:13px; color:var(--muted); display:flex; flex-direction:column; gap:4px">
+              <li>Transfer ownership</li>
+              <li>Change the payout account</li>
+            </ul>
+          </div>
+          <div class="modal-f"><button class="btn">Close</button></div>
+        </div>
+        <div class="annotation">Exactly today's owner card, now reachable by tapping the "Primary owner" chip anywhere.</div>
+      </div>
+    </div>
+
+    <!-- Mobile bottom sheet -->
+    <div class="frame frame-mobile">
+      <div class="frame-label">Mobile · bottom sheet · same content, same rules</div>
+      <div style="background:#EDEFF3; padding:14px 10px 0">
+        <div style="height:36px"></div>
+        <div class="modal" style="border-radius:18px 18px 0 0;">
+          <div style="display:flex; justify-content:center; padding:8px 0 0"><span style="width:36px;height:4px;border-radius:2px;background:#D9D9D9"></span></div>
+          <div class="modal-h" style="border-bottom:none; padding-bottom:6px">Technician</div>
+          <div class="modal-b" style="padding-top:0">
+            <p class="note" style="font-size:12px; color:var(--muted)">Does the work assigned to them and nothing else. Sees only their own bookings, customers and conversations.</p>
+            <div>
+              <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:2px">What they can do</p>
+              <div class="acc-row" style="flex-wrap:wrap"><span class="acc-name">Bookings</span><span class="lvl own">Their assigned jobs only</span></div>
+              <div class="acc-row" style="flex-wrap:wrap"><span class="acc-name">Customer chats</span><span class="lvl own">Their assigned jobs only</span></div>
+              <div class="acc-row" style="flex-wrap:wrap"><span class="acc-name">Customers</span><span class="lvl ownview">Their assigned jobs — view only</span></div>
+              <div class="acc-row" style="flex-wrap:wrap"><span class="acc-name">Services &amp; catalogue</span><span class="lvl view">View only</span></div>
+            </div>
+            <p class="note" style="text-align:center; color:#C9C9C9">⋯ scrolls ⋯</p>
+            <div>
+              <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--faint); margin-bottom:6px">No access to</p>
+              <div class="no-acc">
+                <span class="pill">Payments &amp; payouts</span><span class="pill">Team &amp; activity</span>
+                <span class="pill">Reviews</span><span class="pill">Insights &amp; AI tools</span>
+              </div>
+            </div>
+            <button class="btn" style="justify-content:center">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="pad"><div class="annotation">Mobile renders the identical rows through the shared rendering rules —
+        a bottom sheet (the app's existing dialog shape), body scrolls, footer pinned.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ 2 · ENTRY POINTS ═══════════════════════════ -->
+  <div class="section-title">2 · Where the dialog opens from</div>
+  <div class="section-sub">Three places on each app, one identical dialog. The two-line descriptions on the role cards
+    stay exactly as they are today — they are already short and friendly (ask 1: <b>recommend keeping them</b>).</div>
+
+  <div class="board">
+    <div class="frame frame-web" style="width:560px">
+      <div class="frame-label">A · Invite screen — "See more" on every role card (web + mobile)</div>
+      <div class="pad">
+        <div class="card" style="border-color:var(--green); background:var(--green-soft); display:flex; gap:10px">
+          <span class="checkbox on" style="margin-top:3px"></span>
+          <div style="flex:1">
+            <b style="font-size:14px">Technician</b>
+            <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-top:2px">Does the work assigned to them and nothing else. Sees only their own bookings, customers and conversations.</p>
+            <button class="btn small" style="margin-top:8px; border:none; background:transparent; color:var(--navy); text-decoration:underline; padding:0">See more</button>
+          </div>
+        </div>
+        <div style="height:10px"></div>
+        <div class="card" style="display:flex; gap:10px">
+          <span class="checkbox" style="margin-top:3px"></span>
+          <div style="flex:1">
+            <b style="font-size:14px">Finance</b>
+            <p style="font-size:12px; color:var(--muted); line-height:1.5; margin-top:2px">Handles invoices, payments, refunds, disputes and payout reporting. Cannot change where the money is paid.</p>
+            <button class="btn small" style="margin-top:8px; border:none; background:transparent; color:var(--navy); text-decoration:underline; padding:0">See more</button>
+          </div>
+        </div>
+        <div class="annotation">"See more" opens the dialog and never toggles the checkbox. Also added to the
+          <b>Change roles</b> dialog (web) and the <b>member roles screen</b> (mobile) — same cards, same link.</div>
+      </div>
+    </div>
+
+    <div class="frame frame-web" style="width:560px">
+      <div class="frame-label">B · Team list — role chips are tappable (web + mobile)</div>
+      <div class="pad">
+        <div class="member-row" style="border:1px solid var(--border); border-radius:12px; margin-bottom:8px">
+          <span class="avatar">NA</span>
+          <div style="flex:1; min-width:0">
+            <b style="font-size:13px">Nikunj Adhaduk</b>
+            <p class="note" style="font-size:11px">adhadukn@gmail.com</p>
+          </div>
+          <span class="pill click">Sales representative</span>
+          <span class="pill click">+2 more</span>
+          <span class="pill ok">Active</span>
+        </div>
+        <div class="member-row" style="border:1px solid var(--border); border-radius:12px">
+          <span class="avatar g">GP</span>
+          <div style="flex:1; min-width:0">
+            <b style="font-size:13px">gopi patel</b>
+            <p class="note" style="font-size:11px">patelgopi155@gmail.com</p>
+          </div>
+          <span class="pill info click">♛ Primary owner</span>
+          <span class="pill ok">Active</span>
+        </div>
+        <div class="annotation">Tapping a role chip opens that role's dialog (the row itself still opens the member, as today).
+          "+2 more" opens the member dialog, where every chip is shown and each is tappable. In the member dialog the line
+          "What this role allows" now works for <b>every</b> member — tap a chip to see that role — not only for yourself.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ 3 · NOTIFICATION ROUTING ═══════════════════════════ -->
+  <div class="section-title">3 · Notification routing — redesigned</div>
+  <div class="section-sub">
+    What changes: <b>(a)</b> the two cards you can actually change come first; the two automatic ones fold into one calm
+    "Always automatic" block at the end — no more locked cards mixed between live ones. <b>(b)</b> "A team" is gone
+    (it could never work — there is no way to create a team anywhere in the product; it errored the moment it was tapped).
+    <b>(c)</b> Two choices instead of three, written as sentences with the consequence spelled out. <b>(d)</b> Naming people
+    is a draft with an explicit Save — nothing is stored until you confirm, and the warning says exactly who will stop
+    getting notifications. <b>(e)</b> The Money card's choice becomes REAL on the backend (today it saves but changes nothing —
+    everyone eligible is still notified regardless).
+  </div>
+
+  <div class="board">
+    <!-- Web default state -->
+    <div class="frame frame-web">
+      <div class="frame-label">Web · default state (everything on "Everyone")</div>
+      <div class="pad" style="display:flex; flex-direction:column; gap:12px">
+        <div>
+          <b style="font-size:17px">Who gets notified about what</b>
+          <p class="note">These are settings for the whole business. What each person personally receives is theirs to choose.</p>
+        </div>
+
+        <!-- New work -->
+        <div class="card">
+          <div style="display:flex; gap:8px; align-items:flex-start">
+            <svg class="ico" style="color:var(--navy); margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg>
+            <div style="flex:1">
+              <b style="font-size:14.5px">New work coming in</b>
+              <p class="note" style="font-size:12.5px">A new lead, booking or quote request arrives.</p>
+            </div>
+            <span class="pill ok">3 people get notified right now</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:11px">
+            <div class="opt on">
+              <span class="radio"></span>
+              <div><b>Everyone who can handle it</b>
+                <p>Anyone whose role covers this kind of work is notified the moment it arrives.</p></div>
+            </div>
+            <div class="opt">
+              <span class="radio"></span>
+              <div><b>Only people I name</b>
+                <p>Just the people you pick are notified. Everyone else can still open the work — they just won't get notifications.</p></div>
+            </div>
+          </div>
+          <p class="note" style="margin-top:9px; display:flex; gap:6px; align-items:center">
+            <svg class="ico" style="width:13px;height:13px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Administrators are always notified as well, whatever you choose here.
+          </p>
+        </div>
+
+        <!-- Money -->
+        <div class="card">
+          <div style="display:flex; gap:8px; align-items:flex-start">
+            <svg class="ico" style="color:var(--navy); margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <div style="flex:1">
+              <b style="font-size:14.5px">Money</b>
+              <p class="note" style="font-size:12.5px">Payments, refunds, disputes and payouts.</p>
+            </div>
+            <span class="pill ok">1 person gets notified right now</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:11px">
+            <div class="opt on">
+              <span class="radio"></span>
+              <div><b>Everyone who can handle it</b>
+                <p>Anyone whose role covers money — payments, refunds, payouts — is notified.</p></div>
+            </div>
+            <div class="opt">
+              <span class="radio"></span>
+              <div><b>Only people I name</b>
+                <p>Just the people you pick are notified. Everyone else can still open the work — they just won't get notifications.</p></div>
+            </div>
+          </div>
+          <p class="note" style="margin-top:9px; display:flex; gap:6px; align-items:center">
+            <svg class="ico" style="width:13px;height:13px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Administrators are always notified as well, whatever you choose here.
+          </p>
+        </div>
+
+        <!-- Always automatic -->
+        <div class="card" style="background:#FAFAFB">
+          <b style="font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:6px">
+            <svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Always automatic — nothing to set up
+          </b>
+          <div class="fixed-row" style="margin-top:6px">
+            <svg class="ico" style="color:var(--faint)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <div>
+              <b style="font-size:13px">Updates on work in progress</b>
+              <p class="note" style="font-size:12px">Reschedules, cancellations and status changes go to whoever the work belongs to, plus the administrators.</p>
+            </div>
+          </div>
+          <div class="fixed-row">
+            <svg class="ico" style="color:var(--faint)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <b style="font-size:13px">Security</b>
+              <p class="note" style="font-size:12px">Ownership changes, promotions and payout account changes always reach every administrator.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web: naming people -->
+    <div class="frame frame-web">
+      <div class="frame-label">Web · "Only people I name" — draft open, nothing saved yet</div>
+      <div class="pad" style="display:flex; flex-direction:column; gap:12px">
+        <div class="card" style="border-color:var(--green)">
+          <div style="display:flex; gap:8px; align-items:flex-start">
+            <svg class="ico" style="color:var(--navy); margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg>
+            <div style="flex:1">
+              <b style="font-size:14.5px">New work coming in</b>
+              <p class="note" style="font-size:12.5px">A new lead, booking or quote request arrives.</p>
+            </div>
+            <span class="pill">Unsaved change</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:11px">
+            <div class="opt"><span class="radio"></span>
+              <div><b>Everyone who can handle it</b><p>Anyone whose role covers this kind of work is notified the moment it arrives.</p></div>
+            </div>
+            <div class="opt on"><span class="radio"></span>
+              <div><b>Only people I name</b><p>Just the people you pick are notified. Everyone else can still open the work — they just won't get notifications.</p></div>
+            </div>
+          </div>
+
+          <div class="banner warn" style="margin-top:10px">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0zM12 9v4M12 17h.01"/></svg>
+            <span><b>Only the people you name will be notified about new work.</b> Everyone else who could handle it will stop
+            getting these notifications — they can still find the work in the app. Administrators are always notified.</span>
+          </div>
+
+          <div style="border:1px solid var(--border); border-radius:12px; margin-top:10px; overflow:hidden">
+            <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; border-bottom:1px solid var(--hair); background:#FAFAFB">
+              <svg class="ico" style="width:13px;height:13px;color:var(--faint)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+              <span class="note">Search people</span>
+              <span class="note" style="margin-left:auto">1 of 3 selected</span>
+            </div>
+            <div class="member-row"><span class="checkbox on"></span><span class="avatar">NA</span>
+              <div style="flex:1"><b style="font-size:13px">Nikunj Adhaduk</b><p class="note" style="font-size:11px">Sales representative</p></div>
+            </div>
+            <div class="member-row"><span class="checkbox"></span><span class="avatar g">GP</span>
+              <div style="flex:1"><b style="font-size:13px">gopi patel</b><p class="note" style="font-size:11px">Primary owner — always notified anyway</p></div>
+            </div>
+            <div class="member-row"><span class="checkbox"></span><span class="avatar">GP</span>
+              <div style="flex:1"><b style="font-size:13px">Gopi Patel</b><p class="note" style="font-size:11px">Technician</p></div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:10px">
+            <button class="btn small">Cancel</button>
+            <button class="btn small primary">Save — notify only these people</button>
+          </div>
+        </div>
+        <div class="annotation">Nothing is written until <b>Save</b>. Cancel puts the card back exactly as it was. If Save
+          returns "somebody else changed this", the page reloads the truth and says so (state shown below). After saving,
+          the named people show as chips on the card with a "Change who" button.</div>
+      </div>
+    </div>
+
+    <!-- Web saved-named state -->
+    <div class="frame frame-web" style="width:560px">
+      <div class="frame-label">Web · saved "named people" state</div>
+      <div class="pad">
+        <div class="card">
+          <div style="display:flex; gap:8px; align-items:flex-start">
+            <div style="flex:1">
+              <b style="font-size:14.5px">New work coming in</b>
+              <p class="note" style="font-size:12.5px">A new lead, booking or quote request arrives.</p>
+            </div>
+            <span class="pill ok">2 people get notified right now</span>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center">
+            <span class="pill"><span class="avatar" style="width:16px;height:16px;font-size:7px">NA</span>&nbsp;Nikunj Adhaduk</span>
+            <span class="pill info">♛ Administrators — always</span>
+            <button class="btn small" style="margin-left:auto">Change who</button>
+          </div>
+          <p class="note" style="margin-top:8px">Only these people get notified about new work. Everyone else can still open it — they just won't get notifications.</p>
+        </div>
+        <div class="annotation">The saved state repeats the consequence in one calm line, and the count includes the
+          administrators (today it under-counts — that's fixed as part of this work). Page title becomes
+          "Who gets notified about what".</div>
+      </div>
+    </div>
+
+    <!-- Mobile routing -->
+    <div class="frame frame-mobile">
+      <div class="frame-label">Mobile · same page, stacked</div>
+      <div class="pad" style="display:flex; flex-direction:column; gap:10px">
+        <b style="font-size:15px">Who gets notified about what</b>
+        <div class="card">
+          <b style="font-size:13.5px">New work coming in</b>
+          <p class="note" style="font-size:11.5px">A new lead, booking or quote request arrives.</p>
+          <span class="pill ok" style="margin-top:6px">3 people get notified right now</span>
+          <div style="display:flex; flex-direction:column; gap:7px; margin-top:9px">
+            <div class="opt on"><span class="radio"></span>
+              <div><b style="font-size:12.5px">Everyone who can handle it</b>
+              <p style="font-size:11px">Anyone whose role covers this kind of work is notified the moment it arrives.</p></div></div>
+            <div class="opt"><span class="radio"></span>
+              <div><b style="font-size:12.5px">Only people I name</b>
+              <p style="font-size:11px">Just the people you pick are notified. Everyone else won't get notifications.</p></div></div>
+          </div>
+          <p class="note" style="font-size:11px; margin-top:7px">Administrators are always notified as well.</p>
+        </div>
+        <div class="card" style="background:#FAFAFB">
+          <b style="font-size:12.5px; color:var(--muted)">Always automatic — nothing to set up</b>
+          <div class="fixed-row" style="padding:8px 0 6px">
+            <div><b style="font-size:12px">Updates on work in progress</b>
+            <p class="note" style="font-size:11px">Go to whoever the work belongs to, plus the administrators.</p></div>
+          </div>
+          <div class="fixed-row" style="padding:6px 0 2px">
+            <div><b style="font-size:12px">Security</b>
+            <p class="note" style="font-size:11px">Always reaches every administrator.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ 4 · STATES ═══════════════════════════ -->
+  <div class="section-title">4 · Every state</div>
+  <div class="section-sub">Both surfaces, both apps. Empty and limit-reached states don't exist for these screens and are
+    marked N/A with the reason.</div>
+
+  <div class="state-grid">
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · loading</p>
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <div class="skel" style="width:70%"></div><div class="skel" style="width:95%"></div>
+        <div class="skel" style="width:88%"></div><div class="skel" style="width:60%"></div>
+      </div>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · load failed</p>
+      <b style="font-size:13px">We couldn't load these settings</b>
+      <p class="note" style="margin:4px 0 10px">Nothing has changed. This is a display problem.</p>
+      <button class="btn small primary">Try again</button>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · not an administrator</p>
+      <b style="font-size:13px">Only administrators change this</b>
+      <p class="note" style="margin-top:4px">Who the business tells about new work is set by an administrator. Your own notification settings are always yours.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · solo business (unchanged)</p>
+      <b style="font-size:13px">It's just you right now</b>
+      <p class="note" style="margin-top:4px">Everything about this business already reaches you. When you invite someone, you'll choose here who gets notified about what.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · save conflict</p>
+      <div class="banner danger">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span>Somebody else changed this setting. Reload the page and try again.</span>
+      </div>
+      <p class="note" style="margin-top:8px">The card re-reads the server's truth — the screen never disagrees with the server.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · nobody named yet</p>
+      <div class="banner warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span>Pick at least one person. Until somebody is named, this keeps going to everyone who can handle it.</span>
+      </div>
+      <p class="note" style="margin-top:8px">Save stays disabled at zero people — the server refuses an empty list, so the screen never sends one.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Routing · saving</p>
+      <button class="btn small primary" disabled style="opacity:.6">Saving…</button>
+      <p class="note" style="margin-top:8px">Both option cards and the picker disable while a save is in flight; no double-writes.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">Role dialog · loading / failed</p>
+      <p class="note">The dialog renders from the role list the screen already loaded. If that list failed, the screen's own
+        error state (with Try again) is showing and there are no chips to tap — the dialog has no separate failure of its own.
+        A chip for a role the list doesn't know (never expected) simply doesn't open.</p>
+    </div>
+    <div class="card">
+      <p class="note" style="font-weight:700; text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; margin-bottom:8px">N/A states</p>
+      <p class="note"><b>Empty:</b> the role catalogue is fixed at ten system roles and the routing page always has its
+        categories — neither can be empty. <b>Limit-reached:</b> nothing here consumes seats or quota. Shown here so the
+        checklist is complete, not skipped.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ 5 · COPY INVENTORY ═══════════════════════════ -->
+  <div class="section-title">5 · Exact copy for approval (English source — all 5 languages follow)</div>
+  <div class="section-sub">Ask 1 verdict: the nine existing role descriptions check out against the real permission grants
+    and are already short and friendly — <b>no changes proposed</b>. Everything below is new copy.</div>
+
+  <table class="copy">
+    <tr><th>Where</th><th>English</th></tr>
+    <tr><td>Role card link</td><td>See more</td></tr>
+    <tr><td>Dialog · section 1</td><td>What they can do</td></tr>
+    <tr><td>Dialog · section 2</td><td>No access to</td></tr>
+    <tr><td>Access level — full</td><td>Full access</td></tr>
+    <tr><td>Access level — view</td><td>View only</td></tr>
+    <tr><td>Access level — own jobs</td><td>Their assigned jobs only</td></tr>
+    <tr><td>Access level — own jobs, read</td><td>Their assigned jobs — view only</td></tr>
+    <tr><td>Access level — a few actions</td><td>View, plus: {actions}   <span class="note">(e.g. "View, plus: create" — actions come from a fixed friendly list)</span></td></tr>
+    <tr><td>Administrator banner</td><td>Everything in {business}, except two things:  ·  then the two owner-only items  ·  "Those two always stay with the primary owner."</td></tr>
+    <tr><td>Area names</td><td>Bookings · Leads &amp; quotes · Customer chats · Customers · Services &amp; catalogue · Calendar &amp; availability · Invoices · Payments &amp; payouts · Business profile &amp; public page · Team &amp; activity · Reviews · Insights &amp; AI tools</td></tr>
+    <tr><td>Routing option 1</td><td><b>Everyone who can handle it</b> — Anyone whose role covers this kind of work is notified the moment it arrives.</td></tr>
+    <tr><td>Routing option 2</td><td><b>Only people I name</b> — Just the people you pick are notified. Everyone else can still open the work — they just won't get notifications.</td></tr>
+    <tr><td>Naming warning</td><td>Only the people you name will be notified about this. Everyone else who could handle it will stop getting these notifications — they can still find the work in the app. Administrators are always notified.</td></tr>
+    <tr><td>Admin note per card</td><td>Administrators are always notified as well, whatever you choose here.</td></tr>
+    <tr><td>Save button</td><td>Save — notify only these people</td></tr>
+    <tr><td>Automatic section</td><td>Always automatic — nothing to set up</td></tr>
+    <tr><td>Work-in-progress row</td><td>Reschedules, cancellations and status changes go to whoever the work belongs to, plus the administrators.</td></tr>
+    <tr><td>Security row</td><td>Ownership changes, promotions and payout account changes always reach every administrator.</td></tr>
+    <tr><td>Saved named state</td><td>Only these people get notified about new work. Everyone else can still open it — they just won't get notifications.</td></tr>
+  </table>
+
+  <div class="annotation" style="max-width:1180px; margin-top:16px">
+    <b>Not shown but part of this work:</b> the "A team" option is removed on web + mobile (and the routing screen stops
+    loading team data — two fewer database reads per open); the Money card's choice starts genuinely restricting who is notified
+    (backend change, integration-tested); the recipient count for named people stops under-counting; all new strings ship in
+    all five languages on both apps.
+  </div>
+
+</div>
+</body>
+</html>

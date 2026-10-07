@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search cards — where a provider serves you, and where they are based</title>
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0; --warn-line:#F2D9AE;
+    --info:#3730A3; --info-bg:#EEF2FF; --info-line:#C7D7FE;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  .masthead { padding:44px 0 10px; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,40px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:72ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:48px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:88ch; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; }
+  .img { height:120px; background:linear-gradient(135deg,#dfe7da,#c7d4c2); position:relative; }
+  .pill { position:absolute; right:10px; top:10px; background:rgba(255,255,255,.82); backdrop-filter:blur(4px); border-radius:999px; font-size:12px; font-weight:700; padding:2px 10px; color:var(--navy); }
+  .body { padding:10px 12px 12px; }
+  .name { font-weight:700; font-size:15px; }
+  .biz { font-size:12.5px; color:var(--ink-soft); }
+  .loc { font-size:12.5px; color:var(--ink); margin-top:6px; display:flex; flex-direction:column; gap:1px; }
+  .loc .l1 { font-weight:700; color:var(--navy); }
+  .loc .l2 { color:var(--ink-mute); }
+  .loc .plain { color:var(--ink-soft); }
+  .stars { font-size:12px; color:var(--ink-soft); margin-top:4px; }
+  .price { font-weight:700; font-size:14px; margin-top:6px; }
+  .state { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); padding:6px 12px; background:var(--surface-sunk); border-bottom:1px solid var(--line); }
+  .phone { max-width:390px; background:var(--surface); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); padding:10px; }
+  .prow { display:flex; gap:10px; padding:10px 4px; border-bottom:1px solid var(--line); }
+  .prow:last-child { border-bottom:0; }
+  .thumb { flex:0 0 72px; height:72px; border-radius:12px; background:linear-gradient(135deg,#dfe7da,#c7d4c2); }
+  table.copy, table.order { width:100%; border-collapse:collapse; font-size:13px; margin-top:6px; display:block; overflow-x:auto; }
+  table.copy th, table.copy td, table.order th, table.order td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.copy th, table.order th { background:var(--surface-sunk); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-mute); }
+  code { font-family:var(--mono); font-size:12px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .rules { margin:0; padding-left:20px; color:var(--ink-soft); max-width:92ch; }
+  .rules li { margin:7px 0; } .rules b { color:var(--ink); }
+  .two { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>Search cards — where a provider serves you, and where they are based</h1>
+      <p>A customer in Hamilton searching for a cleaner. A Toronto cleaner who comes to Hamilton used to show "42.7 km"
+         and sort far down on Distance. Now every card that comes to the customer says where it serves them and where
+         the business is based, and the Distance sort counts "serves you here" as right here.</p>
+    </div>
+    <div class="stamp">Sheet · customer-cards-serves-area<br>post-ranking-followups §5 · O2<br>APPROVED 2026-09-29</div>
+  </div>
+
+  <h2 class="rule">1 · Service cards — customer web (customer is in Hamilton)</h2>
+  <div class="cards">
+    <div class="card"><div class="state">A · comes to you · you're inside its area · based elsewhere</div>
+      <div class="img"></div>
+      <div class="body"><div class="name">Deep home cleaning</div><div class="biz">Sparkle Pros</div>
+        <div class="loc"><span class="l1">Serves Hamilton</span><span class="l2">Based in Toronto</span></div>
+        <div class="stars">★ 4.8 (126)</div><div class="price">From $120</div></div></div>
+    <div class="card"><div class="state">B · comes to you · inside · same city</div>
+      <div class="img"></div>
+      <div class="body"><div class="name">Deep home cleaning</div><div class="biz">Hamilton Home Care</div>
+        <div class="loc"><span class="l1">Serves Hamilton</span></div>
+        <div class="stars">★ 4.6 (40)</div><div class="price">From $110</div></div></div>
+    <div class="card"><div class="state">C · comes to you · outside every area</div>
+      <div class="img"></div>
+      <div class="body"><div class="name">Deep home cleaning</div><div class="biz">Burlington Cleaners</div>
+        <div class="loc"><span class="l1">Serves Burlington · 12 km</span><span class="l2">Based in Toronto</span></div>
+        <div class="stars">★ 4.9 (12)</div><div class="price">From $100</div></div></div>
+    <div class="card"><div class="state">D · at their place only · unchanged</div>
+      <div class="img"><span class="pill">3.2 km</span></div>
+      <div class="body"><div class="name">Carpet cleaning drop-off</div><div class="biz">CleanWorks Depot</div>
+        <div class="loc"><span class="plain">Hamilton, ON</span></div>
+        <div class="stars">★ 4.4 (8)</div><div class="price">From $45</div></div></div>
+    <div class="card"><div class="state">E · no location from the customer · unchanged</div>
+      <div class="img"></div>
+      <div class="body"><div class="name">Deep home cleaning</div><div class="biz">Sparkle Pros</div>
+        <div class="loc"><span class="plain">Toronto, ON</span></div>
+        <div class="stars">★ 4.8 (126)</div><div class="price">From $120</div></div></div>
+    <div class="card"><div class="state">F · a miles country (US) · outside</div>
+      <div class="img"></div>
+      <div class="body"><div class="name">Lawn care</div><div class="biz">Green Blade</div>
+        <div class="loc"><span class="l1">Serves Buffalo · 7 mi</span><span class="l2">Based in Rochester</span></div>
+        <div class="stars">No reviews yet</div><div class="price">From $60</div></div></div>
+  </div>
+
+  <h2 class="rule">2 · Provider cards and the phone app</h2>
+  <p class="lede">The provider list uses the same two lines, from the same rule. The phone app shows them under the name
+     in the list row; the distance pill is not shown for a provider that comes to you (its distance, when there is one,
+     is in line 1).</p>
+  <div class="two">
+    <div class="cards" style="flex:1 1 480px">
+      <div class="card"><div class="state">Provider card · web · A</div><div class="img"></div>
+        <div class="body"><div class="name">Sparkle Pros</div><div class="loc"><span class="l1">Serves Hamilton</span><span class="l2">Based in Toronto</span></div><div class="stars">★ 4.8 (126)</div></div></div>
+      <div class="card"><div class="state">Provider card · web · C</div><div class="img"></div>
+        <div class="body"><div class="name">Burlington Cleaners</div><div class="loc"><span class="l1">Serves Burlington · 12 km</span><span class="l2">Based in Toronto</span></div><div class="stars">★ 4.9 (12)</div></div></div>
+    </div>
+    <div class="phone">
+      <div class="state" style="border-radius:10px">Customer phone app — search results</div>
+      <div class="prow"><div class="thumb"></div><div><div class="name">Deep home cleaning</div><div class="biz">Sparkle Pros</div><div class="loc"><span class="l1">Serves Hamilton</span><span class="l2">Based in Toronto</span></div></div></div>
+      <div class="prow"><div class="thumb"></div><div><div class="name">Deep home cleaning</div><div class="biz">Hamilton Home Care</div><div class="loc"><span class="l1">Serves Hamilton</span></div></div></div>
+      <div class="prow"><div class="thumb"></div><div><div class="name">Deep home cleaning</div><div class="biz">Burlington Cleaners</div><div class="loc"><span class="l1">Serves Burlington · 12 km</span><span class="l2">Based in Toronto</span></div></div></div>
+      <div class="prow"><div class="thumb"></div><div><div class="name">Carpet cleaning drop-off</div><div class="biz">CleanWorks Depot</div><div class="loc"><span class="plain">Hamilton, ON · 3.2 km</span></div></div></div>
+    </div>
+  </div>
+
+  <h2 class="rule">3 · Sorted by Distance</h2>
+  <table class="order">
+    <tr><th>#</th><th>Card</th><th>Why it is here</th></tr>
+    <tr><td>1</td><td>Sparkle Pros — Serves Hamilton · Based in Toronto</td><td>serves you here (0) — among those, higher rating first</td></tr>
+    <tr><td>2</td><td>Hamilton Home Care — Serves Hamilton</td><td>serves you here (0), rating 4.6</td></tr>
+    <tr><td>3</td><td>CleanWorks Depot — Hamilton, ON · 3.2 km</td><td>their place is 3.2 km away</td></tr>
+    <tr><td>4</td><td>Burlington Cleaners — Serves Burlington · 12 km</td><td>nearest area they serve is 12 km away</td></tr>
+  </table>
+
+  <h2 class="rule">4 · Rules</h2>
+  <ul class="rules">
+    <li><b>"Comes to you"</b> = every service that is not "at their place only" (the existing rule, D-104). "At their place only" keeps today's card exactly (D).</li>
+    <li><b>Inside</b> = the customer is within the radius of one of that service's areas (the existing coverage rule). The area named is the one containing the customer; if several contain them, the nearest centre.</li>
+    <li><b>Outside every area</b>: the area named is the one whose centre is nearest, and the distance is to that centre (owner decision — the same rule the leads matcher uses).</li>
+    <li><b>"Based in"</b> is the business address's city; hidden when it is the same city as the served area (owner decision). A business with no address shows no "Based in".</li>
+    <li><b>The area's name</b> is the area's city; when an area has no city, its own name.</li>
+    <li><b>Distance sort</b>: "serves you here" counts as 0 and those come first, ordered by rating; then everything else by distance. Exact for every result the list can show — the index checks containment itself (verified on the sandbox index), nothing is guessed from a partial window.</li>
+    <li><b>No location from the customer</b> (E): no "Serves" line at all — nothing is claimed without a point.</li>
+  </ul>
+
+  <h2 class="rule">5 · Where the words come from</h2>
+  <table class="copy">
+    <tr><th>Words</th><th>Source</th></tr>
+    <tr><td>Serves {area}</td><td>screen copy — web <code>search.card.servesArea</code>, phone <code>SERVICE_PRICE.SERVES_AREA</code>; the area name from the server (<code>servedArea.name</code>)</td></tr>
+    <tr><td>Serves {area} · {distance}</td><td>screen copy — web <code>search.card.servesAreaAt</code>, phone <code>SERVICE_PRICE.SERVES_AREA_AT</code>; distance from the server in km, shown in km or mi by the existing country rule (<code>cardDistance</code>)</td></tr>
+    <tr><td>Based in {city}</td><td>screen copy — web <code>search.card.basedIn</code>, phone <code>SERVICE_PRICE.BASED_IN</code>; city from the server (<code>basedInCity</code>)</td></tr>
+    <tr><td>City, state · distance pill (D, E)</td><td>unchanged</td></tr>
+  </table>
+  <p class="lede" style="margin-top:10px">All five languages (en, es, fr, hi, gu) for every new key; web user app and customer phone app ship together.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+docTitle=Microsoft Pricing Structure lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Microsoft cost overview for 2024, 2025, and 2026, covering vendor costs, support costs, implementation and training notes, total costs, and current vendor cost based on MAUs per year.
+[  0] Heading      p1 H1
+      Microsoft 
+[  1] Table        p1
+      hasHeader=False caption= rows=15
+      | Microsoft |  |  |
+      | 2024 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Implementation | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C |
+      | Training | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C |
+      | Total 2024 Costs | $638750 |  |
+      | 2025 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Total 2025 Costs | $638750 |  |
+      | 2026 Costs (CAD) |  |  |
+      | Vendor Costs | $638750 | Based on 2.5M MAU's / year |
+      | Support Costs | $0 | For B2C this is included with Microsoft subscription |
+      | Total 2026 Costs | $638750 |  |
+[  2] Table        p1
+      hasHeader=False caption= rows=1
+      | Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year |
+
+## captions
+## images
+## reviews

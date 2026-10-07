@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "downtown",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-downtown-tactic-roofing",
+      "businessName": "Tactic Roofing",
+      "description": "GAF-certified residential/commercial roofing in Brampton & GTA. Shingle & metal, flat roofs, eavestrough/soffit/fascia. HomeStars award winner; WSIB licensed.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@tacticroofing.com",
+      "businessPhone": "647-205-1150",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://tacticroofing.com/",
+        "other": []
+      },
+      "address": {
+        "street": "2 County Ct Blvd Suite 400",
+        "postalCode": "L6W 3W8",
+        "area": "downtown",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2 County Ct Blvd Suite 400, Brampton, ON L6W 3W8"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Toronto",
+        "Caledon",
+        "Halton Hills",
+        "Oakville",
+        "Orangeville"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "downtown",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Flat Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestrough & Siding",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Roof Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "08:00",
+            "close": "18:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "09:00",
+            "close": "17:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://tacticroofing.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+{
+ "blow out": [
+  [
+   0.287,
+   "Shampoo And Blowdry"
+  ],
+  [
+   0.152,
+   "Full Head Color"
+  ],
+  [
+   0.15,
+   "Fullbody No Brazilian"
+  ],
+  [
+   0.149,
+   "Updo Hair Style"
+  ],
+  [
+   0.145,
+   "Full Face"
+  ],
+  [
+   0.142,
+   "Root Touch Up"
+  ],
+  [
+   0.141,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.138,
+   "Smoothning From"
+  ],
+  [
+   0.136,
+   "Back/Stomach"
+  ]
+ ],
+ "wedding hairdo": [
+  [
+   0.513,
+   "Updo Hair Style"
+  ],
+  [
+   0.393,
+   "03 Plus Bridal Facial"
+  ],
+  [
+   0.304,
+   "Hair Cut"
+  ],
+  [
+   0.287,
+   "Shampoo And Blowdry"
+  ],
+  [
+   0.277,
+   "Permanent Smoothing"
+  ],
+  [
+   0.274,
+   "Highlights"
+  ],
+  [
+   0.266,
+   "Balayage"
+  ],
+  [
+   0.263,
+   "Full Head Color"
+  ],
+  [
+   0.261,
+   "Root Touch Up"
+  ]
+ ],
+ "hair straightening treatment": [
+  [
+   0.569,
+   "Permanent Smoothing"
+  ],
+  [
+   0.56,
+   "Keratin From"
+  ],
+  [
+   0.555,
+   "Smoothning From"
+  ],
+  [
+   0.461,
+   "Safron Skin Tightening"
+  ],
+  [
+   0.411,
+   "Casmara Whitening"
+  ],
+  [
+   0.403,
+   "03 Plus Bridal Facial"
+  ],
+  [
+   0.4,
+   "Shampoo And Blowdry"
+  ],
+  [
+   0.4,
+   "Chemical Peels"
+  ],
+  [
+   0.396,
+   "Gerard's Aquasense"
+  ]
+ ],
+ "tan removal for hands": [
+  [
+   0.625,
+   "D-Tan Hands Treatment"
+  ],
+  [
+   0.401,
+   "Half/Full Hands"
+  ],
+  [
+   0.383,
+   "Full Hands Polish"
+  ],
+  [
+   0.336,
+   "Casmara Whitening"
+  ],
+  [
+   0.297,
+   "Nature Gold"
+  ],
+  [
+   0.297,
+   "Safron Skin Tightening"
+  ],
+  [
+   0.293,
+   "Gold Facial"
+  ],
+  [
+   0.291,
+   "Underarms"
+  ],
+  [
+   0.28,
+   "Wine Facial"
+  ]
+ ],
+ "skin brightening facial": [
+  [
+   0.558,
+   "Casmara Whitening"
+  ],
+  [
+   0.509,
+   "Fruits Facial"
+  ],
+  [
+   0.491,
+   "03 Plus Bridal Facial"
+  ],
+  [
+   0.482,
+   "Safron Skin Tightening"
+  ],
+  [
+   0.476,
+   "Gold Facial"
+  ],
+  [
+   0.467,
+   "Chemical Peels"
+  ],
+  [
+   0.463,
+   "Wine Facial"
+  ],
+  [
+   0.46,
+   "Nature Gold"
+  ],
+  [
+   0.457,
+   "Gerard's Aquasense"
+  ]
+ ],
+ "hair removal on legs": [
+  [
+   0.531,
+   "Half/Full Legs"
+  ],
+  [
+   0.427,
+   "Underarms"
+  ],
+  [
+   0.414,
+   "Brazilian"
+  ],
+  [
+   0.408,
+   "Upperlips"
+  ],
+  [
+   0.403,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.391,
+   "Chin"
+  ],
+  [
+   0.391,
+   "Fullbody No Brazilian"
+  ],
+  [
+   0.385,
+   "Full Face"
+  ],
+  [
+   0.382,
+   "Full Body With Brazilian"
+  ]
+ ],
+ "nail painting": [
+  [
+   0.443,
+   "Manicure"
+  ],
+  [
+   0.424,
+   "Pedicure"
+  ],
+  [
+   0.362,
+   "Full Hands Polish"
+  ],
+  [
+   0.325,
+   "Full Head Color"
+  ],
+  [
+   0.31,
+   "Half/Full Hands"
+  ],
+  [
+   0.309,
+   "Balayage"
+  ],
+  [
+   0.305,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.3,
+   "Eyebrow Tint"
+  ],
+  [
+   0.299,
+   "Updo Hair Style"
+  ]
+ ],
+ "brow shaping": [
+  [
+   0.569,
+   "Eyebrows"
+  ],
+  [
+   0.544,
+   "Forehead"
+  ],
+  [
+   0.518,
+   "Eyebrow Tint"
+  ],
+  [
+   0.489,
+   "Full Face"
+  ],
+  [
+   0.488,
+   "Chin"
+  ],
+  [
+   0.487,
+   "Upperlips"
+  ],
+  [
+   0.445,
+   "Brazilian"
+  ],
+  [
+   0.443,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.438,
+   "Lashlift And Tint"
+  ]
+ ],
+ "grey hair coverage": [
+  [
+   0.467,
+   "Root Touch Up"
+  ],
+  [
+   0.448,
+   "Full Head Color"
+  ],
+  [
+   0.378,
+   "Highlights"
+  ],
+  [
+   0.364,
+   "Balayage"
+  ],
+  [
+   0.309,
+   "Eyebrow Tint"
+  ],
+  [
+   0.297,
+   "Hair Cut"
+  ],
+  [
+   0.291,
+   "Updo Hair Style"
+  ],
+  [
+   0.284,
+   "Casmara Whitening"
+  ],
+  [
+   0.283,
+   "Nature Gold"
+  ]
+ ],
+ "anti ageing facial": [
+  [
+   0.532,
+   "Safron Skin Tightening"
+  ],
+  [
+   0.522,
+   "Gold Facial"
+  ],
+  [
+   0.512,
+   "Wine Facial"
+  ],
+  [
+   0.512,
+   "Gerard's Aquasense"
+  ],
+  [
+   0.502,
+   "Nature Gold"
+  ],
+  [
+   0.484,
+   "Casmara Whitening"
+  ],
+  [
+   0.484,
+   "03 Plus Bridal Facial"
+  ],
+  [
+   0.479,
+   "Fruits Facial"
+  ],
+  [
+   0.448,
+   "Chemical Peels"
+  ]
+ ],
+ "massage": [
+  [
+   0.398,
+   "Full Back Polish With Scrub And Massage"
+  ],
+  [
+   0.346,
+   "Gerard's Aquasense"
+  ],
+  [
+   0.345,
+   "D-Tan Hands Treatment"
+  ],
+  [
+   0.323,
+   "Full Hands Polish"
+  ],
+  [
+   0.322,
+   "03 Plus Bridal Facial"
+  ],
+  [
+   0.32,
+   "Safron Skin Tightening"
+  ],
+  [
+   0.312,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.31,
+   "Wine Facial"
+  ],
+  [
+   0.299,
+   "Permanent Smoothing"
+  ]
+ ],
+ "haircut for kids": [
+  [
+   0.491,
+   "Hair Cut"
+  ],
+  [
+   0.372,
+   "Updo Hair Style"
+  ],
+  [
+   0.351,
+   "Shampoo And Blowdry"
+  ],
+  [
+   0.304,
+   "Full Head Color"
+  ],
+  [
+   0.298,
+   "Balayage"
+  ],
+  [
+   0.295,
+   "Permanent Smoothing"
+  ],
+  [
+   0.295,
+   "Root Touch Up"
+  ],
+  [
+   0.29,
+   "Highlights"
+  ],
+  [
+   0.283,
+   "Keratin From"
+  ]
+ ],
+ "lash curl": [
+  [
+   0.386,
+   "Lashlift And Tint"
+  ],
+  [
+   0.275,
+   "Upperlips"
+  ],
+  [
+   0.269,
+   "Eyebrows"
+  ],
+  [
+   0.256,
+   "Root Touch Up"
+  ],
+  [
+   0.255,
+   "Chin"
+  ],
+  [
+   0.255,
+   "Updo Hair Style"
+  ],
+  [
+   0.25,
+   "Eyebrow Tint"
+  ],
+  [
+   0.241,
+   "Full Face"
+  ],
+  [
+   0.241,
+   "Hair Cut"
+  ]
+ ],
+ "week rate for rentals": [
+  [
+   0.224,
+   "Highlights"
+  ],
+  [
+   0.205,
+   "Permanent Smoothing"
+  ],
+  [
+   0.204,
+   "Half/Full Legs"
+  ],
+  [
+   0.203,
+   "Balayage"
+  ],
+  [
+   0.186,
+   "Keratin From"
+  ],
+  [
+   0.184,
+   "Back/Stomach"
+  ],
+  [
+   0.179,
+   "Half/Full Hands"
+  ],
+  [
+   0.178,
+   "Full Body With Brazilian"
+  ],
+  [
+   0.177,
+   "Nu Free Brazilian"
+  ]
+ ],
+ "excavator": [
+  [
+   0.106,
+   "Full Back Polish With Scrub And Massage"
+  ],
+  [
+   0.1,
+   "Nature Gold"
+  ],
+  [
+   0.1,
+   "Gold Facial"
+  ],
+  [
+   0.098,
+   "Gerard's Aquasense"
+  ],
+  [
+   0.093,
+   "Chin"
+  ],
+  [
+   0.093,
+   "Fullbody No Brazilian"
+  ],
+  [
+   0.091,
+   "Casmara Whitening"
+  ],
+  [
+   0.089,
+   "Pedicure"
+  ],
+  [
+   0.076,
+   "Underarms"
+  ]
+ ],
+ "dog grooming": [
+  [
+   0.406,
+   "Hair Cut"
+  ],
+  [
+   0.392,
+   "Shampoo And Blowdry"
+  ],
+  [
+   0.387,
+   "Updo Hair Style"
+  ],
+  [
+   0.352,
+   "Pedicure"
+  ],
+  [
+   0.346,
+   "Brazilian"
+  ],
+  [
+   0.339,
+   "Manicure"
+  ],
+  [
+   0.332,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.327,
+   "Balayage"
+  ],
+  [
+   0.323,
+   "Permanent Smoothing"
+  ]
+ ],
+ "oil change": [
+  [
+   0.2,
+   "Root Touch Up"
+  ],
+  [
+   0.177,
+   "Chin"
+  ],
+  [
+   0.176,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.176,
+   "Full Head Color"
+  ],
+  [
+   0.175,
+   "Balayage"
+  ],
+  [
+   0.167,
+   "Smoothning From"
+  ],
+  [
+   0.167,
+   "Pedicure"
+  ],
+  [
+   0.166,
+   "Nature Gold"
+  ],
+  [
+   0.166,
+   "Upperlips"
+  ]
+ ],
+ "mortgage payment": [
+  [
+   0.118,
+   "Permanent Smoothing"
+  ],
+  [
+   0.113,
+   "Balayage"
+  ],
+  [
+   0.112,
+   "Updo Hair Style"
+  ],
+  [
+   0.11,
+   "Root Touch Up"
+  ],
+  [
+   0.109,
+   "Hair Cut"
+  ],
+  [
+   0.105,
+   "Manicure"
+  ],
+  [
+   0.101,
+   "Smoothning From"
+  ],
+  [
+   0.098,
+   "Highlights"
+  ],
+  [
+   0.095,
+   "03 Plus Bridal Facial"
+  ]
+ ],
+ "gift cards": [
+  [
+   0.191,
+   "Gold Facial"
+  ],
+  [
+   0.184,
+   "Nature Gold"
+  ],
+  [
+   0.171,
+   "Gerard's Aquasense"
+  ],
+  [
+   0.171,
+   "Keratin From"
+  ],
+  [
+   0.17,
+   "D-Tan Hands Treatment"
+  ],
+  [
+   0.166,
+   "Smoothning From"
+  ],
+  [
+   0.162,
+   "Wine Facial"
+  ],
+  [
+   0.157,
+   "Permanent Smoothing"
+  ],
+  [
+   0.156,
+   "Chemical Peels"
+  ]
+ ],
+ "plumbing repair": [
+  [
+   0.192,
+   "Gerard's Aquasense"
+  ],
+  [
+   0.186,
+   "Root Touch Up"
+  ],
+  [
+   0.171,
+   "Permanent Smoothing"
+  ],
+  [
+   0.169,
+   "Pedicure"
+  ],
+  [
+   0.16,
+   "Manicure"
+  ],
+  [
+   0.153,
+   "Chin"
+  ],
+  [
+   0.144,
+   "Highlights"
+  ],
+  [
+   0.142,
+   "Updo Hair Style"
+  ],
+  [
+   0.141,
+   "Hair Cut"
+  ]
+ ],
+ "tattoo": [
+  [
+   0.314,
+   "Eyebrow Tint"
+  ],
+  [
+   0.27,
+   "D-Tan Hands Treatment"
+  ],
+  [
+   0.269,
+   "Lashlift And Tint"
+  ],
+  [
+   0.263,
+   "Chin"
+  ],
+  [
+   0.255,
+   "Forehead"
+  ],
+  [
+   0.254,
+   "Brazilian"
+  ],
+  [
+   0.253,
+   "Eyebrows"
+  ],
+  [
+   0.253,
+   "Nu Free Brazilian"
+  ],
+  [
+   0.252,
+   "Upperlips"
+  ]
+ ]
+}

@@ -1,0 +1,565 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Hamilton",
+    "category": "movers",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "hamilton-hamilton-advantage-movers",
+      "businessName": "Advantage Movers",
+      "description": "Hamilton-based movers offering residential and commercial relocating across the city.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "Advantangemoversca@gmail.com",
+      "businessPhone": "905-979-7206",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://advantagemovers.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "postalCode": "L8V 3K6",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://advantagemovers.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": "Postal code from site footer; street address not published on homepage."
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-falla-cartage-and-movers",
+      "businessName": "Falla Cartage and Movers",
+      "description": "Family-owned Atlas Van Lines agent offering local, long-distance, overseas moving, packing and storage for 70+ years.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 70,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-544-1744",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "http://www.fallamovers.ca",
+        "other": []
+      },
+      "address": {
+        "street": "10 - 495 Woodward Ave",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "postalCode": "L8H 6N6",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "10 - 495 Woodward Ave, Hamilton, ON L8H 6N6"
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Ontario",
+        "Canada",
+        "USA"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Household Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Canada to USA Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Overseas Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Corporate Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Storage",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Packing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/bus/Ontario/Hamilton/Falla-Cartage-and-Movers/608969.html",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-let-s-get-moving-hamilton",
+      "businessName": "Let's Get Moving Hamilton",
+      "description": "Local residential and commercial moving services in Hamilton with packing and transportation.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "hamilton@letsgetmoving.ca",
+      "businessPhone": "289-301-8454",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://letsgetmoving.ca/locations/on/hamilton-movers/",
+        "other": []
+      },
+      "address": {
+        "street": "65 Biggar Ave #2",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "postalCode": "L8L 3Z3",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "65 Biggar Ave #2, Hamilton, ON L8L 3Z3"
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Moving",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Packing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "10:00",
+            "close": "19:00",
+            "closed": false
+          }
+        ],
+        "notes": "Sales office hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://letsgetmoving.ca/locations/on/hamilton-movers/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-crosstown-movers",
+      "businessName": "Crosstown Movers",
+      "description": "Hamilton movers listed on YellowPages.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-549-7742",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "433 Kenilworth Ave N",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "movers",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Moving Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/bus/Ontario/Hamilton/Crosstown-Movers/2211086.html",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

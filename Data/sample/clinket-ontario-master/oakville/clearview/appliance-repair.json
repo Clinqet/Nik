@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "clearview",
+    "category": "appliance-repair",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-clearview-oakville-appliance",
+      "businessName": "Oakville Appliance",
+      "description": "Appliance sales, parts and repair storefront on Kerr Street.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@oakvilleappliance.com",
+      "businessPhone": "905-845-2933",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://oakvilleappliance.com/",
+        "other": []
+      },
+      "address": {
+        "street": "476 Kerr Street",
+        "postalCode": "L6K 3C5",
+        "area": "clearview",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "476 Kerr Street, Oakville, ON L6K 3C5"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "clearview",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "appliance-repair",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Appliance Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Parts & Accessories",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Appliance Sales",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://oakvilleappliance.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://oakvilleappliance.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

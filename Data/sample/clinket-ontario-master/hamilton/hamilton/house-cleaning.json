@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Hamilton",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-hamilton-maidsplus",
+      "businessName": "MaidsPlus",
+      "description": "Home and office cleaners offering weekly, bi-weekly, and one-time cleaning in Hamilton, Burlington and area. Police-screened, bonded and insured staff; seniors discounts.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@cleaningmaidsimple.ca",
+      "businessPhone": "289-389-0753",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.cleaningmaidsimple.ca/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Stoney Creek",
+        "Oakville",
+        "Ancaster",
+        "Dundas",
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Cleaning",
+          "description": "Weekly, bi-weekly, one-time",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": "Seniors discounts available; also 905-634-8838"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial / Office Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Weekly / Bi-weekly / One-time Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Also publishes 905-634-8838"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.cleaningmaidsimple.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.6,
+        "notes": "Batch 2 deepen from official site"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-absolutely-spotless-cleaning",
+      "businessName": "Absolutely Spotless Cleaning",
+      "description": "House cleaning services in Hamilton, ON.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "hello@absolutelyspotlesscleaning.ca",
+      "businessPhone": "905-626-5698",
+      "social": {
+        "facebook": "https://www.facebook.com/absolutelyspotless1",
+        "instagram": "https://www.instagram.com/absolutelyspotlesscleaning_",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.absolutelyspotless.ca/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.absolutelyspotless.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://www.absolutelyspotless.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-inspireclean",
+      "businessName": "InspireClean",
+      "description": "Women-owned, fully insured and bonded house cleaning across Hamilton, Ancaster, Stoney Creek, Dundas, Waterdown. Deep cleans, move-in/out, post-construction.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@inspireclean.ca",
+      "businessPhone": "905-991-4312",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://inspireclean.ca/house-cleaning-service-hamilton/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Ancaster",
+        "Stoney Creek",
+        "Dundas",
+        "Waterdown",
+        "Flamborough",
+        "Binbrook",
+        "Mount Hope"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Deep Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-In / Move-Out",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Post-Construction Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Office & Commercial Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://inspireclean.ca/house-cleaning-service-hamilton/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "Batch 2 deepen — email and expanded services from official page"
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    },
+    {
+      "id": "hamilton-hamilton-hellamaid-hamilton",
+      "businessName": "Hellamaid Hamilton",
+      "description": "House cleaning service in Hamilton, ON.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "weclean@hellamaid.com",
+      "businessPhone": "289-812-8155",
+      "social": {
+        "facebook": "https://www.facebook.com/hellamaid",
+        "instagram": "https://www.instagram.com/hellamaid",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://hellamaid.ca/house-cleaning-service-hamilton/",
+        "other": []
+      },
+      "address": {
+        "formatted": "Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "province": "ON",
+        "country": "Canada",
+        "street": null,
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "House Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://hellamaid.ca/house-cleaning-service-hamilton/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://hellamaid.ca/house-cleaning-service-hamilton/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

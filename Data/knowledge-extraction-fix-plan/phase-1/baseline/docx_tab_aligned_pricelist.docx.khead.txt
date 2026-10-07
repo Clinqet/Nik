@@ -1,0 +1,33 @@
+# docx_tab_aligned_pricelist.docx
+blocks=11 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Price list
+[  1] Paragraph    p1
+      Haircut $25
+[  2] Paragraph    p1
+      Beard trim $15
+[  3] Paragraph    p1
+      Kids cut $18
+[  4] Paragraph    p1
+      Full head colour $80
+[  5] Paragraph    p1
+      Root touch up $55
+[  6] Paragraph    p1
+      Highlights $120
+[  7] Paragraph    p1
+      Keratin treatment $250
+[  8] Paragraph    p1
+      Blow dry $30
+[  9] Paragraph    p1
+      Updo $65
+[ 10] Paragraph    p1
+      Deep conditioning $40
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Text] section='' page=1 tokens~43 img=-1
+    Price list Haircut $25 Beard trim $15 Kids cut $18 Full head colour $80 Root touch up $55 Highlights $120 Keratin treatment $250 Blow dry $30 Updo $65 Deep conditioning $40

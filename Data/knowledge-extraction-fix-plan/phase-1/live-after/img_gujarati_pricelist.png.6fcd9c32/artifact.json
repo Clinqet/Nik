@@ -1,0 +1,208 @@
+{
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "img_gujarati_pricelist.png",
+  "pageCount": 1,
+  "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+  "docSummary": "શ્રી બ્યુટી પાર્લરની સેવા અને કિંમતની યાદી: વાળ કપાવવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.",
+  "docLanguage": "gu",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "શ્રી બ્યુટી પાર્લર",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "સેવા",
+            "કિંમત"
+          ],
+          [
+            "વાળ કપાવવા",
+            "₹250"
+          ],
+          [
+            "ફેશિયલ",
+            "₹800"
+          ],
+          [
+            "મસાજ",
+            "₹500"
+          ],
+          [
+            "બ્રાઇડલ મેકઅપ",
+            "₹5,000"
+          ],
+          [
+            "થ્રેડિંગ",
+            "₹50"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "2 414",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "1, 54 | ₹250\n$22144 | ₹ 800\n4211% | ₹500\nWIE 24 | ₹5,000\n3 โรงเ | ₹50\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "# શ્રી બ્યુટી પાર્લર\n\n| સેવા | કિંમત |\n|---|---:|\n| વાળ કાપવા | ₹250 |\n| ફેશિયલ | ₹800 |\n| મસાજ | ₹500 |\n| બ્રાઇડલ મેકઅપ | ₹5,000 |\n| થ્રેડિંગ | ₹50 |",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {
+    "0": "શ્રી બ્યુટી પાર્લરનો સેવા-દર: વાળ કાપવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "d81727f429f17040",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "blobPath": "SX3SG2/_images/6fcd9c32ee6e4c8397c7babc7121a462/d81727f429f17040.png",
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "2 414"
+    }
+  ],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "30124847-96c5-44c4-ad02-eccd85a3055d",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, Heading 1",
+          "ocrReading": "# 2 414",
+          "firstAiReading": "",
+          "passageIds": [],
+          "thirdReading": "શ્રી બ્યુટી પાર્લર",
+          "selectedReading": "# 2 414",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '1, 54'",
+          "ocrReading": "1, 54 | ₹250",
+          "firstAiReading": "",
+          "sourceServiceName": "1, 54",
+          "passageIds": [],
+          "thirdReading": "વાળ કાપવા | ₹250",
+          "selectedReading": "1, 54 | ₹250",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '$22144'",
+          "ocrReading": "$22144 | ₹ 800",
+          "firstAiReading": "",
+          "sourceServiceName": "$22144",
+          "passageIds": [],
+          "thirdReading": "ફેશિયલ | ₹800",
+          "selectedReading": "$22144 | ₹ 800",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '4211%'",
+          "ocrReading": "4211% | ₹500",
+          "firstAiReading": "",
+          "sourceServiceName": "4211%",
+          "passageIds": [],
+          "thirdReading": "મસાજ | ₹500",
+          "selectedReading": "4211% | ₹500",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row 'WIE 24'",
+          "ocrReading": "WIE 24 | ₹5,000",
+          "firstAiReading": "",
+          "sourceServiceName": "WIE 24",
+          "passageIds": [],
+          "thirdReading": "બ્રાઇડલ મેકઅપ | ₹5,000",
+          "selectedReading": "WIE 24 | ₹5,000",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '3 โรงเ'",
+          "ocrReading": "3 โรงเ | ₹50",
+          "firstAiReading": "",
+          "sourceServiceName": "3 โรงเ",
+          "passageIds": [],
+          "thirdReading": "થ્રેડિંગ | ₹50",
+          "selectedReading": "3 โรงเ | ₹50",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        }
+      ]
+    }
+  ]
+}

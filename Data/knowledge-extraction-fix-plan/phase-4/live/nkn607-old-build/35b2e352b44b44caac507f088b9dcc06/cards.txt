@@ -1,0 +1,93 @@
+cards=9
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_0 [Table] section='Glow salon — full service list' page=1 img= scripts=["Latn"] chars=1183 title='Glow Salon Service List and Pricing' type='Document'
+    All prices in Canadian dollars. Duration is approximate.
+    Service: Haircut | Price: $25 | Duration: 30 min | Notes: Patch test required
+    Service: Beard trim | Price: $15 | Duration: 15 min
+    Service: Kids cut | Price: $18 | Duration: 20 min
+    Service: Full head colour | Price: $80 | Duration: 90 min
+    Service: Root touch up | Price: $55 | Duration: 60 min
+    Service: Highlights | Price: $120 | Duration: 120 min | Notes: Long hair +$20
+    Service: Keratin treatment | Price: $250 | Duration: 180 min
+    Service: Blow dry | Price: $30 | Duration: 30 min | Notes: Patch test required
+    Service: Updo | Price: $65 | Duration: 60 min
+    Service: Deep conditioning | Price: $40 | Duration: 45 min
+    Service: Scalp massage | Price: $35 | Duration: 30 min | Notes: Long hair +$20
+    Service: Fringe trim | Price: $12 | Duration: 10 min
+    Service: Bridal package | Price: $450 | Duration: 240 min
+    Service: Eyebrow threading | Price: $10 | Duration: 10 min
+    Service: Upper lip wax | Price: $8 | Duration: 10 min | Notes: Patch test required
+    Service: Full legs wax | Price: $45 | Duration: 40 min | Notes: Long hair +$20
+    Service: Manicure | Price: $30 | Duration: 30 min
+    Service: Pedicure | Price: $45 | Duration: 45 min
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_1 [Table] section='Glow salon — full service list' page=1 img= scripts=["Latn"] chars=664 title='Glow Salon Service List and Pricing' type='Document'
+    All prices in Canadian dollars. Duration is approximate.
+    Service: Gel manicure | Price: $55 | Duration: 60 min
+    Service: Nail art | Price: $20 | Duration: 30 min
+    Service: Facial classic | Price: $70 | Duration: 60 min | Notes: Long hair +$20
+    Service: Facial gold | Price: $110 | Duration: 75 min | Notes: Patch test required
+    Service: Back massage | Price: $60 | Duration: 45 min
+    Service: Hot stone massage | Price: $95 | Duration: 75 min
+    Service: Aromatherapy | Price: $85 | Duration: 60 min
+    Service: Body scrub | Price: $75 | Duration: 60 min | Notes: Long hair +$20
+    Service: Hair spa | Price: $90 | Duration: 90 min
+    Service: Perm | Price: $140 | Duration: 120 min
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_2 [Table] section='Glow salon — full service list' page=2 img= scripts=["Latn"] chars=1163 title='Glow Salon Service List and Pricing' type='Document'
+    Service: Straightening | Price: $200 | Duration: 150 min | Notes: Patch test required
+    Service: Consultation | Price: $0 | Duration: 15 min
+    Service: Haircut deluxe | Price: $35 | Duration: 30 min | Notes: Long hair +$20
+    Service: Beard trim deluxe | Price: $25 | Duration: 15 min
+    Service: Kids cut deluxe | Price: $28 | Duration: 20 min
+    Service: Full head colour deluxe | Price: $90 | Duration: 90 min
+    Service: Root touch up deluxe | Price: $65 | Duration: 60 min
+    Service: Highlights deluxe | Price: $130 | Duration: 120 min | Notes: Patch test required
+    Service: Keratin treatment deluxe | Price: $260 | Duration: 180 min
+    Service: Blow dry deluxe | Price: $40 | Duration: 30 min
+    Service: Updo deluxe | Price: $75 | Duration: 60 min
+    Service: Deep conditioning deluxe | Price: $50 | Duration: 45 min
+    Service: Scalp massage deluxe | Price: $45 | Duration: 30 min | Notes: Long hair +$20
+    Service: Fringe trim deluxe | Price: $22 | Duration: 10 min
+    Service: Bridal package deluxe | Price: $460 | Duration: 240 min | Notes: Patch test required
+    Service: Eyebrow threading deluxe | Price: $20 | Duration: 10 min
+    Service: Upper lip wax deluxe | Price: $18 | Duration: 10 min
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_3 [Table] section='Glow salon — full service list' page=2 img= scripts=["Latn"] chars=972 title='Glow Salon Service List and Pricing' type='Document'
+    Service: Full legs wax deluxe | Price: $55 | Duration: 40 min | Notes: Long hair +$20
+    Service: Manicure deluxe | Price: $40 | Duration: 30 min
+    Service: Pedicure deluxe | Price: $55 | Duration: 45 min
+    Service: Gel manicure deluxe | Price: $65 | Duration: 60 min
+    Service: Nail art deluxe | Price: $30 | Duration: 30 min | Notes: Patch test required
+    Service: Facial classic deluxe | Price: $80 | Duration: 60 min | Notes: Long hair +$20
+    Service: Facial gold deluxe | Price: $120 | Duration: 75 min
+    Service: Back massage deluxe | Price: $70 | Duration: 45 min
+    Service: Hot stone massage deluxe | Price: $105 | Duration: 75 min
+    Service: Aromatherapy deluxe | Price: $95 | Duration: 60 min
+    Service: Body scrub deluxe | Price: $85 | Duration: 60 min | Notes: Long hair +$20
+    Service: Hair spa deluxe | Price: $100 | Duration: 90 min | Notes: Patch test required
+    Service: Perm deluxe | Price: $150 | Duration: 120 min
+    Service: Straightening deluxe | Price: $210 | Duration: 150 min
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_4 [Table] section='Glow salon — full service list' page=3 img= scripts=["Latn"] chars=762 title='Glow Salon Service List and Pricing' type='Document'
+    Service: Consultation deluxe | Price: $10 | Duration: 15 min
+    Service: Haircut platinum | Price: $45 | Duration: 30 min | Notes: Long hair +$20
+    Service: Beard trim platinum | Price: $35 | Duration: 15 min
+    Service: Kids cut platinum | Price: $38 | Duration: 20 min
+    Service: Full head colour platinum | Price: $100 | Duration: 90 min | Notes: Patch test required
+    Service: Root touch up platinum | Price: $75 | Duration: 60 min
+    Service: Highlights platinum | Price: $140 | Duration: 120 min | Notes: Long hair +$20
+    Service: Keratin treatment platinum | Price: $270 | Duration: 180 min
+    Service: Blow dry platinum | Price: $50 | Duration: 30 min
+    Service: Updo platinum | Price: $85 | Duration: 60 min
+    Service: Deep conditioning platinum | Price: $60 | Duration: 45 min
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_5 [Text] section='Glow salon — full service list' page=3 img= scripts=["Latn"] chars=36 title='Glow Salon Service List and Pricing' type='Document'
+    Prices valid until 31 December 2026.
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_6 [DocSummary] section='' page= img= scripts=["Latn"] chars=500 title='Glow Salon Service List and Pricing' type='Document'
+    Glow Salon Service List and Pricing — overview
+    A full salon service list with prices in Canadian dollars, approximate durations, and notes such as patch-test requirements and long-hair surcharges. Services are listed across standard, deluxe, and platinum tiers; prices are valid until 31 December 2026.
+    Sections: Glow salon — full service list
+    70 records
+    Price: $10 to $260 (typical)
+    Duration: 60 min (14), 30 min (12), 45 min (7), 10 min (6), 15 min (5), 90 min (5), 120 min (5), 75 min (4), +5 more
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_7 [DocAggregate] section='Price' page= img= scripts=["Latn"] chars=96 title='Glow Salon Service List and Pricing' type='Document'
+    Glow Salon Service List and Pricing — overview — Price
+    70 records — Price: $10 to $260 (typical)
+--- NKN607_35b2e352b44b44caac507f088b9dcc06_8 [DocAggregate] section='Duration' page= img= scripts=["Latn"] chars=241 title='Glow Salon Service List and Pricing' type='Document'
+    Glow Salon Service List and Pricing — overview — Duration
+    70 records — Duration: 60 min (14), 30 min (12), 45 min (7), 10 min (6), 15 min (5), 90 min (5), 120 min (5), 75 min (4), 20 min (3), 180 min (3), 240 min (2), 40 min (2), 150 min (2)

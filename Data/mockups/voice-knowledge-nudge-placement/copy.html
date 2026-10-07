@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Knowledge nudge — wording comparison</title>
+<style>
+  :root{
+    --navy:#032858; --lime:#97EF29; --lime-ink:#0A1F0A; --ink:#101010; --muted:#5F5F5F;
+    --line:#E7E7E7; --bg:#F5F7FA; --card:#fff; --amber:#E08600; --red:#C63535;
+    --k-border:#DFFABD; --k-bg:#F4FDF9; --k-title:#032858; --k-body:#3c3c3c; --k-ok:#3F7A00;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 100px}
+  h1{font-size:26px;margin:0 0 6px;color:var(--navy);letter-spacing:-.2px}
+  h2{font-size:19px;margin:0;color:var(--navy)}
+  h3{font-size:13px;margin:24px 0 10px;color:var(--navy);text-transform:uppercase;letter-spacing:.6px}
+  p{margin:0 0 12px;color:#333}
+  .lede{color:var(--muted);margin:0 0 20px;max-width:84ch}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 20px;
+          box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:13.5px;margin:0 0 16px;max-width:88ch}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:3px 9px;
+       border-radius:999px;background:#F0FFE1;color:#2F7D00;border:1px solid #D6F5AE;white-space:nowrap}
+  .tag.q{background:#FFF6E8;color:#9A5B00;border-color:#FFE2B8}
+  .tag.n{background:#EEF3FA;color:var(--navy);border-color:#D9E4F2}
+  .tag.bad{background:#FFF1F0;color:#B42318;border-color:#FECDCA}
+  .note{font-size:13.5px;color:#444;background:#FAFBFC;border-left:3px solid var(--lime);padding:11px 14px;
+        border-radius:0 8px 8px 0;margin:14px 0 0}
+  .note.warn{border-left-color:var(--amber)}
+  .note.stop{border-left-color:var(--red)}
+  .note b{color:var(--navy)}
+  code{background:#F1F3F6;padding:1px 5px;border-radius:4px;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+  pre{background:#0E1420;color:#D8E2F0;border-radius:12px;padding:16px 18px;overflow-x:auto;font-size:12.5px;
+      line-height:1.7;font-family:ui-monospace,Consolas,monospace;margin:0}
+  pre .k{color:#8FD3FF}
+  pre .s{color:#C8F09A}
+  pre .i{color:#FFC46B}
+  pre .c{color:#6B7A8F;font-style:italic}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:6px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);background:#FAFBFC}
+
+  .jump{position:sticky;top:0;z-index:40;background:rgba(245,247,250,.94);backdrop-filter:blur(6px);
+        border-bottom:1px solid var(--line);padding:10px 20px;margin:0 -20px 20px;display:flex;gap:8px;
+        flex-wrap:wrap;align-items:center}
+  .jump a{font-size:12.5px;font-weight:600;text-decoration:none;color:var(--navy);background:#fff;
+          border:1px solid var(--line);padding:6px 11px;border-radius:999px}
+  .jump a.rec{background:var(--lime);border-color:var(--lime);color:#000}
+  .jump span{font-size:12px;color:var(--muted)}
+
+  /* variant block */
+  .variant{border:1px solid var(--line);border-radius:14px;padding:18px;margin:0 0 16px;background:#FCFDFE}
+  .variant.today{border-color:#FECDCA;background:#FFFCFC}
+  .variant.rec{border-color:#D6F5AE;background:#FBFFF4}
+  .vhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .vhead h4{margin:0;font-size:15px;color:var(--navy)}
+  .render{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
+  @media(max-width:900px){.render{grid-template-columns:1fr}}
+  .rlabel{font-size:10.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:#98A2B3;margin:0 0 7px}
+
+  /* web surface the card sits on */
+  .websurface{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px}
+  .mobsurface{width:340px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
+
+  /* ---- web knowledge cards (real tokens) ---- */
+  .kw{border:1px solid var(--k-border);background:var(--k-bg);border-radius:16px}
+  .kw.compact{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .kw .kt{font-size:14.5px;font-weight:600;color:var(--k-title);margin:0}
+  .kw .kb{font-size:12.5px;color:var(--k-body);margin:3px 0 0;line-height:1.5}
+  .kcta{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:var(--lime);
+        padding:8px 16px;font-size:13px;font-weight:700;color:var(--ink);flex:none}
+  @media(max-width:640px){.kw.compact{flex-direction:column;align-items:flex-start}}
+  .kw.sum{padding:16px;display:flex;align-items:flex-start;gap:10px}
+  .kw.sum .ck{flex:none;width:16px;height:16px;margin-top:1px;color:var(--k-ok)}
+  .kw.sum p{margin:0;font-size:12.5px;color:var(--k-ok);line-height:1.6}
+  .kw.sum u{font-weight:600;white-space:nowrap}
+
+  /* ---- mobile knowledge cards (real tokens) ---- */
+  .mkw{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+  .mkw .kt{font-size:16px;font-weight:700;color:var(--navy);margin:0}
+  .mkw .kb{font-size:13px;color:var(--muted);margin:8px 0 12px;line-height:1.46}
+  .mbtn{background:var(--lime);color:var(--lime-ink);border-radius:12px;min-height:44px;display:flex;
+        align-items:center;justify-content:center;font-size:14px;font-weight:700}
+  .mban{background:#F0FFE1;border:1px solid #F0FFE1;border-radius:12px;padding:12px;display:flex;gap:8px;
+        align-items:flex-start}
+  .mban p{margin:0;font-size:13.5px;line-height:1.42;color:#2F7D00}
+  .mlink{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);
+         border-radius:16px;padding:14px 16px;margin-top:8px}
+  .mlink span{font-size:15px;font-weight:600;color:var(--navy)}
+  .mlink i{color:var(--muted);font-style:normal}
+
+  /* state rows for the summary */
+  .states{display:grid;gap:10px;margin-top:4px}
+  .srow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center}
+  @media(max-width:760px){.srow{grid-template-columns:1fr}}
+  .scond{font-size:11.5px;font-weight:700;color:var(--navy);background:#EEF3FA;border:1px solid #D9E4F2;
+         border-radius:8px;padding:6px 9px;text-align:center}
+  .scond.bug{background:#FFF1F0;border-color:#FECDCA;color:#B42318}
+
+  .crit{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:760px){.crit{grid-template-columns:1fr}}
+  .cbox{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#fff}
+  .cbox h5{margin:0 0 7px;font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--navy)}
+  .cbox ul{margin:0;padding-left:17px}
+  .cbox li{font-size:13.5px;margin-bottom:5px;color:#3a3a3a}
+  .cbox.bad{border-color:#FECDCA;background:#FFFBFA}
+  .cbox.good{border-color:#D6F5AE;background:#FBFFF4}
+
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .fact{font-size:12.5px;font-weight:600;color:var(--navy);background:#F4FFE4;border:1px solid #D7F4AE;
+        border-radius:999px;padding:6px 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Knowledge nudge — the wording</h1>
+  <p class="lede">
+    Today's copy beside each proposal, rendered in the real cards on both platforms. Placement is settled
+    (Option A: invite at the top, summary at the bottom) — this page decides only the words.
+  </p>
+
+  <div class="jump">
+    <span>Jump:</span>
+    <a href="#knows">What it already knows</a>
+    <a href="#invite" class="rec">The invite</a>
+    <a href="#summary" class="rec">The summary</a>
+    <a href="#defects">Two defects being fixed</a>
+    <a href="#json">Exact strings</a>
+  </div>
+
+  <!-- ============ WHAT IT ALREADY KNOWS ============ -->
+  <section id="knows">
+    <div class="sechead"><h2>Why the reframe — what it already knows with zero documents</h2></div>
+    <p class="sub">
+      Every one of these is embedded in the call's opening prompt before a single knowledge document exists
+      (<code>RealtimeSessionPayloadBuilder.cs</code>). The prompt calls the profile
+      “complete and authoritative” and tells the model to answer from it <b>instantly, never with a tool</b>:
+    </p>
+    <div class="facts">
+      <span class="fact">Business name</span>
+      <span class="fact">Description</span>
+      <span class="fact">Every service</span>
+      <span class="fact">Spoken price per service</span>
+      <span class="fact">Duration per service</span>
+      <span class="fact">Weekly working hours</span>
+      <span class="fact">Service areas</span>
+      <span class="fact">Addresses</span>
+      <span class="fact">Other branch locations</span>
+      <span class="fact">Active offers</span>
+      <span class="fact">Currency</span>
+      <span class="fact">Online-booking flag</span>
+      <span class="fact">Rating</span>
+    </div>
+    <div class="note warn">
+      So “knows 3 documents and 5 FAQs” describes a fraction of what it knows — and implicitly tells the provider
+      their seven onboarding steps didn't count. Your own <b>AI Knowledge</b> page already gets this right:
+      <code>knowledge.pageSubtitle</code> says “What your AI receptionist knows about your business
+      <b>beyond your services</b>”. The nudge is the only place that lost that framing.
+    </div>
+  </section>
+
+  <!-- ============ THE INVITE ============ -->
+  <section id="invite">
+    <div class="sechead"><h2>The invite — shown when they have no knowledge yet</h2></div>
+    <p class="sub">Top slot on web (compact one-row variant), a Card on mobile.</p>
+
+    <!-- TODAY -->
+    <div class="variant today">
+      <div class="vhead"><h4>Today</h4><span class="tag bad">ships now</span></div>
+      <div class="render">
+        <div>
+          <p class="rlabel">Web · top slot</p>
+          <div class="websurface">
+            <div class="kw compact">
+              <div>
+                <p class="kt">Help your receptionist know your business inside out</p>
+                <p class="kb">The more it knows, the better it helps your callers. Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+              </div>
+              <span class="kcta">Add your knowledge <span>→</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="rlabel">Mobile · 340px</p>
+          <div class="mobsurface">
+            <div class="mkw">
+              <p class="kt">Help your receptionist know your business inside out</p>
+              <p class="kb">The more it knows, the better it helps your callers. Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+              <div class="mbtn">Add your knowledge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox bad">
+          <h5>What's wrong with it</h5>
+          <ul>
+            <li>“know your business inside out” implies it <i>doesn't</i> — the same false framing you caught in the summary.</li>
+            <li>“The more it knows, the better it helps your callers” is a truism. The most valuable line says something the reader already assumes.</li>
+            <li>No example of a question it <b>can't</b> answer today — the one thing that would make a provider think “people do ask that”.</li>
+            <li>“inside out” is an idiom → translates badly into hi / gu / fr / es.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>What's good, and kept</h5>
+          <ul>
+            <li>“in your own words” — the real differentiator. Kept in every proposal.</li>
+            <li>Naming the concrete document types (price lists, policies, spec sheets, FAQs) — they match the actual upload types in the feature.</li>
+            <li>Warm, non-technical register.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 1 -->
+    <div class="variant rec">
+      <div class="vhead"><h4>Option 1 — “teach it the rest”</h4><span class="tag">recommended</span></div>
+      <div class="render">
+        <div>
+          <p class="rlabel">Web · top slot</p>
+          <div class="websurface">
+            <div class="kw compact">
+              <div>
+                <p class="kt">Your receptionist already knows your services — teach it the rest</p>
+                <p class="kb">Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words.</p>
+              </div>
+              <span class="kcta">Add your knowledge <span>→</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="rlabel">Mobile · 340px</p>
+          <div class="mobsurface">
+            <div class="mkw">
+              <p class="kt">Your receptionist already knows your services — teach it the rest</p>
+              <p class="kb">Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words.</p>
+              <div class="mbtn">Add your knowledge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox good">
+          <h5>Why</h5>
+          <ul>
+            <li>Credits the setup they already did, then opens a curiosity gap — “what rest?”</li>
+            <li>Replaces the truism with three real caller questions, so the value is concrete before they click.</li>
+            <li>“what a service list can't answer” does the framing <i>and</i> justifies the feature in one clause.</li>
+            <li>No idiom anywhere → clean translation into all five languages.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>Cost</h5>
+          <ul>
+            <li>Body is ~205 chars vs 168 today — one extra line on mobile.</li>
+            <li>Title is longer, wraps to two lines under ~520px.</li>
+            <li>Says “your services” while the summary says “your Clinket profile” — see 1b.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 1b -->
+    <div class="variant rec">
+      <div class="vhead"><h4>Option 1b — same body, title aligned to summary A2</h4><span class="tag">recommended if you take A2</span></div>
+      <p class="sub" style="margin-bottom:12px">
+        One word changed from Option 1, so both states describe the same thing the same way: the invite promises
+        “knows your Clinket profile”, and the summary confirms it.
+      </p>
+      <div class="render">
+        <div>
+          <p class="rlabel">Web · top slot</p>
+          <div class="websurface">
+            <div class="kw compact">
+              <div>
+                <p class="kt">Your receptionist already knows your Clinket profile — teach it the rest</p>
+                <p class="kb">Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words.</p>
+              </div>
+              <span class="kcta">Add your knowledge <span>→</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="rlabel">Mobile · 340px</p>
+          <div class="mobsurface">
+            <div class="mkw">
+              <p class="kt">Your receptionist already knows your Clinket profile — teach it the rest</p>
+              <p class="kb">Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words.</p>
+              <div class="mbtn">Add your knowledge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox good">
+          <h5>Why</h5>
+          <ul>
+            <li>The two states now use one consistent noun for “what you set up” — a provider reads the same promise before and after.</li>
+            <li>Slightly more accurate than “your services”: it also knows hours, areas, offers and addresses.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>Cost</h5>
+          <ul>
+            <li>“profile” is a shade more abstract than “services” in a title whose job is instant recognition.</li>
+            <li>Two extra characters; same wrap behaviour as Option 1.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 2 -->
+    <div class="variant">
+      <div class="vhead"><h4>Option 2 — question-led</h4><span class="tag n">more direct</span></div>
+      <div class="render">
+        <div>
+          <p class="rlabel">Web · top slot</p>
+          <div class="websurface">
+            <div class="kw compact">
+              <div>
+                <p class="kt">Answer the questions your service list can't</p>
+                <p class="kb">It already has your services, prices and hours. Add your policies, price lists, spec sheets or FAQs so it can also answer cancellation terms, what's included, and your guarantees — in your own words.</p>
+              </div>
+              <span class="kcta">Add your knowledge <span>→</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="rlabel">Mobile · 340px</p>
+          <div class="mobsurface">
+            <div class="mkw">
+              <p class="kt">Answer the questions your service list can't</p>
+              <p class="kb">It already has your services, prices and hours. Add your policies, price lists, spec sheets or FAQs so it can also answer cancellation terms, what's included, and your guarantees — in your own words.</p>
+              <div class="mbtn">Add your knowledge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox">
+          <h5>Why</h5>
+          <ul>
+            <li>Shortest title of the three, and it states the gap itself — the most direct statement of purpose.</li>
+            <li>The reassurance moves into the body, so the title stays punchy.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>Cost</h5>
+          <ul>
+            <li>Blunter, less warm than the rest of this app's voice.</li>
+            <li>Leads with what the product <i>can't</i> do — a negative opening.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE SUMMARY ============ -->
+  <section id="summary">
+    <div class="sechead"><h2>The summary — shown once they have knowledge</h2></div>
+    <p class="sub">
+      Bottom slot on web, a success Banner + “Manage” row on mobile. Each variant is shown in all three real
+      count combinations, because the block renders whenever docs <b>or</b> FAQs exist — so one count can be zero.
+    </p>
+
+    <!-- TODAY -->
+    <div class="variant today">
+      <div class="vhead"><h4>Today</h4><span class="tag bad">ships now</span><span class="tag bad">renders “0 FAQs”</span></div>
+      <p class="rlabel">Web · bottom slot</p>
+      <div class="states">
+        <div class="srow">
+          <div class="scond">3 docs · 5 FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond bug">3 docs · no FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and <b>0 FAQs</b>. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond bug">1 doc · no FAQs · mobile</div>
+          <div class="mban" style="max-width:520px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows <b>1 documents</b> and <b>0 FAQs</b>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="note stop">
+        <b>Both of those bottom rows are live behaviour, not hypotheticals.</b> Web has ICU plurals so it gets
+        “1 document” right but still prints “0 FAQs”. Mobile has <i>no</i> plural handling at all —
+        <code>"knows {{docCount}} documents and {{faqCount}} FAQs."</code> — so it renders “1 documents”.
+        Fixed in every option below.
+      </div>
+    </div>
+
+    <!-- A -->
+    <div class="variant rec">
+      <div class="vhead"><h4>Option A — “already knows your services, prices and hours”</h4><span class="tag">recommended</span></div>
+      <p class="rlabel">Web · bottom slot</p>
+      <div class="states">
+        <div class="srow">
+          <div class="scond">3 docs · 5 FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your services, prices and hours — plus the 3 documents and 5 FAQs you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">3 docs · no FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your services, prices and hours — plus the 3 documents you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">1 doc · 1 FAQ</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your services, prices and hours — plus the 1 document and 1 FAQ you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+      </div>
+      <p class="rlabel" style="margin-top:16px">Mobile · 340px</p>
+      <div class="mobsurface">
+        <div class="mban">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+          <p>Your receptionist already knows your services, prices and hours — plus the 3 documents and 5 FAQs you've added.</p>
+        </div>
+        <div class="mlink"><span>Manage your knowledge</span><i>›</i></div>
+      </div>
+      <div class="crit">
+        <div class="cbox good">
+          <h5>Why</h5>
+          <ul>
+            <li>Leads with the correction — the count becomes an <b>addition</b>, not the total.</li>
+            <li>Names the three things a provider most wants confidence about: services, prices, hours.</li>
+            <li>“you've added” gives them credit for the work.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>Cost</h5>
+          <ul>
+            <li>Longest of the three — two lines on web, three on mobile.</li>
+            <li>Doesn't name Clinket, and omits offers — both fixed in A2 below.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- A2 -->
+    <div class="variant rec">
+      <div class="vhead"><h4>Option A2 — names Clinket, includes offers</h4><span class="tag">recommended (supersedes A)</span><span class="tag n">your revision</span></div>
+      <p class="sub" style="margin-bottom:12px">
+        Your two additions adopted — the brand name and offers — but with an umbrella noun instead of
+        <code>i.e. … etc.</code> Compare the top row (as literally proposed) with the rest.
+      </p>
+      <p class="rlabel">Web · bottom slot</p>
+      <div class="states">
+        <div class="srow">
+          <div class="scond bug">as proposed, with i.e./etc.</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows what you have set up in Clinket, <b>i.e.</b> services, prices, hours and offers, <b>etc.</b> — plus the 3 documents and 5 FAQs you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">A2 · 3 docs · 5 FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the 3 documents and 5 FAQs you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">A2 · 3 docs · no FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the 3 documents you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">A2 · 1 doc · 1 FAQ</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the 1 document and 1 FAQ you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="rlabel" style="margin-top:18px">Mobile · 340px — the length cost, honestly</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div class="mobsurface">
+          <p class="rlabel" style="color:#B42318">As proposed · 156 chars</p>
+          <div class="mban">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows what you have set up in Clinket, i.e. services, prices, hours and offers, etc. — plus the 3 documents and 5 FAQs you've added.</p>
+          </div>
+          <div class="mlink"><span>Manage your knowledge</span><i>›</i></div>
+        </div>
+        <div class="mobsurface">
+          <p class="rlabel" style="color:#2F7D00">A2 · 133 chars</p>
+          <div class="mban">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the 3 documents and 5 FAQs you've added.</p>
+          </div>
+          <div class="mlink"><span>Manage your knowledge</span><i>›</i></div>
+        </div>
+      </div>
+
+      <div class="crit">
+        <div class="cbox good">
+          <h5>Why A2 over the i.e./etc. version</h5>
+          <ul>
+            <li>“your Clinket profile” <b>is</b> the whole set, so the dash-list reads as examples on its own — nothing has to signal incompleteness.</li>
+            <li>“etc.” reads as trailing off. In the one line whose job is reassurance, that costs confidence.</li>
+            <li>“i.e.” means <i>that is, precisely</i>; an example list needs “e.g.” The “etc.” proves they're examples.</li>
+            <li>No Latin abbreviations to survive translation into fr / es / hi / gu — hi and gu have no natural equivalent.</li>
+            <li>“profile” is the app's own word — the page is literally titled <b>My Profile</b>.</li>
+          </ul>
+        </div>
+        <div class="cbox">
+          <h5>What your version was right about</h5>
+          <ul>
+            <li><b>Naming Clinket</b> — anchors the knowledge to the account they set up. Adopted.</li>
+            <li><b>Including offers</b> — factually in the profile payload (<code>activeOffers</code>) and their own sidebar label. Adopted.</li>
+            <li>Signalling the list isn't exhaustive — right instinct, achieved by the umbrella noun instead.</li>
+            <li>Honest note: 23 chars shorter still lands on 4 lines at 340px. The saving buys clarity, not a line.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>If you want it quieter</b> — the umbrella alone, no examples, 100 chars:<br>
+        “Your receptionist already knows your Clinket profile — plus the 3 documents and 5 FAQs you've added.”<br>
+        <b>Or without the brand name</b>, 118 chars:
+        “Your receptionist already knows your services, prices, hours and offers — plus the 3 documents and 5 FAQs you've added.”
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="variant">
+      <div class="vhead"><h4>Option B — tighter</h4><span class="tag n">~30% shorter</span></div>
+      <div class="states">
+        <div class="srow">
+          <div class="scond">3 docs · 5 FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Answering from your services, prices and hours — plus 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">3 docs · no FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Answering from your services, prices and hours — plus 3 documents. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox"><h5>Why</h5><ul>
+          <li>Fits one line at most widths; the quiet confirmation stays quiet.</li>
+          <li>Same corrected framing as A.</li>
+        </ul></div>
+        <div class="cbox"><h5>Cost</h5><ul>
+          <li>Drops “you've added”, so it loses the credit-giving note.</li>
+          <li>“Answering from…” is a fragment, not a sentence — slightly clipped for this app's voice.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="variant">
+      <div class="vhead"><h4>Option C — minimal edit</h4><span class="tag n">closest to today</span></div>
+      <div class="states">
+        <div class="srow">
+          <div class="scond">3 docs · 5 FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>On top of your profile, your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">3 docs · no FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>On top of your profile, your receptionist knows 3 documents. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox"><h5>Why</h5><ul><li>Smallest diff from today's string.</li></ul></div>
+        <div class="cbox bad"><h5>Cost</h5><ul>
+          <li>“your profile” is vague — it does far less reassuring than naming services, prices and hours.</li>
+          <li>Still leads with the count, so the file-count feeling you objected to largely survives.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="variant">
+      <div class="vhead"><h4>Option D — drop the counts entirely</h4><span class="tag q">simplest to localize</span></div>
+      <div class="states">
+        <div class="srow">
+          <div class="scond">any docs + FAQs</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your services, prices and hours — plus the documents and FAQs you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="scond">docs only</div>
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist already knows your services, prices and hours — plus the documents you've added. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cbox"><h5>Why</h5><ul>
+          <li>No numbers ⇒ no plurals, no interpolation, no “1 documents” class of bug ever again. Three plain strings per language.</li>
+          <li>Impossible to get wrong in any of the five languages.</li>
+        </ul></div>
+        <div class="cbox bad"><h5>Cost</h5><ul>
+          <li>Loses the reassurance that the upload actually landed — the count is what confirms “my 3 files are in”.</li>
+          <li>No sense of scale, so a provider can't tell 1 document from 20 without opening the page.</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEFECTS ============ -->
+  <section id="defects">
+    <div class="sechead"><h2>Two defects fixed on the way through</h2><span class="tag bad">live today</span></div>
+    <table>
+      <tr><th>Defect</th><th>Where</th><th>Renders as</th><th>Fix</th></tr>
+      <tr>
+        <td>The block shows when docs <b>or</b> FAQs exist, but the string always prints both counts</td>
+        <td>Web + mobile</td>
+        <td><code>knows 3 documents and 0 FAQs</code></td>
+        <td>Three sentence shells picked in code — both / docs-only / FAQs-only. Handles every combination without nested ICU.</td>
+      </tr>
+      <tr>
+        <td>Mobile has no pluralization — the count is raw <code>{{docCount}}</code> interpolation</td>
+        <td>Mobile only</td>
+        <td><code>knows 1 documents and 1 FAQs</code></td>
+        <td>i18next plural fragments (<code>_one</code> / <code>_other</code>) composed into the shell, matching the web ICU plurals. Option D removes the need entirely.</td>
+      </tr>
+    </table>
+    <div class="note">
+      i18next can only pluralize on a single <code>count</code> per key, so two counts in one sentence can't be
+      pluralized inline on mobile. Composing a pluralized fragment per noun is the standard way out — and it keeps
+      each translated string short and natural, which matters given the earlier trouble with machine-translated
+      ICU tokens.
+    </div>
+  </section>
+
+  <!-- ============ JSON ============ -->
+  <section id="json">
+    <div class="sechead"><h2>Exact strings — recommended set (Invite 1b + Summary A2)</h2></div>
+    <p class="sub">What lands in the files if you take both recommendations. Shown for English; fr / es / hi / gu get the
+      same keys with translations, ICU tokens untouched.</p>
+
+    <h3>Partner web — <code>public/lang/en-US.json</code></h3>
+<pre><span class="c">// rewritten in place</span>
+<span class="k">"knowledge.nudge.title"</span>: <span class="s">"Your receptionist already knows your Clinket profile — teach it the rest"</span>,
+<span class="k">"knowledge.nudge.body"</span>:  <span class="s">"Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words."</span>,
+<span class="k">"knowledge.nudge.cta"</span>:   <span class="s">"Add your knowledge"</span>,          <span class="c">// unchanged</span>
+<span class="k">"knowledge.nudge.manage"</span>: <span class="s">"Manage your knowledge"</span>,      <span class="c">// unchanged</span>
+
+<span class="c">// "knowledge.nudge.summary" is DELETED — replaced by three shells</span>
+<span class="k">"knowledge.nudge.summaryBoth"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{docCount, plural, one {# document} other {# documents}}</span> and <span class="i">{faqCount, plural, one {# FAQ} other {# FAQs}}</span> you've added."</span>,
+<span class="k">"knowledge.nudge.summaryDocs"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{docCount, plural, one {# document} other {# documents}}</span> you've added."</span>,
+<span class="k">"knowledge.nudge.summaryFaqs"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{faqCount, plural, one {# FAQ} other {# FAQs}}</span> you've added."</span></pre>
+    <div class="note">
+      <b>Brand spelling is not a choice here:</b> user-facing copy is <b>Clinket</b> — 113 uses in
+      <code>en-US.json</code>, and <code>Clinqet</code> appears <b>zero</b> times. Clinqet is the codebase name only.
+    </div>
+
+    <h3>Partner mobile — <code>src/Locales/en.json</code> (i18next)</h3>
+<pre><span class="k">"NUDGE_TITLE"</span>: <span class="s">"Your receptionist already knows your Clinket profile — teach it the rest"</span>,
+<span class="k">"NUDGE_BODY"</span>:  <span class="s">"Callers ask what a service list can't answer — cancellation terms, what's included, your guarantees. Add policies, price lists, spec sheets or FAQs and it answers from your own material, in your own words."</span>,
+<span class="k">"NUDGE_CTA"</span>:   <span class="s">"Add your knowledge"</span>,
+<span class="k">"NUDGE_MANAGE"</span>: <span class="s">"Manage your knowledge"</span>,
+
+<span class="c">// pluralized fragments — i18next resolves _one / _other from `count`</span>
+<span class="k">"NUDGE_DOCS_one"</span>:   <span class="s">"<span class="i">{{count}}</span> document"</span>,
+<span class="k">"NUDGE_DOCS_other"</span>: <span class="s">"<span class="i">{{count}}</span> documents"</span>,
+<span class="k">"NUDGE_FAQS_one"</span>:   <span class="s">"<span class="i">{{count}}</span> FAQ"</span>,
+<span class="k">"NUDGE_FAQS_other"</span>: <span class="s">"<span class="i">{{count}}</span> FAQs"</span>,
+
+<span class="c">// shells take the resolved fragments</span>
+<span class="k">"NUDGE_SUMMARY_BOTH"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{{docs}}</span> and <span class="i">{{faqs}}</span> you've added."</span>,
+<span class="k">"NUDGE_SUMMARY_DOCS"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{{docs}}</span> you've added."</span>,
+<span class="k">"NUDGE_SUMMARY_FAQS"</span>: <span class="s">"Your receptionist already knows your Clinket profile — services, prices, hours, offers — plus the <span class="i">{{faqs}}</span> you've added."</span>
+
+<span class="c">// "NUDGE_SUMMARY" is DELETED</span></pre>
+
+    <div class="note warn">
+      <b>Correcting what I told you earlier:</b> I said the placement change needed zero new localization keys.
+      That held for placement alone. With the copy fix it's <b>10 files</b> — 5 web + 5 mobile — with values rewritten
+      and the summary key replaced by shells. Still no API, no Cosmos, no SQL, no appsetting, no ARM change.
+      I'll write fr / es / hi / gu myself with tokens intact; you may want a human eye on hi / gu.
+    </div>
+
+    <div class="note">
+      <b>One more, your call:</b> <code>knowledge.empty.title</code> on the AI Knowledge page itself reads
+      “Teach your receptionist about your business” — the same slightly-off framing, though the subtitle right
+      below it already says “beyond your services”, so context rescues it. Cheap to align to
+      “Teach it what your services don't say” while I'm in these files, or leave it alone.
+    </div>
+
+    <div class="note stop">
+      <b>Nothing implemented yet.</b> Pick an invite (1 or 2 or keep today's) and a summary (A / B / C / D),
+      say yes or no on <code>knowledge.empty.title</code> and on tinting the mobile invite card green, and I'll build
+      the whole thing — placement, copy, both platforms — in one pass.
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

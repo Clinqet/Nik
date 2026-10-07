@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minute packs — who can add minutes</title>
+<style>
+  :root { --navy:#032858; --green:#97EF29; --green-ink:#0e7a3a; --mint:#F4FDF9; --ink:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F5F7F9;
+          --red-bg:#FFF7F6; --red-line:#f3b4ad; --red-pill:#FDECEA; --red-ink:#a3261f; --grey-bg:#F3F5F7; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--page); color:var(--ink); font-family:Lufga, "Segoe UI", system-ui, sans-serif; }
+  header.sheet { padding:28px 20px 8px; max-width:1280px; margin:0 auto; }
+  header.sheet h1 { margin:0; font-size:22px; color:var(--navy); }
+  header.sheet p { margin:6px 0 0; color:var(--muted); font-size:14px; line-height:1.55; max-width:900px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:18px; padding:18px 20px 40px; max-width:1280px; margin:0 auto; }
+  .state { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; }
+  .state > h2 { margin:0 0 4px; font-size:13px; letter-spacing:.02em; text-transform:uppercase; color:var(--navy); }
+  .state > .src { margin:0 0 12px; font-size:11.5px; color:var(--muted); line-height:1.5; }
+  .card { border:1px solid var(--line); border-radius:16px; padding:16px; background:#fff; }
+  .card + .card { margin-top:12px; }
+  .card h3 { margin:0; font-size:15px; font-weight:600; }
+  .caption { margin:6px 0 0; font-size:13px; line-height:1.55; color:var(--muted); }
+  .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .chip { display:inline-flex; flex-direction:column; align-items:center; min-width:72px; padding:8px 10px; border-radius:12px; box-shadow:inset 0 0 0 1px var(--line); background:#fff; }
+  .chip.sel { box-shadow:inset 0 0 0 2px var(--green); background:var(--mint); }
+  .chip b { font-size:16px; } .chip span { font-size:12px; color:var(--muted); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border-radius:12px; padding:0 16px; font-weight:700; font-size:13px; border:1px solid var(--line); background:#fff; color:var(--ink); }
+  .btn.green { background:var(--green); border-color:var(--green); }
+  .btn.navy { background:var(--navy); border-color:var(--navy); color:#fff; }
+  .settle { border-color:var(--red-line); background:var(--red-bg); }
+  .settle .top { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+  .pill { display:inline-flex; border-radius:999px; padding:4px 10px; font-size:11px; font-weight:700; }
+  .pill.red { background:var(--red-pill); color:var(--red-ink); }
+  .pill.grey { background:#F1F1F1; color:var(--muted); }
+  .quiet { background:var(--grey-bg); border-color:var(--grey-bg); }
+  .phone { max-width:360px; margin:0 auto; }
+  .phone .btn { width:100%; margin-top:12px; }
+  .app { max-width:360px; margin:0 auto; background:#fff; border-radius:24px; border:1px solid var(--line); padding:14px; }
+  .app .card { border-radius:14px; }
+  .app .badge { width:28px; height:28px; border-radius:8px; background:var(--mint); display:inline-flex; align-items:center; justify-content:center; color:var(--green-ink); font-weight:800; margin-right:8px; }
+  .app .head { display:flex; align-items:flex-start; }
+  .muted { color:var(--muted); font-size:12px; line-height:1.5; text-align:center; margin:10px 0 0; }
+  .ghost { border:2px dashed var(--line); border-radius:16px; padding:18px; text-align:center; color:var(--muted); font-size:12.5px; }
+  table.rule { border-collapse:collapse; font-size:12.5px; width:100%; }
+  table.rule td, table.rule th { border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+  code { font-size:11.5px; }
+  .blue { border-color:#9CCAF1; background:#F2F8FF; }
+  .pill.blue { background:#DCEEFF; color:var(--navy); }
+  .btn.busy { opacity:.8; cursor:wait; }
+  .btn[aria-disabled="true"] { opacity:.6; }
+  .added { border-color:#9CCAF1; }
+  .dot { display:inline-block; width:6px; height:6px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>Minute packs — who can add minutes, and what everyone else sees</h1>
+  <p>Approved by the owner 2026-09-25, in conversation. Governs the minute-pack slot under the AI Assistant on the provider web billing page, and the (currently hidden) "Top up minutes" card in the provider app's Plan &amp; Billing screen. Today the web shows the pack picker to a provider who has no AI Assistant, and to one whose payment failed; the purchase is then refused. This sheet makes the page say what is true instead.</p>
+  <p><strong>Frames 10–18 added 2026-09-26</strong> for "settle first" (FOLLOWUPS-PLAN G1–G5, the owner's decisions 2 and 3 of 2026-09-26), and frames 2–3 updated to lead with Pay now. They draw the states the approved decision describes; the owner has not yet looked at these frames themselves (the register row says so).</p>
+  <p>One rule decides the state, and the server owns it: the same check the purchase uses (<code>ResolveTopUpEligibilityAsync</code>) is shared by the billing overview, which sends one answer — <code>topUpAvailability</code>: Available · SettlePaymentFirst · TrialEnding · NoAssistant. The web and the app never work it out from dates. Words: web keys in <code>public/lang/*.json</code> (en-US, es-US, fr-CA, gu-IN, hi-IN); app keys in <code>src/Locales/*.json</code> (en, es, fr, gu, hi). "Update card" reuses the AI card's existing key and opens the same add-card sheet.</p>
+</header>
+
+<main class="grid">
+
+  <section class="state">
+    <h2>1 · Available — Active, or a free trial that is still running</h2>
+    <p class="src">topUpAvailability = Available · exactly today's section, unchanged (packs for the engine the line runs, auto-recharge below)</p>
+    <div class="card">
+      <h3>Top up minutes</h3>
+      <p class="caption">Out of minutes? Add more anytime. Minutes are added instantly. No subscription.</p>
+      <div class="row"><span class="chip"><b>100</b><span>$14</span></span><span class="chip sel"><b>200</b><span>$24</span></span><span class="chip"><b>350</b><span>$37</span></span><span class="chip"><b>500</b><span>$47</span></span></div>
+      <div class="row"><span class="btn green">Pay $24 · add 200 min</span></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>1b · Available — auto-renewal is off (winding down)</h2>
+    <p class="src">topUpAvailability = Available and aiAddOn.cancelAtPeriodEnd · the picker as in frame 1, plus one line above the pay button · key <code>billing.topup.windingDown</code> · the date is the AI card&#39;s own end date (trial end or period end)</p>
+    <div class="card">
+      <h3>Top up minutes</h3>
+      <p class="caption">Out of minutes? Add more anytime. Minutes are added instantly. No subscription.</p>
+      <div class="row"><span class="chip"><b>100</b><span>$14</span></span><span class="chip sel"><b>200</b><span>$24</span></span><span class="chip"><b>350</b><span>$37</span></span><span class="chip"><b>500</b><span>$47</span></span></div>
+      <p class="caption" style="margin-top:10px;color:#032858">You can use minutes you add until Oct 31, 2026, when your AI Assistant turns off.</p>
+      <div class="row"><span class="btn green">Pay $24 · add 200 min</span></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>2 · Settle first — the AI Assistant payment failed (laptop)</h2>
+    <p class="src">topUpAvailability = SettlePaymentFirst · replaces the picker in the same slot · same red "action needed" tone as the AI card above it · keys <code>billing.topup.settleFirst.title</code>, <code>billing.topup.settleFirst.body</code>, button <code>billing.ai.state.updateCard</code></p>
+    <div class="card settle">
+      <div class="top">
+        <div style="min-width:0">
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h3>Settle your payment to add minutes</h3><span class="pill red">Action needed</span></div>
+          <p class="caption">Minute packs open again as soon as your AI Assistant payment goes through.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="btn green">Pay now</span><span class="btn">Update card</span></div>
+      </div>
+    </div>
+    <p class="src" style="margin-top:10px">Updated 2026-09-26 (G5): Pay now leads (<code>billing.overdue.payNow</code>); Update card beside it. While the bank is processing the payment the sentence becomes <code>billing.overdue.processingAi</code> and there is nothing to press.</p>
+  </section>
+
+  <section class="state">
+    <h2>3 · Settle first — phone width (web under 640px)</h2>
+    <p class="src">Button goes full width; text wraps; nothing else changes</p>
+    <div class="phone">
+      <div class="card settle">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h3>Settle your payment to add minutes</h3><span class="pill red">Action needed</span></div>
+        <p class="caption">Minute packs open again as soon as your AI Assistant payment goes through.</p>
+        <span class="btn green">Pay now</span>
+        <span class="btn">Update card</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>4 · Trial ending — the trial is over, the daily billing run hasn't finished it yet</h2>
+    <p class="src">topUpAvailability = TrialEnding · quiet grey, no button (nothing for the provider to do) · key <code>billing.topup.trialEnding</code> · lasts until the day's billing run turns the trial into a paid plan or switches it off</p>
+    <div class="card quiet">
+      <h3>Top up minutes</h3>
+      <p class="caption">Your free trial has ended. You can add minutes once your paid plan starts.</p>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>5 · No AI Assistant — the slot is gone</h2>
+    <p class="src">topUpAvailability = NoAssistant · no pack section at all · the "Get AI Assistant" / "Start free trial" card above is the one thing to do</p>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>Never miss a call · your AI receptionist</h3><span class="pill grey">30 days free</span></div>
+      <p class="caption">Answers calls, books jobs and sends quotes in your voice, even after hours.</p>
+      <div class="row"><span class="btn green">Start free trial</span></div>
+    </div>
+    <div class="ghost" style="margin-top:12px">No minute-pack section here</div>
+  </section>
+
+  <section class="state">
+    <h2>6 · Loading and errors — unchanged</h2>
+    <p class="src">The slot renders only after the billing overview has loaded and said Available; while it loads the page shows its existing skeleton, and if the overview fails the page shows its existing error. A purchase refused later (settled elsewhere, trial ended meanwhile) still shows the server's own sentence, as today.</p>
+    <table class="rule">
+      <tr><th>What the server sees</th><th>topUpAvailability</th><th>Web slot</th><th>Provider app card</th></tr>
+      <tr><td>AI Assistant Active, auto-renewal on</td><td>Available</td><td>Frame 1</td><td>Frame 7</td></tr>
+      <tr><td>Active or trial, auto-renewal off</td><td>Available</td><td>Frame 1b</td><td>Frame 7 + the same line</td></tr>
+      <tr><td>Free trial, end date still ahead</td><td>Available</td><td>Frame 1</td><td>Frame 7</td></tr>
+      <tr><td>Payment failed (past due)</td><td>SettlePaymentFirst</td><td>Frames 2–3</td><td>Frame 8</td></tr>
+      <tr><td>Trial end date passed, not finished yet</td><td>TrialEnding</td><td>Frame 4</td><td>Frame 9</td></tr>
+      <tr><td>No AI Assistant, or it was switched off</td><td>NoAssistant</td><td>Frame 5</td><td>No card</td></tr>
+    </table>
+  </section>
+
+  <section class="state">
+    <h2>7 · Provider app · Available (card hidden today)</h2>
+    <p class="src">Info only, as now: pack sizes without prices, no buy button. Shown only when <code>topUpAvailability = Available</code>. The whole card stays behind <code>SHOW_AI_ASSISTANT_CARDS = false</code> until that flag is turned on.</p>
+    <div class="app">
+      <div class="card">
+        <div class="head"><span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><div><h3>Top up minutes</h3><p class="caption" style="margin-top:2px">Out of AI voice minutes? Add more anytime, no plan change needed.</p></div></div>
+        <div class="row"><span class="chip"><b>100</b><span>min</span></span><span class="chip"><b>200</b><span>min</span></span><span class="chip"><b>350</b><span>min</span></span><span class="chip"><b>500</b><span>min</span></span></div>
+        <p class="muted">Add top-up minutes from your Clinket Billing page on the web.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>8 · Provider app · Settle first</h2>
+    <p class="src">Same card, the sizes are replaced by one sentence · key <code>PLAN_AND_BILLING.TOPUP_SETTLE_FIRST</code> · no button (payments happen on the web)</p>
+    <div class="app">
+      <div class="card settle">
+        <div class="head"><span class="badge" style="background:var(--red-pill);color:var(--red-ink)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg></span><div><h3>Top up minutes</h3><p class="caption" style="margin-top:2px">Minute packs open again as soon as your AI Assistant payment goes through. Update your card on your Clinket Billing page on the web.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>9 · Provider app · Trial ending</h2>
+    <p class="src">Key <code>PLAN_AND_BILLING.TOPUP_TRIAL_ENDING</code> · same words as web frame 4</p>
+    <div class="app">
+      <div class="card quiet">
+        <div class="head"><span class="badge" style="background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><div><h3>Top up minutes</h3><p class="caption" style="margin-top:2px">Your free trial has ended. You can add minutes once your paid plan starts.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>10 · Overdue AI Assistant — the card (laptop)</h2>
+    <p class="src">aiAddOn.status = PastDue, auto-renewal on · keys <code>billing.overdue.aiBody</code> + <code>billing.overdue.nextTry</code> (date = aiAddOn.nextChargeAt) · Pay now (green, the chosen action) · Update card · Turn off auto-renewal stays (it ends the product; nothing is bought)</p>
+    <div class="card settle">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>AI Assistant · Standard</h3><span class="pill red">Action needed</span></div>
+      <p class="caption">Your AI Assistant is paused until this payment goes through. Minute packs you've bought still work, and calls still ring through to you. We'll try again on Oct 3, 2026.</p>
+      <div class="row"><span class="btn green">Pay now</span><span class="btn">Update card</span><span class="btn">Turn off auto-renewal</span></div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>11 · Pay now pressed — trying your payment</h2>
+    <p class="src">While the request runs: the button says <code>billing.overdue.paying</code>, is busy (aria-busy), and no button can be pressed again. The answer comes back as a toast (frame 16) and the page reloads its state.</p>
+    <div class="card settle">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>AI Assistant · Standard</h3><span class="pill red">Action needed</span></div>
+      <p class="caption">Your AI Assistant is paused until this payment goes through. Minute packs you've bought still work, and calls still ring through to you. We'll try again on Oct 3, 2026.</p>
+      <div class="row"><span class="btn green busy">Trying your payment…</span><span class="btn" aria-disabled="true">Update card</span><span class="btn" aria-disabled="true">Turn off auto-renewal</span></div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>12 · Overdue — the next try is the last</h2>
+    <p class="src">aiAddOn.finalRetry = true (the server's own rule: the next try is the last allowed one, or falls after the grace period) · adds <code>billing.overdue.finalTryAi</code></p>
+    <div class="card settle">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>AI Assistant · Standard</h3><span class="pill red">Action needed</span></div>
+      <p class="caption">Your AI Assistant is paused until this payment goes through. Minute packs you've bought still work, and calls still ring through to you. We'll try again on Oct 3, 2026. That's the last try — if it doesn't go through, your AI Assistant will be switched off.</p>
+      <div class="row"><span class="btn green">Pay now</span><span class="btn">Update card</span><span class="btn">Turn off auto-renewal</span></div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>13 · The bank is processing the payment (India AutoPay)</h2>
+    <p class="src">aiAddOn.paymentProcessing = true · blue, the house colour for processing · pill <code>billing.overdue.processingPill</code> · text <code>billing.overdue.processingAi</code> · nothing to press; the month counts as paid meanwhile, so the assistant answers</p>
+    <div class="card blue">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>AI Assistant · Standard</h3><span class="pill blue">Processing</span></div>
+      <p class="caption">Your bank is processing your AI Assistant payment. Everything keeps working meanwhile, and we'll let you know when it's through.</p>
+    </div>
+    <p class="src" style="margin-top:10px">On a line in good standing whose renewal is with the bank, the "Renews" value reads <code>billing.overdue.renewalProcessing</code> instead of a date.</p>
+  </section>
+
+  <section class="state added">
+    <h2>14 · Overdue plan — the plan card</h2>
+    <p class="src">subscription.status = PastDue · keys <code>billing.overdue.planBody</code> + <code>billing.overdue.nextTry</code> (+ <code>billing.overdue.finalTryPlan</code> on the last try) · the plan stays on while it is retried</p>
+    <div class="card settle">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3>Current plan · Premium</h3><span class="pill red">Action needed</span></div>
+      <p class="caption">We couldn't take the payment for your Premium plan. It stays on while we try again. We'll try again on Oct 3, 2026.</p>
+      <div class="row"><span class="btn green">Pay now</span><span class="btn">Update card</span><span class="btn">Turn off auto-renewal</span></div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>15 · Plans grid while the plan is overdue</h2>
+    <p class="src">Settle first: no other paid plan can be chosen (the server refuses it too, <code>Error_PastDue</code>) · the button is replaced by <code>billing.overdue.planSettleFirst</code> · moving to Free is still offered (it ends the paid plan; nothing is bought)</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div class="card"><h3>Basic</h3><p class="caption">$19/mo</p><p class="caption" style="background:var(--grey-bg);border-radius:12px;padding:8px;text-align:center;font-size:11.5px">Pay your overdue plan payment first to change plans.</p></div>
+      <div class="card"><h3>Free</h3><p class="caption">$0</p><span class="btn" style="width:100%;border-radius:999px">Switch to Free</span></div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>16 · What Pay now answers — the server's own sentence</h2>
+    <p class="src">The toast shows the sentence the server wrote in the provider's language (keys in <code>clinqetinfrastructure/Resources/Localization</code>); the page never re-words it. A card or AutoPay problem also opens the add-card sheet — saving a new default card retries the payment by itself.</p>
+    <table class="rule">
+      <tr><th>Outcome</th><th>Toast</th><th>Then</th></tr>
+      <tr><td>Paid</td><td><code>Success_OverduePaid</code> — "Payment received — thank you. Everything is back on."</td><td>page reloads: normal card</td></tr>
+      <tr><td>The bank is processing it</td><td><code>Success_OverduePaymentProcessing</code></td><td>frame 13</td></tr>
+      <tr><td>The bank said no</td><td><code>Error_PaymentDeclined</code></td><td>grace and next try unchanged</td></tr>
+      <tr><td>No card on file</td><td><code>Error_OverdueNeedsPaymentMethod</code></td><td>add-card sheet opens</td></tr>
+      <tr><td>AutoPay not active / below the charge</td><td><code>Error_OverdueNeedsAutoPay</code> / <code>Error_MandateCapExceeded</code></td><td>set-up sheet opens</td></tr>
+      <tr><td>Nothing overdue any more</td><td><code>Success_NothingOverdue</code></td><td>page reloads</td></tr>
+      <tr><td>Could not try just now</td><td><code>Error_OverduePaymentTryLater</code></td><td>try again later</td></tr>
+    </table>
+    <p class="src" style="margin-top:10px">A new card saved while overdue: toast <code>billing.overdue.cardSavedRetrying</code>, and the page looks again a few seconds later. Make default / remove answer with <code>Success_BillingDefaultPaymentMethodUpdatedRetrying</code> / <code>Success_BillingPaymentMethodRemovedRetrying</code> when a retry was queued.</p>
+  </section>
+
+  <section class="state added">
+    <h2>17 · Provider app · the plan card while overdue (info only)</h2>
+    <p class="src">No Pay now in the app (payments stay on the web; no web hand-off text on iOS) · the active plan's status line: red dot + <code>PLAN_AND_BILLING.PLAN_OVERDUE</code> (+ <code>PLAN_OVERDUE_FINAL</code>), blue dot + <code>PLAN_PAYMENT_PROCESSING</code> · make default / remove show the server's sentence</p>
+    <div class="app">
+      <div class="card">
+        <h3>Premium</h3>
+        <p class="caption"><span class="dot" style="background:var(--red-ink)"></span>We couldn't take your plan payment. It stays on while we try again on Oct 3, 2026.</p>
+      </div>
+      <div class="card">
+        <h3>Premium</h3>
+        <p class="caption"><span class="dot" style="background:var(--navy)"></span>Your bank is processing your plan payment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="state added">
+    <h2>18 · The notice (in-app, push, email)</h2>
+    <p class="src">Two notices now: <code>SubscriptionPaymentFailed_Ai</code> and <code>SubscriptionPaymentFailed_Plan</code> (email templates of the same names, 5 languages) · both carry the next-try date · the button opens Billing</p>
+    <div class="card settle">
+      <h3>Your AI Assistant is paused</h3>
+      <p class="caption">We couldn't take the payment for your AI Assistant, so it's paused until it goes through. Calls still ring through to you. We'll try again on Oct 3, 2026 — or pay now from Billing.</p>
+    </div>
+    <div class="card settle">
+      <h3>We couldn't take your payment</h3>
+      <p class="caption">We couldn't take the payment for your Clinket Premium plan. Your plan stays on while we try again on Oct 3, 2026 — or pay now from Billing.</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

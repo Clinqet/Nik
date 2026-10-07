@@ -1,0 +1,476 @@
+<title>Business Search Voice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ground: #FBFCFA;
+    --surface: #FFFFFF;
+    --surface-sunk: #F3F6F1;
+    --ink: #101F33;
+    --ink-soft: #46545F;
+    --ink-mute: #6B7883;
+    --line: #E1E7DE;
+    --line-firm: #C9D2C6;
+    --brand: #97EF29;
+    --brand-deep: #4E7F12;
+    --warn: #9A5B00;
+    --warn-bg: #FBF1E0;
+    --stop: #A32C2C;
+    --stop-bg: #FAEBEB;
+    --shadow: 0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+
+    --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #0D1410;
+      --surface: #141C18;
+      --surface-sunk: #101711;
+      --ink: #EAF2E6;
+      --ink-soft: #B4C2B6;
+      --ink-mute: #8A9A8D;
+      --line: #253028;
+      --line-firm: #38473B;
+      --brand: #97EF29;
+      --brand-deep: #B8F76A;
+      --warn: #E0A44A;
+      --warn-bg: #2A2013;
+      --stop: #E88A8A;
+      --stop-bg: #2B1717;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1410;
+    --surface: #141C18;
+    --surface-sunk: #101711;
+    --ink: #EAF2E6;
+    --ink-soft: #B4C2B6;
+    --ink-mute: #8A9A8D;
+    --line: #253028;
+    --line-firm: #38473B;
+    --brand: #97EF29;
+    --brand-deep: #B8F76A;
+    --warn: #E0A44A;
+    --warn-bg: #2A2013;
+    --stop: #E88A8A;
+    --stop-bg: #2B1717;
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 40px 24px 96px; }
+
+  header.top { margin-bottom: 40px; }
+  header.top .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); }
+  header.top h1 { font-family: var(--display); font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 8px 0 12px; }
+  header.top p { max-width: 74ch; color: var(--ink-soft); margin: 0; }
+
+  h2.rule { font-family: var(--display); font-size: 19px; margin: 56px 0 6px; display: flex; align-items: baseline; gap: 12px; }
+  h2.rule .n { font-family: var(--mono); font-size: 12px; color: var(--brand-deep); }
+  .lede { color: var(--ink-soft); max-width: 78ch; margin: 0 0 20px; }
+
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); align-items: start; }
+
+  .state { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
+  .state h3 { font-family: var(--display); font-size: 14px; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .state .why { color: var(--ink-mute); font-size: 13px; margin: 0 0 14px; }
+
+  .tag { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line-firm); color: var(--ink-mute); font-weight: 600; }
+  .tag.go { background: color-mix(in oklab, var(--brand) 22%, transparent); border-color: color-mix(in oklab, var(--brand) 55%, transparent); color: var(--brand-deep); }
+  .tag.warn { background: var(--warn-bg); border-color: color-mix(in oklab, var(--warn) 40%, transparent); color: var(--warn); }
+  .tag.stop { background: var(--stop-bg); border-color: color-mix(in oklab, var(--stop) 40%, transparent); color: var(--stop); }
+  .tag.web { color: var(--ink-soft); }
+
+  /* ── the ask box ───────────────────────────────────────────────────────────── */
+  .ask { border: 1px solid var(--line-firm); border-radius: 12px; background: var(--surface); overflow: hidden; }
+  .ask.hot { border-color: var(--brand-deep); box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 30%, transparent); }
+  .ask .row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+  .ask .field { flex: 1; min-width: 0; color: var(--ink); font-size: 14px; }
+  .ask .field.ph { color: var(--ink-mute); }
+  .ask .field.edit { border-bottom: 1px dashed var(--line-firm); padding-bottom: 2px; }
+
+  .mic { width: 34px; height: 34px; flex: none; border-radius: 999px; border: 1px solid var(--line-firm); background: var(--surface-sunk); display: grid; place-items: center; color: var(--ink-soft); }
+  .mic.on { background: var(--brand); border-color: var(--brand); color: #0D1410; }
+  .mic.busy { background: var(--surface-sunk); border-style: dashed; color: var(--ink-mute); }
+  .mic.off { opacity: .45; }
+  .mic svg { width: 17px; height: 17px; }
+
+  .send { flex: none; height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-firm); background: var(--surface-sunk); color: var(--ink-mute); font-family: var(--body); font-size: 13px; font-weight: 600; display: grid; place-items: center; }
+  .send.ready { background: var(--brand); border-color: var(--brand); color: #0D1410; }
+
+  .meter { display: flex; align-items: center; gap: 8px; flex: 1; }
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 18px; }
+  .bars i { width: 3px; border-radius: 2px; background: var(--brand-deep); display: block; }
+  .clock { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+  .clock b { color: var(--ink); font-weight: 600; }
+  .clock.near { color: var(--warn); }
+
+  .dots { display: inline-flex; gap: 4px; }
+  .dots i { width: 5px; height: 5px; border-radius: 999px; background: var(--ink-mute); display: block; }
+
+  .strip { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-top: 1px solid var(--line); background: var(--surface-sunk); font-size: 12.5px; color: var(--ink-soft); flex-wrap: wrap; }
+  .strip.warn { background: var(--warn-bg); color: var(--warn); }
+  .strip.stop { background: var(--stop-bg); color: var(--stop); }
+  .chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line-firm); background: var(--surface); color: var(--ink-soft); }
+  .chip.sel { background: var(--brand); border-color: var(--brand); color: #0D1410; font-weight: 600; }
+  .link { color: var(--brand-deep); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+
+  /* ── phone ─────────────────────────────────────────────────────────────────── */
+  .phones { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
+  .phone { border: 1px solid var(--line-firm); border-radius: 26px; background: var(--surface); padding: 10px; box-shadow: var(--shadow); }
+  .phone .screen { border: 1px solid var(--line); border-radius: 18px; background: var(--ground); min-height: 190px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+  .phone .bar { height: 4px; width: 44px; border-radius: 99px; background: var(--line-firm); margin: 2px auto 6px; }
+  .phone .cap { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; }
+  .sheetTitle { font-family: var(--display); font-size: 13px; color: var(--ink-soft); }
+
+  table.rules { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.rules th, table.rules td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.rules th { font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; }
+  table.rules td:first-child { font-weight: 600; white-space: nowrap; }
+  .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+
+  .note { border-left: 3px solid var(--brand); background: var(--surface); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 16px 0; box-shadow: var(--shadow); }
+  .note b { font-family: var(--display); }
+  .note.stopnote { border-left-color: var(--stop); }
+
+  footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-mute); font-size: 13px; }
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Business Search · P1.5 · mockup for approval</div>
+  <h1>Speaking a question</h1>
+  <p>The member taps the mic, speaks, and <b>reads back what was heard before anything is sent</b>. Every state below
+     is drawn for web and for the phone, because the same rules ship to both in the same session.</p>
+</header>
+
+<div class="note">
+  <b>Three rules the whole design hangs on.</b>
+  <br>① <b>Speak, then see.</b> Not live word-by-word — a ten-second question does not benefit from a held-open
+  connection, and both apps already work this way.
+  <br>② <b>The transcript is never auto-sent.</b> A mis-heard trade term must be correctable before it spends one of
+  the member's questions for the day.
+  <br>③ <b>Nobody picks a language before speaking.</b> The server builds the candidate list from the member's app
+  language, the business's country and the alphabets its own documents use. The picker exists only as a
+  <i>correction</i>, after the fact.
+</div>
+
+<h2 class="rule"><span class="n">01</span> Web — the ask box, state by state</h2>
+<p class="lede">The mic sits inside the ask box, left of Send. Nothing else on the page moves between states.</p>
+
+<div class="grid">
+
+  <div class="state">
+    <h3>Idle <span class="tag">default</span></h3>
+    <p class="why">The mic is one quiet control. No banner, no permission prompt until it is tapped.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field ph">Ask anything about your business…</div>
+        <div class="send">Ask</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Listening <span class="tag go">recording</span></h3>
+    <p class="why">The elapsed time is shown against the cap the <b>server</b> published — never a number the client
+       decided for itself.</p>
+    <div class="ask hot">
+      <div class="row">
+        <div class="mic on" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></div>
+        <div class="meter">
+          <div class="bars"><i style="height:6px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:7px"></i><i style="height:12px"></i><i style="height:17px"></i><i style="height:5px"></i></div>
+          <div class="clock"><b>0:08</b> / 1:00</div>
+        </div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip">Listening — tap the square to stop.</div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Nearly at the cap <span class="tag warn">0:52 / 1:00</span></h3>
+    <p class="why">The clock turns amber in the last ten seconds and the recording stops itself at the cap rather
+       than being refused after the fact.</p>
+    <div class="ask hot">
+      <div class="row">
+        <div class="mic on" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></div>
+        <div class="meter">
+          <div class="bars"><i style="height:11px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:18px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></div>
+          <div class="clock near"><b>0:52</b> / 1:00</div>
+        </div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip warn">Wrapping up in 8 seconds.</div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Transcribing <span class="tag">~1s</span></h3>
+    <p class="why">One short wait, not a spinner with no end. The mic is disabled so a second tap cannot start a
+       recording over the one being sent.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic busy" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="field ph">Writing down what you said…</div>
+        <div class="send">Ask</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Transcript ready <span class="tag go">editable · not sent</span></h3>
+    <p class="why">‼️ The words land in the field, the cursor goes to the end, and <b>Send stays the member's</b>.
+       Nothing is submitted on their behalf.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field edit">What deposit do we take on a keratin treatment?</div>
+        <div class="send ready">Ask</div>
+      </div>
+      <div class="strip">
+        Heard in <span class="chip sel">English</span>
+        <span style="color:var(--ink-mute)">Not right?</span>
+        <span class="chip">ગુજરાતી</span><span class="chip">हिन्दी</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Correcting the language <span class="tag warn">re-transcribes</span></h3>
+    <p class="why">‼️ Not a picker — a <b>correction</b>. One tap re-sends the same recording forced to that single
+       language. Measured: Punjabi speech is identified as Hindi, so for Punjabi this is the only recovery.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic busy" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="field ph">Listening again in ગુજરાતી…</div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip">
+        Heard in <span class="chip">English</span>
+        <span class="chip sel">ગુજરાતી</span><span class="chip">हिन्दी</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Nothing heard <span class="tag warn">empty</span></h3>
+    <p class="why">Silence is not an error and not an empty answer — it says plainly that nothing was picked up.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field ph">Ask anything about your business…</div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip warn">Didn't catch that. Try again, a little closer to the mic.</div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Microphone blocked <span class="tag stop">permission</span></h3>
+    <p class="why">The mic is dimmed and the message says <b>where</b> to fix it. It never re-prompts on every tap.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic off" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/><path d="M4 4l16 16"/></svg></div>
+        <div class="field ph">Type your question instead…</div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip stop">Clinket can't use your microphone. Allow it in your browser settings, then try again.</div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Voice unavailable <span class="tag stop">engine error</span></h3>
+    <p class="why">‼️ The recording is <b>kept</b> and Try again re-sends it. Making somebody speak twice because the
+       service blinked is the wrong answer.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field ph">Type your question instead…</div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip stop">Voice isn't available just now. <span class="link">Try again</span></div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Recording too long <span class="tag warn">refused</span></h3>
+    <p class="why">Only reachable when a clip arrives from outside the timer (a tab suspended mid-recording). The
+       words already typed are never cleared.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field edit">What deposit do we take on</div>
+        <div class="send ready">Ask</div>
+      </div>
+      <div class="strip warn">That recording is too long. Try a shorter question.</div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Browser can't record <span class="tag stop web">web only</span></h3>
+    <p class="why">‼️ The mic is <b>not rendered at all</b> — a control that cannot work is worse than no control.
+       Typing is unaffected and nothing explains itself unprompted.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="field ph">Ask anything about your business…</div>
+        <div class="send">Ask</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <h3>Offline <span class="tag stop">no network</span></h3>
+    <p class="why">Dimmed rather than hidden: the capability exists, the connection does not. It re-enables itself
+       when the connection returns.</p>
+    <div class="ask">
+      <div class="row">
+        <div class="mic off" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <div class="field ph">Ask anything about your business…</div>
+        <div class="send">Ask</div>
+      </div>
+      <div class="strip warn">You're offline. Voice will come back when your connection does.</div>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="rule"><span class="n">02</span> Mobile — the same states, the same rules</h2>
+<p class="lede">The ask box docks above the keyboard; the mic is the same control in the same place. The correction
+   chips wrap onto their own line rather than scrolling sideways.</p>
+
+<div class="phones">
+
+  <div class="phone">
+    <div class="bar"></div>
+    <div class="screen">
+      <div class="sheetTitle">Ask about my business</div>
+      <div style="flex:1"></div>
+      <div class="ask">
+        <div class="row">
+          <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+          <div class="field ph">Ask anything…</div>
+          <div class="send">Ask</div>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Idle</div>
+  </div>
+
+  <div class="phone">
+    <div class="bar"></div>
+    <div class="screen">
+      <div class="sheetTitle">Ask about my business</div>
+      <div style="flex:1"></div>
+      <div class="ask hot">
+        <div class="row">
+          <div class="mic on" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></div>
+          <div class="meter">
+            <div class="bars"><i style="height:7px"></i><i style="height:14px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:8px"></i></div>
+            <div class="clock"><b>0:08</b> / 1:00</div>
+          </div>
+        </div>
+        <div class="strip">Listening — tap to stop.</div>
+      </div>
+    </div>
+    <div class="cap">Listening</div>
+  </div>
+
+  <div class="phone">
+    <div class="bar"></div>
+    <div class="screen">
+      <div class="sheetTitle">Ask about my business</div>
+      <div style="flex:1"></div>
+      <div class="ask">
+        <div class="row">
+          <div class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+          <div class="field edit">ફેશિયલની કિંમત કેટલી છે?</div>
+          <div class="send ready">Ask</div>
+        </div>
+        <div class="strip">
+          Heard in <span class="chip sel">ગુજરાતી</span>
+          <span class="chip">English</span><span class="chip">हिन्दी</span>
+        </div>
+      </div>
+    </div>
+    <div class="cap">Transcript ready — editable, not sent</div>
+  </div>
+
+  <div class="phone">
+    <div class="bar"></div>
+    <div class="screen">
+      <div class="sheetTitle">Ask about my business</div>
+      <div style="flex:1"></div>
+      <div class="ask">
+        <div class="row">
+          <div class="mic off" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/><path d="M4 4l16 16"/></svg></div>
+          <div class="field ph">Type your question…</div>
+          <div class="send">Ask</div>
+        </div>
+        <div class="strip stop">Allow the microphone in Settings to speak your question.</div>
+      </div>
+    </div>
+    <div class="cap">Microphone blocked (OS)</div>
+  </div>
+
+</div>
+
+<h2 class="rule"><span class="n">03</span> The correction chip, precisely</h2>
+<p class="lede">This is the one piece of language UI in the whole feature, and it appears only <i>after</i> a transcript.</p>
+
+<div class="scroll">
+  <table class="rules">
+    <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td>When does it show?</td><td>Only once a transcript exists. Never before speaking, and never as a gate.</td></tr>
+      <tr><td>What are the options?</td><td><b>Exactly what the server said it chose from</b> — the response carries the candidate list. The client never keeps a language list of its own.</td></tr>
+      <tr><td>How many?</td><td>Whatever the server sent, capped there (default 4). One is already selected: the one that was heard.</td></tr>
+      <tr><td>What does a tap do?</td><td>Re-sends <b>the same recording</b> forced to that one language. The member does not speak again.</td></tr>
+      <tr><td>Does it change the answer language?</td><td><b>No.</b> The answer is always in the language of the question. This only changes how the audio was read.</td></tr>
+      <tr><td>Is it ever pre-opened?</td><td>No. Low confidence does not open it — that would tell every provider with an accent that something is wrong.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="note stopnote">
+  <b>Why the chip is not optional.</b> Measured on live Azure, 2026-09-02: Gurmukhi speech was identified as
+  <i>Hindi</i> and written out in Devanagari — <b>even with <span class="tag">pa-IN</span> in the candidate list</b>.
+  It did not fail; it produced readable, wrong-script text. For a Punjabi-speaking provider the chip is the only
+  recovery that exists.
+</div>
+
+<h2 class="rule"><span class="n">04</span> What this settles</h2>
+<div class="grid">
+  <div class="state">
+    <h3>The mic never sends anything</h3>
+    <p class="why">Speech only ever fills the field. Every path to an answer still goes through the member pressing
+       Ask, so a mis-heard word costs nothing.</p>
+  </div>
+  <div class="state">
+    <h3>No number is hardcoded in a client</h3>
+    <p class="why">The recording cap, the size cap, the accepted formats and the language options are all delivered
+       by the server. A client constant is how the copy and the rule drift apart.</p>
+  </div>
+  <div class="state">
+    <h3>Nobody picks a language to speak</h3>
+    <p class="why">The candidate list is built from what the server already knows. The only language control in the
+       feature is a correction, after the fact.</p>
+  </div>
+</div>
+
+<footer>
+  Mockup for approval — no integrated UI code has been written against it. Cards, panels and the phone frames use
+  the platform's own tokens: navy ink, brand green for the chosen action.
+</footer>
+
+</div>

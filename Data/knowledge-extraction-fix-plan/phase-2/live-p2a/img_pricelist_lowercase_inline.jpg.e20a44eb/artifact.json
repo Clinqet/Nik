@@ -1,0 +1,99 @@
+{
+  "contentHash": "88AA6D4C9EFFC24A9CEB627B721DAA8B6D1568901562F046B504F1576424223F",
+  "pipelineFingerprint": "eec9fe5bb9c749d9ba2494d2ca9ab488:a12a037a5b0a4190943a0d93da909a37:153be38764c440b1ade6240b2a0dd090:cap=1",
+  "docName": "img_pricelist_lowercase_inline.jpg",
+  "pageCount": 1,
+  "docTitle": "Nail Bar Price List",
+  "docSummary": "Nail bar services and prices: classic manicure, gel manicure, spa pedicure, acrylic full set, nail art per nail, and polish change.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "nail bar",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "classic manicure $30\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "gel manicure $45\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "spa pedicure $45\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "acrylic full set $65\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "nail art per nail $3\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "polish change $15\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "A nail bar service price list: “nail bar”, “classic manicure $30”, “gel manicure $45”, “spa pedicure $45”, “acrylic full set $65”, “nail art per nail $3”, and “polish change $15”."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "88aa6d4c9effc24a",
+      "contentHash": "88aa6d4c9effc24a9ceb627b721daa8b6d1568901562f046b504f1576424223f",
+      "blobPath": "SX3SG2/_images/e20a44eb9cce470abf36e0f05b3b0d89/88aa6d4c9effc24a.jpg",
+      "width": 1419,
+      "height": 765,
+      "bytes": 48905,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "nail bar"
+    }
+  ],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

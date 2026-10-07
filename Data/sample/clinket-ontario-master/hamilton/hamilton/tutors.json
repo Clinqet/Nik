@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Hamilton",
+    "category": "tutors",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "hamilton-hamilton-tutor-hamilton",
+      "businessName": "Tutor Hamilton",
+      "description": "In-home and online tutoring in Hamilton, Ancaster and Burlington. Math, reading, chemistry and all subjects. Free first lesson; from $35/hr online.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": null,
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://tutorhamilton.com/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Ancaster",
+        "Burlington",
+        "Dundas",
+        "Stoney Creek",
+        "Waterdown",
+        "Westdale",
+        "Mountain"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Hamilton",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "tutors",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "In-Home Tutoring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "hourly",
+            "amount": 39,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": "from $39/hr"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Online Tutoring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "hourly",
+            "amount": 35,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": "from $35/hr"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Math Tutoring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Reading & Literacy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Chemistry & Biology",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [
+        {
+          "title": "Free first lesson",
+          "description": "First lesson free",
+          "validUntil": null
+        }
+      ],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://tutorhamilton.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": false,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "No public phone on homepage; contact via website form."
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

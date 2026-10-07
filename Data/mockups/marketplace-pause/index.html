@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listing controls — promote on Clinket, pause my listing — provider web + phone</title>
+<style>
+  :root{
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --green-soft:#F3FBEA; --amber:#F5A623; --amber-ink:#78350F; --amber-soft:#FFFBEB; --amber-line:#FDE68A;
+    --blue:#2F80ED; --red:#FF3B30; --paper:#FFFFFF; --card:#F5F5F5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header.sheet p{margin:0;opacity:.85;max-width:84ch}
+  main{padding:24px 32px 64px;max-width:1500px;margin:0 auto}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+  .lede{color:var(--muted);margin:6px 0 16px;max-width:96ch}
+  .row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .web{width:440px}
+  .wide{width:920px}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B}
+  .pad{padding:16px}
+  /* house widgets */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+  .card+.card{margin-top:10px}
+  .card .t{font-size:14px;font-weight:600;color:var(--body)}
+  .card .h{font-size:12px;color:var(--muted);margin-top:3px}
+  .hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .sw{width:44px;height:24px;border-radius:999px;background:#CFCFCF;position:relative;flex:none;margin-top:2px}
+  .sw i{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+  .sw.on{background:var(--green)} .sw.on i{left:22px}
+  .sw.dis{opacity:.45}
+  .panel{margin-top:12px;border-radius:12px;padding:11px 14px;font-size:12px;line-height:16px}
+  .panel.amber{background:var(--amber-soft);border:1px solid var(--amber-line);color:#92400E}
+  .panel.amber b{color:var(--amber-ink);font-size:14px;display:block;margin-bottom:6px}
+  .panel.grey{background:#FCFCFC;border:1px solid var(--line);color:var(--muted)}
+  .panel.grey b{color:#919191;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px;font-weight:600}
+  .panel ul{margin:4px 0 0;padding-left:18px} .panel li{margin:3px 0}
+  .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+  .pill.amber{background:#FFF6E5;color:#8A5A00;border:1px solid #FFE2AC}
+  .pill.green{background:var(--green-soft);color:#2F6B00;border:1px solid #D6F0B4}
+  .pill.grey{background:#F1F2F4;color:var(--muted);border:1px solid var(--line)}
+  .banner{display:flex;gap:10px;align-items:flex-start;border-radius:16px;padding:12px 14px;margin:0 0 12px}
+  .banner.amber{background:var(--amber-soft);border:1px solid var(--amber-line)}
+  .banner .ic{width:28px;height:28px;border-radius:50%;background:var(--amber);color:#0a0a0a;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+  .banner .tx{flex:1;font-size:13px;color:var(--amber-ink)} .banner .tx b{display:block;font-size:14px}
+  .btn{display:inline-block;border-radius:12px;padding:10px 15px;font-size:14px;font-weight:600;border:1px solid transparent;white-space:nowrap}
+  .btn.green{background:var(--green);color:var(--body)}
+  .btn.out{background:var(--paper);border-color:var(--line);color:var(--body)}
+  .btn.dis{background:#E7E7E7;color:var(--muted)}
+  .btn.sm{padding:7px 12px;font-size:13px}
+  .dialog{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 12px 32px rgba(3,40,88,.14)}
+  .dialog h3{margin:0 0 6px;color:var(--ink);font-size:16px}
+  .dialog p{margin:0 0 10px;color:var(--muted);font-size:13px}
+  .dialog .acts{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+  .sheetp{background:var(--paper);border-top-left-radius:20px;border-top-right-radius:20px;padding:14px 16px 18px;border-top:1px solid var(--line)}
+  .grab{width:44px;height:4px;border-radius:2px;background:#D9D9D9;margin:0 auto 12px}
+  .skel{background:linear-gradient(90deg,#EEF0F3 25%,#F7F8FA 37%,#EEF0F3 63%);border-radius:5px;height:11px}
+  .err{color:#B42318;font-size:12px;margin-top:8px}
+  .spin{display:inline-block;width:14px;height:14px;border:2px solid #D9D9D9;border-top-color:var(--ink);border-radius:50%;vertical-align:-3px;margin-right:6px}
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  .rule{background:var(--green-soft);border:1px solid #D6F0B4;border-left:4px solid var(--green);padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  table.words{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  table.words th,table.words td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.words th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px;color:#333}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink)}
+  .home .tile{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}
+  .home .tile .k{font-size:11px;color:var(--muted)} .home .tile .v{font-size:20px;font-weight:700;color:var(--ink)}
+  .tiny{font-size:11px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+
+<header class="sheet">
+  <h1>Pause my listing</h1>
+  <p>A business can step out of Clinket search, suggestions, city pages and quote matching for a while and come
+     back with one tap. Nothing else changes: their own Clinket page link keeps working, bookings through that link
+     keep landing, their phone receptionist keeps answering, and Ask Clinket keeps working for the team. This sheet
+     draws the control, what it says, and every state it can be in, on the provider web app and the provider phone
+     app. Search-side, the backend already honours the pause today (the <code>isListed</code> field is written by
+     both indexers and required by every customer-facing filter); only the control that sets it is new.</p>
+</header>
+
+<main>
+
+<div class="rule">
+  <b>Where it lives, and why.</b> The control is a third card on the <b>Business details</b> page, directly under
+  “Show my business in Clinket search”, because the three switches on that page answer three sibling questions:
+  <i>appear in search or not</i> · <i>temporarily closed or open</i> · <i>take online bookings or calls only</i>.
+  Unlike its two siblings it <b>saves the moment you confirm</b>, through its own request, not with the page's
+  “Save changes” button: a provider leaving on holiday must not have to re-save their whole profile, and a
+  provider coming back must not find the pause still on because a form was left unsaved. While paused, an
+  <b>amber banner</b> sits at the top of every dashboard page (web) and of the home tab (phone), with the
+  Resume action on it, so a forgotten pause is impossible to miss on the next sign-in.
+</div>
+
+<div class="note">
+  <b>What pausing does not do</b> (and the words on the screen say so): it does not touch existing bookings,
+  leads or conversations; it does not hide the business's own Clinket page from anyone who has its link; it does
+  not affect Google or other search engines; it does not stop the phone receptionist; it does not stop the team's
+  own Ask Clinket. The Insights scores are frozen while paused, never lowered. Resume takes effect within a couple
+  of minutes as search catches up (the same delay any profile change has today).
+</div>
+
+<!-- ============================================================ -->
+<h2>0 · “Promote my business on Clinket” — the existing card, reworded <span class="n">owner decision 2026-09-21</span></h2>
+<p class="lede">The switch that decides whether a business is in the customer marketplace keeps its meaning and its default
+   (ON) but loses the flat title “Show my business in Clinket search”. It now says what it does for the provider: free
+   promotion and leads. Switching it OFF asks once, in plain words, and saves immediately through the same listing
+   request as the pause switch. OFF removes the business from every customer index (it is not a hidden mark); ON puts it
+   back within a couple of minutes. Search engines and the business's own page link are never affected.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · default, promoting</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Promote my business on Clinket</div><div class="h">Free. Customers searching for what you do find you on Clinket, and their quote requests come to you as leads.</div></div><div class="sw on"><i></i></div></div>
+        <div class="tiny">Saves as soon as you confirm. It does not wait for “Save changes”.</div></div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · confirm switching off</div>
+    <div class="pad"><div class="dialog">
+      <h3>Stop promoting your business on Clinket?</h3>
+      <p>Customers will no longer find you in search or on city pages, and you will stop receiving quote requests.</p>
+      <p>Your own Clinket page link keeps working and search engines are not affected. You can turn it back on any time.</p>
+      <div class="acts"><span class="btn out">Keep promoting</span><span class="btn green">Stop promoting</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · off</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Promote my business on Clinket <span class="pill grey">Off</span></div><div class="h">Free. Customers searching for what you do find you on Clinket, and their quote requests come to you as leads.</div></div><div class="sw"><i></i></div></div>
+        <div class="panel grey"><b>What this changes</b>
+          <ul>
+            <li>You will not appear in Clinket search, suggestions, city pages, or matching for customer requests.</li>
+            <li>Your own Clinket page link keeps working. Anyone you send it to can still see you and book.</li>
+            <li>Search engines such as Google are not affected. They may still show your page.</li>
+          </ul>
+        </div></div>
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Available when your business is promoted on Clinket.</div></div><div class="sw dis"><i></i></div></div></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · confirm switching off (bottom sheet)</div>
+    <div class="pad" style="background:#E9EBEE;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:0">
+      <div class="sheetp"><div class="grab"></div>
+        <h3 style="margin:0 0 6px;color:var(--ink);font-size:16px">Stop promoting your business on Clinket?</h3>
+        <p style="margin:0 0 8px;color:var(--muted);font-size:13px">Customers will no longer find you in search or on city pages, and you will stop receiving quote requests.</p>
+        <p style="margin:0 0 12px;color:var(--muted);font-size:13px">Your own Clinket page link keeps working and search engines are not affected. You can turn it back on any time.</p>
+        <span class="btn green" style="display:block;text-align:center">Stop promoting</span>
+        <span class="btn out" style="display:block;text-align:center;margin-top:8px">Keep promoting</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Turning it back ON asks nothing.</b> Becoming visible again is the safe direction; the switch saves on the tap
+  and the card shows “Back on Clinket within a couple of minutes” until the next page load. Both listing switches
+  (promote, pause) now save through one request (<code>PUT api/v1/business/profile/listing</code>) with a confirmation
+  only in the direction that hides the business, and neither rides the page's “Save changes” button any more.
+</div>
+
+<!-- ============================================================ -->
+<h2>1 · The pause card on Business details <span class="n">web · 440 px column, as the page renders it</span></h2>
+<p class="lede">Top to bottom as the page already orders them: online bookings, appear in search, then <b>pause</b>.
+   The pause card is drawn in the same shell as its siblings. The two frames on the right are the two states of the
+   pause card itself.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · the three cards, all on (ships today except the third)</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Accept online bookings</div><div class="h">Customers find your services on Clinket and book them online any time. Every booking lands straight in your dashboard.</div></div><div class="sw on"><i></i></div></div></div>
+      <div class="card"><div class="hdr"><div><div class="t">Show my business in Clinket search</div><div class="h">Customers looking for what you do can find you on Clinket, and your services are matched to the requests they post.</div></div><div class="sw on"><i></i></div></div></div>
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Everything else keeps working. Resume any time.</div></div><div class="sw"><i></i></div></div>
+        <div class="tiny">Saves as soon as you confirm. It does not wait for “Save changes”.</div></div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · paused</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing <span class="pill amber">Paused</span></div><div class="h">Step out of Clinket search and quote requests for a while. Everything else keeps working. Resume any time.</div></div><div class="sw on"><i></i></div></div>
+        <div class="panel amber"><b>Your listing is paused</b>
+          <ul>
+            <li>Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests.</li>
+            <li>Your own Clinket page link keeps working. Anyone you send it to can still see you and book.</li>
+            <li>Your phone receptionist and your team's Ask Clinket are not affected.</li>
+            <li>Your Insights scores are frozen while paused, never lowered.</li>
+          </ul>
+        </div>
+        <div class="tiny">Paused since 21 Sep 2026 by Nik A.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · not in the marketplace (pause is not offered)</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Show my business in Clinket search</div><div class="h">Customers looking for what you do can find you on Clinket, and your services are matched to the requests they post.</div></div><div class="sw"><i></i></div></div></div>
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Available when your business is shown in Clinket search.</div></div><div class="sw dis"><i></i></div></div></div>
+      <div class="tiny">The switch is present but disabled, with the one-line reason. Nothing to confirm, nothing saved.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>2 · Confirming, saving, failing <span class="n">web dialogs</span></h2>
+<p class="lede">Flipping the switch never saves by itself. A dialog names what changes; the pause is written only on
+   “Pause listing”. Resume asks once too, because it is the business becoming visible again.</p>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · confirm pause</div>
+    <div class="pad"><div class="dialog">
+      <h3>Pause your listing?</h3>
+      <p>Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests until you resume.</p>
+      <p>Your Clinket page link, your bookings, your phone receptionist and Ask Clinket keep working.</p>
+      <div class="acts"><span class="btn out">Keep it live</span><span class="btn green">Pause listing</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · confirm resume</div>
+    <div class="pad"><div class="dialog">
+      <h3>Resume your listing?</h3>
+      <p>Customers will find you in Clinket search again and you will receive quote requests. Search catches up within a couple of minutes.</p>
+      <div class="acts"><span class="btn out">Stay paused</span><span class="btn green">Resume listing</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · saving</div>
+    <div class="pad"><div class="dialog">
+      <h3>Pause your listing?</h3>
+      <p>Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests until you resume.</p>
+      <div class="acts"><span class="btn out dis">Keep it live</span><span class="btn dis"><span class="spin"></span>Pausing…</span></div>
+    </div></div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Web · could not save (the switch springs back)</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Everything else keeps working. Resume any time.</div></div><div class="sw"><i></i></div></div>
+        <div class="err">We couldn't pause your listing. Check your connection and try again.</div></div>
+      <div class="tiny">The server's own sentence when it refuses (for example a member without permission); this generic line only when the request never got an answer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>3 · Who may press it <span class="n">permission and loading</span></h2>
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Web · member without the profile permission (read-only)</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing <span class="pill amber">Paused</span></div><div class="h">Only the owner or a member who can edit the business profile can change this.</div></div><div class="sw on dis"><i></i></div></div></div>
+      <div class="tiny">Same key as the other two switches on this page (<code>business.profile.update</code>). The state is shown; the switch is disabled; the reason is one line.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Web · loading the page</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div style="flex:1"><div class="skel" style="width:40%"></div><div class="skel" style="width:85%;margin-top:8px"></div></div><div class="sw dis"><i></i></div></div></div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Web · offline</div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Everything else keeps working. Resume any time.</div></div><div class="sw dis"><i></i></div></div>
+        <div class="err">You're offline. The switch will work again when your connection is back.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>4 · The banner while paused <span class="n">web dashboard shell, every page · phone home tab</span></h2>
+<p class="lede">Drawn where the existing countdown banner sits (under the header on web, top of the home tab on the
+   phone). Amber, not dismissible while paused; disappears the moment the listing is resumed. Resume from the banner
+   opens the same confirm as the card.</p>
+
+<div class="row">
+  <div class="frame wide">
+    <div class="cap">Web · dashboard, any page</div>
+    <div class="pad">
+      <div class="banner amber"><div class="ic">!</div><div class="tx"><b>Your listing is paused</b>Customers can't find you in Clinket search and you won't receive quote requests. Your page link, bookings and phone receptionist keep working.</div><span class="btn green sm">Resume listing</span></div>
+      <div class="skel" style="width:30%;height:14px"></div>
+      <div class="skel" style="width:100%;height:90px;margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · home tab, paused</div>
+    <div class="topbar"><span>Home</span><span class="pill amber">Paused</span></div>
+    <div class="pad home">
+      <div class="banner amber" style="flex-direction:column"><div style="display:flex;gap:10px"><div class="ic">!</div><div class="tx"><b>Your listing is paused</b>Customers can't find you in Clinket search and you won't receive quote requests.</div></div><span class="btn green sm" style="align-self:flex-end">Resume listing</span></div>
+      <div class="tile"><div class="k">Today's earnings</div><div class="v">C$0.00</div></div>
+      <div class="tile"><div class="k">Upcoming bookings</div><div class="v">3</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>5 · The phone app <span class="n">Business details screen · bottom sheets</span></h2>
+<p class="lede">The phone mirrors the web rendering rules: third card under the marketplace switch, saves on confirm
+   through its own request, disabled with a one-line reason when the business is not in the marketplace or the member
+   lacks the permission. Confirmations rise as bottom sheets, the app's shape for a decision.</p>
+
+<div class="row">
+  <div class="frame phone">
+    <div class="cap">Phone · Business details, live</div>
+    <div class="topbar"><span>‹ Business details</span><span></span></div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Show my business in Clinket search</div><div class="h">Customers looking for what you do can find you on Clinket.</div></div><div class="sw on"><i></i></div></div></div>
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Resume any time.</div></div><div class="sw"><i></i></div></div>
+        <div class="tiny">Saves as soon as you confirm.</div></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · confirm (bottom sheet)</div>
+    <div class="pad" style="background:#E9EBEE;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:0">
+      <div class="sheetp"><div class="grab"></div>
+        <h3 style="margin:0 0 6px;color:var(--ink);font-size:16px">Pause your listing?</h3>
+        <p style="margin:0 0 8px;color:var(--muted);font-size:13px">Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests until you resume.</p>
+        <p style="margin:0 0 12px;color:var(--muted);font-size:13px">Your Clinket page link, your bookings, your phone receptionist and Ask Clinket keep working.</p>
+        <span class="btn green" style="display:block;text-align:center">Pause listing</span>
+        <span class="btn out" style="display:block;text-align:center;margin-top:8px">Keep it live</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · paused</div>
+    <div class="topbar"><span>‹ Business details</span><span class="pill amber">Paused</span></div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Resume any time.</div></div><div class="sw on"><i></i></div></div>
+        <div class="panel amber"><b>Your listing is paused</b>
+          <ul><li>Not in Clinket search, suggestions, city pages or quote requests.</li><li>Your page link, bookings, receptionist and Ask Clinket keep working.</li><li>Insights scores frozen, never lowered.</li></ul></div>
+        <div class="tiny">Paused since 21 Sep 2026 by Nik A.</div></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="cap">Phone · could not save / offline</div>
+    <div class="topbar"><span>‹ Business details</span><span></span></div>
+    <div class="pad">
+      <div class="card"><div class="hdr"><div><div class="t">Pause my listing</div><div class="h">Step out of Clinket search and quote requests for a while. Resume any time.</div></div><div class="sw"><i></i></div></div>
+        <div class="err">We couldn't pause your listing. Check your connection and try again.</div></div>
+      <div class="tiny">The app's toast shows the server's own sentence when the server refused.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>6 · Where every word comes from <span class="n">copy table — keys, both apps, five languages each</span></h2>
+<p class="lede">Web keys live in <code>clinqetwebpartnerapp/src/locales/{en,es,fr,gu,hi}.json</code>; phone keys in
+   <code>clinqetmobilepartnerapp/src/i18n/{en,es,fr,gu,hi}.json</code>; server refusals in
+   <code>clinqetinfrastructure/Resources/Localization/{lang}.json</code>. No sentence is invented by the screen: every
+   line below is a key. The two “since … by …” facts come from the profile (<code>listingPausedAt</code>, the member's
+   display name), formatted by the app's existing date and name helpers.</p>
+
+<table class="words">
+  <tr><th>Where</th><th>Sentence (English)</th><th>Key</th></tr>
+  <tr><td>Card title</td><td>Pause my listing</td><td><code>BusinessDetails.PauseListing</code></td></tr>
+  <tr><td>Card hint</td><td>Step out of Clinket search and quote requests for a while. Everything else keeps working. Resume any time.</td><td><code>BusinessDetails.PauseListingHint</code></td></tr>
+  <tr><td>Card foot</td><td>Saves as soon as you confirm. It does not wait for “Save changes”.</td><td><code>BusinessDetails.PauseListing.SavesImmediately</code></td></tr>
+  <tr><td>Card, not in marketplace</td><td>Available when your business is shown in Clinket search.</td><td><code>BusinessDetails.PauseListing.NeedsMarketplace</code></td></tr>
+  <tr><td>Card, no permission</td><td>Only the owner or a member who can edit the business profile can change this.</td><td><code>BusinessDetails.PauseListing.NoPermission</code></td></tr>
+  <tr><td>Pill</td><td>Paused</td><td><code>BusinessDetails.PauseListing.PausedPill</code></td></tr>
+  <tr><td>Paused panel title</td><td>Your listing is paused</td><td><code>BusinessDetails.PauseListing.On.Title</code></td></tr>
+  <tr><td>Paused panel, line 1</td><td>Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests.</td><td><code>BusinessDetails.PauseListing.On.Hidden</code></td></tr>
+  <tr><td>Paused panel, line 2</td><td>Your own Clinket page link keeps working. Anyone you send it to can still see you and book.</td><td><code>BusinessDetails.MarketplaceOff.LinkStillWorks</code> (existing key, reused)</td></tr>
+  <tr><td>Paused panel, line 3</td><td>Your phone receptionist and your team's Ask Clinket are not affected.</td><td><code>BusinessDetails.PauseListing.On.PrivateUnaffected</code></td></tr>
+  <tr><td>Paused panel, line 4</td><td>Your Insights scores are frozen while paused, never lowered.</td><td><code>BusinessDetails.PauseListing.On.ScoresFrozen</code></td></tr>
+  <tr><td>Paused since</td><td>Paused since {date} by {name}.</td><td><code>BusinessDetails.PauseListing.Since</code></td></tr>
+  <tr><td>Confirm pause, title</td><td>Pause your listing?</td><td><code>BusinessDetails.PauseListing.Confirm.Title</code></td></tr>
+  <tr><td>Confirm pause, body 1</td><td>Customers will not find you in Clinket search, suggestions or city pages, and you will not receive quote requests until you resume.</td><td><code>BusinessDetails.PauseListing.Confirm.Body</code></td></tr>
+  <tr><td>Confirm pause, body 2</td><td>Your Clinket page link, your bookings, your phone receptionist and Ask Clinket keep working.</td><td><code>BusinessDetails.PauseListing.Confirm.Keeps</code></td></tr>
+  <tr><td>Confirm pause, actions</td><td>Pause listing · Keep it live</td><td><code>BusinessDetails.PauseListing.Confirm.Pause</code> · <code>…Confirm.KeepLive</code></td></tr>
+  <tr><td>Saving</td><td>Pausing… · Resuming…</td><td><code>BusinessDetails.PauseListing.Pausing</code> · <code>…Resuming</code></td></tr>
+  <tr><td>Confirm resume, title</td><td>Resume your listing?</td><td><code>BusinessDetails.PauseListing.Resume.Title</code></td></tr>
+  <tr><td>Confirm resume, body</td><td>Customers will find you in Clinket search again and you will receive quote requests. Search catches up within a couple of minutes.</td><td><code>BusinessDetails.PauseListing.Resume.Body</code></td></tr>
+  <tr><td>Confirm resume, actions</td><td>Resume listing · Stay paused</td><td><code>BusinessDetails.PauseListing.Resume.Resume</code> · <code>…Resume.StayPaused</code></td></tr>
+  <tr><td>Could not save (no answer)</td><td>We couldn't pause your listing. Check your connection and try again. / We couldn't resume your listing…</td><td><code>BusinessDetails.PauseListing.Failed.Pause</code> · <code>…Failed.Resume</code></td></tr>
+  <tr><td>Offline</td><td>You're offline. The switch will work again when your connection is back.</td><td><code>Common.Offline.SwitchDisabled</code> (shared)</td></tr>
+  <tr><td>Banner title</td><td>Your listing is paused</td><td><code>Dashboard.PausedBanner.Title</code></td></tr>
+  <tr><td>Banner body</td><td>Customers can't find you in Clinket search and you won't receive quote requests. Your page link, bookings and phone receptionist keep working.</td><td><code>Dashboard.PausedBanner.Body</code></td></tr>
+  <tr><td>Banner action</td><td>Resume listing</td><td><code>Dashboard.PausedBanner.Resume</code></td></tr>
+  <tr><td>Promote card title</td><td>Promote my business on Clinket</td><td><code>BusinessDetails.MarketplaceParticipation</code> (existing key, new words in all five files)</td></tr>
+  <tr><td>Promote card hint</td><td>Free. Customers searching for what you do find you on Clinket, and their quote requests come to you as leads.</td><td><code>BusinessDetails.MarketplaceParticipationHint</code> (existing key, new words)</td></tr>
+  <tr><td>Promote pill</td><td>Off</td><td><code>BusinessDetails.MarketplaceParticipation.OffPill</code></td></tr>
+  <tr><td>Promote off panel</td><td>What this changes · the three existing lines</td><td><code>BusinessDetails.MarketplaceOff.Label</code> · <code>…Off.Hidden</code> · <code>…Off.LinkStillWorks</code> · <code>…Off.SeoUnaffected</code> (existing keys)</td></tr>
+  <tr><td>Promote off-confirm, title</td><td>Stop promoting your business on Clinket?</td><td><code>BusinessDetails.MarketplaceParticipation.Confirm.Title</code></td></tr>
+  <tr><td>Promote off-confirm, body 1</td><td>Customers will no longer find you in search or on city pages, and you will stop receiving quote requests.</td><td><code>BusinessDetails.MarketplaceParticipation.Confirm.Body</code></td></tr>
+  <tr><td>Promote off-confirm, body 2</td><td>Your own Clinket page link keeps working and search engines are not affected. You can turn it back on any time.</td><td><code>BusinessDetails.MarketplaceParticipation.Confirm.Keeps</code></td></tr>
+  <tr><td>Promote off-confirm, actions</td><td>Stop promoting · Keep promoting</td><td><code>BusinessDetails.MarketplaceParticipation.Confirm.Stop</code> · <code>…Confirm.Keep</code></td></tr>
+  <tr><td>Promote back on</td><td>Back on Clinket within a couple of minutes.</td><td><code>BusinessDetails.MarketplaceParticipation.BackOn</code></td></tr>
+  <tr><td>Pause card, not promoted</td><td>Available when your business is promoted on Clinket.</td><td><code>BusinessDetails.PauseListing.NeedsMarketplace</code> (replaces the sentence in §1's third frame)</td></tr>
+  <tr><td>Server refusal, not in marketplace</td><td>Your business is not promoted on Clinket, so there is nothing to pause.</td><td><code>Error_ListingPauseRequiresMarketplace</code> (API)</td></tr>
+  <tr><td>Server refusal, business not active</td><td>Your business is not active. Reactivate it first.</td><td><code>Error_ListingPauseRequiresActiveBusiness</code> (API)</td></tr>
+  <tr><td>Server refusal, no permission</td><td>the existing permission refusal sentence</td><td>existing <code>Error_Forbidden*</code> path (API)</td></tr>
+</table>
+
+<div class="rule" style="margin-top:22px">
+  <b>What the server does when the switch is confirmed.</b> One request (<code>PUT api/v1/business/profile/listing</code>
+  with <code>{ isListed }</code>), permission <code>business.profile.update</code>, refused when the business is not
+  Active or not in the marketplace. It writes <code>isListed</code> and <code>listingPausedAt</code> (set on pause,
+  cleared on resume) on the profile. That profile write is the change-feed event both search indexers already react
+  to, so the business leaves (or re-enters) search, suggestions, city pages and quote matching on its own, in the same
+  couple of minutes any profile change takes. The Insights scoring pause already reads the field. No other service
+  changes. <code>listingPausedAt</code> is the one new stored fact and needs the owner's §0.7 yes before it is built.
+</div>
+
+<div class="note">
+  <b>Deliberately not drawn, deliberately not built now.</b> A “resume automatically on this date” option. It needs
+  a scheduled job and a second stored date; the banner already makes a forgotten pause impossible to miss. It is
+  recorded in the plan as a later addition, not a gap in this sheet.
+</div>
+
+</main>
+</body>
+</html>

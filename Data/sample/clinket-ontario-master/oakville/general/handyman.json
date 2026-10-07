@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "general",
+    "category": "handyman",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-general-absolute-home-services",
+      "businessName": "Absolute Home Services",
+      "description": "Handyman and home repair serving Oakville: electrical, plumbing, carpentry, drywall, landscaping, painting, decks and fences.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@absolutehomeservices.ca",
+      "businessPhone": "888-304-6327",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.absolutehomeservices.ca/locations/oakville-handyman-services",
+        "other": []
+      },
+      "address": {
+        "street": "5025 Guelph Line",
+        "postalCode": "L7P 0A5",
+        "formatted": "5025 Guelph Line, Burlington, ON L7P 0A5",
+        "city": "Burlington",
+        "area": "general",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "GTA",
+        "Muskoka"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Handyman Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Carpentry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drywall",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Deck & Fence",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.absolutehomeservices.ca/locations/oakville-handyman-services",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    },
+    {
+      "id": "oakville-general-ricardo-handyman-services",
+      "businessName": "Ricardo Handyman Services",
+      "description": "30+ years handyman experience in Oakville, Mississauga, Burlington and Milton. Drywall, framing, doors, flooring, basic plumbing and wiring.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": null,
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://ricardohandyman.ca/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "formatted": "Oakville, ON",
+        "area": "general",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Mississauga",
+        "Burlington",
+        "Milton",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drywall & Framing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Door Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flooring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Basic Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Basic Wiring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://ricardohandyman.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": false,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "Phone not listed on public homepage at scrape time; website present"
+      },
+      "scrapedAt": "2026-09-23T15:55:00-04:00"
+    }
+  ]
+}

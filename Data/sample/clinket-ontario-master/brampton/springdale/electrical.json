@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "city": "Brampton",
+    "area": "springdale",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:15:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "brampton-springdale-royal-electrical-heating-inc",
+      "businessName": "Royal Electrical & Heating Inc",
+      "description": "ESA licensed electrical & heating contractor. Sandyshores Dr, Springdale area (ECRA 7016004).",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-628-8607",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "51 Sandyshores Dr",
+        "postalCode": "L6R 2H3",
+        "area": "springdale",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "51 Sandyshores Dr, Brampton, ON L6R 2H3"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "springdale",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        },
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heating Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://findacontractor.esasafe.com/?LocationLookup=Brampton,+ON,+Canada",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    },
+    {
+      "id": "brampton-springdale-hkm-electricals-inc",
+      "businessName": "HKM Electricals Inc",
+      "description": "Licensed electrical contractor, Riverbank Rd, Springdale.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-309-9444",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "31 Riverbank Rd",
+        "postalCode": "L6R 2H4",
+        "area": "springdale",
+        "city": "Brampton",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "31 Riverbank Rd, Brampton, ON L6R 2H4"
+      },
+      "serviceAreas": [
+        "Brampton",
+        "Mississauga",
+        "Caledon",
+        "Bramalea",
+        "Springdale"
+      ],
+      "geo": {
+        "city": "Brampton",
+        "area": "springdale",
+        "region": "Brampton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://findacontractor.esasafe.com/?LocationLookup=Brampton,+ON,+Canada",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:15:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:15:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Operations — business lookup</title>
+<style>
+  :root{--navy:#032858;--accent:#97EF29;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--bg:#f9fafb;
+        --err:#b42318;--errbg:#fef3f2;--okbg:#ecfdf3;--ok:#027a48;--warnbg:#fffaeb;--warn:#b54708;}
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+  h1{font-size:20px;color:var(--navy);margin:0 0 4px}
+  h2{font-size:15px;color:var(--navy);margin:36px 0 10px;padding-top:22px;border-top:1px solid var(--line)}
+  .sub{color:var(--muted);margin:0 0 8px}
+  .note{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--navy);
+         padding:10px 12px;border-radius:6px;color:#374151;margin:10px 0 0}
+  .card{border:1px solid var(--line);border-radius:10px;background:#fff;
+        box-shadow:0 1px 2px rgba(16,24,40,.05);padding:16px;margin-top:12px}
+  .card h3{margin:0 0 2px;font-size:14px;color:var(--navy)}
+  .card .hint{color:var(--muted);font-size:12px;margin:0 0 12px}
+  .lookup{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:14px}
+  .lookup .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+  .fld{flex:1 1 170px;min-width:150px}
+  .fld span{display:block;font-size:11px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.03em}
+  .fld input{width:100%;padding:8px 10px;border:1px solid #d0d5dd;border-radius:6px;font:inherit;background:#fff}
+  .fld input:disabled{background:#f2f4f7;color:#98a2b3}
+  .or{color:var(--muted);font-size:11px;padding-bottom:10px;align-self:flex-end}
+  button{font:inherit;border-radius:6px;padding:8px 14px;border:1px solid var(--navy);
+         background:#fff;color:var(--navy);cursor:pointer;white-space:nowrap}
+  button.go{background:var(--accent);border-color:var(--accent);color:#0b2b00;font-weight:600}
+  button.go:disabled{background:#e5e7eb;border-color:#e5e7eb;color:#98a2b3;cursor:not-allowed}
+  button.link{border:0;background:none;color:var(--navy);text-decoration:underline;padding:4px 0}
+  .msg{margin-top:10px;padding:9px 11px;border-radius:6px;font-size:13px}
+  .msg.err{background:var(--errbg);color:var(--err);border:1px solid #fecdca}
+  .msg.ok{background:var(--okbg);color:var(--ok);border:1px solid #a6f4c5}
+  .msg.warn{background:var(--warnbg);color:var(--warn);border:1px solid #fedf89}
+  .pill{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;
+        padding:2px 9px;font-size:11px;font-weight:600;letter-spacing:.02em}
+  .pill.grn{background:var(--accent);color:#0b2b00}
+  .pick{border:1px solid var(--line);border-radius:8px;margin-top:10px;overflow:hidden}
+  .pick div{display:flex;justify-content:space-between;align-items:center;gap:10px;
+            padding:10px 12px;border-top:1px solid var(--line)}
+  .pick div:first-child{border-top:0}
+  .pick .nm{font-weight:600;color:var(--navy)}
+  .pick .id{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
+  .skel{background:linear-gradient(90deg,#eef0f3 25%,#f6f7f9 37%,#eef0f3 63%);
+        background-size:400% 100%;animation:sh 1.3s ease infinite;border-radius:4px;height:11px}
+  @keyframes sh{0%{background-position:100% 50%}100%{background-position:0 50%}}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid #c7cdd6;border-top-color:var(--navy);
+        border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600}
+  .dim{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .phone{width:390px;max-width:100%;border:10px solid #111827;border-radius:26px;overflow:hidden;background:#fff}
+  .phone .inner{padding:12px;height:660px;overflow:auto}
+  .phone .lookup .row{flex-direction:column;align-items:stretch}
+  .phone .or{display:none}
+  .phone button{width:100%}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Admin › System Monitoring › Search Operations</h1>
+  <p class="sub">Adding <strong>find-a-business by user number / email / phone</strong> to the existing panel.
+     Everything below the lookup row is today's panel, unchanged.</p>
+
+  <div class="note">
+    <strong>Recommendation: combine, don't split.</strong> Every action in this panel is already keyed on
+    <code>businessId</code>; the lookup is an <em>input aid</em>, not a new workflow. A separate page would
+    duplicate the knowledge list, the resync buttons and the visibility report.
+    <br><strong>Cost:</strong> the field stays directly editable, so the deep-linked case (an alert already
+    naming the business) still costs <strong>zero extra calls</strong>. One identifier is sent per lookup,
+    on explicit submit only — never a type-ahead.
+  </div>
+
+  <!-- ─────────────── STATE 1 ─────────────── -->
+  <h2>State 1 — idle (an admin who already knows the businessId types it and never triggers a lookup)</h2>
+  <div class="card">
+    <h3>Search Operations</h3>
+    <p class="hint">Repair levers for the search index, beside the read-only health card.</p>
+    <div class="lookup">
+      <div class="row">
+        <label class="fld"><span>User number</span><input placeholder="e.g. 100482"></label>
+        <span class="or">or</span>
+        <label class="fld"><span>Email</span><input placeholder="name@example.com"></label>
+        <span class="or">or</span>
+        <label class="fld"><span>Phone</span><input placeholder="+1 416 555 0100"></label>
+        <button class="go" disabled>Find business</button>
+      </div>
+      <p class="hint" style="margin:8px 0 0">Fill any one. Resolves to the businesses that person belongs to.</p>
+    </div>
+    <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+      <label class="fld"><span>Business ID</span><input value="" placeholder="SX3SG2"></label>
+      <label class="fld"><span>Service ID</span><input placeholder="optional"></label>
+      <label class="fld"><span>Category ID</span><input placeholder="optional"></label>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button disabled>Resync service</button><button disabled>Resync all services</button>
+      <button disabled>Visibility report</button><button disabled>Knowledge health</button>
+    </div>
+    <p class="hint" style="margin-top:10px">Enter a business ID, or find one above, to enable the levers.</p>
+  </div>
+
+  <!-- ─────────────── STATE 2 ─────────────── -->
+  <h2>State 2 — resolving (one call, on submit)</h2>
+  <div class="card">
+    <div class="lookup">
+      <div class="row">
+        <label class="fld"><span>User number</span><input disabled></label>
+        <span class="or">or</span>
+        <label class="fld"><span>Email</span><input value="priya@completehair.ca" disabled></label>
+        <span class="or">or</span>
+        <label class="fld"><span>Phone</span><input disabled></label>
+        <button class="go" disabled><span class="spin"></span>Finding…</button>
+      </div>
+    </div>
+    <div style="margin-top:6px"><div class="skel" style="width:52%"></div>
+      <div class="skel" style="width:34%;margin-top:8px"></div></div>
+  </div>
+
+  <!-- ─────────────── STATE 3 ─────────────── -->
+  <h2>State 3 — exactly one business (auto-filled; the common case)</h2>
+  <div class="card">
+    <div class="lookup">
+      <div class="row">
+        <label class="fld"><span>Email</span><input value="priya@completehair.ca"></label>
+        <button class="go">Find business</button>
+        <button class="link">Clear</button>
+      </div>
+      <div class="msg ok">Resolved <strong>Complete Hair &amp; Beauty</strong> — business ID filled in below.
+        <span class="pill grn">ACTIVE</span></div>
+    </div>
+    <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+      <label class="fld"><span>Business ID</span><input value="SX3SG2"></label>
+      <label class="fld"><span>Service ID</span><input placeholder="optional"></label>
+      <label class="fld"><span>Category ID</span><input placeholder="optional"></label>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button>Resync service</button><button>Resync all services</button>
+      <button>Visibility report</button><button class="go">Knowledge health</button>
+    </div>
+    <table>
+      <tr><th>Document</th><th>Status</th><th>Cards</th><th>Searchable</th><th></th></tr>
+      <tr><td>gopi.jpeg</td><td>Ready</td><td>7</td><td>7</td><td><button>Reindex</button></td></tr>
+      <tr><td>toromont_machines.json</td><td>Ready</td><td>657</td><td>657</td><td><button>Reindex</button></td></tr>
+    </table>
+    <div style="margin-top:10px"><button>Reindex all documents</button></div>
+  </div>
+
+  <!-- ─────────────── STATE 4 ─────────────── -->
+  <h2>State 4 — several businesses (a person can belong to many; admin picks, capped list)</h2>
+  <div class="card">
+    <div class="lookup">
+      <div class="row">
+        <label class="fld"><span>Phone</span><input value="+1 416 555 0100"></label>
+        <button class="go">Find business</button><button class="link">Clear</button>
+      </div>
+      <div class="msg warn">3 businesses matched. Pick one to load its search operations.</div>
+      <div class="pick">
+        <div><span><span class="nm">Complete Hair &amp; Beauty</span>
+          <span class="id">SX3SG2</span></span><button>Use</button></div>
+        <div><span><span class="nm">Gopi Salon (Etobicoke)</span>
+          <span class="id">K92MTA</span> <span class="pill">SUSPENDED</span></span><button>Use</button></div>
+        <div><span><span class="nm">Priya Mobile Beauty</span>
+          <span class="id">R41QQD</span></span><button>Use</button></div>
+      </div>
+      <p class="hint" style="margin:8px 0 0">Showing 3 of 3. A person in more than 10 businesses shows the
+        first 10 and a count — narrow by user number instead.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────── STATE 5 ─────────────── -->
+  <h2>State 5 — the error states</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>No match (404)</h3>
+      <div class="msg err">No user found for that email. Check the spelling, or try the user number.</div>
+      <p class="hint" style="margin-top:8px">Distinct from “found, but belongs to no business”.</p>
+    </div>
+    <div class="card">
+      <h3>Found, but no business</h3>
+      <div class="msg warn">That user exists but does not belong to any business — a customer account, or a
+        provider who never completed onboarding. Nothing to resync.</div>
+    </div>
+    <div class="card">
+      <h3>Request failed</h3>
+      <div class="msg err">Lookup failed. Try again, or enter the business ID directly.</div>
+      <p class="hint" style="margin-top:8px">The business ID field stays usable, so a resolver outage never
+        blocks a repair.</p>
+    </div>
+    <div class="card">
+      <h3>Permission denied (403)</h3>
+      <div class="msg err">Your admin role cannot look up users. Ask an owner, or enter the business ID.</div>
+    </div>
+    <div class="card">
+      <h3>Nothing entered</h3>
+      <div class="msg warn">Enter a user number, email, or phone number.</div>
+      <p class="hint" style="margin-top:8px">Client-side — costs no API call.</p>
+    </div>
+    <div class="card">
+      <h3>Document already reindexing (409)</h3>
+      <div class="msg warn">“gopi.jpeg” is already processing. Wait for it to finish, then reindex again.</div>
+    </div>
+  </div>
+
+  <!-- ─────────────── MOBILE ─────────────── -->
+  <h2>Mobile (admin is a responsive web app — the lookup row stacks; no separate build)</h2>
+  <div class="grid">
+    <div class="phone"><div class="inner">
+      <h3 style="margin:0 0 2px;font-size:14px;color:var(--navy)">Search Operations</h3>
+      <p class="hint">Repair levers for the search index.</p>
+      <div class="lookup">
+        <div class="row">
+          <label class="fld"><span>User number</span><input placeholder="100482"></label>
+          <label class="fld"><span>Email</span><input placeholder="name@example.com"></label>
+          <label class="fld"><span>Phone</span><input placeholder="+1 416 555 0100"></label>
+          <button class="go" disabled>Find business</button>
+        </div>
+        <p class="hint" style="margin:8px 0 0">Fill any one.</p>
+      </div>
+      <label class="fld" style="display:block;margin-bottom:8px"><span>Business ID</span><input placeholder="SX3SG2"></label>
+      <label class="fld" style="display:block;margin-bottom:8px"><span>Service ID</span><input placeholder="optional"></label>
+      <label class="fld" style="display:block"><span>Category ID</span><input placeholder="optional"></label>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+        <button disabled>Resync all services</button><button disabled>Knowledge health</button>
+      </div>
+    </div></div>
+
+    <div class="phone"><div class="inner">
+      <h3 style="margin:0 0 2px;font-size:14px;color:var(--navy)">Search Operations</h3>
+      <p class="hint">Resolved — knowledge loaded.</p>
+      <div class="lookup">
+        <div class="row">
+          <label class="fld"><span>Email</span><input value="priya@completehair.ca"></label>
+          <button class="go">Find business</button>
+        </div>
+        <div class="msg ok">Complete Hair &amp; Beauty <span class="pill grn">ACTIVE</span></div>
+      </div>
+      <label class="fld" style="display:block"><span>Business ID</span><input value="SX3SG2"></label>
+      <div class="card" style="padding:10px;margin-top:12px">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+          <span><strong>gopi.jpeg</strong><br><span class="dim">Ready · 7 cards</span></span>
+          <button>Reindex</button></div>
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;
+                    border-top:1px solid var(--line);padding-top:10px;margin-top:10px">
+          <span><strong>toromont_machines.json</strong><br><span class="dim">Ready · 657 cards</span></span>
+          <button>Reindex</button></div>
+      </div>
+      <div style="margin-top:10px"><button style="width:100%">Reindex all documents</button></div>
+    </div></div>
+  </div>
+
+  <!-- ─────────────── DESIGN NOTES ─────────────── -->
+  <h2>How this stays cheap</h2>
+  <div class="card">
+    <table>
+      <tr><th>Decision</th><th>Why</th></tr>
+      <tr><td><strong>One identifier per call</strong> — user number, else email, else phone</td>
+          <td>Mirrors <code>lookupUser</code> in <code>userSupportService.js</code>. Never sends all three, so
+              the read stays a single indexed seek instead of a multi-column scan.</td></tr>
+      <tr><td><strong>Explicit submit — no type-ahead</strong></td>
+          <td>A debounced lookup would multiply calls ~5–8× per search for no benefit: admins paste an
+              identifier, they don't browse.</td></tr>
+      <tr><td><strong>Resolve once, then reuse</strong></td>
+          <td>The resolved id fills the field; every existing action uses it directly. No re-resolution.</td></tr>
+      <tr><td><strong>Business ID stays directly editable</strong></td>
+          <td>The deep-linked case (an alert naming the business) costs <strong>zero</strong> extra calls, and a
+              resolver outage never blocks a repair.</td></tr>
+      <tr><td><strong>Reuses existing indexes — no schema change</strong></td>
+          <td>Identifier→userId is the read <code>/admin/users/lookup</code> already does; userId→businesses
+              seeks <code>IX_BusinessMembership_User_Status</code> on <code>(UserId, Status)</code>, which
+              already exists. <strong>No new table, column or index.</strong></td></tr>
+      <tr><td><strong>Capped result (10) with a count</strong></td>
+          <td>A person in many businesses can't fan out an unbounded list.</td></tr>
+      <tr><td><strong>Shared <code>BusinessLookupField</code> component</strong></td>
+          <td>Payouts, Voice and WhatsApp admin all take a raw businessId today. One component means they can
+              adopt it later without duplicating the resolver.</td></tr>
+    </table>
+    <div class="note" style="margin-top:14px">
+      <strong>Needs your approval before any code:</strong> one new admin endpoint —
+      <code>GET /admin/providers/lookup?userNumber=|email=|phoneNumber=</code> → the businesses that person
+      belongs to (id, name, status). No schema change. Everything else is UI in
+      <code>SearchOperationsPanel.jsx</code> plus one service function.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

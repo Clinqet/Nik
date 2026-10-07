@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI engine switch — minutes &amp; auto-recharge</title>
+<style>
+  :root { --navy:#032858; --green:#97EF29; --green-ink:#0e7a3a; --mint:#F4FDF9; --mint-line:#DFFABD; --ink:#101010; --muted:#5F5F5F; --line:#E7E7E7; --amber-bg:#FFF6E8; --amber-line:#F6D9A8; --amber-ink:#9A5B00; --page:#F5F7F9; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--page); color:var(--ink); font-family: Lufga, "Segoe UI", system-ui, sans-serif; }
+  header.sheet { padding:28px 20px 8px; max-width:1280px; margin:0 auto; }
+  header.sheet h1 { margin:0; font-size:22px; color:var(--navy); }
+  header.sheet p { margin:6px 0 0; color:var(--muted); font-size:14px; line-height:1.55; max-width:860px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap:18px; padding:18px 20px 40px; max-width:1280px; margin:0 auto; }
+  .state { background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; }
+  .state > h2 { margin:0 0 4px; font-size:13px; letter-spacing:.02em; text-transform:uppercase; color:var(--navy); }
+  .state > .src { margin:0 0 12px; font-size:11.5px; color:var(--muted); }
+  .dialog { border:1px solid var(--line); border-radius:18px; padding:18px; background:#fff; box-shadow:0 12px 32px rgba(3,40,88,.08); }
+  .dialog.phone { max-width:360px; border-radius:22px 22px 0 0; margin:0 auto; }
+  .dialog h3 { margin:0 0 8px; font-size:17px; }
+  .body { font-size:14px; line-height:1.6; color:var(--muted); }
+  .box { margin-top:12px; border-radius:12px; padding:14px; }
+  .minutes { background:var(--mint); border:1px solid var(--mint-line); }
+  .minutes .label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--green-ink); }
+  .row { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:8px; }
+  .pill { display:inline-flex; align-items:baseline; gap:4px; background:#fff; border-radius:8px; padding:6px 10px; box-shadow: inset 0 0 0 1px var(--line); }
+  .pill.to { box-shadow: inset 0 0 0 1px var(--green); }
+  .pill b { font-size:16px; font-weight:800; color:var(--ink); }
+  .pill span { font-size:12px; font-weight:600; color:var(--muted); }
+  .arrow { color:var(--navy); font-weight:700; }
+  .caption { margin:8px 0 0; font-size:12.5px; line-height:1.55; color:var(--muted); }
+  .auto { background:#fff; border:1px solid var(--line); }
+  .auto .top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+  .auto h4 { margin:0; font-size:13px; }
+  .toggle { width:44px; height:24px; border-radius:999px; background:#d1d5db; position:relative; flex:none; }
+  .toggle::after { content:""; position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:#fff; }
+  .toggle.on { background:var(--green); }
+  .toggle.on::after { left:22px; }
+  .keep { margin:8px 0 0; font-size:12px; font-weight:600; color:var(--green-ink); }
+  .amber { background:var(--amber-bg); border:1px solid var(--amber-line); color:var(--amber-ink); font-size:12.5px; line-height:1.55; }
+  .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; flex-wrap:wrap; }
+  .btn { height:46px; border-radius:12px; padding:0 20px; font-weight:800; font-size:14px; border:1px solid var(--line); background:#fff; color:var(--ink); }
+  .btn.primary { background:var(--green); border-color:var(--green); }
+  .btn.primary[disabled] { opacity:.55; }
+  .phone .actions { flex-direction:column-reverse; }
+  .phone .btn { width:100%; }
+  .summary { margin-top:12px; background:#F3F5F7; border-radius:12px; padding:12px 14px; font-size:13px; }
+  .summary div { display:flex; justify-content:space-between; }
+  .summary .total { margin-top:6px; padding-top:6px; border-top:1px solid var(--line); font-weight:800; color:var(--ink); }
+  .note { font-size:12px; color:var(--muted); line-height:1.55; }
+  table.reg { border-collapse:collapse; font-size:12.5px; }
+  table.reg td, table.reg th { border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>AI engine switch — what happens to minutes and auto-recharge</h1>
+  <p>Built 2026-09-25 under the owner's explicit waiver of mockup approval for this change ("you don't need to approve the mock-up with me"). This sheet records what shipped, state by state, so it can be audited. Web: partner app billing page (<code>EngineSwitchDetails</code> inside the switch dialog, and the paused note in the top-up section). Phone frames show the same dialog as the bottom sheet the web uses under 640px. Provider mobile app: the Plan &amp; Billing screen is information-only (no switching, no buying) — it shows only the live engine's pack sizes and opens this page from the two notices.</p>
+  <p>Words: every sentence below is a web copy key in <code>public/lang/*.json</code> (<code>billing.ai.switch.*</code>, <code>billing.ai.autoRechargePausedEngine</code>); numbers and prices come from the server's checkout quote (<code>minuteConversion</code>, <code>autoRecharge</code>), priced from today's minute-pack catalog. Notices after the fact use the API keys <code>Notification_AiMinutesConverted_*</code> and <code>Notification_AutoRechargePackUnavailable_EngineChanged_*</code> and their email templates.</p>
+</header>
+
+<main class="grid">
+
+  <section class="state">
+    <h2>1 · Upgrade now — minutes move, auto-recharge asks (desktop)</h2>
+    <p class="src">Quote: ProratedUpgrade · minuteConversion available · autoRecharge NeedsConsent</p>
+    <div class="dialog">
+      <h3>Upgrade to Advanced?</h3>
+      <div class="body">Advanced answers right away. You'll be charged $7.50 now.
+        <div class="summary"><div><span>AI Assistant · Advanced</span><span>$26.00</span></div><div><span>Already paid</span><span>−$18.50</span></div><div class="total"><span>Total today</span><span>$7.50</span></div></div>
+        <div class="box minutes"><div class="label">Your unused minutes</div>
+          <div class="row"><span class="pill"><b>120</b><span>Standard min</span></span><span class="arrow">→</span><span class="pill to"><b>51</b><span>Advanced min</span></span></div>
+          <p class="caption">Minute packs you haven't used move to Advanced and keep their value at today's prices.</p></div>
+        <div class="box auto"><div class="top"><div><h4>Keep auto-recharge on?</h4><p class="caption" style="margin-top:4px">The same 200 min pack is <b style="color:#101010">$52.00</b> on your new engine (you pay $24.00 today). Turn this on to keep it running, or leave it off and pick a pack later.</p></div><div class="toggle"></div></div></div>
+      </div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Pay $7.50</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>2 · Same dialog on a phone, toggle turned on</h2>
+    <p class="src">Bottom sheet under 640px · the yes is sent with the switch (keepAutoRecharge)</p>
+    <div class="dialog phone">
+      <h3>Upgrade to Advanced?</h3>
+      <div class="body">Advanced answers right away. You'll be charged $7.50 now.
+        <div class="box minutes"><div class="label">Your unused minutes</div>
+          <div class="row"><span class="pill"><b>120</b><span>Standard min</span></span><span class="arrow">→</span><span class="pill to"><b>51</b><span>Advanced min</span></span></div>
+          <p class="caption">Minute packs you haven't used move to Advanced and keep their value at today's prices.</p></div>
+        <div class="box auto"><div class="top"><div><h4>Keep auto-recharge on?</h4><p class="caption" style="margin-top:4px">The same 200 min pack is <b style="color:#101010">$52.00</b> on your new engine (you pay $24.00 today).</p></div><div class="toggle on"></div></div><p class="keep">We'll add 200 min for $52.00 when you run low.</p></div>
+      </div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Pay $7.50</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>3 · Switch at renewal (to Standard) — cheaper pack carries on</h2>
+    <p class="src">Quote: Scheduled · the move happens at renewal at that day's prices · autoRecharge Continues</p>
+    <div class="dialog">
+      <h3>Switch to Standard?</h3>
+      <div class="body">You keep Advanced until your next renewal on Oct 1, 2026. No charge today. From then you'll pay $24.00/mo.
+        <div class="box minutes"><div class="label">Your unused minutes</div>
+          <div class="row"><span class="pill"><b>51</b><span>Advanced min</span></span><span class="arrow">→</span><span class="pill to"><b>118</b><span>Standard min</span></span></div>
+          <p class="caption">At your renewal, minute packs you haven't used move to Standard at that day's prices, so they keep their value. Here's how it looks today.</p></div>
+        <div class="box auto"><h4>Auto-recharge</h4><p class="caption" style="margin-top:4px">Keeps going with the 200 min pack for $24.00.</p></div>
+      </div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Switch to Standard</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>4 · Auto-recharge turns off (no same-size pack, or budget too small)</h2>
+    <p class="src">autoRecharge TurnsOff · nothing is charged</p>
+    <div class="dialog">
+      <h3>Upgrade to Advanced?</h3>
+      <div class="body">Advanced answers right away. No charge today.
+        <div class="box auto"><h4>Auto-recharge</h4><p class="caption" style="margin-top:4px">Turns off when you switch, because your saved pack is for Standard. You won't be charged, and you can pick a new pack anytime.</p></div>
+      </div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Upgrade now</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>5 · Minutes can't be valued right now — switch paused</h2>
+    <p class="src">minuteConversion.available = false · confirm disabled; the server refuses the switch too (ops alerted)</p>
+    <div class="dialog">
+      <h3>Upgrade to Advanced?</h3>
+      <div class="body">Advanced answers right away. You'll be charged $7.50 now.
+        <div class="box amber">We can't move your unused minutes to Advanced right now, so this switch is paused. Please try again a little later.</div>
+      </div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary" disabled>Pay $7.50</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>6 · Nothing left to move, auto-recharge not on</h2>
+    <p class="src">No minuteConversion, no autoRecharge ⇒ the section renders nothing; the dialog is exactly as before</p>
+    <div class="dialog">
+      <h3>Upgrade to Advanced?</h3>
+      <div class="body">Advanced answers right away. You'll be charged $7.50 now.</div>
+      <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Pay $7.50</button></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>7 · Top-up section after an engine change (paused)</h2>
+    <p class="src">overview.autoRecharge.pausedReason = EngineChanged · packs shown are the live engine's only</p>
+    <div class="dialog">
+      <h3 style="font-size:15px">Top up minutes</h3>
+      <p class="caption" style="margin-top:0">Out of minutes? Add more anytime. Your Advanced pack prices below.</p>
+      <div class="row" style="gap:8px"><span class="pill"><b>100</b><span>$29</span></span><span class="pill to"><b>200</b><span>$52</span></span><span class="pill"><b>350</b><span>$84</span></span><span class="pill"><b>500</b><span>$109</span></span></div>
+      <div class="box auto" style="margin-top:14px"><div class="top"><div><h4>Auto-recharge</h4><p class="caption" style="margin-top:4px">Automatically buy the pack you pick above when you're about to run out.</p></div><div class="toggle"></div></div>
+        <div class="box amber" style="margin-top:8px">Auto-recharge is off because your AI engine changed and your saved pack was for the other engine. Pick a pack for Advanced above, then turn it back on.</div></div>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>8 · A pack page left open on the old engine (another device switched)</h2>
+    <p class="src">Server answers pack_engine_mismatch ⇒ checkout closes, a toast explains, the page reloads with the right engine's packs</p>
+    <div class="dialog">
+      <div class="box amber" style="margin-top:0">This minute pack is for a different AI engine. Pick a pack for the engine you're on.</div>
+      <p class="note" style="margin-top:10px">Toast text is the server's own sentence (<code>Error_TopUpPackEngineMismatch</code>, five languages). No charge is ever made.</p>
+    </div>
+  </section>
+
+  <section class="state">
+    <h2>9 · When nobody was there (renewal, late payment)</h2>
+    <p class="src">In-app + push + email; WhatsApp never (informational)</p>
+    <div class="dialog">
+      <h3 style="font-size:15px">Your unused minutes moved to your new AI engine</h3>
+      <p class="body" style="margin:0">Your AI Assistant now runs on Advanced. Your 120 unused Standard minutes are now 51 Advanced minutes — worth the same at today's prices.</p>
+      <hr style="border:none;border-top:1px solid #E7E7E7;margin:12px 0">
+      <h3 style="font-size:15px">Auto-recharge is off</h3>
+      <p class="body" style="margin:0">Your AI Assistant now runs on Advanced, so auto-recharge needs a minute pack for Advanced. We've turned it off so you're never charged a price you didn't choose. Pick a pack to turn it back on.</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

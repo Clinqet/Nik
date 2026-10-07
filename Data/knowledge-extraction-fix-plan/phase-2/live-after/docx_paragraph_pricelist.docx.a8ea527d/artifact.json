@@ -1,0 +1,48 @@
+{
+  "contentHash": "8C2F8B9D3625A02A1A85994E9C6F1C5B44294B1851CA5F30D805580AC355BB93",
+  "pipelineFingerprint": "0ab241d36357432abfa381b72d9628a8:605e5c5cedbd4f1397642f2aad131c79:6796ddb61486459f9666ec5d4053cadc:cap=1",
+  "docName": "docx_paragraph_pricelist.docx",
+  "docTitle": "Glow Salon Price List",
+  "docSummary": "Price list for salon hair services and Massage & Body treatments, including haircuts, beard trim, colouring, highlights, keratin treatment, styling, conditioning, scalp massage, massages, body scrub, and hair spa.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Glow Salon Price List",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Haircut $25\nBeard trim $15\nKids cut $18\nFull head colour $80\nRoot touch up $55\nHighlights $120\nKeratin treatment $250\nBlow dry $30\nUpdo $65\nDeep conditioning $40\nScalp massage $35\nFringe trim $12",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Massage & Body",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Back massage — $60 (45 min)\nHot stone massage — $95 (75 min)\nAromatherapy — $85 (60 min)\nBody scrub — $75 (60 min)\nHair spa — $90 (90 min)",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

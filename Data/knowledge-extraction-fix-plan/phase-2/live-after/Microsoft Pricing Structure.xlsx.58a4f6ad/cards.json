@@ -1,0 +1,50 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_58a4f6ad5ee94386860741f23e353423_0",
+    "docName": "Microsoft Pricing Structure.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Microsoft",
+    "content": "Microsoft\n2024 Costs (CAD)\nVendor Costs | $638750 | Based on 2.5M MAU's / year\nSupport Costs | $0 | For B2C this is included with Microsoft subscription\nImplementation | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C\nTraining | TBD | This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C\nTotal 2024 Costs | $638750\n2025 Costs (CAD)\nVendor Costs | $638750 | Based on 2.5M MAU's / year\nSupport Costs | $0 | For B2C this is included with Microsoft subscription\nTotal 2025 Costs | $638750\n2026 Costs (CAD)\nVendor Costs | $638750 | Based on 2.5M MAU's / year\nSupport Costs | $0 | For B2C this is included with Microsoft subscription\nTotal 2026 Costs | $638750",
+    "docTitle": "Microsoft Pricing Structure",
+    "chunkKind": "Table",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_58a4f6ad5ee94386860741f23e353423_1",
+    "docName": "Microsoft Pricing Structure.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Microsoft",
+    "content": "Current Vendor Cost (1M MAU's / Year) | $288350 | 1M MAU's / Year",
+    "docTitle": "Microsoft Pricing Structure",
+    "chunkKind": "Table",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_58a4f6ad5ee94386860741f23e353423_2",
+    "docName": "Microsoft Pricing Structure.xlsx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Microsoft Pricing Structure — overview\nMicrosoft cost overview for 2024, 2025, and 2026, covering vendor costs, support costs, implementation and training notes, total costs, and current vendor cost based on MAUs per year.\nSections: Microsoft (12)",
+    "docTitle": "Microsoft Pricing Structure",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

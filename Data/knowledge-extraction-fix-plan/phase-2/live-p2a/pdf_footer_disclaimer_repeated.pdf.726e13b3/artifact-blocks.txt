@@ -1,0 +1,83 @@
+docTitle=Northside Auto Repair Service Menu 2026 lang=en pages=3 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Service menu listing automotive services and prices across bays 1–4, including oil changes, brake pads, tire rotation, wheel alignment, battery replacement, AC recharge, diagnostics, fluid services, filters, and timing belts. Prices exclude 13% HST, are valid until 31 Dec 2026, and include a 12-month / 20,000 km warranty on parts and labour.
+[  0] Heading      p1 H1
+      Northside Auto Repair — service menu 2026
+[  1] Table        p1
+      hasHeader=True caption= rows=25
+      | Service | Price |
+      | Oil change (synthetic) | $89 |
+      | Brake pads (front) | $220 |
+      | Brake pads (rear) | $200 |
+      | Tire rotation | $40 |
+      | Wheel alignment | $120 |
+      | Battery replacement | $180 |
+      | AC recharge | $150 |
+      | Diagnostic scan | $95 |
+      | Coolant flush | $130 |
+      | Transmission service | $260 |
+      | Spark plugs (4-cyl) | $160 |
+      | Timing belt | $850 |
+      | Wiper blades | $35 |
+      | Cabin filter | $45 |
+      | Engine air filter | $40 |
+      | Oil change (synthetic) — bay 2 | $94 |
+      | Brake pads (front) — bay 2 | $225 |
+      | Brake pads (rear) — bay 2 | $205 |
+      | Tire rotation — bay 2 | $45 |
+      | Wheel alignment — bay 2 | $125 |
+      | Battery replacement — bay 2 | $185 |
+      | AC recharge — bay 2 | $155 |
+      | Diagnostic scan — bay 2 | $100 |
+      | Coolant flush — bay 2 | $135 |
+[  2] List         p1
+      - All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.
+[  3] Heading      p2 H1
+      Northside Auto Repair — service menu 2026
+[  4] Table        p2
+      hasHeader=True caption= rows=25
+      | Service | Price |
+      | Transmission service — bay 2 | $265 |
+      | Spark plugs (4-cyl) — bay 2 | $165 |
+      | Timing belt — bay 2 | $855 |
+      | Wiper blades — bay 2 | $40 |
+      | Cabin filter — bay 2 | $50 |
+      | Engine air filter — bay 2 | $45 |
+      | Oil change (synthetic) — bay 3 | $99 |
+      | Brake pads (front) — bay 3 | $230 |
+      | Brake pads (rear) — bay 3 | $210 |
+      | Tire rotation — bay 3 | $50 |
+      | Wheel alignment — bay 3 | $130 |
+      | Battery replacement — bay 3 | $190 |
+      | AC recharge — bay 3 | $160 |
+      | Diagnostic scan — bay 3 | $105 |
+      | Coolant flush — bay 3 | $140 |
+      | Transmission service — bay 3 | $270 |
+      | Spark plugs (4-cyl) — bay 3 | $170 |
+      | Timing belt — bay 3 | $860 |
+      | Wiper blades — bay 3 | $45 |
+      | Cabin filter — bay 3 | $55 |
+      | Engine air filter — bay 3 | $50 |
+      | Oil change (synthetic) — bay 4 | $104 |
+      | Brake pads (front) — bay 4 | $235 |
+      | Brake pads (rear) — bay 4 | $215 |
+[  5] Heading      p3 H1
+      Northside Auto Repair — service menu 2026
+[  6] Table        p3
+      hasHeader=True caption= rows=13
+      | Service | Price |
+      | Tire rotation — bay 4 | $55 |
+      | Wheel alignment — bay 4 | $135 |
+      | Battery replacement — bay 4 | $195 |
+      | AC recharge — bay 4 | $165 |
+      | Diagnostic scan — bay 4 | $110 |
+      | Coolant flush — bay 4 | $145 |
+      | Transmission service — bay 4 | $275 |
+      | Spark plugs (4-cyl) — bay 4 | $175 |
+      | Timing belt — bay 4 | $865 |
+      | Wiper blades — bay 4 | $50 |
+      | Cabin filter — bay 4 | $60 |
+      | Engine air filter — bay 4 | $55 |
+
+## captions
+## images
+## reviews

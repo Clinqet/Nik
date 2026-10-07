@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Waterdown",
+    "category": "hair-salon",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Professional haircuts and grooming — precision cuts, beard grooming, hot towel shaves. Waterdown location of Ritz Barbershop (also Ancaster & Hannon).",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "ritzbarbershop2023@gmail.com",
+      "businessPhone": "905-690-6162",
+      "social": {
+        "facebook": "https://www.facebook.com/RitzBarbershop.ca",
+        "instagram": "https://www.instagram.com/ritzbarbershop.ca",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://ritzbarbershop.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "321 Dundas St E",
+        "city": "Waterdown",
+        "area": "Waterdown",
+        "province": "ON",
+        "postalCode": "L0R 2H0",
+        "country": "Canada",
+        "formatted": "321 Dundas St E, Waterdown, ON L0R 2H0"
+      },
+      "serviceAreas": [
+        "Waterdown"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Waterdown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hair-salon",
+          "subcategory": "barber"
+        }
+      ],
+      "services": [
+        {
+          "name": "Precision Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Beard Grooming & Line-Up",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hot Towel Shaves",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Kids & Senior Haircuts",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "09:00",
+            "close": "19:00",
+            "closed": false
+          }
+        ],
+        "notes": "EVERYDAY 09:00 AM – 07:00 PM; site also lists (905) 692-5554 and (289) 443-4000 for other locations"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://ritzbarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        },
+        {
+          "url": "https://ritzbarbershop.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.85,
+        "notes": "Waterdown phone 905-690-6162 associated with Dundas St E location | deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-waterdown-ritz-barbershop",
+      "businessName": "Ritz Barbershop (Waterdown)"
+    }
+  ]
+}

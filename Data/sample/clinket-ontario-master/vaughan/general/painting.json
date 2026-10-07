@@ -1,0 +1,421 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "general",
+    "category": "painting",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-general-ecopainting",
+      "businessName": "Ecopainting",
+      "description": "Eco-friendly painting services serving Vaughan and GTA.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-733-7767",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painters+%26+Painting+Contractors/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "Phone from public web search for Vaughan-serving painters; confirm local coverage"
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-general-foresta-greens",
+      "businessName": "Foresta Greens",
+      "description": "Landscaping and painting services serving Vaughan area.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-627-3225",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://trustedpros.ca/",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": "Dual landscaping/painting listing from public directory search"
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-general-painting-contractor-toronto",
+      "businessName": "Painting Contractor Toronto",
+      "description": "Home painters serving Vaughan and GTA.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-847-4049",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Home Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painters+%26+Painting+Contractors/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-general-fresh-painting-contractors",
+      "businessName": "Fresh Painting Contractors",
+      "description": "Painting contractors serving Vaughan from Toronto base.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "647-436-0303",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Painters+%26+Painting+Contractors/Vaughan+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.4,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

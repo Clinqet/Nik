@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "city": "Vaughan",
+    "area": "general",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:20:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + TrustedPros). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "vaughan-general-ecofrost-heating",
+      "businessName": "EcoFrost Heating",
+      "description": "24/7 furnace, AC and heat pump repair/install for Woodbridge, Maple, Thornhill and all Vaughan. TSSA-certified, no overtime charges.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "ecofrostsales@gmail.com",
+      "businessPhone": "416-835-4775",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.ecofrostheating.ca/locations/vaughan",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Repair/Install",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "AC Repair/Install",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pump",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tankless Water Heater",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          }
+        ],
+        "notes": "24/7 emergency service advertised"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.ecofrostheating.ca/locations/vaughan",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    },
+    {
+      "id": "vaughan-general-navraj-air-systems",
+      "businessName": "Navraj Air Systems",
+      "description": "HVAC for all of Vaughan — Maple, Thornhill, Concord, Woodbridge, Kleinburg. Furnace, AC, heat pumps, ductwork, gas lines, 24/7.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@navrajairsystems.ca",
+      "businessPhone": "647-669-5009",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://navrajairsystems.ca/vaughan",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "postalCode": null,
+        "area": "general",
+        "city": "Vaughan",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Vaughan",
+        "Woodbridge",
+        "Maple",
+        "Concord",
+        "Thornhill",
+        "Kleinburg"
+      ],
+      "geo": {
+        "city": "Vaughan",
+        "area": "general",
+        "region": "York"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Install/Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Ductwork",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial HVAC",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          }
+        ],
+        "notes": "24/7 emergency service advertised"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://navrajairsystems.ca/vaughan",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:20:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:20:00-04:00"
+    }
+  ]
+}

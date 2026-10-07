@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Knowledge row — one notice family</title>
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0; --warn-line:#F2D9AE;
+    --stop:#A32C2C; --stop-bg:#FAEBEB; --stop-line:#EFC9C9;
+    --info:#3730A3; --info-bg:#EEF2FF; --info-line:#C7D7FE;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013; --warn-line:#4A3A1E;
+      --stop:#E88A8A; --stop-bg:#2B1717; --stop-line:#4A2626;
+      --info:#A9A6EE; --info-bg:#1A1A2E; --info-line:#2E2E4E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013; --warn-line:#4A3A1E;
+    --stop:#E88A8A; --stop-bg:#2B1717; --stop-line:#4A2626;
+    --info:#A9A6EE; --info-bg:#1A1A2E; --info-line:#2E2E4E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding-block:0 80px; padding-inline:20px; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  .masthead { padding:44px 0 10px; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,40px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:70ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:48px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:86ch; }
+  .row-frames { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 500px; min-width:0; }
+  .frame.phone { flex:0 0 360px; max-width:100%; }
+  .frame-cap { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-mute); background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:7px 14px; }
+  .doc { padding:14px 16px; }
+  .doc + .doc { border-top:1px solid var(--line); }
+  .doc-head { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .doc-name { font-weight:700; font-size:14px; color:var(--ink); min-width:0; }
+  .tag { font-size:11px; border:1px solid var(--line-firm); border-radius:999px; padding:1px 8px; color:var(--ink-mute); }
+  .tag.ready { color:var(--brand-deep); border-color:var(--brand); background:var(--brand-soft); font-weight:700; }
+  .tag.sent { color:var(--navy); border-color:var(--info-line); background:var(--navy-soft); font-weight:700; }
+  .acts { margin-left:auto; display:flex; gap:6px; flex-shrink:0; }
+  .btn { font-size:12px; border:1px solid var(--line-firm); background:var(--surface); color:var(--ink); border-radius:8px; padding:4px 10px; }
+  .btn.danger { color:var(--stop); border-color:var(--stop-line); }
+  .btn.icon { padding:4px 8px; }
+  .meta { font-size:11.5px; color:var(--ink-mute); margin:6px 0 0; }
+
+  .notices { margin-top:8px; display:flex; flex-direction:column; gap:6px; }
+  .notice { display:flex; gap:9px; align-items:flex-start; border:1px solid; border-radius:10px; padding:8px 10px; font-size:12.5px; line-height:1.45; }
+  .notice .ico { flex:0 0 auto; font-size:12px; line-height:1.5; }
+  .notice .body { min-width:0; flex:1 1 auto; }
+  .notice .lead { font-weight:700; display:block; }
+  .notice .say { display:block; }
+  .notice .act { display:inline-block; margin-top:4px; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+  .notice .x { flex:0 0 auto; color:inherit; opacity:.55; font-size:13px; }
+  .n-info { background:var(--info-bg); border-color:var(--info-line); color:var(--info); }
+  .n-warn { background:var(--warn-bg); border-color:var(--warn-line); color:var(--warn); }
+  .n-stop { background:var(--stop-bg); border-color:var(--stop-line); color:var(--stop); }
+  .n-quiet { background:var(--surface-sunk); border-color:var(--line); color:var(--ink-soft); }
+  .chip { display:inline-flex; align-items:center; border:1px solid var(--warn-line); background:var(--surface); border-radius:999px; padding:0 7px; font-size:10.5px; font-weight:700; margin-right:6px; }
+  .foot { font-size:11.5px; color:var(--ink-mute); margin-top:7px; }
+  .foot a { color:var(--navy); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+
+  .bad .frame-cap { color:var(--stop); background:var(--stop-bg); border-bottom-color:var(--stop-line); }
+  .good .frame-cap { color:var(--brand-deep); background:var(--brand-soft); border-bottom-color:var(--brand); }
+  .loose { font-size:11.5px; color:var(--ink-mute); margin:6px 0 0; line-height:1.45; }
+  .loose a { color:var(--navy); font-weight:700; text-decoration:underline; }
+
+  table.copy { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:6px; display:block; overflow-x:auto; }
+  table.copy th, table.copy td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  table.copy th { background:var(--surface-sunk); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-mute); }
+  code { font-family:var(--mono); font-size:12px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .rules { margin:0; padding-left:20px; color:var(--ink-soft); max-width:90ch; }
+  .rules li { margin:7px 0; }
+  .rules b { color:var(--ink); }
+  img { max-width:100%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>Knowledge row — one notice family</h1>
+      <p>Every message a document row can show becomes a box in one stack. Nothing is left as a loose sentence
+         underneath, and an action appears only where the message is actually asking for one.</p>
+    </div>
+    <div class="stamp">Sheet · knowledge-row-notice-consolidation<br>Supersedes knowledge-document-row-truth<br>on the notice area only<br>Awaiting approval</div>
+  </div>
+
+  <h2 class="rule">1 · What it looks like today</h2>
+  <p class="lede">Two messages about the same document, drawn two different ways: one boxed, one loose grey text
+     below it that runs to three sentences and ends in a link repeating an action already in the menu.</p>
+  <div class="row-frames">
+    <div class="frame bad">
+      <div class="frame-cap">Today — web</div>
+      <div class="doc">
+        <div class="doc-head">
+          <span class="doc-name">Complete Hair &amp; Beauty Service Directory</span>
+          <span class="tag">Other</span><span class="tag ready">● Ready</span>
+          <span class="acts"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn icon">⋯</span></span>
+        </div>
+        <div><span class="tag sent" style="margin-top:6px;display:inline-block">Details can be sent</span></div>
+        <p class="meta">1 page · 36 parts · 33.9 kB · added Sep 14</p>
+        <div class="notices">
+          <div class="notice n-warn"><span class="ico">⚠</span><span class="body">Some numbers in this file couldn&rsquo;t be confirmed. Everything is saved — it&rsquo;s worth checking them against your original.</span><span class="x">✕</span></div>
+        </div>
+        <p class="loose">No services found in this document. We found 100 priced lines and set them all aside —
+           they aren&rsquo;t the kind of work you offer. Nothing is missing from your answers; callers can still be
+           told about everything in the file. · <a>Run again</a></p>
+      </div>
+    </div>
+    <div class="frame bad phone">
+      <div class="frame-cap">Today — phone</div>
+      <div class="doc">
+        <div class="doc-head"><span class="doc-name">Complete Hair &amp; Beauty Services Price List</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta">1 page · 19 parts · 233 kB · added Aug 21</p>
+        <p class="loose">No services found in this document. We found 36 priced lines, and they are already in
+           your services. · <a>Run again</a></p>
+        <p class="loose">1 picture · 0 can be sent · <a>Show pictures</a></p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">2 · Proposed — one stack, one family</h2>
+  <p class="lede">The run&rsquo;s outcome becomes a box like every other message. It leads with the short truth, then
+     one supporting sentence. No action, because nothing is being asked of the provider.</p>
+  <div class="row-frames">
+    <div class="frame good">
+      <div class="frame-cap">Proposed — web</div>
+      <div class="doc">
+        <div class="doc-head">
+          <span class="doc-name">Complete Hair &amp; Beauty Service Directory</span>
+          <span class="tag">Other</span><span class="tag ready">● Ready</span>
+          <span class="acts"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn icon">⋯</span></span>
+        </div>
+        <div><span class="tag sent" style="margin-top:6px;display:inline-block">Details can be sent</span></div>
+        <p class="meta">1 page · 36 parts · 33.9 kB · added Sep 14</p>
+        <div class="notices">
+          <div class="notice n-warn"><span class="ico">⚠</span><span class="body">Some numbers in this file couldn&rsquo;t be confirmed. It&rsquo;s worth checking them against your original — everything is saved.</span><span class="x">✕</span></div>
+          <div class="notice n-quiet"><span class="ico">◍</span><span class="body">
+            <span class="lead">No services to suggest</span>
+            <span class="say">All 100 priced lines look like work you don&rsquo;t offer. Nothing is missing — callers can still be told about anything in this file.</span>
+          </span></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="doc-head">
+          <span class="doc-name">Complete Hair &amp; Beauty Service Menu</span>
+          <span class="tag">Price list</span><span class="tag ready">● Ready</span>
+          <span class="acts"><span class="btn">Replace</span><span class="btn danger">Delete</span><span class="btn icon">⋯</span></span>
+        </div>
+        <p class="meta">1 page · 4 parts · 150 bytes · added Sep 14</p>
+        <div class="notices">
+          <div class="notice n-warn"><span class="ico">⚠</span><span class="body">The new file you uploaded couldn&rsquo;t be read, so we kept the one you already had. Callers are still being answered from it.<span class="act">Try another file</span></span><span class="x">✕</span></div>
+          <div class="notice n-info"><span class="ico">◆</span><span class="body"><span class="lead">5 services suggested</span><span class="act">Review them</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="frame good phone">
+      <div class="frame-cap">Proposed — phone</div>
+      <div class="doc">
+        <div class="doc-head"><span class="doc-name">Complete Hair &amp; Beauty Services Price List</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta">1 page · 19 parts · 233 kB · added Aug 21</p>
+        <div class="notices">
+          <div class="notice n-quiet"><span class="ico">◍</span><span class="body">
+            <span class="lead">No services to suggest</span>
+            <span class="say">All 36 priced lines are already in your services.</span>
+          </span></div>
+        </div>
+        <p class="foot">1 picture · 0 can be sent · <a>Show pictures</a></p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">3 · Every state this row can reach</h2>
+  <p class="lede">A state the server can produce and the sheet cannot draw is a state that ships undesigned.</p>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Run outcomes</div>
+      <div class="doc"><p class="meta">Still reading</p><div class="notices">
+        <div class="notice n-info"><span class="ico">◌</span><span class="body">Reading this file for services. It usually takes a few minutes — callers are already answered from it.</span></div></div></div>
+      <div class="doc"><p class="meta">Services found</p><div class="notices">
+        <div class="notice n-info"><span class="ico">◆</span><span class="body"><span class="lead">2 services suggested</span><span class="say">3 more were already in your services.</span><span class="act">Review them</span></span></div></div></div>
+      <div class="doc"><p class="meta">None — already yours</p><div class="notices">
+        <div class="notice n-quiet"><span class="ico">◍</span><span class="body"><span class="lead">No services to suggest</span><span class="say">All 36 priced lines are already in your services.</span></span></div></div></div>
+      <div class="doc"><p class="meta">None — not your line of work</p><div class="notices">
+        <div class="notice n-quiet"><span class="ico">◍</span><span class="body"><span class="lead">No services to suggest</span><span class="say">All 100 priced lines look like work you don&rsquo;t offer. Nothing is missing — callers can still be told about anything in this file.</span></span></div></div></div>
+      <div class="doc"><p class="meta">None — nothing priced</p><div class="notices">
+        <div class="notice n-quiet"><span class="ico">◍</span><span class="body"><span class="lead">No services to suggest</span><span class="say">We didn&rsquo;t find prices in this file. Callers can still be told what&rsquo;s in it.</span></span></div></div></div>
+      <div class="doc"><p class="meta">Run failed — the ONE outcome that asks for something</p><div class="notices">
+        <div class="notice n-stop"><span class="ico">✕</span><span class="body">We couldn&rsquo;t finish looking for services in this file. Everything already saved is still answering callers.<span class="act">Run again</span></span></div></div></div>
+    </div>
+    <div class="frame">
+      <div class="frame-cap">The file itself</div>
+      <div class="doc"><p class="meta">Only part of the file was checked</p><div class="notices">
+        <div class="notice n-warn"><span class="ico">⚠</span><span class="body"><span class="chip">Part of the file</span>This file is long, so we checked the first part for services. Callers are still answered from all of it.</span></div></div></div>
+      <div class="doc"><p class="meta">Numbers unconfirmed</p><div class="notices">
+        <div class="notice n-warn"><span class="ico">⚠</span><span class="body">Some numbers in this file couldn&rsquo;t be confirmed. It&rsquo;s worth checking them against your original — everything is saved.</span><span class="x">✕</span></div></div></div>
+      <div class="doc"><p class="meta">Replacement unreadable, previous kept</p><div class="notices">
+        <div class="notice n-warn"><span class="ico">⚠</span><span class="body">The new file you uploaded couldn&rsquo;t be read, so we kept the one you already had. Callers are still being answered from it.<span class="act">Try another file</span></span><span class="x">✕</span></div></div></div>
+      <div class="doc"><p class="meta">Replacement too large, previous kept</p><div class="notices">
+        <div class="notice n-warn"><span class="ico">⚠</span><span class="body">The new file is too big to read, so we kept the one you already had. Callers are still being answered from it.<span class="act">Try a smaller file</span></span><span class="x">✕</span></div></div></div>
+      <div class="doc"><p class="meta">Nothing is driving this row any more</p><div class="notices">
+        <div class="notice n-warn"><span class="ico">⚠</span><span class="body">This file stopped part-way through. You can read it again whenever you like.<span class="act">Read it again</span></span></div></div></div>
+      <div class="doc"><p class="meta">Being removed</p><div class="notices">
+        <div class="notice n-quiet"><span class="ico">◍</span><span class="body">Removing this file. Callers won&rsquo;t be told about it any more.</span></div></div></div>
+    </div>
+  </div>
+
+  <h2 class="rule">4 · The rules this sheet is asking to fix</h2>
+  <ul class="rules">
+    <li><b>Nothing outside a box.</b> If a row has something to SAY about a document, it says it in a notice.
+        The only lines that stay plain are the file&rsquo;s own facts (pages, parts, size, date) and the pictures
+        line — those are not messages, they are the row describing itself.</li>
+    <li><b>One action, and only when the message asks for one.</b> &ldquo;No services to suggest&rdquo; is an outcome, not
+        a problem, so it carries no link. Run again still exists, in the row&rsquo;s menu, where every other
+        whole-document action lives. A failed run, a stopped file and an unreadable replacement DO ask for
+        something, and those keep their action — inside the box.</li>
+    <li><b>Lead with the short truth.</b> Three sentences of grey text do not get read. A bold lead line carries
+        the outcome; one sentence underneath carries the reassurance.</li>
+    <li><b>Tone by meaning, not by loudness.</b> Quiet = an outcome needing nothing from the provider.
+        Blue = something waiting for them. Amber = worth their eye. Red = it did not work.</li>
+    <li><b>No technical word anywhere a provider can read</b> (§0.20): no passage, chunk, index, parse,
+        extraction or payload. This sheet says file, page, part, priced line, services, callers.</li>
+  </ul>
+
+  <h2 class="rule">5 · Where every sentence comes from</h2>
+  <table class="copy">
+    <tr><th>Notice</th><th>Source</th><th>Change</th></tr>
+    <tr><td>No services to suggest (3 reasons)</td><td>Screen copy — <code>knowledge.drafts.row.none*</code>, picked by <code>resolveNoneReasonId</code></td><td>Re-cut into a lead + one sentence; <b>the Run again link is removed</b></td></tr>
+    <tr><td>N services suggested</td><td>Screen copy — <code>knowledge.drafts.row.found</code> / <code>.already</code></td><td>Same words, boxed; Review becomes the box&rsquo;s action</td></tr>
+    <tr><td>Run failed</td><td>Screen copy — <code>knowledge.drafts.row.failed</code></td><td>Boxed; keeps Run again, because this one IS asking</td></tr>
+    <tr><td>Numbers unconfirmed · replacement kept · too large · no room</td><td><b>Server sentence</b> — <code>KnowledgeReadingNoticeDto</code> (Heading, Causes, CanReadAgain)</td><td>No change — already a finished sentence, already boxed</td></tr>
+    <tr><td>Part of the file</td><td>Screen copy — <code>knowledge.drafts.row.partOfFile</code></td><td>Moves into the notice stack, keeps its chip</td></tr>
+    <tr><td>Stopped</td><td>Screen copy — <code>knowledge.row.runStopped</code></td><td>Boxed; keeps Read it again</td></tr>
+  </table>
+  <p class="lede" style="margin-top:14px">‼️ New copy is needed for the three &ldquo;No services to suggest&rdquo; variants in
+     all five catalogues (en-US, es-US, fr-CA, gu-IN, hi-IN), and the mobile provider app mirrors this sheet in
+     the same change.</p>
+
+</div>
+</body>
+</html>

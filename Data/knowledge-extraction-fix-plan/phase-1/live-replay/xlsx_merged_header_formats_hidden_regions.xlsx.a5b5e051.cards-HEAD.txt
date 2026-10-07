@@ -1,0 +1,23 @@
+# xlsx_merged_header_formats_hidden_regions.xlsx.a5b5e051
+blocks=5 pageCount=0 docType=Other
+cards=3 imageCards=0 warnings=0
+
+--- card 0 [Table] section='Prices' page= img= chars=559
+    Service | Price | Price | Duration | Discount | Valid from | Notes
+    Short hair | Long hair
+    Haircut | $25.00 | $35.00 | 30 min | 15% | 2026-01-01 | Walk-ins welcome
+    Full head colour | $80.00 | $110.00 | 90 min | 15% | 2026-01-02 | Includes toner
+    Patch test 48h before
+    Ask about Olaplex add-on
+    Highlights | $120.00 | $160.00 | 120 min | 15% | 2026-01-03 | Walk-ins welcome
+    Keratin treatment | $250.00 | $320.00 | 180 min | 15% | 2026-01-04 | Walk-ins welcome
+    Blow dry | $30.00 | $40.00 | 30 min | 15% | 2026-01-05 | Walk-ins welcome
+    Average short price | $101.00
+--- card 1 [Table] section='Prices' page= img= chars=130
+    Treatment | Guarantee days | Redo policy
+    Keratin treatment | 7 | Free redo within a week
+    Full head colour | 5 | Toner refresh free
+--- card 2 [Table] section='Sheet2' page= img= chars=71
+    Opening hours | Mon–Fri 9:00–18:00
+    Saturday | 10:00–16:00
+    Deposit | 20%

@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "city": "Mississauga",
+    "area": "streetsville",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T16:00:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "mississauga-streetsville-mr-rooter-plumbing-of-mississauga-on",
+      "businessName": "Mr Rooter Plumbing of Mississauga ON",
+      "description": "Residential and commercial plumbing, drain cleaning, water heaters, video inspections. Queen St S, Streetsville. BBB listed; owners Mike & Vesna Kolakovic.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 27,
+      "owner": {
+        "name": "Mike Kolakovic",
+        "email": null,
+        "phone": "289-814-0891"
+      },
+      "businessEmail": null,
+      "businessPhone": "905-817-0210",
+      "social": {
+        "facebook": "https://www.facebook.com/MrRooterPlumbingMississauga",
+        "instagram": "https://www.instagram.com/mrrooterllc",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.mrrooter.ca/mississauga/",
+        "other": []
+      },
+      "address": {
+        "street": "281 Queen St S",
+        "postalCode": "L5M 1L9",
+        "area": "streetsville",
+        "city": "Mississauga",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "281 Queen St S, Mississauga, ON L5M 1L9"
+      },
+      "serviceAreas": [
+        "Mississauga",
+        "Brampton",
+        "Oakville",
+        "Etobicoke"
+      ],
+      "geo": {
+        "city": "Mississauga",
+        "area": "streetsville",
+        "region": "Peel"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Video Drain Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Line Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24 hours"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Plumbers+%26+Plumbing+Contractors/Mississauga+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        },
+        {
+          "url": "https://www.bbb.org/ca/on/mississauga/profile/plumber/mr-rooter-plumbing-of-mississauga-on-0107-1290687",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:00:00-04:00"
+        },
+        {
+          "url": "https://www.mrrooter.ca/mississauga/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

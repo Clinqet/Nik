@@ -1,0 +1,115 @@
+{
+  "contentHash": "8C8AB848AA769DE24FD7EB51495227EA75ECF004212FA4B2609CB2E5D9E75645",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "pdf_price_shapes_tiers_units.pdf",
+  "pageCount": 1,
+  "docTitle": "ProFix Home Services Rate Card",
+  "docSummary": "Rate card covering home services, hair services, repairs, consultations, rentals, cleaning, installation, deposits, and package deals. Includes a detailing menu for exterior wash, interior detail, and full detail by vehicle size, plus INR prices for three machines.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "ProFix Home Services — rate card",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Service call $95/hr (minimum 1 hour)  \nAfter-hours call $150/hr  \nLawn cut $45/visit  \nPorcelain tile installation $3/sq ft  \nStorage unit rental $120/month  \nExcavator rental $350/day  \nHaircut Men $20 Women $30  \nColour $50 / $70 (short / long)  \nHighlights from $120  \nRepairs $80+  \nConsultation Free  \nBalayage $180—$260  \nGutter cleaning US$45 per visit  \nPressure washing 30 - 45 per hour  \nDeposit $50 on all bookings over $300  \nTotal for package deal $1,250 (save $150)\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Detailing menu",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Package",
+            "Small",
+            "Medium",
+            "Large"
+          ],
+          [
+            "Exterior wash",
+            "$25",
+            "$30",
+            "$40"
+          ],
+          [
+            "Interior detail",
+            "$80",
+            "$100",
+            "$130"
+          ],
+          [
+            "Full detail",
+            "$150",
+            "$180",
+            "$220"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Rupee card",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Machine",
+            "Price (INR)"
+          ],
+          [
+            "Volvo EC210 excavator",
+            "1,05,00,000"
+          ],
+          [
+            "JCB 3DX backhoe",
+            "32,50,000"
+          ],
+          [
+            "Bobcat S70 loader",
+            "18,75,000"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

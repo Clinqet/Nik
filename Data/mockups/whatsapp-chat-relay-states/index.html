@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat messages on WhatsApp — what the customer and the provider see</title>
+<style>
+  :root{
+    --navy:#032858; --green:#97EF29; --green-ink:#3A6410; --body:#101010; --muted:#5F6672;
+    --page:#F5F5F5; --border:#E7E7E7; --surface:#FAFAFB;
+    --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00;
+    --open-bg:#F4FFE4; --open-ink:#33531A; --open-line:#CDEEAA;
+    --soon-bg:#FFF4E0; --soon-ink:#9A6700; --soon-line:#FFE0A3;
+    --closed-bg:#F8FAFC; --closed-ink:#475569; --closed-line:#E2E8F0;
+    --tick:#919191; --tick-read:#34C759; --tick-fail:#C63535;
+    --wa:#25D366; --wa-dark:#075E54; --wa-wall:#EFE7DD; --wa-in:#FFFFFF; --wa-out:#D9FDD3; --wa-link:#027EB5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font-family:Lufga,Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:24px 16px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  h1{color:var(--navy);font-size:clamp(1.25rem,3.5vw,1.5rem);margin:0 0 6px;font-weight:600}
+  h2{color:var(--navy);font-size:clamp(1.125rem,3vw,1.25rem);margin:40px 0 8px;font-weight:600}
+  p.lead{color:var(--muted);margin:0}
+  .note{background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink);border-radius:12px;padding:12px 14px;margin:14px 0}
+  .ok{background:var(--open-bg);border:1px solid var(--open-line);color:var(--open-ink);border-radius:12px;padding:12px 14px;margin:14px 0}
+  .row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px;flex:1 1 320px;min-width:0}
+  .card .src{color:var(--muted);font-size:.8125rem;margin-top:8px}
+  .state{display:inline-block;font-size:.75rem;border-radius:999px;padding:2px 10px;border:1px solid var(--border);background:var(--surface);color:var(--muted);margin-bottom:8px}
+  .state.rev{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+  .phone{width:375px;max-width:100%;border:10px solid #111;border-radius:36px;background:#000;overflow:hidden;margin:0 auto}
+  .screen{background:var(--wa-wall);min-height:560px;display:flex;flex-direction:column}
+  .wa-top{background:var(--wa-dark);color:#fff;padding:14px 14px 12px;display:flex;align-items:center;gap:10px}
+  .wa-top .av{width:36px;height:36px;border-radius:50%;background:var(--green);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:600}
+  .wa-top .t{font-weight:600;font-size:.9375rem}
+  .wa-top .s{font-size:.75rem;opacity:.85}
+  .chat{padding:12px 10px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .b{max-width:82%;border-radius:10px;padding:8px 10px 6px;font-size:.9rem;box-shadow:0 1px 0 rgba(0,0,0,.08);white-space:pre-line;word-wrap:break-word}
+  .in{background:var(--wa-in);align-self:flex-start;border-top-left-radius:2px}
+  .out{background:var(--wa-out);align-self:flex-end;border-top-right-radius:2px}
+  .b .time{display:block;text-align:right;font-size:.6875rem;color:#667781;margin-top:4px}
+  .b .foot{display:block;font-size:.75rem;color:#667781;margin-top:6px}
+  .b a{color:var(--wa-link);text-decoration:none}
+  .b .btn{display:block;margin:8px -10px -6px;border-top:1px solid #E5E5E5;text-align:center;color:var(--wa-link);padding:9px 0 8px;font-weight:600}
+  .b .pic{display:block;height:150px;border-radius:8px;background:linear-gradient(135deg,#C9D6E5,#8FA5C0);margin:2px 0 4px}
+  .b .doc{display:flex;align-items:center;gap:10px;background:#F0F2F5;border-radius:8px;padding:10px;margin-bottom:4px}
+  .b .doc .ic{width:30px;height:38px;border-radius:4px;background:#D33;color:#fff;font-size:.6875rem;display:flex;align-items:center;justify-content:center;font-weight:600}
+  .day{align-self:center;background:#fff;border-radius:8px;padding:3px 10px;font-size:.75rem;color:#54656F}
+  .sys{align-self:center;background:#FFF5C4;border-radius:8px;padding:6px 10px;font-size:.75rem;color:#54656F;text-align:center;max-width:90%}
+  .app{background:#fff;min-height:560px;display:flex;flex-direction:column;font-size:.875rem}
+  .app-top{padding:14px 14px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+  .app-top .av{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600}
+  .app-top .n{font-weight:600;color:var(--navy)}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;border-radius:999px;padding:2px 8px;border:1px solid #CFF3DD;background:#E9FBF1;color:#1F6F3E;margin-left:auto}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--wa)}
+  .banner{margin:10px 12px 0;border-radius:12px;padding:10px 12px;font-size:.8125rem;border:1px solid}
+  .banner.open{background:var(--open-bg);color:var(--open-ink);border-color:var(--open-line)}
+  .banner.soon{background:var(--soon-bg);color:var(--soon-ink);border-color:var(--soon-line)}
+  .banner.closed{background:var(--closed-bg);color:var(--closed-ink);border-color:var(--closed-line)}
+  .banner.amber{background:var(--amber-bg);color:var(--amber-ink);border-color:var(--amber-line)}
+  .msgs{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1;background:var(--surface)}
+  .m{max-width:80%;border-radius:14px;padding:9px 12px;font-size:.875rem}
+  .m.them{background:#fff;border:1px solid var(--border);align-self:flex-start}
+  .m.me{background:var(--navy);color:#fff;align-self:flex-end}
+  .m .meta{display:flex;align-items:center;gap:6px;justify-content:flex-end;font-size:.6875rem;opacity:.75;margin-top:4px}
+  .tk{display:inline-flex;align-items:center}
+  .tk svg{display:block}
+  .dl{align-self:flex-end;max-width:80%;font-size:.75rem;color:var(--muted);margin-top:-4px;padding:0 4px}
+  .composer{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--border)}
+  .composer .in2{flex:1;border:1px solid var(--border);border-radius:12px;padding:10px 12px;color:var(--muted)}
+  .composer .send{min-width:44px;height:44px;border-radius:12px;background:var(--green);color:var(--green-ink);display:flex;align-items:center;justify-content:center;font-weight:600}
+  .web{width:100%;border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+  .web-bar{background:#F1F3F5;border-bottom:1px solid var(--border);padding:8px 12px;font-size:.75rem;color:var(--muted)}
+  .web-body{display:grid;grid-template-columns:280px 1fr;min-height:420px}
+  .web-list{border-right:1px solid var(--border);padding:8px}
+  .web-list .li{padding:10px;border-radius:10px;display:flex;gap:10px;align-items:center}
+  .web-list .li.sel{background:var(--surface)}
+  .web-list .li .av{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8125rem;font-weight:600;position:relative}
+  .web-list .li .av .wa-mark{position:absolute;right:-3px;bottom:-3px;width:14px;height:14px;border-radius:50%;background:var(--wa);border:2px solid #fff}
+  .web-list .li .who{font-weight:600;color:var(--navy);font-size:.875rem}
+  .web-list .li .prev{color:var(--muted);font-size:.8125rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+  .web-thread{display:flex;flex-direction:column}
+  @media (max-width:768px){.web-body{grid-template-columns:1fr}.web-list{display:none}}
+  .set{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff}
+  .set .h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .set .h .t{font-weight:600;color:var(--navy)}
+  .toggle{width:46px;height:26px;border-radius:999px;background:var(--green);position:relative;flex:none}
+  .toggle::after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff}
+  .toggle.off{background:#D0D5DD}.toggle.off::after{right:auto;left:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{font-size:.75rem;border-radius:999px;padding:3px 10px;background:#E9FBF1;color:#1F6F3E;border:1px solid #CFF3DD}
+  .chip.new{outline:2px dashed var(--amber-ink);outline-offset:2px}
+  .set .d{color:var(--muted);font-size:.8125rem;margin-top:6px}
+  .mail{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+  .mail .hd{background:var(--navy);color:#fff;padding:14px;font-weight:600}
+  .mail .bd{padding:16px}
+  .mail .q{background:var(--surface);border-left:3px solid var(--green);padding:10px 12px;margin:10px 0;color:var(--body)}
+  .mail .cta{display:inline-block;background:var(--green);color:var(--green-ink);border-radius:12px;padding:12px 18px;font-weight:600;margin-top:6px}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:.875rem}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{background:var(--surface);color:var(--navy);font-weight:600}
+  .k{font-family:Consolas,Menlo,monospace;font-size:.75rem;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .tok{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;border:1px solid var(--border);margin-right:6px}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}
+  .legend .it{display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--body)}
+  .legend .it .tk{background:var(--navy);border-radius:8px;padding:6px 8px}
+  @media (hover:hover){.chip:hover{filter:brightness(.97)}}
+  footer{color:var(--muted);font-size:.8125rem;padding:40px 16px 60px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Chat messages on WhatsApp — what the customer and the provider see</h1>
+  <p class="lead">Every state, both directions, web and phone. <b>Approved by the owner on 20 September 2026</b>, including the in-thread delivery line (frames 5h, 5i). Revised the same day at the owner's request: a real "Open chat" button on the first message of a burst (1a, 1g, 3a), the long-message case sent as two messages so the button is always there (1h), real tick states in the app frames (5h, 5i) and a tick legend (5j). Words shown in existing frames already exist in the apps; words marked <b>NEW</b> are proposed and will be translated into all five languages before they ship.</p>
+  <div class="note"><b>What changes for people:</b> when someone is chatting with us on WhatsApp, their reply arrives on WhatsApp and in the app, and they no longer also get an email for the same message. The email is sent only if WhatsApp could not deliver. Inside the app the sender now sees a <b>delivered</b> tick when WhatsApp confirms the copy reached the phone, and a quiet line under the message if the WhatsApp copy could not be delivered. Tapping a WhatsApp alert opens the exact conversation.</div>
+</div></header>
+
+<main class="wrap">
+
+<h2>1 · The customer's phone — a reply arrives on WhatsApp</h2>
+<p class="lead">Applies when the customer wrote to us on WhatsApp within the last 24 hours. The full message arrives as a normal WhatsApp message from Clinket. The sender's name is always shown. The first message of a fresh burst carries a real "Open chat" button and a short footer; later messages in the same burst are plain, so a live back-and-forth is never cluttered.</p>
+
+<div class="row">
+  <div class="card">
+    <span class="state rev">State 1a · first message of a burst — button</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="day">Today</div>
+        <div class="b out">Hi, is 3 pm still fine for the colour appointment?<span class="time">2:41 pm</span></div>
+        <div class="b in"><b>Sarah's Salon</b>
+Yes, 3 pm works. See you then!<span class="foot">Reply here or in Clinket.</span><span class="time">2:43 pm</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">A WhatsApp message with a button (the same kind Clinket already sends for "Explore services"). Sender's name in bold, the message as typed, footer <b>NEW</b> <span class="k">WhatsApp_Chat_Footer_ReplyHere</span>, button <b>NEW</b> <span class="k">WhatsApp_Chat_OpenChat_Button</span> (≤ 20 characters). The button opens the exact conversation.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 1b · second message in the same burst</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Sarah's Salon</b>
+Yes, 3 pm works. See you then!<span class="foot">Reply here or in Clinket.</span><span class="time">2:43 pm</span><span class="btn">Open chat</span></div>
+        <div class="b in"><b>Sarah's Salon</b>
+Please bring a photo of the shade you liked.<span class="time">2:44 pm</span></div>
+        <div class="b out">Will do, thank you!<span class="time">2:45 pm</span></div>
+      </div>
+    </div></div>
+    <div class="src">No button and no footer on follow-up lines. A burst is a run of messages before the customer's next reply; the customer's reply lands in the same Clinket conversation.</div>
+  </div>
+  <div class="card">
+    <span class="state rev">State 1h · a very long message (over 1,024 characters) — two messages</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Sarah's Salon</b>
+Here is the full aftercare routine for the next two weeks. Day 1: … Day 2: … (a long message continues for several paragraphs, complete, nothing cut) …<span class="time">2:50 pm</span></div>
+        <div class="b in">Reply here or in Clinket.<span class="time">2:50 pm</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">WhatsApp caps a message that carries a button at 1,024 characters and Clinket allows 2,000. The words always win: the full text goes first as a plain message, then a short second message carries the same footer sentence and the "Open chat" button. Nothing is ever cut, and the button is always there on the first message of a burst.</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card">
+    <span class="state">State 1c · text with a photo</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Sarah's Salon</b>
+Here is the shade we spoke about.<span class="foot">Reply here or in Clinket.</span><span class="time">2:50 pm</span><span class="btn">Open chat</span></div>
+        <div class="b in"><span class="pic"></span><span class="time">2:50 pm</span></div>
+      </div>
+    </div></div>
+    <div class="src">The text arrives first (with the button when it opens a burst), then each photo or file as its own message, in the order they were attached. Photos (JPEG/PNG up to 5 MB), files (PDF, Word, Excel, text up to 100 MB) and MP4 video (up to 16 MB). A photo or file never carries a button.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 1d · photo only, no text</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><span class="pic"></span><b>Sarah's Salon</b><span class="time">2:52 pm</span></div>
+      </div>
+    </div></div>
+    <div class="src">The sender's name rides as the photo's caption so the customer always knows who sent it.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 1e · a file WhatsApp cannot carry</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Sarah's Salon</b>
+Sending you the video of the technique.
+
+They also sent a photo or file. Open the conversation in Clinket to see it.<span class="foot">Reply here or in Clinket.</span><span class="time">2:55 pm</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">Used for HEIC, GIF, WebP, MOV or anything over WhatsApp's size limits. <b>NEW</b> keys <span class="k">WhatsApp_Chat_AttachmentHint_One</span> / <span class="k">_Many</span> ("They also sent {0} photos or files. Open the conversation in Clinket to see them."). Approved 2026-09-20. The button opens the conversation where the file is.</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card">
+    <span class="state">State 1f · a PDF</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Sarah's Salon</b>
+Your aftercare guide is attached.<span class="foot">Reply here or in Clinket.</span><span class="time">3:10 pm</span><span class="btn">Open chat</span></div>
+        <div class="b in"><span class="doc"><span class="ic">PDF</span><span>Aftercare guide.pdf<br><small style="color:#667781">1 page · 240 KB</small></span></span><span class="time">3:10 pm</span></div>
+      </div>
+    </div></div>
+    <div class="src">Files arrive as WhatsApp documents with their original name.</div>
+  </div>
+  <div class="card">
+    <span class="state rev">State 1g · WhatsApp Web (laptop) — button</span>
+    <div class="web">
+      <div class="web-bar">web.whatsapp.com</div>
+      <div class="web-body">
+        <div class="web-list"><div class="li sel"><div class="av">C</div><div><div class="who">Clinket</div><div class="prev">Sarah's Salon · Yes, 3 pm works…</div></div></div></div>
+        <div class="web-thread"><div class="chat" style="background:var(--wa-wall);flex:1">
+          <div class="b out">Hi, is 3 pm still fine for the colour appointment?<span class="time">2:41 pm</span></div>
+          <div class="b in"><b>Sarah's Salon</b>
+Yes, 3 pm works. See you then!<span class="foot">Reply here or in Clinket.</span><span class="time">2:43 pm</span><span class="btn">Open chat</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="src">Identical words and button on a laptop; the button opens the exact conversation in Clinket.</div>
+  </div>
+</div>
+
+<h2>2 · The customer's phone — more than 24 hours since they last wrote on WhatsApp</h2>
+<p class="lead">WhatsApp only allows a short pre-approved notice here, never the message itself. The notice replaces the email. It is sent once per quiet period and skipped if the customer has already read the message in the app. Approved on both accounts in all five languages.</p>
+<div class="row">
+  <div class="card">
+    <span class="state">State 2a · the notice</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="day">Yesterday</div>
+        <div class="b out">Thanks, see you Friday.<span class="time">6:12 pm</span></div>
+        <div class="day">Today</div>
+        <div class="b in">💬 A new message has arrived in your conversation with Sarah's Salon on Clinket. Open the conversation to read it and reply, or reply right here.<span class="time">9:02 am</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">Words: the approved template <span class="k">clinket_chat_reply_customer</span>, unchanged. The button opens the exact conversation. The in-app tick for this message stays at "sent": the notice reached them, the words did not.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 2b · they reply on WhatsApp</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in">💬 A new message has arrived in your conversation with Sarah's Salon on Clinket. Open the conversation to read it and reply, or reply right here.<span class="time">9:02 am</span><span class="btn">Open chat</span></div>
+        <div class="b out">Can we move it to 4 pm?<span class="time">9:05 am</span></div>
+        <div class="b in"><b>Sarah's Salon</b>
+4 pm is fine, see you then.<span class="foot">Reply here or in Clinket.</span><span class="time">9:07 am</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">Their reply lands in the Clinket conversation and re-opens the live chat, so the salon's next words arrive in full again.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 2c · nothing on WhatsApp</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="sys">No WhatsApp message is sent when the customer has turned WhatsApp updates off, when WhatsApp is unavailable for their number, or when they already read the message in Clinket. They still get it in the app, a push, and (unless they already read it) the email.</div>
+      </div>
+    </div></div>
+    <div class="src">Behaviour, not copy: nothing to display.</div>
+  </div>
+</div>
+
+<h2>3 · The provider's phone — a customer's message arrives on WhatsApp</h2>
+<p class="lead">Same rules in the other direction. Within 24 hours of the provider's last WhatsApp message to Clinket the full text arrives; otherwise the notice. The provider can reply from WhatsApp and the reply lands in the Clinket conversation with the right customer. The alert goes to the business's WhatsApp number; the "WhatsApp message alerts" switch in Notifications turns it off.</p>
+<div class="row">
+  <div class="card">
+    <span class="state rev">State 3a · full message — button</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Raj Patel</b>
+Hi, is 3 pm still fine for the colour appointment?<span class="foot">Reply here or in Clinket.</span><span class="time">2:41 pm</span><span class="btn">Open chat</span></div>
+        <div class="b out">Yes, 3 pm works. See you then!<span class="time">2:43 pm</span></div>
+      </div>
+    </div></div>
+    <div class="src">The button opens the exact conversation in the provider inbox. The provider's WhatsApp reply is written into the conversation as the business and delivered to Raj.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 3b · the notice</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in">💬 A new message has arrived in your conversation with Raj Patel on Clinket. Open the conversation to read it and reply, or reply right here.<span class="time">9:02 am</span><span class="btn">Open chat</span></div>
+      </div>
+    </div></div>
+    <div class="src">Template <span class="k">clinket_chat_reply_provider</span>, approved. The button opens the exact conversation in the provider inbox.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 3c · two customers at once</span>
+    <div class="phone"><div class="screen">
+      <div class="wa-top"><div class="av">C</div><div><div class="t">Clinket</div><div class="s">Business account</div></div></div>
+      <div class="chat">
+        <div class="b in"><b>Raj Patel</b>
+Is 3 pm still fine?<span class="foot">Reply here or in Clinket.</span><span class="time">2:41 pm</span><span class="btn">Open chat</span></div>
+        <div class="b in"><b>Anita Shah</b>
+Do you have anything on Saturday?<span class="foot">Reply here or in Clinket.</span><span class="time">2:42 pm</span><span class="btn">Open chat</span></div>
+        <div class="b out">Yes, 3 pm works, Raj.<span class="time">2:43 pm</span></div>
+        <div class="sys">Which customer is this reply for? Tap to choose: Raj Patel · Anita Shah</div>
+      </div>
+    </div></div>
+    <div class="src">Names always shown. A plain reply while two chats are live asks the provider to pick; swiping to reply on a specific message needs no question. Existing behaviour, drawn for completeness.</div>
+  </div>
+</div>
+
+<div class="note"><b>Team businesses.</b> The WhatsApp alert goes to the business phone. Only the team member whose own phone number is that business phone stops receiving the email for these messages; every other team member keeps in-app, push and email exactly as today. A solo business behaves the same on both sides.</div>
+
+<h2>4 · The email — sent only when WhatsApp could not deliver</h2>
+<p class="lead">The email is the one that exists today, unchanged. It goes out if WhatsApp reports a failure within 6 hours of the message, or if WhatsApp has still not confirmed delivery after 2 hours. It is never sent when the person has already read the message in the app, muted or hidden the conversation, blocked the sender, or when the message was removed by Clinket support.</p>
+<div class="grid2">
+  <div class="card">
+    <span class="state">State 4a · the released email (existing template)</span>
+    <div class="mail">
+      <div class="hd">New Message</div>
+      <div class="bd">
+        <p>Hi Raj,</p>
+        <p><b>Sarah's Salon</b> sent you a message on Clinket.</p>
+        <div class="q">Yes, 3 pm works. See you then!</div>
+        <span class="cta">View &amp; Reply</span>
+        <p style="color:var(--muted);font-size:.8125rem">Reply directly from Clinket so your conversation stays in one place.</p>
+      </div>
+    </div>
+    <div class="src">Subject: "Sarah's Salon sent you a message - Clinket" (existing key <span class="k">DirectMessage_Customer_Subject</span>). Body: existing <span class="k">DirectMessage</span> template.</div>
+  </div>
+  <div class="card">
+    <span class="state">State 4b · when the email is and is not sent</span>
+    <table>
+      <tr><th>The person…</th><th>Email?</th></tr>
+      <tr><td>got the WhatsApp message (delivered)</td><td>No</td></tr>
+      <tr><td>already read it in Clinket</td><td>No</td></tr>
+      <tr><td>muted, hid, blocked or closed the conversation</td><td>No</td></tr>
+      <tr><td>has no email on file</td><td>No</td></tr>
+      <tr><td>WhatsApp reported a failure within 6 hours</td><td><b>Yes</b>, once</td></tr>
+      <tr><td>WhatsApp still had not confirmed delivery after 2 hours (phone off)</td><td><b>Yes</b>, once — if WhatsApp delivers later, they have both copies</td></tr>
+      <tr><td>WhatsApp failed more than 6 hours later</td><td>No (they have it in the app and were pushed)</td></tr>
+      <tr><td>turned WhatsApp off, or WhatsApp unavailable for their number</td><td>Yes, as today (no WhatsApp was attempted)</td></tr>
+    </table>
+    <div class="src">Behaviour table, no new copy.</div>
+  </div>
+</div>
+
+<h2>5 · Inside the app — the conversation (unchanged words, every state)</h2>
+<p class="lead">The thread looks as today, plus two things for the sender: a <b>delivered</b> tick when WhatsApp confirms the copy reached the phone, and a quiet line if the WhatsApp copy could not be delivered (5h, 5i). Provider web, provider phone app, customer web and customer phone app.</p>
+
+<div class="row">
+  <div class="card" style="flex-basis:100%">
+    <span class="state rev">5j · the sender's ticks — legend (existing states plus one)</span>
+    <div class="legend">
+      <div class="it"><span class="tk"><svg width="12" height="10" viewBox="0 0 20 16" fill="none"><path d="M2 9l4 4 9-9" stroke="#919191" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Sent (existing: single grey tick)</div>
+      <div class="it"><span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#919191" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#919191" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <b>Delivered on WhatsApp</b> (NEW: double grey tick)</div>
+      <div class="it"><span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Read (existing: double green tick — read in the app or on WhatsApp)</div>
+      <div class="it"><span class="tk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C63535" stroke-width="2"/><path d="M12 7v6M12 17h.01" stroke="#C63535" stroke-width="2" stroke-linecap="round"/></svg></span> Could not send (existing: the message never left the app)</div>
+    </div>
+    <div class="src">The ticks never go backwards: sent → delivered → read. A late "delivered" after "read" changes nothing. The delivered tick is set only when the words themselves travelled on WhatsApp (a live-chat copy); the after-24-hours notice never sets it — the person got a notice, not the message. Labels for screen readers: existing <span class="k">inbox.statusSent</span> / <span class="k">inbox.statusRead</span> / <span class="k">inbox.statusFailed</span> (and the <span class="k">messages.*</span> twins), plus <b>NEW</b> <span class="k">inbox.statusDelivered</span> / <span class="k">messages.statusDelivered</span> — "Delivered on WhatsApp". Phone apps use the same four-then-five states in their existing tick component.</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card">
+    <span class="state">5a · provider web · live WhatsApp chat</span>
+    <div class="web">
+      <div class="web-bar">business.clinket.com/dashboard/inbox?conversationId=…</div>
+      <div class="web-body">
+        <div class="web-list">
+          <div class="li sel"><div class="av">R<span class="wa-mark"></span></div><div><div class="who">Raj Patel</div><div class="prev">Is 3 pm still fine for the colour…</div></div></div>
+          <div class="li"><div class="av">A</div><div><div class="who">Anita Shah</div><div class="prev">Do you have anything on Saturday?</div></div></div>
+        </div>
+        <div class="web-thread">
+          <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+          <div class="banner open">Connected on WhatsApp. Your messages reach Raj Patel right away.</div>
+          <div class="msgs">
+            <div class="m them">Hi, is 3 pm still fine for the colour appointment?<span class="meta" style="justify-content:flex-start">2:41 pm · via WhatsApp</span></div>
+            <div class="m me">Yes, 3 pm works. See you then!<span class="meta">2:43 pm <span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="m me">Please bring a photo of the shade you liked.<span class="meta">2:44 pm <span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#919191" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#919191" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+          </div>
+          <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="src">Existing key <span class="k">inbox.waWindowOpen</span>. First reply: read (green). Second: delivered on WhatsApp (double grey), not yet read.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="card">
+    <span class="state">5b · provider phone · pauses soon</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="banner soon">Your live WhatsApp chat with Raj Patel pauses soon. Reply now so it arrives instantly.</div>
+      <div class="msgs"><div class="m them">Is 3 pm still fine?<span class="meta" style="justify-content:flex-start">Yesterday · via WhatsApp</span></div></div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Existing key <span class="k">inbox.waWindowExpiring</span>.</div>
+  </div>
+  <div class="card">
+    <span class="state">5c · provider phone · quiet for over 24 hours</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="banner closed">Send your reply. We'll notify Raj Patel on WhatsApp, and they'll get it in the app right away too.</div>
+      <div class="msgs"><div class="m them">Thanks, see you Friday.<span class="meta" style="justify-content:flex-start">2 days ago · via WhatsApp</span></div></div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Existing key <span class="k">inbox.waWindowClosed</span> — already describes the notice.</div>
+  </div>
+  <div class="card">
+    <span class="state">5d · provider phone · opted out / unavailable</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill" style="background:#F1F1F1;color:var(--muted);border-color:var(--border)"><span class="dot" style="background:#B0B7C3"></span>Opted out</span></div>
+      <div class="banner closed">Raj Patel opted out of WhatsApp. They'll still get your reply in the app.</div>
+      <div class="msgs"><div class="m them">Thanks, see you Friday.<span class="meta" style="justify-content:flex-start">2 days ago</span></div></div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Existing keys <span class="k">inbox.waOptedOut</span> / <span class="k">inbox.waBlocked</span> ("WhatsApp is unavailable for {name}…"). The email goes as today in these states.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="card">
+    <span class="state">5e · provider phone · today's WhatsApp allowance used (alerts to the business)</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="banner amber">You've used today's WhatsApp allowance. Your WhatsApp alerts pause until tomorrow, and you're still getting everything right here in Clinket. Chat here is never limited.</div>
+      <div class="msgs"><div class="m them">Is 3 pm still fine?<span class="meta" style="justify-content:flex-start">2:41 pm</span></div></div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Existing key <span class="k">inbox.waLimitStrip</span>. The customer's WhatsApp copy is never limited. When the provider's own alert pauses, the provider's email goes as today.</div>
+  </div>
+  <div class="card">
+    <span class="state">5f · customer web · connected</span>
+    <div class="web">
+      <div class="web-bar">www.clinket.com/messages?conversationId=…</div>
+      <div class="web-body">
+        <div class="web-list"><div class="li sel"><div class="av">S<span class="wa-mark"></span></div><div><div class="who">Sarah's Salon</div><div class="prev">Yes, 3 pm works. See you then!</div></div></div></div>
+        <div class="web-thread">
+          <div class="app-top"><div class="av">S</div><div class="n">Sarah's Salon</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+          <div class="banner open">Connected on WhatsApp — Sarah's Salon will see this here and get a WhatsApp alert.</div>
+          <div class="msgs">
+            <div class="m me">Hi, is 3 pm still fine for the colour appointment?<span class="meta">2:41 pm <span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#97EF29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#97EF29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="m them">Yes, 3 pm works. See you then!<span class="meta" style="justify-content:flex-start">2:43 pm</span></div>
+          </div>
+          <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="src">Existing keys <span class="k">messages.whatsappStatus.connected</span> / <span class="k">messages.whatsappStatus.off</span>. The customer web read tick is brand green (existing).</div>
+  </div>
+  <div class="card">
+    <span class="state">5g · customer phone app · same thread</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">S</div><div class="n">Sarah's Salon</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="banner open">Connected on WhatsApp — Sarah's Salon will see this here and get a WhatsApp alert.</div>
+      <div class="msgs">
+        <div class="m me">Hi, is 3 pm still fine?<span class="meta">2:41 pm <span class="tk"><svg width="14" height="12" viewBox="0 0 24 18" fill="none"><path d="M2 10l4 4 9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14l9-9" stroke="#34C759" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+        <div class="m them">Yes, 3 pm works. See you then!<span class="meta" style="justify-content:flex-start">2:43 pm</span></div>
+      </div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Today the customer phone app shows no WhatsApp mark or status line while customer web does. This frame is the parity target: same pill, same status line, same words, same ticks.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="card">
+    <span class="state rev">5h · provider web · the WhatsApp copy could not be delivered — approved</span>
+    <div class="web">
+      <div class="web-bar">business.clinket.com/dashboard/inbox?conversationId=…</div>
+      <div class="web-body">
+        <div class="web-list"><div class="li sel"><div class="av">R<span class="wa-mark"></span></div><div><div class="who">Raj Patel</div><div class="prev">Yes, 3 pm works. See you then!</div></div></div></div>
+        <div class="web-thread">
+          <div class="app-top"><div class="av">R</div><div class="n">Raj Patel</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+          <div class="banner open">Connected on WhatsApp. Your messages reach Raj Patel right away.</div>
+          <div class="msgs">
+            <div class="m them">Hi, is 3 pm still fine for the colour appointment?<span class="meta" style="justify-content:flex-start">2:41 pm · via WhatsApp</span></div>
+            <div class="m me">Yes, 3 pm works. See you then!<span class="meta">2:43 pm <span class="tk"><svg width="12" height="10" viewBox="0 0 20 16" fill="none"><path d="M2 9l4 4 9-9" stroke="#919191" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="dl">Couldn't reach Raj Patel on WhatsApp — sent by email instead.</div>
+          </div>
+          <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="src">The tick stays at "sent" (single grey: it left the app and is in the conversation) and the outcome sits under the message in muted grey — never red, never a pop-up, never "try again". Variant when no email could be sent (no address, muted, blocked, already read in Clinket): "Couldn't reach Raj Patel on WhatsApp — they'll see it here in Clinket." <b>NEW</b> keys <span class="k">inbox.waRelay.emailSent</span> / <span class="k">inbox.waRelay.inAppOnly</span>. Shown only when something went wrong.</div>
+  </div>
+  <div class="card">
+    <span class="state rev">5i · customer phone app · same line, the other direction — approved</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">S</div><div class="n">Sarah's Salon</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="banner open">Connected on WhatsApp — Sarah's Salon will see this here and get a WhatsApp alert.</div>
+      <div class="msgs">
+        <div class="m me">Hi, is 3 pm still fine for the colour appointment?<span class="meta">2:41 pm <span class="tk"><svg width="12" height="10" viewBox="0 0 20 16" fill="none"><path d="M2 9l4 4 9-9" stroke="#919191" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+        <div class="dl">Couldn't reach Sarah's Salon on WhatsApp — they'll see it here in Clinket.</div>
+      </div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">Same rule on the customer side and on every form factor (customer web, provider phone app). Phone-app keys are the generated twins of the web keys. Colour: the app's muted grey #5F6672 on web, the theme's muted text on the phone apps — the same tone the existing "Sent" tick uses, because this is information, not an error.</div>
+  </div>
+</div>
+
+<h2>6 · Tapping "Open chat" — the link lands on the exact conversation</h2>
+<div class="row">
+  <div class="card">
+    <span class="state">6a · signed in · web or app</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="av">S</div><div class="n">Sarah's Salon</div><span class="pill"><span class="dot"></span>WhatsApp</span></div>
+      <div class="msgs">
+        <div class="m them">Yes, 3 pm works. See you then!<span class="meta" style="justify-content:flex-start">2:43 pm</span></div>
+      </div>
+      <div class="composer"><div class="in2">Write a message…</div><div class="send">➤</div></div>
+    </div></div>
+    <div class="src">The conversation opens directly. Today the phone apps open the inbox list instead; this is the one small navigation change in the build.</div>
+  </div>
+  <div class="card">
+    <span class="state">6b · signed out</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="n">Sign in to Clinket</div></div>
+      <div class="msgs" style="justify-content:center;align-items:center;text-align:center;color:var(--muted)">
+        <div>Sign in to open your conversation with Sarah's Salon.<br><br><span class="send" style="display:inline-flex;padding:0 18px">Sign in</span></div>
+      </div>
+    </div></div>
+    <div class="src">After signing in the app continues to that conversation. Existing sign-in screen; the "continue to" behaviour is the requirement.</div>
+  </div>
+  <div class="card">
+    <span class="state">6c · conversation no longer available</span>
+    <div class="phone"><div class="app">
+      <div class="app-top"><div class="n">Messages</div></div>
+      <div class="banner closed">That conversation isn't available any more. Here are your messages.</div>
+      <div class="msgs"><div class="m them" style="align-self:stretch;max-width:100%">Sarah's Salon · Yes, 3 pm works…</div></div>
+    </div></div>
+    <div class="src">The inbox list with a quiet note. <b>NEW</b> key <span class="k">messages.openLink.unavailable</span> (web) with the phone-app twin.</div>
+  </div>
+</div>
+
+<h2>7 · Notification settings — "Messages &amp; chats" listed under WhatsApp</h2>
+<p class="lead">The WhatsApp card already lists what can arrive on WhatsApp. Chat messages arrive there today but are not listed. One chip is added. Nothing else on the card changes. Approved (D-2).</p>
+<div class="row">
+  <div class="card">
+    <span class="state">7a · provider · on</span>
+    <div class="set">
+      <div class="h"><div><div class="t">WhatsApp</div></div><div class="toggle"></div></div>
+      <div class="d">WhatsApp updates are on by default and go to +1 ••• ••• 4567. Reply STOP anytime to opt out.</div>
+      <div class="chips"><span class="chip">Bookings</span><span class="chip">Booking reminders</span><span class="chip">Quotes &amp; invoices</span><span class="chip">Leads</span><span class="chip">Reviews</span><span class="chip">Billing</span><span class="chip new">Messages &amp; chats</span></div>
+      <div class="h" style="margin-top:14px"><div><div class="t">WhatsApp message alerts</div><div class="d">Get a WhatsApp alert when a customer sends you a new message.</div></div><div class="toggle"></div></div>
+    </div>
+    <div class="src">Existing card and keys (<span class="k">notifications.whatsApp.*</span>); the dashed chip is the addition, using the existing category name.</div>
+  </div>
+  <div class="card">
+    <span class="state">7b · customer · off</span>
+    <div class="set">
+      <div class="h"><div><div class="t">WhatsApp</div></div><div class="toggle off"></div></div>
+      <div class="d">Get your updates on WhatsApp at +1 ••• ••• 8899.</div>
+      <div class="chips"><span class="chip">Bookings</span><span class="chip">Booking reminders</span><span class="chip">Quotes &amp; invoices</span><span class="chip">Cart reminders</span><span class="chip">Reviews</span><span class="chip new">Messages &amp; chats</span></div>
+    </div>
+    <div class="src">Existing keys <span class="k">notificationsSettings.WhatsApp.*</span>. Off means chat stays in the app and by email, as today.</div>
+  </div>
+  <div class="card">
+    <span class="state">7c · no phone number</span>
+    <div class="set">
+      <div class="h"><div><div class="t">WhatsApp</div></div><div class="toggle off"></div></div>
+      <div class="d">Add a phone number to use WhatsApp.</div>
+      <div class="chips"><span class="chip" style="background:#F1F1F1;color:var(--muted);border-color:var(--border)">Add phone in profile</span></div>
+    </div>
+    <div class="src">Existing keys <span class="k">…NoPhoneDesc</span> / <span class="k">…AddPhone</span>. Phone frames of both apps use the same card.</div>
+  </div>
+</div>
+
+<h2>8 · What the sender is told when a WhatsApp copy fails</h2>
+<div class="ok">No separate alert, no pop-up, no "try again". The outcome appears as a quiet grey line under the sender's own message (frames 5h, 5i): "Couldn't reach {name} on WhatsApp — sent by email instead." or "… — they'll see it here in Clinket." The message itself is in the conversation and the other person had it in the app and by push. Clinket support is alerted behind the scenes. The existing "please try again" alert stays for booking and quote texts and emails, where that advice is right.</div>
+
+<h2>9 · Every state, in one table</h2>
+<table>
+  <tr><th>Situation</th><th>WhatsApp</th><th>In the app (sender's tick)</th><th>Push</th><th>Email</th><th>Words come from</th></tr>
+  <tr><td>Wrote to us on WhatsApp in the last 24 h, text</td><td>Full message, sender named; first of a burst carries footer + "Open chat" button; over 1,024 characters ⇒ full text, then a short button message</td><td>Yes · sent → delivered → read</td><td>Yes</td><td>Held; sent only if WhatsApp fails within 6 h or is still unconfirmed after 2 h</td><td>The message · NEW footer, button</td></tr>
+  <tr><td>Same, with photos or files</td><td>Text (with button when first of a burst), then each item; unsupported ⇒ hint line</td><td>Yes · ticks follow the text part</td><td>Yes</td><td>Held as above</td><td>NEW hint keys</td></tr>
+  <tr><td>Photo only</td><td>Photo with the sender's name as caption; no button</td><td>Yes · ticks follow the photo</td><td>Yes</td><td>Held as above</td><td>Sender's name</td></tr>
+  <tr><td>Quiet on WhatsApp for over 24 h, WhatsApp on</td><td>The approved notice with "Open chat", once per quiet period, skipped if already read in the app</td><td>Yes · stays "sent" until read (a notice is not the words)</td><td>Yes</td><td>Held behind the notice; later messages in the same quiet period email as today</td><td>Approved templates</td></tr>
+  <tr><td>WhatsApp turned off (STOP or settings)</td><td>Nothing</td><td>Yes · sent → read</td><td>Yes</td><td>As today</td><td>—</td></tr>
+  <tr><td>WhatsApp unavailable for the number</td><td>Nothing</td><td>Yes · sent → read</td><td>Yes</td><td>As today</td><td>—</td></tr>
+  <tr><td>Conversation muted, hidden, blocked or closed by the recipient</td><td>Nothing</td><td>Yes (quietly)</td><td>No</td><td>No</td><td>—</td></tr>
+  <tr><td>No email on file (guest customer)</td><td>As above</td><td>Yes</td><td>Yes</td><td>None exists</td><td>—</td></tr>
+  <tr><td>Provider's daily WhatsApp allowance used (business alerts only)</td><td>Nothing to the business</td><td>Yes</td><td>Yes</td><td>As today</td><td>Existing strip</td></tr>
+  <tr><td>WhatsApp accepted, then failed within 6 h</td><td>—</td><td>Yes · stays "sent" + the quiet line</td><td>Yes</td><td>Sent once, unless already read / muted / blocked / removed</td><td>Existing email · NEW line keys</td></tr>
+  <tr><td>WhatsApp accepted, then failed after 6 h</td><td>—</td><td>Yes · stays "sent" + the quiet line ("they'll see it here")</td><td>Yes</td><td>No</td><td>NEW line keys</td></tr>
+  <tr><td>WhatsApp accepted, still unconfirmed after 2 h (phone off)</td><td>Delivered when the phone comes back — the tick then turns to delivered</td><td>Yes · "sent" + the quiet line; later "delivered"</td><td>Yes</td><td>Sent once after 2 h</td><td>NEW line keys</td></tr>
+  <tr><td>Message removed by Clinket support before delivery could be checked</td><td>Cannot be recalled</td><td>Hidden</td><td>—</td><td>No</td><td>—</td></tr>
+  <tr><td>Team business</td><td>Business phone</td><td>Every routed member</td><td>Every routed member</td><td>Held only for the member whose phone is the business phone</td><td>—</td></tr>
+</table>
+
+<h2>10 · Design tokens used</h2>
+<p><span class="tok" style="background:#032858"></span>navy ink #032858 · <span class="tok" style="background:#97EF29"></span>brand green #97EF29 with green ink #3A6410 on every chosen action · <span class="tok" style="background:#FFF7E8"></span>amber #FFF7E8 / #F1D9A7 / #9A5B00 for limits · <span class="tok" style="background:#F4FFE4"></span>the app's own banner greens, ambers and greys · ticks: the apps' own #919191 (sent, and now delivered), #34C759 / #97EF29 (read), #C63535 (could not send) · body #101010 · muted #5F6672 · border #E7E7E7 · surface #FAFAFB · Lufga with Arial fallback · 44 px minimum touch targets · no new red anywhere: nothing here blocks.</p>
+
+</main>
+<footer class="wrap">Sheet: <span class="k">C:\Nik\Data\mockups\whatsapp-chat-relay-states\index.html</span> · Register: <span class="k">Data\whatsapp-chat-messages\PLAN.md</span> §14 · <b>Approved 2026-09-20</b> including frames 5h and 5i; revised the same day at the owner's request: 1a/1g/3a (button), 1h (two messages), 5h/5i (real tick states), 5j (tick legend, new).</footer>
+</body>
+</html>

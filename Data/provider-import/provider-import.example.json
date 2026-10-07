@@ -1,0 +1,532 @@
+{
+  "schemaVersion": "2.0",
+  "batch": {
+    "batchId": "ontario-2026-10-example",
+    "generatedAt": "2026-10-06T16:34:23-04:00",
+    "generator": {
+      "name": "example-scraper",
+      "version": "2.0.0"
+    },
+    "countryCode": "CA",
+    "notes": "Two worked examples: a storefront garage with hours and on-request prices, and a barber with published prices, a weekday offer and a city-level address (no public street)."
+  },
+  "providers": [
+    {
+      "scrapedAt": "2026-10-06T16:34:23-04:00",
+      "sources": [
+        {
+          "url": "https://glendalemotors.ca/",
+          "type": "business_website",
+          "scrapedAt": "2026-10-06T16:34:23-04:00",
+          "providedFields": [
+            "business",
+            "contacts",
+            "addresses",
+            "services",
+            "availability"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Glendale Motors",
+        "legalName": null,
+        "brandName": "NAPA Autopro",
+        "description": "NAPA Autopro and Tirecraft garage in Ancaster offering auto repair, maintenance, tires and oil changes, with a nationwide warranty and roadside assistance.",
+        "foundedYear": null,
+        "yearsInBusiness": null,
+        "employeeCount": null,
+        "friendlyNameSuggestions": [
+          "glendale-motors"
+        ],
+        "operatingStatus": "operating"
+      },
+      "contacts": {
+        "owner": {
+          "firstName": null,
+          "lastName": null,
+          "fullName": null,
+          "role": null,
+          "emails": [],
+          "phones": []
+        },
+        "business": {
+          "emails": [
+            {
+              "address": "info@glendalemotors.ca",
+              "purpose": "main",
+              "sourceUrl": "https://glendalemotors.ca/"
+            }
+          ],
+          "phones": [
+            {
+              "number": "905-648-4113",
+              "extension": null,
+              "lineType": "unknown",
+              "purpose": "main",
+              "sourceUrl": "https://glendalemotors.ca/"
+            },
+            {
+              "number": "289-778-0694",
+              "extension": null,
+              "lineType": "mobile",
+              "purpose": "text",
+              "sourceUrl": "https://glendalemotors.ca/"
+            }
+          ]
+        }
+      },
+      "social": {
+        "website": "https://glendalemotors.ca/",
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "linkedin": null,
+        "twitter": null,
+        "other": []
+      },
+      "addresses": [
+        {
+          "label": null,
+          "street": "407 Wilson St. E",
+          "unit": null,
+          "city": "Ancaster",
+          "province": "ON",
+          "postalCode": "L9G 2C4",
+          "countryCode": "CA",
+          "latitude": null,
+          "longitude": null,
+          "isPrimary": true,
+          "publiclyListed": true,
+          "kind": "storefront"
+        }
+      ],
+      "serviceAreas": [
+        {
+          "name": "Ancaster",
+          "province": "ON",
+          "countryCode": "CA",
+          "radiusKm": null,
+          "isPrimary": true
+        }
+      ],
+      "categories": [
+        {
+          "category": "Auto repair",
+          "subcategory": null,
+          "clinketCategoryId": null,
+          "clinketSubcategoryId": null,
+          "isPrimary": true
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Repair & Maintenance",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "on_request",
+            "amount": null,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": null,
+            "priceText": null,
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": null,
+          "deliveredAt": {
+            "businessLocation": true,
+            "customerLocation": false
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        },
+        {
+          "name": "Oil & Lube Service",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "on_request",
+            "amount": null,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": null,
+            "priceText": null,
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": null,
+          "deliveredAt": {
+            "businessLocation": true,
+            "customerLocation": false
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        },
+        {
+          "name": "Emergency Roadside Assistance",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "on_request",
+            "amount": null,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": null,
+            "priceText": null,
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": null,
+          "deliveredAt": {
+            "businessLocation": false,
+            "customerLocation": true
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "openTwentyFourSeven": false,
+        "byAppointmentOnly": false,
+        "schedule": [
+          {
+            "day": "Monday",
+            "closed": false,
+            "slots": [
+              {
+                "open": "08:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "day": "Tuesday",
+            "closed": false,
+            "slots": [
+              {
+                "open": "08:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "day": "Wednesday",
+            "closed": false,
+            "slots": [
+              {
+                "open": "08:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "day": "Thursday",
+            "closed": false,
+            "slots": [
+              {
+                "open": "08:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "day": "Friday",
+            "closed": false,
+            "slots": [
+              {
+                "open": "08:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "day": "Saturday",
+            "closed": true,
+            "slots": []
+          },
+          {
+            "day": "Sunday",
+            "closed": true,
+            "slots": []
+          }
+        ],
+        "hoursText": "Mon-Fri 8:00am - 5:30pm, Sat-Sun closed",
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "media": {
+        "logoUrl": null,
+        "galleryImageUrls": []
+      },
+      "licenses": [],
+      "faqs": [],
+      "externalRating": null,
+      "dataQuality": {
+        "phoneVerified": true,
+        "emailVerified": true,
+        "conflicts": [],
+        "possibleDuplicateOf": [],
+        "completenessScore": 0.85,
+        "notes": null
+      }
+    },
+    {
+      "scrapedAt": "2026-10-06T16:20:00-04:00",
+      "sources": [
+        {
+          "url": "https://www.example-directory.ca/ritz-barbershop",
+          "type": "industry_directory",
+          "scrapedAt": "2026-10-06T16:20:00-04:00",
+          "providedFields": [
+            "business",
+            "contacts",
+            "services",
+            "prices",
+            "offers"
+          ]
+        }
+      ],
+      "business": {
+        "name": "Ritz Barbershop",
+        "legalName": null,
+        "brandName": null,
+        "description": "Barbershop in Waterdown offering haircuts, hot shaves and colour.",
+        "foundedYear": 2023,
+        "yearsInBusiness": null,
+        "employeeCount": null,
+        "friendlyNameSuggestions": [],
+        "operatingStatus": "operating"
+      },
+      "contacts": {
+        "owner": {
+          "firstName": null,
+          "lastName": null,
+          "fullName": null,
+          "role": null,
+          "emails": [],
+          "phones": []
+        },
+        "business": {
+          "emails": [
+            {
+              "address": "ritzbarbershop2023@gmail.com",
+              "purpose": "main",
+              "sourceUrl": null
+            }
+          ],
+          "phones": [
+            {
+              "number": "905-555-0147",
+              "extension": null,
+              "lineType": "unknown",
+              "purpose": "main",
+              "sourceUrl": "https://www.example-directory.ca/ritz-barbershop"
+            }
+          ]
+        }
+      },
+      "social": {
+        "website": null,
+        "facebook": null,
+        "instagram": "https://www.instagram.com/ritzbarbershop",
+        "youtube": null,
+        "linkedin": null,
+        "twitter": null,
+        "other": []
+      },
+      "addresses": [
+        {
+          "label": null,
+          "street": null,
+          "unit": null,
+          "city": "Waterdown",
+          "province": "ON",
+          "postalCode": null,
+          "countryCode": "CA",
+          "latitude": null,
+          "longitude": null,
+          "isPrimary": true,
+          "publiclyListed": false,
+          "kind": "unknown"
+        }
+      ],
+      "serviceAreas": [
+        {
+          "name": "Waterdown",
+          "province": "ON",
+          "countryCode": "CA",
+          "radiusKm": null,
+          "isPrimary": true
+        }
+      ],
+      "categories": [
+        {
+          "category": "Hair salon",
+          "subcategory": "Barber",
+          "clinketCategoryId": null,
+          "clinketSubcategoryId": null,
+          "isPrimary": true
+        }
+      ],
+      "services": [
+        {
+          "name": "Men's Haircut",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "fixed",
+            "amount": 34,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": null,
+            "priceText": "Men's Haircut $34",
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "deliveredAt": {
+            "businessLocation": true,
+            "customerLocation": false
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        },
+        {
+          "name": "Hot Shave",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "fixed",
+            "amount": 31,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": null,
+            "priceText": "Hot Shave $31",
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": null,
+          "deliveredAt": {
+            "businessLocation": true,
+            "customerLocation": false
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        },
+        {
+          "name": "Colour",
+          "description": null,
+          "category": null,
+          "price": {
+            "type": "starting_from",
+            "amount": 46,
+            "minAmount": null,
+            "maxAmount": null,
+            "hourlyRate": null,
+            "minimumHours": null,
+            "minimumCharge": null,
+            "currency": "CAD",
+            "taxIncluded": false,
+            "priceText": "Colour from $46 + HST",
+            "notes": null
+          },
+          "visitFee": null,
+          "travelFee": null,
+          "duration": null,
+          "deliveredAt": {
+            "businessLocation": true,
+            "customerLocation": false
+          },
+          "serviceAreaNames": [],
+          "imageUrls": []
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "openTwentyFourSeven": false,
+        "byAppointmentOnly": false,
+        "schedule": [],
+        "hoursText": null,
+        "notes": null
+      },
+      "offers": [
+        {
+          "title": "Happy Hour",
+          "description": "10% off any service on weekdays between 11 am and 3 pm.",
+          "offerText": "Happy Hour: 10% off any services Mon–Fri 11am–3pm",
+          "discountType": "percentage",
+          "discountValue": 10,
+          "minimumSpend": null,
+          "appliesToServiceNames": [],
+          "startDate": null,
+          "endDate": null,
+          "recurrence": {
+            "frequency": "weekly",
+            "interval": 1,
+            "byWeekDays": [
+              "MO",
+              "TU",
+              "WE",
+              "TH",
+              "FR"
+            ],
+            "byMonthDays": [],
+            "timeWindow": {
+              "start": "11:00",
+              "end": "15:00"
+            }
+          },
+          "conditions": "Mention Happy Hour at checkout.",
+          "sourceUrl": null
+        }
+      ],
+      "portfolio": [],
+      "media": {
+        "logoUrl": null,
+        "galleryImageUrls": []
+      },
+      "licenses": [],
+      "faqs": [],
+      "externalRating": null,
+      "dataQuality": {
+        "phoneVerified": null,
+        "emailVerified": false,
+        "conflicts": [],
+        "possibleDuplicateOf": [],
+        "completenessScore": 0.6,
+        "notes": "City-level only: the directory does not publish a street address."
+      }
+    }
+  ]
+}

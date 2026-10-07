@@ -1,0 +1,3 @@
+drafts=2
+- [Pending/Create] 'Bobcat S70 Loader' price=1875000 max= type=fixed cur= needsReview=False mismatch=True priceText='₹18,75,000' src='Bobcat S70 loader' line='' cat='Construction and Mining/Skid Steer Loaders' dur= img=0 desc='Bobcat S70 loader offered for sale at the listed INR price.'
+- [Pending/Create] 'JCB 3DX Backhoe' price=3250000 max= type=fixed cur= needsReview=False mismatch=True priceText='₹32,50,000' src='JCB 3DX backhoe' line='' cat='Construction and Mining/Backhoe Loaders' dur= img=0 desc='JCB 3DX backhoe offered for sale at the listed INR price.'

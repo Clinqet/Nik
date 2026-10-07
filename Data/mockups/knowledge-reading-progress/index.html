@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Knowledge — how far the reading has got</title>
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0; --warn-line:#F2D9AE;
+    --stop:#A32C2C; --stop-bg:#FAEBEB; --stop-line:#EFC9C9;
+    --info:#3730A3; --info-bg:#EEF2FF; --info-line:#C7D7FE;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  *,*::before,*::after { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; }
+  .wrap { max-width:1160px; margin:0 auto; }
+  .masthead { padding:44px 0 10px; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,40px); line-height:1.05; letter-spacing:-.02em; margin:0; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:70ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; }
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:48px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  .lede { color:var(--ink-soft); margin:0 0 20px; max-width:86ch; }
+  .row-frames { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 500px; min-width:0; }
+  .frame.phone { flex:0 0 360px; max-width:100%; }
+  .frame-cap { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-mute); background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:7px 14px; }
+  .doc { padding:14px 16px; }
+  .doc + .doc { border-top:1px solid var(--line); }
+  .doc-head { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .doc-name { font-weight:700; font-size:14px; min-width:0; overflow-wrap:anywhere; }
+  .tag { font-size:11px; border:1px solid var(--line-firm); border-radius:999px; padding:1px 8px; color:var(--ink-mute); }
+  .tag.ready { color:var(--brand-deep); border-color:var(--brand); background:var(--brand-soft); font-weight:700; }
+  .tag.reading { color:var(--info); border-color:var(--info-line); background:var(--info-bg); font-weight:700; }
+  .tag.longer { color:var(--warn); border-color:var(--warn-line); background:var(--warn-bg); font-weight:700; }
+  .tag.failed { color:var(--stop); border-color:var(--stop-line); background:var(--stop-bg); font-weight:700; }
+  .acts { margin-left:auto; display:flex; gap:6px; flex-shrink:0; }
+  .btn { font-size:12px; border:1px solid var(--line-firm); background:var(--surface); color:var(--ink); border-radius:12px; padding:4px 10px; }
+  .btn.go { background:var(--brand); border-color:var(--brand); color:var(--navy); font-weight:700; }
+  .btn.icon { padding:4px 8px; }
+  .meta { font-size:11.5px; color:var(--ink-mute); margin:6px 0 0; }
+  .meta b { color:var(--ink-soft); }
+  .bar { height:4px; border-radius:999px; background:var(--surface-sunk); margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:var(--info); border-radius:999px; }
+  .bar.warn i { background:var(--warn); }
+  .notices { margin-top:8px; display:flex; flex-direction:column; gap:6px; }
+  .notice { display:flex; gap:9px; align-items:flex-start; border:1px solid; border-radius:10px; padding:8px 10px; font-size:12.5px; line-height:1.45; }
+  .notice .body { min-width:0; flex:1 1 auto; }
+  .notice .act { display:inline-block; margin-top:4px; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+  .n-info { background:var(--info-bg); border-color:var(--info-line); color:var(--info); }
+  .n-warn { background:var(--warn-bg); border-color:var(--warn-line); color:var(--warn); }
+  .n-stop { background:var(--stop-bg); border-color:var(--stop-line); color:var(--stop); }
+  .state { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px; }
+  table.copy { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:6px; display:block; overflow-x:auto; }
+  table.copy th, table.copy td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  table.copy th { background:var(--surface-sunk); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-mute); }
+  code { font-family:var(--mono); font-size:12px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .rules { margin:0; padding-left:20px; color:var(--ink-soft); max-width:90ch; }
+  .rules li { margin:7px 0; }
+  .rules b { color:var(--ink); }
+  @media (prefers-reduced-motion: no-preference) { .bar.moving i { animation: pulse 2.4s ease-in-out infinite; } }
+  @keyframes pulse { 50% { opacity:.55; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <h1>AI Knowledge — how far the reading has got</h1>
+      <p>A long file (many pages, many pictures) now shows the provider how far we are, in plain words, instead of a bare
+         "Reading" for up to an hour. Two new notices say what a very long page or a full space left out.</p>
+    </div>
+    <div class="stamp">Sheet · knowledge-reading-progress<br>post-ranking-followups §3 + §4<br>APPROVED 2026-09-29</div>
+  </div>
+
+  <h2 class="rule">1 · While the file is being read — web</h2>
+  <p class="lede">One status pill per row (the approved rule). The count sits on the row's meta line, with the thin bar
+     that already exists. The count moves once per batch, so it is honest: it never runs ahead of what is saved.</p>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Web — AI Knowledge list</div>
+      <div class="doc">
+        <div class="state">A · just started (no count yet — today's row, unchanged)</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-hycross.pdf</span><span class="tag">Brochure</span><span class="tag reading">● Reading</span>
+          <span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta">Usually under a minute · you can leave this page</p>
+        <div class="bar moving"><i style="width:100%"></i></div>
+      </div>
+      <div class="doc">
+        <div class="state">B · reading pages</div>
+        <div class="doc-head"><span class="doc-name">MG Windsor EV — Brochure.pdf</span><span class="tag">Brochure</span><span class="tag reading">● Reading</span>
+          <span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta"><b>Reading pages — 12 of 46</b> · you can leave this page</p>
+        <div class="bar"><i style="width:26%"></i></div>
+      </div>
+      <div class="doc">
+        <div class="state">C · reading pictures</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-hilux.pdf</span><span class="tag">Brochure</span><span class="tag reading">● Reading</span>
+          <span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta"><b>Reading pictures — 40 of 95</b> · you can leave this page</p>
+        <div class="bar"><i style="width:42%"></i></div>
+      </div>
+      <div class="doc">
+        <div class="state">D · still going after the usual time (today's amber pill, now with the count)</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-urbancruiser-ebella.pdf</span><span class="tag">Brochure</span><span class="tag longer">● Taking longer</span>
+          <span class="acts"><span class="btn icon">⋯</span></span></div>
+        <p class="meta"><b>Reading pictures — 80 of 89</b> · we'll keep trying</p>
+        <div class="bar warn"><i style="width:90%"></i></div>
+      </div>
+    </div>
+
+    <div class="frame phone">
+      <div class="frame-cap">Phone app — AI Knowledge</div>
+      <div class="doc">
+        <div class="state">B · reading pages</div>
+        <div class="doc-head"><span class="doc-name">MG Windsor EV — Brochure.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag reading">● Reading</span></div>
+        <p class="meta"><b>Reading pages — 12 of 46</b><br>You can leave this screen</p>
+        <div class="bar"><i style="width:26%"></i></div>
+      </div>
+      <div class="doc">
+        <div class="state">C · reading pictures</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-hilux.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag reading">● Reading</span></div>
+        <p class="meta"><b>Reading pictures — 40 of 95</b><br>You can leave this screen</p>
+        <div class="bar"><i style="width:42%"></i></div>
+      </div>
+      <div class="doc">
+        <div class="state">D · taking longer</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-urbancruiser-ebella.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag longer">● Taking longer</span></div>
+        <p class="meta"><b>Reading pictures — 80 of 89</b><br>We'll keep trying</p>
+        <div class="bar warn"><i style="width:90%"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">2 · When it is done — the notices</h2>
+  <p class="lede">The first box is today's sentence, unchanged. The next two are new, and appear only when that thing
+     actually happened. The last is what a reading that stopped for good now says (today such a row read "Reading" for ever).</p>
+  <div class="row-frames">
+    <div class="frame">
+      <div class="frame-cap">Web — Ready rows and the stopped reading</div>
+      <div class="doc">
+        <div class="state">E · more pictures than we keep (today's notice, unchanged — now kicks in at 300, not 40)</div>
+        <div class="doc-head"><span class="doc-name">big-parts-catalogue.pdf</span><span class="tag">Catalogue</span><span class="tag ready">● Ready</span></div>
+        <p class="meta">48 pages · 612 parts · 21.4 MB</p>
+        <div class="notices"><div class="notice n-warn"><span class="body">This file had 418 pictures. We kept the 300 largest.</span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">F · NEW · the space ran out before every picture fitted</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-hilux.pdf</span><span class="tag">Brochure</span><span class="tag ready">● Ready</span></div>
+        <p class="meta">28 pages · 190 parts · 2.8 MB</p>
+        <div class="notices"><div class="notice n-warn"><span class="body">All the text was added, and 60 of the 95 pictures. The rest didn't fit in your searchable space — delete a document you no longer need, then choose Read again to add them.<br><span class="act">Read again</span></span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">G · NEW · a page far too long to read in full</div>
+        <div class="doc-head"><span class="doc-name">very-long-web-page.pdf</span><span class="tag">Other</span><span class="tag ready">● Ready</span></div>
+        <p class="meta">1 page · 140 parts · 9.1 MB</p>
+        <div class="notices"><div class="notice n-warn"><span class="body">Page 1 is very long, so we read the first part of it in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">G2 · NEW · several pages far too long to read in full (plural wording approved by the owner 2026-09-30)</div>
+        <div class="doc-head"><span class="doc-name">The-Stunning-New-Baleno-Brochure.pdf</span><span class="tag">Brochure</span><span class="tag ready">● Ready</span></div>
+        <p class="meta">11 pages · 212 parts · 18.6 MB</p>
+        <div class="notices"><div class="notice n-warn"><span class="body">3 pages are very long, so we read the first part of each in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">H · the reading stopped and could not be finished (dead-letter handler — existing sentence)</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-glanza.pdf</span><span class="tag">Brochure</span><span class="tag failed">● Not read</span>
+          <span class="acts"><span class="btn go">Read again</span><span class="btn icon">⋯</span></span></div>
+        <div class="notices"><div class="notice n-stop"><span class="body">Something went wrong while reading this file. Try again.</span></div></div>
+      </div>
+    </div>
+    <div class="frame phone">
+      <div class="frame-cap">Phone app — same states</div>
+      <div class="doc">
+        <div class="state">F · space ran out</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-hilux.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag ready">● Ready</span></div>
+        <div class="notices"><div class="notice n-warn"><span class="body">All the text was added, and 60 of the 95 pictures. The rest didn't fit in your searchable space — delete a document you no longer need, then choose Read again to add them.<br><span class="act">Read again</span></span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">G · very long page</div>
+        <div class="doc-head"><span class="doc-name">very-long-web-page.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag ready">● Ready</span></div>
+        <div class="notices"><div class="notice n-warn"><span class="body">Page 1 is very long, so we read the first part of it in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">G2 · several very long pages</div>
+        <div class="doc-head"><span class="doc-name">The-Stunning-New-Baleno-Brochure.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag ready">● Ready</span></div>
+        <div class="notices"><div class="notice n-warn"><span class="body">3 pages are very long, so we read the first part of each in full and the rest more quickly. Splitting the file into shorter pages will let us read all of it closely.</span></div></div>
+      </div>
+      <div class="doc">
+        <div class="state">H · stopped</div>
+        <div class="doc-head"><span class="doc-name">e-brochure-glanza.pdf</span><span class="acts"><span class="btn icon">⋯</span></span></div>
+        <div style="margin-top:6px"><span class="tag failed">● Not read</span></div>
+        <div class="notices"><div class="notice n-stop"><span class="body">Something went wrong while reading this file. Try again.</span></div></div>
+        <div style="margin-top:8px"><span class="btn go">Read again</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="rule">3 · Rules</h2>
+  <ul class="rules">
+    <li><b>The count comes from the server</b> (<code>readingProgress</code> on the document's own record: stage, done, total). The screen never estimates or animates a number of its own.</li>
+    <li><b>Pages vs pictures</b>: pages first, then pictures — the same order the reading does them. A very long page counts as ONE page and completes when all of it is read (no word like "section" is ever shown).</li>
+    <li><b>No count yet</b> (the first moments, or a short file that finishes in one go) ⇒ today's row exactly (state A). Short files never show a count at all.</li>
+    <li><b>The count only moves forward</b>, and only when that part is saved, so leaving and coming back never shows a smaller number.</li>
+    <li><b>Polling</b> keeps today's short ladder that ends (the approved rule); the count is simply read with the row.</li>
+    <li><b>Read again on F</b> re-reads the file; the text and the 60 pictures already described are reused, so only the pictures that now fit cost anything.</li>
+    <li><b>States G and G2</b>: one page ⇒ its number; several ⇒ how many. Provider setup (the assistant chat) ends its closing message with the same sentence. Raising the limit and choosing Read again reads only what was cut short.</li>
+    <li><b>State H</b> uses the existing reason and the existing notification — the provider is told once, never again for the same reading.</li>
+  </ul>
+
+  <h2 class="rule">4 · Where every sentence comes from</h2>
+  <table class="copy">
+    <tr><th>State</th><th>Words</th><th>Source</th><th>New?</th></tr>
+    <tr><td>A, B, C, D pill</td><td>Reading · Taking longer</td><td>screen copy <code>knowledge.status.reading</code> / <code>knowledge.status.takingLonger</code></td><td>no</td></tr>
+    <tr><td>A meta</td><td>Usually under a minute · you can leave this page</td><td>screen copy <code>knowledge.row.readingUsualTime</code> + <code>knowledge.row.readingLeavePage</code></td><td>no</td></tr>
+    <tr><td>B meta</td><td>Reading pages — {done} of {total}</td><td>screen copy <code>knowledge.row.readingPagesProgress</code>, numbers from <code>readingProgress</code></td><td><b>yes</b> (5 languages, web + phone)</td></tr>
+    <tr><td>C, D meta</td><td>Reading pictures — {done} of {total}</td><td>screen copy <code>knowledge.row.readingPicturesProgress</code>, numbers from <code>readingProgress</code></td><td><b>yes</b></td></tr>
+    <tr><td>E</td><td>This file had {0} pictures. We kept the {1} largest.</td><td>server's finished sentence <code>Info_KnowledgePicturesOverLimit</code></td><td>no</td></tr>
+    <tr><td>F</td><td>All the text was added, and {0} of the {1} pictures. The rest didn't fit…</td><td>server's finished sentence <code>Info_KnowledgePicturesLeftOutSpaceFull</code></td><td><b>yes</b> (server, 5 languages)</td></tr>
+    <tr><td>G</td><td>Page {0} is very long, so we read the first part of it in full…</td><td>server's finished sentence <code>Info_KnowledgePageTooLongToReadFully</code></td><td><b>yes</b> (server, 5 languages)</td></tr>
+    <tr><td>G2</td><td>{0} pages are very long, so we read the first part of each in full…</td><td>server's finished sentence <code>Info_KnowledgePagesTooLongToReadFully</code></td><td><b>yes</b> (server, 5 languages)</td></tr>
+    <tr><td>H</td><td>Something went wrong while reading this file. Try again.</td><td>server <code>Error_KnowledgeGenericRetry</code> + notification <code>Notification_KnowledgeDocumentFailed_*</code></td><td>no</td></tr>
+  </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+--- leg Latn: What is the week rate for rentals?
+ 1 Table        Latn       bm25=17.88   sim=0.461  Northline Equipment 2026 Equ | Day rate | $190 / Week rate | $760 / Month rate | $2450 / Delivery | $95 / Damage waiver |
+ 2 Table        Latn       bm25=15.16   sim=0.469  Northline Equipment 2026 Equ | Day rate | $230 / Week rate | $920 / Month rate | $2930 / Delivery | $95 / Damage waiver |
+ 3 Table        Latn       bm25=15.16   sim=0.483  Northline Equipment 2026 Equ | Day rate | $310 / Week rate | $1240 / Month rate | $3890 / Delivery | $95 / Damage waiver 
+ 4 Table        Latn       bm25=9.21    sim=0.520  Northline Equipment 2026 Equ | RENTAL RATES 5 / Day rate | $350 / Week rate | $1400 / Month rate | $4370 / Delivery | $95
+ 5 Text         Latn       bm25=10.70   sim=0.366  ProFix Home Services Rate Ca | Service call $95/hr (minimum 1 hour) / After-hours call $150/hr / Lawn cut $45/visit / Por
+ 6 ImageCaption Latn       bm25=8.65    sim=0.502  Northline Equipment 2026 Equ | RENTAL RATES 1 / Day rate $190 / Week rate $760 / Month rate $2450 / Delivery $95 / Damage
+ 7 Table        Latn       bm25=8.59    sim=0.453  Northline Equipment 2026 Equ | Day rate | $270 / Week rate | $1080 / Month rate | $3410 / Delivery | $95 / Damage waiver 
+ 8 ImageCaption Latn       bm25=9.23    sim=0.360  Northline Equipment 2026 Equ | Text reads: “RENTAL RATES 4”; “Day rate” — “$310”; “Week rate” — “$1240”; “Month rate” — “
+ 9 Table        Latn       bm25=9.77    sim=0.333  Northline Equipment 2026 Equ | Generator NX-140 — $26,500 / Rental and purchase available. Delivery within 50 km included
+10 ImageCaption Latn       bm25=8.47    sim=0.449  Northline Equipment 2026 Equ | Text listing rental rates: “RENTAL RATES 3”, “Day rate $270”, “Week rate $1080”, “Month ra
+11 ImageCaption Latn       bm25=7.96    sim=0.419  Northline Equipment 2026 Equ | RENTAL RATES 2 / Day rate $230 / Week rate $920 / Month rate $2930 / Delivery $95 / Damage
+12 ImageCaption Latn       bm25=8.06    sim=0.399  Northline Equipment 2026 Equ | Text showing rental rates: “RENTAL RATES 5”, “Day rate $350”, “Week rate $1400”, “Month ra
+13 ImageCaption Latn       bm25=7.80    sim=0.333  Northline Equipment 2026 Equ | Illustration of a yellow wheeled machine with a black top section. Text: “NX-145” and “$28
+14 ImageCaption Latn       bm25=6.92    sim=0.335  Northline Equipment 2026 Equ | Illustration of a yellow trailer-mounted air compressor with two black wheels. Text: “NX-2
+15 ImageCaption Latn       bm25=7.80    sim=0.329  Northline Equipment 2026 Equ | Illustration of a yellow wheeled generator. Text: “NX-240” and “$61,500”.
+16 DocSummary   Latn       bm25=5.15    sim=0.328  Northline Equipment 2026 Equ | Northline Equipment 2026 Equipment Catalogue — overview / Catalogue of equipment available
+--- leg Gujr: ભાડા માટે અઠવાડિયાનો દર શું છે?
+ 1 ImageCaption Gujr,Latn  bm25=4.00    sim=0.259  શ્રી અજય પટેલની વસ્તુઓની કિં | ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે
+ 2 DocSummary   Gujr,Latn  bm25=2.85    sim=0.256  શ્રી અજય પટેલની વસ્તુઓની કિં | શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી — overview / દસ્તાવેજમાં પાન મસાલા, શરબત, મીઠાઈ, પાણ
+ 3 Table        Gujr,Latn  bm25=-       sim=0.247  શ્રી અજય પટેલની વસ્તુઓની કિં | પાન મસાલા | ₹250 / શરબત | ₹800 / મીઠાઈ | ₹500 / પાણીની બોટલ | ₹5,000 / ચા | ₹50
+ 4 Table        Gujr,Deva, bm25=-       sim=0.124  श्री ब्यूटी पार्लर का रेट का | વાળ કપાવવા | ₹250 / ફેશિયલ | ₹800 / મસાજ | ₹500 / બ્યુટી ટ્રીટમેન્ટ સાથે | ₹400 / બ્રાઇડલ 
+ 5 Table        Deva,Latn  bm25=-       sim=0.109  श्री ब्यूटी पार्लर का रेट का | सेवा: बाल कटवाना | कीमत: ₹250 / सेवा: दाढ़ी ट्रिम | कीमत: ₹150 / सेवा: फेशियल (गोल्ड) | की
+ 6 Text         Latn,Deva  bm25=-       sim=0.093  श्री ब्यूटी पार्लर का रेट का | English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+ 7 DocSummary   Deva,Latn  bm25=-       sim=0.078  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview / दस्तावेज़ में बाल कटवाने, दाढ़ी ट्रिम, फेशियल
+ 8 Text         Latn       bm25=-       sim=0.077  Priya Sharma Senior Hair Sty | English, Hindi, Gujarati
+ 9 Table        Latn       bm25=-       sim=0.075  ProFix Home Services Rate Ca | Machine: Volvo EC210 excavator | Price (INR): 1,05,00,000 / Machine: JCB 3DX backhoe | Pri
+10 Text         Latn       bm25=-       sim=0.072  Priya Sharma Senior Hair Sty | Marvel Beauty School, Diploma in Hairstyling (2012)
+11 DocAggregate Deva,Latn  bm25=-       sim=0.062  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview — सेवा / 6 records — सेवा: बाल कटवाना (1), दाढ़
+12 DocAggregate Deva,Latn  bm25=-       sim=0.058  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview — कीमत / 6 records — कीमत: ₹150 to ₹1,500 (typi
+13 Text         Latn       bm25=-       sim=0.057  Priya Sharma Hair Stylist Re | Marvel Beauty School, Diploma 2012
+14 Text         Latn       bm25=-       sim=0.056  Priya Sharma Hair Stylist Re | Balayage Keratin Bridal styling Colour correction
+15 Text         Latn       bm25=-       sim=0.054  Priya Sharma Senior Hair Sty | - Balayage / - Keratin treatments / - Bridal styling / - Colour correction / - Team leader
+16 Text         Latn       bm25=-       sim=0.050  Priya Sharma Senior Hair Sty | Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team o
+--- leg Deva: किराये के लिए साप्ताहिक दर क्या है?
+ 1 DocSummary   Deva,Latn  bm25=2.16    sim=0.273  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview / दस्तावेज़ में बाल कटवाने, दाढ़ी ट्रिम, फेशियल
+ 2 DocAggregate Deva,Latn  bm25=-       sim=0.304  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview — कीमत / 6 records — कीमत: ₹150 to ₹1,500 (typi
+ 3 ImageCaption Gujr,Latn  bm25=-       sim=0.284  શ્રી અજય પટેલની વસ્તુઓની કિં | ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે
+ 4 Table        Deva,Latn  bm25=-       sim=0.280  श्री ब्यूटी पार्लर का रेट का | सेवा: बाल कटवाना | कीमत: ₹250 / सेवा: दाढ़ी ट्रिम | कीमत: ₹150 / सेवा: फेशियल (गोल्ड) | की
+ 5 Table        Gujr,Latn  bm25=-       sim=0.276  શ્રી અજય પટેલની વસ્તુઓની કિં | પાન મસાલા | ₹250 / શરબત | ₹800 / મીઠાઈ | ₹500 / પાણીની બોટલ | ₹5,000 / ચા | ₹50
+ 6 Text         Latn,Deva  bm25=-       sim=0.266  श्री ब्यूटी पार्लर का रेट का | English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+ 7 Table        Gujr,Deva, bm25=-       sim=0.263  श्री ब्यूटी पार्लर का रेट का | વાળ કપાવવા | ₹250 / ફેશિયલ | ₹800 / મસાજ | ₹500 / બ્યુટી ટ્રીટમેન્ટ સાથે | ₹400 / બ્રાઇડલ 
+ 8 DocAggregate Deva,Latn  bm25=-       sim=0.249  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview — सेवा / 6 records — सेवा: बाल कटवाना (1), दाढ़
+ 9 DocSummary   Latn       bm25=-       sim=0.239  ProFix Home Services Rate Ca | ProFix Home Services Rate Card and Price Menus — overview / Lists ProFix service rates and
+10 Table        Latn       bm25=-       sim=0.229  ProFix Home Services Rate Ca | Machine: Volvo EC210 excavator | Price (INR): 1,05,00,000 / Machine: JCB 3DX backhoe | Pri
+11 Table        Latn       bm25=-       sim=0.225  Hair Salon Prices and Openin | Treatment | Guarantee days | Redo policy / Keratin treatment | 7 | Free redo within a week
+12 DocAggregate Latn       bm25=-       sim=0.224  Hair Salon Prices and Openin | Hair Salon Prices and Opening Information — overview — Service / 6 records — Service: Hair
+13 Text         Latn       bm25=-       sim=0.213  ProFix Home Services Rate Ca | Service call $95/hr (minimum 1 hour) / After-hours call $150/hr / Lawn cut $45/visit / Por
+14 DocSummary   Latn       bm25=-       sim=0.205  Hair Salon Prices and Openin | Hair Salon Prices and Opening Information — overview / Lists prices for salon services by 
+15 Table        Latn       bm25=-       sim=0.201  Northline Equipment 2026 Equ | RENTAL RATES 5 / Day rate | $350 / Week rate | $1400 / Month rate | $4370 / Delivery | $95
+16 Table        Latn       bm25=-       sim=0.200  Hair Salon Prices and Openin | Opening hours | Mon–Fri 9:00–18:00 / Saturday | 10:00–16:00 / Deposit | 20%
+--- SEATED TODAY (fuse by rank, top 8, 6 per document)
+ 1 ImageCaption Gujr,Latn  bm25=4.00    sim=0.259  શ્રી અજય પટેલની વસ્તુઓની કિં | ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે
+ 2 DocSummary   Deva,Latn  bm25=-       sim=0.078  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview / दस्तावेज़ में बाल कटवाने, दाढ़ी ट्रिम, फेशियल
+ 3 Table        Gujr,Latn  bm25=-       sim=0.247  શ્રી અજય પટેલની વસ્તુઓની કિં | પાન મસાલા | ₹250 / શરબત | ₹800 / મીઠાઈ | ₹500 / પાણીની બોટલ | ₹5,000 / ચા | ₹50
+ 4 Table        Deva,Latn  bm25=-       sim=0.109  श्री ब्यूटी पार्लर का रेट का | सेवा: बाल कटवाना | कीमत: ₹250 / सेवा: दाढ़ी ट्रिम | कीमत: ₹150 / सेवा: फेशियल (गोल्ड) | की
+ 5 Table        Gujr,Deva, bm25=-       sim=0.124  श्री ब्यूटी पार्लर का रेट का | વાળ કપાવવા | ₹250 / ફેશિયલ | ₹800 / મસાજ | ₹500 / બ્યુટી ટ્રીટમેન્ટ સાથે | ₹400 / બ્રાઇડલ 
+ 6 Text         Latn,Deva  bm25=-       sim=0.093  श्री ब्यूटी पार्लर का रेट का | English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.
+ 7 DocAggregate Deva,Latn  bm25=-       sim=0.058  श्री ब्यूटी पार्लर का रेट का | श्री ब्यूटी पार्लर का रेट कार्ड — overview — कीमत / 6 records — कीमत: ₹150 to ₹1,500 (typi
+ 8 Text         Latn       bm25=10.70   sim=0.366  ProFix Home Services Rate Ca | Service call $95/hr (minimum 1 hour) / After-hours call $150/hr / Lawn cut $45/visit / Por

@@ -1,0 +1,57 @@
+--- old-build/cards (content)
++++ new-build/cards (content)
+@@ -1,30 +1,30 @@
+---- #0 [Table] section='Prices' page= img= scripts=["Latn"] chars=933 title='Hair Salon Prices and Policies' type='Document'
++--- #0 [Table] section='Prices' page= img= scripts=["Latn"] chars=933 title='Hair Salon Prices and Opening Information' type='Document'
+     Service: Haircut | Price (Short hair): $25.00 | Price (Long hair): $35.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-01 | Notes: Walk-ins welcome
+     Service: Full head colour | Price (Short hair): $80.00 | Price (Long hair): $110.00 | Duration: 90 min | Discount: 15% | Valid from: 2026-01-02 | Notes: Includes toner Patch test 48h before Ask about Olaplex add-on
+     Service: Highlights | Price (Short hair): $120.00 | Price (Long hair): $160.00 | Duration: 120 min | Discount: 15% | Valid from: 2026-01-03 | Notes: Walk-ins welcome
+     Service: Keratin treatment | Price (Short hair): $250.00 | Price (Long hair): $320.00 | Duration: 180 min | Discount: 15% | Valid from: 2026-01-04 | Notes: Walk-ins welcome
+     Service: Blow dry | Price (Short hair): $30.00 | Price (Long hair): $40.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-05 | Notes: Walk-ins welcome
+     Service: Average short price | Price (Short hair): $101.00
+---- #1 [Table] section='Prices' page= img= scripts=["Latn"] chars=130 title='Hair Salon Prices and Policies' type='Document'
++--- #1 [Table] section='Prices' page= img= scripts=["Latn"] chars=130 title='Hair Salon Prices and Opening Information' type='Document'
+     Treatment | Guarantee days | Redo policy
+     Keratin treatment | 7 | Free redo within a week
+     Full head colour | 5 | Toner refresh free
+---- #2 [Table] section='Sheet2' page= img= scripts=["Latn"] chars=71 title='Hair Salon Prices and Policies' type='Document'
++--- #2 [Table] section='Sheet2' page= img= scripts=["Latn"] chars=71 title='Hair Salon Prices and Opening Information' type='Document'
+     Opening hours | Mon–Fri 9:00–18:00
+     Saturday | 10:00–16:00
+     Deposit | 20%
+---- #4 [DocAggregate] section='Service' page= img= scripts=["Latn"] chars=184 title='Hair Salon Prices and Policies' type='Document'
+-    Hair Salon Prices and Policies — overview — Service
++--- #4 [DocAggregate] section='Service' page= img= scripts=["Latn"] chars=195 title='Hair Salon Prices and Opening Information' type='Document'
++    Hair Salon Prices and Opening Information — overview — Service
+     6 records — Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)
+---- #5 [DocAggregate] section='Price (Short hair)' page= img= scripts=["Latn"] chars=122 title='Hair Salon Prices and Policies' type='Document'
+-    Hair Salon Prices and Policies — overview — Price (Short hair)
++--- #5 [DocAggregate] section='Price (Short hair)' page= img= scripts=["Latn"] chars=133 title='Hair Salon Prices and Opening Information' type='Document'
++    Hair Salon Prices and Opening Information — overview — Price (Short hair)
+     6 records — Price (Short hair): $25.00 to $250.00 (typical)
+---- #6 [DocAggregate] section='Price (Long hair)' page= img= scripts=["Latn"] chars=120 title='Hair Salon Prices and Policies' type='Document'
+-    Hair Salon Prices and Policies — overview — Price (Long hair)
++--- #6 [DocAggregate] section='Price (Long hair)' page= img= scripts=["Latn"] chars=131 title='Hair Salon Prices and Opening Information' type='Document'
++    Hair Salon Prices and Opening Information — overview — Price (Long hair)
+     6 records — Price (Long hair): $35.00 to $320.00 (typical)
+---- #7 [DocAggregate] section='Duration' page= img= scripts=["Latn"] chars=123 title='Hair Salon Prices and Policies' type='Document'
+-    Hair Salon Prices and Policies — overview — Duration
++--- #7 [DocAggregate] section='Duration' page= img= scripts=["Latn"] chars=134 title='Hair Salon Prices and Opening Information' type='Document'
++    Hair Salon Prices and Opening Information — overview — Duration
+     6 records — Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)
+---- #8 [DocAggregate] section='Valid from' page= img= scripts=["Latn"] chars=157 title='Hair Salon Prices and Policies' type='Document'
+-    Hair Salon Prices and Policies — overview — Valid from
++--- #8 [DocAggregate] section='Valid from' page= img= scripts=["Latn"] chars=168 title='Hair Salon Prices and Opening Information' type='Document'
++    Hair Salon Prices and Opening Information — overview — Valid from
+     6 records — Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+-docTitle=Hair Salon Prices and Policies lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+-summary: Lists services, short- and long-hair prices, durations, discounts, valid dates and notes. Also covers treatment guarantees and redo policies, opening hours, and the deposit.
++docTitle=Hair Salon Prices and Opening Information lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
++summary: Lists prices for salon services by hair length, durations, discounts, valid-from dates and service notes. Also covers treatment guarantees and redo policies, opening hours and deposit terms.
+ [  0] Heading      p1 H1
+       Prices
+ [  1] Table        p1

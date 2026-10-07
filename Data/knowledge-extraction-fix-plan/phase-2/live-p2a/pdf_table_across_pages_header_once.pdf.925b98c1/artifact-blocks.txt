@@ -1,0 +1,93 @@
+docTitle=Glow Salon Full Service List lang=en pages=3 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Glow Salon’s full service list with prices in Canadian dollars, approximate durations, and notes such as patch test requirements and long-hair surcharges. It includes hair, waxing, nail, facial, massage, and body services, including deluxe and platinum options. Prices are valid until 31 December 2026.
+[  0] Heading      p1 H1
+      Glow Salon — full service list
+[  1] Paragraph    p1
+      All prices in Canadian dollars. Duration is approximate.
+      
+[  2] Table        p1
+      hasHeader=True caption= rows=29
+      | Service | Price | Duration | Notes |
+      | Haircut | $25 | 30 min | Patch test required |
+      | Beard trim | $15 | 15 min |  |
+      | Kids cut | $18 | 20 min |  |
+      | Full head colour | $80 | 90 min |  |
+      | Root touch up | $55 | 60 min |  |
+      | Highlights | $120 | 120 min | Long hair +$20 |
+      | Keratin treatment | $250 | 180 min |  |
+      | Blow dry | $30 | 30 min | Patch test required |
+      | Updo | $65 | 60 min |  |
+      | Deep conditioning | $40 | 45 min |  |
+      | Scalp massage | $35 | 30 min | Long hair +$20 |
+      | Fringe trim | $12 | 10 min |  |
+      | Bridal package | $450 | 240 min |  |
+      | Eyebrow threading | $10 | 10 min |  |
+      | Upper lip wax | $8 | 10 min | Patch test required |
+      | Full legs wax | $45 | 40 min | Long hair +$20 |
+      | Manicure | $30 | 30 min |  |
+      | Pedicure | $45 | 45 min |  |
+      | Gel manicure | $55 | 60 min |  |
+      | Nail art | $20 | 30 min |  |
+      | Facial classic | $70 | 60 min | Long hair +$20 |
+      | Facial gold | $110 | 75 min | Patch test required |
+      | Back massage | $60 | 45 min |  |
+      | Hot stone massage | $95 | 75 min |  |
+      | Aromatherapy | $85 | 60 min |  |
+      | Body scrub | $75 | 60 min | Long hair +$20 |
+      | Hair spa | $90 | 90 min |  |
+      | Perm | $140 | 120 min |  |
+[  3] Table        p2
+      hasHeader=True caption= rows=32
+      | Service | Price | Duration | Notes |
+      | Straightening | $200 | 150 min | Patch test required |
+      | Consultation | $0 | 15 min |  |
+      | Haircut deluxe | $35 | 30 min | Long hair +$20 |
+      | Beard trim deluxe | $25 | 15 min |  |
+      | Kids cut deluxe | $28 | 20 min |  |
+      | Full head colour deluxe | $90 | 90 min |  |
+      | Root touch up deluxe | $65 | 60 min |  |
+      | Highlights deluxe | $130 | 120 min | Patch test required |
+      | Keratin treatment deluxe | $260 | 180 min |  |
+      | Blow dry deluxe | $40 | 30 min |  |
+      | Updo deluxe | $75 | 60 min |  |
+      | Deep conditioning deluxe | $50 | 45 min |  |
+      | Scalp massage deluxe | $45 | 30 min | Long hair +$20 |
+      | Fringe trim deluxe | $22 | 10 min |  |
+      | Bridal package deluxe | $460 | 240 min | Patch test required |
+      | Eyebrow threading deluxe | $20 | 10 min |  |
+      | Upper lip wax deluxe | $18 | 10 min |  |
+      | Full legs wax deluxe | $55 | 40 min | Long hair +$20 |
+      | Manicure deluxe | $40 | 30 min |  |
+      | Pedicure deluxe | $55 | 45 min |  |
+      | Gel manicure deluxe | $65 | 60 min |  |
+      | Nail art deluxe | $30 | 30 min | Patch test required |
+      | Facial classic deluxe | $80 | 60 min | Long hair +$20 |
+      | Facial gold deluxe | $120 | 75 min |  |
+      | Back massage deluxe | $70 | 45 min |  |
+      | Hot stone massage deluxe | $105 | 75 min |  |
+      | Aromatherapy deluxe | $95 | 60 min |  |
+      | Body scrub deluxe | $85 | 60 min | Long hair +$20 |
+      | Hair spa deluxe | $100 | 90 min | Patch test required |
+      | Perm deluxe | $150 | 120 min |  |
+      | Straightening deluxe | $210 | 150 min |  |
+[  4] Table        p3
+      hasHeader=True caption= rows=12
+      | Service | Price | Duration | Notes |
+      | Consultation deluxe | $10 | 15 min |  |
+      | Haircut platinum | $45 | 30 min | Long hair +$20 |
+      | Beard trim platinum | $35 | 15 min |  |
+      | Kids cut platinum | $38 | 20 min |  |
+      | Full head colour platinum | $100 | 90 min | Patch test required |
+      | Root touch up platinum | $75 | 60 min |  |
+      | Highlights platinum | $140 | 120 min | Long hair +$20 |
+      | Keratin treatment platinum | $270 | 180 min |  |
+      | Blow dry platinum | $50 | 30 min |  |
+      | Updo platinum | $85 | 60 min |  |
+      | Deep conditioning platinum | $60 | 45 min |  |
+[  5] Paragraph    p3
+      Prices valid until 31 December 2026.
+      
+
+## captions
+## images
+## reviews

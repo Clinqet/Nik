@@ -1,0 +1,33 @@
+{
+  "businessId": "NKN607",
+  "docId": "cdcdc94a52f446d681efee47846d34fb",
+  "docName": "docx_paragraph_pricelist.docx",
+  "docTitle": "Glow Salon Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 1443,
+  "passageCount": 3,
+  "contentHash": "8C2F8B9D3625A02A1A85994E9C6F1C5B44294B1851CA5F30D805580AC355BB93",
+  "blobPath": "NKN607/cdcdc94a52f446d681efee47846d34fb/docx_paragraph_pricelist-20260925-052228-ecf24d23b20b.docx",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T08:25:31.8559672Z",
+    "outcome": "Ran",
+    "candidateCount": 17,
+    "draftCount": 17,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false
+  },
+  "id": "cdcdc94a52f446d681efee47846d34fb",
+  "type": "KnowledgeDocument",
+  "_etag": "\"040bd3d6-0000-0200-0000-6ab62ffb0000\"",
+  "createdAt": "2026-09-25T05:22:28.922076Z",
+  "updatedAt": "2026-09-25T08:25:31.8981886Z",
+  "_rid": "ezpkAL1hvTEMAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTEMAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790324731
+}

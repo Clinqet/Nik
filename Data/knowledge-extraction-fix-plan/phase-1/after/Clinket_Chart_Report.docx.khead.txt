@@ -1,0 +1,30 @@
+# Clinket_Chart_Report.docx
+blocks=3 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      Treatment revenue report
+[  1] Table        p1
+      hasHeader=True caption=Revenue by treatment rows=5
+      |  | Revenue |
+      | Gel manicure | 45 |
+      | Pedicure | 35 |
+      | Full set acrylics | 60 |
+      | Nail art | 15 |
+[  2] Paragraph    p1
+      Figures exclude VAT.
+
+## INVENTORY
+4 records
+
+## CARDS (3)  warnings=0
+--- card 0 [Text] section='' page= tokens~6 img=-1
+    Treatment revenue report
+--- card 1 [Table] section='' page= tokens~32 img=-1
+    Revenue by treatment
+    Gel manicure | Revenue: 45
+    Pedicure | Revenue: 35
+    Full set acrylics | Revenue: 60
+    Nail art | Revenue: 15
+--- card 2 [Text] section='' page= tokens~5 img=-1
+    Figures exclude VAT.

@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Mountain",
+    "category": "auto-mechanic",
+    "scrapedAt": "2026-09-23T15:41:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-mountain-sam-s-service-centre",
+      "businessName": "Sam's Service Centre",
+      "description": "Auto repair garage in Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-385-7007",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://samsservicecentre.com/",
+        "other": []
+      },
+      "address": {
+        "street": "654 Rymal Rd E",
+        "formatted": "654 Rymal Rd E, Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Mountain",
+        "province": "ON",
+        "country": "Canada",
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Mountain",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://samsservicecentre.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    },
+    {
+      "id": "hamilton-mountain-eric-s-automotive-tires",
+      "businessName": "Eric's Automotive & Tires",
+      "description": "Auto repair and tire shop in Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "service@ericsautohamilton.ca",
+      "businessPhone": "905-549-1117",
+      "social": {
+        "facebook": "https://www.facebook.com/EricsAutoHamilton",
+        "instagram": "https://www.instagram.com/erics_automotive",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://ericsautohamilton.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "568 Upper Wellington St",
+        "formatted": "568 Upper Wellington St, Hamilton, ON",
+        "city": "Hamilton",
+        "area": "Mountain",
+        "province": "ON",
+        "country": "Canada",
+        "postalCode": null
+      },
+      "serviceAreas": [
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Mountain",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "auto-mechanic",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Auto Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Tire Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://ericsautohamilton.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://ericsautohamilton.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

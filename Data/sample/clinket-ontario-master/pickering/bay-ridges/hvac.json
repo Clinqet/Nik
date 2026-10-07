@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "city": "Pickering",
+    "area": "bay-ridges",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + directory listings). No Facebook/Kijiji scrapes. Contact fields never invented."
+  },
+  "providers": [
+    {
+      "id": "pickering-bay-ridges-proaire-heating-cooling",
+      "businessName": "Proaire Heating & Cooling",
+      "description": "Heating and cooling contractor on Radom St, Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "416-823-8268",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1235 Radom St",
+        "postalCode": "L1W 1J3",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1235 Radom St, Pickering, ON L1W 1J3"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "pickering-bay-ridges-brown-s-home-heating",
+      "businessName": "Brown's Home Heating",
+      "description": "Home heating contractor on Toy Ave, Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-428-0146",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1035 Toy Ave",
+        "postalCode": "L1W 3N9",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1035 Toy Ave, Pickering, ON L1W 3N9"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Home Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "pickering-bay-ridges-palmer-bros-heating-air-conditioning",
+      "businessName": "Palmer Bros Heating & Air Conditioning",
+      "description": "Heating and AC on Clements Rd, Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-424-7565",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "1895 Clements Rd",
+        "postalCode": "L1W 3V5",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1895 Clements Rd, Pickering, ON L1W 3V5"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    },
+    {
+      "id": "pickering-bay-ridges-arctic-breeze-heating-air-conditioning",
+      "businessName": "Arctic Breeze Heating & Air Conditioning",
+      "description": "24h heating and air conditioning in Pickering.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-619-3137",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "905 Dillingham Rd",
+        "postalCode": "L1W 3X1",
+        "area": "bay-ridges",
+        "city": "Pickering",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "905 Dillingham Rd, Pickering, ON L1W 3X1"
+      },
+      "serviceAreas": [
+        "Pickering",
+        "Bay Ridges",
+        "Rosebank",
+        "Liverpool",
+        "Dunbarton",
+        "Amberlea",
+        "Ajax",
+        "Scarborough"
+      ],
+      "geo": {
+        "city": "Pickering",
+        "area": "bay-ridges",
+        "region": "Durham"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Heating",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "24/7 emergency service available (per listing)"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Heating+Contractors/Ajax+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

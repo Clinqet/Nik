@@ -1,0 +1,38 @@
+docTitle=Glow Salon Service Prices lang=en pages=3 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: A salon price list covering Hair services, Nail services with prices and times, and Waxing services with listed prices.
+[  0] Heading      p1 H1
+      Slide 1
+[  1] Paragraph    p1
+      Glow Salon — Hair
+[  2] Table        p1
+      hasHeader=False caption= rows=6
+      | Haircut | $25 |
+      | Beard trim | $15 |
+      | Kids cut | $18 |
+      | Full head colour | $80 |
+      | Root touch up | $55 |
+      | Highlights | $120 |
+[  3] Heading      p2 H1
+      Slide 2
+[  4] Paragraph    p2
+      Nails
+[  5] Table        p2
+      hasHeader=False caption= rows=4
+      | Service | Price | Time |
+      | Manicure | $30 | 30 min |
+      | Pedicure | $45 | 45 min |
+      | Gel manicure | $55 | 60 min |
+[  6] Heading      p3 H1
+      Slide 3
+[  7] Paragraph    p3
+      Waxing
+[  8] List         p3
+      - Upper lip – $8
+      - Eyebrows – $10
+      - Full legs – $45
+      - Underarms – $15
+      - Brazilian – $60
+
+## captions
+## images
+## reviews

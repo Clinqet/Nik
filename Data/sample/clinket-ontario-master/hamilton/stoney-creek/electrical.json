@@ -1,0 +1,685 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Stoney Creek",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 4,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Electrical contractor in Stoney Creek for commercial and residential repair, panel upgrades, EV chargers, generators, smart home, and central vacuum.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@santinoelectric.ca",
+      "businessPhone": "905-662-3543",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.santinoelectric.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "430 Highway No 8",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8G 1G3",
+        "country": "Canada",
+        "formatted": "430 Highway No 8, Stoney Creek, ON L8G 1G3"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Hamilton",
+        "Burlington",
+        "St Catharines",
+        "Binbrook",
+        "Lincoln"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Electrical Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Panel Upgrades",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "EV Charging Station Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Wiring & Rewiring",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Smart Home Systems",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Generator Dealer Services",
+          "description": "Generac and Champion authorized dealer",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.santinoelectric.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://www.santinoelectric.ca/electrical",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-santino-electric-limited",
+      "businessName": "Santino Electric Limited"
+    },
+    {
+      "description": "Licensed electrical contractor founded 1983 by James Robert Jones. Residential and commercial electrical repairs and installations.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 43,
+      "owner": {
+        "name": "James Robert Jones",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@jrjoneselectric.com",
+      "businessPhone": "905-643-1900",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "http://www.jrjoneselectric.com/",
+        "other": []
+      },
+      "address": {
+        "street": "15 Commerce Court, Unit 3",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8E 4G3",
+        "country": "Canada",
+        "formatted": "15 Commerce Court, Unit 3, Stoney Creek, ON L8E 4G3"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Niagara Peninsula",
+        "Western GTA"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Electrical Construction",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Electrical Repairs & Installations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "http://www.jrjoneselectric.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": "Toll free also published: 1-877-692-9923"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-jr-jones-electric",
+      "businessName": "JR Jones Electric"
+    },
+    {
+      "description": "Building and maintaining electrical systems in the Hamilton area for over three decades. Residential, commercial, and industrial. ECRA/ESA #7003432.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "aldo@aldoelectric.com",
+      "businessPhone": "905-544-4015",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://aldoelectric.com/",
+        "other": []
+      },
+      "address": {
+        "street": "793 Barton Street",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8E 5L8",
+        "country": "Canada",
+        "formatted": "793 Barton Street, Stoney Creek, ON L8E 5L8"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": "New homes, renovations, panel upgrades, EV chargers",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial & Industrial Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Generator Systems",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Lighting Design & Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "CCTV & Data Network Cabling",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://aldoelectric.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": "Toll free 1-877-278-4261 also on site"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-aldo-electric",
+      "businessName": "Aldo Electric"
+    },
+    {
+      "description": "Residential, commercial and industrial electrician with 25+ years experience. Renovations, generators, lighting; 24h emergency.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 25,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-961-7014",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "30 Seacove Crt",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8E 0B3",
+        "country": "Canada",
+        "formatted": "30 Seacove Crt, Stoney Creek, ON L8E 0B3"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Hamilton",
+        "Grimsby",
+        "St. Catharines",
+        "Dundas",
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": "Panel changes, service upgrades, knob and tube replacement",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Backup Generators",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Electrical Work",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "24h Emergency Electrician",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Lighting Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "00:00",
+            "close": "23:59",
+            "closed": false
+          }
+        ],
+        "notes": "Listed as open 24 hours on YellowPages"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.yellowpages.ca/bus/Ontario/Stoney-Creek/PDS-Electric-Inc/101138479.html",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-pds-electric-inc",
+      "businessName": "PDS Electric Inc"
+    }
+  ]
+}

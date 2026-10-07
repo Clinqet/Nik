@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Ancaster",
+    "category": "hvac",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Ancaster-based HVAC contractor — furnace repair, AC, heat pumps, pool heaters, water heaters. Licensed, insured, WSIB covered.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "airpro@air-pro.ca",
+      "businessPhone": "905-962-9077",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.air-pro.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "31 Cranston Street",
+        "city": "Ancaster",
+        "area": "Ancaster",
+        "province": "ON",
+        "postalCode": "L9K 0E3",
+        "country": "Canada",
+        "formatted": "31 Cranston Street, Ancaster, ON L9K 0E3"
+      },
+      "serviceAreas": [
+        "Ancaster",
+        "Hamilton",
+        "Dundas",
+        "Stoney Creek",
+        "Waterdown",
+        "Burlington",
+        "Oakville"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Ancaster",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "hvac",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Furnace Repair & Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Air Conditioning Repair & Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Heat Pump Installation & Service",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pool Heater Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Same-Day Emergency HVAC",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.air-pro.ca/contact-us",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://www.air-pro.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-ancaster-airpro-heating-cooling",
+      "businessName": "AirPro Heating & Cooling"
+    }
+  ]
+}

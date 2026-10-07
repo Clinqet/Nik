@@ -1,0 +1,39 @@
+{
+  "businessId": "NKN607",
+  "docId": "35b2e352b44b44caac507f088b9dcc06",
+  "docName": "pdf_table_across_pages_header_once.pdf",
+  "docTitle": "Glow Salon Service Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "readingNotices": [
+    {
+      "key": "Info_KnowledgeValueUnconfirmed"
+    }
+  ],
+  "sizeBytes": 36652,
+  "pageCount": 3,
+  "passageCount": 9,
+  "contentHash": "DF2A227EA8B01A60F9D9BC6B69A0C40283C524D1959B08A9236E6A33C347A04D",
+  "blobPath": "NKN607/35b2e352b44b44caac507f088b9dcc06/pdf_table_across_pages_header_once-20260925-052205-6cfb69cc33d5.pdf",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:07:31.0029139Z",
+    "outcome": "Ran",
+    "candidateCount": 70,
+    "draftCount": 68,
+    "alreadyInCatalogCount": 2,
+    "notFullyScanned": false
+  },
+  "id": "35b2e352b44b44caac507f088b9dcc06",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5c0b629e-0000-0200-0000-6ab6d4830000\"",
+  "createdAt": "2026-09-25T05:22:06.5814387Z",
+  "updatedAt": "2026-09-25T20:07:31.0477266Z",
+  "_rid": "ezpkAL1hvTEBAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTEBAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366851
+}

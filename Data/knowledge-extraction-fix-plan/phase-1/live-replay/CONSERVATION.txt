@@ -1,0 +1,60 @@
+LIVE ARTEFACT REPLAY — the 17 retained SX3SG2 fixtures, 2026-09-11
+================================================================
+
+WHAT THIS IS. Every one of the 17 documents was processed by the DEPLOYED Canada pipeline on 2026-09-10
+and its banked artefact (the exact Document Intelligence + vision block stream, plus the verifier's own
+reviews) was pulled to evidence\ca-live-batch\<doc>\artifact.json. `tools\kreplay` feeds those LIVE block
+streams to the HEAD chunker and writes cards-HEAD.txt beside them. No network, no deploy: the input is
+real live extraction output and the code is HEAD.
+
+WHAT IT PROVES. The chunker changes conserve live content exactly. Comparing the bodies of the comparable
+card kinds ([Table] and [Text]; [DocSummary] comes from the describer and [DocAggregate] from the inventory
+builder, neither of which a chunker-only replay produces):
+
+  DOCUMENT                                                liveWords headWords  lost   new
+  Microsoft Pricing Structure.xlsx.58a4f6ad                     340       340     0     0
+  Mortgage Amortization_All_9419731_1.pdf.7e3e6e16             1103      1103     0     0
+  docx_paragraph_pricelist.docx.a8ea527d                         66        66     0     0
+  docx_two_column_table_resume.docx.b67f3100                     88        88     0     0
+  img_gujarati_pricelist.png.6fcd9c32                             6         6     0     0
+  img_pricelist_lowercase_inline.jpg.e20a44eb                    21        21     0     0
+  img_pricelist_two_columns_photo.jpg.c425468e                   29        29     0     0
+  pdf_duration_grid_crosstab.pdf.5052162c                        69        69     0     0
+  pdf_footer_disclaimer_repeated.pdf.726e13b3                   489       489     0     0
+  pdf_headerless_price_table.pdf.8278471e                        64        64     0     0
+  pdf_hindi_gujarati_english_pricelist.pdf.4eeae96e              34        34     0     0
+  pdf_insurance_medical_and_fees.pdf.d4e125ae                   112       112     0     0
+  pdf_price_shapes_tiers_units.pdf.ef5d0c54                     133       133     0     0
+  pdf_table_across_pages_header_once.pdf.925b98c1               562       562     0     0
+  pdf_two_column_prose_resume.pdf.bfb6dfba                       81        81     0     0
+  pptx_two_textbox_columns.pptx.2867e25e                         51        51     0     0
+  xlsx_merged_header_formats_hidden_regions.xlsx.a5b5e051       135       134     0     0
+  TOTAL                                                        3383      3382     0     0
+
+  lost = word types present in the live cards and absent from HEAD's. new = the reverse.
+  ZERO lost and ZERO new on all 17: no live word is dropped and none is invented.
+
+THE ONE DIFFERENCE, AND IT IS A FIX. xlsx_merged_header_formats_hidden_regions, card 0, row 2:
+
+  DEPLOYED  Service | Short hair | Long hair
+  HEAD      Short hair | Long hair
+
+The sheet's sub-header row is ["", "Short hair", "Long hair"]. The deployed H1 first-cell carry wrote the
+PREVIOUS row's first cell into the empty one, inventing the word "Service" there (X-03). HEAD's HoldsAValue
+guard leaves an empty cell empty. The word HEAD "loses" is a word the document never contained.
+
+WHAT THIS REPLAY CANNOT PROVE, and why. The artefact's blocks were produced by the DEPLOYED PARSER and the
+DEPLOYED judge, so replaying them cannot exercise:
+  - the parser fixes on the PDF/image documents (they need a fresh Document Intelligence + vision pass), and
+  - the three-reader adjudication itself (L-1, L-2, R-13), whose input is a fresh vision reading.
+Those are proven by unit tests built FROM this live evidence (DocumentTranscriptionAdjudicationTests) and by
+the office/text half below; the live end-to-end re-run needs the code on the stamp — see HANDOVER.md.
+
+THE OFFICE/TEXT HALF IS PROVEN END TO END WITHOUT A DEPLOY. Five of the 17 are born-digital office files
+whose bytes are identical to the corpus copies, so HEAD's own parser reads the real document:
+phase-1\baseline\*.khead.txt (before) vs phase-1\after\*.khead.txt (after). The same workbook as above:
+
+  DEPLOYED  Service | Price | Price | Duration | ...        (unlabelled grid, invented "Service" in row 2)
+  HEAD      Service: Haircut | Price (Short hair): $25.00 | Price (Long hair): $35.00 | Duration: 30 min | ...
+
+The frozen top row IS Excel's own header declaration (R1), and the two-row freeze composes Price · Short hair.

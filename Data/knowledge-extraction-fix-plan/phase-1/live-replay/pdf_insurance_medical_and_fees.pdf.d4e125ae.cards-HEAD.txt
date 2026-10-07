@@ -1,0 +1,24 @@
+# pdf_insurance_medical_and_fees.pdf.d4e125ae
+blocks=8 pageCount=1 docType=Other
+cards=4 imageCards=0 warnings=0
+
+--- card 0 [Table] section='Maple Family Clinic — patient information pack › Insurance summary (sample policy)' page=1 img= chars=162
+    Monthly premium | $182.50
+    Annual deductible | $500
+    Out-of-pocket maximum | $3,000
+    Co-pay per visit | $25
+    Policy number | POL-4471-2026
+    Coverage start | 2026-01-01
+--- card 1 [Table] section='Maple Family Clinic — patient information pack › Medication schedule' page=1 img= chars=212
+    Medication: Amoxicillin | Dose: 500 mg | Frequency: 3 times daily for 7 days
+    Medication: Ibuprofen | Dose: 400 mg | Frequency: every 8 hours as needed
+    Medication: Vitamin D | Dose: 1000 IU | Frequency: once daily
+--- card 2 [Table] section='Maple Family Clinic — patient information pack › Uninsured services and fees' page=1 img= chars=254
+    Service: Sick note | Fee: $30
+    Service: Driver medical exam | Fee: $150
+    Service: Travel consultation (30 min) | Fee: $95
+    Service: Ear syringing | Fee: $40
+    Service: Missed appointment fee | Fee: $50
+    Service: Annual physical (uninsured patients) | Fee: $250
+--- card 3 [Text] section='Maple Family Clinic — patient information pack › Uninsured services and fees' page=1 img= chars=82
+    Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.

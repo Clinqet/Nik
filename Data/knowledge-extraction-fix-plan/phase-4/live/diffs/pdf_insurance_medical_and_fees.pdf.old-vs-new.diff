@@ -1,0 +1,11 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+ docTitle=Maple Family Clinic Patient Information Pack lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+-summary: Provides a sample insurance policy summary, a medication schedule for Amoxicillin, Ibuprofen, and Vitamin D, fees for uninsured services, and lab reference ranges.
++summary: Covers a sample insurance policy, a medication schedule for Amoxicillin, Ibuprofen and Vitamin D, and fees for uninsured services including sick notes, medical exams, travel consultations, ear syringing, missed appointments and annual physicals.
+ [  0] Heading      p1 H1
+       Maple Family Clinic — patient information pack
+ [  1] Heading      p1 H2

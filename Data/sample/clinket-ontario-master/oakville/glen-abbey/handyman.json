@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "city": "Oakville",
+    "area": "glen-abbey",
+    "category": "handyman",
+    "scrapedAt": "2026-09-23T15:55:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "oakville-glen-abbey-bespoke-handyman",
+      "businessName": "Bespoke Handyman",
+      "description": "Licensed and insured handyman for Oakville, Burlington and Mississauga. Flat-rate quotes, plumbing, electrical, furniture assembly, custom closets.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "phil@bespokehandyman.ca",
+      "businessPhone": "416-904-0244",
+      "social": {
+        "facebook": "https://www.facebook.com/bespokehandymanservice",
+        "instagram": "https://instagram.com/bespokehandymanservices",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://bespokehandyman.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "1195 Old Oak Drive",
+        "postalCode": "L6M 3K6",
+        "area": "glen-abbey",
+        "city": "Oakville",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "1195 Old Oak Drive, Oakville, ON L6M 3K6"
+      },
+      "serviceAreas": [
+        "Oakville",
+        "Burlington",
+        "Mississauga",
+        "Glen Abbey",
+        "Bronte",
+        "River Oaks"
+      ],
+      "geo": {
+        "city": "Oakville",
+        "area": "glen-abbey",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "handyman",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Home Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Furniture Assembly",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Custom Closets",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Minor Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Minor Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://bespokehandyman.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:55:00-04:00"
+        },
+        {
+          "url": "https://bespokehandyman.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

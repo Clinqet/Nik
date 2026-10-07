@@ -1,0 +1,79 @@
+docTitle=Complete Hair & Beauty Services Price List lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=1 captions=1 reviews=1
+summary: A hair and beauty service price list covering threading, polishing, facials, waxing, and hair treatments, with service prices and contact information for highlights, balayage, keratin, and permanent smoothing.
+[  0] Heading      p1 H1
+      COMPLETE HAIR & BEAUTY
+[  1] Heading      p1 H2
+      THREADING
+[  2] Table        p1
+      hasHeader=True caption= rows=6
+      | Service | Price |
+      | Eyebrows | $7 |
+      | Upperlips | $2 |
+      | Chin | $3 |
+      | Forehead | $3 |
+      | Full face | $20 |
+[  3] Heading      p1 H2
+      POLICING
+[  4] Table        p1
+      hasHeader=True caption= rows=8
+      | Service | Price |
+      | Eyebrow tint | $15 |
+      | Lashlift and tint | $50 |
+      | Manicure | $30 |
+      | Pedicure | $40 |
+      | Full hands polish | $30 |
+      | Full back polish with scrub and massage | $40 |
+      | D-tan hands treatment | $25 |
+[  5] Paragraph    p1
+      289-887-8496
+      
+[  6] Heading      p1 H2
+      FACIAL
+[  7] Table        p1
+      hasHeader=True caption= rows=10
+      | Service | Price |
+      | Chemical peels | $80 |
+      | 03 plus bridal facial | $70 |
+      | Casmara whitening | $70 |
+      | Gerard's aquasense | $60 |
+      | Safron Skin tightening | $45 |
+      | Gold facial | $40 |
+      | Fruits facial | $35 |
+      | Wine facial | $30 |
+      | Nature gold | $25 |
+[  8] Heading      p1 H2
+      WAXING
+[  9] Table        p1
+      hasHeader=True caption= rows=9
+      | Service | Price |
+      | Half/full hands | $10/15 |
+      | Underarms | $5 |
+      | Half/ full legs | $15/30 |
+      | Back/stomach | $15 |
+      | Full body with brazilian | $100 |
+      | Fullbody No brazilian | $80 |
+      | Brazilian | $30 |
+      | Nu free brazilian. | $40 |
+[ 10] Heading      p1 H2
+      HAIR TREATMENT
+[ 11] Table        p1
+      hasHeader=True caption= rows=8
+      | Service | Price |
+      | Root touch up | $50/70 |
+      | Full head color. | $70/150 |
+      | Smoothning from | $100 |
+      | Keratin from | $80 |
+      | Hair cut | $20 |
+      | Shampoo and blowdry | $30 |
+      | Updo Hair style | $50-70 |
+[ 12] Paragraph    p1
+      For highlights, balayage Keratin and permanent smoothning please contact at 289-887-8496
+      
+[ 13] ImageMarker  p1 img#0 alt=
+
+## captions
+  [0] A heavily green-distorted salon price list. Legible text includes “COMPLETE HAIR & BEAUTY,” “THREADING,” “Eyebrows,” “Upper lips,” “Chin,” “Forehead,” “Full face,” “FACIAL,” “WAXING,” “Chemical peels,” “O3 plus bridal facial,” “Casmara whitening,” and “Gerards quadruple.”
+## images
+  idx=0 id=8121d2b30e5a9d73 1134x2048 238677B kind=TextSnapshot src=Upload q=Blurry refused=False
+## reviews
+  {"pageNumber":1,"verificationId":"12e3e1b1-b441-4a26-be02-836deca16254","discrepancies":[{"fields":["service name"],"reason":"'03' reads 'O3'","location":"page 1, table 2, row '03 plus bridal facial', column 1","ocrReading":"03 plus bridal facial","firstAiReading":"O3 plus bridal facial","sourceServiceName":"03 plus bridal facial","passageIds":[],"thirdReading":"03 plus bridal facial","selectedReading":"03 plus bridal facial","disposition":"ResolvedToSourceReading"}]}

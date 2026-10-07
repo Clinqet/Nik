@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — AI Assistant: "help improve" consent checkbox (web + mobile)</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #FCFCFC;
+    --info-bg: #F4FAFF; --info-border: #D9E9F7;
+    --warn: #92400E; --warn-bg: #FFFBEB; --warn-border: #FDE68A;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.55; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 940px; line-height: 1.6; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w820 { width: 820px; max-width: 100%; }
+  .w600 { width: 600px; max-width: 100%; }
+  .w390 { width: 390px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:10px 20px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.disabled { opacity:.45; cursor:not-allowed; }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.55; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann.bad { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
+  .ann.warn { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn); }
+  .ann b { display:block; margin-bottom:3px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules td.yes { color:#3F7A00; font-weight:600; }
+  table.rules td.no { color:var(--faint); }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { background:#F2F3F5; border-radius:4px; padding:1px 5px; font-size:11.5px; font-family: ui-monospace,Consolas,monospace; }
+
+  /* ── the two existing blocks we sit next to ── */
+  .sec-label { font-size:13px; font-weight:600; color:var(--ink); }
+  .toggle-row { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px 16px; border:1px solid var(--border); border-radius:14px; background:#fff; }
+  .toggle-row p { font-size:12px; color:#6B7280; line-height:1.55; margin-top:3px; }
+  .sw { width:40px; height:22px; border-radius:999px; background:var(--green); position:relative; flex:none; margin-top:2px; }
+  .sw::after { content:''; position:absolute; top:2px; right:2px; width:18px; height:18px; border-radius:50%; background:#fff; }
+  .retention { display:flex; align-items:flex-start; gap:8px; padding:12px; border-radius:12px; background:var(--info-bg); border:1px solid var(--info-border); }
+  .retention .ico { width:16px; height:16px; flex:none; margin-top:1px; }
+  .retention b { display:block; font-size:13px; font-weight:600; color:var(--ink); }
+  .retention p { font-size:12px; color:#4B5563; line-height:1.55; margin-top:2px; }
+
+  /* ── the NEW row ── */
+  .consent { display:flex; align-items:flex-start; gap:12px; padding:16px; border-radius:14px; border:1px solid var(--border); background:var(--field); }
+  .cb { width:20px; height:20px; border-radius:4px; border:2px solid #B5B5B5; background:#fff; flex:none; margin-top:1px; display:flex; align-items:center; justify-content:center; }
+  .cb.on { background:var(--green); border-color:var(--green); }
+  .cb svg { width:14px; height:14px; }
+  .consent .body b { display:block; font-size:13px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+  .consent .body p { font-size:12.5px; color:#4B5563; line-height:1.6; }
+  .consent .body p + p { margin-top:5px; color:#6B7280; font-size:12px; }
+  .required { display:flex; align-items:flex-start; gap:12px; padding:16px; border-radius:14px; border:1px solid var(--border); background:var(--field); }
+  .required p { font-size:12.5px; color:#374151; line-height:1.6; }
+  .toast { display:flex; gap:8px; align-items:center; border-radius:12px; padding:10px 12px; font-size:12.5px; }
+  .toast.err { background:var(--danger-bg); border:1px solid var(--danger-border); color:var(--danger); }
+  .toast.ok { background:var(--green-soft); border:1px solid #CBE9A6; color:#33610a; }
+  .spin { width:14px; height:14px; border-radius:50%; border:2px solid rgba(0,0,0,.25); border-top-color:#101010; display:inline-block; animation:sp .8s linear infinite; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+
+  /* ── mobile ── */
+  .phone { width:360px; border:10px solid #111; border-radius:34px; overflow:hidden; background:#fff; }
+  .phone .status { height:26px; background:#111; }
+  .phone .body { padding:14px; }
+  .m-sec-label { font-size:13px; font-weight:600; color:#101010; }
+  .m-toggle { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:12px 0; }
+  .m-toggle p { font-size:11.5px; color:#6B7280; line-height:1.5; margin-top:3px; }
+  .m-helper { display:flex; gap:8px; padding:11px; border-radius:12px; background:var(--info-bg); border:1px solid var(--info-border); }
+  .m-helper b { font-size:12.5px; font-weight:600; }
+  .m-helper p { font-size:11.5px; color:#4B5563; line-height:1.5; margin-top:2px; }
+  .m-consent { display:flex; gap:10px; align-items:flex-start; padding:13px; border-radius:14px; border:1px solid var(--border); background:var(--field); margin-top:12px; }
+  .m-consent b { display:block; font-size:12.5px; font-weight:600; margin-bottom:3px; }
+  .m-consent p { font-size:11.5px; color:#4B5563; line-height:1.55; }
+  .m-consent p + p { margin-top:4px; font-size:11px; color:#6B7280; }
+  .m-btn { display:block; text-align:center; border-radius:999px; padding:13px; font-size:13.5px; font-weight:700; background:var(--green); color:#101010; margin-top:16px; }
+  .m-btn.ghost { background:#fff; border:1px solid var(--border); font-weight:600; }
+  .dark { background:#121212; color:#EDEDED; }
+  .dark .m-sec-label { color:#EDEDED; }
+  .dark .m-helper { background:#152233; border-color:#25384F; }
+  .dark .m-helper b { color:#EDEDED; }
+  .dark .m-helper p, .dark .m-toggle p, .dark .m-consent p { color:#A5ADB8; }
+  .dark .m-consent { background:#1B1B1B; border-color:#2C2C2C; }
+  .dark .m-consent b { color:#EDEDED; }
+  .dark .cb { background:#1B1B1B; border-color:#3A3A3A; }
+  .dark .cb.on { background:var(--green); border-color:var(--green); }
+
+  .wordbox { border:1px solid var(--border); border-radius:14px; background:#fff; padding:16px; }
+  .wordbox h4 { font-size:13.5px; color:var(--navy); display:flex; align-items:center; gap:8px; }
+  .tag { font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:3px 9px; }
+  .tag.rec { background:var(--green-soft); color:#33610a; border:1px solid #CBE9A6; }
+  .tag.alt { background:#F2F3F5; color:var(--muted); border:1px solid var(--border); }
+  .tag.no { background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger-border); }
+  .wordbox .lbl { font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); font-weight:700; margin-top:12px; }
+  .wordbox .val { font-size:13px; line-height:1.6; margin-top:4px; }
+  .wordbox .val.sub { font-size:12px; color:#6B7280; }
+  .cols { display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap:16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>AI Assistant — “help improve” consent checkbox
+    <span>One new opt-out row directly under <b>Data &amp; retention</b>, on the partner web app and the partner mobile app, visible in <b>both</b> first-time setup and the Active/manage screen. Default ON. Every change writes a permanent consent record + a 7-year, delete-blocked admin alert.</span>
+  </h1>
+
+  <!-- ══════════════════════════════ WORDING ══════════════════════════════ -->
+  <h2 class="section-title">1 · Wording — LOCKED &amp; SHIPPED</h2>
+  <p class="section-sub">
+    You asked whether it should say “improve <b>your</b> AI assistant” or “<b>the</b> AI assistant”.
+    <b>Legally it must be “the Clinket AI assistant”, not “your assistant”.</b> Improvements are platform-wide, not a private per-provider model.
+    Describing the purpose more narrowly than the reality makes the permission invalid under GDPR/DPDP (“specific and informed”)
+    and is a misleading representation under the FTC Act §5 / Canada’s Competition Act.
+  </p>
+
+  <div class="cols">
+    <div class="wordbox">
+      <h4>Final copy <span class="tag rec">Approved — this is what ships</span></h4>
+      <div class="lbl">Row title · <code>voiceAssistant.trainingConsent.title</code> / <code>VOICE_ASSISTANT.TRAINING_CONSENT_TITLE</code></div>
+      <div class="val"><b>Help improve the AI assistant</b></div>
+      <div class="lbl">Checkbox label · <code>voiceAssistant.trainingConsent.label</code> / <code>VOICE_ASSISTANT.TRAINING_CONSENT_LABEL</code></div>
+      <div class="val">Use call recordings to improve the Clinket AI assistant.</div>
+      <div class="lbl">Helper line · <code>voiceAssistant.trainingConsent.helper</code> / <code>VOICE_ASSISTANT.TRAINING_CONSENT_HELPER</code></div>
+      <div class="val sub">Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</div>
+      <div class="ann good"><b>Why this one</b>
+        Short enough to actually read, and it still names <b>who</b> (Clinket), <b>what</b> (call recordings), <b>why</b> (improve the
+        Clinket AI assistant), <b>the limits</b> (never sold, never shared with other businesses or providers, no advertising),
+        <b>no penalty</b> (“works the same either way”), <b>reversibility</b> (“switch it off any time”) and the <b>authority
+        affirmation</b> — which matters because the provider is granting rights over <i>their callers’</i> voices, not their own.</div>
+    </div>
+
+    <div class="wordbox">
+      <h4>Rejected during review <span class="tag no">Not shipped</span></h4>
+      <div class="lbl">“…improve <b>your</b> assistant”</div>
+      <div class="val sub">Untrue — improvement is platform-wide. A purpose narrower than reality invalidates the permission and misleads.</div>
+      <div class="lbl">“…to <b>train our model</b>”</div>
+      <div class="val sub">Over-claims what we do (listen back, spot mistakes, tune prompts), invites “is my customer’s voice in your model?”, and drags in US biometric-data rules that would need caller-level consent to defend.</div>
+      <div class="lbl">“…<b>never leaves our ecosystem</b>”</div>
+      <div class="val sub">Contradicts the live privacy policy, which already discloses third-party hosting and processors. Removed on your call.</div>
+      <div class="lbl">The long contract-style variant</div>
+      <div class="val sub">Maximum coverage, but reads like a contract and depresses opt-in — the opposite of the goal. Its one valuable clause (the authority affirmation) was folded into the final helper line instead.</div>
+      <div class="ann warn"><b>Still open, outside this change</b>
+        <code>clinqetwebpartnerapp/public/lang/en-US.json</code> → <code>Profile.Privacy_Policy.Section6.A_Title.2</code> is boilerplate
+        that still names “<i>other companies within the Urban Company group of companies</i>”. That line contradicts
+        “never shared with other businesses or providers”. It needs correcting before this promise goes public.</div>
+    </div>
+  </div>
+
+  <div class="ann bad" style="max-width:1280px">
+    <b>Wording we must NOT use</b>
+    “Use your recordings to train our AI model.” — “train” is a much heavier claim than what you’ll actually be doing
+    (listening back, spotting mistakes, tuning prompts). It invites the “is my customer’s voice in your model?” question,
+    it drags in biometric-data rules in several US states, and it would need caller-level consent to defend.
+    <b>“…to improve the Clinket AI assistant”</b> covers evaluation, prompt tuning and model improvement without over-claiming.
+  </div>
+
+  <!-- ══════════════════════════════ TWO THINGS TO DECIDE ══════════════════════════════ -->
+  <h2 class="section-title">2 · Two things I found — both now settled</h2>
+
+  <div class="cols">
+    <div class="ann warn" style="margin-top:0">
+      <b>① Recordings are hard-deleted at 90 days by an Azure Storage lifecycle rule — <span style="color:#3F7A00">OUT OF SCOPE, your call</span></b>
+      <code>azureautomation/storage.json</code> deletes every blob under <code>voice-recordings/</code> and <code>voice-transcripts/</code>
+      after <code>voiceArtifactRetentionDays</code>. It is a container-wide rule; it has no idea who consented.
+      So “we’ll listen back to their recordings” only works <b>inside that window</b>.<br><br>
+      <b>Settled:</b> not in scope (“don’t worry about it and we know it is internal only”). The shipped wording is safe either way —
+      it never claims we keep consented recordings <i>longer</i>, only that they may be used to improve the assistant, which stays
+      true if a longer-retention path is added later.
+    </div>
+
+    <div class="ann good" style="margin-top:0">
+      <b>② A pre-ticked box is not valid “consent” — <span style="color:#3F7A00">RESOLVED by design</span></b>
+      Pre-ticked boxes are explicitly invalid as GDPR consent (<i>Planet49</i>, C-673/17), and India’s DPDP Act wants a
+      “clear affirmative action” too. Default-ON is the right product call — so it ships framed as what it actually is:
+      a <b>setting</b> the provider can see and switch off, never a consent tick-box.<br><br>
+      <b>Why default-ON is defensible as built:</b> it is never silently applied. The provider presses <b>Finish setup</b> /
+      <b>Save</b> on a screen where the full statement is visible, so there <i>is</i> an affirmative act. It sits in its own
+      row, separate from the existing mandatory “I authorize Clinket to answer calls…” consent, and it <b>never blocks the button</b>.
+      Every grant <i>and</i> every withdrawal is evidenced permanently, so we can always demonstrate what was chosen and when.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════ WEB ══════════════════════════════ -->
+  <h2 class="section-title">3 · Partner web — where it sits</h2>
+  <p class="section-sub">
+    <code>VoiceApplicationForm.jsx</code>. New row goes <b>directly under</b> the existing <b>Data &amp; retention</b> panel, using the
+    same shell as the existing consent row (<code>rounded-[14px] · border-[#E7E7E7] · bg-[#FCFCFC] · lg:max-w-[820px]</code>) so it reads as its sibling.
+    Nothing above it moves.
+  </p>
+
+  <div class="board">
+    <!-- WEB · manage mode, ON -->
+    <div class="frame w820">
+      <div class="frame-label"><span>Web · manage mode (Active) · <em>default state</em></span><span>the screen in your screenshot</span></div>
+      <div class="pad">
+        <div class="toggle-row">
+          <div><span class="sec-label">Call recording</span>
+            <p>Keep recordings of your assistant calls. Recording also creates the written summary for calls your team answers. Calls answered by the AI assistant always get a full summary and suggested actions, whether recording is on or off.</p>
+          </div>
+          <div class="sw"></div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="retention">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>Data &amp; retention</b><p>Recordings, transcripts, and call summaries are kept 90 days, then automatically deleted.</p></div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="consent">
+          <div class="cb on"><svg viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="body">
+            <b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div style="height:16px"></div>
+        <button class="btn primary">Save changes</button>
+        <div class="ann good"><b>New</b> This row is the only addition. It renders in manage mode too — the existing “I authorize Clinket to answer calls…” consent stays setup-only, because that one is a one-time authorisation and this one is a preference you can change forever.</div>
+      </div>
+    </div>
+
+    <!-- WEB · manage mode, OFF -->
+    <div class="frame w820">
+      <div class="frame-label"><span>Web · manage mode · <i>unchecked</i></span><span>provider changed their mind</span></div>
+      <div class="pad">
+        <div class="retention">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>Data &amp; retention</b><p>Recordings, transcripts, and call summaries are kept 90 days, then automatically deleted.</p></div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="consent">
+          <div class="cb"></div>
+          <div class="body">
+            <b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div style="height:16px"></div>
+        <button class="btn primary">Save changes</button>
+        <div class="ann"><b>No scolding, no warning banner.</b> Unchecking is a legitimate choice; adding a “are you sure?” would make the permission look coerced, which is exactly what invalidates it. The state simply saves.</div>
+      </div>
+    </div>
+
+    <!-- WEB · apply mode -->
+    <div class="frame w820">
+      <div class="frame-label"><span>Web · first-time setup (apply mode)</span><span>both rows visible, only the old one gates the button</span></div>
+      <div class="pad">
+        <div class="retention">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>Data &amp; retention</b><p>Recordings, transcripts, and call summaries are kept 90 days, then automatically deleted.</p></div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="consent">
+          <div class="cb on"><svg viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="body">
+            <b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="required">
+          <div class="cb"></div>
+          <p>I authorize Clinket to answer calls on behalf of my business. I understand callers are automatically told they’re speaking with an AI assistant, and that call details are used to create summaries and follow-up suggestions.</p>
+        </div>
+        <div style="height:16px"></div>
+        <button class="btn">Save draft</button>
+        <button class="btn primary disabled">Finish setup</button>
+        <div class="ann"><b>Order matters.</b> “Help improve” sits <b>above</b> the mandatory authorisation, so the last thing before the button is still the required one. <b>Finish setup stays disabled only on the mandatory box</b> — the new one never blocks it. That separation is what keeps the permission “freely given”.</div>
+      </div>
+    </div>
+
+    <!-- WEB · saving + error + no-retention -->
+    <div class="frame w600">
+      <div class="frame-label"><span>Web · saving · error · edge case</span><span>no new failure modes</span></div>
+      <div class="pad">
+        <p class="note" style="margin-bottom:8px"><b>Saving</b> — existing button loader; the row stays interactive-looking but the button is disabled.</p>
+        <button class="btn primary disabled"><span class="spin"></span>&nbsp;Save changes</button>
+        <div style="height:16px"></div>
+        <p class="note" style="margin-bottom:8px"><b>Save failed</b> — existing error toast. The checkbox keeps the value the provider chose (no silent revert), so they can just press save again.</p>
+        <div class="toast err">Couldn’t save your changes. Please try again.</div>
+        <div style="height:16px"></div>
+        <p class="note" style="margin-bottom:8px"><b>Saved</b> — existing success toast. No extra confirmation for the consent specifically.</p>
+        <div class="toast ok">Changes saved.</div>
+        <div style="height:16px"></div>
+        <p class="note" style="margin-bottom:8px"><b>Edge — retention panel hidden</b> (<code>voiceDataRetentionDays = 0</code>): the retention box already hides itself. The new row is <b>independent</b> and still renders, directly under the recording toggle.</p>
+        <div class="consent">
+          <div class="cb on"><svg viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="body"><b>Help improve the AI assistant</b><p>Use call recordings to improve the Clinket AI assistant.</p></div>
+        </div>
+        <div class="ann"><b>Permission-denied state:</b> none is added. The whole screen is already behind <code>CapabilityGate permission="voice.read"</code>, and the row inherits that unchanged.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════ MOBILE ══════════════════════════════ -->
+  <h2 class="section-title">4 · Partner mobile — same rules, same session</h2>
+  <p class="section-sub"><code>ApplicationForm.tsx</code>. Identical placement and identical rendering rules; mobile keeps its own slightly shorter retention copy (“How long we keep recordings”), so the new row matches mobile’s voice.</p>
+
+  <div class="board">
+    <div class="frame">
+      <div class="frame-label"><span>Mobile · manage · ON</span><span>default</span></div>
+      <div class="phone"><div class="status"></div><div class="body">
+        <div class="m-toggle">
+          <div style="flex:1"><span class="m-sec-label">Call recording</span><p>Keep recordings of your assistant calls. Recording also creates the written summary for calls your team answers.</p></div>
+          <div class="sw"></div>
+        </div>
+        <div class="m-helper">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>How long we keep recordings</b><p>Recordings are kept for 90 days, then deleted.</p></div>
+        </div>
+        <div class="m-consent">
+          <div class="cb on"><svg viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div class="m-btn">Save changes</div>
+      </div></div>
+    </div>
+
+    <div class="frame">
+      <div class="frame-label"><span>Mobile · setup · both rows</span><span>mandatory one last</span></div>
+      <div class="phone"><div class="status"></div><div class="body">
+        <div class="m-helper">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#032858" stroke-width="2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>How long we keep recordings</b><p>Recordings are kept for 90 days, then deleted.</p></div>
+        </div>
+        <div class="m-consent">
+          <div class="cb on"><svg viewBox="0 0 24 24" fill="none" stroke="#101010" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div class="m-consent">
+          <div class="cb"></div>
+          <div><p style="font-size:11.5px;color:#374151">I agree to let the assistant answer calls on my behalf.</p></div>
+        </div>
+        <div class="m-btn ghost">Save draft</div>
+        <div class="m-btn" style="opacity:.45">Finish setup</div>
+      </div></div>
+    </div>
+
+    <div class="frame">
+      <div class="frame-label"><span>Mobile · unchecked + dark mode</span><span>theme-aware</span></div>
+      <div class="phone dark"><div class="status"></div><div class="body">
+        <div class="m-helper">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FB2F0" stroke-width="2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+          <div><b>How long we keep recordings</b><p>Recordings are kept for 90 days, then deleted.</p></div>
+        </div>
+        <div class="m-consent">
+          <div class="cb"></div>
+          <div><b>Help improve the AI assistant</b>
+            <p>Use call recordings to improve the Clinket AI assistant.</p>
+            <p>Only ever used to make the assistant better — never sold, never shared with other businesses or providers, never used for advertising. Switch it off any time; your assistant works the same either way. You confirm you’re authorised to allow this for your business.</p>
+          </div>
+        </div>
+        <div class="m-btn">Save changes</div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════ BEHAVIOUR ══════════════════════════════ -->
+  <h2 class="section-title">5 · Behaviour rules — web and mobile identical</h2>
+  <table class="rules">
+    <tr><th style="width:270px">Situation</th><th>What happens</th></tr>
+    <tr><td>Brand-new provider opens setup</td><td class="yes">Checkbox is <b>ON</b>. Nothing is recorded as consent until they press <b>Save draft</b> or <b>Finish setup</b> — an abandoned screen grants nothing.</td></tr>
+    <tr><td>Provider returns to the Active screen</td><td class="yes">Checkbox shows their <b>saved</b> value, every time. This is the “once I go back, that checkbox should always be there” requirement.</td></tr>
+    <tr><td>They save with no change</td><td class="no">Nothing. No alert, no consent record, no noise. Only a genuine OFF→ON or ON→OFF writes anything.</td></tr>
+    <tr><td>They tick it (OFF → ON)</td><td class="yes">Timestamp stored · permanent consent record written · admin alert <b>“AI training consent granted”</b> (7-year, delete-blocked).</td></tr>
+    <tr><td>They untick it (ON → OFF)</td><td class="yes">Timestamp cleared · permanent withdrawal record written · admin alert <b>“AI training consent withdrawn”</b> (7-year, delete-blocked). <b>Withdrawal is logged just as permanently as the grant</b> — that is the half people forget, and it is the half you get asked for.</td></tr>
+    <tr><td>Save fails</td><td class="no">No alert, no consent record. Alerts are written only after the profile write commits, so we can never claim consent that was not saved.</td></tr>
+    <tr><td>Admin resolves the alert</td><td class="yes">Allowed — but the retention is <b>re-pinned to created + 7 years</b>. Resolving cannot shorten it.</td></tr>
+    <tr><td>Admin tries to delete the alert</td><td class="yes"><b>Blocked</b> by the API, and the delete button is hidden in the admin UI.</td></tr>
+    <tr><td>Provider cancels the assistant</td><td class="no">The withdrawal record and the alerts survive. Cancelling the assistant does not erase the audit trail.</td></tr>
+    <tr><td>Assistant is paused / not yet active</td><td class="no">Row still renders and still saves. It is a preference about data, not about call handling.</td></tr>
+  </table>
+
+  <!-- ══════════════════════════════ DATA ══════════════════════════════ -->
+  <h2 class="section-title">6 · What gets stored — approved and built</h2>
+  <p class="section-sub">Three stores, three different jobs. This is the “TTL that never gets shortened” you asked for, and the answer to your WhatsApp question.</p>
+
+  <table class="rules">
+    <tr><th style="width:210px">Store</th><th>What</th><th style="width:190px">Retention</th><th>Why</th></tr>
+    <tr>
+      <td><b>Cosmos</b> — one new field on the existing voice application document</td>
+      <td><code>trainingConsentAcceptedAt</code> (nullable timestamp), sitting right beside the existing <code>consentAcceptedAt</code></td>
+      <td>Lives with the profile</td>
+      <td>This is what makes the checkbox show the right value when they come back. A timestamp instead of a true/false gives us “<b>when</b> did they agree” for free, which is the first thing anyone asks. <b>No new container, no new partition key, no index change.</b></td>
+    </tr>
+    <tr>
+      <td><b>User activity ledger</b> — the existing consent ledger</td>
+      <td>A <code>VoiceTrainingConsent</code> entry on every grant <b>and</b> every withdrawal</td>
+      <td class="yes"><b>Never expires</b> (TTL −1)</td>
+      <td><b>This is exactly what WhatsApp opt-in/opt-out already uses</b> — you asked what we do for WhatsApp consent, and the answer is: it never expires, deliberately, and it is hard-coded so no config change can ever shorten it. Same list, same protection. This is the record that proves consent years later, and it is <b>immune to the admin portal entirely</b> — there is no button anywhere that can touch it.</td>
+    </tr>
+    <tr>
+      <td><b>Admin alert</b> — the one you asked for</td>
+      <td>One new alert type, <code>VoiceTrainingConsentChanged</code>, metadata says granted or withdrawn</td>
+      <td class="yes"><b>2555 days = 7 years</b></td>
+      <td>Written <b>directly</b> with its retention stamped on at creation — the same technique the existing “Provider verified” and “Admin access granted” governance alerts already use, precisely because a queued alert cannot carry its own retention and would silently get the 90-day default. Added to the immutable-audit list so <b>resolve re-pins it to created + 7 years and delete is refused</b>. That is your “resolving must not shorten the TTL” requirement, enforced server-side, not by convention.</td>
+    </tr>
+  </table>
+
+  <div class="ann good" style="max-width:1280px">
+    <b>Why both a never-expiring ledger entry and a 7-year alert, rather than one of them</b>
+    They answer different questions and have different threat models. The alert is the <b>visible</b> surface — it shows up in your
+    existing Alerts page, filterable by type, which is the “see everyone who consented” view you want later, and it is where an admin
+    actually looks. But alerts are an operational surface with a resolve button and (for ordinary types) a delete button, so it is the
+    wrong place to keep the <b>only</b> copy of a legal fact. The ledger entry is the <b>durable</b> surface: never expires, no UI can
+    delete it, per-provider. Belt and braces, and it costs one extra queued message per change — which happens maybe twice in a
+    provider’s lifetime. The existing voice add-on consent already works exactly this way.
+  </div>
+
+  <div class="ann" style="max-width:1280px">
+    <b>Not in this change — agreed</b>
+    ① No new admin page. The new alert type is filterable on the existing Alerts screen from day one; the dedicated
+    “everyone who consented” view is a later, better-scoped piece of work.
+    ② No change to how long recordings are kept (see finding ① above).
+    ③ Nothing about call handling changes — the assistant behaves identically whether this is on or off.
+  </div>
+
+  <h2 class="section-title">7 · Where it ships</h2>
+  <table class="rules">
+    <tr><th style="width:300px">Surface</th><th>Change</th></tr>
+    <tr><td>Partner web — <code>VoiceApplicationForm.jsx</code></td><td>New row under the retention panel; renders in <b>both</b> apply and manage modes.</td></tr>
+    <tr><td>Partner mobile — <code>ApplicationForm.tsx</code></td><td>Same row, same rules, same session.</td></tr>
+    <tr><td>Localisation</td><td>3 new keys × <b>5 languages</b> on web (en-US, es-US, fr-CA, gu-IN, hi-IN) and <b>5</b> on mobile (en, es, fr, gu, hi). No English-only shipping.</td></tr>
+    <tr><td>Backend</td><td>One new field, one new alert type, one new activity type, one new retention setting.</td></tr>
+    <tr><td>Admin web</td><td>New type added to the alert-type filter list and to the immutable (no-delete) list.</td></tr>
+    <tr><td>Tests</td><td>Unit + integration. The integration tests specifically prove: resolve cannot shorten the 7 years, delete is refused, an unchanged save writes nothing, and the ledger entry really is written with never-expire.</td></tr>
+  </table>
+
+</div>
+</body>
+</html>

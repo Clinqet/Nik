@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>"Add your knowledge" placement — approval mockup</title>
+<style>
+  :root{
+    --navy:#032858;
+    --lime:#97EF29;
+    --lime-ink:#0A1F0A;
+    --ink:#101010;
+    --muted:#5F5F5F;
+    --line:#E7E7E7;
+    --bg:#F5F7FA;
+    --card:#ffffff;
+    --amber:#E08600;
+    --red:#C63535;
+
+    /* knowledge card (web) */
+    --k-border:#DFFABD;
+    --k-bg:#F4FDF9;
+    --k-title:#032858;
+    --k-body:#3c3c3c;
+    --k-ok:#3F7A00;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 100px}
+  h1{font-size:26px;margin:0 0 6px;color:var(--navy);letter-spacing:-.2px}
+  h2{font-size:19px;margin:0;color:var(--navy)}
+  h3{font-size:13px;margin:22px 0 10px;color:var(--navy);text-transform:uppercase;letter-spacing:.6px}
+  h3:first-child{margin-top:0}
+  p{margin:0 0 12px;color:#333}
+  .lede{color:var(--muted);margin:0 0 20px;max-width:82ch}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 20px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#F0FFE1;color:#2F7D00;border:1px solid #D6F5AE;white-space:nowrap}
+  .tag.q{background:#FFF6E8;color:#9A5B00;border-color:#FFE2B8}
+  .tag.n{background:#EEF3FA;color:var(--navy);border-color:#D9E4F2}
+  .tag.bad{background:#FFF1F0;color:#B42318;border-color:#FECDCA}
+  .note{font-size:13.5px;color:#444;background:#FAFBFC;border-left:3px solid var(--lime);padding:11px 14px;border-radius:0 8px 8px 0;margin:14px 0 0}
+  .note.warn{border-left-color:var(--amber)}
+  .note.stop{border-left-color:var(--red)}
+  .note b{color:var(--navy)}
+  code{background:#F1F3F6;padding:1px 5px;border-radius:4px;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+  .sub{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+
+  /* ---- jump nav ---- */
+  .jump{position:sticky;top:0;z-index:40;background:rgba(245,247,250,.94);backdrop-filter:blur(6px);
+        border-bottom:1px solid var(--line);padding:10px 20px;margin:0 -20px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .jump a{font-size:12.5px;font-weight:600;text-decoration:none;color:var(--navy);background:#fff;border:1px solid var(--line);
+          padding:6px 11px;border-radius:999px}
+  .jump a.rec{background:var(--lime);border-color:var(--lime);color:#000}
+  .jump span{font-size:12px;color:var(--muted);margin-right:2px}
+
+  /* ---- verdict grid ---- */
+  .verdict{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  @media(max-width:760px){.verdict{grid-template-columns:1fr}}
+  .vbox{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#FCFDFE}
+  .vbox h4{margin:0 0 7px;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--navy)}
+  .vbox ul{margin:0;padding-left:17px}
+  .vbox li{font-size:13.5px;margin-bottom:5px;color:#3a3a3a}
+  .vbox.good{border-color:#D6F5AE;background:#FBFFF4}
+  .vbox.bad{border-color:#FECDCA;background:#FFFBFA}
+
+  /* ================= WEB FRAME ================= */
+  .stagelabel{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:12px;font-weight:700;
+              letter-spacing:.5px;text-transform:uppercase;color:var(--navy)}
+  .stagelabel .dot{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+  .stagelabel .dot.grey{background:#C9CFD6}
+  .stage{background:var(--bg);border:1px solid #E3E8EE;border-radius:14px;padding:18px;margin:0 0 18px}
+
+  /* the real partner-app panel */
+  .panel{
+    max-width:1000px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;
+    font-family:"Segoe UI",system-ui,sans-serif;
+  }
+  .panel .phead{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .panel .phead h4{margin:0;font-size:24px;font-weight:500;color:#111827;letter-spacing:-.2px}
+  .chip{font-size:11px;font-weight:700;border-radius:999px;padding:4px 10px;background:#EAFBF0;color:#0e7a3a}
+  .chip.pend{background:#FFFBEB;color:#92400E}
+  .psub{font-size:14px;color:#6b7280;margin:4px 0 0}
+
+  .grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:stretch;margin-top:24px}
+  .c7{grid-column:span 7;min-width:0}
+  .c5{grid-column:span 5;min-width:0;display:flex;flex-direction:column;gap:16px}
+  @media(max-width:900px){.c7,.c5{grid-column:span 12}}
+
+  .ucard{height:100%;border:1px solid var(--line);background:#fff;border-radius:14px;padding:20px}
+  .ucard .urow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+  .ucard h5{margin:0;font-size:15px;font-weight:600;color:var(--ink)}
+  .ulink{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:600;color:#2f7d18;
+         border-bottom:1px dashed #9ed36f;white-space:nowrap}
+  .uminrow{display:flex;align-items:baseline;justify-content:space-between;font-size:13px;margin-top:12px}
+  .uminrow b{font-weight:600;color:var(--ink)}
+  .uminrow span{color:#6b7280}
+  .track{margin-top:6px;height:8px;border-radius:999px;background:#F1F1F1;overflow:hidden}
+  .track i{display:block;height:100%;border-radius:999px;background:var(--lime)}
+  .bdown{margin-top:16px;border-top:1px solid #F1F1F1;padding-top:12px}
+  .bdown div{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;padding:3px 0}
+  .bdown div span:first-child{color:#4b5563}
+  .bdown div span:last-child{color:var(--ink);font-weight:500}
+
+  .numcard{border:1px solid #bdebca;background:linear-gradient(to bottom,#F4FFF8,#fff);border-radius:14px;padding:20px}
+  .numcard .nlabel{font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.06em;margin:0}
+  .numrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px}
+  .numrow .val{font-size:26px;font-weight:700;color:var(--ink)}
+  .copy{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);
+        background:var(--lime);padding:6px 12px;border-radius:8px}
+  .nhint{font-size:12.5px;color:#6b7280;margin:10px 0 0;line-height:1.5}
+
+  .togcard{border:1px solid var(--line);background:#fff;border-radius:14px;padding:16px;display:flex;
+           align-items:flex-start;justify-content:space-between;gap:12px}
+  .togcard .tl{font-size:14px;font-weight:500;color:#1f2937;display:block}
+  .togcard .td{font-size:12px;color:#6b7280;margin:2px 0 0;line-height:1.45}
+  .sw{width:40px;height:22px;border-radius:999px;background:#d1d5db;flex:none;position:relative}
+  .sw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff}
+
+  .settings{border-top:1px solid var(--line);padding-top:20px;margin-top:24px}
+  .settings h5{margin:0 0 12px;font-size:15px;font-weight:600;color:var(--ink)}
+  .collapsed{border:1px dashed #D6DBE1;background:#FAFBFC;border-radius:12px;padding:14px 16px;
+             font-size:12.5px;color:#6b7280;line-height:1.6}
+  .collapsed b{color:var(--navy);font-weight:600}
+  .cancelrow{border-top:1px solid var(--line);padding-top:20px;margin-top:24px;display:flex;justify-content:flex-end}
+  .cancelbtn{font-size:14px;font-weight:600;color:#FF3B30;border:1px solid rgba(255,59,48,.4);
+             padding:10px 15px;border-radius:12px;background:#fff}
+
+  /* --- the knowledge blocks (web) --- */
+  .kw{border:1px solid var(--k-border);background:var(--k-bg);border-radius:16px}
+  .kw.full{padding:16px}
+  .kw.full .kt{font-size:14.5px;font-weight:600;color:var(--k-title);margin:0}
+  .kw.full .kb{font-size:12.5px;color:var(--k-body);margin:6px 0 12px;line-height:1.6}
+  .kcta{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:var(--lime);
+        padding:8px 16px;font-size:13px;font-weight:700;color:var(--ink)}
+  /* compact top variant: one row on desktop */
+  .kw.compact{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .kw.compact .kt{font-size:14.5px;font-weight:600;color:var(--k-title);margin:0}
+  .kw.compact .kb{font-size:12.5px;color:var(--k-body);margin:3px 0 0;line-height:1.5}
+  .kw.compact .kcta{flex:none}
+  @media(max-width:700px){.kw.compact{flex-direction:column;align-items:flex-start}}
+  .kw.sum{padding:16px;display:flex;align-items:flex-start;gap:10px}
+  .kw.sum .ck{flex:none;width:16px;height:16px;margin-top:1px;color:var(--k-ok)}
+  .kw.sum p{margin:0;font-size:12.5px;color:var(--k-ok);line-height:1.6}
+  .kw.sum u{font-weight:600;white-space:nowrap}
+  .slotmark{position:relative}
+  .slotmark::before{
+    content:attr(data-slot);position:absolute;top:-11px;left:14px;font-size:10px;font-weight:800;
+    letter-spacing:.7px;text-transform:uppercase;background:var(--navy);color:#fff;padding:2px 8px;border-radius:999px;
+  }
+  .topslot{margin-top:22px}
+  .botslot{margin-top:24px}
+
+  /* “nothing renders here” marker */
+  .empty{border:1px dashed #D6DBE1;border-radius:14px;padding:12px 16px;font-size:12.5px;color:#98A2B3;
+         text-align:center;background:#FCFDFE}
+
+  /* ================= MOBILE FRAME ================= */
+  .phones{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+  .phonewrap{text-align:center}
+  .phonecap{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin:0 0 8px}
+  .phone{
+    width:340px;height:660px;border-radius:36px;background:#fff;border:9px solid #14181D;
+    box-shadow:0 10px 26px rgba(0,0,0,.16);overflow:hidden;display:flex;flex-direction:column;text-align:left;
+    font-family:"Segoe UI",system-ui,sans-serif;position:relative;
+  }
+  .phone .notch{height:22px;background:#14181D;flex:none;position:relative}
+  .phone .notch::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:6px;width:74px;height:5px;
+                       border-radius:999px;background:#3A4048}
+  .mhead{flex:none;padding:12px 16px 11px;border-bottom:1px solid #EEF0F3;display:flex;gap:10px;align-items:flex-start}
+  .mhead .bk{font-size:17px;color:var(--navy);line-height:1;margin-top:2px}
+  .mhead .mt{font-size:17px;font-weight:700;color:var(--navy);margin:0}
+  .mhead .ms{font-size:13px;color:var(--muted);margin:2px 0 0;line-height:1.35}
+  .mbody{flex:1;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:16px;background:#fff}
+  .mfade{position:absolute;left:0;right:0;bottom:0;height:54px;pointer-events:none;
+         background:linear-gradient(to top,#fff 26%,rgba(255,255,255,0))}
+  .mbadge{align-self:flex-start;padding:6px 12px;border-radius:999px;background:#F4FFE4;color:#2F7D00;font-size:12px;font-weight:700}
+  .mbadge.pend{background:#EEF3FB;color:var(--navy)}
+  .mnum{background:#F4FFE4;border:1px solid #D7F4AE;border-radius:14px;padding:16px}
+  .mnum .ml{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.4px}
+  .mnum .mrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
+  .mnum .mv{font-size:22px;font-weight:700;color:var(--navy)}
+  .mcopy{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;
+         padding:8px 12px;border-radius:10px}
+  .mnum .mh{font-size:12px;color:var(--muted);line-height:1.42;margin:8px 0 0}
+  .mlink{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);
+         border-radius:16px;padding:16px}
+  .mlink span{font-size:15px;font-weight:600;color:var(--navy)}
+  .mlink i{color:var(--muted);font-style:normal}
+  .mctrl{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+  .mctrl .r{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .mctrl .tl{font-size:14px;font-weight:600;color:var(--navy)}
+  .mctrl .td{font-size:12px;color:var(--muted);margin:2px 0 0;line-height:1.4}
+  .mdiv{height:1px;background:#EEF0F3;margin:14px 0}
+  .msec{font-size:14px;font-weight:700;color:var(--navy)}
+  .mcollapsed{border:1px dashed #D6DBE1;background:#FAFBFC;border-radius:12px;padding:12px 14px;font-size:12px;
+              color:#7a8592;line-height:1.5;margin-top:10px}
+  .mcancel{border:1px solid #FF3B30;background:#FFF1F1;border-radius:12px;padding:14px;text-align:center;
+           font-size:15px;font-weight:700;color:#FF3B30}
+  /* mobile knowledge blocks */
+  .mkw{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+  .mkw .kt{font-size:16px;font-weight:700;color:var(--navy);margin:0}
+  .mkw .kb{font-size:13px;color:var(--muted);margin:8px 0 12px;line-height:1.46}
+  .mbtn{background:var(--lime);color:var(--lime-ink);border-radius:12px;min-height:44px;display:flex;
+        align-items:center;justify-content:center;font-size:14px;font-weight:700}
+  .mban{background:#F0FFE1;border:1px solid #F0FFE1;border-radius:12px;padding:12px;display:flex;gap:8px;align-items:flex-start}
+  .mban p{margin:0;font-size:13.5px;line-height:1.42;color:#2F7D00}
+  .mslot{position:relative}
+  .mslot::before{content:attr(data-slot);position:absolute;top:-9px;left:12px;font-size:9.5px;font-weight:800;
+                 letter-spacing:.6px;text-transform:uppercase;background:var(--navy);color:#fff;padding:2px 7px;border-radius:999px;z-index:2}
+  .mempty{border:1px dashed #D6DBE1;border-radius:14px;padding:11px;font-size:12px;color:#98A2B3;text-align:center}
+
+  /* misc */
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:6px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);background:#FAFBFC}
+  td code{white-space:nowrap}
+  .skel{background:#F1F1F1;border-radius:8px}
+  .askrow{display:flex;gap:10px;align-items:flex-start;border:1px solid #FFE2B8;background:#FFFCF5;
+          border-radius:12px;padding:13px 15px;margin-top:12px}
+  .askrow .qm{flex:none;width:22px;height:22px;border-radius:50%;background:#FFF6E8;border:1px solid #FFE2B8;
+              color:#9A5B00;font-weight:800;font-size:13px;display:grid;place-items:center}
+  .askrow p{margin:0;font-size:13.5px;color:#4a4a4a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>“Add your knowledge” — where should it live?</h1>
+  <p class="lede">
+    Four placement options for the knowledge prompt on <b>Profile → AI Voice Assistant</b>, rendered with the real
+    tokens from the partner web app and the partner mobile app. Every option is shown in both knowledge states, on
+    both platforms. Pick one and I'll build it — web and mobile in the same session.
+  </p>
+
+  <div class="jump">
+    <span>Jump:</span>
+    <a href="#optA" class="rec">A · Top invite, bottom summary</a>
+    <a href="#optB">B · Both slots</a>
+    <a href="#optC">C · Top only</a>
+    <a href="#optD">D · Bottom only (today)</a>
+    <a href="#waiting">Waiting for number</a>
+    <a href="#states">Other states</a>
+    <a href="#build">What gets built</a>
+  </div>
+
+  <!-- ========================= WHAT'S BEING DECIDED ========================= -->
+  <section>
+    <div class="sechead"><h2>The two blocks in play</h2><span class="tag n">no new copy</span></div>
+    <p class="sub">
+      Both already exist and ship today at the bottom of the panel. Nothing here invents a string — the same five
+      localization keys are reused, so all five language files stay complete.
+    </p>
+
+    <div class="verdict">
+      <div>
+        <div class="stagelabel"><span class="dot"></span>The invite — renders when they have 0 documents and 0 FAQs</div>
+        <div class="kw full">
+          <p class="kt">Help your receptionist know your business inside out</p>
+          <p class="kb">The more it knows, the better it helps your callers. Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+          <span class="kcta">Add your knowledge <span>→</span></span>
+        </div>
+        <div class="note" style="margin-top:12px">
+          Keys <code>knowledge.nudge.title</code> · <code>.body</code> · <code>.cta</code>
+        </div>
+      </div>
+      <div>
+        <div class="stagelabel"><span class="dot grey"></span>The summary — renders once they have any knowledge</div>
+        <div class="kw sum">
+          <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+        </div>
+        <div class="note" style="margin-top:12px">
+          Keys <code>knowledge.nudge.summary</code> · <code>.manage</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <b>Your first red arrow pointed above the page title.</b> I'd advise against that slot in every option: the
+      <code>&lt;h2&gt;</code> + status chip is the page's identity, and a promo above it breaks the heading order for
+      screen readers and reads like an injected ad. Everywhere “top” appears below, it means your
+      <b>second</b> arrow — directly under the title + <span class="chip">Active</span> chip and its subtitle.
+    </div>
+  </section>
+
+  <!-- ========================= OPTION A ========================= -->
+  <section id="optA">
+    <div class="sechead"><h2>Option A — invite at the top, summary at the bottom</h2><span class="tag">recommended</span></div>
+    <p class="sub">One block on screen at all times. The prompt takes the prime slot while it still has a job to do;
+      once knowledge exists the top slot disappears and the quiet confirmation stays down with the settings it describes.</p>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Web · no knowledge yet → compact invite at the top, nothing at the bottom</div>
+      <div class="panel">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw compact">
+            <div>
+              <p class="kt">Help your receptionist know your business inside out</p>
+              <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            </div>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+
+        <div class="grid12">
+          <div class="c7">
+            <div class="ucard">
+              <div class="urow">
+                <h5>Usage this month (2026-08)</h5>
+                <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                  <span class="chip">Standard</span>
+                  <span class="ulink">View call follow-ups ›</span>
+                </span>
+              </div>
+              <div class="uminrow"><b>131 of 500 minutes used</b><span>26%</span></div>
+              <div class="track"><i style="width:26%"></i></div>
+              <div class="bdown">
+                <div><span>Missed calls answered by AI</span><span>8 calls · 8 min</span></div>
+                <div><span>Voicemail messages</span><span>4 calls · 123 min</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="c5">
+            <div class="numcard">
+              <p class="nlabel">Your assistant number</p>
+              <div class="numrow">
+                <span class="val">+12364767193</span>
+                <span class="copy">⧉ Copy</span>
+              </div>
+              <p class="nhint">Advertise this number. Every call your assistant handles becomes a summarized follow-up.</p>
+            </div>
+            <div class="togcard">
+              <div><span class="tl">Pause assistant</span><p class="td">Callers can't reach this number while paused.</p></div>
+              <span class="sw"></span>
+            </div>
+            <div class="togcard">
+              <div><span class="tl">Private mode</span><p class="td">Calls still ring you, but nothing is recorded, transcribed, or seen by the AI, and no summary is created.</p></div>
+              <span class="sw"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings">
+          <h5>Assistant settings</h5>
+          <div class="collapsed"><b>Collapsed for this mockup —</b> phone number setup · call handling mode (3 radio cards) · show-your-number choice · call recording · data &amp; retention · Save changes. Unchanged by this decision.</div>
+        </div>
+
+        <div class="botslot slotmark" data-slot="bottom slot">
+          <div class="empty">nothing renders here in this state</div>
+        </div>
+
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot grey"></span>Web · has knowledge → top slot gone, summary stays at the bottom (exactly where it is today)</div>
+      <div class="panel">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="empty">nothing renders here — the job is done, so the prime slot is given back</div>
+        </div>
+
+        <div class="grid12">
+          <div class="c7">
+            <div class="ucard">
+              <div class="urow">
+                <h5>Usage this month (2026-08)</h5>
+                <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                  <span class="chip">Standard</span>
+                  <span class="ulink">View call follow-ups ›</span>
+                </span>
+              </div>
+              <div class="uminrow"><b>131 of 500 minutes used</b><span>26%</span></div>
+              <div class="track"><i style="width:26%"></i></div>
+              <div class="bdown">
+                <div><span>Missed calls answered by AI</span><span>8 calls · 8 min</span></div>
+                <div><span>Voicemail messages</span><span>4 calls · 123 min</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="c5">
+            <div class="numcard">
+              <p class="nlabel">Your assistant number</p>
+              <div class="numrow"><span class="val">+12364767193</span><span class="copy">⧉ Copy</span></div>
+              <p class="nhint">Advertise this number. Every call your assistant handles becomes a summarized follow-up.</p>
+            </div>
+            <div class="togcard">
+              <div><span class="tl">Pause assistant</span><p class="td">Callers can't reach this number while paused.</p></div>
+              <span class="sw"></span>
+            </div>
+            <div class="togcard">
+              <div><span class="tl">Private mode</span><p class="td">Calls still ring you, but nothing is recorded, transcribed, or seen by the AI, and no summary is created.</p></div>
+              <span class="sw"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings">
+          <h5>Assistant settings</h5>
+          <div class="collapsed"><b>Collapsed for this mockup —</b> unchanged by this decision.</div>
+        </div>
+
+        <div class="botslot slotmark" data-slot="bottom slot">
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Mobile · same rule, mirrored</div>
+      <div class="phones">
+        <div class="phonewrap">
+          <p class="phonecap">No knowledge yet</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <span class="mbadge">Active</span>
+              <div class="mslot" data-slot="top slot">
+                <div class="mkw">
+                  <p class="kt">Help your receptionist know your business inside out</p>
+                  <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+                  <div class="mbtn">Add your knowledge</div>
+                </div>
+              </div>
+              <div class="mnum">
+                <div class="ml">YOUR ASSISTANT NUMBER</div>
+                <div class="mrow"><span class="mv">+12364767193</span><span class="mcopy">⧉ Copy</span></div>
+                <p class="mh">Advertise this number. Every call becomes a summarized follow-up.</p>
+              </div>
+              <div class="mlink"><span>View call follow-ups</span><i>›</i></div>
+            </div>
+            <div class="mfade"></div>
+          </div>
+        </div>
+
+        <div class="phonewrap">
+          <p class="phonecap">Has knowledge (scrolled to bottom)</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <div class="msec">Assistant settings</div>
+              <div class="mcollapsed"><b>Collapsed —</b> number setup · handling mode · recording · retention · Save.</div>
+              <div class="mslot" data-slot="bottom slot">
+                <div class="mban">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+                  <p>Your receptionist knows 3 documents and 5 FAQs.</p>
+                </div>
+                <div class="mlink" style="margin-top:8px"><span>Manage your knowledge</span><i>›</i></div>
+              </div>
+              <div class="mcancel">Cancel assistant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="vbox good">
+        <h4>Why this one</h4>
+        <ul>
+          <li>Exactly <b>one</b> knowledge block on screen, in every state — never two CTAs competing.</li>
+          <li>The prompt is above the fold, where an unfinished-setup nudge belongs.</li>
+          <li>One <code>widget: knowledge_nudge</code> analytics event per view — the conversion rate stays readable.</li>
+          <li>Stops selling the moment it's done; the confirmation sits beside the settings it describes.</li>
+        </ul>
+      </div>
+      <div class="vbox">
+        <h4>The cost</h4>
+        <ul>
+          <li>The number + usage row moves down ~74px while knowledge is empty. Mitigated by the compact one-row variant.</li>
+          <li>The block changes position between states, so a provider who added knowledge won't find it where it was. The bottom “Manage” link and the <b>AI Knowledge</b> sidebar item both still lead there.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= OPTION B ========================= -->
+  <section id="optB">
+    <div class="sechead"><h2>Option B — both slots, top and bottom</h2><span class="tag q">maximum prompting</span></div>
+    <p class="sub">The same block renders twice on one page.</p>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Web · no knowledge yet → invite at the top <b>and</b> at the bottom</div>
+      <div class="panel">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw compact">
+            <div>
+              <p class="kt">Help your receptionist know your business inside out</p>
+              <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            </div>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+
+        <div class="grid12">
+          <div class="c7">
+            <div class="ucard">
+              <div class="urow">
+                <h5>Usage this month (2026-08)</h5>
+                <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                  <span class="chip">Standard</span><span class="ulink">View call follow-ups ›</span>
+                </span>
+              </div>
+              <div class="uminrow"><b>131 of 500 minutes used</b><span>26%</span></div>
+              <div class="track"><i style="width:26%"></i></div>
+              <div class="bdown">
+                <div><span>Missed calls answered by AI</span><span>8 calls · 8 min</span></div>
+                <div><span>Voicemail messages</span><span>4 calls · 123 min</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="c5">
+            <div class="numcard">
+              <p class="nlabel">Your assistant number</p>
+              <div class="numrow"><span class="val">+12364767193</span><span class="copy">⧉ Copy</span></div>
+              <p class="nhint">Advertise this number. Every call your assistant handles becomes a summarized follow-up.</p>
+            </div>
+            <div class="togcard"><div><span class="tl">Pause assistant</span><p class="td">Callers can't reach this number while paused.</p></div><span class="sw"></span></div>
+            <div class="togcard"><div><span class="tl">Private mode</span><p class="td">Calls still ring you, but nothing is recorded or seen by the AI.</p></div><span class="sw"></span></div>
+          </div>
+        </div>
+
+        <div class="settings">
+          <h5>Assistant settings</h5>
+          <div class="collapsed"><b>Collapsed for this mockup —</b> unchanged by this decision.</div>
+        </div>
+
+        <div class="botslot slotmark" data-slot="bottom slot — same block again">
+          <div class="kw full">
+            <p class="kt">Help your receptionist know your business inside out</p>
+            <p class="kb">The more it knows, the better it helps your callers. Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot grey"></span>Web · has knowledge → the confirmation also renders twice</div>
+      <div class="panel" style="padding-bottom:22px">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="collapsed" style="margin-top:20px"><b>Usage · number · toggles · settings —</b> collapsed here; identical to Option A.</div>
+        <div class="botslot slotmark" data-slot="bottom slot — same block again">
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Mobile · the duplication is much heavier on a 340px screen</div>
+      <div class="phones">
+        <div class="phonewrap">
+          <p class="phonecap">No knowledge yet — top copy</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <span class="mbadge">Active</span>
+              <div class="mslot" data-slot="top slot">
+                <div class="mkw">
+                  <p class="kt">Help your receptionist know your business inside out</p>
+                  <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+                  <div class="mbtn">Add your knowledge</div>
+                </div>
+              </div>
+              <div class="mnum">
+                <div class="ml">YOUR ASSISTANT NUMBER</div>
+                <div class="mrow"><span class="mv">+12364767193</span><span class="mcopy">⧉ Copy</span></div>
+              </div>
+            </div>
+            <div class="mfade"></div>
+          </div>
+        </div>
+        <div class="phonewrap">
+          <p class="phonecap">…and again at the bottom</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <div class="msec">Assistant settings</div>
+              <div class="mcollapsed"><b>Collapsed —</b> number setup · handling mode · recording · retention · Save.</div>
+              <div class="mslot" data-slot="bottom slot — same block again">
+                <div class="mkw">
+                  <p class="kt">Help your receptionist know your business inside out</p>
+                  <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+                  <div class="mbtn">Add your knowledge</div>
+                </div>
+              </div>
+              <div class="mcancel">Cancel assistant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="vbox">
+        <h4>What it buys</h4>
+        <ul>
+          <li>Impossible to miss — a provider who scrolls past the top still meets it at the bottom.</li>
+          <li>The block never moves between states.</li>
+        </ul>
+      </div>
+      <div class="vbox bad">
+        <h4>What it costs</h4>
+        <ul>
+          <li>Two identical CTAs on one page reads as an ad — the classic cause of banner blindness, so it can convert <i>worse</i> than one well-placed prompt.</li>
+          <li><b>Analytics breaks.</b> Both instances fire the same <code>widget: knowledge_nudge</code> event, so impressions double and the conversion rate is no longer comparable to any other nudge.</li>
+          <li>Two green-tinted panels on a page whose only other green is the brand CTA and the Active chip — it dilutes what green means here.</li>
+          <li>On mobile it costs a full extra screen of scroll for zero new information.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= OPTION C ========================= -->
+  <section id="optC">
+    <div class="sechead"><h2>Option C — top only, in both states</h2><span class="tag n">one fixed position</span></div>
+    <p class="sub">The bottom slot is removed entirely; whichever variant applies renders at the top, forever.</p>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Web · no knowledge yet</div>
+      <div class="panel" style="padding-bottom:22px">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw compact">
+            <div>
+              <p class="kt">Help your receptionist know your business inside out</p>
+              <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            </div>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+        <div class="collapsed" style="margin-top:20px"><b>Usage · number · toggles · settings —</b> collapsed here; identical to Option A.</div>
+        <div class="botslot slotmark" data-slot="bottom slot"><div class="empty">removed in this option</div></div>
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot grey"></span>Web · has knowledge → a permanent success banner occupies the prime slot on every visit, forever</div>
+      <div class="panel" style="padding-bottom:22px">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw sum">
+            <svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Your receptionist knows 3 documents and 5 FAQs. <u>Manage your knowledge</u></p>
+          </div>
+        </div>
+        <div class="collapsed" style="margin-top:20px"><b>Usage · number · toggles · settings —</b> collapsed here; identical to Option A.</div>
+        <div class="botslot slotmark" data-slot="bottom slot"><div class="empty">removed in this option</div></div>
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Mobile · both states</div>
+      <div class="phones">
+        <div class="phonewrap">
+          <p class="phonecap">No knowledge yet</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <span class="mbadge">Active</span>
+              <div class="mslot" data-slot="top slot">
+                <div class="mkw">
+                  <p class="kt">Help your receptionist know your business inside out</p>
+                  <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+                  <div class="mbtn">Add your knowledge</div>
+                </div>
+              </div>
+              <div class="mnum">
+                <div class="ml">YOUR ASSISTANT NUMBER</div>
+                <div class="mrow"><span class="mv">+12364767193</span><span class="mcopy">⧉ Copy</span></div>
+              </div>
+            </div>
+            <div class="mfade"></div>
+          </div>
+        </div>
+        <div class="phonewrap">
+          <p class="phonecap">Has knowledge — banner above the number, every visit</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <span class="mbadge">Active</span>
+              <div class="mslot" data-slot="top slot">
+                <div class="mban">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F7D00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 6 9 17l-5-5"/></svg>
+                  <p>Your receptionist knows 3 documents and 5 FAQs.</p>
+                </div>
+                <div class="mlink" style="margin-top:8px"><span>Manage your knowledge</span><i>›</i></div>
+              </div>
+              <div class="mnum">
+                <div class="ml">YOUR ASSISTANT NUMBER</div>
+                <div class="mrow"><span class="mv">+12364767193</span><span class="mcopy">⧉ Copy</span></div>
+              </div>
+            </div>
+            <div class="mfade"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="vbox">
+        <h4>What it buys</h4>
+        <ul>
+          <li>One fixed location — a provider always knows where knowledge lives.</li>
+          <li>Simplest rule to reason about and to test.</li>
+        </ul>
+      </div>
+      <div class="vbox bad">
+        <h4>What it costs</h4>
+        <ul>
+          <li>A success banner in the prime slot on every visit for the rest of the account's life — it becomes furniture, and on mobile it pushes the assistant number below the fold permanently.</li>
+          <li>The confirmation is separated from the settings it actually describes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= OPTION D ========================= -->
+  <section id="optD">
+    <div class="sechead"><h2>Option D — bottom only</h2><span class="tag n">today, unchanged</span></div>
+    <p class="sub">Exactly what ships now, and what your second screenshot shows: the invite sits after the settings form,
+      just above <b>Cancel assistant</b>.</p>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Web · no knowledge yet — needs a full scroll past usage, number, toggles and the whole settings form</div>
+      <div class="panel" style="padding-bottom:22px">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip">Active</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+        <div class="topslot slotmark" data-slot="top slot"><div class="empty">does not exist in this option</div></div>
+        <div class="collapsed" style="margin-top:20px"><b>Usage · number · toggles · settings form —</b> collapsed here, but in the real page this is roughly a screen and a half of scrolling.</div>
+        <div class="botslot slotmark" data-slot="bottom slot">
+          <div class="kw full">
+            <p class="kt">Help your receptionist know your business inside out</p>
+            <p class="kb">The more it knows, the better it helps your callers. Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+        <div class="cancelrow"><span class="cancelbtn">Cancel assistant</span></div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="vbox">
+        <h4>What it buys</h4>
+        <ul><li>No change, no risk, nothing to test.</li></ul>
+      </div>
+      <div class="vbox bad">
+        <h4>What it costs</h4>
+        <ul>
+          <li>It sits below the fold, right next to the destructive <b>Cancel assistant</b> button — the two loudest
+            elements at the bottom of the page are “add knowledge” and “cancel”. Not the neighbour you want for the
+            action you're trying to encourage.</li>
+          <li>Providers who never scroll past the settings form never see it.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= WAITING STATE ========================= -->
+  <section id="waiting">
+    <div class="sechead"><h2>While they wait for a number</h2><span class="tag">you said yes</span></div>
+    <p class="sub">
+      Statuses <code>Submitted</code> and <code>NumberPending</code>. Today the nudge renders only when the assistant is
+      <code>Active</code>, so this whole window is silent — yet it's the one moment where adding knowledge is the only
+      useful thing a provider can do. Verified it isn't a dead end: the knowledge endpoints are gated by permission
+      (<code>voice.read</code> / <code>voice.settings.manage</code>), never by assistant status.
+    </p>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Web · invite above the status timeline</div>
+      <div class="panel" style="padding-bottom:22px">
+        <div class="phead"><h4>AI Voice Assistant</h4><span class="chip pend">Number pending</span></div>
+        <p class="psub">Let an AI assistant answer your missed calls, summarize them, and suggest follow-up actions.</p>
+        <div class="topslot slotmark" data-slot="top slot">
+          <div class="kw compact">
+            <div>
+              <p class="kt">Help your receptionist know your business inside out</p>
+              <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+            </div>
+            <span class="kcta">Add your knowledge <span>→</span></span>
+          </div>
+        </div>
+        <div class="collapsed" style="margin-top:20px"><b>Status timeline —</b> Application submitted → Under review → Number assigned → Live. Unchanged.</div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stagelabel"><span class="dot"></span>Mobile · same</div>
+      <div class="phones">
+        <div class="phonewrap">
+          <p class="phonecap">Number pending</p>
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="mhead"><span class="bk">‹</span><div><p class="mt">AI Voice Assistant</p><p class="ms">Answers your missed calls and summarizes them.</p></div></div>
+            <div class="mbody">
+              <span class="mbadge pend">Number pending</span>
+              <div class="mslot" data-slot="top slot">
+                <div class="mkw">
+                  <p class="kt">Help your receptionist know your business inside out</p>
+                  <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+                  <div class="mbtn">Add your knowledge</div>
+                </div>
+              </div>
+              <div class="mcollapsed"><b>Status timeline —</b> submitted → under review → number assigned → live.</div>
+            </div>
+            <div class="mfade"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      This rides on whichever option you pick. If you choose <b>D (bottom only)</b> it has no bottom anchor here —
+      there is no settings form or cancel button in the waiting state — so it would sit after the timeline instead.
+    </div>
+  </section>
+
+  <!-- ========================= OTHER STATES ========================= -->
+  <section id="states">
+    <div class="sechead"><h2>Every other state, accounted for</h2></div>
+
+    <h3>Loading, and a failed knowledge read</h3>
+    <div class="stage" style="margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <div>
+          <div class="stagelabel"><span class="dot grey"></span>Loading — no slot, no flash</div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px">
+            <div class="skel" style="height:30px;width:38%"></div>
+            <div class="skel" style="height:14px;width:64%;margin-top:12px"></div>
+            <div class="skel" style="height:60px;margin-top:16px"></div>
+            <div class="skel" style="height:60px;margin-top:12px"></div>
+          </div>
+          <div class="note">The existing page skeleton already covers this. The knowledge read resolves after it, so the slot must render nothing until then — no card popping in and shoving the number down.</div>
+        </div>
+        <div>
+          <div class="stagelabel"><span class="dot"></span>Knowledge read failed — the invite is the safe default</div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px">
+            <div class="kw compact">
+              <div>
+                <p class="kt">Help your receptionist know your business inside out</p>
+                <p class="kb">Add your price lists, policies, spec sheets or FAQs — it answers from your own material, in your own words.</p>
+              </div>
+              <span class="kcta">Add your knowledge <span>→</span></span>
+            </div>
+          </div>
+          <div class="note">Current behaviour, kept: <code>GetKnowledge</code> failing silently leaves the summary null, so the invite shows. Worst case a provider who already has knowledge sees an invite — an invitation to a page that works, never an error.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Statuses where no knowledge block renders at all</h3>
+    <table>
+      <tr><th>Status</th><th>Page shows</th><th>Knowledge block</th><th>Why</th></tr>
+      <tr><td><code>NotInvited</code></td><td>The promo / pitch page</td><td class="tag n" style="display:inline-block">none</td><td>They have no assistant. The pitch is the job of that page.</td></tr>
+      <tr><td><code>Invited</code> · <code>Draft</code> · <code>Rejected</code></td><td>Pricing + application form</td><td class="tag n" style="display:inline-block">none</td><td>Finish the application first — one clear next action, not two.</td></tr>
+      <tr><td><code>Submitted</code> · <code>NumberPending</code></td><td>Status timeline</td><td class="tag" style="display:inline-block">invite, top</td><td>Confirmed above — the best moment to ask.</td></tr>
+      <tr><td><code>Active</code></td><td>The full active panel</td><td class="tag" style="display:inline-block">per chosen option</td><td>The decision on this page.</td></tr>
+      <tr><td><code>OnHold</code></td><td>Warning box + usage</td><td class="tag n" style="display:inline-block">none</td><td>Billing/admin hold is the blocker; knowledge changes nothing about it.</td></tr>
+      <tr><td><code>Cancelled</code></td><td>“Assistant cancelled” info panel</td><td class="tag n" style="display:inline-block">none</td><td>Nothing left to teach — the line is inert.</td></tr>
+      <tr><td>onboarding incomplete</td><td>Onboarding checklist</td><td class="tag n" style="display:inline-block">none</td><td>The checklist owns the screen.</td></tr>
+    </table>
+
+    <div class="askrow">
+      <span class="qm">?</span>
+      <p><b>One optional polish while I'm in there.</b> On web the invite is a green-tinted panel
+        (<code>#F4FDF9</code> / <code>#DFFABD</code>); on mobile it's a plain white <code>Card</code>. That tint gap is
+        pre-existing, not something this change introduces — parity is about which block renders where, and that will match
+        exactly. Say the word and I'll tint the mobile card to <code>#F4FFE4</code> / <code>#D7F4AE</code> (the same
+        greens the mobile number box already uses) so the two platforms read identically. Otherwise I leave it alone.</p>
+    </div>
+  </section>
+
+  <!-- ========================= BUILD ========================= -->
+  <section id="build">
+    <div class="sechead"><h2>What gets built once you pick</h2></div>
+    <table>
+      <tr><th>Area</th><th>Change</th></tr>
+      <tr><td>Partner web</td><td><code>KnowledgeNudge.jsx</code> gains a slot variant (compact top / full bottom / summary); <code>ActivePanel.jsx</code> and the waiting-state branch of <code>VoiceAssistantPage.jsx</code> place it. The <code>GetKnowledge</code> read lifts to the page so both slots share <b>one</b> call instead of one each.</td></tr>
+      <tr><td>Partner mobile</td><td><code>VoiceAssistant/index.tsx</code>: <code>renderKnowledgeNudge</code> splits into the invite and summary renders, placed to match. The fetch already lives in the parent — it just loses its <code>Active</code>-only gate so the waiting states are covered.</td></tr>
+      <tr><td>Localization</td><td><b>No new keys.</b> All five existing <code>knowledge.nudge.*</code> keys are reused, so every language file stays complete.</td></tr>
+      <tr><td>API · Cosmos · SQL · settings</td><td><b>Nothing.</b> No endpoint, no schema, no appsetting, no ARM entry.</td></tr>
+      <tr><td>Analytics</td><td>Unchanged event shape — <code>trackNav cta_click</code>, <code>widget: knowledge_nudge</code>, <code>target: add | manage</code>. Options A/C/D keep one impression per view; B doubles it.</td></tr>
+      <tr><td>Verification</td><td>ESLint zero errors on both apps; existing voice-assistant tests re-run.</td></tr>
+    </table>
+    <div class="note stop">
+      <b>Nothing is implemented yet.</b> This mockup is the gate — tell me the letter (and yes/no on the mobile tint)
+      and I'll build it in one pass, web and mobile together.
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

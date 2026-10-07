@@ -1,0 +1,21 @@
+--- phase-1-after/cards (content)
++++ new-build/cards (content)
+@@ -1,12 +1,12 @@
+---- #0 [Text] section='PRIYA SHARMA' page= img= scripts=["Latn"] chars=50 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #0 [Text] section='PRIYA SHARMA' page= img= scripts=["Latn"] chars=50 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Senior Hair Stylist 416-555-0199 priya@example.com
+---- #1 [Text] section='SKILLS' page= img= scripts=["Latn"] chars=49 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #1 [Text] section='SKILLS' page= img= scripts=["Latn"] chars=49 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Balayage Keratin Bridal styling Colour correction
+---- #2 [Text] section='CERTIFICATIONS' page= img= scripts=["Latn"] chars=46 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #2 [Text] section='CERTIFICATIONS' page= img= scripts=["Latn"] chars=46 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Redken Colour Specialist 2021 Olaplex Pro 2022
+---- #3 [Text] section='PROFILE' page= img= scripts=["Latn"] chars=122 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #3 [Text] section='PROFILE' page= img= scripts=["Latn"] chars=122 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.
+---- #4 [Text] section='EXPERIENCE' page= img= scripts=["Latn"] chars=212 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #4 [Text] section='EXPERIENCE' page= img= scripts=["Latn"] chars=212 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000.
+---- #5 [Text] section='EDUCATION' page= img= scripts=["Latn"] chars=34 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #5 [Text] section='EDUCATION' page= img= scripts=["Latn"] chars=34 title='Priya Sharma Hair Stylist Resume' type='Document'
+     Marvel Beauty School, Diploma 2012

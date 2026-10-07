@@ -1,0 +1,486 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Dundas",
+    "category": "landscaping",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Dundas-based landscaping for outdoor living spaces — design, construction, lighting, and full property transformations.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 10,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@allinonelandscaping.ca",
+      "businessPhone": "905-745-9145",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.allinonelandscaping.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "241 King Street West",
+        "city": "Dundas",
+        "area": "Dundas",
+        "province": "ON",
+        "postalCode": "L9H 1V8",
+        "country": "Canada",
+        "formatted": "241 King Street West, Dundas, ON L9H 1V8"
+      },
+      "serviceAreas": [
+        "Dundas",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Dundas",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Construction",
+          "description": "Patios, retaining walls, driveways, outdoor kitchens",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Lighting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Property Transformations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.allinonelandscaping.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-dundas-all-in-one-landscaping",
+      "businessName": "All In One Landscaping"
+    },
+    {
+      "description": "Award-winning landscape design-build in Dundas — luxury landscapes, pools, hardscaping, lawn care, and winter maintenance.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@cclandscapes.ca",
+      "businessPhone": "905-961-5762",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://cclandscapes.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "59 Kirby Ave, Unit 11",
+        "city": "Dundas",
+        "area": "Dundas",
+        "province": "ON",
+        "postalCode": "L9H 6P3",
+        "country": "Canada",
+        "formatted": "59 Kirby Ave, Unit 11, Dundas, ON L9H 6P3"
+      },
+      "serviceAreas": [
+        "Dundas",
+        "Ancaster",
+        "Hamilton",
+        "Milton"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Dundas",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Design",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Design-Build",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Hardscaping & Driveways",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pool Landscaping",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Lawn Care",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Snow & Ice Management",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://cclandscapes.ca/service-area/landscaping-in-dundas-ontario/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-dundas-creative-concepts-landscapes",
+      "businessName": "Creative Concepts Landscapes"
+    },
+    {
+      "description": "Dundas landscape contractor since 1995 — design, construction, maintenance, lawn care, and commercial snow removal.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 31,
+      "owner": {
+        "name": "Julian Holmes",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@jholmes.ca",
+      "businessPhone": "905-628-8211",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.jholmes.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "75 Mercer St",
+        "city": "Dundas",
+        "area": "Dundas",
+        "province": "ON",
+        "postalCode": "L9H 6C7",
+        "country": "Canada",
+        "formatted": "75 Mercer St, Dundas, ON L9H 6C7"
+      },
+      "serviceAreas": [
+        "Dundas",
+        "Ancaster",
+        "Waterdown",
+        "Hamilton",
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Dundas",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "landscaping",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Landscape Maintenance",
+          "description": "Grass cutting, edging, clean-ups, hedge trimming",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Design",
+          "description": "Sketches, mockups, 3D renderings",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Landscape Construction",
+          "description": "Interlock, natural stone, water features, planting",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Snow Removal",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.jholmes.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": "Owner name Julian Holmes cited in customer testimonials on site"
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-dundas-j-holmes-landscape-services",
+      "businessName": "J. Holmes Landscape Services"
+    }
+  ]
+}

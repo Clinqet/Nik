@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Stoney Creek",
+    "category": "painting",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Painting and handyman services based at Seaman Street, Stoney Creek.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-768-8219",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": null,
+        "other": []
+      },
+      "address": {
+        "street": "565 Seaman St",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8E 5Z5",
+        "country": "Canada",
+        "formatted": "565 Seaman St, Stoney Creek, ON L8E 5Z5"
+      },
+      "serviceAreas": [
+        "Stoney Creek"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "painting",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Interior & Exterior Painting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Handyman Services",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://canada247.info/explore/ontario/hamilton_division/hamilton/stoney_creek/seaman_handyman_and_painter.html",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.65,
+        "notes": "Same business as handyman listing; separate category file for painting coverage. Unique id."
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-seaman-painter",
+      "businessName": "Seaman Handyman and Painter"
+    }
+  ]
+}

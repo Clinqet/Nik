@@ -1,0 +1,6 @@
+drafts=5
+- [Pending/Create] 'Acrylic Full Set' price=65 max= type=fixed cur= needsReview=False mismatch=False priceText='$65' src='acrylic full set' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc=''
+- [Pending/Create] 'Gel Manicure' price=45 max= type=fixed cur= needsReview=False mismatch=False priceText='$45' src='gel manicure' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc=''
+- [Pending/Create] 'Nail Art Per Nail' price=3 max= type=fixed cur= needsReview=False mismatch=False priceText='$3' src='nail art per nail' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc='Nail art priced per nail.'
+- [Pending/Create] 'Polish Change' price=15 max= type=fixed cur= needsReview=False mismatch=False priceText='$15' src='polish change' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc=''
+- [Pending/Create] 'Spa Pedicure' price=45 max= type=fixed cur= needsReview=False mismatch=False priceText='$45' src='spa pedicure' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc=''

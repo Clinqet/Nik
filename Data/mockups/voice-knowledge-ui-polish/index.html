@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — AI Knowledge: one CTA per action, wider upload modal, platform dropdowns</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --green-pick: #DFFABD; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #F5F5F5;
+    --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1240px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.5; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 900px; line-height: 1.55; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w720 { width: 720px; max-width: 100%; }
+  .w780 { width: 760px; max-width: 100%; }
+  .w400 { width: 400px; max-width: 100%; }
+  .w360 { width: 360px; max-width: 100%; }
+  .w560 { width: 560px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:nowrap; }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.danger { background: var(--danger-bg); color: var(--danger); border-color: var(--danger-border); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.disabled { opacity:.45; cursor:not-allowed; }
+  .btn.danger-ghost { color: var(--danger); border-color: var(--danger-border); }
+  .banner { display:flex; gap:8px; border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.45; align-items:flex-start; }
+  .banner.info { background: var(--info-bg); border:1px solid var(--info-border); color: var(--navy); }
+  .banner.warn { background: var(--warn-bg); border:1px solid var(--warn-border); color: var(--warn); }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann.bad { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules td.yes { color:#3F7A00; font-weight:600; }
+  table.rules td.no { color:var(--faint); }
+  table.rules tr:last-child td { border-bottom:none; }
+
+  /* ── page chrome ── */
+  .page-h { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+  .page-h h2 { font-size:18px; color:#1a1a1a; font-weight:500; }
+  .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:420px; line-height:1.45; }
+  .usage { font-size:12px; color:var(--muted); text-align:right; flex:none; }
+  .meter { width:130px; height:6px; border-radius:999px; background:#EFEFEF; margin-top:6px; overflow:hidden; margin-left:auto; }
+  .meter i { display:block; height:100%; border-radius:999px; background:var(--green); }
+  .empty { text-align:center; padding:38px 20px; }
+  .empty .ico-box { width:44px; height:44px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; }
+  .empty h3 { font-size:14px; color:var(--navy); }
+  .empty p { font-size:12px; color:var(--faint); margin:6px auto 0; max-width:300px; line-height:1.5; }
+  .empty .acts { margin-top:14px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .doc { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); }
+  .doc:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; }
+  .doc-main { flex:1; min-width:0; }
+  .doc-name { font-size:13.5px; font-weight:600; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .doc-meta { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .doc-actions { display:flex; gap:6px; flex:none; }
+  .faqsec { margin-top:26px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .faqsec h3 { font-size:16px; color:var(--navy); font-weight:600; }
+  .faqsec p { font-size:12.5px; color:var(--muted); margin-top:2px; max-width:420px; line-height:1.45; }
+  .faq { padding:11px 0; border-bottom:1px solid var(--hair); }
+  .faq:last-child { border-bottom:none; }
+  .faq b { font-size:13px; display:block; }
+  .faq p { font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.45; }
+
+  /* ── modal ── */
+  .modal { border:1px solid var(--border); border-radius:20px; box-shadow:0 18px 50px rgba(3,40,88,.14); background:#fff; overflow:hidden; }
+  .modal-h { padding:15px 20px; font-weight:700; font-size:16px; display:flex; justify-content:space-between; align-items:center; }
+  .modal-b { padding:16px 20px; display:flex; flex-direction:column; gap:12px; border-top:1px solid var(--hair); }
+  .modal-f { padding:14px 20px; border-top:1px solid var(--hair); display:flex; justify-content:flex-end; gap:8px; background:#FAFAFA; }
+  .x { color:var(--muted); font-size:19px; line-height:1; cursor:pointer; }
+  .drop { border:2px dashed #CBE9A6; background:var(--green-soft); border-radius:14px; padding:22px; text-align:center; }
+  .drop b { display:block; font-size:13.5px; color:var(--navy); }
+  .drop span { display:block; font-size:12px; color:var(--muted); margin-top:4px; line-height:1.45; }
+
+  /* ── the NEW file row ── */
+  .fr { border:1px solid var(--border); border-radius:12px; padding:11px 12px; background:#fff; }
+  .fr.bad { border-color:var(--danger-border); background:var(--danger-bg); }
+  .fr-top { display:flex; align-items:flex-start; gap:10px; }
+  .fr-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; }
+  .fr-main { flex:1; min-width:0; }
+  .fr-name { font-size:13px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .fr-name.bad { color:var(--danger); }
+  .fr-sub { font-size:11.5px; color:var(--faint); margin-top:2px; }
+  .fr-sub.bad { color:var(--danger); }
+  .fr-x { flex:none; color:var(--faint); cursor:pointer; font-size:15px; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:999px; }
+  .fr-x:hover { background:#F2F2F2; color:var(--ink); }
+  .fr-ctl { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; padding-left:44px; }
+  .fr-ctl.stack { grid-template-columns:1fr; }
+  .fr-ctl.nopad { padding-left:0; }
+  .bar { height:4px; border-radius:999px; background:#EDEDED; margin-top:7px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:var(--green); border-radius:999px; }
+
+  /* ── the dropdown (mirrors FloatingOptionSelect) ── */
+  .fs { position:relative; background:var(--field); border:1px solid transparent; border-radius:10px; min-height:48px; padding:19px 34px 6px 12px; cursor:pointer; }
+  .fs.open { border-color:var(--green); background:#fff; }
+  .fs.dis { opacity:.6; cursor:not-allowed; }
+  .fs-lbl { position:absolute; left:12px; top:6px; font-size:10.5px; color:var(--muted); letter-spacing:.01em; }
+  .fs-val { font-size:13.5px; color:#000; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block; }
+  .fs-val.ph { color:var(--muted); font-style:italic; }
+  .fs-cv { position:absolute; right:11px; top:50%; transform:translateY(-50%); width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid #5F5F5F; }
+  .fs.open .fs-cv { transform:translateY(-50%) rotate(180deg); }
+  .panel { border:1px solid var(--border); border-radius:12px; background:#fff; box-shadow:0 12px 30px rgba(16,16,16,.12); overflow:hidden; margin-top:5px; }
+  .panel-search { padding:8px; border-bottom:1px solid var(--hair); }
+  .panel-search input { width:100%; background:var(--field); border:1px solid var(--green); border-radius:9px; padding:8px 11px; font-size:12.5px; font-family:inherit; color:var(--ink); outline:none; }
+  .panel-search input::placeholder { color:var(--muted); }
+  .panel-grouplbl { font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); padding:8px 14px 4px; }
+  .opt { padding:9px 14px; font-size:13.5px; color:var(--muted); display:flex; justify-content:space-between; gap:8px; align-items:center; cursor:pointer; }
+  .opt:hover { background:#F5F5F5; color:#000; }
+  .opt.on { background:var(--green-pick); color:#000; font-weight:600; }
+  .opt span.t { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .opt .ck { color:#3F7A00; font-weight:700; flex:none; }
+  .panel-empty { padding:14px; font-size:12.5px; color:var(--muted); text-align:center; }
+  .panel-div { height:1px; background:var(--hair); }
+
+  /* ── mobile shells ── */
+  .phone { width:360px; border:1px solid var(--border); border-radius:22px; overflow:hidden; background:#F5F5F5; }
+  .phone-bar { background:var(--navy); color:#fff; font-size:12px; padding:9px 14px; display:flex; justify-content:space-between; align-items:center; }
+  .phone-body { padding:14px; display:flex; flex-direction:column; gap:14px; }
+  .sheet { background:#fff; border-top-left-radius:20px; border-top-right-radius:20px; padding:10px 0 18px; }
+  .sheet-handle { width:40px; height:4px; border-radius:999px; background:var(--border); margin:0 auto 8px; }
+  .sheet-title { font-size:15px; font-weight:700; padding:0 18px 8px; }
+  .sheet-body { padding:0 18px; display:flex; flex-direction:column; gap:11px; }
+  .arow { display:flex; align-items:center; gap:10px; padding:12px 18px; font-size:14px; }
+  .arow .ck { margin-left:auto; color:#3F7A00; font-weight:700; }
+  .card { background:#fff; border:1px solid var(--border); border-radius:14px; padding:13px; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--muted); margin-bottom:12px; }
+  .legend s { text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .sw { width:13px; height:13px; border-radius:4px; display:inline-block; }
+  .q { background:#FFF4F2; border:1px solid #F5C9C1; border-radius:12px; padding:12px 14px; margin-top:14px; }
+  .q b { color:var(--danger); font-size:13px; display:block; margin-bottom:5px; }
+  .q p { font-size:12.5px; line-height:1.55; color:#5a2f2a; }
+  .q ol { margin:8px 0 0 18px; font-size:12.5px; line-height:1.7; color:#5a2f2a; }
+  code { background:#F1F1F1; border-radius:4px; padding:1px 5px; font-size:11.5px; font-family:ui-monospace,Menlo,Consolas,monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Knowledge — UI polish
+  <span>Three fixes, both platforms: (1) one control per action — the middle empty state and the right-hand buttons never both appear; (2) the Upload documents modal gets a wider web frame and a file row that cannot wrap into an orphaned ✕; (3) both dropdowns adopt the platform floating-label dropdown, and the offering picker becomes searchable so a 50-service catalogue is usable.</span>
+</h1>
+
+<div class="legend" style="margin-top:18px">
+  <s><i class="sw" style="background:var(--green)"></i> primary action</s>
+  <s><i class="sw" style="background:#FFFDE7;border:1px dashed #E0D890"></i> annotation</s>
+  <s><i class="sw" style="background:var(--danger-bg);border:1px solid var(--danger-border)"></i> today's defect</s>
+  <s><i class="sw" style="background:var(--green-soft);border:1px solid #CBE9A6"></i> the fix</s>
+</div>
+
+<!-- ══════════════════════════════════════ 1 ══════════════════════════════════════ -->
+<div class="section-title">1 · One control per action — the page decides which surface owns the CTA</div>
+<p class="section-sub">
+  Today the header shows <b>Upload documents</b> at the same time as the middle empty state shows <b>Upload documents</b>, and <b>Add FAQ</b> appears in the middle <i>and</i> beside “Your FAQs”. The rule below makes exactly one of each visible in every combination. The usage meter (“0 of 20 documents”) is information, not an action — it always stays.
+</p>
+
+<table class="rules">
+  <tr><th>Documents</th><th>FAQs</th><th>Header “Upload documents”</th><th>Middle empty state</th><th>“Your FAQs” → Add FAQ</th></tr>
+  <tr><td>0</td><td>0</td><td class="no">hidden</td><td class="yes">Upload documents + Add FAQ</td><td class="no">hidden</td></tr>
+  <tr><td>0</td><td>1 +</td><td class="no">hidden</td><td class="yes">Upload documents only</td><td class="yes">shown</td></tr>
+  <tr><td>1 +</td><td>0</td><td class="yes">shown</td><td class="no">not rendered</td><td class="yes">shown</td></tr>
+  <tr><td>1 +</td><td>1 +</td><td class="yes">shown</td><td class="no">not rendered</td><td class="yes">shown</td></tr>
+</table>
+
+<div class="board" style="margin-top:18px">
+
+  <!-- A: nothing at all -->
+  <div class="frame w720">
+    <div class="frame-label"><span>WEB · State A — no documents, no FAQs</span><em>the middle owns both</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div>
+          <h2>AI Knowledge</h2>
+          <p>What your AI receptionist knows about your business beyond your services — policies, spec sheets, FAQs. It answers callers from these, word for word from your own material.</p>
+        </div>
+        <div class="usage">0 of 20 documents<div class="meter"><i style="width:0%"></i></div></div>
+      </div>
+      <div class="empty">
+        <div class="ico-box">📄</div>
+        <h3>Teach your receptionist about your business</h3>
+        <p>Upload spec sheets, policies or price lists — or type FAQs — and it will answer callers from your own material.</p>
+        <div class="acts">
+          <span class="btn primary">Upload documents</span>
+          <span class="btn">Add FAQ</span>
+        </div>
+      </div>
+      <div class="faqsec">
+        <div><h3>Your FAQs</h3><p>Quick answers your receptionist gives callers — typed right here, no file needed.</p></div>
+        <div style="display:flex;align-items:center;gap:10px"><span class="note">0 of 200</span></div>
+      </div>
+      <div class="ann good"><b>Changed</b> The header button and the “Your FAQs” Add FAQ are both gone. The middle block is the single place to start, which is what an empty page is for.</div>
+    </div>
+  </div>
+
+  <!-- B: FAQs but no docs -->
+  <div class="frame w720">
+    <div class="frame-label"><span>WEB · State B — no documents, 3 FAQs</span><em>middle keeps Upload only</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div><h2>AI Knowledge</h2><p>What your AI receptionist knows about your business beyond your services…</p></div>
+        <div class="usage">0 of 20 documents<div class="meter"><i style="width:0%"></i></div></div>
+      </div>
+      <div class="empty">
+        <div class="ico-box">📄</div>
+        <h3>Teach your receptionist about your business</h3>
+        <p>Upload spec sheets, policies or price lists and it will answer callers from your own material.</p>
+        <div class="acts"><span class="btn primary">Upload documents</span></div>
+      </div>
+      <div class="faqsec">
+        <div><h3>Your FAQs</h3><p>Quick answers your receptionist gives callers — typed right here, no file needed.</p></div>
+        <div style="display:flex;align-items:center;gap:10px"><span class="btn small">Add FAQ</span><span class="note">3 of 200</span></div>
+      </div>
+      <div style="margin-top:4px">
+        <div class="faq"><b>Do you take same-day jobs?</b><p>Yes, if we have a crew free. Call before 9am for the best chance.</p></div>
+        <div class="faq"><b>What areas do you cover?</b><p>Everything inside the 401 corridor, plus Mississauga and Brampton.</p></div>
+      </div>
+      <div class="ann good"><b>Changed</b> Add FAQ leaves the middle block because the FAQ section below already owns it — and its body copy drops the “or type FAQs” half.</div>
+    </div>
+  </div>
+
+  <!-- C: normal -->
+  <div class="frame w720">
+    <div class="frame-label"><span>WEB · State C — 3 documents, 2 FAQs</span><em>header owns Upload</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div><h2>AI Knowledge</h2><p>What your AI receptionist knows about your business beyond your services…</p></div>
+        <div class="usage">3 of 20 documents<div class="meter"><i style="width:15%"></i></div>
+          <span class="btn primary" style="margin-top:11px">Upload documents</span>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <div class="doc">
+          <div class="doc-ico">📄</div>
+          <div class="doc-main">
+            <div class="doc-name">CAT 320 spec sheet <span class="pill">Spec sheet</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">14 pages · 62 passages · 2.1 MB · Added Aug 12</div>
+            <div style="font-size:11.5px;color:var(--navy);margin-top:2px">Linked to Excavator rental — 20 t</div>
+          </div>
+          <div class="doc-actions"><span class="btn small">Replace</span><span class="btn small danger-ghost">Delete</span><span class="btn small">⋯</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico">📄</div>
+          <div class="doc-main">
+            <div class="doc-name">Site safety policy <span class="pill">Policy</span> <span class="pill info"><i class="sw" style="width:9px;height:9px;border-radius:50%;border:2px solid #C7DBF6;border-top-color:var(--navy)"></i> Processing</span></div>
+            <div class="doc-meta">Added Aug 17</div>
+          </div>
+          <div class="doc-actions"><span class="btn small disabled">Replace</span><span class="btn small danger-ghost">Delete</span></div>
+        </div>
+      </div>
+      <div class="faqsec">
+        <div><h3>Your FAQs</h3><p>Quick answers your receptionist gives callers.</p></div>
+        <div style="display:flex;align-items:center;gap:10px"><span class="btn small">Add FAQ</span><span class="note">2 of 200</span></div>
+      </div>
+      <div class="ann">Unchanged from today — this is already the correct arrangement, and the rule leaves it exactly as it is.</div>
+    </div>
+  </div>
+
+  <!-- D + E -->
+  <div class="frame w400">
+    <div class="frame-label"><span>WEB · State D — at the 20-document limit</span></div>
+    <div class="pad">
+      <div class="page-h">
+        <div><h2>AI Knowledge</h2></div>
+        <div class="usage">20 of 20 documents<div class="meter"><i style="width:100%"></i></div>
+          <span class="btn primary disabled" style="margin-top:11px">Upload documents</span>
+        </div>
+      </div>
+      <div class="banner warn" style="margin-top:14px">⚠ You have reached the 20-document limit. Delete one to add another.</div>
+      <div class="ann">Documents exist ⇒ the header owns the button, and it is <b>disabled, never hidden</b> — a control that vanishes at a limit reads as a bug.</div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>WEB · State E — read-only (no <code>voice.settings.manage</code>)</span></div>
+    <div class="pad">
+      <div class="page-h">
+        <div><h2>AI Knowledge</h2><p>What your AI receptionist knows about your business…</p></div>
+        <div class="usage">3 of 20 documents<div class="meter"><i style="width:15%"></i></div></div>
+      </div>
+      <div class="doc" style="margin-top:14px">
+        <div class="doc-ico">📄</div>
+        <div class="doc-main"><div class="doc-name">CAT 320 spec sheet <span class="pill ok">Ready</span></div><div class="doc-meta">14 pages · Added Aug 12</div></div>
+      </div>
+      <div class="ann">Unchanged: every write control is <b>absent</b>, never disabled. The empty state renders with no buttons at all for this member.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>WEB @ 360px · State A</span><em>same rule</em></div>
+    <div class="pad" style="padding:12px">
+      <div>
+        <h2 style="font-size:17px;font-weight:500">AI Knowledge</h2>
+        <p style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45">What your AI receptionist knows about your business beyond your services.</p>
+        <div style="margin-top:12px;font-size:12px;color:var(--muted)">0 of 20 documents</div>
+        <div class="meter" style="width:100%;margin-left:0"><i style="width:0%"></i></div>
+      </div>
+      <div class="empty" style="padding:26px 6px">
+        <div class="ico-box">📄</div>
+        <h3>Teach your receptionist about your business</h3>
+        <p>Upload spec sheets, policies or price lists — or type FAQs.</p>
+        <div class="acts"><span class="btn primary">Upload documents</span><span class="btn">Add FAQ</span></div>
+      </div>
+      <div class="ann good">The full-width header button that used to sit above this is gone, so the phone no longer opens with the same button twice.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 2 ══════════════════════════════════════ -->
+<div class="section-title">2 · Upload documents — wider web frame, and a row that cannot break</div>
+<p class="section-sub">
+  <b>What is wrong today:</b> the row is one wrapping flex line — icon, name, type dropdown, offering dropdown, ✕. At the modal’s 560&nbsp;px that adds up to more than the available width, so the ✕ falls to its own line on desktop, and on a phone the two dropdowns and the ✕ scatter across three lines.
+  <b>The fix is structural, not just wider:</b> the row becomes two fixed zones — identity on top (name + ✕ pinned right, which can never wrap), controls underneath — and the modal moves to the platform’s existing <code>wide</code> size (<b>760&nbsp;px</b>), which the shared Modal primitive already supports — no new width is invented.
+</p>
+
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>TODAY — 560px, one wrapping line</span><i>the reported defect</i></div>
+    <div class="pad">
+      <div style="border:1px solid var(--danger-border);background:var(--danger-bg);border-radius:12px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <div class="fr-ico" style="background:#fff">📄</div>
+        <div style="flex:1;min-width:160px"><div class="fr-name">gopi.jpeg</div><div class="fr-sub">233 kB</div></div>
+        <div style="border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 8px;font-size:12px">Other ▾</div>
+        <div style="border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 8px;font-size:12px">Link to offering… ▾</div>
+        <div style="width:100%"></div>
+        <div style="font-size:15px;color:var(--faint)">✕</div>
+      </div>
+      <div class="ann bad"><b>Two separate breaks</b> The ✕ is orphaned onto its own line, and the raw <code>&lt;select&gt;</code> boxes are grey OS controls that match nothing else in the product.</div>
+    </div>
+  </div>
+
+  <div class="frame w780">
+    <div class="frame-label"><span>WEB · Upload documents — 760px wide, one file staged</span><em>the fix</em></div>
+    <div class="modal" style="border:none;border-radius:0;box-shadow:none">
+      <div class="modal-h">Upload documents <span class="x">✕</span></div>
+      <div class="modal-b">
+        <div class="drop"><b>Drag files here, or browse</b><span>PDF, Word, Excel, HTML, text, Markdown, JSON or photos · up to 20 MB each · scanned PDFs are fine</span></div>
+        <div class="fr">
+          <div class="fr-top">
+            <div class="fr-ico">📄</div>
+            <div class="fr-main"><div class="fr-name">gopi.jpeg</div><div class="fr-sub">233 kB</div></div>
+            <div class="fr-x">✕</div>
+          </div>
+          <div class="fr-ctl">
+            <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Other</span><i class="fs-cv"></i></div>
+            <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+          </div>
+        </div>
+        <div class="banner info">ⓘ Processing usually takes under a minute per document. Your receptionist starts using it the moment it shows Ready.</div>
+      </div>
+      <div class="modal-f"><span class="btn">Cancel</span><span class="btn primary">Upload 1 file</span></div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann good"><b>What changed</b> ✕ is pinned to the top-right of the row and is structurally incapable of wrapping. The two pickers sit on their own line, indented to the file name, side by side and equal width. The modal is 760&nbsp;px so a long file name and both pickers breathe.</div>
+    </div>
+  </div>
+
+  <div class="frame w780">
+    <div class="frame-label"><span>WEB · mixed batch — ready / uploading / rejected / failed</span></div>
+    <div class="modal" style="border:none;border-radius:0;box-shadow:none">
+      <div class="modal-h">Upload documents <span class="x">✕</span></div>
+      <div class="modal-b">
+        <div class="drop"><b>Drag files here, or browse</b><span>PDF, Word, Excel, HTML, text, Markdown, JSON or photos · up to 20 MB each</span></div>
+
+        <div class="fr">
+          <div class="fr-top">
+            <div class="fr-ico">📄</div>
+            <div class="fr-main"><div class="fr-name">2026 rate card — commercial &amp; residential (final).pdf</div><div class="fr-sub">1.8 MB</div></div>
+            <div class="fr-x">✕</div>
+          </div>
+          <div class="fr-ctl">
+            <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Price list</span><i class="fs-cv"></i></div>
+            <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val">Excavator rental — 20 t</span><i class="fs-cv"></i></div>
+          </div>
+        </div>
+
+        <div class="fr">
+          <div class="fr-top">
+            <div class="fr-ico">📄</div>
+            <div class="fr-main">
+              <div class="fr-name">site-safety-policy.docx</div>
+              <div class="fr-sub">640 kB</div>
+              <div class="bar"><i style="width:62%"></i></div>
+            </div>
+          </div>
+          <div class="fr-ctl">
+            <div class="fs dis"><span class="fs-lbl">Document type</span><span class="fs-val">Policy</span><i class="fs-cv"></i></div>
+            <div class="fs dis"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+          </div>
+        </div>
+
+        <div class="fr bad">
+          <div class="fr-top">
+            <div class="fr-ico" style="background:#fff;border-color:var(--danger-border)">📄</div>
+            <div class="fr-main"><div class="fr-name bad">brochure.webp</div><div class="fr-sub bad">WebP is not supported. Save it as JPG or PNG and try again.</div></div>
+            <div class="fr-x">✕</div>
+          </div>
+        </div>
+
+        <div class="fr bad">
+          <div class="fr-top">
+            <div class="fr-ico" style="background:#fff;border-color:var(--danger-border)">📄</div>
+            <div class="fr-main"><div class="fr-name bad">warranty-terms.pdf</div><div class="fr-sub bad">That upload did not finish. Try again.</div></div>
+            <div class="fr-x">✕</div>
+          </div>
+          <div class="fr-ctl" style="grid-template-columns:auto 1fr 1fr">
+            <span class="btn small" style="align-self:center">Try again</span>
+            <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Other</span><i class="fs-cv"></i></div>
+            <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+          </div>
+        </div>
+
+        <div class="banner info">ⓘ Processing usually takes under a minute per document.</div>
+      </div>
+      <div class="modal-f"><span class="btn">Cancel</span><span class="btn primary">Upload 2 files</span></div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>Rules preserved</b> A rejected row keeps no pickers (it is never going to upload). A row mid-upload shows its pickers disabled rather than removing them, so the row does not jump height. A failed row keeps Try again inline with its pickers. The ✕ hides only while that row is actually uploading.</div>
+    </div>
+  </div>
+
+  <div class="frame w780">
+    <div class="frame-label"><span>WEB · Replace mode (single file, no offering picker)</span></div>
+    <div class="modal" style="border:none;border-radius:0;box-shadow:none">
+      <div class="modal-h">Replace document <span class="x">✕</span></div>
+      <div class="modal-b">
+        <div class="drop"><b>Drag one file here, or browse</b><span>It replaces “CAT 320 spec sheet”. Your receptionist keeps answering from the old version until the new one is Ready.</span></div>
+        <div class="fr">
+          <div class="fr-top">
+            <div class="fr-ico">📄</div>
+            <div class="fr-main"><div class="fr-name">cat-320-spec-v3.pdf</div><div class="fr-sub">2.4 MB</div></div>
+            <div class="fr-x">✕</div>
+          </div>
+          <div class="fr-ctl stack">
+            <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Spec sheet</span><i class="fs-cv"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-f"><span class="btn">Cancel</span><span class="btn primary">Upload 1 file</span></div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann">A replace already inherits the original’s type and link server-side, so a single picker is enough and the row stays one column.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 3 ══════════════════════════════════════ -->
+<div class="section-title">3 · The upload modal on a phone — pick one</div>
+<p class="section-sub">
+  Below <code>sm</code> (480&nbsp;px) the modal is already the platform bottom sheet. The only open question is the two pickers. <b>M1</b> stacks them full-width; <b>M2</b> keeps them side by side at half width each. At 360&nbsp;px a half-width trigger is about 125&nbsp;px, which truncates nearly every real service name.
+</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>MOBILE · Option M1 — stacked under 480px</span><em>recommended</em></div>
+    <div style="width:360px;background:#EAEAEA;padding:26px 0 0">
+      <div class="sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-title" style="display:flex;justify-content:space-between">Upload documents <span class="x">✕</span></div>
+        <div class="sheet-body">
+          <div class="drop" style="padding:16px"><b>Drag files here, or browse</b><span>PDF, Word, Excel, photos · up to 20 MB each</span></div>
+          <div class="fr">
+            <div class="fr-top">
+              <div class="fr-ico">📄</div>
+              <div class="fr-main"><div class="fr-name">gopi.jpeg</div><div class="fr-sub">233 kB</div></div>
+              <div class="fr-x">✕</div>
+            </div>
+            <div class="fr-ctl stack nopad">
+              <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Other</span><i class="fs-cv"></i></div>
+              <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val">Excavator rental — 20 t</span><i class="fs-cv"></i></div>
+            </div>
+          </div>
+          <div class="banner info">ⓘ Processing usually takes under a minute per document.</div>
+          <div style="display:flex;flex-direction:column-reverse;gap:8px;padding-top:4px">
+            <span class="btn" style="width:100%">Cancel</span>
+            <span class="btn primary" style="width:100%">Upload 1 file</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pad"><div class="ann good">Full width means the whole service name is readable, and the row height is predictable no matter how long the name is. Controls are indent-free here because the sheet is already narrow.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>MOBILE · Option M2 — always side by side</span></div>
+    <div style="width:360px;background:#EAEAEA;padding:26px 0 0">
+      <div class="sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-title" style="display:flex;justify-content:space-between">Upload documents <span class="x">✕</span></div>
+        <div class="sheet-body">
+          <div class="drop" style="padding:16px"><b>Drag files here, or browse</b><span>PDF, Word, Excel, photos · up to 20 MB each</span></div>
+          <div class="fr">
+            <div class="fr-top">
+              <div class="fr-ico">📄</div>
+              <div class="fr-main"><div class="fr-name">gopi.jpeg</div><div class="fr-sub">233 kB</div></div>
+              <div class="fr-x">✕</div>
+            </div>
+            <div class="fr-ctl nopad">
+              <div class="fs"><span class="fs-lbl">Type</span><span class="fs-val">Other</span><i class="fs-cv"></i></div>
+              <div class="fs"><span class="fs-lbl">Offering</span><span class="fs-val">Excavator ren…</span><i class="fs-cv"></i></div>
+            </div>
+          </div>
+          <div class="banner info">ⓘ Processing usually takes under a minute per document.</div>
+          <div style="display:flex;flex-direction:column-reverse;gap:8px;padding-top:4px">
+            <span class="btn" style="width:100%">Cancel</span>
+            <span class="btn primary" style="width:100%">Upload 1 file</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pad"><div class="ann bad">Both on one line as literally requested — but the labels have to shorten to “Type / Offering” and the value truncates to “Excavator ren…”. You would tap the picker to find out what is linked.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 4 ══════════════════════════════════════ -->
+<div class="section-title">4 · The dropdown itself — the platform control, not a raw <code>&lt;select&gt;</code></div>
+<p class="section-sub">
+  Both knowledge pickers are currently bare HTML <code>&lt;select&gt;</code> elements, which is why they look nothing like the rest of the product. They adopt <code>FloatingOptionSelect</code> — the app-drawn dropdown already used elsewhere: <b>#F5F5F5</b> field, floating label, chevron, green border while open, <b>#DFFABD</b> on the chosen row, keyboard arrows + Escape, panel drawn in a portal so it is never clipped by the modal’s scroll area.
+  The one addition is <b>search</b>, added to that shared component so every long list in the product gains it — nothing new is invented here.
+</p>
+
+<div class="board">
+  <div class="frame w400">
+    <div class="frame-label"><span>Closed — empty and chosen</span></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:12px">
+      <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Other</span><i class="fs-cv"></i></div>
+      <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+      <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val">Keratin smoothing treatment — long hair</span><i class="fs-cv"></i></div>
+      <div class="fs dis"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+      <div class="note">Order: chosen value · “Not linked” placeholder in muted italic (it is a state, not a choice) · a long name truncates with an ellipsis · disabled while that row uploads.</div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Open — short list (5 types, no search)</span></div>
+    <div class="pad">
+      <div class="fs open"><span class="fs-lbl">Document type</span><span class="fs-val">Spec sheet</span><i class="fs-cv"></i></div>
+      <div class="panel">
+        <div class="opt"><span class="t">Other</span></div>
+        <div class="opt on"><span class="t">Spec sheet</span><span class="ck">✓</span></div>
+        <div class="opt"><span class="t">FAQ</span></div>
+        <div class="opt"><span class="t">Policy</span></div>
+        <div class="opt"><span class="t">Price list</span></div>
+      </div>
+      <div class="ann">Under 8 options the search box does not appear — a search field over five rows is clutter.</div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Open — 50 offerings</span><em>search + chosen pinned on top</em></div>
+    <div class="pad">
+      <div class="fs open"><span class="fs-lbl">Linked offering</span><span class="fs-val">Excavator rental — 20 t</span><i class="fs-cv"></i></div>
+      <div class="panel">
+        <div class="panel-search"><input placeholder="Search your offerings…" value=""></div>
+        <div class="panel-grouplbl">Currently linked</div>
+        <div class="opt on"><span class="t">Excavator rental — 20 t</span><span class="ck">✓</span></div>
+        <div class="panel-div"></div>
+        <div class="opt"><span class="t">Not linked</span></div>
+        <div class="opt"><span class="t">Backhoe loader — half day</span></div>
+        <div class="opt"><span class="t">Backhoe loader — full day</span></div>
+        <div class="opt"><span class="t">Bobcat skid steer — weekend rate</span></div>
+        <div class="opt"><span class="t">Compaction plate — daily</span></div>
+        <div class="opt" style="color:var(--faint)"><span class="t">…44 more</span></div>
+      </div>
+      <div class="ann good"><b>“Give the service name at the top”</b> The linked offering is pinned above the list under its own label, so with 50 services you never lose track of what this document is attached to, and it stays visible while you filter.</div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Open — typing, and no matches</span></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:18px">
+      <div>
+        <div class="fs open"><span class="fs-lbl">Linked offering</span><span class="fs-val">Excavator rental — 20 t</span><i class="fs-cv"></i></div>
+        <div class="panel">
+          <div class="panel-search"><input value="load" placeholder="Search your offerings…"></div>
+          <div class="panel-grouplbl">Currently linked</div>
+          <div class="opt on"><span class="t">Excavator rental — 20 t</span><span class="ck">✓</span></div>
+          <div class="panel-div"></div>
+          <div class="opt"><span class="t">Back<b style="background:#F0FFD8">hoe load</b>er — half day</span></div>
+          <div class="opt"><span class="t">Back<b style="background:#F0FFD8">hoe load</b>er — full day</span></div>
+          <div class="opt"><span class="t">Wheel <b style="background:#F0FFD8">load</b>er — daily</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="fs open"><span class="fs-lbl">Linked offering</span><span class="fs-val ph">Not linked</span><i class="fs-cv"></i></div>
+        <div class="panel">
+          <div class="panel-search"><input value="zzz" placeholder="Search your offerings…"></div>
+          <div class="panel-empty">No offering matches “zzz”.</div>
+        </div>
+      </div>
+      <div class="ann">The pinned row survives filtering — clearing a link must never require clearing the search first. Match highlighting is optional; say the word and it goes.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title" style="border:none;padding-top:8px;margin-top:26px;font-size:15px">4b · Document details modal — the same two dropdowns</div>
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · Document details (560px — unchanged width)</span></div>
+    <div class="modal" style="border:none;border-radius:0;box-shadow:none">
+      <div class="modal-h">Document details <span class="x">✕</span></div>
+      <div class="modal-b">
+        <div class="fs"><span class="fs-lbl">Document type</span><span class="fs-val">Spec sheet</span><i class="fs-cv"></i></div>
+        <div class="fs"><span class="fs-lbl">Linked offering</span><span class="fs-val">Excavator rental — 20 t</span><i class="fs-cv"></i></div>
+      </div>
+      <div class="modal-f"><span class="btn">Cancel</span><span class="btn primary">Save</span></div>
+    </div>
+    <div class="pad" style="padding-top:0"><div class="ann">Two stacked full-width fields already fit at 560&nbsp;px, so only the control changes here, not the frame. Same for <b>Add FAQ</b> — you said it is fine and it stays at 560.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 5 ══════════════════════════════════════ -->
+<div class="section-title">5 · The native mobile app</div>
+<p class="section-sub">
+  The React Native screen does not have the web defects — its upload sheet already puts the type control on the row as a chip that opens a themed bottom sheet, and its empty state carries no buttons, so nothing is duplicated. Two things are worth your decision.
+</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>MOBILE APP · document type sheet</span><em>ships today — no change</em></div>
+    <div class="phone">
+      <div class="phone-bar"><span>‹ AI Knowledge</span><span>9:41</span></div>
+      <div style="background:#EAEAEA;padding-top:60px">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title">Document type</div>
+          <div class="arow">Other</div>
+          <div class="arow">Spec sheet <span class="ck">✓</span></div>
+          <div class="arow">FAQ</div>
+          <div class="arow">Policy</div>
+          <div class="arow">Price list</div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="width:360px"><div class="ann good">Already the platform pattern — a full-width bottom sheet with a checkmark on the chosen row. It needs nothing from this change.</div></div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>MOBILE APP · linked-offering sheet</span><i>does not exist — needs your yes</i></div>
+    <div class="phone">
+      <div class="phone-bar"><span>‹ AI Knowledge</span><span>9:41</span></div>
+      <div style="background:#EAEAEA;padding-top:24px">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title">Link to an offering</div>
+          <div style="padding:0 18px 8px"><input placeholder="Search your offerings…" style="width:100%;background:var(--field);border:1px solid var(--green);border-radius:10px;padding:10px 12px;font-size:13px;font-family:inherit;outline:none"></div>
+          <div class="panel-grouplbl" style="padding-left:18px">Currently linked</div>
+          <div class="arow" style="background:var(--green-pick)">Excavator rental — 20 t <span class="ck">✓</span></div>
+          <div class="panel-div"></div>
+          <div class="arow">Not linked</div>
+          <div class="arow">Backhoe loader — half day</div>
+          <div class="arow">Bobcat skid steer — weekend</div>
+          <div class="arow" style="color:var(--faint)">…46 more</div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="width:360px"><div class="ann"><b>Open decision</b> The mobile app deliberately has <b>no</b> offering link and no post-upload details editor — the approved knowledge mockup scoped both to web, and the localisation key <code>KNOWLEDGE.LINK_TO_OFFERING</code> has been sitting unused in all five language files waiting for exactly this call. This frame is what it would look like if you want parity. Say yes and it ships in the same session; say no and mobile stays as it is.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ 6 ══════════════════════════════════════ -->
+<div class="section-title">6 · What is deliberately NOT changing</div>
+<div class="board">
+  <div class="frame w720">
+    <div class="pad">
+      <table class="rules">
+        <tr><th>Thing</th><th>Why it stays</th></tr>
+        <tr><td>Add FAQ modal width (560&nbsp;px)</td><td>A question field and an answer box fit comfortably — you said it is fine.</td></tr>
+        <tr><td>Document details modal width (560&nbsp;px)</td><td>Two stacked full-width fields; only the control style changes.</td></tr>
+        <tr><td>Every string</td><td>No copy is rewritten except the empty-state body when Add FAQ leaves it. New keys needed: the picker labels, the search placeholder, “No offering matches …”, “Currently linked” — added to all five web language files and, if mobile parity is approved, all five mobile files.</td></tr>
+        <tr><td>Upload / confirm / polling behaviour</td><td>Layout and controls only. No API, queue, Cosmos, index or settings change of any kind.</td></tr>
+        <tr><td>Status chips, usage meter, limit banner, permission gating</td><td>Untouched.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="q">
+  <b>Four things I need from you before I write any of this</b>
+  <ol>
+    <li><b>Phone layout for the two pickers — M1 or M2?</b> I recommend <b>M1</b> (stacked below 480&nbsp;px, side by side above it): at 360&nbsp;px M2 leaves each picker ~125&nbsp;px, which truncates almost every real service name. If “both on the same line” means literally at every width, say M2 and I will build M2.</li>
+    <li><b>Mobile app: add the linked-offering picker?</b> It does not exist today by earlier design. Yes = it ships in this same session with the searchable sheet above. No = mobile keeps documents-only.</li>
+    <li><b>Search threshold.</b> Search appears above 8 options and is hidden below. Happy with 8?</li>
+    <li><b>State A copy.</b> When there are no documents but FAQs already exist, the middle block loses its Add FAQ button, so its body drops the “or type FAQs” half. Confirm that reads right to you.</li>
+  </ol>
+</div>
+
+<p class="note" style="margin-top:22px">
+  Nothing has been implemented. On your approval the work is: the page CTA rule + the rebuilt file row + <code>width="wide"</code> in <code>clinqetwebpartnerapp</code>; a <code>searchable</code> option added to the shared <code>FloatingOptionSelect</code> (so every long list in the product benefits, rather than a one-off); new localisation keys in all five web catalogues; matching mobile work only if item 2 is a yes; jest gates + ESLint clean before I report done.
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# pdf_headerless_price_table.pdf.8278471e
+blocks=3 pageCount=1 docType=Other
+cards=2 imageCards=0 warnings=0
+
+--- card 0 [Text] section='NAILS & LASHES' page=1 img= chars=309
+    - Classic manicure $30
+    - Gel manicure $45
+    - Spa pedicure $45
+    - Gel pedicure $60
+    - Acrylic full set $65
+    - Acrylic fill $40
+    - Nail art (per nail) $3
+    - Polish change $15
+    - Classic lash set $120
+    - Volume lash set $160
+    - Lash fill (2 weeks) $70
+    - Lash lift $80
+    - Brow lamination $75
+    - Brow tint $20
+    - Lash tint $20
+--- card 1 [Text] section='NAILS & LASHES' page=1 img= chars=73
+    Deposit of $20 required for lash sets. 24 hours notice for cancellations.

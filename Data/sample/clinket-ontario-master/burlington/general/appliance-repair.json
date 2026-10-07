@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "general",
+    "category": "appliance-repair",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-general-alpha-appliance-repair-burlington",
+      "businessName": "Alpha Appliance Repair Burlington",
+      "description": "Appliance repair with labour & parts warranty. Fridge, washer, dryer, dishwasher and more. 7 days a week.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@alphaappliance.ca",
+      "businessPhone": "289-203-7511",
+      "social": {
+        "facebook": "https://www.facebook.com/people/Alpha-Appliance/100091095677034",
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://alphaappliance.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "850 Cumberland Ave",
+        "postalCode": "L7N 3J7",
+        "city": "Burlington",
+        "area": "general",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "850 Cumberland Ave, Burlington, ON L7N 3J7"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "general",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "appliance-repair",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Refrigerator Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "starting_from",
+            "amount": 160,
+            "min": 160,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Washer & Dryer Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Dishwasher Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Oven & Stove Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "07:00",
+            "close": "23:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://alphaappliance.ca/appliance-repair-burlington/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        },
+        {
+          "url": "https://alphaappliance.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    }
+  ]
+}

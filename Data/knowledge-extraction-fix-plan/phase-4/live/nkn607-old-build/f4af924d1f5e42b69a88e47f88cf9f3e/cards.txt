@@ -1,0 +1,77 @@
+cards=7
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_0 [Table] section='Northside Auto Repair — service menu 2026' page=1 img= scripts=["Latn"] chars=1016 title='Northside Auto Repair Service Menu 2026' type='Document'
+    Service: Oil change (synthetic) | Price: $89
+    Service: Brake pads (front) | Price: $220
+    Service: Brake pads (rear) | Price: $200
+    Service: Tire rotation | Price: $40
+    Service: Wheel alignment | Price: $120
+    Service: Battery replacement | Price: $180
+    Service: AC recharge | Price: $150
+    Service: Diagnostic scan | Price: $95
+    Service: Coolant flush | Price: $130
+    Service: Transmission service | Price: $260
+    Service: Spark plugs (4-cyl) | Price: $160
+    Service: Timing belt | Price: $850
+    Service: Wiper blades | Price: $35
+    Service: Cabin filter | Price: $45
+    Service: Engine air filter | Price: $40
+    Service: Oil change (synthetic) — bay 2 | Price: $94
+    Service: Brake pads (front) — bay 2 | Price: $225
+    Service: Brake pads (rear) — bay 2 | Price: $205
+    Service: Tire rotation — bay 2 | Price: $45
+    Service: Wheel alignment — bay 2 | Price: $125
+    Service: Battery replacement — bay 2 | Price: $185
+    Service: AC recharge — bay 2 | Price: $155
+    Service: Diagnostic scan — bay 2 | Price: $100
+    Service: Coolant flush — bay 2 | Price: $135
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_1 [Text] section='Northside Auto Repair — service menu 2026' page=1 img= scripts=["Latn"] chars=116 title='Northside Auto Repair Service Menu 2026' type='Document'
+    - All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_2 [Table] section='Northside Auto Repair — service menu 2026' page=2 img= scripts=["Latn"] chars=1141 title='Northside Auto Repair Service Menu 2026' type='Document'
+    Service: Transmission service — bay 2 | Price: $265
+    Service: Spark plugs (4-cyl) — bay 2 | Price: $165
+    Service: Timing belt — bay 2 | Price: $855
+    Service: Wiper blades — bay 2 | Price: $40
+    Service: Cabin filter — bay 2 | Price: $50
+    Service: Engine air filter — bay 2 | Price: $45
+    Service: Oil change (synthetic) — bay 3 | Price: $99
+    Service: Brake pads (front) — bay 3 | Price: $230
+    Service: Brake pads (rear) — bay 3 | Price: $210
+    Service: Tire rotation — bay 3 | Price: $50
+    Service: Wheel alignment — bay 3 | Price: $130
+    Service: Battery replacement — bay 3 | Price: $190
+    Service: AC recharge — bay 3 | Price: $160
+    Service: Diagnostic scan — bay 3 | Price: $105
+    Service: Coolant flush — bay 3 | Price: $140
+    Service: Transmission service — bay 3 | Price: $270
+    Service: Spark plugs (4-cyl) — bay 3 | Price: $170
+    Service: Timing belt — bay 3 | Price: $860
+    Service: Wiper blades — bay 3 | Price: $45
+    Service: Cabin filter — bay 3 | Price: $55
+    Service: Engine air filter — bay 3 | Price: $50
+    Service: Oil change (synthetic) — bay 4 | Price: $104
+    Service: Brake pads (front) — bay 4 | Price: $235
+    Service: Brake pads (rear) — bay 4 | Price: $215
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_3 [Text] section='Northside Auto Repair — service menu 2026' page=2 img= scripts=["Latn"] chars=117 title='Northside Auto Repair Service Menu 2026' type='Document'
+    \* All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_4 [Table] section='Northside Auto Repair — service menu 2026' page=3 img= scripts=["Latn"] chars=556 title='Northside Auto Repair Service Menu 2026' type='Document'
+    Service: Tire rotation — bay 4 | Price: $55
+    Service: Wheel alignment — bay 4 | Price: $135
+    Service: Battery replacement — bay 4 | Price: $195
+    Service: AC recharge — bay 4 | Price: $165
+    Service: Diagnostic scan — bay 4 | Price: $110
+    Service: Coolant flush — bay 4 | Price: $145
+    Service: Transmission service — bay 4 | Price: $275
+    Service: Spark plugs (4-cyl) — bay 4 | Price: $175
+    Service: Timing belt — bay 4 | Price: $865
+    Service: Wiper blades — bay 4 | Price: $50
+    Service: Cabin filter — bay 4 | Price: $60
+    Service: Engine air filter — bay 4 | Price: $55
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_5 [DocSummary] section='' page= img= scripts=["Latn"] chars=323 title='Northside Auto Repair Service Menu 2026' type='Document'
+    Northside Auto Repair Service Menu 2026 — overview
+    Lists auto repair services and prices across service bays. Prices exclude HST; the menu is valid until 31 Dec 2026 and includes a 12-month / 20,000 km warranty on parts and labour.
+    Sections: Northside Auto Repair — service menu 2026
+    60 records
+    Price: $40 to $850 (typical)
+--- NKN607_f4af924d1f5e42b69a88e47f88cf9f3e_6 [DocAggregate] section='Price' page= img= scripts=["Latn"] chars=100 title='Northside Auto Repair Service Menu 2026' type='Document'
+    Northside Auto Repair Service Menu 2026 — overview — Price
+    60 records — Price: $40 to $850 (typical)

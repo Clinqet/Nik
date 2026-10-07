@@ -1,0 +1,51 @@
+===== nkn607
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                   115/149       155     274  27/35    32/35
+window p24, shipped order             116/149       154     274  27/35    32/35
+window p24, dual order                116/149       154     274  27/35    32/35
+window p24, closeness order           110/149       160     274  24/35    32/35
+window p32, shipped order             114/149       156     274  27/35    32/35
+window p32, dual order                114/149       156     274  27/35    32/35
+window p32, closeness order           110/149       160     274  24/35    32/35
+window p50, shipped order             114/149       156     274  27/35    32/35
+window p50, dual order                114/149       156     274  27/35    32/35
+window p50, closeness order           112/149       158     274  24/35    32/35
+weight w2_16, shipped order           116/149       154     274  26/35    32/35
+weight w3_16, shipped order           115/149       155     274  26/35    32/35
+weight w2_50, shipped order           116/149       154     274  26/35    32/35
+p16, dual order                       115/149       155     274  27/35    32/35
+p16, closeness order                  111/149       159     274  24/35    32/35
+===== cars-in
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    17/52        159     176   6/22     8/22
+window p24, shipped order              17/52        159     176   6/22     8/22
+window p24, dual order                 20/52        156     176   6/22    11/22
+window p24, closeness order            31/52        145     176  15/22    18/22
+window p32, shipped order              17/52        159     176   6/22     8/22
+window p32, dual order                 24/52        152     176   6/22    14/22
+window p32, closeness order            42/52        134     176  15/22    21/22
+window p50, shipped order              16/52        160     176   6/22     8/22
+window p50, dual order                 23/52        153     176   6/22    15/22
+window p50, closeness order            41/52        135     176  15/22    21/22
+weight w2_16, shipped order            23/52        153     176   6/22    13/22
+weight w3_16, shipped order            34/52        142     176   6/22    19/22
+weight w2_50, shipped order            17/52        159     176   6/22     9/22
+p16, dual order                        18/52        158     176   6/22     9/22
+p16, closeness order                   18/52        158     176   7/22     9/22
+===== prices-ca
+design                                   recall   wrong  seated   top1  answered
+TODAY p16 (shipped)                    34/38         62      96   6/12    12/12
+window p24, shipped order              34/38         62      96   6/12    12/12
+window p24, dual order                 31/38         65      96   6/12    10/12
+window p24, closeness order            27/38         69      96   6/12     9/12
+window p32, shipped order              34/38         62      96   6/12    12/12
+window p32, dual order                 31/38         65      96   6/12    10/12
+window p32, closeness order            27/38         69      96   6/12     9/12
+window p50, shipped order              34/38         62      96   6/12    12/12
+window p50, dual order                 31/38         65      96   6/12    10/12
+window p50, closeness order            27/38         69      96   6/12     9/12
+weight w2_16, shipped order            33/38         63      96   6/12    11/12
+weight w3_16, shipped order            31/38         65      96   6/12    10/12
+weight w2_50, shipped order            33/38         63      96   6/12    11/12
+p16, dual order                        31/38         65      96   6/12    10/12
+p16, closeness order                   28/38         68      96   6/12     9/12

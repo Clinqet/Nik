@@ -1,0 +1,24 @@
+docTitle=Nail Bar Price List lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=1 captions=1 reviews=0
+summary: Lists prices for classic and gel manicures, spa pedicures, acrylic full sets, nail art per nail, and polish changes.
+[  0] Heading      p1 H1
+      nail bar
+[  1] List         p1
+      - classic manicure $30
+      - gel manicure $45
+      - spa pedicure $45
+      - acrylic full set $65
+      - nail art per nail $3
+      - polish change $15
+[  2] ImageMarker  p1 img#0 alt=
+
+## captions
+  [0] nail bar
+classic manicure $30
+gel manicure $45
+spa pedicure $45
+acrylic full set $65
+nail art per nail $3
+polish change $15
+## images
+  idx=0 id=88aa6d4c9effc24a 1419x765 48905B kind=TextSnapshot src=Upload q=Ok refused=False
+## reviews

@@ -1,0 +1,105 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_0",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી બ્યુટી પાર્લર — રેટ કાર્ડ",
+    "content": "સેવા: बाल कटवाना | કિંમત: ₹250\nસેવા: दाढ़ी ट्रिम | કિંમત: ₹150\nસેવા: फेशियल (गोल्ड) | કિંમત: ₹1,200\nસેવા: मैनीक्योर | કિંમત: ₹300\nસેવા: पेडीक्योर | કિંમત: ₹450\nસેવા: हेयर स्पा | કિંમત: ₹1,500",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn",
+      "Deva"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_1",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી બ્યુટી પાર્લર — રેટ કાર્ડ › સેવાઓ અને ભાવ",
+    "content": "- વાળ કપાવવા — ₹250\n- ફેશિયલ — ₹800\n- મસાજ — ₹500\n- સંપૂર્ણ પીઠ પોલિશ સ્ક્રબ સાથે — ₹400\n- બ્રાઇડલ મેકઅપ — ₹5,000",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_2",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી બ્યુટી પાર્લર — રેટ કાર્ડ › સેવાઓ અને ભાવ",
+    "content": "English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn",
+      "Gujr"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_3",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Beauty Parlour Rate Card — overview\nLists beauty parlour services and prices in Gujarati and Hindi, including haircuts, beard trims, facials, manicures, pedicures, hair spa, massage, back polish scrub, and bridal makeup. Notes that prices include GST, home visits add ₹200, and provides a booking phone number.\nSections: સેવાઓ અને ભાવ (6)\n6 records\nસેવા: बाल कटवाना (1), दाढ़ी ट्रिम (1), फेशियल (गोल्ड) (1), मैनीक्योर (1), पेडीक्योर (1), हेयर स्पा (1)\nકિંમત: ₹150 to ₹1,500 (typical)",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn",
+      "Deva"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_4",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "સેવા",
+    "content": "Beauty Parlour Rate Card — overview — સેવા\n6 records — સેવા: बाल कटवाना (1), दाढ़ी ट्रिम (1), फेशियल (गोल्ड) (1), मैनीक्योर (1), पेडीक्योर (1), हेयर स्पा (1)",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn",
+      "Deva"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_4eeae96e1e0549538283705897ca3bc0_5",
+    "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "કિંમત",
+    "content": "Beauty Parlour Rate Card — overview — કિંમત\n6 records — કિંમત: ₹150 to ₹1,500 (typical)",
+    "docTitle": "Beauty Parlour Rate Card",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Latn",
+      "Gujr"
+    ],
+    "imageRef": null
+  }
+]

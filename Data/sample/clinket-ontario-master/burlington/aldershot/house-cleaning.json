@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "aldershot",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "burlington-aldershot-the-clean-life-company",
+      "businessName": "The Clean Life Company",
+      "description": "Family-owned premium residential and commercial cleaning. Eco-friendly products. Recurring, deep clean, post-construction, move-in/out.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": "Fabian and Jessica",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "Support@thecleanlifecompany.ca",
+      "businessPhone": "647-667-7205",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.thecleanlifecompany.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "645 Plains Rd E",
+        "postalCode": "L7T 4J5",
+        "area": "aldershot",
+        "city": "Burlington",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "645 Plains Rd E, Burlington, ON L7T 4J5"
+      },
+      "serviceAreas": [
+        "Burlington",
+        "Oakville",
+        "Hamilton",
+        "Waterdown",
+        "Mississauga",
+        "GTA"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "aldershot",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Luxury Residential Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Recurring Home Maintenance",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Post-Construction Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-In/Move-Out Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Real Estate Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.thecleanlifecompany.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.9,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00"
+    }
+  ]
+}

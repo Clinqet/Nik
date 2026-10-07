@@ -1,0 +1,196 @@
+{
+  "contentHash": "22005A6A6D15D783D34AD43C592B099A49F5F4E670E39F336907D470454F471E",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+  "pageCount": 1,
+  "docTitle": "श्री ब्यूटी पार्लर रेट कार्ड",
+  "docSummary": "दस्तावेज़ में हिंदी और गुजराती में ब्यूटी पार्लर की सेवाओं और उनकी कीमतों की सूची है। अंग्रेज़ी नोट में बताया गया है कि कीमतों में GST शामिल है, घर पर सेवा के लिए अतिरिक्त शुल्क है और बुकिंग के लिए फोन करना है।",
+  "docLanguage": "hi",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "श्री ब्यूटी पार्लर — रेट कार्ड",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "सेवा",
+            "कीमत"
+          ],
+          [
+            "बाल कटवाना",
+            "₹250"
+          ],
+          [
+            "दाढ़ी ट्रिम",
+            "₹150"
+          ],
+          [
+            "फेशियल (गोल्ड)",
+            "₹1,200"
+          ],
+          [
+            "मैनीक्योर",
+            "₹300"
+          ],
+          [
+            "पेडीक्योर",
+            "₹450"
+          ],
+          [
+            "हेयर स्पा",
+            "₹1,500"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "સેવાઓ અને ભાવ",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "સેવા",
+            "ભાવ"
+          ],
+          [
+            "વાળ કપાવવા",
+            "₹250"
+          ],
+          [
+            "હેર સ્પા",
+            "₹800"
+          ],
+          [
+            "મસાજ",
+            "₹500"
+          ],
+          [
+            "મહેંદી ફુલ હેન્ડ સાથે",
+            "₹400"
+          ],
+          [
+            "બ્રાઇડલ મેકઅપ",
+            "₹5,000"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "English notes: prices include GST. Home visit adds ₹200. Call 98765 43210 to book.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "b770fd1f-ad71-453e-99fc-4b29bf595fed",
+      "discrepancies": [
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 2, row '1 5'",
+          "ocrReading": "1 5 | ₹250",
+          "firstAiReading": "",
+          "sourceServiceName": "1 5",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 2, row 'इशियस'",
+          "ocrReading": "इशियस | ₹800",
+          "firstAiReading": "",
+          "sourceServiceName": "इशियस",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'42118' reads 'મસાજ'",
+          "location": "page 1, table 2, row '42118', column 1",
+          "ocrReading": "42118",
+          "firstAiReading": "મસાજ",
+          "sourceServiceName": "42118",
+          "passageIds": [],
+          "selectedReading": "મસાજ",
+          "disposition": "CandidateReadingRetained",
+          "remainingUncertainty": "no usable source reading, and the page does not print these characters as text"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 2, row '417541212'",
+          "ocrReading": "417541212 | ₹400",
+          "firstAiReading": "",
+          "sourceServiceName": "417541212",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 2, row 'WISSEL 78244'",
+          "ocrReading": "WISSEL 78244 | ₹5,000",
+          "firstAiReading": "",
+          "sourceServiceName": "WISSEL 78244",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

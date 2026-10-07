@@ -1,0 +1,54 @@
+docTitle=Priya Sharma Senior Hair Stylist Resume lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+summary: Resume for Priya Sharma, a Toronto-based Senior Hair Stylist, covering skills, certifications, languages, profile, experience at Glow Salon and City Cuts, and a Diploma in Hairstyling from Marvel Beauty School.
+[  0] Heading      p1 H1
+      PRIYA SHARMA
+[  1] Paragraph    p1
+      Senior Hair Stylist · Toronto, ON · 416-555-0199 · priya@example.com
+      
+[  2] Heading      p1 H2
+      SKILLS
+[  3] List         p1
+      - Balayage
+      - Keratin treatments
+      - Bridal styling
+      - Colour correction
+      - Team leadership
+[  4] Heading      p1 H2
+      CERTIFICATIONS
+[  5] Paragraph    p1
+      Redken Colour Specialist (2021)  
+      Olaplex Pro (2022)
+      
+[  6] Heading      p1 H2
+      LANGUAGES
+[  7] Paragraph    p1
+      English, Hindi, Gujarati
+      
+[  8] Heading      p1 H2
+      PROFILE
+[  9] Paragraph    p1
+      Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. Known for precision cuts and colour correction, with a loyal client base of over 300 regulars.
+      
+[ 10] Heading      p1 H2
+      EXPERIENCE
+[ 11] Paragraph    p1
+      Glow Salon — Senior Stylist (2019–present)
+      
+[ 12] Paragraph    p1
+      Grew colour revenue 40% in two years; introduced the bridal package now sold at $450; trained four apprentices to full-time stylists.
+      
+[ 13] Paragraph    p1
+      City Cuts — Stylist (2013–2019)
+      
+[ 14] Paragraph    p1
+      Managed 30 clients a week; ran the Saturday walk-in desk; expected salary in next role $85,000.
+      
+[ 15] Heading      p1 H2
+      EDUCATION
+[ 16] Paragraph    p1
+      Marvel Beauty School, Diploma in Hairstyling (2012)
+      
+
+## captions
+## images
+## reviews

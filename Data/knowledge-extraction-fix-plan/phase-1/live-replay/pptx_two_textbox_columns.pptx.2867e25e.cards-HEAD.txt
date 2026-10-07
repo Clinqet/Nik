@@ -1,0 +1,34 @@
+# pptx_two_textbox_columns.pptx.2867e25e
+blocks=10 pageCount=3 docType=Other
+cards=6 imageCards=0 warnings=0
+
+--- card 0 [Text] section='Slide 1' page=1 img= chars=17
+    Glow Salon — Hair
+--- card 1 [Text] section='Slide 1' page=1 img= chars=81
+    - Haircut
+    - Beard trim
+    - Kids cut
+    - Full head colour
+    - Root touch up
+    - Highlights
+--- card 2 [Text] section='Slide 1' page=1 img= chars=36
+    - $25
+    - $15
+    - $18
+    - $80
+    - $55
+    - $120
+--- card 3 [Table] section='Slide 2' page=2 img= chars=104
+    Nails
+    Service | Price | Time
+    Manicure | $30 | 30 min
+    Pedicure | $45 | 45 min
+    Gel manicure | $55 | 60 min
+--- card 4 [Text] section='Slide 3' page=3 img= chars=6
+    Waxing
+--- card 5 [Text] section='Slide 3' page=3 img= chars=87
+    - Upper lip – $8
+    - Eyebrows – $10
+    - Full legs – $45
+    - Underarms – $15
+    - Brazilian – $60

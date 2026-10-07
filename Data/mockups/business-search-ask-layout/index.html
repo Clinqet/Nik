@@ -1,0 +1,1326 @@
+<title>Ask Clinket Ask Layout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ground: #FBFCFA;
+    --surface: #FFFFFF;
+    --surface-sunk: #F3F6F1;
+    --ink: #101F33;
+    --ink-soft: #46545F;
+    --ink-mute: #6B7883;
+    --line: #E1E7DE;
+    --line-firm: #C9D2C6;
+    --brand: #97EF29;
+    --brand-deep: #4E7F12;
+    --navy: #032858;
+    --warn: #9A5B00;
+    --warn-bg: #FBF1E0;
+    --stop: #A32C2C;
+    --stop-bg: #FAEBEB;
+    --shadow: 0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+
+    --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #0D1410;
+      --surface: #141C18;
+      --surface-sunk: #101711;
+      --ink: #EAF2E6;
+      --ink-soft: #B4C2B6;
+      --ink-mute: #8A9A8D;
+      --line: #253028;
+      --line-firm: #38473B;
+      --brand: #97EF29;
+      --brand-deep: #B8F76A;
+      --navy: #7FA8DC;
+      --warn: #E0A44A;
+      --warn-bg: #2A2013;
+      --stop: #E88A8A;
+      --stop-bg: #2B1717;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1410;
+    --surface: #141C18;
+    --surface-sunk: #101711;
+    --ink: #EAF2E6;
+    --ink-soft: #B4C2B6;
+    --ink-mute: #8A9A8D;
+    --line: #253028;
+    --line-firm: #38473B;
+    --brand: #97EF29;
+    --brand-deep: #B8F76A;
+    --navy: #7FA8DC;
+    --warn: #E0A44A;
+    --warn-bg: #2A2013;
+    --stop: #E88A8A;
+    --stop-bg: #2B1717;
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0 20px 90px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  header.masthead {
+    padding: 48px 0 26px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .masthead h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .masthead p { margin: 8px 0 0; color: var(--ink-soft); max-width: 64ch; }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.9;
+    white-space: nowrap;
+  }
+  .stamp b { color: var(--warn); }
+
+  h2.rule {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    margin: 58px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-firm);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2.rule span.n { font-family: var(--mono); color: var(--brand-deep); font-size: 12px; }
+  .lede { color: var(--ink-soft); max-width: 72ch; margin: 14px 0 24px; }
+
+  .verdict {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    border-radius: 3px;
+    padding: 16px 18px;
+    margin: 22px 0 0;
+  }
+  .verdict.bad { border-left-color: var(--stop); }
+  .verdict strong { font-family: var(--display); }
+  .verdict p { margin: 0; color: var(--ink-soft); }
+  .verdict p + p { margin-top: 8px; }
+
+  table.reg {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  table.reg th, table.reg td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.reg th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--line-firm);
+    white-space: nowrap;
+  }
+  table.reg td { color: var(--ink-soft); }
+  table.reg td b { color: var(--ink); }
+  .scrollx { overflow-x: auto; }
+
+  code, .mono {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 0 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag.ok { background: color-mix(in srgb, var(--brand) 20%, transparent); color: var(--brand-deep); }
+  .tag.warnt { background: var(--warn-bg); color: var(--warn); }
+  .tag.stopt { background: var(--stop-bg); color: var(--stop); }
+  .tag.neutral { background: var(--surface-sunk); color: var(--ink-mute); border: 1px solid var(--line); }
+
+  /* ── specimen scaffolding ───────────────────────────────────────────── */
+  .specs { display: grid; gap: 22px; margin-top: 26px; }
+  .specs.two { grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); }
+  .specs.phones { grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); }
+
+  .spec {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+  }
+  .spec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px dashed var(--line-firm);
+    padding-bottom: 9px;
+  }
+  .spec-head b { color: var(--ink); font-weight: 600; }
+  .note { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+  .note + .note { margin-top: 6px; }
+  .note b { color: var(--ink); }
+
+  /* ── the simulated web app chrome ───────────────────────────────────── */
+  .app {
+    background: #F0F1EE;
+    border: 1px solid var(--line-firm);
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    font-size: 11px;
+    min-height: 330px;
+  }
+  :root[data-theme="dark"] .app, :root:not([data-theme="light"]) .app { background: #0A0F0C; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .app { background: #F0F1EE; } }
+
+  .rail {
+    flex: 0 0 74px;
+    background: var(--navy);
+    border-radius: 5px;
+    padding: 9px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .rail .logo {
+    height: 13px;
+    border-radius: 2px;
+    background: var(--brand);
+    opacity: .9;
+    margin-bottom: 5px;
+  }
+  .rail i {
+    display: block;
+    height: 8px;
+    border-radius: 2px;
+    background: rgba(255,255,255,.24);
+  }
+  .rail i.on { background: var(--brand); }
+  .app.narrow .rail { display: none; }
+
+  .stage { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+
+  .topbar {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .topbar .h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  .topbar .ctrls { display: flex; gap: 5px; }
+  .topbar .ctrls b {
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    border: 1px solid var(--line-firm);
+    display: block;
+  }
+
+  /* THE page card: one card, full width, exactly the topbar's edges */
+  .pagecard {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .scroller {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 14px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .scroller.centered { justify-content: center; }
+  /* the reading column — centred INSIDE the full-width card */
+  .col { width: 100%; max-width: 430px; margin: 0 auto; display: flex; flex-direction: column; gap: 9px; }
+  .measure {
+    align-self: center;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-top: 1px dashed var(--line-firm);
+    border-bottom: 1px dashed var(--line-firm);
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+    padding: 1px 0;
+  }
+
+  /* the docked composer */
+  .dock {
+    flex: 0 0 auto;
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+    padding: 10px 12px;
+  }
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--line-firm);
+    background: var(--surface-sunk);
+    border-radius: 999px;
+    padding: 5px 5px 5px 11px;
+  }
+  .pill.focus { border-color: var(--brand); background: var(--surface); }
+  .pill.dim { opacity: .62; }
+  .pill .glyph { color: var(--ink-mute); font-size: 11px; flex: 0 0 auto; }
+  .pill .field { flex: 1; min-width: 0; color: var(--ink-mute); font-size: 11.5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .pill .field.typed { color: var(--ink); }
+  .pill .caret { display: inline-block; width: 1px; height: 11px; background: var(--ink); vertical-align: -2px; margin-left: 1px; }
+  .circ {
+    flex: 0 0 auto;
+    width: 23px; height: 23px;
+    border-radius: 50%;
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    color: var(--ink-mute);
+  }
+  .circ.go { background: var(--brand); border-color: var(--brand); color: #10240A; font-weight: 700; }
+  .circ.off { color: #C9C9C9; }
+
+  /* content bits inside the scroller */
+  .kicker {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .intro { font-size: 11.5px; color: var(--ink-soft); line-height: 1.5; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chips span {
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 3px 8px;
+    font-size: 10.5px;
+    color: var(--ink);
+  }
+  .recent { display: flex; flex-direction: column; }
+  .recent i {
+    font-style: normal;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    padding: 4px 0;
+    border-top: 1px solid var(--line);
+  }
+  .youline { display: flex; gap: 6px; align-items: flex-start; }
+  .youpill {
+    flex: 0 0 auto;
+    font-family: var(--mono);
+    font-size: 8.5px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    background: var(--surface-sunk);
+    border-radius: 999px;
+    padding: 1px 6px;
+    color: var(--ink-mute);
+  }
+  .youtext { font-size: 11.5px; font-weight: 600; color: var(--ink); }
+
+  .answer {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 10px;
+  }
+  .answer p { margin: 0; font-size: 11.5px; color: var(--ink-soft); line-height: 1.55; }
+  .answer p b { color: var(--ink); }
+  .answer .foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid var(--line);
+    margin-top: 9px;
+    padding-top: 8px;
+  }
+  .answer .foot em {
+    font-style: normal;
+    margin-left: auto;
+    font-size: 9.5px;
+    color: var(--ink-mute);
+  }
+  .mini {
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .mini.on { background: var(--brand); border-color: var(--brand); color: #10240A; }
+
+  .strip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface-sunk);
+    border-radius: 999px;
+    padding: 4px 6px 4px 10px;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+  }
+  .strip .spin {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    border: 2px solid color-mix(in srgb, var(--brand) 45%, transparent);
+    border-top-color: var(--brand-deep);
+    flex: 0 0 auto;
+  }
+  .strip .cnt { color: var(--ink-mute); }
+  .strip .jump { margin-left: auto; }
+
+  .box {
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+  .box.amber { border: 1px solid #F1D9A7; background: var(--warn-bg); color: var(--warn); }
+  .box.red { border: 1px solid #F2C4C0; background: var(--stop-bg); color: var(--stop); }
+  .box.calm { border: 1px solid var(--line); border-left: 3px solid var(--brand); background: var(--surface-sunk); color: var(--ink-soft); }
+  .box b { font-weight: 700; }
+  .box .act { display: inline-block; margin-top: 6px; }
+
+  .srcgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .srccard {
+    border: 1px solid var(--line-firm);
+    background: var(--surface-sunk);
+    border-radius: 4px;
+    padding: 7px 8px;
+    display: flex;
+    gap: 6px;
+    font-size: 10px;
+  }
+  .srccard .n {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--brand-deep);
+    background: color-mix(in srgb, var(--brand) 22%, transparent);
+    border-radius: 3px;
+    padding: 0 5px;
+    height: 15px;
+    flex: 0 0 auto;
+  }
+  .srccard b { color: var(--ink); font-weight: 600; display: block; line-height: 1.3; }
+  .srccard span { color: var(--ink-mute); }
+
+  /* ── the landing block: two lists, two behaviours ───────────────────── */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .split.stack { grid-template-columns: 1fr; gap: 10px; }
+  .lane { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+  /* a suggestion is a whole sentence — it wraps, it is never cut */
+  .chips.full span { white-space: normal; max-width: 200px; line-height: 1.3; padding: 4px 9px; }
+  /* what it looks like today: cut mid-word */
+  .chips.cut span { max-width: 132px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* history is quieter than a suggestion, and one line only */
+  .recent.light i {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--ink-mute);
+    font-size: 10px;
+    padding: 3.5px 0;
+  }
+  .recent.light i b { font-weight: 400; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .laneline { border-left: 1px solid var(--line); padding-left: 14px; }
+
+  /* ── the phone frame ────────────────────────────────────────────────── */
+  .phone {
+    width: 100%;
+    max-width: 268px;
+    margin: 0 auto;
+    border: 8px solid #1C231D;
+    border-radius: 26px;
+    background: var(--surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 470px;
+    font-size: 11px;
+  }
+  .phone .phhead {
+    background: var(--navy);
+    color: #fff;
+    padding: 9px 11px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .phone .phhead .back { opacity: .8; font-size: 12px; }
+  .phone .phhead .t { font-family: var(--display); font-weight: 700; font-size: 12px; }
+  .phone .phhead .s { font-size: 9px; opacity: .72; display: block; font-weight: 400; font-family: var(--body); }
+  .phone .phbody {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--surface);
+  }
+  .phone .phbody.centered { justify-content: flex-end; }
+  .phone .phdock {
+    border-top: 1px solid var(--line);
+    padding: 8px 10px;
+    background: var(--surface);
+  }
+  .keyboard {
+    background: var(--surface-sunk);
+    border-top: 1px solid var(--line-firm);
+    padding: 8px 6px 10px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3px;
+  }
+  .keyboard i {
+    display: block;
+    height: 15px;
+    border-radius: 3px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  .keyboard i.wide { grid-column: span 4; }
+  .keyboard i.mid { grid-column: span 3; }
+
+  .footnote {
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line-firm);
+    color: var(--ink-mute);
+    font-size: 13px;
+  }
+  ul.tight { margin: 12px 0 0; padding-left: 20px; color: var(--ink-soft); font-size: 14.5px; }
+  ul.tight li { margin-bottom: 7px; }
+  ul.tight li b { color: var(--ink); }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <h1>Ask Clinket — the ask layout</h1>
+      <p>One name on the screen, one place to type, and the card fills the width the way every other
+         page does. Web and phone, every state.</p>
+    </div>
+    <div class="stamp">
+      Sheet · business-search-ask-layout<br>
+      Drawn 2026-09-04<br>
+      <b>AWAITING APPROVAL</b><br>
+      Supersedes M1 §1 (page frame)
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">00</span> What is wrong today</h2>
+  <p class="lede">Four separate faults, all visible in one screenshot. Two are layout; two are a field
+     that is never emptied, which is a real defect and not a matter of taste.</p>
+
+  <div class="scrollx">
+  <table class="reg">
+    <tr>
+      <th>#</th><th>What you see</th><th>Why it happens</th><th>Also on the phone?</th>
+    </tr>
+    <tr>
+      <td><b>1</b></td>
+      <td><b>&ldquo;Ask Clinket&rdquo; twice</b>, one under the other</td>
+      <td>The top bar prints every page&rsquo;s name already. This page prints its own heading as well.
+          The bar&rsquo;s own note says it is <i>the page&rsquo;s ONLY title, because pages that printed
+          their own showed &ldquo;Team&rdquo; twice</i> — the same mistake came back.</td>
+      <td><span class="tag ok">No</span> the phone already shows it once</td>
+    </tr>
+    <tr>
+      <td><b>2</b></td>
+      <td><b>Wide empty margins</b> left and right, and the content does not line up with the bar above it</td>
+      <td>The page pins itself to a narrow centred column, while the bar above and every other page&rsquo;s
+          card run edge to edge. So the page reads as a floating strip inside a wide grey emptiness.</td>
+      <td><span class="tag ok">No</span> full width already</td>
+    </tr>
+    <tr>
+      <td><b>3</b></td>
+      <td><b>The ask box and microphone are still at the top</b> after an answer arrives</td>
+      <td>The top box always renders; a second one is added under the answer. Two boxes, both live.</td>
+      <td><span class="tag ok">No</span> one box, docked</td>
+    </tr>
+    <tr>
+      <td><b>4</b></td>
+      <td><b>The same words appear again</b> in the box at the bottom</td>
+      <td>The question is never cleared after it is asked, and <i>both</i> boxes read the same field —
+          so the sentence you just asked sits in both of them. The &ldquo;Ask a follow-up&rdquo; prompt can
+          therefore never be seen.</td>
+      <td><span class="tag stopt">YES</span> the phone keeps it too</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="verdict bad">
+    <p><strong>Fault 4 is the one to notice.</strong> It is not cosmetic. After every answer the box is
+      pre-filled with the question already answered, so pressing Ask again spends one of the day&rsquo;s
+      questions on a repeat, and the follow-up prompt is dead copy in all five languages.</p>
+    <p>The phone has the same fault, from the same line of shared code — so this sheet fixes both apps.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">01</span> The shape — one card, one box, docked</h2>
+  <p class="lede">The phone already does the right thing: the name is in the bar, the box is docked at the
+     bottom, and its prompt changes once an answer exists. The web copies that, so the two apps share one
+     set of rules rather than one set of component names.</p>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Web · today</b><span class="tag stopt">wrong</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard" style="background:transparent;border:0;">
+            <div class="scroller" style="padding:0;">
+              <div class="col" style="max-width:300px;">
+                <div style="font-family:var(--display);font-weight:700;font-size:12px;color:var(--navy);">Ask Clinket</div>
+                <div class="pill"><span class="glyph">&#9906;</span><span class="field typed">What&rsquo;s on this week?</span><span class="circ">&#127908;</span><span class="circ go">&rarr;</span></div>
+                <div class="youline"><span class="youpill">You</span><span class="youtext">What&rsquo;s on this week?</span></div>
+                <div class="answer"><p>There are no bookings anywhere in the business this week, covering <b>August 31&ndash;September 6, 2026</b>.</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span></div>
+                </div>
+                <div class="pill"><span class="field typed">What&rsquo;s on this week?</span><span class="circ">&#127908;</span><span class="circ go">&rarr;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>Two names, two boxes, two microphones, and the same sentence three times</b> —
+        and grey space down both sides where the card should be.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Web · proposed</b><span class="tag ok">this sheet</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">What&rsquo;s on this week?</span></div>
+                <div class="answer"><p>There are no bookings anywhere in the business this week, covering <b>August 31&ndash;September 6, 2026</b>.</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span><em>From your bookings</em></div>
+                </div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>The name once</b>, in the bar. <b>The card fills the width</b>, edge to edge with
+        the bar. <b>One box</b>, docked at the bottom and always in reach, <b>empty</b>, prompting for a
+        follow-up. The answer keeps a comfortable reading width inside the card.</p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <p><strong>Why docked rather than at the top.</strong> The answer grows downwards, so a box at the top
+      walks away from the words you are reading; a box at the bottom stays beside them. It is where the
+      phone already puts it, where the inbox already puts its message box, and it means the box never
+      changes places between the first question and the second.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">02</span> Web &mdash; nothing asked yet: the suggestions and the history</h2>
+  <p class="lede">Two lists sit here, and <b>they do two different things</b>. A suggestion, when tapped,
+     <b>asks</b> &mdash; it spends one of the day&rsquo;s questions. A recent question, when tapped,
+     <b>reopens the answer already given</b> &mdash; it costs nothing. Today they are the same size, the same
+     weight and the same colour, stacked under two shouting labels. That is the thing to fix.</p>
+
+  <div class="verdict bad">
+    <p><strong>And a suggestion is currently cut mid-word.</strong> The chips are a single line with an
+      ellipsis, so with a real service name the provider is offered
+      &ldquo;What&rsquo;s included in a Deluxe Hydra&hellip;&rdquo; &mdash; a question they cannot read before
+      spending one on it. A recent question can be up to 500 characters and is not clamped at all, so one long
+      question becomes a paragraph in the list.</p>
+  </div>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Today</b><span class="tag stopt">two labels, one shape, cut text</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard" style="background:transparent;border:0;">
+            <div class="scroller" style="padding:0;">
+              <div class="col" style="max-width:300px;">
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+                <div class="kicker">Try asking</div>
+                <div class="chips cut"><span>How much is a Deluxe Hydrating Facial?</span><span>What&rsquo;s included in a Deluxe Hydrating Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+                <div class="kicker" style="margin-top:4px;">Recent</div>
+                <div class="recent"><i>&#128337;&nbsp; How many leads did we get last week?</i><i>&#128337;&nbsp; What are our cancellation terms for a wedding booked more than six months in advance, and does the deposit carry over?</i><i>&#128337;&nbsp; Which staff are trained on the new laser?</i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>Three faults in one block.</b> Suggestions unreadable. History indistinguishable
+        from suggestions. One long past question swallowing the list. And two short columns of nothing down
+        both sides.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Recommended</b><span class="tag ok">two lanes, whole sentences</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller" style="justify-content:flex-end;">
+              <div class="col">
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+                <div class="split">
+                  <div class="lane">
+                    <div class="kicker">Try asking</div>
+                    <div class="chips full"><span>How much is a Deluxe Hydrating Facial?</span><span>What&rsquo;s included in a Deluxe Hydrating Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+                  </div>
+                  <div class="lane laneline">
+                    <div class="kicker">Recent</div>
+                    <div class="recent light">
+                      <i>&#128337;<b>How many leads did we get last week?</b></i>
+                      <i>&#128337;<b>What are our cancellation terms for a wedding booked more than six months&hellip;</b></i>
+                      <i>&#128337;<b>Which staff are trained on the new laser?</b></i>
+                      <i>&#128337;<b>Do we open on the holiday Monday?</b></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill focus"><span class="glyph">&#9906;</span><span class="field">Ask anything about your business&hellip;<span class="caret"></span></span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>Suggestions on the left, as pressable pills that wrap to the whole sentence</b> &mdash;
+        never cut. <b>History on the right, quieter and one line each</b>, behind a hairline. The shape and the
+        side now carry the difference between &ldquo;this will ask&rdquo; and &ldquo;this will reopen&rdquo;.</p>
+      <p class="note">The block sits <b>directly above the box</b> rather than floating in the middle, so the
+        suggestions are next to the thing they fill in &mdash; and the two lanes use the width that was
+        empty before.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>First visit &middot; no history yet</b><span class="tag ok">lanes collapse</span></div>
+      <div class="app" style="min-height:250px;">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller" style="justify-content:flex-end;">
+              <div class="col">
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+                <div class="kicker">Try asking</div>
+                <div class="chips full" style="max-width:100%;"><span>How much is a Deluxe Hydrating Facial?</span><span>What&rsquo;s included in a Deluxe Hydrating Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill focus"><span class="glyph">&#9906;</span><span class="field">Ask anything about your business&hellip;<span class="caret"></span></span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">With nothing to show on the right, the suggestions take the whole width. <b>No empty
+        &ldquo;Recent&rdquo; heading ever renders</b> &mdash; already true today, and it stays true.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Narrow &middot; tablet and below</b><span class="tag neutral">one lane under the other</span></div>
+      <div class="app narrow" style="min-height:250px;max-width:330px;">
+        <div class="stage">
+          <div class="topbar" style="padding:7px 9px;"><span class="h1" style="font-size:11.5px;">&#9776;&nbsp; Ask Clinket</span><span class="ctrls"><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller" style="padding:9px 8px 8px;justify-content:flex-end;">
+              <div class="col" style="max-width:100%;">
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+                <div class="split stack">
+                  <div class="lane">
+                    <div class="kicker">Try asking</div>
+                    <div class="chips full"><span>How much is a Deluxe Hydrating Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+                  </div>
+                  <div class="lane" style="border-top:1px solid var(--line);padding-top:6px;">
+                    <div class="kicker">Recent</div>
+                    <div class="recent light">
+                      <i>&#128337;<b>How many leads did we get last week?</b></i>
+                      <i>&#128337;<b>What are our cancellation terms for a wedding&hellip;</b></i>
+                      <i>&#128337;<b>Which staff are trained on the new laser?</b></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dock" style="padding:8px;"><div class="col" style="max-width:100%;"><div class="pill focus"><span class="field" style="font-size:10.5px;">Ask anything about your business&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Suggestions first, history under a hairline. Both keep their full-sentence pills and
+        their one-line rows &mdash; the only thing that changes is that the lanes stack.</p>
+    </div>
+  </div>
+
+  <div class="scrollx">
+  <table class="reg">
+    <tr><th></th><th>Try asking</th><th>Recent</th></tr>
+    <tr>
+      <td><b>What a tap does</b></td>
+      <td><b>Asks</b> &mdash; spends one of the day&rsquo;s questions</td>
+      <td><b>Reopens</b> the answer already given &mdash; spends nothing</td>
+    </tr>
+    <tr>
+      <td><b>Where it comes from</b></td>
+      <td>The provider&rsquo;s own services, plus the work questions their role can actually be answered
+          &mdash; unchanged rule (M4 §01b / M5 §10)</td>
+      <td>This browser, this business only. Never sent anywhere, cleared on sign-out &mdash; unchanged</td>
+    </tr>
+    <tr>
+      <td><b>How many</b></td>
+      <td><b>4</b> on the web, <b>3</b> on the phone. Opening hours is always the last one &mdash;
+          unchanged</td>
+      <td><b>4</b> shown on the web, <b>3</b> on the phone, of the 8 kept. Older ones roll off as new
+          questions are asked &mdash; <span class="tag warnt">new cap</span></td>
+    </tr>
+    <tr>
+      <td><b>Shape</b></td>
+      <td>Pressable pill, brand-green on hover, <b>wraps to the whole sentence</b> &mdash;
+          <span class="tag warnt">no longer cut</span></td>
+      <td>Quiet row with the clock, <b>one line, clamped</b> &mdash;
+          <span class="tag warnt">no longer a paragraph</span></td>
+    </tr>
+    <tr>
+      <td><b>New wording</b></td>
+      <td colspan="2"><b>None.</b> Both labels keep the keys they already have in all five languages. The
+          difference is carried by shape, weight and side &mdash; not by new copy</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="verdict">
+    <p><strong>The two caps are the only new rule</strong>, and they belong in the one place both apps read
+      from &mdash; beside the existing chip caps, so the phone and the web can never disagree about them.</p>
+  </div>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Landing &middot; no documents yet</b><span class="tag neutral">calm, not an error</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller centered">
+              <div class="col">
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+                <div class="box calm"><b>You have no documents yet.</b> Answers can already come from your
+                  services, offers, opening hours and business details. Add a price list or a terms sheet and
+                  they will come from those too.
+                  <span class="act mini on">Go to AI Knowledge</span></div>
+                <div class="kicker">Try asking</div>
+                <div class="chips"><span>How much is a Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill focus"><span class="glyph">&#9906;</span><span class="field">Ask anything about your business&hellip;<span class="caret"></span></span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Unchanged wording and unchanged rule &mdash; drawn here only to show it keeps its place
+        in the new frame. A member who cannot add documents is never shown it.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">03</span> Web &mdash; while it is working, and when it lands</h2>
+  <p class="lede">One Stop, not two. Today Stop appears both in the box and in the strip above the answer;
+     with the box docked it is always on screen, so the strip keeps the progress line and the count and
+     lets the box own Stop.</p>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Working</b><span class="tag warnt">one Stop</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">How much is a bridal package, and can it be booked online?</span></div>
+                <div class="strip"><span class="spin"></span><span>Reading your price list&hellip;</span><span class="cnt">&middot; 2 sources so far</span><span class="jump mini">&darr; Jump to sources</span></div>
+                <div class="answer"><p>A bridal package is <b>&#36;420</b> and includes hair, make-up and a
+                  trial session&hellip;</p></div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ">&#9632;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">The strip stays pinned to the top of the scroll area as it does today. <b>Stop is the
+        one dark square in the docked box</b> &mdash; reachable at any scroll position without a second copy.</p>
+      <p class="note">The field is <b>already empty</b> while the answer is being written, so a follow-up can
+        be typed as it arrives.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Answered &middot; with sources</b><span class="tag ok">the fix to 3 &amp; 4</span></div>
+      <div class="app">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">How much is a bridal package?</span></div>
+                <div class="answer"><p>A bridal package is <b>&#36;420</b> and includes hair, make-up and a
+                  trial session. A deposit of &#36;100 is taken at booking.</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini on">Helpful</span><span class="mini">Not helpful</span><em>From 2 documents</em></div>
+                </div>
+                <div class="kicker">Sources &nbsp;2</div>
+                <div class="srcgrid">
+                  <div class="srccard"><span class="n">1</span><span><b>Price list 2026.pdf</b><span>Page 3</span></span></div>
+                  <div class="srccard"><span class="n">2</span><span><b>Bridal terms.docx</b><span>Show text</span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>The question moves out of the box and into the line above the answer</b>, which is
+        the only place it belongs. The box is empty and prompts for a follow-up.</p>
+      <p class="note">Source cards, their one action each, and the quiet line under the answer are
+        <b>unchanged</b> &mdash; M2 and M5 still govern them.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">04</span> Web &mdash; the boundaries, in the same frame</h2>
+  <p class="lede">Every state that is not a plain answer. None of their words change; they are drawn to prove
+     the new frame holds them, and that a limit still reads as a limit rather than a breakage.</p>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Offline</b><span class="tag warnt">amber &middot; box disabled</span></div>
+      <div class="app" style="min-height:250px;">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller centered">
+              <div class="col">
+                <div class="box amber"><b>You&rsquo;re offline.</b> Your question is kept &mdash; ask again when you&rsquo;re connected.</div>
+                <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill dim"><span class="glyph">&#9906;</span><span class="field">Ask anything about your business&hellip;</span><span class="circ off">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Offline dims the whole box, microphone included &mdash; unchanged rule from M3.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Cut short</b><span class="tag warnt">amber</span></div>
+      <div class="app" style="min-height:250px;">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">List every service with its price and what it includes</span></div>
+                <div class="answer"><p>Facial &mdash; &#36;70, 45 minutes, includes cleanse, exfoliation&hellip;</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span></div>
+                </div>
+                <div class="box amber"><b>This answer was cut short.</b> Ask a narrower question to see the rest.</div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">The words stay and are marked. A <b>reopened</b> conversation says
+        &ldquo;Ask it again&rdquo; instead &mdash; unchanged.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Daily limit</b><span class="tag warnt">amber, never red</span></div>
+      <div class="app" style="min-height:250px;">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">What are our opening hours on Sunday?</span></div>
+                <div class="box amber">You have asked all of today&rsquo;s questions. They reset at midnight
+                  UTC. <span style="opacity:.8;">Try again in about 4 min.</span></div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask anything about your business&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">The sentence is the <b>server&rsquo;s own, already translated</b>. The screen adds only
+        the &ldquo;try again in&rdquo; tail. Unchanged.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Something went wrong</b><span class="tag stopt">red &middot; retry</span></div>
+      <div class="app" style="min-height:250px;">
+        <div class="rail"><div class="logo"></div><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <div class="stage">
+          <div class="topbar"><span class="h1">Ask Clinket</span><span class="ctrls"><b></b><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">What are our cancellation terms?</span></div>
+                <div class="box red">Something went wrong. Your question was not lost.
+                  <span class="act mini">Try again</span></div>
+              </div>
+            </div>
+            <div class="dock">
+              <div class="col"><div class="pill"><span class="field">Ask anything about your business&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>Try again re-asks the question shown above</b>, which is why the box may be empty
+        and the retry still works. Unchanged.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">05</span> Web &mdash; responsive proof</h2>
+  <p class="lede">The card fills whatever it is given; only the reading column inside it is bounded. Nothing
+     scrolls sideways &mdash; a wide table and the picture strip keep their own boxes, as today.</p>
+
+  <div class="specs two">
+    <div class="spec">
+      <div class="spec-head"><b>Tablet</b><span class="tag neutral">834 px &middot; rail hidden</span></div>
+      <div class="app narrow" style="min-height:290px;">
+        <div class="stage">
+          <div class="topbar"><span class="h1">&#9776;&nbsp; Ask Clinket</span><span class="ctrls"><b></b><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller">
+              <div class="col" style="max-width:100%;">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">How many leads did we get last week?</span></div>
+                <div class="answer"><p>You received <b>9 leads</b> last week, <b>25&ndash;31 August 2026</b>.
+                  Two are still unanswered.</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span><em>From your leads</em></div></div>
+                <div class="srcgrid">
+                  <div class="srccard"><span class="n">1</span><span><b>Bathroom refit &mdash; Kingsway</b><span>Open lead</span></span></div>
+                  <div class="srccard"><span class="n">2</span><span><b>Garden clearance</b><span>Open lead</span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="dock"><div class="col" style="max-width:100%;"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Below the reading width the column simply <b>stops bounding</b> and the card&rsquo;s own
+        padding is the only inset. Source cards stay two-up from tablet, one-up on a phone-width browser.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Phone-width browser</b><span class="tag neutral">390 px</span></div>
+      <div class="app narrow" style="min-height:290px;max-width:300px;">
+        <div class="stage">
+          <div class="topbar" style="padding:7px 9px;"><span class="h1" style="font-size:11.5px;">&#9776;&nbsp; Ask Clinket</span><span class="ctrls"><b></b></span></div>
+          <div class="pagecard">
+            <div class="scroller" style="padding:9px 8px 8px;">
+              <div class="col" style="max-width:100%;">
+                <div class="youline"><span class="youpill">You</span><span class="youtext">What&rsquo;s on this week?</span></div>
+                <div class="answer" style="padding:8px;"><p style="font-size:10.5px;">There are no bookings
+                  anywhere in the business this week, covering <b>August 31&ndash;September 6, 2026</b>.</p>
+                  <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span></div></div>
+              </div>
+            </div>
+            <div class="dock" style="padding:8px;"><div class="col" style="max-width:100%;"><div class="pill" style="padding-left:9px;"><span class="field" style="font-size:10.5px;">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">One column throughout. The magnifier glyph inside the box hides below the smallest
+        breakpoint, as it does today, so the field keeps its room.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">06</span> Phone &mdash; what changes, and what does not</h2>
+  <p class="lede">The phone&rsquo;s frame is already right and is <b>not being redrawn</b>. One thing changes:
+     the box is emptied once the question is asked, so the follow-up prompt can finally be seen. The second
+     Stop goes, for the same reason as on the web.</p>
+
+  <div class="specs phones">
+    <div class="spec">
+      <div class="spec-head"><b>Landing</b><span class="tag neutral">unchanged</span></div>
+      <div class="phone">
+        <div class="phhead"><span class="back">&larr;</span><span class="t">Ask Clinket<span class="s">Answers from your own business</span></span></div>
+        <div class="phbody centered">
+          <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+          <div class="kicker" style="margin-top:6px;">Try asking</div>
+          <div class="chips full"><span>How much is a Deluxe Hydrating Facial?</span><span>What&rsquo;s on this week?</span><span>What are our opening hours?</span></div>
+          <div class="lane" style="border-top:1px solid var(--line);padding-top:6px;margin-top:2px;">
+            <div class="kicker">Recent</div>
+            <div class="recent light">
+              <i>&#128337;<b>What are our cancellation terms for a wedding&hellip;</b></i>
+              <i>&#128337;<b>How many leads did we get last week?</b></i>
+              <i>&#128337;<b>Which staff are trained on the new laser?</b></i>
+            </div>
+          </div>
+        </div>
+        <div class="phdock"><div class="pill"><span class="field">Ask anything about your business&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+      </div>
+      <p class="note">Name and subtitle in the bar, box docked &mdash; already correct. <b>Two things change
+        here too:</b> a suggestion wraps to its whole sentence instead of being cut to one line, and history
+        is quieter, clamped to one line, and capped at three.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Answered</b><span class="tag ok">the fix</span></div>
+      <div class="phone">
+        <div class="phhead"><span class="back">&larr;</span><span class="t">Ask Clinket<span class="s">Answers from your own business</span></span></div>
+        <div class="phbody">
+          <div class="youline"><span class="youpill">You</span><span class="youtext">What&rsquo;s on this week?</span></div>
+          <div class="answer"><p>There are no bookings anywhere in the business this week, covering
+            <b>August 31&ndash;September 6, 2026</b>.</p>
+            <div class="foot"><span class="mini">Copy</span><span class="mini">Helpful</span><span class="mini">Not helpful</span></div></div>
+          <div class="strip" style="border-radius:4px;"><span>1 source</span><span class="jump">Tap to open</span></div>
+        </div>
+        <div class="phdock"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ off">&rarr;</span></div></div>
+      </div>
+      <p class="note"><b>Today the box still reads &ldquo;What&rsquo;s on this week?&rdquo; here.</b> After the
+        fix it is empty and prompts for a follow-up &mdash; same rule as the web.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Keyboard open</b><span class="tag neutral">unchanged</span></div>
+      <div class="phone">
+        <div class="phhead"><span class="back">&larr;</span><span class="t">Ask Clinket<span class="s">Answers from your own business</span></span></div>
+        <div class="phbody centered">
+          <div class="intro">Answers come from your own documents, services, offers, opening hours and business details.</div>
+        </div>
+        <div class="phdock"><div class="pill focus"><span class="field typed">how much is a br<span class="caret"></span></span><span class="circ">&#127908;</span><span class="circ go">&rarr;</span></div></div>
+        <div class="keyboard"><i class="wide"></i><i class="mid"></i><i class="mid"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="wide"></i><i class="mid"></i><i class="mid"></i></div>
+      </div>
+      <p class="note">Suggestions and Recent hide while the keyboard is up, because they sit behind it.
+        Unchanged rule from M4.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>Working</b><span class="tag warnt">one Stop</span></div>
+      <div class="phone">
+        <div class="phhead"><span class="back">&larr;</span><span class="t">Ask Clinket<span class="s">Answers from your own business</span></span></div>
+        <div class="phbody">
+          <div class="strip" style="border-radius:4px;"><span class="spin"></span><span>Looking that up&hellip;</span></div>
+          <div class="youline"><span class="youpill">You</span><span class="youtext">How much is a bridal package?</span></div>
+          <div class="answer"><p>A bridal package is <b>&#36;420</b> and includes&hellip;</p></div>
+        </div>
+        <div class="phdock"><div class="pill"><span class="field">Ask a follow-up&hellip;</span><span class="circ">&#127908;</span><span class="circ">&#9632;</span></div></div>
+      </div>
+      <p class="note">The pinned progress line keeps the step and the count; <b>Stop lives in the box</b>,
+        which is always on screen above the keyboard.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">07</span> The widths, as numbers</h2>
+
+  <div class="scrollx">
+  <table class="reg">
+    <tr><th>Piece</th><th>Rule</th><th>Why</th></tr>
+    <tr>
+      <td><b>The page card</b></td>
+      <td>Fills the content area, edge to edge &mdash; the same white rounded card, the same border, the
+          same corner radius as the bar above it and as the inbox</td>
+      <td>It is the only way its edges land under the bar&rsquo;s edges. The layout already owns the outer
+          gutters; the page must not add a second, different set.</td>
+    </tr>
+    <tr>
+      <td><b>The reading column</b></td>
+      <td>Centred inside the card, bounded at a comfortable measure; below that width it simply stops
+          bounding</td>
+      <td>A 1600 px line of text is unreadable. The bound belongs to the <i>text</i>, not to the card.</td>
+    </tr>
+    <tr>
+      <td><b>The docked box</b></td>
+      <td>Same bound as the reading column, so the box lines up under the answer</td>
+      <td>A full-bleed box under a bounded answer looks like two unrelated pages.</td>
+    </tr>
+    <tr>
+      <td><b>Source cards</b></td>
+      <td>One column on a phone, two from tablet up &mdash; unchanged</td>
+      <td>A source card is unreadable in a narrow half.</td>
+    </tr>
+    <tr>
+      <td><b>Sideways scrolling</b></td>
+      <td>None on the page. A wide table and the picture strip each scroll inside their own box &mdash;
+          unchanged</td>
+      <td>Platform rule.</td>
+    </tr>
+  </table>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">08</span> Where every state&rsquo;s words come from</h2>
+  <p class="lede">No new sentence is invented by this change. Every line above already exists in all five
+     languages; the only additions are none.</p>
+
+  <div class="scrollx">
+  <table class="reg">
+    <tr><th>Line</th><th>Comes from</th><th>New?</th></tr>
+    <tr><td>&ldquo;Ask Clinket&rdquo; in the bar</td><td>The screen &mdash; the bar&rsquo;s own title list</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>&ldquo;Ask anything about your business&hellip;&rdquo;</td><td>The screen</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>&ldquo;Ask a follow-up&hellip;&rdquo;</td><td>The screen &mdash; <b>currently unreachable</b>; this change makes it visible</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>The intro sentence, Try asking, Recent</td><td>The screen</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>The progress line and the source count</td><td>The <b>server</b>, already translated</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>Limit and refusal sentences</td><td>The <b>server</b>, already translated</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>Offline, cut short, try again</td><td>The screen</td><td><span class="tag neutral">existing</span></td></tr>
+    <tr><td>The quiet line under the answer</td><td>The screen, from the kinds cited &mdash; never a count of records</td><td><span class="tag neutral">existing</span></td></tr>
+  </table>
+  </div>
+
+  <div class="verdict">
+    <p><strong>No new wording in any language. No new key. No new request. No stored data of any kind.</strong>
+      This is the frame, the number of boxes, and one field being emptied.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <h2 class="rule"><span class="n">09</span> What this supersedes, and what it leaves alone</h2>
+
+  <ul class="tight">
+    <li><b>Supersedes M1 §1</b> on the page frame only: the page no longer prints its own name, the card
+      fills the width, and the ask box is docked at the bottom in every state instead of sitting at the top
+      with a second copy underneath.</li>
+    <li><b>Supersedes M4 §01b</b> on the <i>presentation</i> of the suggestion row only &mdash; two lanes
+      instead of two stacked labels, whole sentences instead of cut ones, and history clamped and capped.
+      Every rule M4 set about <i>which</i> chips appear, in what order, and Opening hours being reserved
+      <b>stands unchanged</b>, as does M5 §10 putting the work chips back.</li>
+    <li><b>M2 stands unchanged</b> &mdash; source cards, their one action each, the two panels, no download
+      anywhere.</li>
+    <li><b>M3 stands unchanged</b> &mdash; the microphone and its eleven states, still inside the box, its
+      message and language chips still below the box at full width.</li>
+    <li><b>M4 stands unchanged</b> &mdash; every state it drew keeps its words and its rules; §04 above only
+      re-frames them.</li>
+    <li><b>M5 stands unchanged</b> &mdash; work cards, the kind labels, money quoted verbatim, the quiet line
+      that never counts.</li>
+    <li><b>M6 is untouched</b> &mdash; it draws a different screen.</li>
+    <li><b>Nothing on the server changes.</b> No endpoint, no setting, no schema, no localization file.</li>
+  </ul>
+
+  <p class="footnote">
+    Sheet <b>business-search-ask-layout</b> &middot; drawn 2026-09-04 &middot; house tokens only
+    (navy ink, brand green for the chosen action, amber for limits, red for a real failure).<br>
+    Register row to be added to <span class="mono">C:\Nik\Data\provider-ai-search\PLAN.md</span> §0 as
+    <b>M7</b> on approval, with M1&rsquo;s row marked superseded on the page frame.
+  </p>
+
+</div>

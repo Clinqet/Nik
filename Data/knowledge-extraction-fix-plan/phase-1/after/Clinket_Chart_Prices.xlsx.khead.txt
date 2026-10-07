@@ -1,0 +1,24 @@
+# Clinket_Chart_Prices.xlsx
+blocks=2 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Prices
+[  1] Table        p1
+      hasHeader=False caption= rows=5
+      | Service | Price |
+      | Gel manicure | 45 |
+      | Pedicure | 35 |
+      | Full set acrylics | 60 |
+      | Nail art | 15 |
+
+## INVENTORY
+Sections: Prices (5)
+
+## CARDS (1)  warnings=0
+--- card 0 [Table] section='Prices' page= tokens~21 img=-1
+    Service | Price
+    Gel manicure | 45
+    Pedicure | 35
+    Full set acrylics | 60
+    Nail art | 15

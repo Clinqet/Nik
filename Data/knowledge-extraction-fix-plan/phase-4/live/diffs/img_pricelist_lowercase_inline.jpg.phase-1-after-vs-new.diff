@@ -1,0 +1,16 @@
+--- phase-1-after/cards (content)
++++ new-build/cards (content)
+@@ -1,12 +1,4 @@
+---- #0 [Text] section='nail bar' page=1 img= scripts=["Latn"] chars=114 title='Nail Bar Price List' type='Document'
+-    classic manicure $30
+-    gel manicure $45
+-    spa pedicure $45
+-    acrylic full set $65
+-    nail art per nail $3
+-    polish change $15
+---- #2 [Text] section='nail bar' page=1 img= scripts=["Latn"] chars=137 title='Nail Bar Price List' type='Document'
+-    # nail bar
++--- #0 [Text] section='nail bar' page=1 img= scripts=["Latn"] chars=126 title='Nail Bar Price List' type='Document'
+     - classic manicure $30
+     - gel manicure $45
+     - spa pedicure $45

@@ -1,0 +1,182 @@
+{
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "pipelineFingerprint": "5081f0f3ced54220be3c9dd2df57a62a:15c02f92315c494c88a56f0c26829c3f:4f4db4de3626484eb6f8dfdca752a1f1:cap=1",
+  "docName": "img_gujarati_pricelist.png",
+  "pageCount": 1,
+  "docTitle": "શ્રી અજય પટેલની વસ્તુઓની કિંમતની યાદી",
+  "docSummary": "દસ્તાવેજમાં પાન મસાલા, શરબત, મીઠાઈ, પાણીની બોટલ અને ચાના નામ સાથે તેમની કિંમતો દર્શાવવામાં આવી છે.",
+  "docLanguage": "gu",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "શ્રી અજય પટેલ",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "પાન મસાલા",
+            "₹250"
+          ],
+          [
+            "શરબત",
+            "₹800"
+          ],
+          [
+            "મીઠાઈ",
+            "₹500"
+          ],
+          [
+            "પાણીની બોટલ",
+            "₹5,000"
+          ],
+          [
+            "ચા",
+            "₹50"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "ગુજરાતીમાં પાંચ વસ્તુઓ અને તેમની કિંમતો દર્શાવતી યાદી; છેલ્લી પંક્તિમાં «ચા ₹50» લખેલું છે."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "d81727f429f17040",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "blobPath": "NKN607/_images/526c1daee4fe4ddebb9f384ad3987f0d/d81727f429f17040.png",
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "શ્રી અજય પટેલ"
+    }
+  ],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "unreadablePictures": 0,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionPagesFailedTransiently": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "c2c5d93b-19e6-40bd-abe4-6dd7f2c251ae",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, Heading 1",
+          "ocrReading": "# 2 414",
+          "firstAiReading": "",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '1, 54'",
+          "ocrReading": "1, 54 | ₹250",
+          "firstAiReading": "",
+          "sourceServiceName": "1, 54",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '$22144'",
+          "ocrReading": "$22144 | ₹ 800",
+          "firstAiReading": "",
+          "sourceServiceName": "$22144",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'4211%' reads 'મીઠાઈ'",
+          "location": "page 1, table 1, row '4211%', column 1",
+          "ocrReading": "4211%",
+          "firstAiReading": "મીઠાઈ",
+          "sourceServiceName": "4211%",
+          "passageIds": [],
+          "selectedReading": "મીઠાઈ",
+          "disposition": "CandidateReadingRetained",
+          "remainingUncertainty": "no usable source reading, and the page does not print these characters as text"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row 'WIE 24'",
+          "ocrReading": "WIE 24 | ₹5,000",
+          "firstAiReading": "",
+          "sourceServiceName": "WIE 24",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '3 โรงเ'",
+          "ocrReading": "3 โรงเ | ₹50",
+          "firstAiReading": "",
+          "sourceServiceName": "3 โรงเ",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

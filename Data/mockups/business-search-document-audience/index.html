@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Clinket — who on my team can find this file</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground:#FBFCFA; --surface:#FFFFFF; --surface-sunk:#F3F6F1;
+    --ink:#101F33; --ink-soft:#46545F; --ink-mute:#6B7883;
+    --line:#E1E7DE; --line-firm:#C9D2C6;
+    --brand:#97EF29; --brand-deep:#4E7F12; --brand-soft:#F4FFE4;
+    --navy:#032858; --navy-soft:#EAF0F9;
+    --warn:#9A5B00; --warn-bg:#FBF1E0;
+    --stop:#A32C2C; --stop-bg:#FAEBEB;
+    --info:#3730A3; --info-bg:#EEF2FF;
+    --shadow:0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+    --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+    --body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+      --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+      --line:#253028; --line-firm:#38473B;
+      --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+      --navy:#9FC2F2; --navy-soft:#16202E;
+      --warn:#E0A44A; --warn-bg:#2A2013;
+      --stop:#E88A8A; --stop-bg:#2B1717;
+      --info:#A9A6EE; --info-bg:#1A1A2E;
+      --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0D1410; --surface:#141C18; --surface-sunk:#101711;
+    --ink:#EAF2E6; --ink-soft:#B4C2B6; --ink-mute:#8A9A8D;
+    --line:#253028; --line-firm:#38473B;
+    --brand:#97EF29; --brand-deep:#B8F76A; --brand-soft:#1B2A12;
+    --navy:#9FC2F2; --navy-soft:#16202E;
+    --warn:#E0A44A; --warn-bg:#2A2013;
+    --stop:#E88A8A; --stop-bg:#2B1717;
+    --info:#A9A6EE; --info-bg:#1A1A2E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; }
+
+  header.masthead { padding:48px 0 28px; border-bottom:2px solid var(--ink); display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between; }
+  .masthead h1 { font-family:var(--display); font-weight:700; font-size:clamp(28px,4.2vw,44px); line-height:1.05; letter-spacing:-.02em; margin:0; text-wrap:balance; }
+  .masthead p { margin:8px 0 0; color:var(--ink-soft); max-width:64ch; }
+  .stamp { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-mute); text-align:right; line-height:1.8; white-space:nowrap; }
+
+  h2.rule { font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-mute); margin:52px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--line-firm); }
+  h2.rule span { color:var(--brand-deep); }
+  .lede { color:var(--ink-soft); margin:0 0 22px; max-width:86ch; }
+
+  .board { display:flex; flex-wrap:wrap; gap:22px; align-items:flex-start; }
+  .frame { background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; flex:1 1 460px; min-width:0; }
+  .frame.w360 { flex:0 0 360px; max-width:100%; }
+  .frame.w520 { flex:1 1 520px; }
+  .frame-label { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 14px; background:var(--surface-sunk); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); }
+  .frame-label em { font-style:normal; color:var(--brand-deep); font-weight:600; }
+  .pad { padding:16px; }
+
+  .docline { font-size:12px; color:var(--ink-mute); margin:0 0 12px; }
+  .editor-title { font-family:var(--display); font-weight:700; font-size:16px; margin:0 0 2px; }
+
+  .box { border:1px solid var(--line); border-radius:14px; padding:13px; margin:12px 0 0; background:var(--surface); }
+  .box.first { margin-top:0; }
+  .box h4 { margin:0 0 3px; font-size:13.5px; font-weight:700; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .box .sub { margin:0 0 10px; font-size:12px; color:var(--ink-soft); }
+
+  .pill { display:inline-flex; align-items:center; border-radius:999px; padding:1px 8px; font-size:10.5px; font-weight:700; letter-spacing:.02em; border:1px solid var(--line-firm); color:var(--ink-mute); background:var(--surface-sunk); white-space:nowrap; }
+  .pill.ok { background:var(--brand-soft); border-color:#CFE9A4; color:var(--brand-deep); }
+  .pill.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .pill.navy { background:var(--navy-soft); border-color:#C4D6EE; color:var(--navy); }
+  .pill.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .pill.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .pill.dash { border-style:dashed; }
+
+  .switch { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 11px; border:1px solid var(--line); border-radius:11px; background:var(--surface-sunk); }
+  .switch .lab { font-size:12.5px; font-weight:600; }
+  .switch .lab small { display:block; font-weight:400; color:var(--ink-mute); font-size:11.5px; margin-top:1px; }
+  .tog { width:36px; height:20px; border-radius:999px; background:var(--brand); position:relative; flex:none; border:1px solid #7FCB1F; }
+  .tog::after { content:""; position:absolute; top:2px; right:2px; width:14px; height:14px; border-radius:50%; background:#fff; }
+  .tog.off { background:var(--line-firm); border-color:var(--line-firm); }
+  .tog.off::after { right:auto; left:2px; }
+
+  .radio { display:flex; gap:9px; align-items:flex-start; padding:8px 10px; border:1px solid var(--line); border-radius:11px; margin-top:7px; background:var(--surface); }
+  .radio .dot { width:15px; height:15px; border-radius:50%; border:2px solid var(--line-firm); flex:none; margin-top:2px; }
+  .radio.on { border-color:#CFE9A4; background:var(--brand-soft); }
+  .radio.on .dot { border-color:var(--brand-deep); background:radial-gradient(circle at center, var(--brand-deep) 0 4px, transparent 4px); }
+  .radio .lab { font-size:12.5px; font-weight:600; }
+  .radio .lab small { display:block; font-weight:400; color:var(--ink-mute); font-size:11.5px; margin-top:1px; }
+
+  .roles { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .chip { border:1px solid var(--line-firm); border-radius:999px; padding:3px 10px; font-size:11.5px; font-weight:600; color:var(--ink-soft); background:var(--surface); }
+  .chip.on { background:var(--brand); border-color:#7FCB1F; color:#12200A; }
+  .chip.skel { color:transparent; background:linear-gradient(90deg,var(--surface-sunk),var(--line),var(--surface-sunk)); border-color:var(--line); border-radius:999px; }
+
+  .banner { display:flex; gap:9px; align-items:flex-start; border-radius:11px; padding:9px 11px; font-size:12px; margin-top:10px; border:1px solid var(--line); background:var(--surface-sunk); color:var(--ink-soft); }
+  .banner.info { background:var(--info-bg); border-color:#C7D7FE; color:var(--info); }
+  .banner.warn { background:var(--warn-bg); border-color:#E9CD9A; color:var(--warn); }
+  .banner.stop { background:var(--stop-bg); border-color:#E9B4B4; color:var(--stop); }
+  .banner b { display:block; }
+  .banner .act { margin-left:auto; font-weight:700; text-decoration:underline; white-space:nowrap; }
+
+  .spin { width:13px; height:13px; border-radius:50%; border:2px solid var(--line-firm); border-top-color:var(--brand-deep); display:inline-block; vertical-align:-2px; }
+
+  .foot { display:flex; gap:9px; justify-content:flex-end; margin-top:14px; }
+  .btn { border:1px solid var(--line-firm); border-radius:999px; padding:5px 14px; font-size:12.5px; font-weight:700; background:var(--surface); color:var(--ink); }
+  .btn.primary { background:var(--brand); border-color:#7FCB1F; color:#12200A; }
+
+  .docrow { display:flex; gap:10px; align-items:flex-start; padding:11px 0; border-bottom:1px solid var(--line); }
+  .docrow:last-child { border-bottom:0; }
+  .doc-ico { width:32px; height:32px; border-radius:9px; background:var(--brand-soft); border:1px solid #CFE9A4; color:var(--brand-deep); display:grid; place-items:center; font-size:9.5px; font-weight:700; flex:none; }
+  .doc-main { min-width:0; flex:1; }
+  .doc-name { font-size:13px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .doc-meta { font-size:11.5px; color:var(--ink-mute); margin-top:2px; }
+  .dots { color:var(--ink-mute); font-weight:700; letter-spacing:2px; }
+
+  .phone { border:1px solid var(--line-firm); border-radius:22px; overflow:hidden; background:var(--surface); }
+  .phone-bar { background:var(--surface-sunk); border-bottom:1px solid var(--line); padding:10px 14px; font-size:13px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+  .phone-body { padding:12px; }
+  .sheet { border:1px solid var(--line); border-radius:16px; padding:13px; background:var(--surface); }
+  .grab { width:38px; height:4px; border-radius:99px; background:var(--line-firm); margin:0 auto 10px; }
+  .field { border:1px solid var(--line); border-radius:11px; padding:8px 11px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px; }
+  .field .k { color:var(--ink-mute); font-size:11px; display:block; }
+
+  .note { font-size:12.5px; color:var(--ink-soft); margin:10px 0 0; }
+  .ann { border-left:3px solid var(--line-firm); padding:8px 0 8px 11px; margin:12px 0 0; font-size:12.5px; color:var(--ink-soft); }
+  .ann b { display:block; color:var(--ink); font-weight:700; margin-bottom:2px; }
+  .ann.good { border-left-color:var(--brand); }
+  .ann.ask { border-left-color:var(--warn); background:var(--warn-bg); border-radius:0 8px 8px 0; padding-right:11px; }
+  .ann.stop { border-left-color:var(--stop); background:var(--stop-bg); border-radius:0 8px 8px 0; padding-right:11px; }
+
+  table.src { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  table.src th, table.src td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.src th { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mute); border-bottom-color:var(--line-firm); }
+  table.src code { font-family:var(--mono); font-size:11px; background:var(--surface-sunk); border:1px solid var(--line); border-radius:5px; padding:0 4px; }
+  .scrollx { overflow-x:auto; }
+  .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>Who on my team can find this file</h1>
+    <p>The <b>Team search</b> box in the AI Knowledge document editor, and the quiet mark it leaves on the
+      document row. Every state, web and phone. Sheet <b>M1 §4</b> already drew the box itself and is approved —
+      this sheet draws what M1 left out and corrects its invented role names.</p>
+  </div>
+  <div class="stamp">
+    Ask Clinket · P4<br>
+    Approved 2026-09-04<br>
+    Revised after the P4 audit
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<h2 class="rule">0 · <span>What this sheet adds to M1 §4</span></h2>
+<p class="lede">M1 §4 is <b>live and approved</b>: two clearly separated boxes, the plain-words question, the default
+  of everyone, and the quiet navy mark on a restricted row. Nothing here replaces that. Three things it does not
+  draw are drawn here, plus one correction.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>The four items</span></div>
+    <div class="pad">
+      <div class="scrollx">
+      <table class="src">
+        <tr><th>Item</th><th>M1 §4</th><th>Here</th></tr>
+        <tr><td><b>Every state of the box</b></td><td>Only the two settled ones</td><td>§2 — waiting for the roles · saving · saved · could not save · nobody picked · not allowed to change · no connection · file being removed</td></tr>
+        <tr><td><b>The mark on the row</b></td><td>Web only</td><td>§3 — web <em>and</em> phone, restricted and not</td></tr>
+        <tr><td><b>The phone</b></td><td>One frame, settled state only</td><td>§4 — the sheet, the roles picker, and the same states</td></tr>
+        <tr><td>‼️ <b>The role names</b></td><td>Drew names that <b>do not exist</b> ("Front desk"), and drew Owner and Administrator as pickable</td><td>§5 — the business's own roles, in the platform's own words, and why Owner and Administrator are not chips</td></tr>
+      </table>
+      </div>
+      <div class="ann stop"><b>‼️ The correction that matters most</b>M1 §4 shows a chip called "Front desk". There is
+        no such role on this platform. A chip whose name is invented is worse than no chip at all: a provider will
+        believe they have restricted a file to a group that does not exist. The picker shows the business's real
+        roles and nothing else.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">1 · <span>The box, settled — web</span></h2>
+<p class="lede">Unchanged from M1 §4 except the chips. Reproduced so the states in §2 have something to be states
+  <em>of</em>, and so the two boxes are seen together the way the provider sees them.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · document editor · everyone (the default)</span><em>default</em></div>
+    <div class="pad">
+      <p class="editor-title">Price list 2026.pdf</p>
+      <p class="docline">PDF · 6 pages · Ready · Type: Price list</p>
+
+      <div class="box first">
+        <h4>Phone receptionist <span class="pill info">callers</span></h4>
+        <p class="sub">What the phone receptionist may do with this file when someone calls.</p>
+        <div class="switch"><div class="lab">Send details to callers<small>Callers can be sent the details found in this file.</small></div><div class="tog"></div></div>
+      </div>
+
+      <div class="box">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <p class="sub">Who can find this file when they ask Clinket a question. This does not change what callers hear.</p>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team<small>Anyone who works here can find it.</small></div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only certain roles<small>Pick who can find it. You and your administrators always can.</small></div></div>
+      </div>
+
+      <div class="foot"><button class="btn">Cancel</button><button class="btn primary">Save</button></div>
+      <div class="ann good"><b>The chips are not drawn until they are needed</b>"Everyone on my team" is the default and
+        the common case. Drawing a row of roles under it would ask the provider to read a list that decides nothing.</div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · "Only certain roles" chosen · real roles</span><em>recommended</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill navy">3 roles</span></h4>
+        <p class="sub">Who can find this file when they ask Clinket a question. This does not change what callers hear.</p>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles<small>Pick who can find it. You and your administrators always can.</small></div></div>
+        <div class="roles">
+          <span class="chip on">Operations manager</span>
+          <span class="chip">Sales representative</span>
+          <span class="chip on">Dispatcher</span>
+          <span class="chip">Technician</span>
+          <span class="chip">Catalogue manager</span>
+          <span class="chip on">Finance</span>
+          <span class="chip">Contractor</span>
+          <span class="chip">Read-only auditor</span>
+        </div>
+        <div class="banner info"><div>Anyone in another role will not find this file when they ask Clinket. Callers are not affected.</div></div>
+      </div>
+      <div class="ann"><b>Order</b>The platform's own order, the same one the team screens use — never alphabetical, and
+        never re-sorted by what is ticked, which would make chips jump under the finger that tapped them.</div>
+      <div class="ann"><b>A business with its own roles</b>A role the business added itself appears in the same row, after
+        the standard ones. Nothing about the picker is a fixed list of eight.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">2 · <span>Every other state — web</span></h2>
+<p class="lede">Each one drawn, each one with its words named in §6. The box saves as you tap, like the caller switch
+  beside it — there is no separate save for it, and the editor's Save button is only for the type and the linked work.</p>
+
+<div class="cols">
+
+  <div class="frame">
+    <div class="frame-label"><span>Waiting for the roles</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="roles">
+          <span class="chip skel">Operations manager</span><span class="chip skel">Dispatcher</span><span class="chip skel">Technician</span><span class="chip skel">Finance</span>
+        </div>
+      </div>
+      <p class="note">Only ever seen for a moment, and only when "Only certain roles" is opened for the first time in
+        a visit. The chosen mode is already known — it came with the file — so the radios are never blank.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Saving · then saved</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill navy">2 roles</span> <span class="spin"></span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="roles"><span class="chip on">Operations manager</span><span class="chip on">Dispatcher</span><span class="chip">Technician</span><span class="chip">Finance</span></div>
+        <div class="banner"><div>Saving…</div></div>
+      </div>
+      <p class="note">Then the line goes and the mark on the row behind updates. No toast on success: the chip that is
+        now filled in <em>is</em> the confirmation, and a toast for every tap would be four toasts to choose four roles.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Could not save</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="banner stop"><div><b>That did not save.</b>Your choice was put back. Try again.</div></div>
+      </div>
+      <p class="note">‼️ The choice is put back to what the server still holds, so the box never shows a setting that is
+        not real. This is the caller switch's rule, and it is the only honest one for something that decides who sees what.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Nobody picked</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill warn">owner and admins</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="roles"><span class="chip">Operations manager</span><span class="chip">Dispatcher</span><span class="chip">Technician</span><span class="chip">Finance</span></div>
+        <div class="banner warn"><div>With no role picked, only you and your administrators can find this file.</div></div>
+      </div>
+      <p class="note">Not an error and not blocked — it is a real choice, and it is what the server does with an empty
+        list. It is said out loud so nobody arrives there by accident.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>Not allowed to change it</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill navy">3 roles</span></h4>
+        <p class="sub">Operations manager, Dispatcher, Finance can find this file when they ask Clinket.</p>
+        <div class="banner"><div>Only the owner and administrators can change this.</div></div>
+      </div>
+      <div class="ann"><b>‼️ Read, never a dead control</b>No radios, no chips, nothing to press — the same rule the rest of
+        this page follows for a member who may look but not change. On web this state is reached through the row's mark;
+        the editor itself does not open for them today, and this sheet does not change that.</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>No connection</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="banner warn"><div>You are offline. This cannot be changed until you are back.</div></div>
+      </div>
+      <p class="note">The setting still <em>reads</em> correctly, because it arrived with the file. Only changing it waits.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>File still being read</span><em>changeable</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill ok">your team</span></h4>
+        <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="banner info"><div>You can set this now. It takes effect as soon as the file can be searched.</div></div>
+      </div>
+      <div class="ann good"><b>‼️ Deliberately unlike the caller switch</b>The caller switch is greyed until a file is
+        ready. This one is not — a file starts answering questions before it is finished, and locking the control until
+        then would leave the provider unable to restrict exactly the file that had just become findable.</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>File being removed</span></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search</h4>
+        <div class="banner stop"><div>This file is being removed. Nothing can be changed on it.</div></div>
+      </div>
+      <p class="note">The one moment the server refuses the change, so the screen says the same thing rather than
+        offering a control that will fail.</p>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>A one-person business</span><em>absent</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Phone receptionist <span class="pill info">callers</span></h4>
+        <div class="switch"><div class="lab">Send details to callers</div><div class="tog"></div></div>
+      </div>
+      <div class="ann good"><b>‼️ Absent, not empty and not disabled</b>Nobody else works here, so "who on my team" is a
+        question with no meaning. The box is not drawn at all, the row shows no mark, and the editor is exactly as calm
+        as it is today. The moment a second person joins, the box appears — with the default already right.</div>
+    </div>
+  </div>
+
+
+  <div class="frame">
+    <div class="frame-label"><span>The roles could not be loaded</span><em>added after the audit</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill navy">3 roles</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="banner stop"><div>The roles could not be loaded. <span class="act">Try again</span></div></div>
+      </div>
+      <div class="ann stop"><b>‼️ The first draft of this sheet did not draw this, and the code could reach it</b>The
+        roles are a separate lookup, so it can fail on its own. Drawn now, with the one thing that helps — and
+        the line about who can find the file is <b>withheld</b> until the roles are actually known: with none
+        loaded, "no role picked" is not yet a fact about the file.</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>A one-person business — with a file still restricted</span><em>corrected</em></div>
+    <div class="pad">
+      <div class="box first">
+        <h4>Team search <span class="pill navy">2 roles</span></h4>
+        <div class="radio"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+        <div class="radio on"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+        <div class="roles"><span class="chip on">Operations manager</span><span class="chip on">Finance</span></div>
+      </div>
+      <div class="ann stop"><b>‼️ The first draft said "absent on a one-person business" full stop, and that was
+        wrong in one case</b>A business that <b>shrank</b> to one person still holds whatever it chose while it had
+        a team — nothing clears the setting when the last colleague leaves. Hiding the box there hid a live
+        restriction <em>and</em> the only control that could clear it, until a new colleague joined and silently
+        could not find the file. So: absent when the file is on the default, drawn when it is restricted. The row
+        mark follows the same rule.</div>
+    </div>
+  </div>
+  <div class="frame">
+    <div class="frame-label"><span>A typed question and answer</span><em>absent</em></div>
+    <div class="pad">
+      <div class="ann"><b>No box on a typed answer</b>Questions and answers the provider typed in are found by everyone
+        on the team, always. Callers can already hear them, so there is nothing to restrict, and drawing an unusable box
+        on those rows would suggest otherwise. Only uploaded files carry the setting.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">3 · <span>The mark on the document row</span></h2>
+<p class="lede">M1 §4 drew this for web. Restricted rows carry one quiet navy mark; everything else carries nothing
+  extra, so a list of files stays as calm as it is today.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>WEB · the list</span></div>
+    <div class="pad">
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Staff commission plan 2026 <span class="pill">Policy</span> <span class="pill ok">Ready</span> <span class="pill info">Shared with callers</span> <span class="pill navy">Found by 3 roles</span></div>
+          <div class="doc-meta">Uploaded 12 Aug · 6 pages</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Bank details 2026 <span class="pill">Policy</span> <span class="pill ok">Ready</span> <span class="pill dash">Not shared</span> <span class="pill warn">Found by the owner and admins only</span></div>
+          <div class="doc-meta">Uploaded 12 Aug · 2 pages</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="docrow">
+        <div class="doc-ico">PDF</div>
+        <div class="doc-main">
+          <div class="doc-name">Price list 2026 <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill info">Shared with callers</span></div>
+          <div class="doc-meta">Uploaded 12 Aug · 6 pages</div>
+        </div>
+        <div class="dots">···</div>
+      </div>
+      <div class="ann"><b>Rules</b>The mark appears only when a file is restricted. It says the <em>number</em> of roles, never
+        their names — a row is not the place for a list, and the editor is one tap away. "Found by just you" is its own
+        wording because "0 roles" is not something anybody says.</div>
+      <div class="ann"><b>It opens the editor</b>Exactly like the caller mark beside it, and only for someone who may
+        change it. For anyone else it is plain text.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the same three rows</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Files</span></div>
+      <div class="phone-body">
+        <div class="docrow">
+          <div class="doc-ico">PDF</div>
+          <div class="doc-main">
+            <div class="doc-name">Staff commission plan 2026</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill">Policy</span><span class="pill info">Shared</span><span class="pill navy">3 roles</span></div>
+            <div class="doc-meta">12 Aug · 6 pages</div>
+          </div>
+        </div>
+        <div class="docrow">
+          <div class="doc-ico">PDF</div>
+          <div class="doc-main">
+            <div class="doc-name">Bank details 2026</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill">Policy</span><span class="pill dash">Not shared</span><span class="pill warn">Owner and admins</span></div>
+            <div class="doc-meta">12 Aug · 2 pages</div>
+          </div>
+        </div>
+        <div class="docrow">
+          <div class="doc-ico">PDF</div>
+          <div class="doc-main">
+            <div class="doc-name">Price list 2026</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px"><span class="pill">Price list</span><span class="pill info">Shared</span></div>
+            <div class="doc-meta">12 Aug · 6 pages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann stop"><b>‼️ Shorter words — and the reason this sheet first gave was WRONG</b>A phone row is
+        narrow, so the mark is "3 roles" rather than "Found by 3 roles". The first draft justified that as "the same
+        shortening the caller mark already uses ('Shared' for 'Shared with callers')" — <b>the shipped apps use the
+        SAME words for the caller mark on both platforms</b>, and "Shared with callers" appears in neither. The P4
+        audit caught it. The shortening stands on its own merits (a narrow row, correct plurals both sides) and this
+        is the only mark on the row whose words differ between web and phone. The rule is unchanged: only when
+        restricted, never the names.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">4 · <span>The phone — the box and its states</span></h2>
+<p class="lede">The same rules, not the same components. The chips do not fit under a radio on a narrow screen, so
+  choosing roles opens its own list — the pattern the file type and the linked work already use there.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the editor</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Edit</span></div>
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <p class="editor-title">Price list 2026.pdf</p>
+          <div class="field"><div><span class="k">Type</span>Price list</div><span class="dots">›</span></div>
+          <div class="field"><div><span class="k">Linked work</span>None</div><span class="dots">›</span></div>
+          <div class="box">
+            <h4>Phone receptionist <span class="pill info">callers</span></h4>
+            <div class="switch"><div class="lab">Send details to callers</div><div class="tog"></div></div>
+          </div>
+          <div class="box">
+            <h4>Team search <span class="pill ok">your team</span></h4>
+            <p class="sub">Who can find this file when they ask Clinket. Callers are not affected.</p>
+            <div class="radio on"><div class="dot"></div><div class="lab">Everyone on my team</div></div>
+            <div class="radio"><div class="dot"></div><div class="lab">Only certain roles</div></div>
+          </div>
+          <div class="foot"><button class="btn" style="flex:1">Cancel</button><button class="btn primary" style="flex:1">Save</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · choosing roles</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>Who can find it</span><span class="pill">Done</span></div>
+      <div class="phone-body">
+        <div class="sheet">
+          <div class="grab"></div>
+          <p class="note" style="margin:0 0 8px">You and your administrators always can.</p>
+          <div class="field"><div>Operations manager</div><span style="color:var(--brand-deep);font-weight:700">✓</span></div>
+          <div class="field"><div>Sales representative</div><span></span></div>
+          <div class="field"><div>Dispatcher</div><span style="color:var(--brand-deep);font-weight:700">✓</span></div>
+          <div class="field"><div>Technician</div><span></span></div>
+          <div class="field"><div>Catalogue manager</div><span></span></div>
+          <div class="field"><div>Finance</div><span style="color:var(--brand-deep);font-weight:700">✓</span></div>
+          <div class="field"><div>Contractor</div><span></span></div>
+          <div class="field"><div>Read-only auditor</div><span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>Saves as it is tapped</b>Each tick is written straight away, the same as the caller switch.
+        "Done" closes the list; it does not save, and nothing is lost if the sheet is swiped away.</div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>PHONE · the other states</span></div>
+    <div class="phone">
+      <div class="phone-bar"><span>AI Knowledge</span><span class="pill">Edit</span></div>
+      <div class="phone-body">
+        <div class="box first">
+          <h4>Team search <span class="pill navy">2 roles</span> <span class="spin"></span></h4>
+          <div class="field"><div><span class="k">Who can find it</span>Operations manager, Dispatcher</div><span class="dots">›</span></div>
+          <div class="banner"><div>Saving…</div></div>
+        </div>
+        <div class="box">
+          <h4>Team search <span class="pill ok">your team</span></h4>
+          <div class="banner stop"><div><b>That did not save.</b>Your choice was put back.</div></div>
+        </div>
+        <div class="box">
+          <h4>Team search <span class="pill warn">owner and admins</span></h4>
+          <div class="banner warn"><div>With no role picked, only you and your administrators can find this file.</div></div>
+        </div>
+        <div class="box">
+          <h4>Team search <span class="pill navy">3 roles</span></h4>
+          <p class="sub">Operations manager, Dispatcher, Finance can find this file.</p>
+          <div class="banner"><div>Only the owner and administrators can change this.</div></div>
+        </div>
+        <div class="box">
+          <h4>Team search <span class="pill ok">your team</span></h4>
+          <div class="banner warn"><div>You are offline. This cannot be changed until you are back.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pad" style="padding-top:0">
+      <div class="ann"><b>One frame, five states</b>Stacked for reading only — a provider sees one at a time, in the box's
+        own place in the editor.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">5 · <span>The roles — the business's own, and why two are missing</span></h2>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>What the picker shows</span></div>
+    <div class="pad">
+      <div class="roles">
+        <span class="chip">Operations manager</span><span class="chip">Sales representative</span><span class="chip">Dispatcher</span>
+        <span class="chip">Technician</span><span class="chip">Catalogue manager</span><span class="chip">Finance</span>
+        <span class="chip">Contractor</span><span class="chip">Read-only auditor</span>
+        <span class="chip" style="border-style:dashed">…any role this business added</span>
+      </div>
+      <div class="ann stop"><b>‼️ Owner and Administrator are not chips</b>They can find every file whatever this is set to —
+        that is what the line under the choice says, and it is enforced on the server. Drawing them as chips would let a
+        provider untick "Administrator" and believe an administrator had been shut out. They have not been, and cannot be.
+        <br><br>M1 §4 drew them as chips, and drew them ticked. This sheet supersedes it on that point only.</div>
+      <div class="ann"><b>Where the names come from</b>Every name is the platform's own word for that role — the same word
+        the team screens show, in the reader's own language. Nothing here is typed into this screen.</div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-label"><span>What happens to the setting when roles change</span></div>
+    <div class="pad">
+      <div class="scrollx">
+      <table class="src">
+        <tr><th>What happens</th><th>What the provider sees</th></tr>
+        <tr><td>A colleague is given one of the picked roles</td><td>They can find the file straight away. Nothing to re-save.</td></tr>
+        <tr><td>A colleague loses one of the picked roles</td><td>They stop finding it. Nothing to re-save.</td></tr>
+        <tr><td>A role the business added is deleted</td><td>The chip is simply gone from the picker; the file keeps its other roles. The mark on the row counts what is left.</td></tr>
+        <tr><td>Everyone leaves but the owner</td><td>The box stops being drawn — a one-person business again — and the setting is kept, not cleared.</td></tr>
+      </table>
+      </div>
+      <div class="ann good"><b>Nothing is copied</b>The choice stores the roles, not the people. That is why none of the rows
+        above needs the provider to do anything.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">6 · <span>Where every word comes from</span></h2>
+<p class="lede">Screen words are the screen's own, in the reader's language. Server words are already translated before
+  they arrive and are shown as sent — the screen never re-writes a sentence the server has already said.</p>
+
+<div class="frame">
+  <div class="frame-label"><span>Every string on this sheet</span></div>
+  <div class="pad scrollx">
+    <table class="src">
+      <tr><th>Where</th><th>Words</th><th>From</th></tr>
+      <tr><td>Box heading and its one-line explanation</td><td>"Team search" · "Who can find this file when they ask Clinket a question. This does not change what callers hear."</td><td>Screen — the WEB wording</td></tr>
+      <tr><td>The same explanation on the PHONE</td><td>"Who can find this file when they ask Clinket. Callers are not affected." — shorter, because the phone box has one line to give it</td><td>Screen — its OWN key, in every language. §4's phone frame drew this line while §6 registered only the long one, so the long one shipped</td></tr>
+      <tr><td>The two choices</td><td>"Everyone on my team" · "Only certain roles" and their small print</td><td>Screen</td></tr>
+      <tr><td>The role names</td><td>"Operations manager", "Dispatcher", …</td><td>Server — the platform's own name for each role, already in the reader's language</td></tr>
+      <tr><td>The mark on the row</td><td>"Found by 3 roles" · "Found by the owner and admins only" · phone: "3 roles" · "Owner and admins"</td><td>Screen, with the number filled in</td></tr>
+      <tr><td>Saving</td><td>"Saving…"</td><td>Screen</td></tr>
+      <tr><td>Could not save</td><td>"That did not save. Your choice was put back. Try again." — and NO separate button: re-tapping the choice IS the retry, so a second control would be a second way to do one thing</td><td>Screen — the same sentence for every reason it failed, because a provider cannot act on the difference</td></tr>
+      <tr><td>Nobody picked</td><td>"With no role picked, only you and your administrators can find this file."</td><td>Screen</td></tr>
+      <tr><td>Not allowed to change it</td><td>"Only the owner and administrators can change this."</td><td>Screen</td></tr>
+      <tr><td>No connection</td><td>"You are offline. This cannot be changed until you are back."</td><td>Screen</td></tr>
+      <tr><td>File still being read</td><td>"You can set this now. It takes effect as soon as the file can be searched."</td><td>Screen</td></tr>
+      <tr><td>File being removed</td><td>"This file is being removed. Nothing can be changed on it."</td><td>Screen</td></tr>
+      <tr><td>Waiting for the roles</td><td>ghost chips, no words at all — so nothing below the box jumps when they arrive</td><td>Screen</td></tr>
+      <tr><td>The roles could not be loaded</td><td>"The roles could not be loaded. Try again."</td><td>Screen</td></tr>
+    </table>
+    <div class="ann"><b>Not one technical word</b>No "index", no "audience list", no "field", no "permission key". A salon
+      owner and a plumber read this screen. The word "roles" is theirs already — it is what the team screens call them.</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="rule">7 · <span>What is deliberately not here</span></h2>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><span>Left out on purpose</span></div>
+    <div class="pad">
+      <div class="scrollx">
+      <table class="src">
+        <tr><th>Not drawn</th><th>Why</th></tr>
+        <tr><td>Picking <em>people</em> instead of roles</td><td>A person's access would then have two sources that disagree the moment somebody changes jobs. Roles follow the person; a name does not.</td></tr>
+        <tr><td>"Preview who can find this"</td><td>It would list colleagues by name on a file the provider is in the middle of restricting, and it needs a read the editor does not otherwise make.</td></tr>
+        <tr><td>Setting it while uploading</td><td>The caller switch is chosen at upload because an unshared file must never be sendable for even a moment. Team search has no such moment: the default is everyone, which is what an unmarked file already is.</td></tr>
+        <tr><td>Changing several files at once</td><td>Worth having, but it is a list-screen feature with its own states. Not this sheet.</td></tr>
+        <tr><td>A record of who changed it</td><td>The business activity feed is where that belongs, if it is wanted at all. Adding a line here would be inventing a second history.</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="rule">8 · <span>Decisions this sheet asks for</span></h2>
+<div class="board">
+  <div class="frame">
+    <div class="pad">
+      <div class="ann ask"><b>1 · Owner and Administrator are not chips</b>They always find every file. M1 §4 drew them as
+        pickable and ticked; this sheet removes them and says the rule in one line instead. <b>Supersedes M1 §4 on that point.</b></div>
+      <div class="ann ask"><b>2 · The box saves as you tap</b>Matching the caller switch beside it, not the editor's Save
+        button. The editor's Save stays for the file type and the linked work.</div>
+      <div class="ann ask"><b>3 · "Only certain roles" with nothing picked is allowed</b>It means you and your
+        administrators, it is said out loud in amber, and it is not blocked.</div>
+      <div class="ann ask"><b>4 · The mark counts roles, it does not name them</b>"Found by 3 roles", never
+        "Found by Operations manager, Dispatcher, Finance".</div>
+      <div class="ann ask"><b>5 · The box can be used while a file is still being read</b>Unlike the caller switch, which
+        waits for the file to be ready.</div>
+      <div class="ann stop"><b>‼️ 6 · CHANGED BY THE P4 AUDIT — "just you" is now "the owner and admins"</b>The mark and
+        the heading pill are read by someone who may look but not change, and that person <b>cannot</b> find a file
+        restricted to nobody. "Found by just you" told them they could. Naming the owner and administrators is true
+        for every reader.</div>
+      <div class="ann stop"><b>‼️ 7 · CHANGED BY THE P4 AUDIT — the box stays on a one-person business when the file is
+        restricted</b>See the corrected frame in §2. Absent on the default; drawn when there is something to clear.</div>
+      <div class="ann stop"><b>‼️ 8 · CHANGED BY THE P4 AUDIT — every tap is SENT</b>The first build skipped the write
+        when the tap matched the open document. That document is a snapshot the list only refreshes while something is
+        processing, so on a settled page a deliberate confirming tap became a silent no-op against a value that had
+        changed elsewhere — and the file stayed team-wide. The server compares against the current row and costs no
+        write when it matches; that is the only place the comparison is safe. After every write, success or failure,
+        the screen re-reads from the server.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

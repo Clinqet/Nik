@@ -1,0 +1,11 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+ docTitle=Glow Salon Price List lang=en pages= visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+-summary: Price list for haircuts, colouring, treatments, styling and scalp care, plus massage and body services with prices and session durations.
++summary: Salon services and prices for haircuts, beard trims, colouring, treatments, styling and scalp massage, plus massage and body services with prices and session durations.
+ [  0] Heading      p1 H1
+       Glow Salon Price List
+ [  1] Paragraph    p1

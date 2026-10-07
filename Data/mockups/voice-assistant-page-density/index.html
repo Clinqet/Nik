@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Assistant page — density, the disconnect action, the ring choice</title>
+<style>
+:root{
+  --ink:#032858; --ink-soft:#1B4C9B;
+  --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-press:#86d424; --green-soft:#F4FFE4; --green-ink:#3A6410; --green-mid:#DFFABD; --green-line:#bdebca; --green-wash:#F4FFF8;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E; --red:#FF3B30;
+  --blue-bg:#EAF3FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B;
+  --r-xl:20px; --r-lg:16px; --r:12px; --r-sm:9px;
+  --sh:0 1px 2px rgba(3,40,88,.05),0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06),0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased;padding:0 20px 90px}
+h1,h2,h3,h4,p{margin:0}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.15em}
+.wrap{max-width:1180px;margin:0 auto}
+header.masthead{padding:44px 0 24px;border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between}
+.masthead h1{font-size:clamp(26px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;font-weight:600}
+.masthead p{margin-top:8px;color:var(--muted);max-width:66ch}
+.stamp{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:right;line-height:1.8;white-space:nowrap}
+.stamp b{color:var(--amber-ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(245,245,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -20px;padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+nav.jump a{text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid transparent}
+nav.jump a:hover{border-color:var(--line);background:var(--card);color:var(--ink)}
+h2.rule{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:52px 0 6px;padding-bottom:8px;border-bottom:1px solid #d3d9e3;font-weight:600}
+h2.rule span{color:var(--green-ink)}
+.lede{color:var(--muted);margin:0 0 20px;max-width:88ch}
+.board{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;flex:1 1 460px;min-width:0}
+.frame.w360{flex:0 0 360px;max-width:100%}
+.frame.w420{flex:0 1 420px;max-width:100%}
+.frame.w520{flex:1 1 520px}
+.frame.full{flex:1 1 100%}
+.frame-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;background:var(--hair);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.frame-label em{font-style:normal;color:var(--green-ink);font-weight:600}
+.frame-label b.bad{color:var(--red-ink)}
+.pad{padding:16px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:var(--r);padding:12px 14px;font-size:13px;color:var(--muted);margin:0 0 18px}
+.callout b{color:var(--text)}
+.callout.warn{border-left-color:var(--amber-ink);background:var(--amber-bg)}
+.callout.ask{border-left-color:var(--red);background:var(--red-bg);color:var(--red-ink)}
+.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.notes li{margin:6px 0}
+.notes b{color:var(--text)}
+.out{margin-top:16px;padding:12px 14px;border:1px dashed #c9d2c6;border-radius:var(--r);font-size:12.5px;color:var(--muted);background:var(--tint)}
+.out b{display:block;color:var(--text);margin-bottom:4px}
+table.copy{width:100%;border-collapse:collapse;font-size:12.5px}
+table.copy th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px;border-bottom:1px solid var(--line)}
+table.copy td{padding:8px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.copy code{font-family:var(--mono);font-size:11.5px;background:var(--hair);padding:1px 6px;border-radius:5px;color:var(--ink)}
+.tbl-scroll{overflow-x:auto}
+.app{font-family:Lufga,Arial,sans-serif;color:var(--text)}
+.h-sec{font-size:15px;font-weight:600;color:var(--text)}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card.green{border-color:var(--green-line);background:linear-gradient(180deg,var(--green-wash),#fff)}
+.card.blue{border-color:var(--blue-line);background:var(--blue-bg)}
+.card.amber{border-color:var(--amber-line);background:var(--amber-bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:12px;padding:10px 15px;font-size:14px;font-weight:600;background:var(--card);color:var(--text);white-space:nowrap;line-height:1.2;cursor:default}
+.btn.primary{background:var(--green);border-color:var(--green);color:var(--text)}
+.btn.link{border:0;background:transparent;color:var(--ink-soft);padding:6px 4px;font-weight:600}
+.btn.danger{color:var(--red);border-color:rgba(255,59,48,.4)}
+.btn.sm{padding:7px 12px;font-size:13px;border-radius:10px}
+.btn.disabled{opacity:.45}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600;border:1px solid var(--line);color:var(--muted);background:var(--hair);white-space:nowrap;line-height:1.5}
+.pill.ok{background:var(--green-soft);border-color:#CFE9A4;color:var(--green-ink)}
+.pill.warn{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.banner{display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:11px 13px;font-size:13px;border:1px solid var(--line);background:var(--hair);color:var(--muted)}
+.banner.info{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+.banner.warn{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.banner.good{background:var(--green-soft);border-color:#CFE9A4;color:var(--green-ink)}
+.code{font-family:var(--mono);font-size:20px;letter-spacing:.06em;font-weight:600;color:var(--ink);background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;min-width:0;max-width:100%}
+.code small{font-family:Lufga,Arial,sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--faint);flex:1 1 100%}
+.code.done{border-color:var(--green-line);background:var(--green-wash)}
+.steps{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--faint)}
+.steps .s{display:inline-flex;align-items:center;gap:6px}
+.steps .n{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:600;color:var(--faint);background:var(--card)}
+.steps .s.done .n{background:var(--green);border-color:var(--green);color:var(--text)}
+.steps .s.now .n{border-color:var(--ink);color:var(--ink)}
+.steps .s.now{color:var(--ink);font-weight:600}
+.steps .bar{width:18px;height:1.5px;background:var(--line)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;font-weight:600;color:var(--muted)}
+.input{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;background:var(--card);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.input.off{background:var(--hair);color:var(--faint)}
+.seg{display:inline-flex;background:var(--hair);border:1px solid var(--line);border-radius:12px;padding:3px;gap:2px}
+.seg span{padding:8px 14px;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;align-items:center;line-height:1.25}
+.seg span small{font-weight:400;font-size:10.5px;color:var(--faint)}
+.seg span.on{background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(3,40,88,.12)}
+.seg span.on small{color:var(--green-ink)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row.between{justify-content:space-between}
+.stack{display:flex;flex-direction:column;gap:12px}
+.hr{height:1px;background:var(--line);margin:14px 0}
+.exp{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.exp .i{color:var(--muted)}
+.exp.open{border-bottom:0;padding-bottom:6px}
+.expbody{padding:0 2px 12px;border-bottom:1px solid var(--line)}
+.mute{color:var(--muted)}
+.tiny{font-size:12px;color:var(--faint)}
+.mono{font-family:var(--mono)}
+.dash{display:grid;grid-template-columns:200px 1fr;min-height:520px;background:var(--page)}
+.dash .side{background:var(--ink);color:#c7d6ea;padding:16px 12px;font-size:12.5px}
+.dash .logo{color:#fff;font-weight:600;font-size:16px;padding:6px 10px 16px}
+.dash .logo span{color:var(--green)}
+.dash .nav a{display:block;padding:7px 11px;border-radius:9px;color:#c7d6ea;text-decoration:none;margin-bottom:2px}
+.dash .nav a.on{background:var(--green);color:#12200A;font-weight:600}
+.dash .main{padding:20px 22px;min-width:0}
+.grid2{display:grid;grid-template-columns:1.25fr .9fr;gap:16px;align-items:start}
+.grid2.stretch{align-items:stretch}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.formgrid .wide{grid-column:1 / -1}
+.ghost{border:1px dashed #d8c7c7;background:repeating-linear-gradient(135deg,#fff,#fff 8px,#FDF3F3 8px,#FDF3F3 16px);border-radius:12px;display:grid;place-items:center;color:#b3261e;font-size:12px;font-weight:600;text-align:center;padding:12px}
+.phone{width:100%;max-width:328px;margin:0 auto;border:1px solid #c9d2c6;border-radius:30px;overflow:hidden;background:#FAFAFB;box-shadow:var(--sh-lift)}
+.phone .sb{height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:11px;font-weight:600;background:#fff}
+.phone .hdr{display:flex;align-items:center;gap:10px;padding:8px 14px 12px;background:#fff;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+.phone .body{padding:14px;display:flex;flex-direction:column;gap:12px;min-height:420px}
+.phone .card{border-radius:14px}
+.phone .code{font-size:17px}
+.sheet{margin:auto -14px -14px;background:#fff;border-radius:18px 18px 0 0;padding:10px 16px 18px;box-shadow:0 -10px 30px -18px rgba(3,40,88,.35);border-top:1px solid var(--line)}
+.sheet .grab{width:38px;height:4px;border-radius:999px;background:#d3d9e3;margin:0 auto 12px}
+.scrim{background:rgba(3,40,88,.35);border-radius:14px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;min-height:380px;margin:0 -14px -14px}
+.modal{position:relative;background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:var(--sh-lift);padding:18px;max-width:520px;margin:0 auto}
+.modal .x{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:999px;display:grid;place-items:center;color:var(--muted);background:var(--card);border:1px solid var(--line);z-index:2}
+.modal .x.weak{background:transparent;border-color:transparent;color:#d6dae0}
+.knowrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--hair)}
+.knowrow .ico{width:34px;height:34px;border-radius:9px;background:var(--green-soft);border:1px solid #DCEFC2;display:grid;place-items:center;color:#3F7A00;flex:none}
+.knowrow .txt{min-width:0;flex:1 1 200px}
+.knowrow .acts{display:flex;gap:8px;align-items:center;flex:none}
+.knowrow .full{flex:1 1 100%;display:flex;flex-direction:column;gap:6px}
+.knowrow .full.inset{padding-left:46px}
+.note{border-radius:10px;padding:9px 11px;font-size:12.5px;display:flex;gap:8px;align-items:flex-start}
+.note.warn{background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink)}
+.note.info{background:#EEF2FF;border:1px solid #C7D7FE;color:#3730A3}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 0 0}
+.legend b{color:var(--text)}
+@media (max-width:760px){
+  .dash{grid-template-columns:1fr}
+  .dash .side{display:none}
+  .grid2,.formgrid{grid-template-columns:1fr}
+  .frame,.frame.w360,.frame.w420,.frame.w520{flex:1 1 100%;min-width:0}
+  .knowrow .acts{flex-wrap:wrap}
+  .code{font-size:16px}
+  body{padding:0 12px 70px}
+  nav.jump{margin:0 -12px;padding:8px 12px}
+  .stamp{white-space:normal;text-align:left}
+  .masthead{gap:12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>AI Assistant page — density, the disconnect action, and the ring you choose</h1>
+    <p>Eight changes the owner asked for after testing the live page on 16 September. Nothing here invents a
+      feature: every panel already exists, and this sheet only says where it lives, when it is open, and what it
+      is allowed to claim.</p>
+    <p style="border-left:3px solid var(--amber-line);padding-left:10px;margin-top:10px">
+      <b>Amendment, approved with the sheet (PLAN D-17):</b> the ring options ship with the SECONDS ONLY. The
+      "about two rings" line under each option in §04 and §05 is drawn here and was dropped before build — a ring
+      is a carrier cadence, not a constant, so the count was a guess printed as a fact. The frames below are
+      otherwise as built.</p>
+    <p style="border-left:3px solid var(--amber-line);padding-left:10px;margin-top:10px">
+      <b>Owner changes after build, 2026-09-17 (PLAN D-31 to D-34) — these override the frames below:</b>
+      the settings form is NOT two columns — only Phone setup and Languages share a row, and every other section
+      is a full-width row in its original order (voice as two columns of cards, recording under hours, data &amp;
+      retention and help improve stacked). Pause assistant and Private mode sit in the LEFT column under who
+      answers. The knowledge line sits after the settings, just above Cancel assistant, as before the number cards
+      (D-37). Disconnect is a red outline button directly under the number card's actions with one line BELOW it,
+      before "How it works" (D-35, D-38) — not a link on its header. The phone adds pull-to-refresh and haptic
+      feedback.</p>
+    <p style="border-left:3px solid var(--amber-line);padding-left:10px;margin-top:10px">
+      <b>Amended again 2026-09-17 by <code>voice-own-number-honest-status</code> (PLAN D-42 to D-49), which overrides
+      these frames on:</b> the default ring time is 10 seconds, not 15 (D-42). After voicemail picks up first, the step-3
+      ring choice locks that time and every longer one, recommends the next shorter one, and holds code 2 until a
+      shorter time is saved (D-43, D-44). The connected card states the time they chose, with the test call's
+      stopwatch as its own line (D-45).</p>
+  </div>
+  <div class="stamp">
+    Sheet · voice-assistant-page-density<br>
+    Drawn 2026-09-16<br>
+    <b>Approved 2026-09-16, with one amendment</b><br>
+    Supersedes: voice-keep-your-number §C1/§C6 layout only
+  </div>
+</header>
+
+<nav class="jump">
+  <a href="#s1">01 · the page</a>
+  <a href="#s2">02 · your number card</a>
+  <a href="#s3">03 · settings</a>
+  <a href="#s4">04 · connect step 3</a>
+  <a href="#s5">05 · the phone</a>
+  <a href="#s6">06 · not available here</a>
+  <a href="#s7">07 · knowledge row</a>
+  <a href="#s8">08 · words</a>
+  <a href="#s9">09 · not changed</a>
+</nav>
+
+<h2 class="rule" id="s1">01 · The page <span>— the empty half, filled</span></h2>
+<p class="lede">Today the left card is told to match the height of the right column, so a three-row usage card is
+  stretched down a whole screen. The fix is not a taller card: it is a left column that carries the things a
+  provider actually reads next — what their two numbers do, and what their assistant already knows.</p>
+
+<div class="board">
+  <div class="frame full">
+    <div class="frame-label"><span>Today · 1440 · <b class="bad">the complaint</b></span><em>image 4.png</em></div>
+    <div class="app dash">
+      <div class="side">
+        <div class="logo">Clin<span>ket</span></div>
+        <div class="nav"><a>Business Info.</a><a>Portfolio</a><a class="on">AI Voice Assistant</a><a>AI Knowledge</a></div>
+      </div>
+      <div class="main">
+        <div class="grid2 stretch">
+          <div class="card" style="display:flex;flex-direction:column">
+            <div class="row between"><h3 class="h-sec">Usage this month (2026-09)</h3><span class="pill ok">Standard</span></div>
+            <p style="font-weight:600;margin-top:10px">5 of 0 minutes used</p>
+            <div class="hr"></div>
+            <div class="row between sub"><span>Missed calls answered by AI</span><b>5 calls · 4 min</b></div>
+            <div class="row between sub"><span>Voicemail messages</span><b>2 calls · 1 min</b></div>
+            <div class="row between sub"><span>Missed calls</span><b>1 call · 0 min</b></div>
+            <div class="ghost" style="flex:1;margin-top:14px;min-height:190px">dead space<br><span style="font-weight:400">the card is stretched to the right column</span></div>
+          </div>
+          <div class="stack">
+            <div class="card green">
+              <p class="tiny" style="letter-spacing:.08em">YOUR ASSISTANT NUMBER</p>
+              <div class="row" style="margin-top:6px"><b style="font-size:22px">+12364767193</b><span class="btn primary sm">Copy</span></div>
+              <p class="sub" style="margin-top:8px">Advertise this number.</p>
+            </div>
+            <div class="card">
+              <div class="row"><span class="pill">Not checked yet</span><b style="font-size:17px">+1 (289) 887-8495</b></div>
+              <p class="sub" style="margin-top:8px">You've dialled the codes, but we haven't confirmed a call reaches your assistant yet.</p>
+              <div class="row" style="margin-top:12px"><span class="btn primary sm">Check it now</span><span class="btn link">Back to the codes</span></div>
+              <div class="hr"></div>
+              <div class="exp">How it works <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+              <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+              <div class="exp">Disconnect my number <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div class="card row between"><span><b>Pause assistant</b><br><span class="sub">Callers can't reach this number while paused.</span></span><span class="pill">off</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame full">
+    <div class="frame-label"><span>Proposed · 1440 · <em>the same data, no dead space</em></span><em>§01</em></div>
+    <div class="app dash">
+      <div class="side">
+        <div class="logo">Clin<span>ket</span></div>
+        <div class="nav"><a>Business Info.</a><a>Portfolio</a><a class="on">AI Voice Assistant</a><a>AI Knowledge</a></div>
+      </div>
+      <div class="main">
+        <div class="grid2">
+          <div class="stack">
+            <div class="card">
+              <div class="row between"><h3 class="h-sec">Usage this month (2026-09)</h3><span class="row" style="gap:8px"><span class="pill ok">Standard</span><span class="btn link" style="padding:0">View call follow-ups ›</span></span></div>
+              <p style="font-weight:600;margin-top:10px">5 of 0 minutes used</p>
+              <div class="hr"></div>
+              <div class="row between sub"><span>Missed calls answered by AI</span><b>5 calls · 4 min</b></div>
+              <div class="row between sub"><span>Voicemail messages</span><b>2 calls · 1 min</b></div>
+              <div class="row between sub"><span>Missed calls</span><b>1 call · 0 min</b></div>
+            </div>
+
+            <div class="card">
+              <h4 class="h-sec">Who answers your calls</h4>
+              <p class="sub" style="margin-top:4px">Two numbers reach your assistant. Your choice below applies to both. The only difference is who rings your phone first.</p>
+              <div class="grid2" style="grid-template-columns:1fr 1fr;margin-top:12px">
+                <div class="card" style="background:var(--tint)">
+                  <p class="tiny" style="letter-spacing:.08em">YOUR CLINKET NUMBER</p>
+                  <b style="display:block;margin:4px 0 6px">+1 (236) 476-7193</b>
+                  <p class="sub" style="font-size:12px">Doesn't ring your phone while your own number is connected. Calls go straight to what you choose below.</p>
+                </div>
+                <div class="card" style="border-color:var(--green-line);background:var(--green-wash)">
+                  <p class="tiny" style="letter-spacing:.08em">YOUR OWN NUMBER</p>
+                  <b style="display:block;margin:4px 0 6px">+1 (289) 887-8495</b>
+                  <p class="sub" style="font-size:12px">Rings you first for about 15 seconds. If you don't pick up, it goes to what you choose below.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="border-color:#DCEFC2;background:var(--green-soft)">
+              <div class="row between">
+                <span><b>Your assistant already knows your profile, plus 14 documents.</b><br><span class="sub">Services, prices, hours and offers are always included.</span></span>
+                <span class="btn sm">Manage knowledge</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card green">
+              <p class="tiny" style="letter-spacing:.08em">YOUR ASSISTANT NUMBER</p>
+              <div class="row" style="margin-top:6px"><b style="font-size:22px">+12364767193</b><span class="btn primary sm">Copy</span></div>
+              <p class="sub" style="margin-top:8px">Advertise this number. Every call your assistant handles becomes a summarised follow-up.</p>
+            </div>
+
+            <div class="card">
+              <div class="row between">
+                <span class="row" style="gap:8px"><span class="pill">Not checked yet</span><b style="font-size:17px">+1 (289) 887-8495</b></span>
+                <span class="btn link danger" style="color:var(--red)">Disconnect</span>
+              </div>
+              <p class="sub" style="margin-top:8px">You've dialled the codes, but we haven't confirmed a call reaches your assistant yet. It takes about a minute.</p>
+              <div class="row" style="margin-top:12px"><span class="btn primary sm">Check it now</span><span class="btn link">Back to the codes</span></div>
+              <div class="hr"></div>
+              <div class="exp open">How it works <svg class="i"><path d="M18 15l-6-6-6 6"/></svg></div>
+              <div class="expbody">
+                <p style="font-size:13px"><b>Don't pick up, or silence the ring</b><br><span class="sub">Your assistant answers and tells you what they wanted.</span></p>
+                <p style="font-size:13px;margin-top:8px"><b>Phone off or no signal</b><br><span class="sub">Your assistant answers straight away.</span></p>
+                <p style="font-size:13px;margin-top:8px"><b>Decline the call (red button)</b><br><span class="sub">It goes to your voicemail. Your assistant stays out of it.</span></p>
+                <p style="font-size:13px;margin-top:8px"><b>Answer it yourself</b><br><span class="sub">A normal private call. Not recorded, not summarised.</span></p>
+                <div class="banner info" style="margin-top:10px">Tip: to silence a ring without declining, press the side button once, never twice.</div>
+              </div>
+              <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+
+            <div class="card row between"><span><b>Pause assistant</b><br><span class="sub">Callers can't reach this number while paused.</span></span><span class="pill">off</span></div>
+            <div class="card row between"><span><b>Keep my number private</b><br><span class="sub">Your number is hidden on your public page.</span></span><span class="pill">off</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>The stretch is removed.</b> Each column is a stack of cards sized to its own content, so nothing is
+    inflated to match its neighbour. At 1440 the two columns end within a card of each other; at 1024 and below
+    they stack, exactly as today.</li>
+  <li><b>“Who answers your calls” moves up</b> out of the settings section and sits beside the two numbers it
+    describes. It is the legend for the right column, and it was the one panel a provider needed while looking at
+    both numbers. It still renders only when the provider keeps their own number.</li>
+  <li><b>The knowledge line moves up too.</b> It was a full-width strip at the very bottom of the page; here it is
+    the third card in the left stack. Same component, same words, same single API call.</li>
+  <li><b>Nothing new is fetched.</b> Usage, own-number status and the knowledge summary are already loaded by this
+    page today. No extra request, no new endpoint.</li>
+</ul>
+
+<div class="out">
+  <b>The alternative I did not take</b>
+  Putting “Who answers your calls” in the RIGHT column under the two number cards. It reads well, but it pushes
+  Pause and Private below the fold on a laptop and leaves the left card stretched again — the exact complaint.
+</div>
+
+<h2 class="rule" id="s2">02 · Your number card <span>— disconnect is an action, not a chapter</span></h2>
+<p class="lede">Three expanders made disconnect look like a third topic to read. It is a decision, it belongs with
+  the other decisions, and the safety is in the dialog that follows — which still asks the provider to dial the
+  clear code and then proves the line is really off with a reverse check.</p>
+
+<div class="board">
+  <div class="frame w420">
+    <div class="frame-label"><span>Connected</span><em>the normal day</em></div>
+    <div class="pad app">
+      <div class="card" style="border-color:var(--green-line);background:linear-gradient(180deg,var(--green-wash),#fff)">
+        <div class="row between">
+          <span class="row" style="gap:8px"><span class="pill ok">Connected</span><b style="font-size:17px">+1 (289) 887-8495</b></span>
+          <span class="btn link" style="color:var(--red)">Disconnect</span>
+        </div>
+        <p class="tiny" style="margin-top:4px">Last checked 15 Sep</p>
+        <p class="sub" style="margin-top:8px">Your phone rings for about 15 seconds, then your assistant answers.</p>
+        <div class="row" style="margin-top:12px">
+          <span class="btn link">Check again</span><span class="btn link">Adjust ring time</span><span class="btn link">Hear it yourself</span><span class="btn link">Use a different number</span>
+        </div>
+        <div class="hr"></div>
+        <div class="exp open">How it works <svg class="i"><path d="M18 15l-6-6-6 6"/></svg></div>
+        <div class="expbody"><p class="sub">Four lines: don't pick up · phone off · decline · answer it yourself.</p></div>
+        <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>A failed check</span><em>the fix keeps the floor</em></div>
+    <div class="pad app">
+      <div class="card amber">
+        <div class="row between">
+          <span class="row" style="gap:8px"><span class="pill warn">Your voicemail picked up first</span><b style="font-size:17px">+1 (289) 887-8495</b></span>
+          <span class="btn link" style="color:var(--red)">Disconnect</span>
+        </div>
+        <p class="sub" style="margin-top:8px">Your phone rang a little too long before your assistant could step in. Let's make it ring for less time.</p>
+        <div class="row" style="margin-top:12px"><span class="btn primary sm">Shorten the ring</span><span class="btn link">Check again</span></div>
+        <div class="hr"></div>
+        <div class="exp open">How it works <svg class="i"><path d="M18 15l-6-6-6 6"/></svg></div>
+        <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>Answers every call</span><em>admin arrangement</em></div>
+    <div class="pad app">
+      <div class="card" style="border-color:var(--green-line);background:linear-gradient(180deg,var(--green-wash),#fff)">
+        <div class="row between">
+          <span class="row" style="gap:8px"><span class="pill ok">Connected</span><b style="font-size:17px">+1 (289) 887-8495</b></span>
+          <span class="btn link" style="color:var(--red)">Disconnect</span>
+        </div>
+        <p class="tiny" style="margin-top:4px">Set up with you on 15 Sep</p>
+        <p class="sub" style="margin-top:8px"><b>Your assistant answers every call.</b> Your phone doesn't ring first.</p>
+        <p class="tiny" style="margin-top:6px">To take calls yourself again, dial <span class="mono">##002#</span> and check again.</p>
+        <div class="row" style="margin-top:12px"><span class="btn link">Check again</span><span class="btn link">Hear it yourself</span></div>
+        <div class="hr"></div>
+        <div class="exp open">How it works <svg class="i"><path d="M18 15l-6-6-6 6"/></svg></div>
+        <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>Disconnect sits on the header row, right-aligned, in the danger tone</b> — away from the green primary,
+    never adjacent to it, and it opens the same dialog it opens today. One tap instead of expand-then-tap, and a
+    whole section of the card is gone.</li>
+  <li><b>“How it works” is open when the card is drawn</b>, on both surfaces. “What's not supported” stays closed
+    and the accordion stays single-open, so opening it folds “How it works” away.</li>
+  <li>‼️ <b>“Use a different number” is added to the connected card</b>, and it is not cosmetic: the settings field is
+    now read-only and its hint sends the provider “to your number card” — which today offers no way to change it. The
+    link opens the connect flow at step 1 with the number pre-filled, which is the one path that re-reads the carrier,
+    re-issues the codes and re-verifies.</li>
+  <li><b>The disconnect link appears only once the number is the provider's to disconnect</b> — the invitation
+    state and the “we can't offer this here” state have no such link, exactly as today.</li>
+</ul>
+
+<h2 class="rule" id="s3">03 · Assistant settings <span>— one line removed, two columns used</span></h2>
+<p class="lede">The settings block is a 820px column on a 1400px page, so a third of the row is white. Sections are
+  independent of each other, so they can sit two across without a sentence ever running long.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Today · 1400</span><em>image 5.png / 6.png</em></div>
+    <div class="pad app" style="background:var(--page)">
+      <h3 class="h-sec">Assistant settings</h3>
+      <p class="row" style="gap:8px;margin-top:8px;font-size:12.5px"><b>Your numbers</b><span class="pill">Clinket only</span><span class="mute">+1 (236) 476-7193 · +1 (289) 887-8495</span></p>
+      <div class="card" style="margin-top:12px">
+        <b>Who answers your calls</b>
+        <p class="sub">…the panel that is moving to the top of the page…</p>
+      </div>
+      <div class="card" style="margin-top:12px;max-width:70%">
+        <div class="field"><label>Number to reach you on</label><div class="input off">+12898878495</div></div>
+      </div>
+      <div class="ghost" style="margin-top:-56px;margin-left:72%;height:56px">white</div>
+      <div class="card" style="margin-top:12px;max-width:70%">
+        <div class="row between"><span><b>Call recording</b><br><span class="sub">Keep recordings of your assistant calls.</span></span><span class="pill ok">on</span></div>
+      </div>
+      <div class="ghost" style="margin-top:-62px;margin-left:72%;height:62px">white</div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Proposed · 1400</span><em>§03</em></div>
+    <div class="pad app" style="background:var(--page)">
+      <h3 class="h-sec">Assistant settings</h3>
+      <p class="sub" style="margin-top:4px">These apply to both of your numbers.</p>
+      <div class="formgrid" style="margin-top:12px">
+        <div class="card">
+          <b>Phone number setup</b>
+          <p class="sub" style="margin:4px 0 8px">Your assistant is connected to this number. To use a different one, change it on your number card so we can check it again.</p>
+          <div class="input off">+1 (289) 887-8495 <span class="tiny">locked</span></div>
+        </div>
+        <div class="card">
+          <b>Languages</b>
+          <p class="sub" style="margin:4px 0 8px">The language your assistant greets in. It still understands every caller.</p>
+          <div class="input">English <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="card">
+          <b>Voice</b>
+          <p class="sub" style="margin:4px 0 8px">How your assistant sounds.</p>
+          <div class="input">Alloy <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="card">
+          <b>Call recording</b>
+          <p class="sub" style="margin:4px 0 8px">Recording also writes the summary for calls your team answers.</p>
+          <div class="row between"><span class="tiny">Kept 90 days, then deleted.</span><span class="pill ok">on</span></div>
+        </div>
+        <div class="card wide">
+          <b>When your assistant answers</b>
+          <p class="sub" style="margin:4px 0 8px">Two modes are available while you keep your own number; the other two need your assistant to answer first.</p>
+          <div class="formgrid">
+            <div class="card" style="border-color:var(--green-line);background:var(--green-wash)"><b style="font-size:13.5px">Any missed call</b><br><span class="sub" style="font-size:12px">Your own number rings you first; if you don't pick up, the assistant answers.</span></div>
+            <div class="card"><b style="font-size:13.5px">Outside business hours</b><br><span class="sub" style="font-size:12px">Inside your hours the call is yours to miss.</span></div>
+          </div>
+        </div>
+        <div class="card wide">
+          <b>Greeting and instructions</b>
+          <p class="sub" style="margin:4px 0 8px">Free text — a wide field, because it is written in sentences.</p>
+          <div class="input" style="min-height:64px;align-items:flex-start">Warm, brief, never promises a discount.</div>
+        </div>
+      </div>
+      <div class="row" style="justify-content:flex-end;margin-top:14px"><span class="btn primary">Save changes</span></div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>The “Your numbers · Clinket only · +1… · +1…” line is deleted.</b> It was the third place the same two
+    numbers appeared on one screen, and the only one that gave them no role. The panel at the top of the page says
+    which number does what, which is the part a provider actually needs.</li>
+  <li><b>Two columns from 1024 up, one column below.</b> Each card holds one setting, so nothing reflows mid-sentence
+    and no label is ever orphaned from its control. Free-text settings and the answering modes stay full width,
+    because those ARE sentences.</li>
+  <li><b>Save stays where it is</b> — bottom right of the form, one button, unchanged behaviour.</li>
+</ul>
+
+<h2 class="rule" id="s4">04 · Connect · step 3 <span>— the ring you choose, and a close button you can see</span></h2>
+<p class="lede">Code 2 carries the ring time, so the moment to choose it is before it is dialled — not in a separate
+  dialog afterwards. The default becomes 15 seconds: it is the longest time we have measured to still beat
+  voicemail, and it is the one most providers can actually reach a phone in.</p>
+
+<div class="board">
+  <div class="frame w520">
+    <div class="frame-label"><span>Today</span><em>image 7.png — the X is a ghost</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app">
+        <div class="x weak"><svg class="i"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="steps"><span class="s done"><span class="n">✓</span>Your number</span><span class="bar"></span><span class="s done"><span class="n">✓</span>Two checks</span><span class="bar"></span><span class="s now"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+        <div class="code done" style="margin-top:14px"><small>Code 1 dialled</small>*004*2364767193# <span class="btn primary sm">Copy</span></div>
+        <div class="code" style="margin-top:10px"><small>Code 2 of 2 · sets how long your phone rings first</small>**61*2364767193**10# <span class="btn primary sm">Copy</span></div>
+        <div class="banner warn" style="margin-top:10px">Do code 2 last, always.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w520">
+    <div class="frame-label"><span>Proposed · 15 s chosen</span><em>§04</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app">
+        <div class="x"><svg class="i"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="steps" style="padding-right:40px"><span class="s done"><span class="n">✓</span>Your number</span><span class="bar"></span><span class="s done"><span class="n">✓</span>Two checks</span><span class="bar"></span><span class="s now"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+        <div class="code done" style="margin-top:14px"><small>Code 1 dialled</small>*004*2364767193# <span class="btn primary sm">Copy</span></div>
+        <div class="card" style="margin-top:10px;background:var(--tint)">
+          <b style="font-size:13.5px">How long should your phone ring first?</b>
+          <p class="sub" style="margin:4px 0 10px;font-size:12.5px">Longer gives you more time to pick up. Shorter gets your caller to your assistant faster.</p>
+          <div class="seg"><span>10 seconds<small>about two rings</small></span><span class="on">15 seconds<small>about three rings</small></span></div>
+          <p class="tiny" style="margin-top:8px">Code 2 below carries this. Pick your time first, then dial it.</p>
+        </div>
+        <div class="code" style="margin-top:10px"><small>Code 2 of 2 · sets how long your phone rings first</small>**61*2364767193**15# <span class="btn primary sm">Copy</span></div>
+        <div class="banner warn" style="margin-top:10px">Do code 2 last, always. If you ever redo code 1 later, do code 2 again straight after.</div>
+        <div class="row between" style="margin-top:14px"><span class="btn">Back</span><span class="btn primary">I've done both</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>Saving the new time</span><em>one call, then the code redraws</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app" style="max-width:none">
+        <div class="card" style="background:var(--tint)">
+          <b style="font-size:13.5px">How long should your phone ring first?</b>
+          <div class="seg" style="margin-top:10px"><span class="on">10 seconds<small>about two rings</small></span><span class="disabled" style="opacity:.45">15 seconds<small>about three rings</small></span></div>
+          <p class="tiny" style="margin-top:8px">Updating your code…</p>
+        </div>
+        <div class="code" style="margin-top:10px;opacity:.5"><small>Code 2 of 2</small>**61*2364767193**15# <span class="btn sm disabled">Copy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>One option only</span><em>carrier measured at 10 s</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app" style="max-width:none">
+        <div class="card" style="background:var(--tint)">
+          <b style="font-size:13.5px">How long should your phone ring first?</b>
+          <p class="sub" style="margin:4px 0 10px;font-size:12.5px">Your carrier answers with voicemail after this, so this is the longest we can set.</p>
+          <div class="seg"><span class="on">10 seconds<small>about two rings</small></span></div>
+        </div>
+        <div class="code" style="margin-top:10px"><small>Code 2 of 2</small>**61*2364767193**10# <span class="btn primary sm">Copy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>Verizon family</span><em>no code 2 exists</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app" style="max-width:none">
+        <div class="code done"><small>The one code</small>*712364767193 <span class="btn primary sm">Copy</span></div>
+        <div class="banner warn" style="margin-top:10px">On your carrier, calls forward on no answer using a ring time your carrier sets. There is nothing to choose here.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w420">
+    <div class="frame-label"><span>The save failed</span><em>network, or the carrier cap changed</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="modal app" style="max-width:none">
+        <div class="card" style="background:var(--tint)">
+          <b style="font-size:13.5px">How long should your phone ring first?</b>
+          <div class="seg" style="margin-top:10px"><span class="on">10 seconds<small>about two rings</small></span><span>15 seconds<small>about three rings</small></span></div>
+          <div class="banner warn" style="margin-top:10px">We couldn't save that just now. The code below is still your current time.</div>
+        </div>
+        <div class="code" style="margin-top:10px"><small>Code 2 of 2</small>**61*2364767193**10# <span class="btn primary sm">Copy</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>The close control gets a body</b> — a 32px circle with the card's own border on white, dark enough to read
+    at a glance, and the step strip is padded so no step label ever passes under it. It is still hidden while a
+    verification call is live, which is the one moment the dialog must not be dismissed.</li>
+  <li><b>15 seconds becomes the default</b> for everyone whose carrier allows it. Rogers is measured at 15; a
+    carrier we have not measured is capped at 15; a carrier measured lower keeps its own cap and shows one option
+    with the sentence that says why.</li>
+  <li><b>The picker writes through the endpoint that already exists</b> (<span class="mono">PUT own-number/ring-seconds</span>),
+    which returns the freshly rendered codes — so code 2 on screen is always the code the server would render. No
+    second source of truth, no client-side string building.</li>
+  <li><b>The same picker replaces the first screen of the “Adjust ring time” dialog</b>, so there is one control for
+    this decision in the whole product instead of two.</li>
+</ul>
+
+<h2 class="rule" id="s5">05 · The phone <span>— same decisions, native shapes</span></h2>
+<p class="lede">Every change above lands on the provider app. The page is one column there, so “density” means
+  order and sheets, not columns.</p>
+
+<div class="board">
+  <div class="frame w360">
+    <div class="frame-label"><span>Assistant · top of screen</span><em>order changed</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="phone app">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr"><svg class="i"><path d="M15 18l-6-6 6-6"/></svg> AI Voice Assistant</div>
+        <div class="body">
+          <div class="card green">
+            <p class="tiny" style="letter-spacing:.08em">YOUR ASSISTANT NUMBER</p>
+            <div class="row between" style="margin-top:6px"><b style="font-size:19px">+12364767193</b><span class="btn primary sm">Copy</span></div>
+          </div>
+          <div class="card">
+            <div class="row between">
+              <span class="row" style="gap:6px"><span class="pill ok">Connected</span><b>+1 (289) 887-8495</b></span>
+            </div>
+            <p class="sub" style="margin-top:6px">Rings for about 15 seconds, then your assistant answers.</p>
+            <div class="row" style="margin-top:10px"><span class="btn link">Check again</span><span class="btn link">Adjust ring</span></div>
+            <div class="row" style="margin-top:2px"><span class="btn link">Hear it yourself</span><span class="btn link">Use a different number</span></div>
+            <div class="row" style="margin-top:2px"><span class="btn link" style="color:var(--red)">Disconnect</span></div>
+            <div class="hr"></div>
+            <div class="exp open">How it works <svg class="i"><path d="M18 15l-6-6-6 6"/></svg></div>
+            <div class="expbody"><p class="sub" style="font-size:12.5px">Don't pick up · phone off · decline · answer it yourself.</p></div>
+            <div class="exp">What's not supported <svg class="i"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="card">
+            <b>Who answers your calls</b>
+            <p class="sub" style="font-size:12.5px;margin-top:4px">Two numbers reach your assistant.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Connect · step 3</span><em>a screen, with its own back</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="phone app">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr"><svg class="i"><path d="M15 18l-6-6 6-6"/></svg> <span>Keep your own number<br><span class="tiny" style="font-weight:400">Step 3 of 4</span></span></div>
+        <div class="body">
+          <div class="code done"><small>Code 1 dialled</small>*004*2364767193# <span class="btn primary sm">Dial</span></div>
+          <div class="card" style="background:var(--tint)">
+            <b style="font-size:13px">How long should your phone ring first?</b>
+            <div class="seg" style="margin-top:8px;width:100%"><span style="flex:1">10 s<small>two rings</small></span><span class="on" style="flex:1">15 s<small>three rings</small></span></div>
+          </div>
+          <div class="code"><small>Code 2 of 2</small>**61*2364767193**15# <span class="btn primary sm">Dial</span></div>
+          <div class="banner warn">Do code 2 last, always.</div>
+          <div class="row" style="margin-top:2px"><span class="btn primary" style="flex:1">I've done both</span></div>
+          <div class="row"><span class="btn" style="flex:1">Back</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><span>Disconnect · bottom sheet</span><em>unchanged flow, new door</em></div>
+    <div class="pad" style="background:var(--page)">
+      <div class="phone app">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">AI Voice Assistant</div>
+        <div class="body" style="padding-bottom:0">
+          <div class="card" style="opacity:.5"><b>+1 (289) 887-8495</b></div>
+          <div class="scrim">
+            <div class="sheet">
+              <div class="grab"></div>
+              <b style="font-size:16px">Disconnect my number</b>
+              <p class="sub" style="margin-top:4px;font-size:12.5px">Dial this once on your phone. It turns off everything you set up. Nothing else changes.</p>
+              <div class="code" style="margin-top:10px"><small>The clear code</small>##002# <span class="btn primary sm">Dial</span></div>
+              <div class="row" style="margin-top:12px"><span class="btn primary" style="flex:1">I've dialled it</span></div>
+              <div class="row"><span class="btn" style="flex:1">Keep it connected</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>Order on the phone:</b> assistant number → your own number card → who answers → knowledge → settings. The
+    same reading order as the laptop's two columns, top to bottom.</li>
+  <li><b>Every dialog on the phone is a bottom sheet</b> already — disconnect, adjust, ask-us, hear-it and the
+    check runner. The only new sheet content is the ring picker inside the connect screen, which is inline, not a
+    sheet, because it belongs to the code the provider is about to dial.</li>
+  <li><b>No close button question on the phone:</b> the connect flow is a screen with the app's own header back,
+    which is hidden only while a call is live — and the call screen always offers “Skip, I'll check later”.</li>
+</ul>
+
+<h2 class="rule" id="s6">06 · “Not available here” <span>— two different reasons, two different sentences</span></h2>
+<p class="lede">A provider in India is told their region is not supported. That is not what happened: the region is
+  switched on, and the stamp simply has no verification number yet. One sentence cannot honestly serve both.</p>
+
+<div class="board">
+  <div class="frame w420">
+    <div class="frame-label"><span>Region is off</span><em>unchanged</em></div>
+    <div class="pad app">
+      <div class="card" style="background:var(--hair)">
+        <b>Connecting your own number isn't available in your region yet.</b>
+        <p class="sub" style="margin-top:4px">Your Clinket number works everywhere as normal.</p>
+      </div>
+    </div>
+  </div>
+  <div class="frame w420">
+    <div class="frame-label"><span>Region on, number missing</span><em><b class="bad">new</b></em></div>
+    <div class="pad app">
+      <div class="card" style="background:var(--hair)">
+        <b>We're finishing the set-up for your country.</b>
+        <p class="sub" style="margin-top:4px">Your assistant works as usual in the meantime. Connecting your own number switches on here as soon as it's ready.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="callout ask" style="margin-top:18px">
+  <b>One thing I cannot decide for you.</b> Canada and the United States are being set to
+  <span class="mono">+1 844 925 4651</span> as instructed. India runs on Plivo, which refuses to place a call from
+  a number the account does not own — so a made-up Indian number would not open the flow, it would fail at the
+  carrier on every check. <b>Send me any Plivo number on our India account and India switches on in one line.</b>
+</div>
+
+<h2 class="rule" id="s7">07 · Knowledge row <span>— a notice belongs to the row, not to the title column</span></h2>
+<p class="lede">The notices under a document stop where the title column stops, leaving a rectangle of white under
+  Replace and Delete. They describe the file, so they should have the file's full width.</p>
+
+<div class="board">
+  <div class="frame full">
+    <div class="frame-label"><span>Today</span><em>image 1.png</em></div>
+    <div class="pad app">
+      <div class="knowrow">
+        <div class="ico"><svg class="i"><path d="M14 3v5h5M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V8l-6-5z"/></svg></div>
+        <div class="txt">
+          <div class="row" style="gap:8px"><b>Salon Treatment Price List</b><span class="pill">Price list</span><span class="pill ok">Ready</span></div>
+          <p class="tiny">46 parts · 34.2 kB · added Sep 15</p>
+          <div class="stack" style="gap:6px;margin-top:8px">
+            <div class="note warn">Some numbers in this file couldn't be confirmed. Everything is saved — it's worth checking them against your original.</div>
+            <div class="note info"><span><b>607 services suggested</b><br>18 are already in your services · Review</span></div>
+          </div>
+        </div>
+        <div class="acts"><span class="btn sm">Replace</span><span class="btn sm danger">Delete</span><span class="btn sm">⋯</span></div>
+      </div>
+      <div class="ghost" style="margin-top:-86px;margin-left:78%;width:20%;height:78px">dead space</div>
+    </div>
+  </div>
+
+  <div class="frame full">
+    <div class="frame-label"><span>Proposed</span><em>§07</em></div>
+    <div class="pad app">
+      <div class="knowrow">
+        <div class="ico"><svg class="i"><path d="M14 3v5h5M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V8l-6-5z"/></svg></div>
+        <div class="txt">
+          <div class="row" style="gap:8px"><b>Salon Treatment Price List</b><span class="pill">Price list</span><span class="pill ok">Ready</span></div>
+          <p class="tiny">46 parts · 34.2 kB · added Sep 15</p>
+        </div>
+        <div class="acts"><span class="btn sm">Replace</span><span class="btn sm danger">Delete</span><span class="btn sm">⋯</span></div>
+        <div class="full inset">
+          <div class="note warn">Some numbers in this file couldn't be confirmed. Everything is saved — it's worth checking them against your original.</div>
+          <div class="note info"><span><b>607 services suggested</b> · 18 are already in your services · <u>Review</u></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="notes" style="margin-top:14px">
+  <li><b>The notice stack becomes the row's own full-width line</b>, indented to the title's left edge on a laptop
+    and flush to the card on a phone — where it is already full width today, so nothing changes there.</li>
+  <li><b>The title row is untouched:</b> name, type, status and the actions keep their places and their wrapping.</li>
+</ul>
+
+<h2 class="rule" id="s8">08 · Words <span>— every string this sheet needs</span></h2>
+<div class="tbl-scroll">
+<table class="copy">
+  <tr><th>Key</th><th>English</th><th>Where</th></tr>
+  <tr><td><code>voiceAssistant.ownNumber.ring.inlineNote</code></td><td class="say">Code 2 below carries this. Pick your time first, then dial it.</td><td>§04 picker, inside connect</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.ring.onlyOption</code></td><td class="say">Your carrier answers with voicemail after this, so this is the longest we can set.</td><td>§04, one option left</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.ring.saving</code></td><td class="say">Updating your code…</td><td>§04 while saving</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.ring.saveFailed</code></td><td class="say">We couldn't save that just now. The code below is still your current time.</td><td>§04 save failed</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.ring.fixedByCarrier</code></td><td class="say">On your carrier, calls forward on no answer using a ring time your carrier sets. There is nothing to choose here.</td><td>§04 CDMA family</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.status.useDifferent</code></td><td class="say">Use a different number</td><td>§02 connected card — the path the locked settings field points at</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.notConfigured.banner</code></td><td class="say">We're finishing the set-up for your country.</td><td>§06</td></tr>
+  <tr><td><code>voiceAssistant.ownNumber.notConfigured.body</code></td><td class="say">Your assistant works as usual in the meantime. Connecting your own number switches on here as soon as it's ready.</td><td>§06</td></tr>
+  <tr><td><code>voiceAssistant.settings.applyToBoth</code></td><td class="say">These apply to both of your numbers.</td><td>§03, replaces the deleted numbers line</td></tr>
+  <tr><td>‼️ deleted</td><td class="say"><code>settings.yourNumbers</code> · <code>settings.yourNumbersConnected</code> · <code>settings.yourNumbersClinketOnly</code> · <code>settings.ringsSeconds</code></td><td>§03 — the line they served is gone</td></tr>
+  <tr><td>reused, unchanged</td><td class="say"><code>ownNumber.adjust.title</code> · <code>adjust.body</code> · <code>adjust.optionLabel</code> · <code>adjust.optionHint</code> · <code>status.disconnect</code> · every “who answers” and “how it works” string</td><td>§02 §03 §04</td></tr>
+</table>
+</div>
+
+<h2 class="rule" id="s9">09 · What this sheet does NOT change</h2>
+<ul class="notes">
+  <li><b>No new data, no new endpoint, no extra request on any screen.</b> The ring picker uses the ring-seconds
+    route that the adjust dialog already calls.</li>
+  <li><b>The verification rules are untouched</b> — what a check proves, what a disconnect proves, and every
+    failure's own fix stay exactly as approved and built.</li>
+  <li><b>The invitation state, the landline route, the ask-us arrangement and the carrier-untested banner</b> keep
+    their current shapes and words.</li>
+  <li><b>Nothing is hidden behind a screen width.</b> Every control on a laptop is on the phone, and the two-column
+    grids collapse to one column below 1024 with no loss.</li>
+</ul>
+
+<div class="callout" style="margin-top:22px">
+  <b>Approved 2026-09-16, with one amendment:</b> the per-option ring counts ("about two rings") are dropped — a ring is a
+  carrier cadence, not a constant, so the seconds stand alone with one sentence of consequence. Built the same day.<br><br>
+  <b>Approved:</b> §01 the left-column stack · §02 disconnect as a header action and How-it-works open ·
+  §03 the deleted numbers line and the two-column settings · §04 the ring picker, the 15-second default and the
+  visible close · §06 the second unavailable sentence · §07 the full-width notice line.
+</div>
+
+</div>
+</body>
+</html>

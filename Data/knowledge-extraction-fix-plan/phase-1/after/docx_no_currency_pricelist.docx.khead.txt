@@ -1,0 +1,41 @@
+# docx_no_currency_pricelist.docx
+blocks=4 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Rate card (all prices in rupees)
+[  1] Paragraph    p1
+      Haircut 250
+      Beard trim 150
+      Kids cut 180
+      Full head colour 800
+      Root touch up 550
+      Highlights 1200
+      Keratin treatment 2500
+      Blow dry 300
+[  2] Heading      p1 H1
+      Nails
+[  3] Paragraph    p1
+      Manicure 300
+      Pedicure 450
+      Gel manicure 550
+      Nail art 200
+
+## INVENTORY
+Sections: Rate card (all prices in rupees) (8), Nails (4)
+
+## CARDS (2)  warnings=0
+--- card 0 [Text] section='Rate card (all prices in rupees)' page= tokens~33 img=-1
+    Haircut 250
+    Beard trim 150
+    Kids cut 180
+    Full head colour 800
+    Root touch up 550
+    Highlights 1200
+    Keratin treatment 2500
+    Blow dry 300
+--- card 1 [Text] section='Nails' page= tokens~14 img=-1
+    Manicure 300
+    Pedicure 450
+    Gel manicure 550
+    Nail art 200

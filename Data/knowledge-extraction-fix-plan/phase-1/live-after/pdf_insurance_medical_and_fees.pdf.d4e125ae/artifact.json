@@ -1,0 +1,192 @@
+{
+  "contentHash": "BAACDD1A05F8ADB2BD215A307148F1864F6D8FD7EEF299002E34BC46E0EDB1D4",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "pdf_insurance_medical_and_fees.pdf",
+  "pageCount": 1,
+  "docTitle": "Maple Family Clinic Patient Information Pack",
+  "docSummary": "Patient information pack covering a sample insurance policy, medication schedule, uninsured services and fees, and lab reference ranges. It includes policy terms, medications with doses and frequencies, and fees for clinic services.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Maple Family Clinic — patient information pack",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Insurance summary (sample policy)",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "Monthly premium",
+            "$182.50"
+          ],
+          [
+            "Annual deductible",
+            "$500"
+          ],
+          [
+            "Out-of-pocket maximum",
+            "$3,000"
+          ],
+          [
+            "Co-pay per visit",
+            "$25"
+          ],
+          [
+            "Policy number",
+            "POL-4471-2026"
+          ],
+          [
+            "Coverage start",
+            "2026-01-01"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Medication schedule",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Medication",
+            "Dose",
+            "Frequency"
+          ],
+          [
+            "Amoxicillin",
+            "500 mg",
+            "3 times daily for 7 days"
+          ],
+          [
+            "Ibuprofen",
+            "400 mg",
+            "every 8 hours as needed"
+          ],
+          [
+            "Vitamin D",
+            "1000 IU",
+            "once daily"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "Uninsured services and fees",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Service",
+            "Fee"
+          ],
+          [
+            "Sick note",
+            "$30"
+          ],
+          [
+            "Driver medical exam",
+            "$150"
+          ],
+          [
+            "Travel consultation (30 min)",
+            "$95"
+          ],
+          [
+            "Ear syringing",
+            "$40"
+          ],
+          [
+            "Missed appointment fee",
+            "$50"
+          ],
+          [
+            "Annual physical (uninsured patients)",
+            "$250"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "c282f9fa-6c4a-4de0-954d-5471dec203f5",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "'-5.5' reads '5.5'",
+          "location": "page 1, Paragraph 1",
+          "ocrReading": "Lab reference ranges: fasting glucose 3.9-5.5 mmol/L; blood pressure under 120/80.",
+          "firstAiReading": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.",
+          "passageIds": [],
+          "thirdReading": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.",
+          "selectedReading": "Lab reference ranges: fasting glucose 3.9–5.5 mmol/L; blood pressure under 120/80.",
+          "disposition": "ResolvedToCandidateReading"
+        }
+      ]
+    }
+  ]
+}

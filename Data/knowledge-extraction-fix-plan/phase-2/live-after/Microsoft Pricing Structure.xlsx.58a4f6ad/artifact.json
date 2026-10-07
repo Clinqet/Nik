@@ -1,0 +1,130 @@
+{
+  "contentHash": "800527B380B9869E1C2F470EC5C752404B1001506FCEB0E0FB6117A6AB956DC9",
+  "pipelineFingerprint": "0ab241d36357432abfa381b72d9628a8:605e5c5cedbd4f1397642f2aad131c79:6796ddb61486459f9666ec5d4053cadc:cap=1",
+  "docName": "Microsoft Pricing Structure.xlsx",
+  "docTitle": "Microsoft Pricing Structure",
+  "docSummary": "Microsoft cost overview for 2024, 2025, and 2026, covering vendor costs, support costs, implementation and training notes, total costs, and current vendor cost based on MAUs per year.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Microsoft ",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Microsoft",
+            "",
+            ""
+          ],
+          [
+            "2024 Costs (CAD)",
+            "",
+            ""
+          ],
+          [
+            "Vendor Costs",
+            "$638750",
+            "Based on 2.5M MAU's / year"
+          ],
+          [
+            "Support Costs",
+            "$0",
+            "For B2C this is included with Microsoft subscription"
+          ],
+          [
+            "Implementation",
+            "TBD",
+            "This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C"
+          ],
+          [
+            "Training",
+            "TBD",
+            "This will require full analysis and detailed technical review but staying with B2C will have roughly ~50% less implementation cost than other vendors since current setup and base already exist in B2C"
+          ],
+          [
+            "Total 2024 Costs",
+            "$638750",
+            ""
+          ],
+          [
+            "2025 Costs (CAD)",
+            "",
+            ""
+          ],
+          [
+            "Vendor Costs",
+            "$638750",
+            "Based on 2.5M MAU's / year"
+          ],
+          [
+            "Support Costs",
+            "$0",
+            "For B2C this is included with Microsoft subscription"
+          ],
+          [
+            "Total 2025 Costs",
+            "$638750",
+            ""
+          ],
+          [
+            "2026 Costs (CAD)",
+            "",
+            ""
+          ],
+          [
+            "Vendor Costs",
+            "$638750",
+            "Based on 2.5M MAU's / year"
+          ],
+          [
+            "Support Costs",
+            "$0",
+            "For B2C this is included with Microsoft subscription"
+          ],
+          [
+            "Total 2026 Costs",
+            "$638750",
+            ""
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Current Vendor Cost (1M MAU's / Year)",
+            "$288350",
+            "1M MAU's / Year"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

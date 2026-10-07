@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout price breakdown — the server's price, line by line — customer web + phone</title>
+<style>
+  :root{
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0e7a3a;
+    --amber:#F5A623; --amber-ink:#9A5B00; --amber-soft:#FFF7E8; --amber-line:#F1D9A7;
+    --blue:#2F80ED; --info:#E4EEFB; --info-line:#C7DBF6; --info-ink:#14477E;
+    --red:#B3261E; --red-soft:#FCECEA; --red-line:#F2C4C0;
+    --paper:#FFFFFF; --inset:#F7F8FA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px}
+  header.sheet p{margin:0;opacity:.85;font-size:13px;max-width:960px}
+  main{padding:0 32px 64px}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .web{width:380px;max-width:100%}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B;max-width:100%}
+  .items{padding:12px 14px;border-bottom:1px solid var(--line)}
+  .it{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
+  .it .v{font-weight:600}
+  .it s{color:var(--muted);font-weight:400;margin-right:6px}
+  .sum{padding:10px 14px 4px}
+  .ln{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:4px 0}
+  .ln .k{color:var(--muted)} .ln .v{font-weight:600;white-space:nowrap}
+  .ln.save .v{color:var(--green-ink)}
+  .ln.later .v{color:var(--muted);font-weight:500}
+  .ln.incl .k,.ln.incl .v{color:var(--muted);font-weight:500}
+  .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:6px;padding:10px 0 4px}
+  .tot .k{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#919191}
+  .tot .v{font-size:20px;font-weight:700;color:var(--body)}
+  .cta{margin:10px 14px 14px;border-radius:999px;background:var(--green);text-align:center;padding:11px;font-weight:700}
+  .cta.off{background:#E7E7E7;color:#919191}
+  .sk{display:inline-block;height:12px;border-radius:6px;background:linear-gradient(90deg,#EEF0F3,#F7F8FA,#EEF0F3);vertical-align:middle}
+  .panel{margin:10px 14px 0;border-radius:12px;padding:10px 12px;font-size:12px;line-height:17px}
+  .panel.err{background:var(--red-soft);border:1px solid var(--red-line);color:#7A1A14}
+  .panel.grey{background:var(--inset);border:1px solid var(--line);color:var(--muted)}
+  .panel button{margin-top:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-weight:600;font-size:12px}
+  .rule{background:var(--green-soft);border:1px solid var(--green-line);border-left:4px solid var(--green);padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px}
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>Checkout price breakdown — customer web + phone</h1>
+  <p>Every checkout (web quick book, web cart checkout, web cart booking pop-up; phone quick book, phone cart, phone checkout) shows the price the server will book, line by line, before the customer confirms. The app never adds anything up itself: every figure comes from <code>POST /api/v1/bookings/price-preview</code>, which prices the booking with the same code that creates it. Drawn 2026-09-24 for Q-1 of the search-topology Phase 3 audit.</p>
+</header>
+<main>
+
+<div class="rule"><b>The rule.</b> The customer sees what the booking will cost, the way every shop checkout shows it: the services, then any discount, then the visit fee, then tax, then the total. The total is exactly what is booked. A travel fee depends on distance and is set by the provider when they confirm, so it is named but never added into the total.</div>
+
+<h2>1 · Web — cart checkout sheet (footer summary)</h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Ready — offer, visit fee and tax</div>
+    <div class="items">
+      <div class="it"><span>Deep clean</span><span class="v"><s>$120.00</s>$96.00</span></div>
+      <div class="it"><span>Window cleaning</span><span class="v">$60.00</span></div>
+    </div>
+    <div class="sum">
+      <div class="ln"><span class="k">Services</span><span class="v">$180.00</span></div>
+      <div class="ln save"><span class="k">Discount</span><span class="v">−$24.00</span></div>
+      <div class="ln"><span class="k">Visit fee</span><span class="v">$25.00</span></div>
+      <div class="ln"><span class="k">Tax</span><span class="v">$23.53</span></div>
+      <div class="tot"><span class="k">Total</span><span class="v">$204.53</span></div>
+    </div>
+    <div class="cta">Confirm booking</div>
+  </div>
+  <div class="frame web"><div class="cap">Ready — only services (no fee, no tax, no offer)</div>
+    <div class="items"><div class="it"><span>Haircut</span><span class="v">$45.00</span></div></div>
+    <div class="sum">
+      <div class="tot"><span class="k">Total</span><span class="v">$45.00</span></div>
+    </div>
+    <div class="cta">Confirm booking</div>
+  </div>
+</div>
+
+<h2>2 · Web — quick book (footer)</h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Ready — hourly service with a visit fee, tax included in prices</div>
+    <div class="sum">
+      <div class="ln"><span class="k">Services</span><span class="v">₹1,200.00</span></div>
+      <div class="ln"><span class="k">Visit fee</span><span class="v">₹150.00</span></div>
+      <div class="ln incl"><span class="k">Includes tax</span><span class="v">₹205.93</span></div>
+      <div class="ln later"><span class="k">Travel fee</span><span class="v">Added by the provider</span></div>
+      <div class="tot"><span class="k">Total</span><span class="v">₹1,350.00</span></div>
+    </div>
+    <div class="cta">Confirm</div>
+  </div>
+</div>
+
+<h2>3 · Phone — checkout summary (same rows, same order)</h2>
+<div class="row">
+  <div class="frame phone"><div class="cap">Ready</div>
+    <div class="items">
+      <div class="it"><span>Deep clean</span><span class="v">$120.00</span></div>
+    </div>
+    <div class="sum">
+      <div class="ln"><span class="k">Services</span><span class="v">$120.00</span></div>
+      <div class="ln"><span class="k">Visit fee</span><span class="v">$25.00</span></div>
+      <div class="tot"><span class="k">Total</span><span class="v">$145.00</span></div>
+    </div>
+    <div class="cta">Confirm booking</div>
+  </div>
+  <div class="frame phone"><div class="cap">Loading the price</div>
+    <div class="items"><div class="it"><span>Deep clean</span><span class="v"><span class="sk" style="width:54px"></span></span></div></div>
+    <div class="sum">
+      <div class="ln"><span class="k"><span class="sk" style="width:70px"></span></span><span class="v"><span class="sk" style="width:50px"></span></span></div>
+      <div class="tot"><span class="k">Total</span><span class="v"><span class="sk" style="width:80px;height:18px"></span></span></div>
+    </div>
+    <div class="cta off">Confirm booking</div>
+  </div>
+</div>
+
+<h2>4 · The states that stop a booking</h2>
+<div class="row">
+  <div class="frame web"><div class="cap">Could not get the price (network, server error, offline)</div>
+    <div class="items"><div class="it"><span>Deep clean</span><span class="v">—</span></div></div>
+    <div class="panel grey">We couldn't get the price. Please try again.<br><button>Try again</button></div>
+    <div class="cta off">Confirm booking</div>
+  </div>
+  <div class="frame web"><div class="cap">Refused — the server's own sentence, shown as sent</div>
+    <div class="items"><div class="it"><span>Deep clean</span><span class="v">—</span></div></div>
+    <div class="panel err">Service not found</div>
+    <div class="cta off">Confirm booking</div>
+  </div>
+</div>
+<div class="row">
+  <div class="frame web"><div class="cap">Signed out (a guest's cart)</div>
+    <div class="items"><div class="it"><span>Deep clean</span><span class="v">$120.00</span></div></div>
+    <div class="cta">Confirm booking</div>
+  </div>
+</div>
+<div class="note">A guest sees each service's price but no summary: the price is asked for only once they are signed in, and Confirm opens sign-in as it always has — after which the summary loads by itself. (The phone never asks while signed out: an unauthorised call there would clear the stored guest cart.)</div>
+<div class="note">A refusal is the server's already-translated sentence (a service the provider no longer lists, an offer that does not apply on the chosen day, a provider who is not taking online bookings). The screen never writes its own version of it.</div>
+
+<h2>5 · Binding rules</h2>
+<table>
+  <tr><th>Row</th><th>Shown when</th><th>Figure (from the preview)</th></tr>
+  <tr><td>Each item</td><td>always</td><td><code>lines[i].subTotal</code>; when <code>lines[i].offerDiscount</code> &gt; 0 the list price <code>lines[i].price</code> is struck through before it</td></tr>
+  <tr><td>Services</td><td>any other summary row is shown</td><td><code>servicesTotal</code></td></tr>
+  <tr><td>Discount</td><td><code>discountTotal</code> &gt; 0</td><td>minus <code>discountTotal</code>, in the saving colour</td></tr>
+  <tr><td>Visit fee</td><td><code>visitFee</code> &gt; 0</td><td><code>visitFee</code> — once per booking, whatever the number of services</td></tr>
+  <tr><td>Tax</td><td><code>taxAmount</code> &gt; 0 and not <code>taxIncluded</code></td><td><code>taxAmount</code></td></tr>
+  <tr><td>Includes tax</td><td><code>taxAmount</code> &gt; 0 and <code>taxIncluded</code></td><td><code>taxAmount</code>, muted — already inside the prices, never added again</td></tr>
+  <tr><td>Travel fee</td><td><code>travelFeeToFollow</code></td><td>no amount — "Added by the provider"</td></tr>
+  <tr><td>Total</td><td>always</td><td><code>totalAmount</code> in <code>currency</code></td></tr>
+</table>
+<ul>
+  <li>The preview is asked for when the checkout opens, and again when its services, offers or date change; an older answer that arrives late is ignored.</li>
+  <li>Confirm stays disabled while the price is loading, could not be got, or was refused.</li>
+  <li>A checkout covering several providers shows one summary per provider — each is its own booking, priced on its own.</li>
+  <li>Money is formatted in the preview's <code>currency</code> with the app's existing money formatter.</li>
+  <li>The confirmation screen after booking shows the booked total from the booking response.</li>
+</ul>
+
+<h2>6 · Copy</h2>
+<table>
+  <tr><th>Words (en)</th><th>Web key (react-intl)</th><th>Phone key (i18next)</th></tr>
+  <tr><td>Services</td><td><code>checkout.price.services</code></td><td><code>CHECKOUT_PRICE.SERVICES</code></td></tr>
+  <tr><td>Discount</td><td><code>checkout.price.discount</code></td><td><code>CHECKOUT_PRICE.DISCOUNT</code></td></tr>
+  <tr><td>Visit fee</td><td><code>checkout.price.visitFee</code></td><td><code>CHECKOUT_PRICE.VISIT_FEE</code></td></tr>
+  <tr><td>Tax</td><td><code>checkout.price.tax</code></td><td><code>CHECKOUT_PRICE.TAX</code></td></tr>
+  <tr><td>Includes tax</td><td><code>checkout.price.taxIncluded</code></td><td><code>CHECKOUT_PRICE.TAX_INCLUDED</code></td></tr>
+  <tr><td>Travel fee</td><td><code>checkout.price.travelFee</code></td><td><code>CHECKOUT_PRICE.TRAVEL_FEE</code></td></tr>
+  <tr><td>Added by the provider</td><td><code>checkout.price.travelFeeLater</code></td><td><code>CHECKOUT_PRICE.TRAVEL_FEE_LATER</code></td></tr>
+  <tr><td>Total</td><td><code>checkout.price.total</code></td><td><code>CHECKOUT_PRICE.TOTAL</code></td></tr>
+  <tr><td>We couldn't get the price. Please try again.</td><td><code>checkout.price.couldNotLoad</code></td><td><code>CHECKOUT_PRICE.COULD_NOT_LOAD</code></td></tr>
+  <tr><td>Try again</td><td><code>checkout.price.retry</code></td><td><code>CHECKOUT_PRICE.RETRY</code></td></tr>
+  <tr><td>(refusal)</td><td colspan="2">the server's sentence from the error response, as sent</td></tr>
+</table>
+<p>Every key exists in en, es, fr, gu and hi in both apps.</p>
+</main>
+</body>
+</html>

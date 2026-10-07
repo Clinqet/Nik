@@ -1,0 +1,40 @@
+{
+  "businessId": "NKN607",
+  "docId": "e3ec3ca55a3243028e713ac93d3458f5",
+  "docName": "pdf_hindi_gujarati_english_pricelist.pdf",
+  "docTitle": "श्री ब्यूटी पार्लर का रेट कार्ड",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "readingNotices": [
+    {
+      "key": "Info_KnowledgeValueUnconfirmed"
+    }
+  ],
+  "sizeBytes": 58709,
+  "pageCount": 1,
+  "passageCount": 6,
+  "contentHash": "22005A6A6D15D783D34AD43C592B099A49F5F4E670E39F336907D470454F471E",
+  "blobPath": "NKN607/e3ec3ca55a3243028e713ac93d3458f5/pdf_hindi_gujarati_english_pricelist-20260925-052214-54b922f5c999.pdf",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:07:56.0213965Z",
+    "outcome": "Ran",
+    "candidateCount": 12,
+    "draftCount": 11,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false,
+    "judgeRemovedCount": 1
+  },
+  "id": "e3ec3ca55a3243028e713ac93d3458f5",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5c0b81ad-0000-0200-0000-6ab6d49c0000\"",
+  "createdAt": "2026-09-25T05:22:14.8969269Z",
+  "updatedAt": "2026-09-25T20:07:56.0709308Z",
+  "_rid": "ezpkAL1hvTEFAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTEFAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366876
+}

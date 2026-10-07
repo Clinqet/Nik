@@ -1,0 +1,52 @@
+cards=9
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_0 [Text] section='ProFix Home Services — rate card' page=1 img= scripts=["Latn"] chars=449 title='ProFix Home Services Rate Card' type='Document'
+    Service call $95/hr (minimum 1 hour)
+    After-hours call $150/hr
+    Lawn cut $45/visit
+    Porcelain tile installation $3/sq ft
+    Storage unit rental $120/month
+    Excavator rental $350/day
+    Haircut Men $20 Women $30
+    Colour $50 / $70 (short / long)
+    Highlights from $120
+    Repairs $80+
+    Consultation Free
+    Balayage $180—$260
+    Gutter cleaning US$45 per visit
+    Pressure washing 30 - 45 per hour
+    Deposit $50 on all bookings over $300
+    Total for package deal $1,250 (save $150)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_1 [Table] section='ProFix Home Services — rate card › Detailing menu' page=1 img= scripts=["Latn"] chars=193 title='ProFix Home Services Rate Card' type='Document'
+    Package: Exterior wash | Small: $25 | Medium: $30 | Large: $40
+    Package: Interior detail | Small: $80 | Medium: $100 | Large: $130
+    Package: Full detail | Small: $150 | Medium: $180 | Large: $220
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_2 [Table] section='ProFix Home Services — rate card › Rupee card' page=1 img= scripts=["Latn"] chars=159 title='ProFix Home Services Rate Card' type='Document'
+    Machine: Volvo EC210 excavator | Price (INR): 1,05,00,000
+    Machine: JCB 3DX backhoe | Price (INR): 32,50,000
+    Machine: Bobcat S70 loader | Price (INR): 18,75,000
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_3 [DocSummary] section='' page= img= scripts=["Latn"] chars=637 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview
+    Rate card covering home services, hair services, repairs, consultations, rentals, cleaning, installation, deposits, and package deals. Includes a detailing menu for exterior wash, interior detail, and full detail by vehicle size, plus INR prices for three machines.
+    Sections: ProFix Home Services — rate card (16)
+    Detailing menu — 3 records
+    Package: Exterior wash (1), Interior detail (1), Full detail (1)
+    Small: $25 to $150 (typical)
+    Medium: $30 to $180 (typical)
+    Large: $40 to $220 (typical)
+    Rupee card — 3 records
+    Machine: Volvo EC210 excavator (1), JCB 3DX backhoe (1), Bobcat S70 loader (1)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_4 [DocAggregate] section='Detailing menu — Package' page= img= scripts=["Latn"] chars=145 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview — Detailing menu — Package
+    3 records — Package: Exterior wash (1), Interior detail (1), Full detail (1)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_5 [DocAggregate] section='Detailing menu — Small' page= img= scripts=["Latn"] chars=107 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview — Detailing menu — Small
+    3 records — Small: $25 to $150 (typical)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_6 [DocAggregate] section='Detailing menu — Medium' page= img= scripts=["Latn"] chars=109 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview — Detailing menu — Medium
+    3 records — Medium: $30 to $180 (typical)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_7 [DocAggregate] section='Detailing menu — Large' page= img= scripts=["Latn"] chars=107 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview — Detailing menu — Large
+    3 records — Large: $40 to $220 (typical)
+--- SX3SG2_ef5d0c54243c436094a6cebec328ffb1_8 [DocAggregate] section='Rupee card — Machine' page= img= scripts=["Latn"] chars=155 title='ProFix Home Services Rate Card' type='Document'
+    ProFix Home Services Rate Card — overview — Rupee card — Machine
+    3 records — Machine: Volvo EC210 excavator (1), JCB 3DX backhoe (1), Bobcat S70 loader (1)

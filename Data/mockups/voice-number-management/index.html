@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voice Number Management — Design Mockup</title>
+<style>
+  :root{
+    --navy:#032858; --navy-2:#0a3a78; --lime:#97EF29; --lime-ink:#101010;
+    --canvas:#f4f6f8; --card:#ffffff; --text:#1f2937; --muted:#6b7280;
+    --line:#e5e7eb; --ok:#16a34a; --ok-bg:#ecfdf5; --amber:#b45309; --amber-bg:#fffbeb;
+    --info-bg:#EBF5FB;
+    --shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--canvas);color:var(--text)}
+  a{color:inherit}
+  .topbar{background:var(--navy);color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brandmark{font-weight:800;font-size:20px;letter-spacing:.3px}
+  .brandmark span{color:var(--lime)}
+  .topbar .sub{color:#A8C4E0;font-size:13px}
+  .badge-approval{margin-left:auto;background:rgba(151,239,41,.16);color:var(--lime);border:1px solid rgba(151,239,41,.4);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700}
+  .tabs{display:flex;gap:6px;padding:12px 22px 0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+  .tab{appearance:none;border:0;background:transparent;color:#A8C4E0;padding:11px 18px;font-size:14px;font-weight:600;border-radius:8px 8px 0 0;cursor:pointer}
+  .tab.active{background:var(--canvas);color:var(--navy)}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px}
+  .panel{display:none}
+  .panel.active{display:block}
+  .note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--muted);box-shadow:var(--shadow)}
+  .note b{color:var(--text)}
+  h2.sec{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:26px 0 12px}
+
+  /* ---------- EMAIL TAB ---------- */
+  .controls{display:flex;gap:18px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .ctl-group{display:flex;align-items:center;gap:8px}
+  .ctl-group .lbl{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .seg{display:inline-flex;background:var(--canvas);border:1px solid var(--line);border-radius:9px;padding:3px}
+  .seg button{appearance:none;border:0;background:transparent;padding:7px 14px;font-size:13px;font-weight:600;color:var(--muted);border-radius:7px;cursor:pointer}
+  .seg button.active{background:var(--navy);color:#fff}
+  .device-note{font-size:12px;color:var(--muted);margin-left:auto}
+  .stage{display:flex;justify-content:center;padding:26px 10px;background:repeating-linear-gradient(45deg,#eef1f5,#eef1f5 12px,#e9edf2 12px,#e9edf2 24px);border-radius:12px;margin-top:16px;border:1px solid var(--line)}
+  .device{background:#333;border-radius:26px;padding:14px;box-shadow:0 18px 40px rgba(16,24,40,.22);transition:width .25s ease}
+  .device .screen{background:#fff;border-radius:14px;overflow:hidden}
+  .device iframe{display:block;border:0;width:100%;height:760px;background:#f4f4f4}
+  .device.desktop{border-radius:14px;padding:0;background:transparent;box-shadow:none}
+  .device.desktop .screen{border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+
+  .two-col{display:grid;grid-template-columns:1.3fr .9fr;gap:18px;margin-top:18px}
+  @media (max-width:900px){.two-col{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 10px;font-size:15px}
+  .reason-table{width:100%;border-collapse:collapse;font-size:13px}
+  .reason-table td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .reason-table td.code{font-weight:700;color:var(--navy);white-space:nowrap}
+  .pill{display:inline-block;background:var(--info-bg);color:var(--navy);border:1px solid #cfe3f5;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700}
+
+  /* phone notif preview */
+  .phone{width:300px;margin:0 auto;background:#0b1220;border-radius:34px;padding:12px;box-shadow:0 18px 40px rgba(16,24,40,.28)}
+  .phone .scr{background:linear-gradient(180deg,#1d2a44,#0f1830);border-radius:24px;padding:16px 12px;min-height:210px;color:#fff}
+  .phone .time{color:#c7d2e5;font-size:12px;text-align:center;margin-bottom:12px}
+  .push{background:rgba(255,255,255,.94);color:#111;border-radius:14px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  .push .ic{width:30px;height:30px;border-radius:7px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex:0 0 auto}
+  .push .ic span{color:var(--lime)}
+  .push .t{font-weight:700;font-size:12.5px;margin:0 0 2px}
+  .push .b{font-size:11.5px;color:#374151;margin:0;line-height:1.35}
+  .push .app{font-size:10px;color:#6b7280;margin:0 0 3px;text-transform:uppercase;letter-spacing:.04em}
+  .inapp{margin-top:12px;background:#fff;border-radius:12px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start}
+  .inapp .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);margin-top:5px;flex:0 0 auto}
+  .inapp .t{font-weight:700;font-size:12.5px;color:#111;margin:0 0 2px}
+  .inapp .b{font-size:11.5px;color:#4b5563;margin:0;line-height:1.35}
+  .inapp .arrow{margin-left:auto;color:#9ca3af;align-self:center}
+  .tap-note{text-align:center;color:#c7d2e5;font-size:11px;margin-top:12px}
+
+  /* ---------- ADMIN TAB ---------- */
+  .admin{display:grid;grid-template-columns:210px 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#fff}
+  @media (max-width:820px){.admin{grid-template-columns:1fr}}
+  .side{background:var(--navy);color:#c7d6ea;padding:16px 12px}
+  .side .logo{color:#fff;font-weight:800;font-size:17px;padding:6px 10px 16px}
+  .side .logo span{color:var(--lime)}
+  .side .nav a{display:block;padding:9px 12px;border-radius:8px;font-size:13.5px;color:#c7d6ea;text-decoration:none;margin-bottom:2px}
+  .side .nav a.active{background:var(--lime);color:#0a2a12;font-weight:700}
+  @media (max-width:820px){.side{display:none}}
+  .content{padding:20px 22px;background:var(--canvas)}
+  .content h1{font-size:22px;margin:0 0 4px;color:#0f172a}
+  .content .lede{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+  .abox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .abox h3{margin:0 0 3px;font-size:15px}
+  .abox .hint{color:var(--muted);font-size:12.5px;margin:0 0 14px}
+  .lookup-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .aseg{display:inline-flex;background:var(--canvas);border:1px solid var(--line);border-radius:9px;padding:3px}
+  .aseg button{border:0;background:transparent;padding:8px 13px;font-size:13px;font-weight:600;color:var(--muted);border-radius:7px;cursor:pointer}
+  .aseg button.active{background:var(--navy);color:#fff}
+  .ainput{flex:1;min-width:210px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px}
+  .btn{border:0;border-radius:9px;padding:10px 16px;font-size:13.5px;font-weight:700;cursor:pointer}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--lime-ink)}
+  .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--text)}
+  .btn-danger{background:#fee2e2;color:#b91c1c;border:1px solid #fecaca}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  .prov{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.prov{grid-template-columns:1fr}}
+  .kv{font-size:13px}
+  .kv .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+  .kv .v{font-weight:600;color:#0f172a;margin-bottom:12px}
+  .status-pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.03em}
+  .sp-active{background:var(--ok-bg);color:#047857;border:1px solid #a7f3d0}
+  .sp-provider{background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe}
+  .num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+  .actionrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;border-top:1px solid var(--line);padding-top:14px}
+
+  table.audit{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.audit th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:8px 8px;border-bottom:1px solid var(--line)}
+  table.audit td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .st-open{color:var(--amber);background:var(--amber-bg);border:1px solid #fde68a;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700}
+  .st-res{color:#047857;background:var(--ok-bg);border:1px solid #a7f3d0;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700}
+  .audit-foot{font-size:12px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px}
+
+  /* modals */
+  .overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .overlay.open{display:flex}
+  .modal{background:#fff;border-radius:14px;max-width:520px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.3);max-height:92vh;overflow:auto}
+  .modal .mh{padding:18px 20px;border-bottom:1px solid var(--line)}
+  .modal .mh h3{margin:0;font-size:17px}
+  .modal .mh p{margin:6px 0 0;font-size:13px;color:var(--muted)}
+  .modal .mb{padding:18px 20px}
+  .modal .mf{padding:14px 20px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+  .field .req{color:#dc2626}
+  .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px;font-family:inherit}
+  .field textarea{min-height:64px;resize:vertical}
+  .radio{display:flex;gap:10px;border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;margin-bottom:8px}
+  .radio.sel{border-color:var(--navy);background:#f5f9ff}
+  .radio input{margin-top:3px}
+  .radio .rt{font-weight:700;font-size:14px;color:#0f172a}
+  .radio .rb{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.4}
+  .callout{background:var(--info-bg);border:1px solid #cfe3f5;border-radius:10px;padding:12px 14px;font-size:13px;color:#0f2f52;margin-bottom:16px}
+  .callout .n{font-weight:800;color:var(--navy)}
+  .quote-line{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .prov-note{font-size:12px;color:#0f172a;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:9px 11px;margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brandmark">Clin<span>ket</span></div>
+    <div class="sub">Voice Assistant — Dedicated Number Management · design mockup</div>
+    <div class="badge-approval">Awaiting your approval</div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="email">Provider email &amp; notifications</button>
+    <button class="tab" data-tab="admin">Admin portal</button>
+  </div>
+
+  <!-- ============ EMAIL TAB ============ -->
+  <div class="wrap panel active" id="panel-email">
+    <div class="note">
+      This is the <b>provider-facing</b> surface — the one you asked to be brand-perfect. The email below is built from the real Clinket house style
+      (navy <b>#032858</b> header/footer, lime <b>#97EF29</b> CTA, <b>#EBF5FB</b> info box). Switch the device to confirm it renders correctly on desktop, iPad and phone —
+      the frame resizes the <i>actual</i> email HTML, so what you see is what will send.
+    </div>
+
+    <div class="controls" style="margin-top:16px">
+      <div class="ctl-group">
+        <span class="lbl">Email</span>
+        <div class="seg" id="variantSeg">
+          <button class="active" data-variant="removed">Number removed</button>
+          <button data-variant="changed">Number changed</button>
+          <button data-variant="added">Number added</button>
+        </div>
+      </div>
+      <div class="ctl-group">
+        <span class="lbl">Device</span>
+        <div class="seg" id="deviceSeg">
+          <button class="active" data-w="600" data-kind="desktop">Desktop</button>
+          <button data-w="480" data-kind="tablet">iPad</button>
+          <button data-w="360" data-kind="mobile">Phone</button>
+        </div>
+      </div>
+      <span class="device-note" id="deviceNote">Rendering at 600px (max card width)</span>
+    </div>
+
+    <div class="stage">
+      <div class="device desktop" id="device">
+        <div class="screen"><iframe id="emailFrame" title="email preview"></iframe></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Reason shown to the provider (localized &amp; safe)</h3>
+        <p style="font-size:13px;color:var(--muted);margin:0 0 12px">
+          The admin picks a <b>structured reason</b> — it maps to a friendly, translated sentence the provider sees (en/fr/gu/hi), so an internal shorthand never leaks.
+          An optional free-text note stays <b>internal-only</b> (audit trail), never shown to the provider.
+        </p>
+        <table class="reason-table">
+          <tr><td class="code">ProviderRequested</td><td>“At your request.”</td></tr>
+          <tr><td class="code">NumberIssue</td><td>“A technical issue with the previous number.”</td></tr>
+          <tr><td class="code">Reassigned</td><td>“We moved your assistant to a better-suited number.”</td></tr>
+          <tr><td class="code">Compliance</td><td>“A carrier or compliance requirement.”</td></tr>
+          <tr><td class="code">Other</td><td>“An account update by our team.”</td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--muted);margin:12px 0 0"><span class="pill">Decide with me</span> &nbsp;Confirm this reason set + wording, or tell me to adjust.</p>
+      </div>
+
+      <div class="card">
+        <h3>On the mobile app (push · in-app · deep link)</h3>
+        <div class="phone">
+          <div class="scr">
+            <div class="time">9:41</div>
+            <div class="push">
+              <div class="ic">Cl<span>k</span></div>
+              <div>
+                <p class="app">Clinket Partner · now</p>
+                <p class="t" id="mTitle">Your assistant’s number was removed</p>
+                <p class="b" id="mBody">Tap to view your AI Voice Assistant.</p>
+              </div>
+            </div>
+            <div class="inapp">
+              <div class="dot"></div>
+              <div>
+                <p class="t" id="mTitle2">Your assistant’s number was removed</p>
+                <p class="b" id="mReason">A technical issue with the previous number.</p>
+              </div>
+              <div class="arrow">›</div>
+            </div>
+            <div class="tap-note">Push &amp; in-app tap → AI Assistant settings · also fires on web + SignalR (real-time)</div>
+          </div>
+        </div>
+        <div style="margin-top:14px">
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Text message · SMS (default on · excluded for +91)</div>
+          <div id="smsBubble" style="background:#e7f8ec;border:1px solid #b7ebc6;border-radius:12px;border-bottom-left-radius:3px;padding:10px 12px;font-size:12.5px;color:#0f3d1e;line-height:1.45"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:16px">
+      <b>Same design, three events</b> — <b>removed</b>, <b>changed</b> and <b>added</b> (re-add after removal) share one responsive skeleton; a provider’s first-ever activation keeps its existing welcome email. All five channels (email · push · in-app · web · SignalR) fire from one dispatch. <b>SMS is one app-setting (default on)</b> that gates the text for all three events; +91 (India DLT) is always excluded in code, and when SMS is off every other channel still fires. A reason is shown to the provider on <b>removed / changed</b>; <b>added</b> is positive news so it carries no reason line (still captured in the audit).
+    </div>
+  </div>
+
+  <!-- ============ ADMIN TAB ============ -->
+  <div class="wrap panel" id="panel-admin">
+    <div class="note">This admin surface is kept simple and consistent with the existing pages — its only job is to be useful for your team.
+      Look up by <b>number / email / phone</b> (same as WhatsApp Admin), then <b>Change</b> or <b>Remove</b> the number. Each destructive action is one dialog (that dialog <i>is</i> the confirmation).</div>
+
+    <div class="admin" style="margin-top:16px">
+      <aside class="side">
+        <div class="logo">Clin<span>ket</span></div>
+        <nav class="nav">
+          <a>Dashboard</a><a>Categories</a><a class="active">Voice Assistant</a><a>Reviews</a><a>WhatsApp Admin</a><a>Account Support</a>
+        </nav>
+      </aside>
+      <section class="content">
+        <h1>Voice Assistant Requests</h1>
+        <p class="lede">Manage invites, numbers, and review submitted voice assistant applications.</p>
+
+        <div class="abox">
+          <h3>Look up a provider</h3>
+          <p class="hint">Find by user number, email, or phone — resolves the provider even if inactive (cached, minimal lookups).</p>
+          <div class="lookup-row">
+            <div class="aseg" id="lookupSeg">
+              <button class="active">User #</button><button>Email</button><button>Phone</button>
+            </div>
+            <input class="ainput" placeholder="e.g. DLGDU" value="DLGDU" />
+            <button class="btn btn-primary">Look up</button>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin:12px 0 0">Phone / email → cached identity lookup (indexed SQL, 30-min cache) → the business number → one Cosmos <b>point-read</b> of the voice state. No cross-partition query, no new index — worst case ~1 cached SQL + ~1 RU. (Same pattern as WhatsApp Admin.)</p>
+        </div>
+
+        <div class="abox">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+            <div>
+              <h3 style="margin-bottom:6px">Sunrise Plumbing Co.</h3>
+              <span class="status-pill sp-active">ASSISTANT ACTIVE</span>
+              <span class="status-pill sp-provider" style="margin-left:6px">PROVIDER</span>
+            </div>
+          </div>
+          <div class="prov" style="margin-top:16px">
+            <div>
+              <div class="kv"><div class="k">User #</div><div class="v">DLGDU</div></div>
+              <div class="kv"><div class="k">Email</div><div class="v">owner@sunriseplumbing.ca</div></div>
+              <div class="kv"><div class="k">Phone</div><div class="v">+1 604 555 0110</div></div>
+            </div>
+            <div>
+              <div class="kv"><div class="k">Assigned number</div><div class="v"><span class="num">+1 236 476 7193</span></div></div>
+              <div class="kv"><div class="k">Model tier</div><div class="v">mini</div></div>
+              <div class="kv"><div class="k">Forwarding target</div><div class="v">+1 289 680 6387</div></div>
+            </div>
+          </div>
+          <div class="actionrow">
+            <button class="btn btn-lime" onclick="openModal('changeModal')">Change number</button>
+            <button class="btn btn-danger" onclick="openModal('removeModal')">Remove number</button>
+            <button class="btn btn-ghost">Hold</button>
+            <button class="btn btn-ghost">Set model tier</button>
+          </div>
+        </div>
+
+        <div class="abox">
+          <h3>Number change history</h3>
+          <p class="hint">Read-only durable log — every remove / change / add, retained 365 days (configurable), <b>never deletable</b>. Removes &amp; changes also raise an admin alert (triage &amp; resolve on the <b>Alerts</b> page).</p>
+          <table class="audit">
+            <thead><tr><th>When</th><th>Action</th><th>Number</th><th>Admin</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Jul 23, 2026 · 2:41 PM</td>
+                <td><b>Changed</b><br><span style="color:var(--muted)">old parked</span></td>
+                <td><span class="num" style="font-size:12px">+1 236 476 7193</span> → <span class="num" style="font-size:12px">+1 604 555 0142</span></td>
+                <td>admin@clinket</td>
+                <td>Reassigned<br><span style="color:var(--muted)">“spam-flagged by carrier” (internal note)</span></td>
+              </tr>
+              <tr>
+                <td>Jun 02, 2026 · 10:12 AM</td>
+                <td><b>Removed</b><br><span style="color:var(--muted)">released</span></td>
+                <td><span class="num" style="font-size:12px">+1 236 400 1188</span></td>
+                <td>admin@clinket</td>
+                <td>ProviderRequested</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="audit-foot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> No delete action — this log is permanent for the full retention window. “Resolve” lives on the Alerts page (existing flow), not here.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== REMOVE MODAL ===== -->
+  <div class="overlay" id="removeModal">
+    <div class="modal">
+      <div class="mh">
+        <h3>Remove dedicated number</h3>
+        <p>This removes <b class="num">+1 236 476 7193</b> from Sunrise Plumbing Co.’s assistant. Callers will no longer reach the assistant on this number; the provider’s own business line is unaffected.</p>
+      </div>
+      <div class="mb">
+        <div class="field">
+          <label>What should happen to the number? <span class="req">*</span></label>
+          <label class="radio sel"><input type="radio" name="rmMode" checked onclick="selRadio(this)"><span><span class="rt">Release it</span><span class="rb">Give the number back to the carrier and stop billing. Re-adding later buys a number again — this one if the carrier still has it.</span></span></label>
+          <label class="radio"><input type="radio" name="rmMode" onclick="selRadio(this)"><span><span class="rt">Park it (reserve)</span><span class="rb">Keep this number reserved for this provider so it can be re-added instantly. Carrier rental keeps billing while parked.</span></span></label>
+        </div>
+        <div class="field">
+          <label>Reason (shown to the provider) <span class="req">*</span></label>
+          <select><option>At your request</option><option>A technical issue with the previous number</option><option>We moved your assistant to a better-suited number</option><option>A carrier or compliance requirement</option><option>An account update by our team</option></select>
+        </div>
+        <div class="field">
+          <label>Internal note (optional — audit only, not shown to provider)</label>
+          <textarea placeholder="e.g. carrier flagged the DID for spam on Jul 22"></textarea>
+        </div>
+        <div class="prov-note">The provider is notified across email · push · in-app · web · SignalR (and SMS unless +91), each linking to their assistant settings.</div>
+      </div>
+      <div class="mf">
+        <button class="btn btn-ghost" onclick="closeModal('removeModal')">Cancel</button>
+        <button class="btn btn-danger" onclick="closeModal('removeModal')">Remove number</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CHANGE MODAL ===== -->
+  <div class="overlay" id="changeModal">
+    <div class="modal">
+      <div class="mh">
+        <h3>Change dedicated number</h3>
+        <p>Swap Sunrise Plumbing Co.’s assistant onto a new number in one step. Current number: <b class="num">+1 236 476 7193</b>.</p>
+      </div>
+      <div class="mb">
+        <div class="field">
+          <label>New number (E.164) <span class="req">*</span></label>
+          <div style="display:flex;gap:8px">
+            <input placeholder="+1 604 555 0142" value="+1 604 555 0142" style="flex:1">
+            <button class="btn btn-ghost" onclick="document.getElementById('quoteLine').style.display='block'">Check availability</button>
+          </div>
+          <div class="quote-line" id="quoteLine" style="display:none">Available · $1.00/mo · setup $0.00 — within cost guard.</div>
+        </div>
+        <div class="field">
+          <label>What should happen to the old number? <span class="req">*</span></label>
+          <label class="radio sel"><input type="radio" name="chMode" checked onclick="selRadio(this)"><span><span class="rt">Release the old number</span><span class="rb">Return <b>+1 236 476 7193</b> to the carrier and stop billing it.</span></span></label>
+          <label class="radio"><input type="radio" name="chMode" onclick="selRadio(this)"><span><span class="rt">Park the old number (reserve)</span><span class="rb">Keep <b>+1 236 476 7193</b> reserved for this provider (rental continues).</span></span></label>
+        </div>
+        <div class="field">
+          <label>Reason (shown to the provider) <span class="req">*</span></label>
+          <select><option>We moved your assistant to a better-suited number</option><option>A technical issue with the previous number</option><option>At your request</option><option>A carrier or compliance requirement</option><option>An account update by our team</option></select>
+        </div>
+        <div class="field">
+          <label>Internal note (optional — audit only)</label>
+          <textarea placeholder="Internal context for the audit trail"></textarea>
+        </div>
+        <div class="prov-note">Provider gets one “new number” message (old → new) across all channels, linking to their assistant settings.</div>
+      </div>
+      <div class="mf">
+        <button class="btn btn-ghost" onclick="closeModal('changeModal')">Cancel</button>
+        <button class="btn btn-lime" onclick="closeModal('changeModal')">Change number</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ---- email HTML (brand-identical; {{tokens}} filled with sample data) ---- */
+const LOGO = '<div style="font-size:22px;font-weight:800;color:#ffffff;letter-spacing:.5px;margin-bottom:12px;">Clin<span style="color:#97EF29;">ket</span></div>';
+const FOOT = '<tr><td style="background-color:#032858;padding:20px;text-align:center;">'
+  +'<p style="font-size:12px;color:#A8C4E0;margin:0;">Powered by Clinket</p>'
+  +'<p style="font-size:11px;color:#7A9BBF;margin:5px 0 0 0;">This is an automated message, please do not reply.</p>'
+  +'<p style="margin:10px 0 0 0;"><a href="#" style="font-size:11px;color:#97EF29;text-decoration:underline;">Manage notification preferences</a></p>'
+  +'</td></tr>';
+const HEAD = (title,preheader,h1)=>'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>'+title+'</title>'
+  +'<style>@media only screen and (max-width:480px){.px{padding-left:20px!important;padding-right:20px!important}.h1{font-size:22px!important}.cta a{display:block!important}}</style></head>'
+  +'<body style="margin:0;padding:0;font-family:Arial,sans-serif;background-color:#f4f4f4;">'
+  +'<div style="display:none;max-height:0;overflow:hidden;">'+preheader+'</div>'
+  +'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f4;padding:20px 0;"><tr><td align="center">'
+  +'<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,0.1);">'
+  +'<tr><td style="background-color:#032858;padding:30px;text-align:center;">'+LOGO+'<h1 class="h1" style="color:#ffffff;margin:0;font-size:24px;">'+h1+'</h1></td></tr>';
+
+const infoBox = (rows)=>'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EBF5FB;border:2px solid #032858;border-radius:8px;margin:0 0 24px 0;"><tr><td style="padding:20px 22px;">'
+  +'<span style="display:block;font-size:14px;font-weight:bold;color:#032858;margin:0 0 12px 0;">What changed</span>'
+  +'<p style="font-size:14px;color:#333333;line-height:1.9;margin:0;">'+rows+'</p></td></tr></table>';
+
+const cta = (label)=>'<div class="cta" style="text-align:center;margin:6px 0 18px 0;"><a href="#" style="display:inline-block;padding:14px 40px;background-color:#97EF29;color:#101010;text-decoration:none;border-radius:6px;font-weight:bold;">'+label+'</a></div>';
+
+const support = 'You can reach us any time at <a href="#" style="color:#032858;font-weight:bold;text-decoration:underline;">support@clinket.com</a>.';
+
+const EMAILS = {
+  removed: HEAD('Your assistant’s phone number was removed','Your assistant’s dedicated number was removed — here’s what it means and what to do next.','Your assistant’s phone number was removed')
+    +'<tr><td class="px" style="padding:30px;">'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 20px 0;">Hi Sunrise Plumbing Co.,</p>'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Our team has removed the dedicated phone number from your Clinket AI Voice Assistant. We wanted to let you know right away.</p>'
+    +infoBox('Removed number: <span style="font-weight:bold;color:#032858;">+1 236 476 7193</span><br/>Reason: A technical issue with the previous number.')
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Your own business phone line is unaffected — customers who call you directly still reach you as normal. Your assistant’s setup, preferences and call history are all safe. When a new number is added, your assistant picks up right where it left off.</p>'
+    +cta('View your assistant')
+    +'<p style="font-size:14px;line-height:1.6;color:#666;margin:0;text-align:center;">Want your assistant back online? '+support+'</p>'
+    +'</td></tr>'+FOOT+'</table></td></tr></table></body></html>',
+
+  changed: HEAD('Your assistant has a new phone number','Your assistant has a new phone number — please update where you’ve shared the old one.','Your assistant has a new phone number')
+    +'<tr><td class="px" style="padding:30px;">'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 20px 0;">Hi Sunrise Plumbing Co.,</p>'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Our team has updated the dedicated phone number for your Clinket AI Voice Assistant. Your assistant is live on the new number now.</p>'
+    +infoBox('Previous number: <span style="font-weight:bold;color:#032858;">+1 236 476 7193</span><br/>New number: <span style="font-weight:bold;color:#032858;">+1 604 555 0142</span><br/>Reason: We moved your assistant to a better-suited number.')
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Please update anywhere you’ve shared the old number — your website, cards and listings — so customers reach your assistant. Your setup, preferences and call history are unchanged.</p>'
+    +cta('View your assistant')
+    +'<p style="font-size:14px;line-height:1.6;color:#666;margin:0;text-align:center;">Questions? '+support+'</p>'
+    +'</td></tr>'+FOOT+'</table></td></tr></table></body></html>',
+
+  added: HEAD('Your assistant is back online','A new number has been added to your AI Voice Assistant — it’s answering calls now.','Your assistant is back online')
+    +'<tr><td class="px" style="padding:30px;">'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 20px 0;">Hi Sunrise Plumbing Co.,</p>'
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Good news — our team has added a new dedicated phone number to your Clinket AI Voice Assistant. It’s live and answering your missed calls now.</p>'
+    +infoBox('New number: <span style="font-weight:bold;color:#032858;">+1 604 555 0142</span>')
+    +'<p style="font-size:16px;line-height:1.6;color:#333;margin:0 0 24px 0;">Share it wherever your customers reach you. Your setup, preferences and call history are exactly as you left them — nothing to redo.</p>'
+    +cta('View your assistant')
+    +'<p style="font-size:14px;line-height:1.6;color:#666;margin:0;text-align:center;">Questions? '+support+'</p>'
+    +'</td></tr>'+FOOT+'</table></td></tr></table></body></html>'
+};
+
+let variant='removed', deviceW=600, deviceKind='desktop';
+const frame=document.getElementById('emailFrame');
+const device=document.getElementById('device');
+const deviceNote=document.getElementById('deviceNote');
+const mTitle=document.getElementById('mTitle'), mTitle2=document.getElementById('mTitle2'), mBody=document.getElementById('mBody');
+
+function renderEmail(){
+  frame.srcdoc = EMAILS[variant];
+  device.style.width = deviceKind==='desktop' ? '620px' : (deviceW+ (deviceKind==='mobile'?28:28) )+'px';
+  device.className = 'device '+deviceKind;
+  frame.style.height = deviceKind==='mobile' ? '860px' : '780px';
+  deviceNote.textContent = deviceKind==='desktop' ? 'Rendering at 600px (max card width)' : 'Rendering at '+deviceW+'px — media query '+(deviceW<=480?'active':'inactive');
+  const titles={removed:'Your assistant’s number was removed',changed:'Your assistant has a new number',added:'Your assistant is back online'};
+  const reasons={removed:'A technical issue with the previous number.',changed:'We moved you to a better-suited number.',added:'It’s live and answering calls now.'};
+  const t=titles[variant];
+  mTitle.textContent=t; mTitle2.textContent=t;
+  mBody.textContent='Tap to view your AI Voice Assistant.';
+  document.getElementById('mReason').textContent=reasons[variant];
+  const sms={
+    removed:"Clinket: your AI Voice Assistant's dedicated number was removed by our team. Your own line is unaffected. Manage: business.clinket.com/dashboard/profile/ai-assistant",
+    changed:"Clinket: your AI Voice Assistant has a new number, +1 604 555 0142. Please update it everywhere you shared the old one. Manage: business.clinket.com/dashboard/profile/ai-assistant",
+    added:"Clinket: your AI Voice Assistant is back online on +1 604 555 0142. Manage: business.clinket.com/dashboard/profile/ai-assistant"
+  };
+  document.getElementById('smsBubble').textContent=sms[variant];
+}
+document.getElementById('variantSeg').addEventListener('click',e=>{
+  if(!e.target.dataset.variant)return;
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active'); variant=e.target.dataset.variant; renderEmail();
+});
+document.getElementById('deviceSeg').addEventListener('click',e=>{
+  if(!e.target.dataset.w)return;
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active'); deviceW=+e.target.dataset.w; deviceKind=e.target.dataset.kind; renderEmail();
+});
+
+/* tabs */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('panel-'+t.dataset.tab).classList.add('active');
+}));
+
+/* admin seg + modals */
+document.getElementById('lookupSeg').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('active')); e.target.classList.add('active');
+});
+function selRadio(inp){ inp.closest('.field').querySelectorAll('.radio').forEach(r=>r.classList.remove('sel')); inp.closest('.radio').classList.add('sel'); }
+function openModal(id){ document.getElementById(id).classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o)o.classList.remove('open'); }));
+
+renderEmail();
+</script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>When a message does not arrive — what the provider and the customer see</title>
+<style>
+@font-face{font-family:Lufga;src:url('fonts/LufgaRegular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:Lufga;src:url('fonts/LufgaSemiBold.woff') format('woff');font-weight:600;font-display:swap}
+:root{
+  /* house tokens — unchanged from the approved voice-own-number sheet (2026-09-15). Nothing invented. */
+  --ink:#032858; --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-ink:#3A6410; --green-line:#bdebca; --green-wash:#F4FFF8;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00; --amber-soft:#FFF7ED; --amber-deep:#92400E; --amber-card:#FFFBEB; --amber-edge:#FDE68A;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E; --red:#FF3B30;
+  --blue-bg:#EAF3FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B; --blue-live:#3B82F6;
+  --ok-bg:#EAFBF0; --ok-ink:#0e7a3a;
+  --r-lg:16px; --r:12px;
+  --sh:0 1px 2px rgba(3,40,88,.05),0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06),0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased;padding:0 20px 90px}
+h1,h2,h3,h4,p{margin:0}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.15em}
+.wrap{max-width:1180px;margin:0 auto}
+
+header.masthead{padding:44px 0 24px;border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between}
+.masthead h1{font-size:clamp(26px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;font-weight:600}
+.masthead p{margin-top:8px;color:var(--muted);max-width:70ch}
+.stamp{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:right;line-height:1.8}
+.stamp b{color:var(--amber-ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(245,245,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -20px;padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+nav.jump a{text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid transparent}
+@media (hover:hover){nav.jump a:hover{border-color:var(--line);background:var(--card);color:var(--ink)}}
+h2.rule{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:52px 0 6px;padding-bottom:8px;border-bottom:1px solid #d3d9e3;font-weight:600}
+h2.rule span{color:var(--green-ink)}
+.lede{color:var(--muted);margin:0 0 20px;max-width:92ch}
+.lede b{color:var(--text)}
+.board{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;flex:1 1 460px;min-width:0}
+.frame.w360{flex:0 1 360px;max-width:100%}
+.frame.w300{flex:0 1 300px;max-width:100%}
+.frame.full{flex:1 1 100%}
+.frame-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;background:var(--hair);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.frame-label em{font-style:normal;color:var(--green-ink);font-weight:600;text-align:right}
+.frame-label b.was{color:var(--red-ink)}
+.frame-label b.new{color:var(--blue-ink)}
+.why{padding:10px 14px 12px;border-top:1px dashed #d3d9e3;font-size:12.5px;color:var(--muted);background:var(--tint)}
+.why b{color:var(--text)}
+.pad{padding:16px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:var(--r);padding:14px 16px;font-size:13.5px;color:var(--muted);margin:22px 0 18px}
+.callout b{color:var(--text)}
+.callout.warn{border-left-color:var(--amber-ink);background:var(--amber-bg)}
+.callout.no{border-left-color:var(--red-ink);background:var(--red-bg)}
+
+/* ── contact row / list ─────────────────────────────────────── */
+.list{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--hair)}
+.row:last-child{border-bottom:0}
+.av{width:36px;height:36px;border-radius:50%;background:var(--hair);color:var(--ink);display:grid;place-items:center;font-weight:600;font-size:13px;flex:none}
+.row .who{min-width:0;flex:1 1 auto}
+.row .who .nm{font-weight:600;font-size:14px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .who .sub{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.row .meta{font-size:12px;color:var(--faint);white-space:nowrap;flex:none}
+
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:600;border:1px solid transparent;white-space:nowrap}
+.pill.amber{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.pill.faint{background:var(--hair);border-color:var(--line);color:var(--muted)}
+.pill.ok{background:var(--ok-bg);border-color:var(--green-line);color:var(--ok-ink)}
+.pill.blue{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+
+/* ── advisory banner (never red, never blocking) ─────────────── */
+.advis{display:flex;gap:11px;align-items:flex-start;background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:var(--r);padding:11px 13px}
+.advis .ic{color:var(--amber-ink);font-size:16px;line-height:1;margin-top:1px}
+.advis .bd{min-width:0}
+.advis .bd p{font-size:13px;color:var(--amber-deep)}
+.advis .bd p b{color:var(--amber-ink)}
+.advis .bd .act{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.lnk{font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--green);padding-bottom:1px}
+
+/* ── form field ─────────────────────────────────────────────── */
+.fld{display:block}
+.fld .lbl{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block}
+.inp{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;background:var(--card);color:var(--text)}
+.inp.flagged{border-color:var(--amber-line);background:var(--amber-soft)}
+.hint{font-size:12px;color:var(--muted);margin-top:6px;display:flex;gap:6px;align-items:flex-start}
+.hint.amber{color:var(--amber-ink)}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:10px;padding:9px 14px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+
+/* ── notification centre ────────────────────────────────────── */
+.notif{display:flex;gap:11px;padding:13px 14px;border-bottom:1px solid var(--hair);background:var(--card)}
+.notif:last-child{border-bottom:0}
+.notif.unread{background:#FCFDFF}
+.notif .dot{width:8px;height:8px;border-radius:50%;background:var(--green);margin-top:7px;flex:none}
+.notif .dot.read{background:transparent;border:1px solid var(--line)}
+.notif .bd{min-width:0;flex:1 1 auto}
+.notif .bd h4{font-size:13.5px;color:var(--text);font-weight:600}
+.notif .bd p{font-size:12.5px;color:var(--muted);margin-top:3px}
+.notif .bd .when{font-size:11px;color:var(--faint);margin-top:6px;font-family:var(--mono);letter-spacing:.04em}
+.notif .bd .go{margin-top:8px}
+
+/* ── phone ──────────────────────────────────────────────────── */
+.phone{width:100%;max-width:330px;margin:0 auto;border:1px solid #c9d2c6;border-radius:32px;overflow:hidden;background:#FAFAFB;box-shadow:var(--sh-lift);display:flex;flex-direction:column}
+.phone .sb{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600;background:#fff}
+.phone .hdr{display:flex;align-items:center;gap:10px;padding:8px 14px 12px;background:#fff;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+.phone .scrbody{padding:14px;display:flex;flex-direction:column;gap:12px;margin:0}
+.phone .list{border-radius:12px}
+.phone .row{padding:11px 12px}
+.phone .btn{width:100%;border-radius:13px;padding:12px 16px;font-size:15px}
+.phone .acts{flex-direction:column;align-items:stretch}
+.phone .tabbar{display:flex;border-top:1px solid var(--line);background:#fff;padding:7px 0 12px}
+.phone .tabbar div{flex:1;text-align:center;font-size:10px;color:var(--faint)}
+.phone .tabbar div.on{color:var(--green-ink);font-weight:600}
+
+/* ── responsive demo strip ──────────────────────────────────── */
+.bp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+.bpc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.bpc .w{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-ink);font-weight:600}
+.bpc h4{font-size:13.5px;margin-top:5px;color:var(--text)}
+.bpc p{font-size:12.5px;color:var(--muted);margin-top:5px}
+
+/* ── tables ─────────────────────────────────────────────────── */
+.tbl-scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 8px}
+table.copy{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px}
+table.copy th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.copy td{padding:8px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.copy code{font-family:var(--mono);font-size:11px;background:var(--hair);padding:1px 6px;border-radius:5px;color:var(--ink);word-break:break-all}
+table.copy .say{color:var(--text)}
+table.copy s{color:var(--faint)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;margin-top:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.card h4{font-size:14.5px;color:var(--text)}
+.card p{font-size:13px;color:var(--muted);margin-top:6px}
+.card p b{color:var(--text)}
+.card.no{border-color:var(--red-line);background:var(--red-bg)}
+.card.no h4{color:var(--red-ink)}
+.card.yes{border-color:var(--green-line);background:var(--green-wash)}
+.card.yes h4{color:var(--ok-ink)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>When a message does not arrive</h1>
+    <p>Every screen the provider and the customer see when an email or a text message could not be delivered.
+       Web and mobile, every state. The warning is always <b>advice, never a block</b> — nothing here stops
+       anyone from sending.</p>
+  </div>
+  <div class="stamp">
+    Sheet · delivery-problem-surfaces<br>
+    Programme · <b>delivery-failure-feedback</b><br>
+    Drawn · 2026-09-19<br>
+    Tokens · voice-own-number (approved)
+  </div>
+</header>
+
+<nav class="jump">
+  <a href="#rule">0 · The rule</a>
+  <a href="#crm">1 · Contacts</a>
+  <a href="#entry">2 · Before you send</a>
+  <a href="#notice">3 · The notice</a>
+  <a href="#profile">4 · My own address</a>
+  <a href="#locked">5 · Locked out</a>
+  <a href="#resp">6 · Responsive</a>
+  <a href="#copy">7 · Copy</a>
+  <a href="#never">8 · Never</a>
+</nav>
+
+<!-- ─────────────────────────────────────────────── 0 -->
+<h2 class="rule" id="rule">0 · <span>The rule every screen obeys</span></h2>
+<p class="lede">Three sentences decide every pixel below.</p>
+
+<div class="grid2">
+  <div class="card yes">
+    <h4>We never answer on the channel that broke</h4>
+    <p>If the email bounced, we do not email about it. The notice arrives <b>in the app and as a push</b>.
+       That is why the bell and the push are the guaranteed route, and why they cannot be switched off for
+       this one kind of message.</p>
+  </div>
+  <div class="card yes">
+    <h4>We tell whoever can fix it</h4>
+    <p>A customer's address that does not work is the <b>provider's</b> to correct — the customer cannot read
+       the mail telling them so. A person's <b>own</b> account address is theirs, so they are told in the app.</p>
+  </div>
+  <div class="card yes">
+    <h4>It is advice, never a wall</h4>
+    <p>Amber, never red. The provider can always send anyway. We are telling them what happened last time,
+       not refusing to act.</p>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 1 -->
+<h2 class="rule" id="crm">1 · <span>Contacts — the list row and the contact itself</span></h2>
+<p class="lede">The marker rides on the <b>address</b>, not on the person. Correct the address and it is simply
+gone — there is nothing to clear and nothing to remember.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><b>Web · contact list</b><em>every state, one list</em></div>
+    <div class="pad">
+      <div class="list">
+        <div class="row">
+          <div class="av">PM</div>
+          <div class="who"><div class="nm">Priya Mehta</div><div class="sub">priya.mehta@gmail.com · +1 416 555 0148</div></div>
+          <div class="meta">2 bookings</div>
+        </div>
+        <div class="row">
+          <div class="av">DO</div>
+          <div class="who">
+            <div class="nm">Daniel Okafor</div>
+            <div class="sub">daniel@oldfirm.example
+              <span class="pill amber">Email not reaching</span>
+            </div>
+          </div>
+          <div class="meta">1 booking</div>
+        </div>
+        <div class="row">
+          <div class="av">SK</div>
+          <div class="who">
+            <div class="nm">Sara Kaur</div>
+            <div class="sub">sara.k@example.com · +1 647 555 0102
+              <span class="pill amber">Texts not reaching</span>
+            </div>
+          </div>
+          <div class="meta">4 bookings</div>
+        </div>
+        <div class="row">
+          <div class="av">MT</div>
+          <div class="who">
+            <div class="nm">Marco Tan</div>
+            <div class="sub">marco@gone.example · +1 905 555 0177
+              <span class="pill amber">Email &amp; texts not reaching</span>
+            </div>
+          </div>
+          <div class="meta">—</div>
+        </div>
+        <div class="row">
+          <div class="av">LF</div>
+          <div class="who">
+            <div class="nm">Lena Fischer</div>
+            <div class="sub">lena@example.org
+              <span class="pill faint">Email had trouble in March</span>
+            </div>
+          </div>
+          <div class="meta">6 bookings</div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>Five states in one list.</b> No problem · email · text · both · and an old one.
+      After <b>90 days</b> the pill goes quiet — grey, past tense, still honest. It disappears entirely at
+      180 days, or the moment the address is changed.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · contacts</b><em>same rules, thumb-sized</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">Contacts</div>
+        <div class="scrbody">
+          <div class="list">
+            <div class="row">
+              <div class="av">PM</div>
+              <div class="who"><div class="nm">Priya Mehta</div><div class="sub">priya.mehta@gmail.com</div></div>
+            </div>
+            <div class="row">
+              <div class="av">DO</div>
+              <div class="who"><div class="nm">Daniel Okafor</div>
+                <div class="sub"><span class="pill amber">Email not reaching</span></div></div>
+            </div>
+            <div class="row">
+              <div class="av">MT</div>
+              <div class="who"><div class="nm">Marco Tan</div>
+                <div class="sub"><span class="pill amber">Email &amp; texts</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tabbar"><div>Home</div><div class="on">Contacts</div><div>Calendar</div><div>More</div></div>
+      </div>
+    </div>
+    <div class="why"><b>The address gives way, the pill does not.</b> On a narrow screen the address is dropped
+      from the row and the pill takes its place — the warning is the thing worth the space.</div>
+  </div>
+</div>
+
+<div class="board" style="margin-top:22px">
+  <div class="frame">
+    <div class="frame-label"><b>Web · contact detail</b><em>the advisory, in place</em></div>
+    <div class="pad">
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+        <div class="av" style="width:48px;height:48px;font-size:16px">DO</div>
+        <div><div style="font-weight:600;font-size:17px;color:var(--ink)">Daniel Okafor</div>
+          <div style="font-size:13px;color:var(--muted)">Customer since March 2026</div></div>
+      </div>
+      <div class="advis">
+        <div class="ic">!</div>
+        <div class="bd">
+          <p><b>We could not deliver to daniel@oldfirm.example.</b> The address did not accept mail on
+             12 September. Anything you send there will probably not arrive.</p>
+          <div class="act">
+            <a class="lnk" href="#">Update the email address</a>
+            <a class="lnk" href="#">Send a text instead</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <label class="fld"><span class="lbl">Email</span>
+          <input class="inp flagged" value="daniel@oldfirm.example" readonly></label>
+      </div>
+      <div style="margin-top:12px">
+        <label class="fld"><span class="lbl">Phone</span>
+          <input class="inp" value="+1 416 555 0193" readonly></label>
+      </div>
+    </div>
+    <div class="why"><b>The words are plain.</b> Not "hard bounce", not "suppressed", not "delivery report" —
+      <em>we could not deliver</em>, and the date it happened. Two ways forward, neither of them a dead end.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · contact detail</b><em>advisory above the fold</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">← Daniel Okafor</div>
+        <div class="scrbody">
+          <div class="advis">
+            <div class="ic">!</div>
+            <div class="bd">
+              <p><b>We could not deliver to this email.</b> It did not accept mail on 12 September.</p>
+              <div class="act"><a class="lnk" href="#">Update email</a></div>
+            </div>
+          </div>
+          <label class="fld"><span class="lbl">Email</span>
+            <input class="inp flagged" value="daniel@oldfirm.example" readonly></label>
+          <label class="fld"><span class="lbl">Phone</span>
+            <input class="inp" value="+1 416 555 0193" readonly></label>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>Above the fold, always.</b> The advisory sits before the fields so a thumb scrolling
+      the contact meets it first — never buried under the form.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 2 -->
+<h2 class="rule" id="entry">2 · <span>Before you send — the warning that prevents the failure</span></h2>
+<p class="lede">This is where the marker earns its keep. Because the record is kept against the
+<b>address</b>, we can warn the moment one is typed or pasted — before anything is sent, and even for an
+address this provider has never used.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><b>Web · sending a quote</b><em>typed · warned · sent anyway</em></div>
+    <div class="pad">
+      <label class="fld" style="margin-bottom:16px"><span class="lbl">Send the quote to</span>
+        <input class="inp" value="sara.k@example.com" readonly>
+        <span class="hint"><span>✓</span> Looks fine.</span>
+      </label>
+
+      <label class="fld" style="margin-bottom:16px"><span class="lbl">Send the quote to</span>
+        <input class="inp flagged" value="daniel@oldfirm.example" readonly>
+        <span class="hint amber"><span>!</span> This address did not accept mail on <b>12 September</b>.
+          Check the spelling, or use another address.</span>
+      </label>
+
+      <div class="advis">
+        <div class="ic">!</div>
+        <div class="bd">
+          <p>You are sending to an address that did not work last time. <b>We will still send it.</b></p>
+          <div class="act">
+            <button class="btn primary">Send anyway</button>
+            <button class="btn">Change the address</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>It never blocks.</b> "Send anyway" is the brand-green primary — the provider's judgement
+      wins. We are the ones who know what happened last time; we are not the ones who decide.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · sending a quote</b><em>inline, then a sheet</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">← Send quote</div>
+        <div class="scrbody">
+          <label class="fld"><span class="lbl">Send to</span>
+            <input class="inp flagged" value="daniel@oldfirm.example" readonly>
+            <span class="hint amber"><span>!</span> Did not accept mail on 12 September.</span>
+          </label>
+          <div class="advis">
+            <div class="ic">!</div>
+            <div class="bd"><p>This address did not work last time. <b>We will still send it.</b></p></div>
+          </div>
+          <div class="acts">
+            <button class="btn primary">Send anyway</button>
+            <button class="btn">Change the address</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>Stacked, full width, thumb-reachable.</b> Both actions are 44px tall and sit at the
+      bottom of the flow, where a thumb already is.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 3 -->
+<h2 class="rule" id="notice">3 · <span>The notice — when something has already been lost</span></h2>
+<p class="lede">This arrives in the bell and as a push, because the channel that would normally carry it is
+the one that failed. It always points at <b>the thing that did not arrive</b>, never at a dashboard.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><b>Web · provider's notifications</b><em>three kinds, one list</em></div>
+    <div class="pad">
+      <div class="list">
+        <div class="notif unread">
+          <div class="dot"></div>
+          <div class="bd">
+            <h4>Your quote did not reach Daniel Okafor</h4>
+            <p>We could not deliver Quote #1043 to daniel@oldfirm.example. The address did not accept mail.</p>
+            <div class="when">12 Sep · 14:22</div>
+            <div class="go"><a class="lnk" href="#">Open Quote #1043</a></div>
+          </div>
+        </div>
+        <div class="notif unread">
+          <div class="dot"></div>
+          <div class="bd">
+            <h4>Your text message did not reach Sara Kaur</h4>
+            <p>The number +1 647 555 0102 could not receive it. Their booking reminder was not delivered.</p>
+            <div class="when">12 Sep · 09:05</div>
+            <div class="go"><a class="lnk" href="#">Open Sara Kaur</a></div>
+          </div>
+        </div>
+        <div class="notif">
+          <div class="dot read"></div>
+          <div class="bd">
+            <h4>Marco Tan does not use WhatsApp</h4>
+            <p>We sent your message as a text message instead. It was delivered.</p>
+            <div class="when">11 Sep · 16:40</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>The third one is not a failure.</b> It is drawn here only to show the difference —
+      it is a quiet, already-read line with <em>no</em> action, because the message arrived. If the fallback
+      had also failed, it would be amber and actionable like the other two.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · push + bell</b><em>what wakes the phone</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div style="padding:12px 12px 0">
+          <div style="background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:16px;padding:11px 13px;box-shadow:var(--sh)">
+            <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)">Clinket · now</div>
+            <div style="font-weight:600;font-size:13.5px;margin-top:3px">Your quote did not reach Daniel Okafor</div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:2px">The email address did not accept mail. Tap to open Quote&nbsp;#1043.</div>
+          </div>
+        </div>
+        <div class="hdr" style="margin-top:12px">Notifications</div>
+        <div style="padding:0 0 4px">
+          <div class="notif unread">
+            <div class="dot"></div>
+            <div class="bd">
+              <h4>Your quote did not reach Daniel Okafor</h4>
+              <p>We could not deliver Quote #1043.</p>
+              <div class="when">12 Sep · 14:22</div>
+              <div class="go"><a class="lnk" href="#">Open Quote #1043</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="tabbar"><div>Home</div><div>Contacts</div><div>Calendar</div><div class="on">Alerts</div></div>
+      </div>
+    </div>
+    <div class="why"><b>The push carries the whole point in its first line.</b> A provider who reads only the
+      lock screen still learns that the quote did not arrive, and who it was for.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 4 -->
+<h2 class="rule" id="profile">4 · <span>My own address is the one that broke</span></h2>
+<p class="lede">Only the account holder can fix their own email. They are told in the app — never by email,
+which is the thing that failed.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><b>Web · my settings</b><em>customer or provider, same screen</em></div>
+    <div class="pad">
+      <div class="advis" style="margin-bottom:16px">
+        <div class="ic">!</div>
+        <div class="bd">
+          <p><b>We cannot reach you by email.</b> Messages to sara.k@oldmail.example stopped arriving on
+             12 September, so you may be missing booking confirmations.</p>
+          <div class="act"><a class="lnk" href="#">Update my email address</a></div>
+        </div>
+      </div>
+      <label class="fld" style="margin-bottom:14px"><span class="lbl">Email address</span>
+        <input class="inp flagged" value="sara.k@oldmail.example" readonly>
+        <span class="hint amber"><span>!</span> Not receiving mail since 12 September.</span></label>
+      <label class="fld"><span class="lbl">Mobile number</span>
+        <input class="inp" value="+1 647 555 0102" readonly>
+        <span class="hint"><span>✓</span> Receiving texts.</span></label>
+      <div class="acts"><button class="btn primary">Save changes</button><button class="btn ghost">Cancel</button></div>
+    </div>
+    <div class="why"><b>It says what they are missing, not what broke.</b> "You may be missing booking
+      confirmations" is the consequence they care about. The cause is ours to worry about.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · my settings</b><em>one column, full-width actions</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">← My details</div>
+        <div class="scrbody">
+          <div class="advis">
+            <div class="ic">!</div>
+            <div class="bd"><p><b>We cannot reach you by email.</b> You may be missing booking confirmations.</p></div>
+          </div>
+          <label class="fld"><span class="lbl">Email address</span>
+            <input class="inp flagged" value="sara.k@oldmail.example" readonly>
+            <span class="hint amber"><span>!</span> Not receiving mail since 12 September.</span></label>
+          <label class="fld"><span class="lbl">Mobile number</span>
+            <input class="inp" value="+1 647 555 0102" readonly></label>
+          <div class="acts"><button class="btn primary">Save changes</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>Fixing it clears it.</b> Save a different address and the warning is gone on the next
+      paint — there is no "dismiss", because there is nothing left to dismiss.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 5 -->
+<h2 class="rule" id="locked">5 · <span>Locked out — the person we cannot reach at all</span></h2>
+<p class="lede">A password-reset email that does not arrive leaves someone with no way in. They cannot be
+emailed, cannot sign in, and have no phone registered. <b>This screen is the whole remedy</b> — not a
+notification, which is impossible here.</p>
+
+<div class="board">
+  <div class="frame">
+    <div class="frame-label"><b>Web · reset your password</b><em>first try · trying the same address again</em></div>
+    <div class="pad">
+      <div style="max-width:420px">
+        <div style="font-weight:600;font-size:17px;color:var(--ink);margin-bottom:4px">Reset your password</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px">We will send you a link to set a new one.</p>
+        <label class="fld"><span class="lbl">Email address</span>
+          <input class="inp" value="you@example.com" readonly></label>
+        <div class="acts"><button class="btn primary">Send the link</button></div>
+
+        <div style="height:1px;background:var(--line);margin:24px 0"></div>
+
+        <label class="fld"><span class="lbl">Email address</span>
+          <input class="inp flagged" value="sara.k@oldmail.example" readonly></label>
+        <div class="advis" style="margin-top:10px">
+          <div class="ic">!</div>
+          <div class="bd">
+            <p><b>This address did not accept our mail on 12 September.</b> Sending again will probably not
+               reach you. Check the spelling, try another address you own, or contact us and we will help.</p>
+            <div class="act">
+              <a class="lnk" href="#">Contact support</a>
+              <a class="lnk" href="#">Try a different address</a>
+            </div>
+          </div>
+        </div>
+        <div class="acts"><button class="btn primary">Send anyway</button></div>
+      </div>
+    </div>
+    <div class="why"><b>They stop waiting.</b> Without this screen the person types the same address, sees
+      "check your inbox", and waits for mail that will never come. ‼️ <b>Support must be able to answer
+      without email</b> — a route that replies only by mail closes the loop back onto the broken channel.</div>
+  </div>
+
+  <div class="frame w360">
+    <div class="frame-label"><b>Mobile · reset your password</b><em>the same honesty, one column</em></div>
+    <div class="pad" style="background:var(--tint)">
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>▮▮▮</span></div>
+        <div class="hdr">← Reset password</div>
+        <div class="scrbody">
+          <label class="fld"><span class="lbl">Email address</span>
+            <input class="inp flagged" value="sara.k@oldmail.example" readonly></label>
+          <div class="advis">
+            <div class="ic">!</div>
+            <div class="bd"><p><b>This address did not accept our mail on 12 September.</b> Try another
+              address you own, or contact us.</p>
+              <div class="act"><a class="lnk" href="#">Contact support</a></div></div>
+          </div>
+          <div class="acts">
+            <button class="btn primary">Send anyway</button>
+            <button class="btn">Try a different address</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why"><b>Signed out, so no bell and no push.</b> The screen itself is the only channel we have
+      — which is exactly why the warning has to be here.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────── 6 -->
+<h2 class="rule" id="resp">6 · <span>Responsive — phone, tablet, laptop, monitor</span></h2>
+<p class="lede">One layout, six behaviours. Breakpoints are the app's own
+(<code style="font-family:var(--mono);font-size:11px">xs 320 · sm 480 · md 768 · lg 1024 · xl 1280 · 2xl 1536 · 3xl 1920</code>),
+not invented for this sheet.</p>
+
+<div class="bp">
+  <div class="bpc"><div class="w">xs · 320–479</div><h4>Phone, small</h4>
+    <p>Contact row drops the address and keeps the pill. Advisory is full-bleed. Buttons stack, full width, 44px tall.</p></div>
+  <div class="bpc"><div class="w">sm · 480–767</div><h4>Phone, large</h4>
+    <p>Address returns under the name on two lines. Advisory keeps its icon column.</p></div>
+  <div class="bpc"><div class="w">md · 768–1023</div><h4>Tablet portrait</h4>
+    <p>Contact detail becomes two columns: identity left, advisory and fields right. Buttons go side by side.</p></div>
+  <div class="bpc"><div class="w">lg · 1024–1279</div><h4>Tablet landscape / small laptop</h4>
+    <p>The list keeps a right-hand meta column (bookings, last seen). Advisory sits inline above the fields.</p></div>
+  <div class="bpc"><div class="w">xl · 1280–1919</div><h4>Laptop / desktop</h4>
+    <p>List and detail side by side — selecting a contact never leaves the list. Advisory anchors to the detail pane.</p></div>
+  <div class="bpc"><div class="w">3xl · 1920+</div><h4>Large monitor</h4>
+    <p>Content column caps at 1180px and centres. ‼️ It does <b>not</b> stretch — a 60-character line is the
+      limit, whatever the monitor.</p></div>
+</div>
+
+<div class="callout"><b>Touch is not hover.</b> The apps set
+  <code style="font-family:var(--mono);font-size:11px">hoverOnlyWhenSupported</code>, so every hover state here is
+  wrapped in <code style="font-family:var(--mono);font-size:11px">@media (hover:hover)</code>. On a phone or an
+  iPad the amber pill must never latch into a stuck highlight after a tap.</div>
+
+<div class="callout"><b>The mobile apps are not a smaller web page.</b> They use the native list row, the
+  native sheet for the send-anyway confirmation, the OS push, and the bottom tab bar — with the same wording,
+  the same amber, and the same rule that nothing ever blocks. Parity is in the <b>rendering rules</b>, not in
+  sharing a component.</div>
+
+<!-- ─────────────────────────────────────────────── 7 -->
+<h2 class="rule" id="copy">7 · <span>Every word, and where it comes from</span></h2>
+<p class="lede">Each string is a localization key present in <b>every</b> language file. Nothing is composed
+in the browser from fragments — a sentence assembled from pieces cannot be translated.</p>
+
+<div class="tbl-scroll">
+<table class="copy">
+  <thead><tr><th>Where</th><th>What it says</th><th>Never say</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Contact list pill — email</td><td class="say">Email not reaching</td><td><s>Hard bounced</s> <s>Suppressed</s></td><td><code>Contact_DeliveryProblem_Email_Pill</code></td></tr>
+    <tr><td>Contact list pill — text</td><td class="say">Texts not reaching</td><td><s>DLR failed</s> <s>Undeliverable</s></td><td><code>Contact_DeliveryProblem_Sms_Pill</code></td></tr>
+    <tr><td>Contact list pill — older than 90 days</td><td class="say">Email had trouble in March</td><td><s>Stale bounce</s></td><td><code>Contact_DeliveryProblem_Past_Pill</code></td></tr>
+    <tr><td>Contact detail advisory</td><td class="say">We could not deliver to {address}. The address did not accept mail on {date}.</td><td><s>Delivery report</s> <s>Bounce event</s></td><td><code>Contact_DeliveryProblem_Body</code></td></tr>
+    <tr><td>Address field hint</td><td class="say">This address did not accept mail on {date}. Check the spelling, or use another address.</td><td><s>Address is on the suppression list</s></td><td><code>AddressField_DeliveryProblem_Hint</code></td></tr>
+    <tr><td>Send-anyway confirmation</td><td class="say">You are sending to an address that did not work last time. We will still send it.</td><td><s>Send blocked</s> <s>Override required</s></td><td><code>Send_DeliveryProblem_Confirm</code></td></tr>
+    <tr><td>Notice — quote</td><td class="say">Your quote did not reach {name}</td><td><s>Email delivery failure</s></td><td><code>Notification_QuoteNotDelivered_Title</code></td></tr>
+    <tr><td>Notice — body</td><td class="say">We could not deliver {thing} to {address}. The address did not accept mail.</td><td><s>Terminal status: Bounced</s></td><td><code>Notification_NotDelivered_Body</code></td></tr>
+    <tr><td>Notice — text message</td><td class="say">Your text message did not reach {name}</td><td><s>SMS DLR failed</s></td><td><code>Notification_SmsNotDelivered_Title</code></td></tr>
+    <tr><td>Notice — WhatsApp fell back</td><td class="say">{name} does not use WhatsApp. We sent your message as a text message instead.</td><td><s>131026 undeliverable</s></td><td><code>Notification_WhatsAppFellBackToSms</code></td></tr>
+    <tr><td>My settings advisory</td><td class="say">We cannot reach you by email. Messages to {address} stopped arriving on {date}, so you may be missing booking confirmations.</td><td><s>Your address bounced</s></td><td><code>MyDetails_DeliveryProblem_Body</code></td></tr>
+    <tr><td>Reset screen advisory</td><td class="say">This address did not accept our mail on {date}. Sending again will probably not reach you.</td><td><s>Suppressed recipient</s></td><td><code>Reset_DeliveryProblem_Body</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout warn"><b>The date is always named.</b> "Did not accept mail on 12 September" is checkable;
+  "has a delivery problem" is an accusation with no evidence. Every string above carries the date, and the
+  older ones carry the month instead so they read as history, not as news.</div>
+
+<!-- ─────────────────────────────────────────────── 8 -->
+<h2 class="rule" id="never">8 · <span>What this sheet refuses to do</span></h2>
+
+<div class="grid2">
+  <div class="card no"><h4>Never red</h4>
+    <p>Red means stop, and nothing here stops. Amber is advice. The only red on these screens would be a
+      genuine error the person caused.</p></div>
+  <div class="card no"><h4>Never blocks a send</h4>
+    <p>There is no disabled button anywhere in this sheet. "Send anyway" is always the primary action, in
+      brand green.</p></div>
+  <div class="card no"><h4>No "dismiss"</h4>
+    <p>The marker is evidence with a date, not an accusation to argue with. It clears when the address is
+      corrected, or it quiets with age. There is nothing to dismiss.</p></div>
+  <div class="card no"><h4>No technical word, anywhere</h4>
+    <p>No bounce, no suppression, no delivery report, no DLR, no webhook, no carrier, no terminal status.
+      A salon owner and a plumber read these screens.</p></div>
+  <div class="card no"><h4>Never emails about email</h4>
+    <p>The notice never travels on the channel that failed. In-app and push, always.</p></div>
+  <div class="card no"><h4>Never tells the wrong person</h4>
+    <p>A customer whose address is broken cannot read about it. The provider is told. A person's own address
+      is the exception — they are told in the app.</p></div>
+</div>
+
+<footer>
+  delivery-problem-surfaces · programme <b>delivery-failure-feedback</b> · authority
+  <code style="font-family:var(--mono)">Data\delivery-failure-feedback\PLAN.md</code> §8.2 ·
+  tokens inherited from the approved voice-own-number sheet · drawn 2026-09-19
+</footer>
+
+</div>
+</body>
+</html>

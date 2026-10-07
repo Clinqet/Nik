@@ -1,0 +1,97 @@
+cards=19
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_0 [Table] section='COMPLETE HAIR & BEAUTY › THREADING' page=1 img= scripts=["Latn"] chars=148 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Service: Eyebrows | Price: $7
+    Service: Upperlips | Price: $2
+    Service: Chin | Price: $3
+    Service: Forehead | Price: $3
+    Service: Full face | Price: $20
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_1 [Table] section='COMPLETE HAIR & BEAUTY › POLICING' page=1 img= scripts=["Latn"] chars=282 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Service: Eyebrow tint | Price: $15
+    Service: Lashlift and tint | Price: $50
+    Service: Manicure | Price: $30
+    Service: Pedicure | Price: $40
+    Service: Full hands polish | Price: $30
+    Service: Full back polish with scrub and massage | Price: $40
+    Service: D-tan hands treatment | Price: $25
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_2 [Text] section='COMPLETE HAIR & BEAUTY › POLICING' page=1 img= scripts=["Latn"] chars=12 title='Complete Hair & Beauty Services Price List' type='Price list'
+    289-887-8496
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_3 [Table] section='COMPLETE HAIR & BEAUTY › FACIAL' page=1 img= scripts=["Latn"] chars=344 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Service: Chemical peels | Price: $80
+    Service: 03 plus bridal facial | Price: $70
+    Service: Casmara whitening | Price: $70
+    Service: Gerard's aquasense | Price: $60
+    Service: Safron Skin tightening | Price: $45
+    Service: Gold facial | Price: $40
+    Service: Fruits facial | Price: $35
+    Service: Wine facial | Price: $30
+    Service: Nature gold | Price: $25
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_4 [Table] section='COMPLETE HAIR & BEAUTY › WAXING' page=1 img= scripts=["Latn"] chars=312 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Service: Half/full hands | Price: $10/15
+    Service: Underarms | Price: $5
+    Service: Half/ full legs | Price: $15/30
+    Service: Back/stomach | Price: $15
+    Service: Full body with brazilian | Price: $100
+    Service: Fullbody No brazilian | Price: $80
+    Service: Brazilian | Price: $30
+    Service: Nu free brazilian. | Price: $40
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_5 [Table] section='COMPLETE HAIR & BEAUTY › HAIR TREATMENT' page=1 img= scripts=["Latn"] chars=269 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Service: Root touch up | Price: $50/70
+    Service: Full head color. | Price: $70/150
+    Service: Smoothning from | Price: $100
+    Service: Keratin from | Price: $80
+    Service: Hair cut | Price: $20
+    Service: Shampoo and blowdry | Price: $30
+    Service: Updo Hair style | Price: $50-70
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_6 [Text] section='COMPLETE HAIR & BEAUTY › HAIR TREATMENT' page=1 img= scripts=["Latn"] chars=88 title='Complete Hair & Beauty Services Price List' type='Price list'
+    For highlights, balayage Keratin and permanent smoothning please contact at 289-887-8496
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_7 [ImageCaption] section='COMPLETE HAIR & BEAUTY › HAIR TREATMENT' page=1 img=be07d747c73944a587a3a1029cb5717f:8121d2b30e5a9d73 scripts=["Latn"] chars=272 title='Complete Hair & Beauty Services Price List' type='Price list'
+    A heavily green-distorted salon price list. Legible text includes “COMPLETE HAIR & BEAUTY,” “THREADING,” “Eyebrows,” “Upper lips,” “Chin,” “Forehead,” “Full face,” “FACIAL,” “WAXING,” “Chemical peels,” “O3 plus bridal facial,” “Casmara whitening,” and “Gerards quadruple.”
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_8 [DocSummary] section='' page= img= scripts=["Latn"] chars=1428 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview
+    A hair and beauty service price list covering threading, polishing, facials, waxing, and hair treatments, with service prices and contact information for highlights, balayage, keratin, and permanent smoothing.
+    Sections: POLICING (8), HAIR TREATMENT (8)
+    THREADING — 5 records
+    Service: Eyebrows (1), Upperlips (1), Chin (1), Forehead (1), Full face (1)
+    Price: $2 to $20 (typical)
+    POLICING — 7 records
+    Service: Eyebrow tint (1), Lashlift and tint (1), Manicure (1), Pedicure (1), Full hands polish (1), Full back polish with scrub and massage (1), D-tan hands treatment (1)
+    Price: $15 to $50 (typical)
+    FACIAL — 9 records
+    Service: Chemical peels (1), 03 plus bridal facial (1), Casmara whitening (1), Gerard's aquasense (1), Safron Skin tightening (1), Gold facial (1), Fruits facial (1), Wine facial (1), +1 more
+    Price: $25 to $80 (typical)
+    WAXING — 8 records
+    Service: Half/full hands (1), Underarms (1), Half/ full legs (1), Back/stomach (1), Full body with brazilian (1), Fullbody No brazilian (1), Brazilian (1), Nu free brazilian. (1)
+    Price: $10/15 (1), $5 (1), $15/30 (1), $15 (1), $100 (1), $80 (1), $30 (1), $40 (1)
+    HAIR TREATMENT — 7 records
+    Service: Root touch up (1), Full head color. (1), Smoothning from (1), Keratin from (1), Hair cut (1), Shampoo and blowdry (1), Updo Hair style (1)
+    Price: $50/70 (1), $70/150 (1), $100 (1), $80 (1), $20 (1), $30 (1), $50-70 (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_9 [DocAggregate] section='THREADING — Service' page= img= scripts=["Latn"] chars=163 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — THREADING — Service
+    5 records — Service: Eyebrows (1), Upperlips (1), Chin (1), Forehead (1), Full face (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_10 [DocAggregate] section='THREADING — Price' page= img= scripts=["Latn"] chars=112 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — THREADING — Price
+    5 records — Price: $2 to $20 (typical)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_11 [DocAggregate] section='POLICING — Service' page= img= scripts=["Latn"] chars=258 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — POLICING — Service
+    7 records — Service: Eyebrow tint (1), Lashlift and tint (1), Manicure (1), Pedicure (1), Full hands polish (1), Full back polish with scrub and massage (1), D-tan hands treatment (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_12 [DocAggregate] section='POLICING — Price' page= img= scripts=["Latn"] chars=112 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — POLICING — Price
+    7 records — Price: $15 to $50 (typical)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_13 [DocAggregate] section='FACIAL — Service' page= img= scripts=["Latn"] chars=284 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — FACIAL — Service
+    9 records — Service: Chemical peels (1), 03 plus bridal facial (1), Casmara whitening (1), Gerard's aquasense (1), Safron Skin tightening (1), Gold facial (1), Fruits facial (1), Wine facial (1), Nature gold (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_14 [DocAggregate] section='FACIAL — Price' page= img= scripts=["Latn"] chars=110 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — FACIAL — Price
+    9 records — Price: $25 to $80 (typical)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_15 [DocAggregate] section='WAXING — Service' page= img= scripts=["Latn"] chars=263 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — WAXING — Service
+    8 records — Service: Half/full hands (1), Underarms (1), Half/ full legs (1), Back/stomach (1), Full body with brazilian (1), Fullbody No brazilian (1), Brazilian (1), Nu free brazilian. (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_16 [DocAggregate] section='WAXING — Price' page= img= scripts=["Latn"] chars=166 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — WAXING — Price
+    8 records — Price: $10/15 (1), $5 (1), $15/30 (1), $15 (1), $100 (1), $80 (1), $30 (1), $40 (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_17 [DocAggregate] section='HAIR TREATMENT — Service' page= img= scripts=["Latn"] chars=240 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — HAIR TREATMENT — Service
+    7 records — Service: Root touch up (1), Full head color. (1), Smoothning from (1), Keratin from (1), Hair cut (1), Shampoo and blowdry (1), Updo Hair style (1)
+--- MEE3IC_be07d747c73944a587a3a1029cb5717f_18 [DocAggregate] section='HAIR TREATMENT — Price' page= img= scripts=["Latn"] chars=170 title='Complete Hair & Beauty Services Price List' type='Price list'
+    Complete Hair & Beauty Services Price List — overview — HAIR TREATMENT — Price
+    7 records — Price: $50/70 (1), $70/150 (1), $100 (1), $80 (1), $20 (1), $30 (1), $50-70 (1)

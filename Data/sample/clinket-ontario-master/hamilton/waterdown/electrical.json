@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Waterdown",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T15:50:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Family-owned full-service electrical contractor in Waterdown for 30+ years. Commercial, agricultural, residential, solar systems, panel building. License #7002227.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "estimating@cmselectric.ca",
+      "businessPhone": "905-659-7687",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.cmselectric.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "971 5th Concession Rd. West",
+        "city": "Waterdown",
+        "area": "Waterdown",
+        "province": "ON",
+        "postalCode": "L8B 1L2",
+        "country": "Canada",
+        "formatted": "971 5th Concession Rd. West, Waterdown, ON L8B 1L2"
+      },
+      "serviceAreas": [
+        "Waterdown",
+        "Flamborough",
+        "Hamilton",
+        "Burlington",
+        "Ancaster",
+        "Dundas",
+        "Brantford",
+        "Oakville",
+        "Stoney Creek"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Waterdown",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Electrical",
+          "description": "Renovations, custom builds, panel upgrades, EV chargers",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Agricultural Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Solar Systems",
+          "description": "Net metering, design & builds, service",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Custom Panel Building",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.cmselectric.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:50:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:50:00-04:00",
+      "id": "hamilton-waterdown-cms-electric-ltd",
+      "businessName": "CMS Electric Ltd."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_0",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "શ્રી બ્યુટી પાર્લર",
+    "content": "સેવા: વાળ કપાવવા | કિંમત: ₹250\nસેવા: ફેશિયલ | કિંમત: ₹800\nસેવા: મસાજ | કિંમત: ₹500\nસેવા: બ્રાઇડલ મેકઅપ | કિંમત: ₹5,000\nસેવા: થ્રેડિંગ | કિંમત: ₹50",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_1",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "2 414",
+    "content": "1, 54 | ₹250\n$22144 | ₹ 800\n4211% | ₹500\nWIE 24 | ₹5,000\n3 โรงเ | ₹50",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn",
+      "Gujr"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_2",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "2 414",
+    "content": "શ્રી બ્યુટી પાર્લરનો ભાવપત્રક: વાળ કપાવવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": "6fcd9c32ee6e4c8397c7babc7121a462:d81727f429f17040"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_3",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી — overview\nશ્રી બ્યુટી પાર્લરની સેવા અને કિંમતોની યાદી: વાળ કપાવવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.\nSections: 2 414 (5)\n5 records\nસેવા: વાળ કપાવવા (1), ફેશિયલ (1), મસાજ (1), બ્રાઇડલ મેકઅપ (1), થ્રેડિંગ (1)\nકિંમત: ₹50 to ₹5,000 (typical)",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_4",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "સેવા",
+    "content": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી — overview — સેવા\n5 records — સેવા: વાળ કપાવવા (1), ફેશિયલ (1), મસાજ (1), બ્રાઇડલ મેકઅપ (1), થ્રેડિંગ (1)",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_5",
+    "docName": "img_gujarati_pricelist.png",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "કિંમત",
+    "content": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી — overview — કિંમત\n5 records — કિંમત: ₹50 to ₹5,000 (typical)",
+    "docTitle": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી",
+    "chunkKind": "DocAggregate",
+    "pageNumber": null,
+    "scripts": [
+      "Gujr",
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

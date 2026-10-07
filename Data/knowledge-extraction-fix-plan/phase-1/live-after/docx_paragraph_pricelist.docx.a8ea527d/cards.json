@@ -1,0 +1,50 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_a8ea527d383d49068071f94acc95d1bc_0",
+    "docName": "docx_paragraph_pricelist.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Glow Salon Price List",
+    "content": "Haircut $25\nBeard trim $15\nKids cut $18\nFull head colour $80\nRoot touch up $55\nHighlights $120\nKeratin treatment $250\nBlow dry $30\nUpdo $65\nDeep conditioning $40\nScalp massage $35\nFringe trim $12",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_a8ea527d383d49068071f94acc95d1bc_1",
+    "docName": "docx_paragraph_pricelist.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "Massage & Body",
+    "content": "Back massage — $60 (45 min)\nHot stone massage — $95 (75 min)\nAromatherapy — $85 (60 min)\nBody scrub — $75 (60 min)\nHair spa — $90 (90 min)",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "Text",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_a8ea527d383d49068071f94acc95d1bc_2",
+    "docName": "docx_paragraph_pricelist.docx",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Glow Salon Price List — overview\nPrice list for salon hair services and Massage & Body treatments, including Haircut, Beard trim, Kids cut, Full head colour, Root touch up, Highlights, Keratin treatment, Blow dry, Updo, Deep conditioning, Scalp massage, Fringe trim, Back massage, Hot stone massage, Aromatherapy, Body scrub, and Hair spa.\nSections: Glow Salon Price List (12), Massage & Body (5)",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

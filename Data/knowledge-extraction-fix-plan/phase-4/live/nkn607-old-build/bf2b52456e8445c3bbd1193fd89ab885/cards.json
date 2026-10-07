@@ -1,0 +1,53 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_bf2b52456e8445c3bbd1193fd89ab885_0",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "NAILS & LASHES",
+    "content": "Classic manicure | $30\nGel manicure | $45\nSpa pedicure | $45\nGel pedicure | $60\nAcrylic full set | $65\nAcrylic fill | $40\nNail art (per nail) | $3\nPolish change | $15\nClassic lash set | $120\nVolume lash set | $160\nLash fill (2 weeks) | $70\nLash lift | $80\nBrow lamination | $75\nBrow tint | $20\nLash tint | $20",
+    "contentCjk": null,
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "Table",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_bf2b52456e8445c3bbd1193fd89ab885_1",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "NAILS & LASHES",
+    "content": "Deposit of $20 required for lash sets. 24 hours notice for cancellations.",
+    "contentCjk": null,
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "NKN607_bf2b52456e8445c3bbd1193fd89ab885_2",
+    "docName": "pdf_headerless_price_table.pdf",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Nails & Lashes Price List — overview\nLists prices for manicures, pedicures, acrylic nails, nail art, lash sets and fills, lash lift and tint, and brow lamination and tint. Requires a $20 deposit for lash sets and 24 hours’ notice for cancellations.\nSections: NAILS & LASHES",
+    "contentCjk": null,
+    "docTitle": "Nails & Lashes Price List",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

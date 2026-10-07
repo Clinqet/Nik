@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "Scarborough",
+    "category": "pest-control",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "toronto-scarborough-orkin-canada-toronto-east",
+      "businessName": "Orkin Canada Toronto East",
+      "description": "Orkin pest control Toronto East location serving Scarborough, North York and nearby.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "1-800-800-6754",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.orkincanada.ca/locations/ontario/toronto-east/",
+        "other": []
+      },
+      "address": {
+        "street": "1361 Huntingwood Dr",
+        "city": "Toronto",
+        "area": "Scarborough",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Scarborough",
+        "North York",
+        "Toronto East"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "scarborough",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "pest-control",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Pest Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Pest Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.orkincanada.ca/locations/ontario/toronto-east/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.6,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

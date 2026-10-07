@@ -1,0 +1,20 @@
+cards=3
+--- NKN607_97b1da102b6a46099d098e214c830396_0 [Text] section='nail bar' page=1 img= scripts=["Latn"] chars=126 title='Nail Bar Price List' type='Document'
+    - classic manicure $30
+    - gel manicure $45
+    - spa pedicure $45
+    - acrylic full set $65
+    - nail art per nail $3
+    - polish change $15
+--- NKN607_97b1da102b6a46099d098e214c830396_1 [ImageCaption] section='nail bar' page=1 img=97b1da102b6a46099d098e214c830396:88aa6d4c9effc24a scripts=["Latn"] chars=123 title='Nail Bar Price List' type='Document'
+    nail bar
+    classic manicure $30
+    gel manicure $45
+    spa pedicure $45
+    acrylic full set $65
+    nail art per nail $3
+    polish change $15
+--- NKN607_97b1da102b6a46099d098e214c830396_2 [DocSummary] section='' page= img= scripts=["Latn"] chars=170 title='Nail Bar Price List' type='Document'
+    Nail Bar Price List — overview
+    Lists prices for classic and gel manicures, spa pedicures, acrylic full sets, nail art per nail, and polish changes.
+    Sections: nail bar (6)

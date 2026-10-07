@@ -1,0 +1,11 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,5 +1,5 @@
+ docTitle=Priya Sharma Senior Hair Stylist Resume lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=0
+-summary: Resume covering Priya Sharma’s profile, hairstyling skills, certifications, languages, salon experience, and education. It describes her work at Glow Salon and City Cuts, including colour services, bridal styling, team leadership, and apprentice training.
++summary: Resume for a Toronto senior hair stylist covering skills in balayage, keratin treatments, bridal styling, colour correction and team leadership; profile, salon experience, Redken and Olaplex certifications, languages, and hairstyling education.
+ [  0] Heading      p1 H1
+       PRIYA SHARMA
+ [  1] Paragraph    p1

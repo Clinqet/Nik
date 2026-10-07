@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "city": "Toronto",
+    "area": "general",
+    "category": "electrical",
+    "scrapedAt": "2026-09-23T16:05:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only (business websites + YellowPages.ca + Homestars/directory listings)"
+  },
+  "providers": [
+    {
+      "id": "toronto-general-tron-electrical-automation",
+      "businessName": "Tron Electrical & Automation",
+      "description": "ESA licensed electrical contractor since 1972. Panel upgrades, EV charging, Lutron, outdoor lighting. Serves North York and GTA. Midtown office Yonge St.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 54,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "office@tronelectrical.com",
+      "businessPhone": "416-936-5669",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://tronelectrical.com/",
+        "other": []
+      },
+      "address": {
+        "street": "2300 Yonge Street",
+        "postalCode": "M4P 1E4",
+        "area": "general",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2300 Yonge Street, Toronto, ON M4P 1E4"
+      },
+      "serviceAreas": [
+        "North York",
+        "Toronto",
+        "Etobicoke",
+        "East York",
+        "GTA"
+      ],
+      "geo": {
+        "city": "Toronto",
+        "area": "general",
+        "region": "Toronto"
+      },
+      "categories": [
+        {
+          "category": "electrical",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Panel & Service Upgrades",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "EV Charger Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Lutron Automation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Outdoor Lighting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Electrical",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Open 24/7"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://tronelectrical.com/gta/north-york",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        },
+        {
+          "url": "https://www.yellowpages.ca/search/si/1/Electricians/Toronto+ON",
+          "type": "directory",
+          "scrapedAt": "2026-09-23T16:05:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:05:00-04:00"
+    }
+  ]
+}

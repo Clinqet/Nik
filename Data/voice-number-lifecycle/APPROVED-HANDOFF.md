@@ -1,0 +1,46 @@
+# Approved design handoff — 30 September 2026
+
+> **1 October 2026 — superseded in part.** The owner's final decisions are in `DECISIONS-2026-10-01.md` and the design to build is `FINAL-DESIGN.md` (its section 14 lists what changed). Read those first; **where this file differs, they win.** This file stays for the detail they do not repeat.
+
+**MANDATORY CARRIER RESEARCH — COST IS SUPER IMPORTANT. The implementation session MUST research official Telnyx (Canada/US) and Plivo (India) billing online AGAIN: first and subsequent charges, proration/refunds, renewal calendar, month-end/leap dates, billing cutoff/timezone and available renewal APIs. Resolve conflicting information against the exact product/account and primary documentation, using authorized read-only evidence and written carrier confirmation when needed; ask the owner rather than guess. Read CARRIER-RESEARCH.md and RENEWAL-AUTOMATION.md fully. Save verified evidence and conservative UTC deadlines in the proposed partition-scoped Cosmos design after itemized schema approval; return eligible unused numbers with a default 24-hour lead. No unverified financial automation or promised refund.**
+
+The owner explicitly approved the solution and mockup in this conversation, conditional on the final refinements below. These refinements are now incorporated into the design and HTML prototype. This record supersedes prior pending-design/mockup wording. It authorizes the intended implementation scope; it does not invent carrier facts or authorize deployment, purchases, destructive data resets, or unitemized schema changes.
+
+## Owner direction: creative freedom and clarification
+
+**THE SOLUTION AND MOCKUP ARE OWNER-APPROVED. Do not ask again for approval of the existing agreed scope. Approval does not require blindly implementing a design that evidence shows is flawed.**
+
+**YOU HAVE CREATIVE FREEDOM to investigate, challenge and improve the solution, architecture, design and flow throughout implementation and the final audit. Actively look for gaps, missing edge cases, security loopholes, concurrency failures, unnecessary cost and ways the system could leak money. Explore better alternatives even when they depart from the approved plan. Do not hide a problem or force a known-bad approach merely to follow the document.**
+
+**BEFORE IMPLEMENTING A DEPARTURE FROM THE APPROVED SOLUTION, explain the discovered issue with evidence, its security/cost/user impact, your strongly recommended solution and why it is better. Make the proposal concrete and reviewable, identify affected behavior, schema, UI and tests, and GET THE OWNER'S EXPLICIT APPROVAL so the owner stays aligned. Investigation and preparation of the proposal are authorized; silence is not approval. Pause only the dependent work and continue safe, independent approved work. Routine implementation choices and fixes that preserve the approved contract do not require repeat design approval; existing schema and other explicit gates still apply.**
+
+**ASK THE OWNER WHEN CONFUSED OR WHEN A QUESTION OR MISSING FACT REMAINS AFTER READING THE AVAILABLE EVIDENCE. Never guess a business rule, security requirement, billing classification, carrier behavior or spending policy. State exactly what is unclear, what you verified and what answer is needed; offer a recommended option where appropriate. Wait for the answer before taking dependent action. If carrier documentation/account evidence is required, say so rather than treating an assumption as confirmation.**
+
+**AFTER APPROVAL OR CLARIFICATION, update the relevant plan, flow, mockup when affected, decision record and requirement/test matrix before continuing the affected implementation. Record the owner's decision and rationale; carry it into the multidimensional audit. Never silently change agreed behavior or leave contradictory instructions behind.**
+
+## Final decisions
+
+- Any trial duration qualifies for trial-only treatment, including extensions, offers, card-backed trials and month-long trials, only if the business has never entered a regular AI-assistant billing period. No dependence on whether money was collected or a card exists.
+- A prior regular AI-assistant billing period means the paid-service quarantine applies, including a current zero-dollar invoice, 100% discount, credit, complimentary regular period, refund, or later trial. An unrelated marketplace payment must not decide this classification. Read authoritative AI add-on/subscription history; do not infer from current tier, invoice amount or successful payment alone. Unknown history blocks reassignment for review, not carrier return.
+- Trial-only: remove 24h after actual trial end, zero extra quarantine by default. Paid-history: 15 days after detachment by default, respecting paid-through service/dunning first. Separate configurable settings. Quarantine NEVER prevents safe pre-renewal carrier return. Keep remains an explicit continued-rental exception.
+- Forwarding form displays the fixed country/calling code plainly, without “Verified” or “Locked”. Input is a national 10-digit number for supported CA/US/IN routes. No + or calling code required. Normalize pasted formatting safely; if an international number is pasted, validate its country and strip only the matching code. Server reconstructs E.164 from its authoritative country and revalidates actual country/type metadata; +1 alone cannot distinguish CA/US. Never silently truncate. Other lengths/routes need explicit supported-country policy rather than guessed acceptance.
+
+## Existing admin AI Assistant page integration
+
+Extend existing web VoiceAssistantRequestsPage and native VoiceRequestsScreen, not a second assistant page. Retain existing application approvals, invitations, business lookup and management controls.
+
+Default Requests queue displays pending setup, forwarding changes, specific-number requests and allocation failures across authorized regional businesses without a business search. Include business name/ID, request type, age, status and Review. Filters and pagination remain bounded; error in one row's live details must not hide the request. Alert and queue entries point to the same durable operation, not duplicate approval jobs. Resolving an alert alone never applies a forwarding change.
+
+Review selects the request's business directly and shows a persistent business name/ID with Back to requests. Inside that context: Forwarding change, Number and Activity refer ONLY to that business. Forwarding shows current/proposed destination and approval evidence; Number shows assigned number, lifecycle and actions; Activity shows protected decision/application history. Business lookup remains an optional way to manage a business with no pending request. Deep links from Alerts select the same request/business. Returning to the queue preserves filter/scroll state. Enforce permissions and business identity on every action; do not trust a client-selected ID.
+
+Global Numbers is explicitly the regional carrier inventory, including unassigned assets; it must not masquerade as the selected business's number list. Global Activity is labelled All businesses; opening an item selects its business or number. Use scoped filters/known partition keys, never cross-partition queries. Native mirrors queue visibility and selected-business context with sheets, accessible buttons and optional long press. Avoid eager per-row duplicate API fan-out; batch or bounded/deduplicated lazy reads, cancellation and stale-response protection.
+
+## Approval boundaries and remaining facts
+
+Design/mockup approval is recorded. Schema remains subject to AGENTS.md §0.7: present the exact consolidated field/index/TTL table and obtain the owner's itemized confirmation before schema implementation. General design approval must not be misrepresented as that confirmation. Prepare all approved independent work while that gate is pending. Carrier timezone/refund/India currency/price-binding checks in CARRIER-RESEARCH.md remain factual readiness gates, not design questions to repeatedly ask.
+
+## Audit expectations
+
+No finite audit proves absence of every possible bug. The implementation must produce traceable evidence for the entire requirement/state matrix, resolve discovered defects and report remaining limitations honestly. A zero-dollar regular billing period is not a trial. Include trial→regular→100%-off→termination, first regular period fully discounted, regular→later trial, any trial duration/extensions, payment pending/failure/refund, concurrent entitlement updates, and imported unknown history.
+
+**MANDATORY RENEWAL TIMING: Read and implement RENEWAL-AUTOMATION.md § Mandatory timezone-independent return schedule in full. Hourly UTC minute-00 scan (0 0 * * * *); 24-hour lead with next-interval lookahead and overdue recovery; carrier date/time evidence, not deployment location or assumed purchase anniversary; conservative date-only boundary; independent missed-run monitoring; confirmed removal and immediate failure alerts. Exact Plivo billing timezone is not established by its public date-only API. Do not claim otherwise. Include these rules in configuration, schema review, admin visibility and integration tests.**

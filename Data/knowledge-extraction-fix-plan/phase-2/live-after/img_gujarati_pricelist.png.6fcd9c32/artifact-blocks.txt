@@ -1,0 +1,29 @@
+docTitle=શ્રી બ્યુટી પાર્લરની સેવા કિંમત યાદી lang=gu pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=1 captions=1 reviews=1
+summary: શ્રી બ્યુટી પાર્લરની સેવા અને કિંમતોની યાદી: વાળ કપાવવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.
+[  0] Heading      p1 H1
+      શ્રી બ્યુટી પાર્લર
+[  1] Table        p1
+      hasHeader=True caption= rows=6
+      | સેવા | કિંમત |
+      | વાળ કપાવવા | ₹250 |
+      | ફેશિયલ | ₹800 |
+      | મસાજ | ₹500 |
+      | બ્રાઇડલ મેકઅપ | ₹5,000 |
+      | થ્રેડિંગ | ₹50 |
+[  2] Heading      p1 H1
+      2 414
+[  3] Paragraph    p1
+      1, 54 | ₹250
+      $22144 | ₹ 800
+      4211% | ₹500
+      WIE 24 | ₹5,000
+      3 โรงเ | ₹50
+      
+[  4] ImageMarker  p1 img#0 alt=
+
+## captions
+  [0] શ્રી બ્યુટી પાર્લરનો ભાવપત્રક: વાળ કપાવવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.
+## images
+  idx=0 id=d81727f429f17040 1410x670 111530B kind=TextSnapshot src=Upload q=Ok refused=False
+## reviews
+  {"pageNumber":1,"verificationId":"30124847-96c5-44c4-ad02-eccd85a3055d","discrepancies":[{"fields":["text"],"reason":"the transcript has no unit carrying this source content","location":"page 1, Heading 1","ocrReading":"# 2 414","firstAiReading":"","passageIds":[],"thirdReading":"શ્રી બ્યુટી પાર્લર","selectedReading":"# 2 414","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '1, 54'","ocrReading":"1, 54 | ₹250","firstAiReading":"","sourceServiceName":"1, 54","passageIds":[],"thirdReading":"વાળ કાપવા | ₹250","selectedReading":"1, 54 | ₹250","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '$22144'","ocrReading":"$22144 | ₹ 800","firstAiReading":"","sourceServiceName":"$22144","passageIds":[],"thirdReading":"ફેશિયલ | ₹800","selectedReading":"$22144 | ₹ 800","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '4211%'","ocrReading":"4211% | ₹500","firstAiReading":"","sourceServiceName":"4211%","passageIds":[],"thirdReading":"મસાજ | ₹500","selectedReading":"4211% | ₹500","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row 'WIE 24'","ocrReading":"WIE 24 | ₹5,000","firstAiReading":"","sourceServiceName":"WIE 24","passageIds":[],"thirdReading":"બ્રાઇડલ મેકઅપ | ₹5,000","selectedReading":"WIE 24 | ₹5,000","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '3 โรงเ'","ocrReading":"3 โรงเ | ₹50","firstAiReading":"","sourceServiceName":"3 โรงเ","passageIds":[],"thirdReading":"થ્રેડિંગ | ₹50","selectedReading":"3 โรงเ | ₹50","disposition":"SourceUnitRestored","remainingUncertainty":"the source check did not confirm this line, which was kept rather than lost"}]}

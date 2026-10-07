@@ -1,0 +1,28 @@
+docTitle=શ્રી અજય પાટીદારની ભાવ યાદી lang=gu pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=1 captions=1 reviews=1
+summary: પાન સોપારી, શરબત, મસાજ, લાઈટ સાઉન્ડ અને ફોટોની કિંમતો દર્શાવતી ભાવ યાદી.
+[  0] Heading      p1 H1
+      શ્રી અજય પાટીદાર
+[  1] Table        p1
+      hasHeader=False caption= rows=6
+      |  |  |
+      | પાન સોપારી | ₹250 |
+      | શરબત | ₹800 |
+      | મસાજ | ₹500 |
+      | લાઈટ સાઉન્ડ | ₹5,000 |
+      | ફોટો | ₹50 |
+[  2] Heading      p1 H1
+      2 414
+[  3] Paragraph    p1
+      1, 54 | ₹250
+      $22144 | ₹ 800
+      WIE 24 | ₹5,000
+      3 โรงเ | ₹50
+      
+[  4] ImageMarker  p1 img#0 alt=
+
+## captions
+  [0] ક્રીમ રંગની પૃષ્ઠભૂમિ પર ગુજરાતી લખાણવાળી પાંચ-પંક્તિની ભાવસૂચિ છે; જમણી બાજુએ ₹250, ₹800, ₹500, ₹5,000 અને ₹50 દેખાય છે.
+## images
+  idx=0 id=d81727f429f17040 1410x670 111530B kind=TextSnapshot src=Upload q=Ok refused=False
+## reviews
+  {"pageNumber":1,"verificationId":"606e627e-f6cb-4428-89c8-81962cca9fdd","discrepancies":[{"fields":["text"],"reason":"the transcript has no unit carrying this source content","location":"page 1, Heading 1","ocrReading":"# 2 414","firstAiReading":"","passageIds":[],"thirdReading":"શ્રી બ્યુટી પાર્લર","selectedReading":"# 2 414","disposition":"SourceUnitRestored","remainingUncertainty":"no usable source reading, so the line was kept"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '1, 54'","ocrReading":"1, 54 | ₹250","firstAiReading":"","sourceServiceName":"1, 54","passageIds":[],"thirdReading":"વાળ કાપવા | ₹250","selectedReading":"1, 54 | ₹250","disposition":"SourceUnitRestored","remainingUncertainty":"no usable source reading, so the line was kept"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '$22144'","ocrReading":"$22144 | ₹ 800","firstAiReading":"","sourceServiceName":"$22144","passageIds":[],"thirdReading":"ફેશિયલ | ₹800","selectedReading":"$22144 | ₹ 800","disposition":"SourceUnitRestored","remainingUncertainty":"no usable source reading, so the line was kept"},{"fields":["service name"],"reason":"'4211%' reads 'મંડપ'","location":"page 1, table 1, row '4211%', column 1","ocrReading":"4211%","firstAiReading":"મંડપ","sourceServiceName":"4211%","passageIds":[],"thirdReading":"મસાજ","selectedReading":"મસાજ","disposition":"UncertainThirdReadingUsed","remainingUncertainty":"the source check matches neither existing reading"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row 'WIE 24'","ocrReading":"WIE 24 | ₹5,000","firstAiReading":"","sourceServiceName":"WIE 24","passageIds":[],"thirdReading":"બ્રાઇડલ મેકઅપ | ₹5,000","selectedReading":"WIE 24 | ₹5,000","disposition":"SourceUnitRestored","remainingUncertainty":"no usable source reading, so the line was kept"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row '3 โรงเ'","ocrReading":"3 โรงเ | ₹50","firstAiReading":"","sourceServiceName":"3 โรงเ","passageIds":[],"thirdReading":"થ્રેડિંગ | ₹50","selectedReading":"3 โรงเ | ₹50","disposition":"SourceUnitRestored","remainingUncertainty":"no usable source reading, so the line was kept"}]}

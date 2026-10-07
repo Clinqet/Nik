@@ -1,0 +1,12 @@
+drafts=11
+- [Pending/Update] 'पेडीक्योर' price=450 max= type=fixed cur= needsReview=False mismatch=True priceText='₹450' src='पेडीक्योर' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc='Pedicure'
+- [Pending/Update] 'फेशियल (गोल्ड)' price=1200 max= type=fixed cur= needsReview=False mismatch=True priceText='₹1,200' src='फेशियल (गोल्ड)' line='' cat='Salon & Beauty/Facial Treatments' dur= img=0 desc='Gold facial treatment'
+- [Pending/Update] 'बाल कटवाना' price=250 max= type=fixed cur= needsReview=False mismatch=True priceText='₹250' src='बाल कटवाना' line='' cat='Salon & Beauty/Hair Cutting & Styling' dur= img=0 desc='Haircut'
+- [Pending/Update] 'मैनीक्योर' price=300 max= type=fixed cur= needsReview=False mismatch=True priceText='₹300' src='मैनीक्योर' line='' cat='Salon & Beauty/Nail Services' dur= img=0 desc='Manicure'
+- [Pending/Create] 'બ્રાઇડલ મેકઅપ' price=5000 max= type=fixed cur= needsReview=False mismatch=True priceText='₹5,000' src='બ્રાઇડલ મેકઅપ' line='' cat='Salon & Beauty/Makeup Services' dur= img=0 desc='Bridal makeup application'
+- [Pending/Create] 'हेयर स्पा' price=1500 max= type=fixed cur= needsReview=False mismatch=True priceText='₹1,500' src='हेयर स्पा' line='' cat='Salon & Beauty/Hair Treatments (Keratin & Smoothing)' dur= img=0 desc='Hair spa treatment'
+- [Pending/Create] 'હેર સ્પા' price=800 max= type=fixed cur= needsReview=False mismatch=True priceText='₹800' src='હેર સ્પા' line='' cat='Salon & Beauty/Hair Treatments (Keratin & Smoothing)' dur= img=0 desc='Hair spa treatment'
+- [Pending/Create] 'મહેંદી ફુલ હેન્ડ સાથે' price=400 max= type=fixed cur= needsReview=False mismatch=True priceText='₹400' src='મહેંદી ફુલ હેન્ડ સાથે' line='' cat='Salon & Beauty/Mehndi & Henna Art' dur= img=0 desc='Full-hand mehndi application'
+- [Pending/Create] 'दाढ़ी ट्रिम' price=150 max= type=fixed cur= needsReview=False mismatch=True priceText='₹150' src='दाढ़ी ट्रिम' line='' cat='Salon & Beauty/Barber Services' dur= img=0 desc='Beard trim'
+- [Pending/Create] 'મસાજ' price=500 max= type=fixed cur= needsReview=False mismatch=True priceText='₹500' src='મસાજ' line='' cat='Wellness & Body Care/Massage Therapy' dur= img=0 desc='Massage'
+- [Pending/Create] 'Home visit adds' price=200 max= type=fixed cur= needsReview=True mismatch=True priceText='₹200.' src='Home visit adds' line='' cat='/' dur= img=0 desc=''

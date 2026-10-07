@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Ancaster",
+    "category": "roofing",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Roofing and exteriors since 1986 — residential/commercial re-roofing, repairs, flat roofing, eavestroughs, siding, windows and doors. CertainTeed Shingle Master and Malarkey Emerald Premium Installer.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 40,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@delucaroofing.ca",
+      "businessPhone": "905-631-0961",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://delucaroofing.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "1335 Osprey Dr.",
+        "city": "Ancaster",
+        "area": "Ancaster",
+        "province": "ON",
+        "postalCode": "L9G 4V5",
+        "country": "Canada",
+        "formatted": "1335 Osprey Dr., Ancaster, ON L9G 4V5"
+      },
+      "serviceAreas": [
+        "Ancaster",
+        "Hamilton",
+        "Burlington",
+        "Waterdown"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Ancaster",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "roofing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Replacement Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "New Construction Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Custom Flashing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Eavestroughs, Siding, Windows & Doors",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Flat Roofing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "08:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "08:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "08:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "08:30",
+            "close": "16:30",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": null,
+            "close": null,
+            "closed": true
+          },
+          {
+            "day": "Sunday",
+            "open": null,
+            "close": null,
+            "closed": true
+          }
+        ],
+        "notes": "Warehouse hours Mon–Fri 7:30 AM – 4:30 PM; fax 905-631-8746"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://delucaroofing.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-ancaster-deluca-roofing",
+      "businessName": "DeLuca Roofing"
+    }
+  ]
+}

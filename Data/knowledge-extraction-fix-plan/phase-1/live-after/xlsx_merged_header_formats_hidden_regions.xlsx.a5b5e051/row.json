@@ -1,0 +1,33 @@
+{
+  "businessId": "SX3SG2",
+  "docId": "a5b5e0517e1840cd84e7f9f2895cc0ca",
+  "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+  "docTitle": "Salon Prices and Opening Hours",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 3339,
+  "passageCount": 9,
+  "contentHash": "906615513A878AC8F45E84D3FCFFABA120A83921EE24C78A57C21C14B0D4B2CC",
+  "blobPath": "SX3SG2/a5b5e0517e1840cd84e7f9f2895cc0ca/xlsx_merged_header_formats_hidden_regions.xlsx",
+  "sourceKind": "File",
+  "receptionistAccess": "AnswersAndSends",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-11T22:52:44.7485603Z",
+    "outcome": "Ran",
+    "candidateCount": 6,
+    "draftCount": 0,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false
+  },
+  "id": "a5b5e0517e1840cd84e7f9f2895cc0ca",
+  "type": "KnowledgeDocument",
+  "_etag": "\"09002b86-0000-0200-0000-6aa4863c0000\"",
+  "createdAt": "2026-09-10T20:33:39.8357488Z",
+  "updatedAt": "2026-09-11T22:52:44.7900189Z",
+  "_rid": "789SAKsUF+S8BAAAAAAAAA==",
+  "_self": "dbs/789SAA==/colls/789SAKsUF+Q=/docs/789SAKsUF+S8BAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1789167164
+}

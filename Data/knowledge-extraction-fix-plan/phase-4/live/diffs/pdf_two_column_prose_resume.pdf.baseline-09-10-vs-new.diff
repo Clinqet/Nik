@@ -1,0 +1,26 @@
+--- baseline-09-10/cards (content)
++++ new-build/cards (content)
+@@ -1,6 +1,18 @@
+---- #0 [Text] section='PRIYA SHARMA' page=1 img= scripts=["Latn"] chars=191 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
+-    Senior Hair Stylist · Toronto, ON · 416-555-0199 · priya@example.com SKILLS | PROFILE - Bridal styling · Colour correction | EXPERIENCE English, Hindi, Gujarati | salary in next role $85,000.
+---- #1 [Text] section='PRIYA SHARMA' page=1 img= scripts=["Latn"] chars=323 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
+-    - Keratin treatments | leading a team of six and mentoring apprentices. Known for precision cuts · Team leadership | Glow Salon - Senior Stylist (2019-present) CERTIFICATIONS | Grew colour revenue 40% in two years; introduced the bridal package LANGUAGES | Managed 30 clients a week; ran the Saturday walk-in desk; expected
+---- #2 [Text] section='PRIYA SHARMA › EDUCATION' page=1 img= scripts=["Latn"] chars=51 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++--- #0 [Text] section='PRIYA SHARMA' page=1 img= scripts=["Latn"] chars=68 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    Senior Hair Stylist · Toronto, ON · 416-555-0199 · priya@example.com
++--- #1 [Text] section='PRIYA SHARMA › SKILLS' page=1 img= scripts=["Latn"] chars=86 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    - Balayage
++    - Keratin treatments
++    - Bridal styling
++    - Colour correction
++    - Team leadership
++--- #2 [Text] section='PRIYA SHARMA › CERTIFICATIONS' page=1 img= scripts=["Latn"] chars=50 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    Redken Colour Specialist (2021) Olaplex Pro (2022)
++--- #3 [Text] section='PRIYA SHARMA › LANGUAGES' page=1 img= scripts=["Latn"] chars=24 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    English, Hindi, Gujarati
++--- #4 [Text] section='PRIYA SHARMA › PROFILE' page=1 img= scripts=["Latn"] chars=217 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. Known for precision cuts and colour correction, with a loyal client base of over 300 regulars.
++--- #5 [Text] section='PRIYA SHARMA › EXPERIENCE' page=1 img= scripts=["Latn"] chars=304 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
++    Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450; trained four apprentices to full-time stylists. City Cuts — Stylist (2013–2019) Managed 30 clients a week; ran the Saturday walk-in desk; expected salary in next role $85,000.
++--- #6 [Text] section='PRIYA SHARMA › EDUCATION' page=1 img= scripts=["Latn"] chars=51 title='Priya Sharma Senior Hair Stylist Resume' type='Document'
+     Marvel Beauty School, Diploma in Hairstyling (2012)

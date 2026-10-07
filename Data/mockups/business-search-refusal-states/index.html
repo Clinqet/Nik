@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Clinket — six states, and the words they need</title>
+<style>
+  :root{
+    --ink:#032858; --ink-soft:#1B4C9B;
+    --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+    --line:#E6E9EF; --hair:#F1F3F7; --page:#F6F7F9; --card:#FFFFFF; --tint:#FBFCFD;
+    --green:#97EF29; --green-soft:#F4FFE4; --green-ink:#3A6410; --green-mid:#DFFABD;
+    --amber-bg:#FFF8EA; --amber-line:#F2DCAE; --amber-ink:#8A5200;
+    --red-bg:#FDEDEB; --red-line:#F5C9C4; --red-ink:#A81E16;
+    --blue-bg:#EFF4FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B;
+    --r-lg:18px; --r:13px; --r-sm:9px;
+    --sh:0 1px 2px rgba(16,24,40,.04), 0 8px 24px -12px rgba(16,24,40,.10);
+    --sh-lift:0 2px 4px rgba(16,24,40,.05), 0 18px 40px -18px rgba(16,24,40,.20);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:86px}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{
+    background:var(--page);color:var(--text);
+    font:400 clamp(13.5px,.84rem + .12vw,15px)/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(14px,3.5vw,34px)}
+
+  /* ── sticky index ──────────────────────────────────────────────────────── */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,247,249,.86);backdrop-filter:blur(12px) saturate(1.6);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;gap:clamp(8px,2vw,18px);min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  .brand{display:flex;align-items:center;gap:9px;flex:none;text-decoration:none}
+  .brand .mark{
+    width:26px;height:26px;border-radius:8px;flex:none;
+    background:linear-gradient(140deg,var(--ink),var(--ink-soft));
+    display:grid;place-items:center;color:var(--green);font-weight:800;font-size:13px;
+  }
+  .brand b{color:var(--ink);font-size:14px;letter-spacing:-.01em;white-space:nowrap}
+  nav.idx{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:auto}
+  nav.idx::-webkit-scrollbar{display:none}
+  nav.idx a{
+    flex:none;text-decoration:none;border:1px solid var(--line);background:var(--card);
+    border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--muted);
+    white-space:nowrap;transition:.15s;
+  }
+  nav.idx a:hover{border-color:var(--green);background:var(--green-soft);color:var(--green-ink)}
+  nav.idx a b{color:var(--ink);font-variant-numeric:tabular-nums;margin-right:5px}
+
+  /* ── hero ──────────────────────────────────────────────────────────────── */
+  .hero{padding:clamp(26px,5vw,56px) 0 clamp(18px,3vw,30px)}
+  .kicker{
+    display:inline-flex;align-items:center;gap:7px;margin-bottom:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 13px;
+    font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    box-shadow:var(--sh);
+  }
+  .kicker i{width:6px;height:6px;border-radius:50%;background:var(--green);flex:none}
+  .hero h1{
+    margin:0 0 14px;color:var(--ink);letter-spacing:-.025em;
+    font-size:clamp(26px,1.3rem + 3.1vw,52px);line-height:1.04;font-weight:800;max-width:20ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--green-ink);background:linear-gradient(transparent 62%,var(--green-mid) 62%)}
+  .hero p{margin:0;max-width:62ch;color:var(--muted);font-size:clamp(14px,.88rem + .28vw,18px);line-height:1.55}
+  .facts{display:grid;gap:10px;margin-top:clamp(20px,3vw,30px);grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;box-shadow:var(--sh)}
+  .fact b{display:block;color:var(--ink);font-size:clamp(19px,1.1rem + .5vw,25px);line-height:1.1;letter-spacing:-.02em}
+  .fact span{display:block;margin-top:3px;color:var(--faint);font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+  .legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:clamp(16px,2.5vw,24px)}
+  .lg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--muted)}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:none}
+  .lg.a i{background:var(--amber-line);border:1px solid var(--amber-ink)}
+  .lg.r i{background:var(--red-line);border:1px solid var(--red-ink)}
+  .lg.b i{background:var(--blue-line);border:1px solid var(--blue-ink)}
+  .lg.g i{background:var(--green)}
+
+  /* ── section shell ─────────────────────────────────────────────────────── */
+  section.state{padding:clamp(30px,5vw,60px) 0 0;scroll-margin-top:80px}
+  .sh{position:relative;margin-bottom:clamp(16px,2.5vw,26px)}
+  .sh .ghost{
+    position:absolute;right:0;top:-.22em;z-index:0;
+    font-size:clamp(58px,4rem + 5vw,120px);font-weight:800;line-height:1;letter-spacing:-.05em;
+    color:var(--line);opacity:.75;pointer-events:none;user-select:none;
+  }
+  .sh .row{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:9px}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;flex:none;border-radius:999px;padding:4px 11px;
+    font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    background:var(--ink);color:#fff;
+  }
+  .chip.q{background:var(--card);border:1px solid var(--line);color:var(--faint)}
+  .sh h2{
+    position:relative;z-index:1;margin:0;color:var(--ink);letter-spacing:-.02em;
+    font-size:clamp(20px,1.1rem + 1.35vw,33px);line-height:1.14;font-weight:800;max-width:26ch;
+  }
+  .sh p{position:relative;z-index:1;margin:11px 0 0;max-width:76ch;color:var(--muted)}
+  .sh p b{color:var(--text);font-weight:700}
+
+  /* ── before / after ────────────────────────────────────────────────────── */
+  .ba{display:grid;gap:clamp(12px,2vw,18px);grid-template-columns:1fr;align-items:start}
+  @media (min-width:960px){ .ba{grid-template-columns:1fr 1fr} }
+  .col{min-width:0}
+  .collab{display:flex;align-items:center;gap:8px;margin:0 0 9px;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .collab.now{color:var(--red-ink)}
+  .collab.new{color:var(--green-ink)}
+  .collab i{
+    width:18px;height:18px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-size:11px;font-weight:800;color:#fff;
+  }
+  .collab.now i{background:var(--red-ink)}
+  .collab.new i{background:var(--green-ink)}
+
+  /* device chrome */
+  .dev{border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;min-width:0}
+  .dev + .dev{margin-top:12px}
+  .dev.new{box-shadow:var(--sh-lift);border-color:#D8E5C2}
+  .chrome{display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--tint)}
+  .chrome .dots{display:flex;gap:4px;flex:none}
+  .chrome .dots i{width:8px;height:8px;border-radius:50%;background:#DFE3EA}
+  .chrome .url{
+    flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:3px 10px;font-size:10.5px;color:var(--faint);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .chrome .tagd{flex:none;font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+  .phone{max-width:328px;margin-inline:auto}
+  .phone .notch{
+    display:flex;justify-content:center;padding:7px 0 3px;background:var(--tint);border-bottom:1px solid var(--line);
+  }
+  .phone .notch i{width:52px;height:5px;border-radius:99px;background:#DFE3EA}
+  .screen{padding:clamp(11px,2vw,15px)}
+
+  /* ── app furniture ─────────────────────────────────────────────────────── */
+  .q-txt{margin:0 0 8px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+  .a-txt{margin:0 0 10px;color:var(--muted);font-size:13.5px}
+  .note{border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;font-size:13px}
+  .note .t{display:block;font-weight:700;margin-bottom:3px}
+  .amber{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+  .red{background:var(--red-bg);border-color:var(--red-line);color:var(--red-ink)}
+  .blue{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    min-height:40px;padding:0 16px;border-radius:999px;border:1px solid currentColor;
+    background:transparent;color:inherit;font:inherit;font-size:13px;font-weight:700;cursor:default;
+  }
+  .btn.pri{background:var(--green);border-color:var(--green);color:var(--text);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+  .btn.dim{border-color:var(--line);color:var(--faint)}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+  .btns.stack .btn{width:100%}
+  .askbar{
+    display:flex;align-items:center;gap:9px;margin-top:13px;padding:8px 8px 8px 14px;
+    border:1px solid var(--line);border-radius:999px;color:var(--faint);background:var(--tint);font-size:13px;
+  }
+  .askbar .go{flex:none;width:32px;height:32px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:var(--text);font-weight:800;font-size:13px;margin-left:auto}
+  .askbar.off{opacity:.5}
+  .cite{display:inline-grid;place-items:center;min-width:19px;height:18px;padding:0 5px;margin:0 1px;background:var(--green-soft);color:var(--green-ink);border-radius:5px;font-size:11px;font-weight:800;vertical-align:1px}
+
+  .src{border:1px solid var(--line);border-radius:var(--r);padding:11px 12px;margin-top:9px;background:var(--card)}
+  .src .top{display:flex;align-items:flex-start;gap:9px}
+  .src .n{flex:none;display:inline-grid;place-items:center;min-width:19px;height:18px;background:var(--green-soft);color:var(--green-ink);border-radius:5px;font-size:11px;font-weight:800}
+  .src .nm{font-weight:700;min-width:0;overflow-wrap:anywhere;font-size:13.5px}
+  .src .sub{color:var(--faint);font-size:12px;margin-top:1px}
+  .src .own{margin-top:3px;color:var(--ink-soft);font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:5px}
+  .src .own svg{flex:none}
+  .src .quote{margin-top:9px;padding-left:10px;border-left:2px solid var(--green-mid);color:var(--muted);font-size:12.5px;overflow-wrap:anywhere}
+  .miss{margin-top:3px;color:var(--red-ink);font-size:12px;font-weight:600}
+  .badge{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;font-size:10.5px;font-weight:800;background:var(--amber-bg);border:1px solid var(--amber-line);color:var(--amber-ink);white-space:nowrap}
+
+  .clip{position:relative;max-height:118px;overflow:hidden;border:1px dashed var(--line);border-radius:var(--r);padding:11px 12px}
+  .clip:after{content:"";position:absolute;inset:auto 0 0 0;height:46px;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
+
+  /* ‼️ THE SHIPPED CUE, on a light surface. The rail already does this in navy: a 40px fade that takes no
+     pointer event, and a round translucent disc with a brand-green arrow inside it. Same pattern, adapted
+     to white — never a solid lime pill, because lime means "chosen" everywhere else. */
+  /* The disc must NOT be a child of the clipped box: overflow:hidden would cut 16px off it. */
+  .clipwrap{position:relative}
+  .cuefade{
+    position:absolute;left:1px;right:1px;bottom:0;height:40px;pointer-events:none;
+    background:linear-gradient(to top,#fff 32%,rgba(255,255,255,0) 100%);border-radius:0 0 var(--r) var(--r);
+  }
+  .cuedisc{
+    position:absolute;left:50%;bottom:-17px;transform:translateX(-50%);
+    width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+    background:var(--card);border:1px solid var(--line);color:var(--green-ink);
+    box-shadow:0 3px 10px rgba(16,24,40,.14);
+  }
+  .cuedisc.ring{box-shadow:0 3px 10px rgba(16,24,40,.14),0 0 0 4px rgba(151,239,41,.30)}
+  .cuedisc .dot{
+    position:absolute;top:-1px;right:-1px;width:9px;height:9px;border-radius:50%;
+    background:var(--green);border:1.5px solid var(--card);
+  }
+  .cuespace{height:26px}
+
+  .voice{background:linear-gradient(165deg,#04305F,#032858 60%);border-radius:var(--r);padding:18px 15px;color:#fff}
+  .voice .ring{
+    width:62px;height:62px;border-radius:50%;margin:0 auto 13px;display:grid;place-items:center;
+    background:radial-gradient(circle,rgba(151,239,41,.26),rgba(151,239,41,0) 70%);border:2px solid var(--green);
+  }
+  .voice .ring b{color:var(--green);font-size:21px;line-height:1}
+  .voice .ring.mute{border-color:rgba(255,255,255,.26);background:none}
+  .voice .ring.mute b{color:rgba(255,255,255,.4)}
+  .voice .l1{text-align:center;font-weight:700;font-size:14.5px}
+  .voice .l2{text-align:center;color:rgba(255,255,255,.7);font-size:12.5px;margin-top:4px}
+  .voice .foot{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid rgba(255,255,255,.16)}
+  .voice .lk{color:var(--green);font-size:12.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  .voice .sep{color:rgba(255,255,255,.3)}
+  .voice .nothing{text-align:center;color:rgba(255,255,255,.42);font-size:12.5px;font-style:italic}
+
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -1px;padding:0 1px}
+  table.rows{width:100%;border-collapse:collapse;font-size:13px;min-width:300px}
+  table.rows th{text-align:left;font-weight:700;color:var(--text);border-bottom:1px solid var(--line);padding:7px 9px;background:var(--tint);white-space:nowrap;font-size:12px}
+  table.rows td{border-bottom:1px solid var(--hair);padding:7px 9px}
+  table.rows td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rowfoot{display:flex;flex-wrap:wrap;gap:5px 10px;align-items:baseline;margin-top:10px;color:var(--faint);font-size:12.5px}
+  .rowfoot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  .rowfoot.none{color:var(--red-ink);font-style:italic}
+
+  .bars{display:flex;align-items:flex-end;gap:clamp(5px,1.8vw,12px);height:96px;margin:4px 0 11px}
+  .bars i{flex:1;min-width:12px;background:linear-gradient(to top,var(--green),#B6F45E);border-radius:5px 5px 0 0;display:block}
+  .bars i.pale{background:var(--green-mid)}
+  .bars.load{opacity:.28}
+  .cap{color:var(--muted);font-size:12.5px;overflow-wrap:anywhere;margin:0}
+  .cap b{color:var(--text);font-variant-numeric:tabular-nums}
+  .cap.bad{color:var(--red-ink)}
+  .money{display:flex;flex-direction:column;gap:4px}
+  .money span{display:flex;flex-wrap:wrap;gap:0 6px;align-items:baseline}
+  .money em{font-style:normal;color:var(--faint);font-size:12px}
+
+  /* ── words panel ───────────────────────────────────────────────────────── */
+  .words{
+    margin-top:clamp(14px,2.2vw,22px);background:var(--card);border:1px solid var(--line);
+    border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;
+  }
+  .words > h3{
+    margin:0;padding:12px 15px;border-bottom:1px solid var(--line);background:var(--tint);
+    font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);
+  }
+  .words dl{margin:0;padding:5px 15px 14px}
+  .words dt{margin-top:11px;font-weight:700;color:var(--ink);font-size:13px}
+  .words dd{margin:3px 0 0;color:var(--muted);font-size:13px}
+  code{
+    background:var(--page);border:1px solid var(--line);border-radius:5px;padding:1px 5px;
+    font:600 12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);overflow-wrap:anywhere;
+  }
+  .flag{display:inline-block;margin-right:5px;color:var(--amber-ink);font-weight:800}
+
+  /* ── copy table ────────────────────────────────────────────────────────── */
+  table.copy{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px;min-width:600px}
+  table.copy th,table.copy td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair)}
+  table.copy thead th{background:var(--tint);color:var(--ink);white-space:nowrap;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+  table.copy tbody tr:last-child td{border-bottom:0}
+  table.copy td.key{white-space:nowrap;font:600 11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink-soft)}
+  table.copy td.at{white-space:nowrap;text-align:center;font-weight:800;color:var(--faint)}
+
+  footer.sheet{margin:clamp(34px,6vw,64px) 0 clamp(20px,4vw,40px);padding-top:18px;border-top:1px solid var(--line);color:var(--faint);font-size:12.5px;max-width:82ch}
+  footer.sheet b{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">A</span><b>Ask&nbsp;Clinket · states</b></a>
+    <nav class="idx">
+      <a href="#s1"><b>01</b>Came back</a>
+      <a href="#s2"><b>02</b>More below</a>
+      <a href="#s3"><b>03</b>Typed answer</a>
+      <a href="#s4"><b>04</b>Out loud</a>
+      <a href="#s5"><b>05</b>Some rows</a>
+      <a href="#s6"><b>06</b>Currencies</a>
+      <a href="#words"><b>·</b>All words</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap" id="top">
+
+  <div class="hero">
+    <span class="kicker"><i></i>For approval — nothing built yet</span>
+    <h1>Six states the app can reach and <em>cannot describe</em>.</h1>
+    <p>Each one below is shown twice: what a provider sees <b>today</b>, and what we propose. Every proposed
+      sentence is written out, in English, with a note saying where it comes from. Approve the words and the
+      colours, and this becomes the build.</p>
+
+    <div class="facts">
+      <div class="fact"><b>6</b><span>States</span></div>
+      <div class="fact"><b>11</b><span>New sentences</span></div>
+      <div class="fact"><b>5</b><span>Languages each</span></div>
+      <div class="fact"><b>2</b><span>Apps, drawn both</span></div>
+    </div>
+
+    <div class="legend">
+      <span class="lg a"><i></i>Amber — a limit, nothing broken</span>
+      <span class="lg r"><i></i>Red — something actually broke</span>
+      <span class="lg b"><i></i>Blue — the app saying what it is doing</span>
+      <span class="lg g"><i></i>Green — the action we want pressed</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ 01 ══════ -->
+  <section class="state" id="s1">
+    <div class="sh">
+      <span class="ghost">01</span>
+      <div class="row"><span class="chip">Came back</span><span class="chip q">U-6</span></div>
+      <h2>You switched away, and the answer stopped part-way</h2>
+      <p>Answers arrive a word at a time. Switch to another app while one is being written and the connection
+        closes. Today the provider comes back to a <b>red failure</b> beside two buttons that both ask the
+        question again — <b>and asking again spends one of the day's questions</b>. Nothing broke, and the
+        answer is already saved. Opening it again is free.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">How many bookings do I have this week?</p>
+            <p class="a-txt">You have twelve bookings between Monday and Sunday. Four are on Saturday, which is
+              your busiest day, and two still need…</p>
+            <div class="note red">
+              <span class="t">Something went wrong</span>
+              Your question was not lost.
+              <div class="btns">
+                <span class="btn">Try again</span>
+                <span class="btn">Ask again</span>
+              </div>
+            </div>
+            <p class="cap bad" style="margin-top:10px">Both buttons re-send the question. Each one costs a question.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">How many bookings do I have this week?</p>
+            <p class="a-txt">You have twelve bookings between Monday and Sunday. Four are on Saturday, which is
+              your busiest day, and two still need…</p>
+            <div class="note amber">
+              <span class="t">You switched away, so this answer stopped</span>
+              It was saved up to that point. Open it again to see the rest — this does not use one of today's
+              questions.
+              <div class="btns">
+                <span class="btn pri">Open it again</span>
+                <span class="btn dim">Ask a new question</span>
+              </div>
+            </div>
+            <div class="askbar">Ask about your business<span class="go">↑</span></div>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <p class="q-txt">How many bookings this week?</p>
+            <p class="a-txt">Twelve between Monday and Sunday. Four are on Saturday…</p>
+            <div class="note amber">
+              <span class="t">You switched away, so this answer stopped</span>
+              It was saved up to that point. Open it again to see the rest — this does not use one of today's
+              questions.
+              <div class="btns stack">
+                <span class="btn pri">Open it again</span>
+                <span class="btn dim">Ask a new question</span>
+              </div>
+            </div>
+            <div class="askbar off">Ask about your business<span class="go">↑</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>The words, and where they come from</h3>
+      <dl>
+        <dt>Three sentences, written by the screen</dt>
+        <dd><code>BusinessSearch.Resume.Title</code> · <code>BusinessSearch.Resume.Body</code> ·
+          <code>BusinessSearch.Resume.Open</code>. The server never sees this — only the app knows it was
+          switched away from.</dd>
+        <dt>Amber, not red</dt>
+        <dd>Nothing is broken and nothing is lost. Red stays reserved for a real failure, so that when red
+          appears it still means something.</dd>
+        <dt>Green goes on the free action</dt>
+        <dd>“Open it again” costs nothing. “Ask a new question” only empties the box — it never re-sends the
+          question that stopped.</dd>
+        <dt>The box is dimmed on the phone</dt>
+        <dd>While an answer is waiting to be re-opened, a second question cannot jump the queue. The computer
+          already behaves this way.</dd>
+        <dt>If the conversation was never saved</dt>
+        <dd>The existing <i>no longer saved</i> notice shows instead — it already puts the question back in
+          the box, so no new words are needed for that case.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ 02 ══════ -->
+  <section class="state" id="s2">
+    <div class="sh">
+      <span class="ghost">02</span>
+      <div class="row"><span class="chip">More below</span><span class="chip q">U-26 a</span></div>
+      <h2>A long answer keeps growing, out of sight</h2>
+      <p>Answers arrive a word at a time. On a <b>long</b> answer the reader is often part-way up, re-reading
+        a line, while the rest lands below the fold — and nothing says so, so a half-written answer looks
+        finished. On a short answer there is nothing to say, and saying it anyway is noise.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer · long answer</span></div>
+          <div class="screen">
+            <p class="q-txt">What is my cancellation policy?</p>
+            <div class="clip">
+              <p class="a-txt" style="margin:0">Cancellations inside 48 hours are charged at 50% of the quoted
+                value, and the deposit is not returned. Outside 48 hours the deposit is returned in full. For a
+                booking moved rather than cancelled…</p>
+            </div>
+            <div class="cuespace" style="height:6px"></div>
+            <p class="cap bad">Nine more lines arrived below. Nothing says so, and nothing takes the reader to
+              them — the answer looks finished.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer · short answer</span></div>
+          <div class="screen">
+            <p class="q-txt">Do I take a deposit?</p>
+            <p class="a-txt" style="margin-bottom:0">Yes — 50% of the quoted value, taken when the booking is
+              confirmed. It is returned in full if the customer cancels outside 48 hours.</p>
+            <div class="cuespace" style="height:8px"></div>
+            <p class="cap"><b>Nothing is drawn.</b> Two or three lines is not something a reader misses, and a
+              mark that is always there stops meaning anything.</p>
+          </div>
+        </div>
+
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer · long, still writing</span></div>
+          <div class="screen">
+            <p class="q-txt">What is my cancellation policy?</p>
+            <div class="clipwrap"><div class="clip">
+              <p class="a-txt" style="margin:0">Cancellations inside 48 hours are charged at 50% of the quoted
+                value, and the deposit is not returned. Outside 48 hours the deposit is returned in full. For a
+                booking moved rather than cancelled…</p>
+              <span class="cuefade"></span>
+              </div><span class="cuedisc ring" aria-label="Go to the newest line"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><span class="dot"></span></span></div>
+            <div class="cuespace"></div>
+            <p class="cap">Nine lines are hidden and more is still arriving: the green dot and the soft ring.</p>
+          </div>
+        </div>
+
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer · long, finished</span></div>
+          <div class="screen">
+            <div class="clipwrap"><div class="clip" style="max-height:76px">
+              <p class="a-txt" style="margin:0">Cancellations inside 48 hours are charged at 50% of the quoted
+                value, and the deposit is not returned. Outside 48 hours…</p>
+              <span class="cuefade"></span>
+              </div><span class="cuedisc" aria-label="Go to the newest line"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></div>
+            <div class="cuespace"></div>
+            <p class="cap">No dot and no ring: there is more to read, but nothing new is arriving.</p>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <p class="q-txt">What is my cancellation policy?</p>
+            <div class="clipwrap"><div class="clip" style="max-height:86px">
+              <p class="a-txt" style="margin:0">Cancellations inside 48 hours are charged at 50% of the quoted
+                value, and the deposit is not returned. Outside 48 hours…</p>
+              <span class="cuefade"></span>
+              </div><span class="cuedisc ring" aria-label="Go to the newest line"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><span class="dot"></span></span></div>
+            <div class="cuespace"></div>
+            <div class="askbar">Ask about your business<span class="go">↑</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>How it works, and why it looks like this</h3>
+      <dl>
+        <dt><span class="flag">‼</span>It waits until four lines are hidden</dt>
+        <dd>Not one pixel — <b>four lines of the answer's own text</b>. Two or three lines below the fold is
+          not something a reader misses, and a mark that is always there stops being read at all. Four is the
+          balance: enough that a paragraph is genuinely out of sight, few enough that a long answer is never
+          left silent. Measured in LINES, not pixels, so it still holds when the provider has made the text
+          bigger.</dd>
+        <dt><span class="flag">‼</span>No new sentence at all — this is the cue the app already ships</dt>
+        <dd>The left-hand menu already does exactly this when it has more rows than fit: a soft fade at the
+          edge that takes no press, and a round disc with a green arrow inside it. Same idea here, on white
+          instead of navy. Nothing new to translate, and providers have already learnt it.</dd>
+        <dt>Never a solid green pill, and never text</dt>
+        <dd>Green filled means <i>chosen</i> everywhere else in the app — the menu's own note says so, which
+          is why its disc is see-through rather than lime. A worded banner would also have to be translated
+          five times to say what an arrow says on its own.</dd>
+        <dt>The green dot means “and it is still being written”</dt>
+        <dd>Disc alone: there is more to read. Disc with the dot and the soft ring: more is still arriving.
+          That is the difference a sentence was trying to carry, done without words.</dd>
+        <dt>It disappears the moment it stops being true</dt>
+        <dd>At the end of the answer, and on any answer short enough to fit. A control that is always there
+          and does nothing is what made the menu's first version read as broken.</dd>
+        <dt>On the phone it pulses three times, then holds</dt>
+        <dd>The same motion the knowledge screen already uses for “look here” — and it does not move at all
+          if the phone asks for reduced motion.</dd>
+        <dt>The only words are for a screen reader</dt>
+        <dd><code>BusinessSearch.Answer.ScrollDown</code> — “Go to the newest line”. Never shown on screen,
+          exactly like the menu's own <code>sidebar.scrollDown</code>.</dd>
+        <dt>One shared number, so the two apps agree</dt>
+        <dd><code>ANSWER_CUE_MIN_HIDDEN_LINES = 4</code> lives beside the other shared rules, with a test that
+          proves the computer and the phone read the same value.</dd>
+      </dl>
+    </div>
+  </section>
+  <section class="state" id="s3">
+    <div class="sh">
+      <span class="ghost">03</span>
+      <div class="row"><span class="chip">Typed answer</span><span class="chip q">U-26 b</span></div>
+      <h2>An answer the business typed itself</h2>
+      <p>Every answer shows its sources. A file shows its name and page. An answer the business
+        <b>typed</b> shows only its question — so it reads like just another document, and the provider cannot
+        tell which answers are their own words.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="a-txt">Deposits are 50% of the quoted value <span class="cite">1</span> and are returned
+              if you cancel outside 48 hours <span class="cite">2</span>.</p>
+            <div class="src">
+              <div class="top"><span class="n">1</span>
+                <div><div class="nm">Do you take a deposit?</div>
+                  <div class="miss">— nothing says this is your own answer</div></div>
+              </div>
+              <div class="quote">Yes — 50% of the quoted value, taken when the booking is confirmed.</div>
+            </div>
+            <div class="src">
+              <div class="top"><span class="n">2</span>
+                <div><div class="nm">Deposits &amp; cancellations.pdf</div><div class="sub">Page 2</div></div>
+              </div>
+              <div class="quote">…the deposit is returned in full when a booking is cancelled outside 48 hours…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="a-txt">Deposits are 50% of the quoted value <span class="cite">1</span> and are returned
+              if you cancel outside 48 hours <span class="cite">2</span>.</p>
+            <div class="src">
+              <div class="top"><span class="n">1</span>
+                <div><div class="nm">Do you take a deposit?</div>
+                  <div class="own"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M8.6 1.4l2 2-6 6-2.6.6.6-2.6 6-6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Your own typed answer</div></div>
+              </div>
+              <div class="quote">Yes — 50% of the quoted value, taken when the booking is confirmed.</div>
+            </div>
+            <div class="src">
+              <div class="top"><span class="n">2</span>
+                <div><div class="nm">Deposits &amp; cancellations.pdf</div><div class="sub">Page 2</div></div>
+              </div>
+              <div class="quote">…the deposit is returned in full when a booking is cancelled outside 48 hours…</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <p class="a-txt">Deposits are 50% of the quoted value <span class="cite">1</span>.</p>
+            <div class="src">
+              <div class="top"><span class="n">1</span>
+                <div><div class="nm">Do you take a deposit?</div>
+                  <div class="own"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M8.6 1.4l2 2-6 6-2.6.6.6-2.6 6-6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Your own typed answer</div></div>
+              </div>
+              <div class="quote">Yes — 50% of the quoted value, taken when the booking is confirmed.</div>
+            </div>
+            <div class="src">
+              <div class="top"><span class="n">2</span>
+                <div><div class="nm">Weekend rate card</div>
+                  <div class="own"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M8.6 1.4l2 2-6 6-2.6.6.6-2.6 6-6z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Your own typed answer</div>
+                  <span class="badge">Not published</span></div>
+              </div>
+              <div class="quote">Saturday mornings carry a 15% weekend rate.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>The words, and where they come from</h3>
+      <dl>
+        <dt>One sentence, written by the screen</dt>
+        <dd><code>BusinessSearch.Source.TypedAnswer</code> — “Your own typed answer”.</dd>
+        <dt>It sits where a file shows its page</dt>
+        <dd>A typed answer has no page, so that line was simply blank. Now it says something true instead of
+          nothing, and never reads “page —”.</dd>
+        <dt>A small pencil, and the deeper blue</dt>
+        <dd>It describes the card rather than quoting the business, so it is not the same colour as their own
+          words below it.</dd>
+        <dt>The existing “Not published” mark is unchanged</dt>
+        <dd>It can sit beside this, as drawn on the phone. The two say different things and both matter.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ 04 ══════ -->
+  <section class="state" id="s4">
+    <div class="sh">
+      <span class="ghost">04</span>
+      <div class="row"><span class="chip">Out loud</span><span class="chip q">U-26 c</span></div>
+      <h2>Asking out loud — three moments with no words</h2>
+      <p>Asking by voice has three moments the panel cannot describe: it is about to stop listening, it is
+        starting to listen again, and the provider would rather type. There is also no way to say
+        <b>“that is not what I said”</b> without starting over.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · asking out loud</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <div class="voice">
+              <div class="ring mute"><b>●</b></div>
+              <p class="nothing">A circle, and nothing else.</p>
+            </div>
+            <p class="cap bad" style="margin-top:12px">It is about to stop listening. Nothing says so, and there
+              is no way to type instead or to say it again.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · asking out loud</span><span class="tagd">Computer · about to stop</span></div>
+          <div class="screen">
+            <div class="voice">
+              <div class="ring"><b>●</b></div>
+              <p class="l1">Wrapping up in 3 seconds</p>
+              <p class="l2">Keep talking and it will carry on listening.</p>
+              <div class="foot">
+                <span class="lk">Type your question instead</span>
+                <span class="sep">·</span>
+                <span class="lk">Not right?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <div class="voice">
+              <div class="ring"><b>◉</b></div>
+              <p class="l1">Listening again in ગુજરાતી</p>
+              <p class="l2">Say your question when you are ready.</p>
+              <div class="foot"><span class="lk">Type your question instead</span></div>
+            </div>
+            <div class="note blue" style="margin-top:12px">
+              <span class="t">Not right?</span>
+              Tap to say it again. Nothing is sent until you press Ask.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>The words, and where they come from</h3>
+      <dl>
+        <dt>Four sentences, written by the screen</dt>
+        <dd><code>BusinessSearch.Voice.WrappingUp</code> (carries a number) ·
+          <code>BusinessSearch.Voice.ListeningAgain</code> (carries a language) ·
+          <code>BusinessSearch.Voice.TypeInstead</code> · <code>BusinessSearch.Voice.NotRight</code>.</dd>
+        <dt>The language is named in its own language</dt>
+        <dd>“ગુજરાતી”, not “Gujarati” — the person about to speak it reads it that way.</dd>
+        <dt>The countdown never shows zero</dt>
+        <dd>Whole seconds, and at zero the panel closes. A frozen “0” would look stuck.</dd>
+        <dt>Blue, because nothing is wrong</dt>
+        <dd>This is the app saying what it is doing. It is not a limit and it is not a failure.</dd>
+        <dt><span class="flag">‼</span>“Not right?” never re-sends</dt>
+        <dd>It re-opens listening and the words go into the box; the provider presses Ask. A mis-heard question
+          can never spend one of the day's questions.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ 05 ══════ -->
+  <section class="state" id="s5">
+    <div class="sh">
+      <span class="ghost">05</span>
+      <div class="row"><span class="chip">Some rows</span><span class="chip q">U-28</span></div>
+      <h2>Showing some of the rows, and how to see them all</h2>
+      <p>A question about work can match far more rows than one answer can hold, so the answer shows the
+        first few. Today <b>nothing says there are more</b> — a provider reading ten unpaid invoices can
+        reasonably conclude there are ten.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">Which invoices are still unpaid?</p>
+            <p class="a-txt">Forty-seven invoices are unpaid. The ten oldest are below.</p>
+            <div class="scroller">
+              <table class="rows">
+                <thead><tr><th>Invoice</th><th>Customer</th><th>Due</th><th class="r">Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>INV-1042</td><td>R. Chandra</td><td>12 Aug</td><td class="r">C$1,240.00</td></tr>
+                  <tr><td>INV-1051</td><td>M. Boucher</td><td>19 Aug</td><td class="r">C$480.00</td></tr>
+                  <tr><td>INV-1063</td><td>S. Patel</td><td>27 Aug</td><td class="r">C$2,105.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="rowfoot none">The list simply ends. Ten rows, no count, no way through.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · ask about your business</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">Which invoices are still unpaid?</p>
+            <p class="a-txt">Forty-seven invoices are unpaid. The ten oldest are below.</p>
+            <div class="scroller">
+              <table class="rows">
+                <thead><tr><th>Invoice</th><th>Customer</th><th>Due</th><th class="r">Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>INV-1042</td><td>R. Chandra</td><td>12 Aug</td><td class="r">C$1,240.00</td></tr>
+                  <tr><td>INV-1051</td><td>M. Boucher</td><td>19 Aug</td><td class="r">C$480.00</td></tr>
+                  <tr><td>INV-1063</td><td>S. Patel</td><td>27 Aug</td><td class="r">C$2,105.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="rowfoot">Showing 10 of 47 · <a>Open all unpaid invoices</a></p>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <p class="q-txt">Which invoices are still unpaid?</p>
+            <p class="a-txt">Forty-seven are unpaid. The ten oldest are below.</p>
+            <div class="scroller">
+              <table class="rows">
+                <thead><tr><th>Invoice</th><th>Due</th><th class="r">Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>INV-1042</td><td>12 Aug</td><td class="r">C$1,240.00</td></tr>
+                  <tr><td>INV-1051</td><td>19 Aug</td><td class="r">C$480.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="rowfoot">Showing 10 of 47<br><a>Open all unpaid invoices</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>The words, and where they come from</h3>
+      <dl>
+        <dt>Two sentences, written by the screen</dt>
+        <dd><code>BusinessSearch.Rows.ShowingSome</code> — “Showing {shown} of {total}” — and
+          <code>BusinessSearch.Rows.OpenAll</code>, whose wording names the page it opens.</dd>
+        <dt><span class="flag">‼</span>The server has to send the two numbers</dt>
+        <dd>It knows the total; the answer only carries the rows. Both ride the piece of the answer that
+          already says it is finished, so nothing extra is fetched.</dd>
+        <dt>Shown only when there is more</dt>
+        <dd>Ten of ten says nothing at all.</dd>
+        <dt>The link lands where they expect</dt>
+        <dd>The page the provider already knows, narrowed the same way the question was — so the numbers agree
+          with what they see there.</dd>
+        <dt>A wide table scrolls inside its own box</dt>
+        <dd>The page never slides sideways, and the phone drops the column it can spare rather than shrinking
+          every column into unreadability.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ 06 ══════ -->
+  <section class="state" id="s6">
+    <div class="sh">
+      <span class="ghost">06</span>
+      <div class="row"><span class="chip">Currencies</span><span class="chip q">U-37</span></div>
+      <h2>Money in three or more currencies</h2>
+      <p>A business working across countries earns in several currencies. The line under the chart lists the
+        amounts, and today it lists them <b>bare</b> — and several currencies share a symbol, so
+        “kr&nbsp;4,500 · R&nbsp;4,500” tells the provider nothing about which is which.</p>
+    </div>
+
+    <div class="ba">
+      <div class="col">
+        <p class="collab now"><i>✕</i>Today</p>
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · insights</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">What did I earn last month?</p>
+            <div class="bars"><i style="height:41%"></i><i style="height:63%"></i><i style="height:52%"></i><i style="height:88%"></i><i class="pale" style="height:70%"></i><i class="pale" style="height:34%"></i></div>
+            <p class="cap"><b>C$12,400.00</b> · <b>₹98,000.00</b> · <b>kr 4,500.00</b></p>
+            <p class="cap bad" style="margin-top:10px">Which “kr”? Which of these is the biggest? The line cannot say.</p>
+          </div>
+        </div>
+
+        <div class="dev">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · insights</span><span class="tagd">Computer · new dates chosen</span></div>
+          <div class="screen">
+            <div class="bars"><i style="height:41%"></i><i style="height:63%"></i><i style="height:52%"></i><i style="height:88%"></i></div>
+            <p class="cap bad">The old bars stay bright while new numbers are fetched — a stale chart read as a fresh one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="collab new"><i>✓</i>Proposed</p>
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · insights</span><span class="tagd">Computer</span></div>
+          <div class="screen">
+            <p class="q-txt">What did I earn last month?</p>
+            <div class="bars"><i style="height:41%"></i><i style="height:63%"></i><i style="height:52%"></i><i style="height:88%"></i><i class="pale" style="height:70%"></i><i class="pale" style="height:34%"></i></div>
+            <div class="cap money">
+              <span><b>C$12,400.00</b><em>in Canadian dollars</em></span>
+              <span><b>₹98,000.00</b><em>in Indian rupees</em></span>
+              <span><b>kr 4,500.00</b><em>in Swedish kronor</em></span>
+            </div>
+            <div class="note amber" style="margin-top:12px">
+              <span class="t">Counted apart, never added</span>
+              Money in different currencies is never added together. Each currency is counted on its own.
+            </div>
+          </div>
+        </div>
+
+        <div class="dev new">
+          <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">clinket · insights</span><span class="tagd">Computer · new dates chosen</span></div>
+          <div class="screen">
+            <div class="bars load"><i style="height:41%"></i><i style="height:63%"></i><i style="height:52%"></i><i style="height:88%"></i></div>
+            <p class="cap" style="color:var(--faint)">Working out the new dates…</p>
+          </div>
+        </div>
+
+        <div class="dev new phone">
+          <div class="notch"><i></i></div>
+          <div class="screen">
+            <div class="bars load" style="height:78px"><i style="height:41%"></i><i style="height:63%"></i><i style="height:88%"></i></div>
+            <div class="note amber">
+              <span class="t">These figures could not be loaded</span>
+              Nothing is wrong with your earnings — this is only the chart.
+              <div class="btns stack"><span class="btn">Try again</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words">
+      <h3>The words, and where they come from</h3>
+      <dl>
+        <dt>Three sentences, written by the screen</dt>
+        <dd><code>Insights.Chart.AmountInCurrency</code> — “{amount} in {currency}”. And the amber note below
+          the amounts: <code>Insights.Chart.CountedApart</code> — “Counted apart, never added” — with
+          <code>Insights.Chart.CountedApartBody</code>. <b>Added 2026-09-07:</b> the note was drawn in this
+          sheet from the start and this panel did not list it, so it was nearly not built at all.</dd>
+        <dt><span class="flag">‼</span>The currency's name needs no new words at all</dt>
+        <dd>Both the computer and the phone can already name a currency in the reader's own language, so “CAD”
+          becomes “Canadian dollars” in English and “dollars canadiens” in French. Where a device cannot, the
+          three-letter code shows instead — which is what appears on every invoice anyway.</dd>
+        <dt>The amount stays bold, the name stays plain</dt>
+        <dd>The figure is still what the eye lands on. On the phone the pairs go one per line, never squeezed
+          onto one where a symbol could be read against the wrong number.</dd>
+        <dt>Old bars are dimmed while new dates load</dt>
+        <dd>So a stale chart is never read as a fresh one.</dd>
+        <dt>A chart that fails is amber</dt>
+        <dd>The earnings are fine; only the picture is missing. Red would say the money was wrong.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ words ══ -->
+  <section class="state" id="words">
+    <div class="sh">
+      <span class="ghost">·</span>
+      <div class="row"><span class="chip">All words</span><span class="chip q">Approve these</span></div>
+      <h2>Every new sentence on this sheet</h2>
+      <p>Eleven sentences a provider reads, plus one label only a screen reader hears. Each needs the same
+        wording in all five languages, on the computer and on the phone, before any of it is built.</p>
+    </div>
+
+    <div class="words">
+      <h3>Eleven sentences on screen, one for a screen reader · five languages each</h3>
+      <div class="scroller">
+        <table class="copy">
+          <thead><tr><th>Key</th><th>English</th><th class="at">State</th></tr></thead>
+          <tbody>
+            <tr><td class="key">BusinessSearch.Resume.Title</td><td>You switched away, so this answer stopped</td><td class="at">01</td></tr>
+            <tr><td class="key">BusinessSearch.Resume.Body</td><td>It was saved up to that point. Open it again to see the rest — this does not use one of today's questions.</td><td class="at">01</td></tr>
+            <tr><td class="key">BusinessSearch.Resume.Open</td><td>Open it again</td><td class="at">01</td></tr>
+            <tr><td class="key">BusinessSearch.Answer.ScrollDown</td><td>Go to the newest line <em style="color:var(--faint);font-style:normal">— screen reader only, never shown</em></td><td class="at">02</td></tr>
+            <tr><td class="key">BusinessSearch.Source.TypedAnswer</td><td>Your own typed answer</td><td class="at">03</td></tr>
+            <tr><td class="key">BusinessSearch.Voice.WrappingUp</td><td>Wrapping up in {seconds} seconds</td><td class="at">04</td></tr>
+            <tr><td class="key">BusinessSearch.Voice.ListeningAgain</td><td>Listening again in {language}</td><td class="at">04</td></tr>
+            <tr><td class="key">BusinessSearch.Voice.TypeInstead</td><td>Type your question instead</td><td class="at">04</td></tr>
+            <tr><td class="key">BusinessSearch.Voice.NotRight</td><td>Not right?</td><td class="at">04</td></tr>
+            <tr><td class="key">BusinessSearch.Rows.ShowingSome</td><td>Showing {shown} of {total}</td><td class="at">05</td></tr>
+            <tr><td class="key">BusinessSearch.Rows.OpenAll</td><td>Open all {records}</td><td class="at">05</td></tr>
+            <tr><td class="key">Insights.Chart.AmountInCurrency</td><td>{amount} in {currency}</td><td class="at">06</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <dl>
+        <dt><span class="flag">‼</span>One thing changes beyond words</dt>
+        <dd>State 05 needs two numbers from the server — how many rows were shown and how many exist. They ride
+          the piece of the answer that already says it is finished, so nothing extra is fetched.</dd>
+        <dt>Everything else is already known to the screen</dt>
+        <dd>No new reads, no new settings, no new stored data.</dd>
+        <dt>Both apps draw all six</dt>
+        <dd>Or the phone and the computer answer the same question differently, which is the thing this whole
+          surface exists to avoid.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="sheet">
+    <b>Ask Clinket</b> — audit rows U-6, U-26, U-28 and U-37 from <code>AUDIT-P5-2026-09-06.md</code>.
+    Approve the sentences and the colours and this becomes the build. Registered in
+    <code>Data\mockups\REGISTER.md</code>.
+  </footer>
+
+</div>
+</body>
+</html>

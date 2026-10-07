@@ -1,0 +1,165 @@
+{
+  "contentHash": "DC2CD5113C1C70B36A5FB0188EC33F42568B2C07B9D9599E0C287A75DD213888",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "pdf_two_column_prose_resume.pdf",
+  "pageCount": 1,
+  "docTitle": "Priya Sharma Senior Hair Stylist Resume",
+  "docSummary": "Resume for Priya Sharma, a Toronto-based Senior Hair Stylist. Covers skills in balayage, keratin treatments, bridal styling, colour correction and team leadership; certifications, languages, profile, salon experience at Glow Salon and City Cuts, and education in hairstyling.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "PRIYA SHARMA",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Senior Hair Stylist · Toronto, ON · 416-555-0199 · priya@example.com\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "SKILLS",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "List",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [
+        "Balayage",
+        "Keratin treatments",
+        "Bridal styling",
+        "Colour correction",
+        "Team leadership"
+      ],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "CERTIFICATIONS",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Redken Colour Specialist (2021)  \nOlaplex Pro (2022)\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "LANGUAGES",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "English, Hindi, Gujarati\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "PROFILE",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. Known for precision cuts and colour correction, with a loyal client base of over 300 regulars.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "EXPERIENCE",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Glow Salon — Senior Stylist (2019–present)  \nGrew colour revenue 40% in two years; introduced the bridal package now sold at $450; trained four apprentices to full-time stylists.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "City Cuts — Stylist (2013–2019)  \nManaged 30 clients a week; ran the Saturday walk-in desk; expected salary in next role $85,000.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 2,
+      "text": "EDUCATION",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Marvel Beauty School, Diploma in Hairstyling (2012)\nRedken Colour Specialist (2021) Olaplex Pro (2022) | now sold at $450; trained four apprentices to full-time stylists. City Cuts - Stylist (2013-2019)\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "a9abacd2-773d-42a9-b00a-3ffa384bcb1b",
+      "discrepancies": [
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row 'Redken Colour Specialist (2021) Olaplex Pro (2022)'",
+          "ocrReading": "Redken Colour Specialist (2021) Olaplex Pro (2022) | now sold at $450; trained four apprentices to full-time stylists. City Cuts - Stylist (2013-2019)",
+          "firstAiReading": "",
+          "sourceServiceName": "Redken Colour Specialist (2021) Olaplex Pro (2022)",
+          "passageIds": [],
+          "thirdReading": "Redken Colour Specialist (2021)\nOlaplex Pro (2022) | Glow Salon — Senior Stylist (2019–present)\nGrew colour revenue 40% in two years; introduced the bridal package\nnow sold at $450; trained four apprentices to full-time stylists.\nCity Cuts — Stylist (2013–2019)\nManaged 30 clients a week; ran the Saturday walk-in desk; expected\nsalary in next role $85,000.",
+          "selectedReading": "Redken Colour Specialist (2021) Olaplex Pro (2022) | now sold at $450; trained four apprentices to full-time stylists. City Cuts - Stylist (2013-2019)",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "the source check did not confirm this line, which was kept rather than lost"
+        }
+      ]
+    }
+  ]
+}

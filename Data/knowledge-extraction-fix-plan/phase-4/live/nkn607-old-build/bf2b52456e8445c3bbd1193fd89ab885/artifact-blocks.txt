@@ -1,0 +1,29 @@
+docTitle=Nails & Lashes Price List lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
+summary: Lists prices for manicures, pedicures, acrylic nails, nail art, lash sets and fills, lash lift and tint, and brow lamination and tint. Requires a $20 deposit for lash sets and 24 hours’ notice for cancellations.
+[  0] Heading      p1 H1
+      NAILS & LASHES
+[  1] Table        p1
+      hasHeader=False caption= rows=15
+      | Classic manicure | $30 |
+      | Gel manicure | $45 |
+      | Spa pedicure | $45 |
+      | Gel pedicure | $60 |
+      | Acrylic full set | $65 |
+      | Acrylic fill | $40 |
+      | Nail art (per nail) | $3 |
+      | Polish change | $15 |
+      | Classic lash set | $120 |
+      | Volume lash set | $160 |
+      | Lash fill (2 weeks) | $70 |
+      | Lash lift | $80 |
+      | Brow lamination | $75 |
+      | Brow tint | $20 |
+      | Lash tint | $20 |
+[  2] Paragraph    p1
+      Deposit of $20 required for lash sets. 24 hours notice for cancellations.
+      
+
+## captions
+## images
+## reviews
+  {"pageNumber":1,"verificationId":"ccf445c5-8705-440e-8bae-553124d1677f","discrepancies":[{"fields":["price"],"reason":"the row's column count changed from 2 to 1; 'Acrylic' reads 'Acrlic'; 'Acrlic fill — $40' was added","location":"page 1, table 1, row 'Acrylic full set'","ocrReading":"Acrylic full set | $65","firstAiReading":"- Acrlic full set — $65 - Acrlic fill — $40","sourceServiceName":"Acrylic full set","passageIds":[],"thirdReading":"Acrylic full set | $65","selectedReading":"- Acrlic full set — $65 - Acrlic fill — $40","disposition":"ResolvedToSourceReading","remainingUncertainty":"the confirmed reading does not carry every word this passage holds, so the page kept the machine reading"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row 'Acrylic fill'","ocrReading":"Acrylic fill | $40","firstAiReading":"","sourceServiceName":"Acrylic fill","passageIds":[],"thirdReading":"Acrylic fill | $40","selectedReading":"Acrylic fill | $40","disposition":"SourceUnitRestored"}]}

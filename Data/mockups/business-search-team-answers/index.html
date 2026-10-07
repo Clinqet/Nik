@@ -1,0 +1,1639 @@
+<title>Ask Clinket — team and work answers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  :root {
+    --ground: #FBFCFA;
+    --surface: #FFFFFF;
+    --surface-sunk: #F3F6F1;
+    --ink: #101F33;
+    --ink-soft: #46545F;
+    --ink-mute: #6B7883;
+    --line: #E1E7DE;
+    --line-firm: #C9D2C6;
+    --brand: #97EF29;
+    --brand-deep: #4E7F12;
+    --warn: #9A5B00;
+    --warn-bg: #FBF1E0;
+    --stop: #A32C2C;
+    --stop-bg: #FAEBEB;
+    --shadow: 0 1px 2px rgba(16,31,51,.06), 0 8px 24px -16px rgba(16,31,51,.28);
+
+    --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ground: #0D1410;
+      --surface: #141C18;
+      --surface-sunk: #101711;
+      --ink: #EAF2E6;
+      --ink-soft: #B4C2B6;
+      --ink-mute: #8A9A8D;
+      --line: #253028;
+      --line-firm: #38473B;
+      --brand: #97EF29;
+      --brand-deep: #B8F76A;
+      --warn: #E0A44A;
+      --warn-bg: #2A2013;
+      --stop: #E88A8A;
+      --stop-bg: #2B1717;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1410;
+    --surface: #141C18;
+    --surface-sunk: #101711;
+    --ink: #EAF2E6;
+    --ink-soft: #B4C2B6;
+    --ink-mute: #8A9A8D;
+    --line: #253028;
+    --line-firm: #38473B;
+    --brand: #97EF29;
+    --brand-deep: #B8F76A;
+    --warn: #E0A44A;
+    --warn-bg: #2A2013;
+    --stop: #E88A8A;
+    --stop-bg: #2B1717;
+    --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px -18px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0 20px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; }
+
+  header.masthead {
+    padding: 48px 0 28px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .masthead h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .masthead p {
+    margin: 8px 0 0;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.8;
+    white-space: nowrap;
+  }
+
+  h2.rule {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 56px 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-firm);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2.rule span.n {
+    font-family: var(--mono);
+    color: var(--brand-deep);
+    font-size: 12px;
+  }
+  .lede { color: var(--ink-soft); max-width: 68ch; margin: 14px 0 24px; }
+
+  .verdict {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand);
+    border-radius: 3px;
+    padding: 16px 18px;
+    margin: 22px 0 0;
+  }
+  .verdict strong { font-family: var(--display); }
+  .verdict p { margin: 0; color: var(--ink-soft); }
+  .verdict p + p { margin-top: 8px; }
+
+  /* ---- specimen grid ---- */
+  .specimens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .spec {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .spec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px dashed var(--line-firm);
+    padding-bottom: 10px;
+  }
+  .spec-head b { color: var(--ink); font-weight: 600; }
+
+  /* the actual UI specimen: a source card as the member sees it */
+  .card {
+    border: 1px solid var(--line-firm);
+    border-radius: 4px;
+    background: var(--surface-sunk);
+    padding: 12px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .cite {
+    flex: 0 0 auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-deep);
+    background: color-mix(in srgb, var(--brand) 22%, transparent);
+    border-radius: 3px;
+    padding: 2px 7px;
+    margin-top: 1px;
+  }
+  .card-body { min-width: 0; flex: 1; }
+  .card-title {
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+  .card-sub {
+    color: var(--ink-mute);
+    font-size: 13.5px;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+  }
+  .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+  .btn {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 5px 11px;
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: default;
+  }
+  .btn.primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #10240A;
+  }
+  .btn.gone {
+    text-decoration: line-through;
+    color: var(--stop);
+    border-color: color-mix(in srgb, var(--stop) 40%, transparent);
+    background: var(--stop-bg);
+    font-weight: 400;
+  }
+
+  .note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .note code, .inline-code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 0 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag.page { background: color-mix(in srgb, var(--brand) 20%, transparent); color: var(--brand-deep); }
+  .tag.nopage { background: var(--warn-bg); color: var(--warn); }
+  .tag.none { background: var(--surface-sunk); color: var(--ink-mute); border: 1px solid var(--line); }
+
+  /* ---- panel preview (what opens) ---- */
+  .panel {
+    border: 1px solid var(--line-firm);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .panel-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 12px;
+    background: var(--surface-sunk);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .panel-bar .x { color: var(--ink-mute); font-family: var(--mono); font-size: 13px; }
+  .panel-body {
+    padding: 14px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-height: 210px;
+    overflow-y: auto;
+  }
+  .panel-body h4 {
+    margin: 0 0 8px;
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .panel-body p { margin: 0 0 9px; }
+  .panel-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 4px 0 10px;
+  }
+  .panel-body th, .panel-body td {
+    text-align: left;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  .panel-body th { color: var(--ink); font-weight: 600; background: var(--surface-sunk); }
+
+  /* ---- two-up compare ---- */
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .compare > div {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 16px;
+  }
+  .compare h3 {
+    font-family: var(--display);
+    font-size: 14px;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .compare .verdict-line {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .bad { color: var(--stop); }
+  .good { color: var(--brand-deep); }
+  .raw {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.6;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 11px;
+    color: var(--ink-soft);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* ---- mobile frame ---- */
+  .frames {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+    align-items: start;
+  }
+  .frame-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .phone {
+    border: 1px solid var(--line-firm);
+    border-radius: 18px;
+    background: var(--surface);
+    padding: 10px;
+    max-width: 330px;
+    box-shadow: var(--shadow);
+  }
+  .phone-inner {
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    overflow: hidden;
+    background: var(--ground);
+  }
+  .phone-top {
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink);
+  }
+  .phone-scroll { padding: 12px; display: flex; flex-direction: column; gap: 11px; }
+  .bubble {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px 12px 12px 12px;
+    padding: 11px 13px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .bubble b { color: var(--ink); }
+  sup.marker {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--brand-deep);
+    font-weight: 600;
+  }
+
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 22px;
+  }
+  table.matrix th, table.matrix td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.matrix th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--line-firm);
+    white-space: nowrap;
+  }
+  table.matrix td:first-child { font-weight: 600; white-space: nowrap; }
+  .scroll-x { overflow-x: auto; }
+
+  .decide {
+    margin-top: 26px;
+    display: grid;
+    gap: 12px;
+  }
+  .decide > div {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brand-deep);
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .decide h4 {
+    margin: 0 0 5px;
+    font-family: var(--display);
+    font-size: 15px;
+  }
+  .decide p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<style>
+  /* ── additions for this sheet only: a desktop frame, banners, a keyboard block ── */
+  .screen {
+    border: 1px solid var(--line-firm);
+    border-radius: 6px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .screen-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-sunk);
+  }
+  .screen-bar h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .screen-bar .cluster { display: flex; gap: 7px; align-items: center; }
+  .chip {
+    font-size: 12px;
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    padding: 3px 10px;
+    color: var(--ink-soft);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .chip.brand { background: var(--brand); border-color: var(--brand); color: #10240A; font-weight: 600; }
+  .screen-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .screen-body.tall { max-height: 340px; overflow-y: auto; }
+
+  .askbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    background: var(--surface-sunk);
+    padding: 9px 9px 9px 15px;
+  }
+  .askbox .ph { flex: 1; color: var(--ink-mute); font-size: 14.5px; min-width: 0; overflow-wrap: anywhere; }
+  .askbox .ph.typed { color: var(--ink); }
+  .askbox .mic, .askbox .send {
+    flex: 0 0 auto;
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--line-firm);
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .askbox .send.on { background: var(--brand); border-color: var(--brand); color: #10240A; font-weight: 600; }
+  .askbox .mic.off { color: var(--ink-mute); background: var(--surface-sunk); }
+
+  .banner {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line-firm);
+    border-radius: 3px;
+    padding: 11px 13px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+  .banner b { color: var(--ink); }
+  .banner.warn { background: var(--warn-bg); border-color: color-mix(in srgb, var(--warn) 30%, transparent); border-left-color: var(--warn); color: var(--warn); }
+  .banner.warn b { color: var(--warn); }
+  .banner.stop { background: var(--stop-bg); border-color: color-mix(in srgb, var(--stop) 30%, transparent); border-left-color: var(--stop); color: var(--stop); }
+  .banner.stop b { color: var(--stop); }
+  .banner.calm { background: var(--surface-sunk); border-left-color: var(--brand-deep); }
+  .banner .grow { flex: 1; min-width: 0; }
+
+  .answer {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 13px 15px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .answer h4 { margin: 0 0 7px; font-family: var(--display); font-size: 15px; color: var(--ink); }
+  .answer p { margin: 0 0 9px; }
+  .answer p:last-child { margin-bottom: 0; }
+  .answer b { color: var(--ink); }
+  .answer table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 6px 0 10px; }
+  .answer th, .answer td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+  .answer th { color: var(--ink); font-weight: 600; background: var(--surface-sunk); }
+  .caret { display: inline-block; width: 2px; height: 15px; background: var(--brand-deep); vertical-align: -3px; }
+
+  .stickybar {
+    position: sticky; top: 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    background: var(--surface-sunk);
+    border: 1px solid var(--line-firm);
+    border-radius: 999px;
+    padding: 6px 8px 6px 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    z-index: 2;
+  }
+  .foot {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    border-top: 1px solid var(--line);
+    margin-top: 11px; padding-top: 10px;
+  }
+  .foot .meta { font-size: 12.5px; color: var(--ink-mute); margin-left: auto; }
+
+  .stepline { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--ink-soft); }
+  .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--brand-deep); flex: 0 0 auto; }
+  .skel { height: 10px; border-radius: 2px; background: var(--surface-sunk); border: 1px solid var(--line); }
+  .skel.w70 { width: 70%; } .skel.w45 { width: 45%; } .skel.w90 { width: 90%; }
+
+  .kbd {
+    border-top: 1px solid var(--line-firm);
+    background: var(--surface-sunk);
+    padding: 9px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+  }
+  .kbd i {
+    height: 22px;
+    border-radius: 3px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .kbd i.wide { grid-column: span 4; }
+  .kbd i.brand { background: var(--brand); border-color: var(--brand); }
+  .docked { border-top: 1px solid var(--line); background: var(--surface); padding: 9px 10px; }
+
+  .pillrow { display: flex; flex-wrap: wrap; gap: 7px; }
+  .quiet {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 2px 7px;
+    background: var(--surface-sunk);
+  }
+</style>
+
+<div class="wrap">
+
+<style>
+  /* ── additions for this sheet only ── */
+  .rec {
+    border: 1px solid var(--line-firm);
+    border-radius: 4px;
+    background: var(--surface-sunk);
+    padding: 11px 13px;
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .rec .cite { margin-top: 1px; }
+  .rec-body { min-width: 0; flex: 1; }
+  .rec-title { font-weight: 600; color: var(--ink); line-height: 1.3; overflow-wrap: anywhere; }
+  .rec-sub { color: var(--ink-mute); font-size: 13.5px; margin-top: 2px; overflow-wrap: anywhere; }
+  .rec-line { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .rec-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+
+  .lbl {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-mute);
+    margin-bottom: 5px;
+  }
+  .lbl.work { background: color-mix(in srgb, var(--brand) 16%, transparent); color: var(--brand-deep); border-color: color-mix(in srgb, var(--brand) 34%, transparent); }
+  .lbl.money { background: var(--warn-bg); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 30%, transparent); }
+  .lbl.call { background: color-mix(in srgb, #1089E9 14%, transparent); color: #1069B9; border-color: color-mix(in srgb, #1089E9 30%, transparent); }
+
+  .money-figure { font-family: var(--mono); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .sidebyside {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+  }
+  .sidebyside > div {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 15px;
+  }
+  .sidebyside h3 { font-family: var(--display); font-size: 14px; margin: 0 0 3px; }
+  .sidebyside .verdict-line { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 11px; }
+
+  .srcline {
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    font-size: 12.5px; color: var(--ink-mute);
+    border-top: 1px solid var(--line);
+    margin-top: 10px; padding-top: 9px;
+  }
+  .who {
+    background: color-mix(in srgb, var(--brand) 22%, transparent);
+    color: var(--brand-deep);
+    border-radius: 2px;
+    padding: 0 5px;
+    font-weight: 600;
+  }
+</style>
+
+  <header class="masthead">
+    <div>
+      <h1>When the answer is about your team's work</h1>
+      <p>Ask Clinket can already answer from what the business wrote down. This sheet is what it looks like
+        when the answer is about <b>work</b> instead — bookings, quotes, invoices, leads, customers, messages,
+        reviews, the calls Clinket answered, and money a customer has asked back. Everything here is bounded by
+        what the person asking is allowed to see, so most of the sheet is about saying that out loud.</p>
+    </div>
+    <div class="stamp">
+      Clinqet &middot; Business Search<br>
+      Phase 3 mockup &middot; 2026-09-03<br>
+      For approval
+    </div>
+  </header>
+
+  <h2 class="rule"><span class="n">00</span> What is already approved, and what this sheet adds</h2>
+  <p class="lede">Four sheets are live and none of them is re-drawn here. This one adds only what appears
+    when the answer comes from work records rather than from documents.</p>
+
+  <div class="scroll-x">
+    <table class="matrix">
+      <tr><th>Sheet</th><th>Still governs</th><th>Untouched by this sheet</th></tr>
+      <tr>
+        <td>M1 <span class="inline-code">business-search-page</span></td>
+        <td>the page itself, the header entry, the phone screen, empty / running / answered / nothing found /
+          error / no access / daily limit, and the 360&nbsp;px proof</td>
+        <td>yes &mdash; except the chip row, which section 10 puts back</td>
+      </tr>
+      <tr>
+        <td>M2 <span class="inline-code">business-search-sources</span></td>
+        <td>how a cited <b>document</b> appears, Show page N, Show text, the two panels, no file is ever handed over</td>
+        <td>yes</td>
+      </tr>
+      <tr>
+        <td>M3 <span class="inline-code">business-search-voice</span></td>
+        <td>the microphone and its eleven states</td>
+        <td>yes</td>
+      </tr>
+      <tr>
+        <td>M4 <span class="inline-code">business-search-states</span></td>
+        <td>no documents yet, offline, very long answer, keyboard open, cut short, restricted document,
+          reopening a saved conversation</td>
+        <td>yes &mdash; except section 01b, the chips, which section 10 revises</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <strong>The one idea this whole sheet is built on</strong>
+      <p>An answer about work must always say <b>how much of the business it looked at</b> and <b>whose work
+        it counted</b>. A number with neither is a number the provider will act on and cannot check.
+        Every state below is a way of saying one of those two things.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">01</span> The answer says what it actually counted</h2>
+  <p class="lede">The same question, asked by two people in the same business on the same day, is answered
+    with two different numbers &mdash; correctly. What must never differ is whether the answer <b>says</b> which
+    it is. The sentence is written by Clinket with the answer, not stitched together on screen.</p>
+
+  <div class="sidebyside">
+    <div>
+      <h3>The owner asks &ldquo;how many bookings this week?&rdquo;</h3>
+      <div class="verdict-line good">Whole business &mdash; and it says so</div>
+      <div class="answer">
+        <p>You have <b>14 bookings</b> this week across the business, 1&ndash;7 September.</p>
+        <table>
+          <tr><th>Day</th><th>Bookings</th></tr>
+          <tr><td>Mon 1 Sep</td><td>3</td></tr>
+          <tr><td>Tue 2 Sep</td><td>2</td></tr>
+          <tr><td>Wed 3 Sep</td><td>4</td></tr>
+        </table>
+        <p class="note">&hellip; and 5 more across Thursday to Sunday.<sup class="marker">[1]</sup></p>
+      </div>
+      <div class="srcline">Answered from <b>bookings</b> &middot; 1&ndash;7 September</div>
+    </div>
+
+    <div>
+      <h3>A technician asks the same question</h3>
+      <div class="verdict-line good">Only their own work &mdash; and it says so</div>
+      <div class="answer">
+        <p>You have <b>3 bookings</b> assigned to you this week, 1&ndash;7 September. This covers your own
+          work only.</p>
+        <table>
+          <tr><th>Day</th><th>Customer</th></tr>
+          <tr><td>Tue 2 Sep</td><td>A. Mehta</td></tr>
+          <tr><td>Thu 4 Sep</td><td>R. Singh</td></tr>
+          <tr><td>Fri 5 Sep</td><td>D. Clarke</td></tr>
+        </table>
+      </div>
+      <div class="srcline">Answered from <b>bookings</b> &middot; your own work &middot; 1&ndash;7 September</div>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>&ldquo;This covers your own work only&rdquo; is Clinket's sentence, not the screen's</h4>
+      <p>It arrives inside the answer, in the language the member is reading in, so it sits in the paragraph
+        it belongs to instead of as a separate banner the eye skips. The screen adds nothing.</p>
+    </div>
+    <div>
+      <h4>The quiet line under the answer is the screen's, and it is a summary, not a claim</h4>
+      <p>It names <em>where</em> the answer came from and, when it covered only your own work, that too.
+        It never carries a count &mdash; a total is Clinket's to state or to withhold.</p>
+    </div>
+    <div>
+      <h4>&ldquo;My&rdquo; narrows, and never widens</h4>
+      <p>An owner who asks for <b>my</b> bookings gets their own, even though they can see everything. An owner
+        who asks for <b>all</b> bookings gets the business. A technician gets their own either way &mdash;
+        the word cannot reach past what they are allowed to see.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">02</span> &ldquo;Nothing assigned to you&rdquo; is not &ldquo;the business has none&rdquo;</h2>
+  <p class="lede">These two sentences look alike and mean opposite things. A technician told <em>&ldquo;there
+    are no bookings this week&rdquo;</em> may reasonably go home. The distinction is decided by Clinket, which
+    knows which of the two it measured &mdash; the screen never guesses it from an empty list.</p>
+
+  <div class="sidebyside">
+    <div>
+      <h3>Empty because nothing is yours</h3>
+      <div class="verdict-line good">Right</div>
+      <div class="answer">
+        <p><b>Nothing is assigned to you</b> this week, 1&ndash;7 September.</p>
+        <p class="note">The business may still have work booked &mdash; this only covers jobs assigned to you.
+          Ask your manager if you were expecting something.</p>
+      </div>
+    </div>
+    <div>
+      <h3>Empty because the business has none</h3>
+      <div class="verdict-line good">Right</div>
+      <div class="answer">
+        <p>There are <b>no bookings</b> anywhere in the business this week, 1&ndash;7 September.</p>
+        <p class="note">Nothing is booked for these dates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div>
+      <h3><span class="bad">&#10007;</span> Never</h3>
+      <div class="verdict-line bad">The same words for both</div>
+      <div class="raw">You have no bookings this week.</div>
+      <p class="note" style="margin-top:10px">True for a technician with an empty queue <em>and</em> for a
+        business with nothing booked. One of those two readers will act on it wrongly.</p>
+    </div>
+    <div>
+      <h3><span class="good">&#10003;</span> Always</h3>
+      <div class="verdict-line good">Two sentences, decided by Clinket</div>
+      <div class="raw">Nothing is assigned to you this week.
+&mdash;&mdash;
+There are no bookings anywhere in the business this week.</div>
+      <p class="note" style="margin-top:10px">The screen renders whichever arrives. It has no rule of its own,
+        because from an empty list the two are indistinguishable.</p>
+    </div>
+  </div>
+
+  <div class="frames">
+    <div>
+      <div class="frame-label">Phone &mdash; empty queue</div>
+      <div class="phone"><div class="phone-inner">
+        <div class="phone-top"><span>Ask Clinket</span><span>&times;</span></div>
+        <div class="phone-scroll">
+          <div class="bubble" style="border-radius:12px 3px 12px 12px; background:var(--surface-sunk)">
+            Do I have anything on this week?</div>
+          <div class="bubble">
+            <b>Nothing is assigned to you</b> this week, 1&ndash;7 September.<br><br>
+            The business may still have work booked &mdash; this only covers jobs assigned to you.</div>
+          <div class="srcline" style="border:0; margin-top:0; padding-top:0">Answered from <b>bookings</b> &middot; your own work</div>
+        </div>
+        <div class="docked"><div class="askbox">
+          <span class="ph">Ask about your business</span>
+          <span class="mic">&#9679;</span><span class="send">&#8594;</span>
+        </div></div>
+      </div></div>
+    </div>
+    <div>
+      <div class="frame-label">Phone &mdash; business has none</div>
+      <div class="phone"><div class="phone-inner">
+        <div class="phone-top"><span>Ask Clinket</span><span>&times;</span></div>
+        <div class="phone-scroll">
+          <div class="bubble" style="border-radius:12px 3px 12px 12px; background:var(--surface-sunk)">
+            Any bookings this week?</div>
+          <div class="bubble">
+            There are <b>no bookings</b> anywhere in the business this week, 1&ndash;7 September.</div>
+          <div class="srcline" style="border:0; margin-top:0; padding-top:0">Answered from <b>bookings</b></div>
+        </div>
+        <div class="docked"><div class="askbox">
+          <span class="ph">Ask about your business</span>
+          <span class="mic">&#9679;</span><span class="send">&#8594;</span>
+        </div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">03</span> A refusal that names nobody, and confirms nothing</h2>
+  <p class="lede">Two different refusals, and neither may leak. Asking about money you cannot see must not
+    reveal whether there is any; asking about a colleague must not reveal whether that colleague exists.
+    Both sentences are fixed &mdash; Clinket does not compose them, and no record is read before either is said.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a dispatcher asks about refunds</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Dispatcher</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">How many refund requests are open?</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>You don't have access to payment and refund information.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">No count. No &ldquo;there are none&rdquo;. No &ldquo;ask your manager for access&rdquo;
+        &mdash; that is a different sentence and it is the manager's to say.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a technician asks about a colleague</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Technician</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">Show me Gaurav's bookings for today</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>You can only see work assigned to you.</p>
+            <p class="note">You have <b>2 bookings</b> today.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">It does not say whether Gaurav works here. It does not say whether Gaurav has anything
+        booked. It answers the part of the question this person <em>can</em> have.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PHONE</b><span>the same two, docked ask box</span></div>
+      <div class="phone" style="max-width:none"><div class="phone-inner">
+        <div class="phone-top"><span>Ask Clinket</span><span>&times;</span></div>
+        <div class="phone-scroll">
+          <div class="bubble" style="border-radius:12px 3px 12px 12px; background:var(--surface-sunk)">
+            Gaurav ni booking batavo</div>
+          <div class="bubble">You can only see work assigned to you.<br><br>You have <b>2 bookings</b> today.</div>
+        </div>
+        <div class="docked"><div class="askbox">
+          <span class="ph">Ask about your business</span>
+          <span class="mic">&#9679;</span><span class="send">&#8594;</span>
+        </div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>A person who is not on the team gets the same words as a person who is</h4>
+      <p>If someone asks about &ldquo;Priya&rdquo; and no Priya works here, the reply is the identical
+        sentence. Anything else turns Ask Clinket into a way of finding out who works at a business.</p>
+    </div>
+    <div>
+      <h4>Nothing is looked up before a refusal</h4>
+      <p>The refusal is decided from who is asking, not from what exists. So a refusal is instant, costs
+        nothing, and cannot be timed to infer an answer.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">04</span> When a colleague is named, the answer names them back</h2>
+  <p class="lede">A manager can ask about a teammate's work. Clinket has to work out which teammate
+    &mdash; from a first name, a nickname, or the name written in another alphabet. It gets this right almost
+    every time, and the one way it goes wrong is quiet: for a person who does <em>not</em> work here, it can
+    reach for the nearest name that does. So the answer always says which person it used.</p>
+
+  <div class="sidebyside">
+    <div>
+      <h3>Right person</h3>
+      <div class="verdict-line good">The name is in the answer, not only in the question</div>
+      <div class="answer">
+        <p><b>3 bookings</b> are assigned to <span class="who">Gaurav Shah</span> on 1 September.</p>
+        <table>
+          <tr><th>Time</th><th>Customer</th><th>Service</th></tr>
+          <tr><td>09:30</td><td>A. Mehta</td><td>Drain survey</td></tr>
+          <tr><td>13:00</td><td>R. Singh</td><td>Boiler service</td></tr>
+          <tr><td>16:15</td><td>D. Clarke</td><td>Leak repair</td></tr>
+        </table>
+      </div>
+      <div class="srcline">Answered from <b>bookings</b> &middot; <span class="who">Gaurav Shah</span> &middot; 1 September</div>
+    </div>
+    <div>
+      <h3>Wrong person &mdash; and now it is visible</h3>
+      <div class="verdict-line good">The provider can see the mistake in one glance</div>
+      <div class="answer">
+        <p><b>3 bookings</b> are assigned to <span class="who">Gauri Desai</span> on 1 September.</p>
+        <p class="note">The provider asked about &ldquo;Gaurav&rdquo;. Because the answer says
+          <b>Gauri Desai</b>, the mistake is obvious and correctable. Without the name it would have been
+          three confident, wrong bookings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>Assigned to, not sent by</h4>
+      <p>Clinket records who a job is <b>assigned to</b>. It does not record who sent a quote out. So the
+        answer to &ldquo;how many quotes did Gaurav send?&rdquo; says <em>&ldquo;assigned to Gaurav
+        Shah&rdquo;</em> in the sentence itself &mdash; the number is right, and the provider can see exactly
+        what it counts.</p>
+    </div>
+    <div>
+      <h4>Two people with the same first name</h4>
+      <p>The answer asks which one, listing only the people this member is allowed to see, and counts nothing
+        until they say. A guess between two real colleagues is worse than a question.</p>
+    </div>
+    <div>
+      <h4>Naming a colleague is not the same as being allowed to</h4>
+      <p>A member who may only see their own work can write any name they like; they still get their own work
+        and the fixed sentence from section 03. The name never widens what is returned.</p>
+    </div>
+    <div>
+      <h4>A member who has left</h4>
+      <p>Treated as not found &mdash; the same reply as a name that was never here. Their past work keeps their
+        name on it, exactly as every other list in the app already shows it.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">05</span> Dates &mdash; and why the answer always repeats them</h2>
+  <p class="lede">&ldquo;Yesterday&rdquo; is decided by Clinket using the business's own clock, not the
+    phone's and not the server's. A provider in Ahmedabad asking at 00:30 means the day that just ended
+    <em>there</em>. The answer always states the days it used, in words, so a wrong day is visible rather than
+    invisible.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a relative day, asked in Gujarati</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">&#2711;&#2703;&#2709;&#2750;&#2721;&#2759; &#2709;&#2759;&#2719;&#2695;&#2744;&#2765; &#2732;&#2753;&#2709;&#2751;&#2690;&#2711;?</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>&#2724;&#2734;&#2750;&#2736;&#2760; &#2730;&#2750;&#2744;&#2759; <b>7 &#2732;&#2753;&#2709;&#2751;&#2690;&#2711;</b> &#2745;&#2724;&#2752; &mdash; <b>2 &#2744;&#2775;&#2730;&#2765;&#2719;&#2759;&#2734;&#2765;&#2732;&#2736;, 2026</b>.</p>
+            <p class="note">The day is named in the answer. If Clinket had taken tomorrow, the provider sees
+              it immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a span of days</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">invoices between 3 and 9 March</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>You invoiced <span class="money-figure">&#8377;1,84,500</span> between
+              <b>3 and 9 March 2026</b>, across 11 invoices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>no period at all</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">how many bookings do we have</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>Which days would you like? For example <b>today</b>, <b>this week</b>, or a date range.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">Rather than picking a period on the provider's behalf. &ldquo;How many bookings do we
+        have&rdquo; answered as &ldquo;this month&rdquo; is a number nobody asked for.</p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <strong>Measured, not assumed</strong>
+      <p>Asked for <em>&ldquo;&#2325;&#2354;&rdquo;</em> (yesterday) on 2 September, one attempt in five came back
+        with <b>3 September &mdash; tomorrow</b>. That is why the day is worked out by Clinket itself and why
+        the answer repeats it in words. The provider gets one place to check, in every language.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">06</span> The new source cards &mdash; one shape, one action</h2>
+  <p class="lede">A document card opens the page it came from (sheet M2). A <b>work</b> card opens the record
+    in the app, on the page the provider already knows. Same card shape, same one action, no downloads and
+    nothing new to learn.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>BOOKING</b><span>opens the booking</span></div>
+      <div class="rec">
+        <span class="cite">1</span>
+        <div class="rec-body">
+          <span class="lbl work">Booking</span>
+          <div class="rec-title">BK-10428 &middot; A. Mehta</div>
+          <div class="rec-sub">Drain survey &middot; Tue 2 Sep, 09:30 &middot; Confirmed</div>
+          <div class="rec-actions"><span class="btn">Open booking</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>QUOTE</b><span>opens the quote</span></div>
+      <div class="rec">
+        <span class="cite">2</span>
+        <div class="rec-body">
+          <span class="lbl work">Quote</span>
+          <div class="rec-title">QT-2291 &middot; R. Singh</div>
+          <div class="rec-sub">Sent 28 Aug &middot; Awaiting reply</div>
+          <div class="rec-actions"><span class="btn">Open quote</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>INVOICE</b><span>opens the invoice</span></div>
+      <div class="rec">
+        <span class="cite">3</span>
+        <div class="rec-body">
+          <span class="lbl work">Invoice</span>
+          <div class="rec-title">INV-8841 &middot; <span class="money-figure">&#8377;24,000</span></div>
+          <div class="rec-sub">Paid 4 Sep</div>
+          <div class="rec-actions"><span class="btn">Open invoice</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>LEAD</b><span>opens the lead</span></div>
+      <div class="rec">
+        <span class="cite">4</span>
+        <div class="rec-body">
+          <span class="lbl work">Lead</span>
+          <div class="rec-title">Boiler replacement &middot; Ahmedabad</div>
+          <div class="rec-sub">Received 1 Sep &middot; Open</div>
+          <div class="rec-actions"><span class="btn">Open lead</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>CUSTOMER</b><span>opens the customer</span></div>
+      <div class="rec">
+        <span class="cite">5</span>
+        <div class="rec-body">
+          <span class="lbl work">Customer</span>
+          <div class="rec-title">Anita Mehta</div>
+          <div class="rec-sub">4 bookings &middot; last on 2 Sep</div>
+          <div class="rec-actions"><span class="btn">Open customer</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>MESSAGE</b><span>opens the conversation</span></div>
+      <div class="rec">
+        <span class="cite">6</span>
+        <div class="rec-body">
+          <span class="lbl work">Message</span>
+          <div class="rec-title">R. Singh</div>
+          <div class="rec-sub">Unanswered since Mon 1 Sep</div>
+          <div class="rec-actions"><span class="btn">Open conversation</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>REVIEW</b><span>opens reviews</span></div>
+      <div class="rec">
+        <span class="cite">7</span>
+        <div class="rec-body">
+          <span class="lbl work">Review</span>
+          <div class="rec-title">4 stars &middot; D. Clarke</div>
+          <div class="rec-sub">29 Aug &middot; no reply yet</div>
+          <div class="rec-actions"><span class="btn">Open review</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>TEAMMATE</b><span>opens the team page</span></div>
+      <div class="rec">
+        <span class="cite">8</span>
+        <div class="rec-body">
+          <span class="lbl work">Teammate</span>
+          <div class="rec-title">Gaurav Shah</div>
+          <div class="rec-sub">Technician &middot; active</div>
+          <div class="rec-actions"><span class="btn">Open team</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>HOW BUSINESS IS DOING</b><span>opens Insights</span></div>
+      <div class="rec">
+        <span class="cite">9</span>
+        <div class="rec-body">
+          <span class="lbl work">Insights</span>
+          <div class="rec-title">Last 30 days</div>
+          <div class="rec-sub">Bookings, earnings and reply time</div>
+          <div class="rec-actions"><span class="btn">Open Insights</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>A card whose page this member cannot open shows no button</h4>
+      <p>The card still appears, because the fact in the answer came from it &mdash; but the action is absent
+        rather than present and refusing. Exactly the rule sheet M2 set for a document with no page.</p>
+    </div>
+    <div>
+      <h4>On a phone the cards stay collapsed under the answer</h4>
+      <p>Same as sheet M4: a single line, &ldquo;5 sources &mdash; tap to see&rdquo;, opening the same list.
+        Tapping a card leaves Ask Clinket and lands on the record; Back returns to the answer.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">07</span> Calls Clinket answered &mdash; and the honesty this card owes</h2>
+  <p class="lede">&ldquo;What did I miss?&rdquo; is the most common thing a provider asks on a Monday morning.
+    Clinket answers the calls they missed and writes a short note about each one. That note is
+    <b>Clinket's own summary</b>, not the caller's words &mdash; and a summary can be wrong. So the card says
+    which it is, every time, and never lets the answer present it as a quote.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>the answer</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">What calls did I miss yesterday?</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p>Clinket answered <b>4 calls</b> for you on <b>2 September</b>. Two are waiting on you.</p>
+            <table>
+              <tr><th>Time</th><th>Caller</th><th>What Clinket noted</th></tr>
+              <tr><td>08:14</td><td>+91 &hellip; 4471</td><td>Asked about a boiler service price<sup class="marker">[1]</sup></td></tr>
+              <tr><td>11:02</td><td>+91 &hellip; 9013</td><td>Wanted to move Friday's visit<sup class="marker">[2]</sup></td></tr>
+            </table>
+            <p class="note">These are Clinket's own notes of the calls, not what the caller said word for word.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>THE CARD</b><span>web and phone, identical wording</span></div>
+      <div class="rec">
+        <span class="cite">1</span>
+        <div class="rec-body">
+          <span class="lbl call">Call Clinket answered</span>
+          <div class="rec-title">Tue 2 Sep, 08:14 &middot; +91 &hellip; 4471</div>
+          <div class="rec-sub">Clinket's note of the call &mdash; not the caller's words</div>
+          <div class="rec-line">Asked about a boiler service price and whether Saturday mornings are possible.</div>
+          <div class="rec-actions"><span class="btn">Open the call</span></div>
+        </div>
+      </div>
+      <p class="note">One line, on every card, in all five languages. Not a tooltip, not a footnote at the
+        bottom of the answer &mdash; a provider who reads one card must see it on that card.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>PHONE</b><span>collapsed, then the card</span></div>
+      <div class="phone" style="max-width:none"><div class="phone-inner">
+        <div class="phone-top"><span>Ask Clinket</span><span>&times;</span></div>
+        <div class="phone-scroll">
+          <div class="bubble">Clinket answered <b>4 calls</b> for you on 2 September. Two are waiting on you.
+            <br><br><span style="font-size:13px">These are Clinket's own notes of the calls, not what the
+            caller said word for word.</span></div>
+          <div class="stickybar" style="position:static"><span>4 sources</span><span class="chip">Tap to see</span></div>
+          <div class="rec">
+            <span class="cite">1</span>
+            <div class="rec-body">
+              <span class="lbl call">Call Clinket answered</span>
+              <div class="rec-title">08:14 &middot; +91 &hellip; 4471</div>
+              <div class="rec-sub">Clinket's note &mdash; not the caller's words</div>
+            </div>
+          </div>
+        </div>
+        <div class="docked"><div class="askbox">
+          <span class="ph">Ask about your business</span>
+          <span class="mic">&#9679;</span><span class="send">&#8594;</span>
+        </div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>The recording is not offered here</h4>
+      <p>Opening the call is one tap away, and that page already decides who may listen. Ask Clinket adds no
+        new way to reach a recording &mdash; the same rule as documents, where no file is ever handed over.</p>
+    </div>
+    <div>
+      <h4>Nothing to show is its own sentence</h4>
+      <p><em>&ldquo;Clinket didn't answer any calls for you on 2 September.&rdquo;</em> &mdash; not
+        &ldquo;I couldn't find anything&rdquo;, which reads as a failure to look.</p>
+    </div>
+    <div>
+      <h4>Who can ask</h4>
+      <p>The same people who can open the Call follow-ups page today. A member who cannot open that page gets
+        the fixed sentence from section 03, and no call is read.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">08</span> Money a customer has asked back &mdash; the strictest card on the sheet</h2>
+  <p class="lede">A refund request is a countdown with money on it. Two rules, and they are the whole design:
+    <b>every figure is shown exactly as it was recorded</b>, and <b>a list that is not the whole list says so
+    in the same breath as its number</b>.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>the answer</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Finance</span></div></div>
+        <div class="screen-body">
+          <div class="askbox"><span class="ph typed">Any refund requests waiting on me?</span>
+            <span class="mic">&#9679;</span><span class="send on">&#8594;</span></div>
+          <div class="answer">
+            <p><b>3 refund requests</b> are open and waiting for your answer.</p>
+            <table>
+              <tr><th>Booking</th><th>Amount</th><th>Reply by</th></tr>
+              <tr><td>BK-10391</td><td><span class="money-figure">&#8377;4,500</span></td><td>4 Sep, 18:00<sup class="marker">[1]</sup></td></tr>
+              <tr><td>BK-10402</td><td><span class="money-figure">Full amount</span></td><td>5 Sep, 09:30<sup class="marker">[2]</sup></td></tr>
+              <tr><td>BK-10410</td><td><span class="money-figure">&#8377;1,200</span></td><td>6 Sep, 12:00<sup class="marker">[3]</sup></td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="note">&ldquo;Full amount&rdquo; is shown as those words, because that is what was recorded.
+        It is never turned into a figure by adding the booking up.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>THE CARD</b><span>every figure verbatim</span></div>
+      <div class="rec">
+        <span class="cite">1</span>
+        <div class="rec-body">
+          <span class="lbl money">Refund request</span>
+          <div class="rec-title">BK-10391 &middot; <span class="money-figure">&#8377;4,500</span></div>
+          <div class="rec-sub">Open &middot; reply by Thu 4 Sep, 18:00</div>
+          <div class="rec-line">Customer's reason: &ldquo;Technician did not arrive.&rdquo;</div>
+          <div class="rec-actions"><span class="btn">Open refund request</span></div>
+        </div>
+      </div>
+      <p class="note">Approving and declining live on the Refund requests page. Ask Clinket never moves money
+        &mdash; every answer it gives is read-only.</p>
+    </div>
+
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>a list longer than one answer</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Finance</span></div></div>
+        <div class="screen-body">
+          <div class="answer">
+            <p>There are <b>47 refund requests</b> open. Here are the <b>10 closest to their reply
+              deadline</b> &mdash; this is not the full list.</p>
+            <div class="banner warn" style="margin-top:8px">
+              <div class="grow"><b>Showing 10 of 47.</b> Open Refund requests to see them all.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note">The true total leads. A provider told &ldquo;you have 3 refund requests&rdquo; when there
+        are 47 will plan their week on it.</p>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div>
+      <h3><span class="bad">&#10007;</span> Never</h3>
+      <div class="verdict-line bad">A shortened list read as the whole one</div>
+      <div class="raw">You have 3 refund requests open.</div>
+      <p class="note" style="margin-top:10px">Said when 47 exist and 3 fitted. Nothing on screen contradicts it.</p>
+    </div>
+    <div>
+      <h3><span class="good">&#10003;</span> Always</h3>
+      <div class="verdict-line good">The true number first</div>
+      <div class="raw">There are 47 refund requests open. Here are the 10
+closest to their reply deadline &mdash; this is not the
+full list.</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">09</span> Part of the answer could not be checked</h2>
+  <p class="lede">A list can be shortened to fit; a look-up can fail on its own while the rest succeed. These
+    are different states and they get different words. Neither may ever be presented as
+    &ldquo;there is nothing&rdquo;.</p>
+
+  <div class="specimens">
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>one part could not be checked</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="answer">
+            <p>You have <b>14 bookings</b> this week, 1&ndash;7 September.</p>
+            <p>I couldn't check your invoices just now, so the earnings part of your question is not answered.
+              Please try that again shortly.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">The part that worked is kept. The part that did not is named. Nothing is quietly dropped
+        and nothing is reported as zero.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>everything is still loading</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="stepline"><span class="dot"></span> Checking your bookings&hellip;</div>
+          <div class="skel w90"></div><div class="skel w70"></div><div class="skel w45"></div>
+        </div>
+      </div>
+      <p class="note">The step names the actual thing being checked &mdash; &ldquo;Checking your
+        bookings&rdquo;, &ldquo;Checking refund requests&rdquo;, &ldquo;Checking calls Clinket answered&rdquo;
+        &mdash; never a bare spinner.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-head"><b>WEB</b><span>today's question limit</span></div>
+      <div class="screen">
+        <div class="screen-bar"><h3>Ask Clinket</h3><div class="cluster"><span class="chip">Owner</span></div></div>
+        <div class="screen-body">
+          <div class="banner stop"><div class="grow"><b>You've reached today's limit of 60 questions.</b>
+            It resets at midnight.</div></div>
+          <div class="askbox"><span class="ph">Ask about your business</span>
+            <span class="mic off">&#9679;</span><span class="send">&#8594;</span></div>
+        </div>
+      </div>
+      <p class="note">Unchanged from sheet M1 &mdash; drawn here only to show it is the same on a work
+        question as on a document question. The number comes from the setting, never from the screen.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">10</span> The chips &mdash; work questions come back</h2>
+  <p class="lede">Sheet M4 removed &ldquo;Show my bookings this week&rdquo; and &ldquo;How many leads did we
+    get last week?&rdquo; for one reason only: nothing could answer them. Now something can. They return
+    &mdash; but only for a member who is allowed to be answered, so a chip still cannot dead-end.</p>
+
+  <div class="scroll-x">
+    <table class="matrix">
+      <tr><th>Chip</th><th>Shown when</th><th>Why it cannot dead-end</th></tr>
+      <tr>
+        <td>How much is a <b>{service}</b>?</td>
+        <td>the catalogue has at least one service</td>
+        <td>unchanged from M4 &mdash; the name came from their own catalogue</td>
+      </tr>
+      <tr>
+        <td>What's on this week?</td>
+        <td class="good">the member can see bookings</td>
+        <td class="good">answers with their own week, or the honest &ldquo;nothing is assigned to
+          you&rdquo; from section 02 &mdash; both are real answers</td>
+      </tr>
+      <tr>
+        <td>How many leads did we get last week?</td>
+        <td class="good">the member can see leads</td>
+        <td class="good">a count always exists, including nought</td>
+      </tr>
+      <tr>
+        <td>What are our opening hours?</td>
+        <td>always &mdash; <b>reserved</b>, never dropped to make room</td>
+        <td>unchanged from M4</td>
+      </tr>
+      <tr>
+        <td><span class="btn gone">What did I miss on the phone?</span></td>
+        <td class="bad">not a chip</td>
+        <td class="bad">a business without the phone assistant has nothing to answer with, and the chip would
+          advertise a feature they do not have</td>
+      </tr>
+      <tr>
+        <td><span class="btn gone">Any refund requests?</span></td>
+        <td class="bad">not a chip</td>
+        <td class="bad">most members cannot see them, and for the few who can it is a question they ask when
+          they have a reason to &mdash; not a suggestion</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>Order, and the cap</h4>
+      <p>Their own service names first, then the work chips, then hours. Four on web, three on a phone.
+        <b>Hours is still reserved</b> and is added after the cap, so it can never be squeezed out.</p>
+    </div>
+    <div>
+      <h4>‼️ This revises M4 section 01b and partly restores M1</h4>
+      <p>M4's row stands for a member who cannot see work; the two work chips are added for a member who can.
+        M1's original row still does not return in full &mdash; its
+        &ldquo;What is our cancellation policy?&rdquo; assumes a document exists and stays out.</p>
+    </div>
+    <div>
+      <h4>While the member's access is still being read, only the safe chips appear</h4>
+      <p>Same rule M4 set for the catalogue: chips do not pop in late, and a work chip is never shown to
+        someone who would then be refused.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">11</span> A business of one person</h2>
+  <p class="lede">Most providers work alone. For them none of the team wording above should ever appear:
+    there is nobody to be assigned to, nobody to name, and nothing to be restricted from. The answer is
+    simply the answer.</p>
+
+  <div class="sidebyside">
+    <div>
+      <h3>Business with a team</h3>
+      <div class="verdict-line">Worth saying whose work it was</div>
+      <div class="answer">
+        <p>You have <b>3 bookings</b> assigned to you this week, 1&ndash;7 September. This covers your own
+          work only.</p>
+      </div>
+    </div>
+    <div>
+      <h3>One-person business</h3>
+      <div class="verdict-line good">No such sentence at all</div>
+      <div class="answer">
+        <p>You have <b>3 bookings</b> this week, 1&ndash;7 September.</p>
+      </div>
+      <p class="note" style="margin-top:9px">Saying &ldquo;assigned to you&rdquo; to somebody who is the whole
+        business reads as though something was withheld.</p>
+    </div>
+  </div>
+
+  <div class="decide">
+    <div>
+      <h4>Nothing on screen changes</h4>
+      <p>No chip is removed, no control is hidden, no message appears. A solo provider should not be able to
+        tell that a team version of this exists.</p>
+    </div>
+    <div>
+      <h4>Asking about a person, in a business of one</h4>
+      <p>Clinket is never offered names to match against, so it cannot invent a colleague. A question with a
+        name in it is answered as the provider's own work.</p>
+    </div>
+    <div>
+      <h4>The moment a second person joins</h4>
+      <p>The &ldquo;your own work&rdquo; sentence starts appearing on its own, with no setting to turn on. It is decided fresh on
+        every question, because a teammate can be added between one question and the next.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">12</span> Every state on this sheet, and where its words come from</h2>
+  <p class="lede">Two sources only. <b>Clinket</b> writes the sentences that depend on what it measured, so
+    they arrive already in the member's language and cannot drift from the number beside them. <b>The
+    screen</b> writes the fixed furniture. Nothing is assembled from fragments, in either place.</p>
+
+  <div class="scroll-x">
+    <table class="matrix">
+      <tr><th>State</th><th>Words from</th><th>Exactly what appears</th></tr>
+      <tr><td>Whose work &mdash; your own</td><td>Clinket</td><td>&ldquo;This covers your own work only.&rdquo; inside the answer</td></tr>
+      <tr><td>Whose work &mdash; the business</td><td>Clinket</td><td>&ldquo;across the business&rdquo; inside the sentence &mdash; never a separate banner</td></tr>
+      <tr><td>Nothing assigned to you</td><td>Clinket</td><td>&ldquo;Nothing is assigned to you this week, 1&ndash;7 September.&rdquo;</td></tr>
+      <tr><td>Business has none</td><td>Clinket</td><td>&ldquo;There are no bookings anywhere in the business this week&hellip;&rdquo;</td></tr>
+      <tr><td>No access to a topic</td><td>Clinket, fixed sentence</td><td>&ldquo;You don't have access to payment and refund information.&rdquo;</td></tr>
+      <tr><td>Only your own work</td><td>Clinket, fixed sentence</td><td>&ldquo;You can only see work assigned to you.&rdquo;</td></tr>
+      <tr><td>Which teammate was used</td><td>Clinket</td><td>the person's full name, inside the sentence</td></tr>
+      <tr><td>Which days were used</td><td>Clinket</td><td>the dates in words, inside the sentence</td></tr>
+      <tr><td>Which days? (none given)</td><td>Clinket</td><td>&ldquo;Which days would you like?&rdquo; with three examples</td></tr>
+      <tr><td>Shortened list</td><td>Clinket &amp; screen</td><td>the true total in the sentence; the screen adds &ldquo;Showing 10 of 47&rdquo; with a link to the page</td></tr>
+      <tr><td>Part could not be checked</td><td>Clinket</td><td>names the part, says to try again shortly, keeps the rest</td></tr>
+      <tr><td>Clinket's note of a call</td><td>screen, on every card</td><td>&ldquo;Clinket's note of the call &mdash; not the caller's words&rdquo;</td></tr>
+      <tr><td>Card labels and buttons</td><td>screen</td><td>Booking / Quote / Invoice / Lead / Customer / Message / Review / Teammate / Insights / Call Clinket answered / Refund request, and &ldquo;Open&hellip;&rdquo;</td></tr>
+      <tr><td>The quiet line under the answer</td><td>screen</td><td>&ldquo;Answered from bookings &middot; your own work&rdquo; &mdash; never a count</td></tr>
+      <tr><td>Running step</td><td>screen</td><td>&ldquo;Checking your bookings&hellip;&rdquo; and one line per kind of look-up</td></tr>
+      <tr><td>Daily limit &middot; offline &middot; error &middot; cut short</td><td>unchanged</td><td>sheets M1 and M4 govern these and they behave identically here</td></tr>
+    </table>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <strong>Not one technical word anywhere a provider can read</strong>
+      <p>No &ldquo;record&rdquo; jargon, no &ldquo;query&rdquo;, no &ldquo;filter&rdquo;, no
+        &ldquo;scope&rdquo;, no &ldquo;permission&rdquo;, no &ldquo;tool&rdquo;. The words on this sheet are
+        the words a provider already uses: bookings, quotes, invoices, leads, customers, messages, reviews,
+        calls, refunds, your own work, the business.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 class="rule"><span class="n">13</span> What this sheet settles</h2>
+
+  <div class="decide">
+    <div>
+      <h4>1 &mdash; Every work answer states what it counted</h4>
+      <p>Whose work, and which days. Both inside Clinket's own sentence, in the member's language.</p>
+    </div>
+    <div>
+      <h4>2 &mdash; An empty queue and an empty business are two different sentences</h4>
+      <p>Decided by Clinket, never inferred on screen from a list with nothing in it.</p>
+    </div>
+    <div>
+      <h4>3 &mdash; A refusal names nobody and confirms nothing</h4>
+      <p>The same words whether the person exists or not, and nothing is looked up first.</p>
+    </div>
+    <div>
+      <h4>4 &mdash; When a colleague is named, the answer names them back</h4>
+      <p>So the one way this can go wrong is visible in the first line instead of hidden in a number.</p>
+    </div>
+    <div>
+      <h4>5 &mdash; Work cards are the document card's shape, with one action into the app</h4>
+      <p>No downloads, no new page to learn, no button that refuses.</p>
+    </div>
+    <div>
+      <h4>6 &mdash; A call note says on its own card that it is Clinket's note</h4>
+      <p>Never presented as what the caller actually said.</p>
+    </div>
+    <div>
+      <h4>7 &mdash; Money is quoted exactly as recorded, and a shortened list leads with the true total</h4>
+      <p>&ldquo;Full amount&rdquo; stays those words. 47 is said before 10 is shown.</p>
+    </div>
+    <div>
+      <h4>8 &mdash; A one-person business never sees any of the team wording</h4>
+      <p>Decided fresh on every question, so it starts working the day somebody joins.</p>
+    </div>
+    <div>
+      <h4>9 &mdash; Two work chips come back, for the members who can be answered</h4>
+      <p>Revising sheet M4 section 01b; hours stays reserved.</p>
+    </div>
+  </div>
+
+  <footer>
+    Clinqet &middot; Business Search (&ldquo;Ask Clinket&rdquo;) &middot; Phase 3 mockup &middot; 2026-09-03.
+    Companion to M1 <span class="inline-code">business-search-page</span>,
+    M2 <span class="inline-code">business-search-sources</span>,
+    M3 <span class="inline-code">business-search-voice</span> and
+    M4 <span class="inline-code">business-search-states</span>.
+    Where this sheet and an earlier one disagree, this one is later and wins &mdash; the register in
+    <span class="inline-code">PLAN.md</span> section 0 records exactly where.
+  </footer>
+
+</div>

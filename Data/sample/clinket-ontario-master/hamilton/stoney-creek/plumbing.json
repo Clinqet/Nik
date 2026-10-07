@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Stoney Creek",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 2,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Plumbing and drain cleaning for Stoney Creek homes and businesses. Drain cleaning, emergency plumbing, water heaters, pipe restoration.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-570-8788",
+      "social": {
+        "facebook": "https://www.facebook.com/RotoRooterStoneyCreekON",
+        "instagram": "https://www.instagram.com/rotorooterplumbing",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.rotorooter.com/ca/ontario/stoneycreek/",
+        "other": []
+      },
+      "address": {
+        "street": "428 Millen Road, Unit 19",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": null,
+        "country": "Canada",
+        "formatted": "428 Millen Road, Unit 19, Stoney Creek, ON"
+      },
+      "serviceAreas": [
+        "Stoney Creek"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Pipe Restoration & Excavation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.rotorooter.com/ca/ontario/stoneycreek/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://www.rotorooter.com/ca/ontario/stoneycreek/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": "Managers Francisco & Mary Clare Abando listed on location page; street from prior WebSearch synthesis"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-stoney-creek-roto-rooter",
+      "businessName": "Roto-Rooter Plumbing (Stoney Creek)"
+    },
+    {
+      "description": "Family plumbing and sewer company with 100+ year legacy (formerly 5-Stinky). Upfront pricing; licensed and insured. Serves Waterdown and Greater Hamilton.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 100,
+      "owner": {
+        "name": "Rob Birnie",
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@birnie.pro",
+      "businessPhone": "905-659-5920",
+      "social": {
+        "facebook": "https://www.facebook.com/birnieplumbinganddrains/",
+        "instagram": "https://www.instagram.com/birnieplumbinganddrains/",
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://birnieplumbinganddrains.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "390 Lake Ave N, Unit 1",
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8E 3A2",
+        "country": "Canada",
+        "formatted": "390 Lake Ave N, Unit 1, Hamilton, ON L8E 3A2"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Waterdown",
+        "Hamilton",
+        "Ancaster",
+        "Dundas",
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Plumbing Repairs & Installations",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning & Hydro Jetting",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Line Repair & Video Inspection",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Trenchless Sewer Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heaters & Sump Pumps",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://birnieplumbinganddrains.ca/waterdown/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://birnieplumbinganddrains.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        },
+        {
+          "url": "https://birnieplumbinganddrains.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.8,
+        "notes": "Physical HQ Lake Ave N (Stoney Creek postal L8E); also brands for Waterdown. Toll-free 1-877-578-4659 in schema. Social URLs from official site schema. | deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00",
+      "id": "hamilton-stoney-creek-birnie-plumbing-drains",
+      "businessName": "Birnie Plumbing & Drains"
+    }
+  ]
+}

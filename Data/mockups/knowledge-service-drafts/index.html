@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v3 — AI Knowledge: services found by Clinket AI Data Analytics (review · edit · approve · high volume)</title>
+<style>
+  :root {
+    --navy: #032858; --green: #97EF29; --green-soft: #F4FFE4; --green-pick: #DFFABD; --ink: #101010;
+    --muted: #5F5F5F; --faint: #919191; --border: #E7E7E7; --hair: #F0F0F0;
+    --bg: #F7F7F8; --card: #FFFFFF; --field: #F5F5F5;
+    --info-bg: #E4EEFB; --info-border: #C7DBF6;
+    --warn: #9A5B00; --warn-bg: #FFF7E8; --warn-border: #F1D9A7;
+    --danger: #B3261E; --danger-bg: #FCECEA; --danger-border: #F2C4C0;
+    --ok-bg: #EAFBF0; --ok-ink: #0e7a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lufga','Segoe UI',system-ui,sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px 90px; }
+  .wrap { max-width: 1260px; margin: 0 auto; }
+  h1 { font-size: 22px; color: var(--navy); }
+  h1 span { color: var(--faint); font-weight: 400; font-size: 13.5px; display: block; margin-top: 5px; line-height: 1.5; }
+  .section-title { margin: 46px 0 6px; font-size: 17px; color: var(--navy); border-top: 1px solid var(--border); padding-top: 22px; }
+  .section-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; max-width: 960px; line-height: 1.55; }
+  .board { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .frame { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .frame-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--hair); background: #FAFAFB; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+  .frame-label em { font-style: normal; color: #3F7A00; font-weight: 700; }
+  .frame-label i { font-style: normal; color: var(--danger); font-weight: 700; }
+  .w760 { width: 760px; max-width: 100%; }
+  .w560 { width: 560px; max-width: 100%; }
+  .w400 { width: 400px; max-width: 100%; }
+  .w360 { width: 360px; max-width: 100%; }
+  .pad { padding: 16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:normal; line-height:1.3; }
+  .pill.info { background: var(--info-bg); color: var(--navy); border-color: var(--info-border); }
+  .pill.ok { background: var(--green-soft); color: #3F7A00; border-color: #CBE9A6; }
+  .pill.okdark { background: var(--ok-bg); color: var(--ok-ink); border-color: #bdebca; }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-border); }
+  .pill.danger { background: var(--danger-bg); color: var(--danger); border-color: var(--danger-border); }
+  .pill.navy { background: #fff; color: var(--navy); border-color: rgba(3,40,88,.35); }
+  .chip { display:inline-flex; align-items:center; gap:5px; border-radius:999px; padding:5px 11px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--muted); white-space:nowrap; }
+  .chip.on { background: var(--green-pick); border-color:#CBE9A6; color:#101010; }
+  .chip.warn { color: var(--warn); border-color: var(--warn-border); background: var(--warn-bg); }
+  .chip.danger { color: var(--danger); border-color: var(--danger-border); background: var(--danger-bg); }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .search { display:inline-flex; align-items:center; gap:6px; background:var(--field); border-radius:999px; padding:6px 12px; font-size:12px; color:var(--muted); min-width:170px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .btn.primary { background: var(--green); border-color: var(--green); color: #101010; font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.xs { padding:5px 10px; font-size:11.5px; }
+  .btn.disabled { opacity:.45; cursor:not-allowed; }
+  .btn.danger-ghost { color: var(--danger); border-color: var(--danger-border); }
+  .btn.link { border:none; background:transparent; color:var(--navy); text-decoration:underline; text-underline-offset:3px; padding:4px 2px; font-weight:600; }
+  .banner { display:flex; gap:8px; border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.45; align-items:flex-start; }
+  .banner.info { background: var(--info-bg); border:1px solid var(--info-border); color: var(--navy); }
+  .banner.warn { background: var(--warn-bg); border:1px solid var(--warn-border); color: var(--warn); }
+  .banner.danger { background: var(--danger-bg); border:1px solid var(--danger-border); color: var(--danger); }
+  .banner.ok { background: var(--ok-bg); border:1px solid #bdebca; color: var(--ok-ink); }
+  .banner .grow { flex:1; min-width:160px; }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann.bad { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules td.yes { color:#3F7A00; font-weight:600; }
+  table.rules td s { color:var(--danger); }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 11.5px; background:#F3F3F3; padding:1px 5px; border-radius:5px; }
+
+  /* ── page chrome (the live Knowledge page) ── */
+  .page-h { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+  .page-h h2 { font-size:18px; color:#1a1a1a; font-weight:500; }
+  .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:420px; line-height:1.45; }
+  .usage { font-size:12px; color:var(--muted); text-align:right; flex:none; }
+  .meter { width:130px; height:6px; border-radius:999px; background:#EFEFEF; margin-top:6px; overflow:hidden; margin-left:auto; }
+  .meter i { display:block; height:100%; border-radius:999px; background:var(--green); }
+  .doc { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); position:relative; }
+  .doc:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; }
+  .doc-main { flex:1; min-width:0; }
+  .doc-name { font-size:13.5px; font-weight:600; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .doc-meta { font-size:11.5px; color:var(--faint); margin-top:3px; }
+  .doc-an { font-size:11.5px; color:var(--navy); margin-top:3px; }
+  .doc-an.bad { color:var(--danger); }
+  .doc-actions { display:flex; gap:6px; flex:none; align-items:center; }
+  .dots { width:28px; height:28px; border-radius:999px; background:#F1F1F1; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--muted); letter-spacing:1px; }
+  .menu { position:absolute; right:0; top:44px; z-index:5; width:220px; background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.12); overflow:hidden; }
+  .menu div { padding:9px 14px; font-size:13px; font-weight:500; }
+  .menu div.d { color:var(--danger); }
+  .menu div.hl { background:var(--green-pick); }
+  .faqsec { margin-top:26px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .faqsec h3 { font-size:16px; color:var(--navy); font-weight:600; }
+  .faqsec p { font-size:12.5px; color:var(--muted); margin-top:2px; max-width:420px; line-height:1.45; }
+  .faq { padding:11px 0; border-bottom:1px solid var(--hair); }
+  .faq b { font-size:13px; display:block; }
+  .faq p { font-size:12.5px; color:var(--muted); margin-top:3px; line-height:1.45; }
+
+  /* ── THE BOX ── */
+  .above { display:flex; justify-content:flex-end; margin-top:26px; }
+  .dsec { margin-top:6px; border:1px solid var(--info-border); border-radius:14px; background:#FBFCFF; }
+  .dsec-h { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:14px 16px 8px; flex-wrap:wrap; }
+  .dsec-h h3 { font-size:16px; color:var(--navy); font-weight:600; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .dsec-h p { font-size:12.5px; color:var(--muted); margin-top:3px; max-width:500px; line-height:1.45; }
+  .dsec-acts { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .dsec-quiet { padding:0 16px 8px; display:flex; gap:14px; flex-wrap:wrap; font-size:11.5px; color:var(--faint); }
+  .dsec-row { padding:8px 16px; border-top:1px solid var(--info-border); display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .dsec-row .lab { font-size:11.5px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; }
+  .dsec-body { padding:10px 16px 14px; display:flex; flex-direction:column; gap:10px; }
+  .dcard { border:1px solid var(--border); border-radius:12px; background:#fff; padding:12px 14px; }
+  .dcard.rv { border-color: var(--warn-border); }
+  .dcard.ok { border-color:#bdebca; background:#F4FFF8; }
+  .dcard.bad { border-color:var(--danger-border); }
+  .dcard.dis { border-color:var(--border); background:#FAFAFA; opacity:.6; }
+  .dcard-top { display:flex; gap:12px; align-items:flex-start; }
+  .thumb { width:64px; height:64px; border-radius:10px; flex:none; background: linear-gradient(135deg,#d9e7f5,#f1f5f9); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--faint); text-align:center; overflow:hidden; }
+  .thumb.img { background: radial-gradient(circle at 30% 30%, #f7d6c4, #c98a6a 60%, #7a4a36); color:transparent; }
+  .thumb.none { background:#FAFAFA; border-style:dashed; }
+  .dcard-main { flex:1; min-width:0; }
+  .dcard-title { font-size:13.5px; font-weight:600; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .dcard-title .nm { max-width:320px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:inline-block; vertical-align:bottom; }
+  .dcard-line { font-size:12px; color:var(--muted); margin-top:3px; }
+  .dcard-line b { color:var(--ink); font-weight:600; }
+  .dcard-src { font-size:11.5px; color:var(--faint); margin-top:4px; }
+  .dcard-src a { color:var(--navy); text-decoration:underline; text-underline-offset:2px; }
+  .diff { margin-top:6px; display:grid; grid-template-columns:auto 1fr; gap:2px 10px; font-size:12px; }
+  .diff .k { color:var(--faint); }
+  .diff .v s { color:var(--faint); }
+  .diff .v b { color:var(--ok-ink); font-weight:700; }
+  .dcard-acts { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .links { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+  .links span { font-size:11px; color:var(--navy); border:1px solid var(--info-border); background:var(--info-bg); border-radius:999px; padding:2px 8px; }
+  .skel { height:64px; border-radius:12px; background:linear-gradient(90deg,#F1F1F1,#F8F8F8,#F1F1F1); background-size:200% 100%; animation: sh 1.4s infinite; }
+  @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .pbar { height:6px; border-radius:999px; background:#EFEFEF; overflow:hidden; margin-top:6px; }
+  .pbar i { display:block; height:100%; width:21%; background:var(--navy); border-radius:999px; }
+  .more { text-align:center; padding:6px 0 0; }
+
+  /* ── modal ── */
+  .modal { border:1px solid var(--border); border-radius:20px; box-shadow:0 18px 50px rgba(3,40,88,.14); background:#fff; overflow:hidden; }
+  .modal-h { padding:15px 20px; font-weight:700; font-size:16px; display:flex; justify-content:space-between; align-items:center; }
+  .modal-h small { display:block; font-weight:400; font-size:12px; color:var(--muted); margin-top:2px; }
+  .modal-b { padding:16px 20px; display:flex; flex-direction:column; gap:12px; border-top:1px solid var(--hair); }
+  .modal-f { padding:14px 20px; border-top:1px solid var(--hair); display:flex; justify-content:flex-end; gap:8px; background:#FAFAFA; }
+  .x { color:var(--muted); font-size:19px; line-height:1; cursor:pointer; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .fs { position:relative; background:var(--field); border:1px solid transparent; border-radius:10px; min-height:48px; padding:19px 34px 6px 12px; }
+  .fs.focus { border-color: var(--warn); background:#fff; }
+  .fs-lbl { position:absolute; left:12px; top:6px; font-size:10.5px; color:var(--muted); }
+  .fs-val { font-size:13.5px; color:#000; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block; }
+  .fs-cv { position:absolute; right:11px; top:50%; transform:translateY(-50%); width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid #5F5F5F; }
+  .ta { min-height:64px; padding-top:22px; white-space:normal; }
+  .ta .fs-val { white-space:normal; line-height:1.4; font-size:12.5px; }
+  .seg { display:flex; gap:6px; }
+  .seg span { flex:1; text-align:center; border:1px solid var(--border); border-radius:10px; padding:9px 6px; font-size:12.5px; font-weight:600; color:var(--muted); }
+  .seg span.on { background:var(--green); border-color:var(--green); color:#101010; }
+  .seg.sm span { padding:6px 8px; font-size:12px; flex:none; }
+  .radio { display:flex; flex-direction:column; gap:6px; }
+  .radio label { display:flex; gap:8px; align-items:flex-start; font-size:12.5px; border:1px solid var(--border); border-radius:10px; padding:9px 11px; }
+  .radio label.on { border-color:var(--green); background:var(--green-soft); }
+  .radio i { width:14px; height:14px; border-radius:999px; border:2px solid #9a9a9a; flex:none; margin-top:1px; font-style:normal; }
+  .radio label.on i { border-color:var(--navy); background: radial-gradient(circle, var(--navy) 45%, #fff 50%); }
+  .lbl { font-size:11.5px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; }
+  .confirm { border:1px solid var(--border); border-radius:16px; background:#fff; box-shadow:0 18px 50px rgba(3,40,88,.14); padding:18px 20px; }
+  .confirm h4 { font-size:15px; color:var(--ink); }
+  .confirm p { font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .confirm ul { margin:8px 0 0 16px; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .confirm .acts { display:flex; justify-content:flex-end; gap:8px; margin-top:14px; }
+
+  /* ── mobile shells ── */
+  .phone { width:360px; border:1px solid var(--border); border-radius:22px; overflow:hidden; background:#F5F5F5; position:relative; }
+  .phone-bar { background:var(--navy); color:#fff; font-size:12px; padding:9px 14px; display:flex; justify-content:space-between; align-items:center; }
+  .phone-head { background:#fff; padding:12px 14px; border-bottom:1px solid var(--hair); }
+  .phone-head b { font-size:15px; display:block; }
+  .phone-head span { font-size:11.5px; color:var(--muted); }
+  .phone-body { padding:12px; display:flex; flex-direction:column; gap:12px; }
+  .mcard { background:#fff; border:1px solid var(--border); border-radius:14px; padding:12px; }
+  .mcard.rv { border-color:var(--warn-border); }
+  .mcard.ok { border-color:#bdebca; background:#F4FFF8; }
+  .mcard.dis { opacity:.6; background:#FAFAFA; }
+  .mrow { display:flex; gap:10px; align-items:flex-start; }
+  .mthumb { width:54px; height:54px; border-radius:10px; flex:none; border:1px solid var(--border); background:radial-gradient(circle at 30% 30%, #f7d6c4, #c98a6a 60%, #7a4a36); }
+  .mthumb.none { background:#FAFAFA; border-style:dashed; }
+  .mtitle { font-size:13.5px; font-weight:600; display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .mline { font-size:12px; color:var(--muted); margin-top:2px; }
+  .msrc { font-size:11px; color:var(--faint); margin-top:3px; }
+  .mbtns { display:flex; gap:8px; margin-top:10px; }
+  .mbtn { flex:1; text-align:center; border-radius:999px; padding:9px 6px; font-size:12.5px; font-weight:600; border:1px solid var(--border); background:#fff; }
+  .mbtn.primary { background:var(--green); border-color:var(--green); font-weight:700; }
+  .mbtn.full { width:100%; flex:none; }
+  .msec { border:1px solid var(--info-border); background:#FBFCFF; border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:10px; }
+  .msec-h { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
+  .msec-h b { font-size:14px; color:var(--navy); display:block; }
+  .msec-h span { font-size:11.5px; color:var(--muted); }
+  .mchips { display:flex; gap:6px; overflow:hidden; }
+  .sticky { position:sticky; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 12px; display:flex; gap:8px; }
+  .sheet { background:#fff; border-top-left-radius:20px; border-top-right-radius:20px; padding:10px 14px 18px; margin:0 -12px -12px; border-top:1px solid var(--border); }
+  .sheet-handle { width:40px; height:4px; border-radius:999px; background:var(--border); margin:0 auto 10px; }
+  .sheet h4 { font-size:15px; margin-bottom:8px; }
+  .sheet p { font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .sheet ul { margin:8px 0 0 16px; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .mfield { background:var(--field); border-radius:10px; padding:7px 11px; }
+  .mfield small { display:block; font-size:10.5px; color:var(--muted); }
+  .mfield span { font-size:13px; }
+  .mstack { display:flex; flex-direction:column; gap:8px; }
+  .mfooter { display:flex; gap:8px; padding:10px 12px; background:#fff; border-top:1px solid var(--hair); }
+  .mmenu { background:#fff; border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+  .mmenu div { padding:12px 14px; font-size:13.5px; border-bottom:1px solid var(--hair); }
+  .mmenu div:last-child { border-bottom:none; }
+  .mmenu div.d { color:var(--danger); }
+  .push { background:#fff; border-radius:14px; border:1px solid var(--border); padding:10px 12px; display:flex; gap:10px; }
+  .push .app { width:34px; height:34px; border-radius:9px; background:var(--navy); color:var(--green); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:12px; flex:none; }
+  .push b { font-size:12.5px; display:block; }
+  .push p { font-size:12px; color:var(--muted); margin-top:2px; line-height:1.4; }
+  .toast { background:#fff; border:1px solid var(--border); border-left:4px solid var(--green); border-radius:10px; padding:10px 12px; box-shadow:0 10px 30px rgba(0,0,0,.1); font-size:12.5px; }
+  .toast b { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Knowledge — services found by Clinket AI Data Analytics (v3)
+  <span>Gate 3 mockup, revised again per your review. New in v3: the <b>high-volume design</b> (600+ suggestions: a review queue with “Show 25 more”, “Approve these 25”, “Approve all remaining” with progress / cancel / resume,
+  document + kind + “please check” filters, search, an approval-settings row like AI Profile Setup’s dialog); the <b>warnings catalogue</b> (exactly when each amber chip appears and what Approve does — amber “please check the price type” = the AI itself was not sure: flag or confidence below a setting); <b>no currency anywhere</b> (automatic,
+  business currency — Profile Setup rule); “Re-run AI Data Analytics for all documents” moved to the TOP (outside the box); “Subcategory” kept as the editor label (my recommendation — see §9). Mobile mirrors all of it.
+  Decision log: <code>C:\Nik\knowledge-service-extraction\DECISIONS-LOCKED-2026-08-21.md</code> (§D-S, D-T).</span></h1>
+
+<!-- ─────────────────────────────────────────────────────────────── 1 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">1 · The AI Knowledge page with a few suggestions (web, 760px) — what the business owner sees</div>
+<div class="section-sub">The box appears only when a document produced suggestions; it sits between the documents list and “Your FAQs”. The all-documents re-run is a small plain link at the top-right, outside the box; both re-runs confirm first.</div>
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label"><span>WEB · 4 suggestions across 2 documents</span><em>main state</em></div>
+    <div class="pad">
+      <div class="page-h">
+        <div><h2>AI Knowledge</h2><p>What your AI receptionist knows about your business beyond your services — documents, price lists, FAQs.</p></div>
+        <div class="usage">2 of 20 documents<div class="meter"><i style="width:10%"></i></div>
+          <div style="margin-top:8px">118 of 2,000 searchable parts</div><div class="meter"><i style="width:6%"></i></div>
+          <div style="margin-top:10px"><span class="btn primary small">Upload documents</span></div></div>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="doc">
+          <div class="doc-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3F7A00" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <div class="doc-main">
+            <div class="doc-name">Complete Hair &amp; Beauty Price List <span class="pill">Price list</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">1 page · 7 parts · 412 KB · Added Aug 19</div>
+            <div class="doc-an">AI Data Analytics: 3 services found · 2 are already in your services</div>
+          </div>
+          <div class="doc-actions"><span class="btn small">Replace</span><span class="btn small danger-ghost">Delete</span><span class="dots">···</span></div>
+        </div>
+        <div class="doc">
+          <div class="doc-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3F7A00" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <div class="doc-main">
+            <div class="doc-name">Rental rates 2026 <span class="pill">Inventory</span> <span class="pill ok">Ready</span></div>
+            <div class="doc-meta">12 pages · 111 parts · 1.8 MB · Added Aug 20</div>
+            <div class="doc-an">AI Data Analytics: 1 service found</div>
+          </div>
+          <div class="doc-actions"><span class="btn small">Replace</span><span class="btn small danger-ghost">Delete</span><span class="dots" style="background:var(--green-pick)">···</span></div>
+          <div class="menu"><div>Details</div><div class="hl">Re-run AI Data Analytics</div><div class="d">Delete</div></div>
+        </div>
+      </div>
+
+      <!-- OUTSIDE, TOP-RIGHT -->
+      <div class="above" style="margin-top:60px"><span class="btn link small">Re-run AI Data Analytics for all documents</span></div>
+
+      <!-- THE BOX -->
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics found 4 services from your documents <span class="pill navy">4 to review</span></h3>
+            <p>These are suggestions only you can see. Nothing goes live until you approve it — edit anything first, or dismiss what isn’t something you offer.</p>
+          </div>
+          <div class="dsec-acts"><span class="btn primary small">Approve these 3</span></div>
+        </div>
+        <div class="dsec-quiet"><span>2 are already in your services</span><span>Changes to a service you already have are approved one at a time</span></div>
+        <div class="dsec-body">
+
+          <div class="dcard rv">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title"><span class="nm">Pressure wash</span> <span class="pill warn">Please check the price type</span> <span class="pill">Fixed · $40</span> <span class="pill">61% confidence</span></div>
+                <div class="dcard-line">Category: Cleaning Services › Exterior cleaning</div>
+                <div class="dcard-line">Service area: Hamilton, ON (your default)</div>
+                <div class="dcard-src">From “Rental rates 2026” · Wash &amp; detail · page 7 · written as “Pressure wash 40-hour”</div>
+              </div>
+            </div>
+            <div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div>
+          </div>
+
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="thumb img">img</div>
+              <div class="dcard-main">
+                <div class="dcard-title"><span class="nm">Keratin smoothing treatment</span> <span class="pill info">Starting from $120, up to $180</span> <span class="pill">93% confidence</span></div>
+                <div class="dcard-line">Category: Salon &amp; Beauty › <b>Keratin treatments</b> <span class="pill info">New — added to your categories when you approve</span></div>
+                <div class="dcard-line">Service area: Hamilton, ON (your default)</div>
+                <div class="dcard-src">From “Complete Hair &amp; Beauty Price List” · HAIR TREATMENT · page 1</div>
+              </div>
+            </div>
+            <div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div>
+          </div>
+
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title"><span class="nm">Full hands polish</span> <span class="pill">Fixed · $30</span> <span class="pill">96% confidence</span></div>
+                <div class="dcard-line">Category: Salon &amp; Beauty › Waxing</div>
+                <div class="dcard-line">Service area: <b>Burlington, ON</b> <span class="pill info">New — added to your service areas when you approve</span></div>
+                <div class="dcard-src">From “Complete Hair &amp; Beauty Price List” · WAXING · page 1</div>
+                <div class="links"><span>Link found in the document: brochure.pdf</span></div>
+              </div>
+            </div>
+            <div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div>
+          </div>
+
+          <div class="dcard">
+            <div class="dcard-top">
+              <div class="dcard-main">
+                <div class="dcard-title"><span class="nm">Haircut</span> <span class="pill info">A change to your existing service “Haircut”</span> <span class="pill">88% match</span></div>
+                <div class="diff"><span class="k">Price</span><span class="v"><s>Fixed · $20</s> → <b>Fixed · $25</b></span><span class="k">Category</span><span class="v">Salon &amp; Beauty › Hair (no change)</span></div>
+                <div class="dcard-src">From “Complete Hair &amp; Beauty Price List” · HAIR · page 1</div>
+              </div>
+            </div>
+            <div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Update my service</span><span class="btn small">Dismiss</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faqsec"><div><h3>Your FAQs</h3><p>Quick answers your receptionist gives callers — typed right here, no file needed.</p></div><div class="doc-actions"><span class="btn small">Add FAQ</span><span class="note">2 of 200</span></div></div>
+      <div class="faq"><b>Do you take walk-ins?</b><p>Yes, weekdays before 4 pm. Weekends are by appointment.</p></div>
+    </div>
+  </div>
+
+  <div class="frame w400">
+    <div class="frame-label"><span>Prices: no currency shown — ever</span></div>
+    <div class="pad">
+      <table class="rules">
+        <tr><th>Rule</th><th>How</th></tr>
+        <tr><td>Amounts on cards and in the editor</td><td>formatted with the business currency (<code>useCurrency</code> on web, region formatting on mobile) — exactly like the service list</td></tr>
+        <tr><td>Approved service</td><td>takes the business currency automatically (the Profile Setup rule) — no field, no choice</td></tr>
+        <tr><td>The document shows another symbol (€ while the business is CAD)</td><td>amber chip “The document’s currency looks different — please check”; Approve opens Edit on the price</td></tr>
+        <tr><td>Editor</td><td>Price / Up to / Hourly amount only — no currency box</td></tr>
+      </table>
+      <div class="ann good"><b>Never on the live services pages</b>Suggestions appear only here. Manage Services shows nothing until Approve creates the real service.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 2 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">2 · When do warnings appear? — the complete set</div>
+<div class="section-sub">Amber = “please look before you approve”. Blue = information. Nothing else ever turns amber. Approve on an amber card opens Edit on the exact field; “Approve these N” / “Approve all” skip amber cards that would create an incomplete service and list them.</div>
+<div class="board">
+  <div class="frame w760"><div class="pad">
+    <table class="rules">
+      <tr><th>Chip</th><th>Appears when</th><th>What Approve does</th></tr>
+      <tr><td><span class="pill warn">Please check the price type</span></td><td>the price text is ambiguous — “40-hour” (hourly or a duration?), two prices on one line, a unit we can’t map (“/visit”), “from $40+”</td><td>opens Edit on the price type; the text “written as …” is shown so you can decide</td></tr>
+      <tr><td><span class="pill warn">Price needs an upper amount</span></td><td>“Starting from $120” with no upper amount (the service form needs both)</td><td>opens Edit on “Up to”; bulk approve skips it and lists it</td></tr>
+      <tr><td><span class="pill warn">The document’s currency looks different</span></td><td>the symbol in the document is not your business currency</td><td>opens Edit on the price (amount only)</td></tr>
+      <tr><td><span class="pill warn">Please pick a category</span></td><td>nothing in your categories matched and we could not suggest one</td><td>opens Edit on Category</td></tr>
+      <tr><td><span style="color:var(--danger);font-weight:600">Couldn’t be added — you already have a service with this name</span> <span class="note">(shown as a full line under the name, never a truncated chip)</span></td><td>after an approve attempt (name clash)</td><td>card stays; “Approve it as a change” re-checks it against your service</td></tr>
+      <tr><td><span class="pill info">A change to your existing service “X”</span></td><td>we matched it to a service you already have and something differs (price / category)</td><td>“Update my service” applies only the difference</td></tr>
+      <tr><td><span class="pill info">New — added to your categories when you approve</span></td><td>the category is not in your list yet</td><td>added for your business on approve; our team takes a quick look</td></tr>
+      <tr><td><span class="pill info">New — added to your service areas when you approve</span></td><td>the document names a place you don’t cover yet (only when we are confident)</td><td>added with your usual radius and placed on the map on approve</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 3 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">3 · High volume — 600 suggestions from one catalogue (web, 760px)</div>
+<div class="section-sub"><b>Model: a review queue, not pages.</b> The box shows the first 25 (please-check first, then most confident); “Show 25 more” loads the next (continuation token — no page numbers, which would shift every time you approve). “Approve these 25” approves exactly what is on screen, then the next 25 appear — one page at a time. “Approve all remaining” is there too, behind a clear confirmation, with progress, cancel and resume. Filters by document / kind / please-check and a name search make 600 manageable. An approval-settings row (like the AI Profile Setup dialog) sets “where” and “service area” for everything you approve, so nobody edits 600 cards.</div>
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label"><span>WEB · 600 suggestions — the queue</span><em>recommended</em></div>
+    <div class="pad">
+      <div class="above" style="margin-top:0"><span class="btn link small">Re-run AI Data Analytics for all documents</span></div>
+      <div class="dsec">
+        <div class="dsec-h">
+          <div>
+            <h3>Clinket AI Data Analytics found 600 services from your documents <span class="pill navy">600 to review</span></h3>
+            <p>Suggestions only you can see. Review them 25 at a time — or approve everything remaining in one go.</p>
+          </div>
+          <div class="dsec-acts"><span class="btn primary small">Approve these 25</span><span class="btn small">Approve all remaining (572)</span><span class="dots">···</span></div>
+        </div>
+        <div class="dsec-quiet"><span>14 are already in your services</span><span>Changes to a service you already have are approved one at a time</span></div>
+
+        <div class="dsec-row"><span class="lab">Show</span>
+          <div class="chips"><span class="chip on">All 600</span><span class="chip warn">Please check 12</span><span class="chip">New services 572</span><span class="chip">Changes to existing 28</span><span class="chip">Document: All ▾</span></div>
+          <span class="search" style="margin-left:auto">Search by name…</span>
+        </div>
+        <div class="dsec-row"><span class="lab">For everything you approve here</span>
+          <div class="seg sm"><span class="on">At my location</span><span>At the customer’s location</span></div>
+          <span class="chip">Service area: Hamilton, ON (your default) ▾</span>
+          <span class="note">You can still change any single card with Edit.</span>
+        </div>
+
+        <div class="dsec-body">
+          <div class="note">Showing 1–25 of 600 · please-check first, then the most confident</div>
+          <div class="dcard rv"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Cat 320 GC hydraulic excavator — 2019, 2,140 hours, enclosed cab, aux…</span> <span class="pill warn">Price needs an upper amount</span> <span class="pill">Starting from $189,000</span></div><div class="dcard-line">Category: Heavy Equipment › Excavators</div><div class="dcard-src">From “Rental rates 2026” · Excavators · page 3 · written as “from $189,000”</div></div></div><div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div></div>
+          <div class="dcard"><div class="dcard-top"><div class="thumb img">img</div><div class="dcard-main"><div class="dcard-title"><span class="nm">Bobcat S650 skid steer</span> <span class="pill">Fixed · $42,500</span> <span class="pill">95% confidence</span></div><div class="dcard-line">Category: Heavy Equipment › Skid steers</div><div class="dcard-src">From “Rental rates 2026” · Skid steers · page 4</div></div></div><div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div></div>
+          <div class="dcard"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Genie Z-45 boom lift — daily rental</span> <span class="pill">Fixed · $390</span> <span class="pill">94% confidence</span></div><div class="dcard-line">Category: Equipment Rental › Aerial lifts</div><div class="dcard-src">From “Rental rates 2026” · Aerial · page 5</div></div></div><div class="dcard-acts"><span class="btn small">Edit</span><span class="btn primary small">Approve</span><span class="btn small">Dismiss</span></div></div>
+          <div class="skel" style="height:40px"></div><div class="skel" style="height:40px"></div>
+          <div class="note" style="text-align:center">… 20 more on this screen …</div>
+          <div class="more"><span class="btn small">Show 25 more</span></div>
+          <div class="note" style="text-align:center">Approving these 25 brings the next 25 up automatically.</div>
+        </div>
+      </div>
+      <div class="ann"><b>The ··· menu on the box</b>Dismiss these 25 · Dismiss all from “Rental rates 2026”… (confirm) · Show only items that couldn’t be added.</div>
+    </div>
+  </div>
+
+  <div class="frame w400"><div class="frame-label"><span>Confirm — Approve all remaining</span></div>
+    <div class="pad"><div class="confirm"><h4>Add all 572 remaining suggestions to your services?</h4>
+      <p>They go live on your page and in search as soon as they are added, using the settings above (At my location · Hamilton, ON). Changes to existing services and items marked “please check” are left out — you review those one by one.</p>
+      <ul><li>Takes a few minutes. You can cancel any time; what’s already added stays.</li><li>Anything that couldn’t be added stays in this list with the reason.</li></ul>
+      <div class="acts"><span class="btn small">Cancel</span><span class="btn primary small">Add 572 services</span></div></div>
+      <div class="ann" style="margin-top:14px"><b>Why not just one button?</b>“Approve these 25” is the safe default nobody can regret; “Approve all remaining” exists for the big catalogues and always asks first with the real count.</div></div>
+  </div>
+
+  <div class="frame w400"><div class="frame-label"><span>Bulk approve — progress · cancel · resume · result</span></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:12px">
+      <div class="banner info"><span class="grow">Adding 125 of 572 to your services… you can keep using the page.<div class="pbar"><i></i></div></span><span class="btn xs">Cancel</span></div>
+      <div class="banner info"><span class="grow">You stopped at 125 of 572. <b>Continue adding (447 left)</b></span><span class="btn xs primary">Continue</span></div>
+      <div class="banner ok"><span class="grow">Done — 560 added to your services. 12 couldn’t be added and stay in this list.</span><span class="btn xs">Show those 12</span></div>
+      <div class="dcard bad"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Haircut</span> <span class="pill">Fixed · 5</span></div><div class="banner danger" style="margin-top:6px;padding:7px 10px"><span class="grow"><b>Couldn’t be added</b> — you already have a service with this name. Approve it as a change to your existing “Haircut”, or dismiss it.</span></div></div></div><div class="dcard-acts"><span class="btn small">Approve it as a change</span><span class="btn small">Dismiss</span></div></div>
+      <div class="ann"><b>Behind the scenes</b>25 per request, each a few seconds; an item that failed is never retried automatically (it would loop) — it stays for you; two team members approving at once can never create the same service twice; closing the page just pauses — “Continue adding” picks up where it stopped.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 4 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">4 · The two re-run confirmations, and dismiss-all</div>
+<div class="board">
+  <div class="frame w400"><div class="frame-label"><span>Confirm — one document (from its ⋯ menu)</span></div>
+    <div class="pad"><div class="confirm"><h4>Run AI Data Analytics again for “Rental rates 2026”?</h4>
+      <p>We’ll read this document again and rebuild its list of suggested services. It takes a few minutes, and we’ll let you know when it’s done.</p>
+      <ul><li>Services you already approved are not changed.</li><li>Suggestions you dismissed may appear again.</li><li>Your receptionist keeps answering from this document the whole time.</li></ul>
+      <div class="acts"><span class="btn small">Cancel</span><span class="btn primary small">Run again</span></div></div></div>
+  </div>
+  <div class="frame w400"><div class="frame-label"><span>Confirm — all documents (the link above the box)</span></div>
+    <div class="pad"><div class="confirm"><h4>Run AI Data Analytics again for all 2 documents?</h4>
+      <p>We’ll read every ready document again, one after another, and rebuild all suggested services. It can take a while for large documents; we’ll let you know when it’s done.</p>
+      <ul><li>Services you already approved are not changed.</li><li>Suggestions you dismissed may appear again.</li><li>Your receptionist keeps answering from your documents the whole time.</li></ul>
+      <div class="acts"><span class="btn small">Cancel</span><span class="btn primary small">Run for all documents</span></div></div></div>
+  </div>
+  <div class="frame w400"><div class="frame-label"><span>Confirm — dismiss all from one document</span></div>
+    <div class="pad"><div class="confirm"><h4>Dismiss all 430 suggestions from “Rental rates 2026”?</h4>
+      <p>They disappear from this list. Nothing changes in your services. If you run AI Data Analytics again for this document later, they may come back.</p>
+      <div class="acts"><span class="btn small">Cancel</span><span class="btn small danger-ghost">Dismiss 430</span></div></div></div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 5 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">5 · Every other state of the box (web)</div>
+<div class="board">
+  <div class="frame w400">
+    <div class="frame-label"><span>Nothing found</span><em>box hidden</em></div>
+    <div class="pad">
+      <div class="doc"><div class="doc-ico"></div><div class="doc-main"><div class="doc-name">Terms &amp; deposits <span class="pill">Policy</span> <span class="pill ok">Ready</span></div><div class="doc-meta">2 pages · 9 parts</div><div class="doc-an">AI Data Analytics: no services found in this document</div></div><div class="doc-actions"><span class="dots">···</span></div></div>
+      <div class="faqsec" style="margin-top:16px"><div><h3>Your FAQs</h3></div></div>
+      <div class="ann">At 0 suggestions the box (and the all-documents link) are not shown. The row still states the result and the ⋯ menu still offers <b>Re-run AI Data Analytics</b>.</div>
+    </div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Loading</span></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-h"><div><h3>Clinket AI Data Analytics</h3><p>Checking for services found in your documents…</p></div></div><div class="dsec-body"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div></div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Error</span></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-h"><div><h3>Clinket AI Data Analytics</h3></div></div><div class="dsec-body"><div class="banner danger"><span class="grow">We couldn’t load the services found in your documents.</span><span class="btn xs">Try again</span></div></div></div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Team member who can only view</span><i>not the owner</i></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-h"><div><h3>Clinket AI Data Analytics found 4 services <span class="pill navy">4 to review</span></h3><p>Suggestions for your business. A team member with access to AI Knowledge can edit, approve or dismiss them.</p></div></div>
+      <div class="dsec-body"><div class="dcard"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Full hands polish</span> <span class="pill">Fixed · $30</span></div><div class="dcard-line">Category: Salon &amp; Beauty › Waxing</div></div></div></div></div></div>
+      <div class="ann"><b>Why no Approve here?</b>A team member WITHOUT the AI Knowledge permission. The business owner always has every button.</div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Team member who can edit but not add services</span><i>not the owner</i></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-h"><div><h3>Clinket AI Data Analytics found 4 services <span class="pill navy">4 to review</span></h3></div></div>
+      <div class="dsec-quiet"><span>You can review and edit these. Adding them to your services needs permission from the business owner.</span></div>
+      <div class="dsec-body"><div class="dcard"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Full hands polish</span> <span class="pill">Fixed · $30</span></div></div></div><div class="dcard-acts"><span class="btn small">Edit</span><span class="btn small">Dismiss</span></div></div></div></div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>AI Data Analytics did not run</span><i>row state</i></div>
+    <div class="pad"><div class="doc"><div class="doc-ico"></div><div class="doc-main"><div class="doc-name">Rental rates 2026 <span class="pill">Inventory</span> <span class="pill ok">Ready</span></div><div class="doc-meta">12 pages · 111 parts</div><div class="doc-an bad">AI Data Analytics couldn’t finish for this document. Your receptionist still uses it.</div></div><div class="doc-actions"><span class="btn small">Re-run AI Data Analytics</span></div></div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Very large document — only the first part checked</span></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-body" style="padding-top:14px"><div class="banner info"><span class="grow"><b>Rental rates 2026:</b> we checked the first part of this document. Approve or dismiss these, then run AI Data Analytics again to check the rest.</span></div></div></div></div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>Some approved / dismissed</span></div>
+    <div class="pad"><div class="dsec" style="margin-top:0"><div class="dsec-body" style="padding-top:14px">
+        <div class="dcard ok"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Full hands polish</span> <span class="pill okdark">Added to your services</span></div><div class="dcard-src"><a href="#">Open in Manage Services</a></div></div></div></div>
+        <div class="dcard dis"><div class="dcard-top"><div class="dcard-main"><div class="dcard-title"><span class="nm">Late cancellation fee</span> <span class="pill">Dismissed</span></div></div></div></div>
+      </div></div><div class="note" style="margin-top:8px">Both fade out on the next refresh.</div></div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 6 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">6 · Edit a suggestion (web) — no currency field; “Subcategory” as in the service form</div>
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · Edit — new service, new category, new service area</span></div>
+    <div class="modal" style="border:none;box-shadow:none;border-radius:0">
+      <div class="modal-h"><div>Edit suggested service<small>From “Complete Hair &amp; Beauty Price List” · HAIR TREATMENT · page 1 · written as “Keratin smoothing $120–$180”</small></div><span class="x">×</span></div>
+      <div class="modal-b">
+        <div class="fs"><span class="fs-lbl">Service name</span><span class="fs-val">Keratin smoothing treatment</span></div>
+        <div class="fs ta"><span class="fs-lbl">Description</span><span class="fs-val">Duration: 90 min · Includes wash and blow-dry</span></div>
+        <div class="lbl">Price</div>
+        <div class="seg"><span>Fixed</span><span class="on">Starting from</span><span>Hourly</span></div>
+        <div class="grid2"><div class="fs"><span class="fs-lbl">Starting price</span><span class="fs-val">120.00</span></div><div class="fs"><span class="fs-lbl">Up to</span><span class="fs-val">180.00</span></div></div>
+        <div class="note">Tax and online payment follow your business settings — the same as any new service.</div>
+        <div class="lbl">Category</div>
+        <div class="grid2"><div class="fs"><span class="fs-lbl">Category</span><span class="fs-val">Salon &amp; Beauty</span><span class="fs-cv"></span></div><div class="fs"><span class="fs-lbl">Subcategory</span><span class="fs-val">Keratin treatments (new)</span><span class="fs-cv"></span></div></div>
+        <div class="banner info"><span class="grow">“Keratin treatments” isn’t in your categories yet. When you approve, we add it for you and our team takes a quick look at it. You can pick one of your existing ones instead.</span></div>
+        <div class="lbl">Where you offer it</div>
+        <div class="seg"><span class="on">At my location</span><span>At the customer’s location</span></div>
+        <div class="lbl">Service area</div>
+        <div class="radio">
+          <label><i></i><span>Hamilton, ON — your default service area</span></label>
+          <label class="on"><i></i><span>Burlington, ON <span class="pill info" style="margin-left:6px">New — added when you approve</span><br><span class="note">Found in the document. Uses your usual radius; we place it on the map when you approve.</span></span></label>
+          <label><i></i><span>Choose another of your service areas…</span></label>
+        </div>
+        <div class="lbl">Photo</div>
+        <div style="display:flex;gap:10px;align-items:center"><div class="thumb img" style="width:56px;height:56px">img</div><span class="note">From a link in the document. It becomes the service photo when you approve.</span><span class="btn xs" style="margin-left:auto">Remove</span></div>
+      </div>
+      <div class="modal-f"><span class="btn small">Cancel</span><span class="btn primary small">Save</span></div>
+    </div>
+  </div>
+  <div class="frame w400">
+    <div class="frame-label"><span>WEB · Approve on an amber card opens Edit on the field</span></div>
+    <div class="modal" style="border:none;box-shadow:none;border-radius:0">
+      <div class="modal-h"><div>Before we add “Pressure wash”<small>Written as “Pressure wash 40-hour” — is this an hourly price or a fixed one?</small></div><span class="x">×</span></div>
+      <div class="modal-b">
+        <div class="lbl">Price</div>
+        <div class="seg"><span class="on">Fixed</span><span>Starting from</span><span>Hourly</span></div>
+        <div class="fs focus"><span class="fs-lbl">Price</span><span class="fs-val">40.00</span></div>
+        <div class="note">Everything else is already filled in — change it later from Manage Services if you like.</div>
+      </div>
+      <div class="modal-f"><span class="btn small">Cancel</span><span class="btn primary small">Save and approve</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 7 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">7 · The mobile app — mirrors web, same session, same words (incl. the 600 case)</div>
+<div class="section-sub">Same box in the Knowledge screen’s scroll. Filters are a horizontal chip row; the list grows as you scroll (same continuation token as web); a sticky bottom bar carries “Approve these 25”; the all-documents re-run is the small link above the box; confirmations are bottom sheets.</div>
+<div class="board">
+  <div class="frame"><div class="frame-label"><span>MOBILE · 600 suggestions — the queue</span></div>
+    <div class="phone"><div class="phone-bar"><span>9:41</span><span>●●●</span></div>
+      <div class="phone-head"><b>AI Knowledge</b><span>What your receptionist knows beyond your services</span></div>
+      <div class="phone-body">
+        <div class="note" style="text-align:right"><span class="btn link small">Re-run AI Data Analytics for all documents</span></div>
+        <div class="msec">
+          <div class="msec-h"><div><b>Clinket AI Data Analytics found 600 services</b><span>Review 25 at a time — or approve everything remaining.</span></div><span class="pill navy">600</span></div>
+          <div class="mchips"><span class="chip on">All 600</span><span class="chip warn">Please check 12</span><span class="chip">New 572</span><span class="chip">Changes 28</span><span class="chip">Document ▾</span></div>
+          <div class="mfield"><small>For everything you approve here</small><span>At my location · Hamilton, ON (your default) ›</span></div>
+          <div class="msrc">Showing 1–25 of 600 · please-check first, then the most confident</div>
+          <div class="mcard rv"><div class="mrow"><div style="flex:1;min-width:0"><div class="mtitle">Cat 320 GC hydraulic excavator — 2019… <span class="pill warn">Price needs an upper amount</span></div><div class="mline">Starting from $189,000 · Heavy Equipment › Excavators</div><div class="msrc">“Rental rates 2026” · Excavators · p.3 · written as “from $189,000”</div></div></div>
+            <div class="mbtns"><span class="mbtn primary full">Approve</span></div><div class="mbtns" style="margin-top:8px"><span class="mbtn">Edit</span><span class="mbtn">Dismiss</span></div></div>
+          <div class="mcard"><div class="mrow"><div class="mthumb"></div><div style="flex:1;min-width:0"><div class="mtitle">Bobcat S650 skid steer</div><div class="mline">Fixed · $42,500 · Heavy Equipment › Skid steers</div><div class="msrc">“Rental rates 2026” · Skid steers · p.4</div></div></div>
+            <div class="mbtns"><span class="mbtn primary full">Approve</span></div><div class="mbtns" style="margin-top:8px"><span class="mbtn">Edit</span><span class="mbtn">Dismiss</span></div></div>
+          <div class="note" style="text-align:center">… keeps loading as you scroll …</div>
+        </div>
+      </div>
+      <div class="sticky"><span class="mbtn primary">Approve these 25</span><span class="mbtn" style="flex:0 0 auto;padding:9px 12px">All remaining (572)</span></div>
+    </div>
+  </div>
+
+  <div class="frame"><div class="frame-label"><span>MOBILE · bulk approve confirm · progress · resume</span></div>
+    <div class="phone"><div class="phone-bar"><span>9:41</span><span>●●●</span></div>
+      <div class="phone-body">
+        <div class="sheet" style="margin:0;border-radius:16px;border:1px solid var(--border)"><div class="sheet-handle"></div><h4>Add all 572 remaining suggestions to your services?</h4><p>They go live as soon as they are added, using your settings (At my location · Hamilton, ON). “Please check” items and changes to existing services are left out for you to review.</p><ul><li>Takes a few minutes; you can cancel any time — what’s added stays.</li><li>Anything that couldn’t be added stays in the list with the reason.</li></ul><div class="mbtns" style="margin-top:12px"><span class="mbtn">Cancel</span><span class="mbtn primary">Add 572 services</span></div></div>
+        <div class="banner info"><span class="grow">Adding 125 of 572… keep the app open.<div class="pbar"><i></i></div></span><span class="btn xs">Cancel</span></div>
+        <div class="banner info"><span class="grow">You stopped at 125 of 572.</span><span class="btn xs primary">Continue (447)</span></div>
+        <div class="banner ok"><span class="grow">Done — 560 added. 12 couldn’t be added and stay in the list.</span><span class="btn xs">Show 12</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame"><div class="frame-label"><span>MOBILE · Edit sheet (no currency) · re-run confirm · actions sheet</span></div>
+    <div class="phone"><div class="phone-bar"><span>9:41</span><span>●●●</span></div>
+      <div class="phone-body">
+        <div class="sheet" style="margin:0;border-radius:16px;border:1px solid var(--border)"><div class="sheet-handle"></div><h4>Edit suggested service</h4>
+          <div class="mstack">
+            <div class="mfield"><small>Service name</small><span>Keratin smoothing treatment</span></div>
+            <div class="seg"><span>Fixed</span><span class="on">Starting from</span><span>Hourly</span></div>
+            <div style="display:flex;gap:8px"><div class="mfield" style="flex:1"><small>Starting price</small><span>120.00</span></div><div class="mfield" style="flex:1"><small>Up to</small><span>180.00</span></div></div>
+            <div class="mfield"><small>Category</small><span>Salon &amp; Beauty ›</span></div>
+            <div class="mfield"><small>Subcategory</small><span>Keratin treatments (new — added when you approve) ›</span></div>
+            <div class="seg"><span class="on">At my location</span><span>Customer’s location</span></div>
+            <div class="mfield"><small>Service area</small><span>Burlington, ON (new — added when you approve) ›</span></div>
+          </div>
+          <div class="mbtns" style="margin-top:12px"><span class="mbtn primary full">Save</span></div>
+        </div>
+        <div class="sheet" style="margin:0;border-radius:16px;border:1px solid var(--border)"><div class="sheet-handle"></div><h4>Run AI Data Analytics again for “Rental rates 2026”?</h4><p>We’ll read this document again and rebuild its suggested services. Approved services stay; dismissed ones may come back; your receptionist keeps using it.</p><div class="mbtns" style="margin-top:10px"><span class="mbtn">Cancel</span><span class="mbtn primary">Run again</span></div></div>
+        <div class="mmenu"><div>Details</div><div>Replace</div><div style="background:var(--green-pick)">Re-run AI Data Analytics</div><div class="d">Delete</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 8 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">8 · The notification — one per document, quiet while you are on the page</div>
+<div class="board">
+  <div class="frame w400"><div class="frame-label"><span>Elsewhere — toast + push</span></div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:12px">
+      <div class="toast"><b>New services found in “Complete Hair &amp; Beauty Price List”</b>Clinket AI Data Analytics found 3 services — review them on the AI Knowledge page.</div>
+      <div class="push"><div class="app">C</div><div><b>New services found in “Rental rates 2026”</b><p>Clinket AI Data Analytics found 600 services — tap to review.</p></div></div>
+    </div>
+  </div>
+  <div class="frame w400"><div class="frame-label"><span>On the Knowledge page — no popup, the box just appears</span></div>
+    <div class="pad"><div class="ann good"><b>Same mechanism as today’s knowledge notice</b>On the page the event is claimed silently and the list refreshes; the bell entry and the push still reach people who are elsewhere. Sent only when a document found at least one service. Not sent by email, SMS or WhatsApp.</div></div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── 9 ─────────────────────────────────────────────────────────────── -->
+<div class="section-title">9 · Rules the UI commits to + your open choices</div>
+<div class="board">
+  <div class="frame w760"><div class="pad">
+    <table class="rules">
+      <tr><th>Rule</th><th>Web</th><th>Mobile</th></tr>
+      <tr><td>Box only on the AI Knowledge page/screen, between documents and “Your FAQs”; never in Manage Services or the dashboard widget</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Queue, not pages: first 25 by please-check → confidence; “Show 25 more” / scroll loads the next via continuation token; after any approve/dismiss the list reloads from the top</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>“Approve these N” = exactly what is on screen (one request); “Approve all remaining (M)” = confirm → 25 per request with progress, Cancel, “Continue adding (left)”; failed items are never auto-retried and stay listed with a plain reason</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Bulk actions never touch “please check” items or changes to existing services — those are one by one</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Approval-settings row (Where · Service area) applies to page/bulk approves and as defaults for every card; Edit overrides per card</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Filters: All · Please check · New services · Changes to existing · Document ▾ · name search; counts on every chip</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>No currency shown or editable anywhere — business currency automatically; a differing symbol only raises the amber chip</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>“Re-run AI Data Analytics for all documents” = plain link at the TOP-right, outside the box; per-document re-run in the row ⋯ menu; both confirm first with the same clear body</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Long names truncate with “…” on the card and show in full in Edit (service names are capped at 150 characters like the service form)</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Plain words only (no “subcategory” on cards — path “Category: A › B”; the editor’s second picker uses the service form’s own label); buttons a person may not use are absent, never greyed</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+      <tr><td>Every string is a localization key in all 5 web + 5 mobile catalogues; no emoji, no AI-styled icons</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+    </table>
+    <div class="ann"><b>Your choices</b>(1) Second-level label in the editor: <b>“Subcategory”</b> (my recommendation — it is the exact label of the Add Service form and the Business Category page’s “Add Sub Category”, so what they approve here matches what they see in Manage Services) — or “Specific category”? (2) Header wording verbatim — keep? (3) Green card after approve links “Open in Manage Services” — keep, or just fade? (4) Page size 25 and bulk batch 25 — fine?</div>
+  </div></div>
+</div>
+
+</div>
+</body>
+</html>

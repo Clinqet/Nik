@@ -1,0 +1,202 @@
+{
+  "contentHash": "A013CA4FD14439840CDE7D22C2514B6BC1ABBD5521EAC176D665F49F6D65E822",
+  "pipelineFingerprint": "0df296f0abc943bbaa9104939e5ff898:cc17f930302a4e338e679ed5315f38ce:61de85da7028470ea7c640170c54539c:cap=1",
+  "docName": "pdf_footer_disclaimer_repeated.pdf",
+  "pageCount": 3,
+  "docTitle": "Northside Auto Repair Service Menu 2026",
+  "docSummary": "Service menu listing prices for automotive services including oil changes, brake pads, tire rotation, wheel alignment, battery replacement, AC recharge, diagnostic scans, filters, timing belts and transmission service across multiple bays. Prices exclude 13% HST, are valid until 31 Dec 2026, and include a 12-month / 20,000 km warranty on parts and labour.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northside Auto Repair — service menu 2026",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Service",
+            "Price"
+          ],
+          [
+            "Oil change (synthetic)",
+            "$89"
+          ],
+          [
+            "Brake pads (front)",
+            "$220"
+          ],
+          [
+            "Brake pads (rear)",
+            "$200"
+          ],
+          [
+            "Tire rotation",
+            "$40"
+          ],
+          [
+            "Wheel alignment",
+            "$120"
+          ],
+          [
+            "Battery replacement",
+            "$180"
+          ],
+          [
+            "AC recharge",
+            "$150"
+          ],
+          [
+            "Diagnostic scan",
+            "$95"
+          ],
+          [
+            "Coolant flush",
+            "$130"
+          ],
+          [
+            "Transmission service",
+            "$260"
+          ],
+          [
+            "Spark plugs (4-cyl)",
+            "$160"
+          ],
+          [
+            "Timing belt",
+            "$850"
+          ],
+          [
+            "Wiper blades",
+            "$35"
+          ],
+          [
+            "Cabin filter",
+            "$45"
+          ],
+          [
+            "Engine air filter",
+            "$40"
+          ],
+          [
+            "Oil change (synthetic) — bay 2",
+            "$94"
+          ],
+          [
+            "Brake pads (front) — bay 2",
+            "$225"
+          ],
+          [
+            "Brake pads (rear) — bay 2",
+            "$205"
+          ],
+          [
+            "Tire rotation — bay 2",
+            "$45"
+          ],
+          [
+            "Wheel alignment — bay 2",
+            "$125"
+          ],
+          [
+            "Battery replacement — bay 2",
+            "$185"
+          ],
+          [
+            "AC recharge — bay 2",
+            "$155"
+          ],
+          [
+            "Diagnostic scan — bay 2",
+            "$100"
+          ],
+          [
+            "Coolant flush — bay 2",
+            "$135"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "\\* All prices exclude HST (13%). Prices valid until 31 Dec 2026. Warranty: 12 months / 20,000 km on parts and labour.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Page 1 of 3\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northside Auto Repair — service menu 2026",
+      "listItems": [],
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "|---|---:|\n| Transmission service — bay 2 | $265 |\n| Spark plugs (4-cyl) — bay 2 | $165 |\n| Timing belt — bay 2 | $855 |\n| Wiper blades — bay 2 | $40 |\n| Cabin filter — bay 2 | $50 |\n| Engine air filter — bay 2 | $45 |\n| Oil change (synthetic) — bay 3 | $99 |\n| Brake pads (front) — bay 3 | $230 |\n| Brake pads (rear) — bay 3 | $210 |\n| Tire rotation — bay 3 | $50 |\n| Wheel alignment — bay 3 | $130 |\n| Battery replacement — bay 3 | $190 |\n| AC recharge — bay 3 | $160 |\n| Diagnostic scan — bay 3 | $105 |\n| Coolant flush — bay 3 | $140 |\n| Transmission service — bay 3 | $270 |\n| Spark plugs (4-cyl) — bay 3 | $170 |\n| Timing belt — bay 3 | $860 |\n| Wiper blades — bay 3 | $45 |\n| Cabin filter — bay 3 | $55 |\n| Engine air filter — bay 3 | $50 |\n| Oil change (synthetic) — bay 4 | $104 |\n| Brake pads (front) — bay 4 | $235 |\n| Brake pads (rear) — bay 4 | $215 |\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Page 2 of 3\n",
+      "listItems": [],
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Northside Auto Repair — service menu 2026",
+      "listItems": [],
+      "pageNumber": 3,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "|---|---:|\n| Tire rotation — bay 4 | $55 |\n| Wheel alignment — bay 4 | $135 |\n| Battery replacement — bay 4 | $195 |\n| AC recharge — bay 4 | $165 |\n| Diagnostic scan — bay 4 | $110 |\n| Coolant flush — bay 4 | $145 |\n| Transmission service — bay 4 | $275 |\n| Spark plugs (4-cyl) — bay 4 | $175 |\n| Timing belt — bay 4 | $865 |\n| Wiper blades — bay 4 | $50 |\n| Cabin filter — bay 4 | $60 |\n| Engine air filter — bay 4 | $55 |\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Page 3 of 3\n",
+      "listItems": [],
+      "pageNumber": 3,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

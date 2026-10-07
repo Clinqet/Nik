@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "lFP+ktICDwU=",
+  "success": true,
+  "projectFilePath": "c:\\Nik\\TempRepo\\Data\\post-ranking-followups\\tools\\crop\\crop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\bblanchon.pdfium.win32\\156.0.8076\\bblanchon.pdfium.win32.156.0.8076.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\sixlabors.imagesharp\\3.1.12\\sixlabors.imagesharp.3.1.12.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\uglytoad.pdfpig\\1.7.0-custom-5\\uglytoad.pdfpig.1.7.0-custom-5.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\uglytoad.pdfpig.core\\1.7.0-custom-5\\uglytoad.pdfpig.core.1.7.0-custom-5.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\uglytoad.pdfpig.fonts\\1.7.0-custom-5\\uglytoad.pdfpig.fonts.1.7.0-custom-5.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\uglytoad.pdfpig.tokenization\\1.7.0-custom-5\\uglytoad.pdfpig.tokenization.1.7.0-custom-5.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\uglytoad.pdfpig.tokens\\1.7.0-custom-5\\uglytoad.pdfpig.tokens.1.7.0-custom-5.nupkg.sha512"
+  ],
+  "logs": []
+}

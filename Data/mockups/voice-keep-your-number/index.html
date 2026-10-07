@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Keep your own number — AI Assistant connect flow</title>
+<style>
+@font-face{font-family:Lufga;src:url('fonts/LufgaRegular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:Lufga;src:url('fonts/LufgaSemiBold.woff') format('woff');font-weight:600;font-display:swap}
+:root{
+  /* the approved surface tokens (business-search-modern-surface, 2026-09-07) — nothing invented */
+  --ink:#032858; --ink-soft:#1B4C9B;
+  --text:#101010; --muted:#5F6672; --faint:#98A0AC;
+  --line:#E7E7E7; --hair:#F1F3F7; --page:#F5F5F5; --card:#FFFFFF; --tint:#FBFCFD;
+  --green:#97EF29; --green-press:#86d424; --green-soft:#F4FFE4; --green-ink:#3A6410; --green-mid:#DFFABD; --green-line:#bdebca; --green-wash:#F4FFF8;
+  --amber-bg:#FFF7E8; --amber-line:#F1D9A7; --amber-ink:#9A5B00;
+  --red-bg:#FCECEA; --red-line:#F2C4C0; --red-ink:#B3261E; --red:#FF3B30;
+  --blue-bg:#EAF3FF; --blue-line:#CEDDFB; --blue-ink:#1B4C9B;
+  --r-xl:20px; --r-lg:16px; --r:12px; --r-sm:9px;
+  --sh:0 1px 2px rgba(3,40,88,.05),0 8px 24px -14px rgba(3,40,88,.16);
+  --sh-lift:0 2px 4px rgba(3,40,88,.06),0 18px 40px -20px rgba(3,40,88,.26);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Lufga,Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased;padding:0 20px 90px}
+h1,h2,h3,h4,p{margin:0}
+a{color:inherit}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.15em}
+.wrap{max-width:1180px;margin:0 auto}
+
+/* ─── sheet chrome ─── */
+header.masthead{padding:44px 0 24px;border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between}
+.masthead h1{font-size:clamp(26px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;font-weight:600}
+.masthead p{margin-top:8px;color:var(--muted);max-width:66ch}
+.stamp{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:right;line-height:1.8;white-space:nowrap}
+.stamp b{color:var(--amber-ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(245,245,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -20px;padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+nav.jump a{text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px;border:1px solid transparent}
+nav.jump a:hover{border-color:var(--line);background:var(--card);color:var(--ink)}
+h2.rule{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:52px 0 6px;padding-bottom:8px;border-bottom:1px solid #d3d9e3;font-weight:600}
+h2.rule span{color:var(--green-ink)}
+.lede{color:var(--muted);margin:0 0 20px;max-width:88ch}
+.board{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);overflow:hidden;flex:1 1 460px;min-width:0}
+.frame.w360{flex:0 0 360px;max-width:100%}
+.frame.w420{flex:0 1 420px;max-width:100%}
+.frame.w520{flex:1 1 520px}
+.frame.full{flex:1 1 100%}
+.frame-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 14px;background:var(--hair);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.frame-label em{font-style:normal;color:var(--green-ink);font-weight:600}
+.pad{padding:16px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:var(--r);padding:12px 14px;font-size:13px;color:var(--muted);margin:0 0 18px}
+.callout b{color:var(--text)}
+.callout.warn{border-left-color:var(--amber-ink);background:var(--amber-bg)}
+.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.notes li{margin:6px 0}
+.notes b{color:var(--text)}
+.out{margin-top:16px;padding:12px 14px;border:1px dashed #c9d2c6;border-radius:var(--r);font-size:12.5px;color:var(--muted);background:var(--tint)}
+.out b{display:block;color:var(--text);margin-bottom:4px}
+table.copy{width:100%;border-collapse:collapse;font-size:12.5px}
+table.copy th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:8px;border-bottom:1px solid var(--line)}
+table.copy td{padding:8px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.copy code{font-family:var(--mono);font-size:11.5px;background:var(--hair);padding:1px 6px;border-radius:5px;color:var(--ink)}
+table.copy .say{color:var(--text)}
+.tbl-scroll{overflow-x:auto}
+
+/* ─── product primitives (mirrors the live partner app) ─── */
+.app{font-family:Lufga,Arial,sans-serif;color:var(--text)}
+.h-page{font-size:22px;font-weight:500;color:#111827}
+.h-sec{font-size:15px;font-weight:600;color:var(--text)}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card.green{border-color:var(--green-line);background:linear-gradient(180deg,var(--green-wash),#fff)}
+.card.blue{border-color:var(--blue-line);background:var(--blue-bg)}
+.card.amber{border-color:var(--amber-line);background:var(--amber-bg)}
+.card.red{border-color:var(--red-line);background:var(--red-bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:12px;padding:10px 15px;font-size:14px;font-weight:600;background:var(--card);color:var(--text);text-decoration:none;white-space:nowrap;line-height:1.2;cursor:default}
+.btn.primary{background:var(--green);border-color:var(--green);color:var(--text)}
+.btn.primary.press{background:var(--green-press);border-color:var(--green-press)}
+.btn.quiet{border-color:var(--line);color:var(--muted)}
+.btn.link{border:0;background:transparent;color:var(--ink-soft);padding:6px 4px;font-weight:600}
+.btn.danger{color:var(--red);border-color:rgba(255,59,48,.4)}
+.btn.sm{padding:7px 12px;font-size:13px;border-radius:10px}
+.btn.lg{padding:13px 20px;font-size:15px;border-radius:14px}
+.btn.block{display:flex;width:100%}
+.btn.disabled{opacity:.45}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600;border:1px solid var(--line);color:var(--muted);background:var(--hair);white-space:nowrap;line-height:1.5}
+.pill.ok{background:var(--green-soft);border-color:#CFE9A4;color:var(--green-ink)}
+.pill.warn{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.pill.stop{background:var(--red-bg);border-color:var(--red-line);color:var(--red-ink)}
+.pill.proc{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+.pill.navy{background:#EAF0F9;border-color:#C4D6EE;color:var(--ink)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green-ink);display:inline-block}
+.dot.blue{background:var(--blue-ink)}.dot.amber{background:var(--amber-ink)}.dot.red{background:var(--red-ink)}.dot.grey{background:var(--faint)}
+.banner{display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:11px 13px;font-size:13px;border:1px solid var(--line);background:var(--hair);color:var(--muted)}
+.banner.info{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue-ink)}
+.banner.warn{background:var(--amber-bg);border-color:var(--amber-line);color:var(--amber-ink)}
+.banner.stop{background:var(--red-bg);border-color:var(--red-line);color:var(--red-ink)}
+.banner.good{background:var(--green-soft);border-color:#CFE9A4;color:var(--green-ink)}
+.banner b{color:inherit}
+.banner .i{margin-top:2px}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--blue-line);border-top-color:var(--blue-ink);display:inline-block;animation:spin 1s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pulse{position:relative;width:64px;height:64px;border-radius:50%;background:var(--blue-bg);display:grid;place-items:center;color:var(--blue-ink)}
+.pulse::before,.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--blue-line);animation:ripple 1.8s ease-out infinite}
+.pulse::after{animation-delay:.9s}
+@keyframes ripple{from{transform:scale(1);opacity:.8}to{transform:scale(1.9);opacity:0}}
+.pulse.ok{background:var(--green-soft);color:var(--green-ink)}.pulse.ok::before,.pulse.ok::after{animation:none;border-color:transparent}
+@media (prefers-reduced-motion:reduce){.spin,.pulse::before,.pulse::after{animation:none}}
+.code{font-family:var(--mono);font-size:22px;letter-spacing:.06em;font-weight:600;color:var(--ink);background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;min-width:0;max-width:100%;overflow-x:auto}
+.code small{font-family:Lufga,Arial,sans-serif;font-size:12px;letter-spacing:0;font-weight:400;color:var(--muted);flex:1 1 100%}
+.code.lock{opacity:.5}
+.steps{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--faint)}
+.steps .s{display:inline-flex;align-items:center;gap:6px}
+.steps .n{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:600;color:var(--faint);background:var(--card)}
+.steps .s.done .n{background:var(--green);border-color:var(--green);color:var(--text)}
+.steps .s.now .n{border-color:var(--ink);color:var(--ink)}
+.steps .s.now{color:var(--ink);font-weight:600}
+.steps .bar{width:18px;height:1.5px;background:var(--line)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.input{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;background:var(--card);display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:Lufga,Arial,sans-serif}
+.input .k{color:var(--faint);font-size:13px}
+.checkrow{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.checkrow.done{border-color:var(--green-line);background:var(--green-wash)}
+.box{width:22px;height:22px;border-radius:7px;border:1.5px solid #c9d2c6;background:var(--card);display:grid;place-items:center;flex:none;margin-top:1px;color:var(--text)}
+.checkrow.done .box{background:var(--green);border-color:var(--green)}
+.path{font-family:var(--mono);font-size:11.5px;color:var(--ink);background:var(--hair);border-radius:8px;padding:6px 9px;display:inline-block;margin-top:6px}
+.seg{display:inline-flex;background:var(--hair);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg span{padding:6px 12px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg span.on{background:var(--ink);color:#fff}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row.between{justify-content:space-between}
+.stack{display:flex;flex-direction:column;gap:12px}
+.hr{height:1px;background:var(--line);margin:14px 0}
+.list4{display:grid;gap:10px}
+.list4 .li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.list4 .li .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--green-soft);color:var(--green-ink)}
+.list4 .li.mute .ico{background:var(--hair);color:var(--muted)}
+.list4 .li.vm .ico{background:#EAF0F9;color:var(--ink)}
+.list4 b{display:block;font-size:13.5px;color:var(--text)}
+.list4 .li small{color:var(--muted);font-size:12.5px}
+.exp{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:14px;font-weight:600}
+.exp .i{color:var(--muted)}
+.mute{color:var(--muted)}
+.tiny{font-size:12px;color:var(--faint)}
+.mono{font-family:var(--mono)}
+.progress{display:grid;gap:10px;margin:14px 0}
+.progress .p{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--faint)}
+.progress .p .n{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;background:var(--card)}
+.progress .p.now{color:var(--text);font-weight:600}.progress .p.now .n{border-color:var(--blue-ink);background:var(--blue-bg);color:var(--blue-ink)}
+.progress .p.done{color:var(--muted)}.progress .p.done .n{border-color:var(--green);background:var(--green);color:var(--text)}
+.center{text-align:center}
+.big{font-size:19px;font-weight:600;color:var(--text);line-height:1.3}
+.lead{font-size:15px;color:var(--text)}
+.timer{display:inline-flex;gap:8px}
+.timer span{padding:9px 16px;border:1px solid var(--line);border-radius:12px;font-weight:600;font-size:14px;background:var(--card)}
+.timer span.on{background:var(--green);border-color:var(--green)}
+.timer span.off{opacity:.45}
+
+/* ─── web app frame (dashboard chrome) ─── */
+.dash{display:grid;grid-template-columns:220px 1fr;min-height:520px;background:var(--page)}
+.dash .side{background:var(--ink);color:#c7d6ea;padding:16px 12px;font-size:13px}
+.dash .logo{color:#fff;font-weight:600;font-size:17px;padding:6px 10px 16px;letter-spacing:.2px}
+.dash .logo span{color:var(--green)}
+.dash .nav a{display:block;padding:8px 12px;border-radius:9px;color:#c7d6ea;text-decoration:none;margin-bottom:2px}
+.dash .nav a.on{background:var(--green);color:#12200A;font-weight:600}
+.dash .main{padding:22px 26px;min-width:0}
+.dash.narrow{grid-template-columns:1fr}
+.dash.narrow .side{display:none}
+.dash .topbar{display:none}
+.dash.narrow .topbar{display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;padding:12px 16px;font-weight:600}
+.dash.narrow .topbar span{color:var(--green)}
+.dash.narrow .main{padding:16px}
+.grid2{display:grid;grid-template-columns:1.25fr .9fr;gap:16px}
+.grid2.stack1{grid-template-columns:1fr}
+.wiz{max-width:560px;margin:0 auto}
+
+/* ─── phone frame (provider app) ─── */
+.phone{width:100%;max-width:328px;margin:0 auto;border:1px solid #c9d2c6;border-radius:30px;overflow:hidden;background:#FAFAFB;box-shadow:var(--sh-lift)}
+.phone .sb{height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:11px;font-weight:600;color:var(--text);background:#fff}
+.phone .hdr{display:flex;align-items:center;gap:10px;padding:8px 14px 12px;background:#fff;border-bottom:1px solid var(--line);font-weight:600;font-size:15px}
+.phone .hdr .i{color:var(--text)}
+.phone .body{padding:14px;display:flex;flex-direction:column;gap:12px;min-height:420px}
+.phone .card{border-radius:14px}
+.phone .code{font-size:19px}
+.sheet{margin:auto -14px -14px;background:#fff;border-radius:18px 18px 0 0;padding:10px 16px 18px;box-shadow:0 -10px 30px -18px rgba(3,40,88,.35);border-top:1px solid var(--line)}
+.sheet .grab{width:38px;height:4px;border-radius:999px;background:#d3d9e3;margin:0 auto 12px}
+.scrim{background:rgba(3,40,88,.35);border-radius:14px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;min-height:380px;margin:0 -14px -14px}
+.scrim .sheet{margin:0;border-radius:18px}
+.toast{position:relative;background:#101010;color:#fff;border-radius:12px;padding:10px 14px;font-size:13px;display:flex;gap:8px;align-items:center}
+.tabbar{display:flex;justify-content:space-around;padding:10px 6px 14px;border-top:1px solid var(--line);background:#fff;font-size:10px;color:var(--faint);margin:auto -14px -14px}
+.tabbar span{display:flex;flex-direction:column;align-items:center;gap:3px}
+.tabbar span.on{color:var(--ink);font-weight:600}
+.tabbar .i{width:18px;height:18px}
+.qr{width:96px;height:96px;border-radius:10px;border:1px solid var(--line);background:
+ repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 12px),repeating-linear-gradient(0deg,var(--ink) 0 6px,#fff 6px 12px);background-blend-mode:multiply;opacity:.85}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}.dash{grid-template-columns:1fr}.dash .side{display:none}.dash .topbar{display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;padding:12px 16px;font-weight:600}.dash .topbar span{color:var(--green)}.dash .main{padding:16px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="phone-off" viewBox="0 0 24 24"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><path d="M22 2 2 22"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="chev-d" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="chev-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="arr-r" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="arr-l" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="smart" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="warn" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="bell-off" viewBox="0 0 24 24"><path d="M8.7 3A6 6 0 0 1 18 8a21.3 21.3 0 0 0 .6 5"/><path d="M17 17H3s3-2 3-9a4.67 4.67 0 0 1 .3-1.7"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="vm" viewBox="0 0 24 24"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><line x1="6" x2="18" y1="16" y2="16"/></symbol>
+  <symbol id="wifi-off" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="bldg" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M4.93 19.07a10 10 0 0 1 0-14.14M7.76 16.24a6 6 0 0 1 0-8.49M16.24 7.76a6 6 0 0 1 0 8.49M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+  <symbol id="pencil" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="vol-x" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="user-x" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5M22 8l-5 5"/></symbol>
+  <symbol id="hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h16"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+  <symbol id="badge-x" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6M9 9l6 6"/></symbol>
+  <symbol id="qr" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></symbol>
+</svg>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+    <h1>Keep your own number — the connect flow</h1>
+    <p>Every screen a provider meets while connecting the number they already advertise to their assistant — on the web, on the web at phone and iPad widths, and in the provider app. Drawn to <code>Data\myequal-call-forwarding-review\PLAN.md</code> §9.2–§9.10. Web frames use the live dashboard chrome; phone frames are the provider app's own shape.</p>
+    <p style="border-left:3px solid var(--amber-line);padding-left:10px;margin-top:10px">
+      <b>Amended 2026-09-17 by <code>voice-own-number-honest-status</code> (PLAN D-42 to D-49), which overrides these
+      frames on:</b> voicemail picking up first. "Try again as is" is gone: the losing time is locked and a shorter one
+      is recommended, with a retry only where nothing shorter exists. Also: the connected sentence names the time they chose, not
+      the measured one; a check that ran out of time or was answered changes nothing; and while the disconnect check
+      runs it now says voicemail or rings out, with its own sentence for each of its six endings. Layout was already amended by <code>voice-assistant-page-density</code>.</p>
+  </div>
+  <div class="stamp">Drawn 2026-09-15<br><b>Approved 2026-09-15</b><br>web · web@iPad · web@phone · app<br>Lufga · lucide · house tokens</div>
+</header>
+
+<nav class="jump">
+  <a href="#a">A · Entry</a><a href="#b">B · Wizard</a><a href="#c">C · Connected</a><a href="#cx">C+ · Who answers</a><a href="#d">D · When it fails</a><a href="#e">E · Disconnect</a><a href="#f">F · Web on phone &amp; iPad</a><a href="#g">G · Provider app</a><a href="#h">H · Every sentence</a><a href="#i">I · Rules</a>
+</nav>
+
+<div class="callout" style="margin-top:22px"><b>One idea carries the whole sheet.</b> The provider already has a Clinket number. Connecting their own number is an <b>addition</b>, never a choice between two. So there is no fork, no "which number do you want" — one card, one wizard of four small steps, one status card. Everything technical (codes, carriers, timers) is shown as <em>a thing to tap</em>, never as a thing to understand.</div>
+
+<!-- ═══════════════════════════════════ A ═══════════════════════════════════ -->
+<h2 class="rule" id="a">A · The entry <span>— on the AI Assistant page they already use</span></h2>
+<p class="lede">The live page, unchanged, with one new card under the number they were given. It does not interrupt, it does not fork the flow, and it says the one sentence that matters: <em>customers keep calling your existing number.</em></p>
+
+<div class="board">
+<div class="frame full">
+  <div class="frame-label"><span>A1 · the AI Assistant page with the new card</span><em>web · 1180</em></div>
+  <div class="dash app">
+    <aside class="side"><div class="logo">Clin<span>ket</span></div>
+      <div class="nav"><a>Dashboard</a><a>Calendar</a><a>Bookings</a><a>Leads</a><a>Inbox</a><a>Customers</a><a>Call Follow-ups</a><a class="on">AI Assistant</a><a>AI Knowledge</a><a>Insights</a><a>Billing</a><a>Team</a></div></aside>
+    <div class="main">
+      <div class="row between" style="margin-bottom:16px"><h2 class="h-page">AI Assistant</h2><span class="pill ok"><span class="dot"></span>Active</span></div>
+      <div class="grid2">
+        <div class="stack">
+          <div class="card green">
+            <div class="tiny" style="text-transform:uppercase;letter-spacing:.05em;font-weight:600;color:var(--green-ink)">Your assistant number</div>
+            <div class="row between" style="margin-top:6px"><div class="big mono" style="letter-spacing:.03em">+1 (236) 555-0148</div><span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div>
+            <p class="sub" style="margin-top:8px">Advertise this number. Every call your assistant handles becomes a summarized follow-up.</p>
+          </div>
+
+          <!-- THE NEW CARD -->
+          <div class="card" style="border-color:#C4D6EE;background:linear-gradient(180deg,#F7FAFF,#fff)">
+            <div class="row" style="gap:14px;align-items:flex-start">
+              <div style="width:42px;height:42px;border-radius:12px;background:#EAF0F9;display:grid;place-items:center;color:var(--ink);flex:none"><svg class="i" style="width:22px;height:22px"><use href="#smart"/></svg></div>
+              <div style="flex:1;min-width:0">
+                <h3 class="h-sec">Also use the number you already advertise</h3>
+                <p class="sub" style="margin-top:4px">Customers keep calling your existing number. When you don't pick up, your assistant answers.</p>
+                <div class="row" style="margin-top:12px"><span class="btn primary">Connect my number<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link">What changes?<svg class="i"><use href="#chev-d"/></svg></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card"><div class="row between"><div><b style="font-size:14px">Pause assistant</b><p class="sub">Callers can't reach this number while paused.</p></div><span class="pill">Off</span></div></div>
+          <div class="card"><div class="row between"><div><b style="font-size:14px">Private mode</b><p class="sub">Calls still ring you, but nothing is recorded or seen by the AI.</p></div><span class="pill">Off</span></div></div>
+        </div>
+        <div class="stack">
+          <div class="card"><h3 class="h-sec">This month</h3><div class="row" style="margin-top:10px;gap:22px"><div><div class="big">38</div><div class="tiny">calls handled</div></div><div><div class="big">2h 04m</div><div class="tiny">of 10h used</div></div></div></div>
+          <div class="card"><h3 class="h-sec">Assistant settings</h3><p class="sub" style="margin-top:4px">Voice, languages, greeting, working hours.</p><span class="btn quiet sm" style="margin-top:10px">Edit settings</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>A2 · "What changes?" — opened</span><em>tap or click · never hover-only</em></div>
+  <div class="pad app">
+    <div class="card" style="border-color:#C4D6EE">
+      <div class="row between"><h3 class="h-sec">What changes when you connect your number</h3><svg class="i" style="color:var(--muted)"><use href="#x"/></svg></div>
+      <div class="list4" style="margin-top:12px">
+        <div class="li"><div class="ico"><svg class="i"><use href="#check"/></svg></div><div><b>Your Clinket number keeps working</b><small>Anyone who calls it reaches your assistant straight away.</small></div></div>
+        <div class="li"><div class="ico"><svg class="i"><use href="#phone"/></svg></div><div><b>Your own number rings you first</b><small>Your phone rings for about 10 seconds. If you don't pick up, your assistant answers.</small></div></div>
+        <div class="li mute"><div class="ico"><svg class="i"><use href="#lock"/></svg></div><div><b>Calls you answer yourself stay private</b><small>Not recorded, not summarised. Just a normal call.</small></div></div>
+        <div class="li mute"><div class="ico"><svg class="i"><use href="#smart"/></svg></div><div><b>You join live calls from the app</b><small>We stop ringing your phone to bring you in — that would loop back to your assistant.</small></div></div>
+      </div>
+      <div class="banner info" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>You'll need <b>your phone with you</b> — the last two steps happen on it. About two minutes.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>A3 · web → phone hand-off</span><em>shown when they start on a computer</em></div>
+  <div class="pad app center">
+    <h3 class="h-sec">Finish this on your phone</h3>
+    <p class="sub" style="margin:6px auto 14px;max-width:34ch">Two of the steps are done on the phone you're connecting. Scan this to open the Clinket app right where you left off.</p>
+    <div class="qr" style="margin:0 auto"></div>
+    <p class="tiny" style="margin-top:12px">Or keep going here — we'll show you what to type.</p>
+    <span class="btn quiet sm" style="margin-top:8px">Continue on this computer</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ B ═══════════════════════════════════ -->
+<h2 class="rule" id="b">B · The wizard <span>— four steps, one job each</span></h2>
+<p class="lede">Your number → two quick checks → connect it → let's check it works. The progress strip at the top is the only navigation. There is deliberately <b>no ring-timer step</b> — 10 seconds is set for them; adjusting lives on the status card afterwards.</p>
+
+<div class="board">
+<div class="frame w520">
+  <div class="frame-label"><span>B1 · step 1 — your number, detected</span><em>web · lookup done</em></div>
+  <div class="pad app wiz">
+    <div class="steps"><span class="s now"><span class="n">1</span>Your number</span><span class="bar"></span><span class="s"><span class="n">2</span>Two checks</span><span class="bar"></span><span class="s"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+    <h3 class="h-sec" style="margin-top:18px;font-size:19px">Which number do customers call you on?</h3>
+    <p class="sub" style="margin-top:4px">We've filled in the one from your profile. Change it if customers call a different phone.</p>
+    <div class="field" style="margin-top:16px"><label>Your business number</label><div class="input"><span class="mono" style="font-size:16px">+1 (604) 555-0199</span><svg class="i" style="color:var(--muted)"><use href="#pencil"/></svg></div></div>
+    <div class="banner good" style="margin-top:12px"><svg class="i"><use href="#check"/></svg><div><b>Rogers · mobile</b> — this works with connecting. <span style="text-decoration:underline">Not right?</span></div></div>
+    <div class="row between" style="margin-top:18px"><span class="btn link"><svg class="i"><use href="#arr-l"/></svg>Back</span><span class="btn primary">Continue<svg class="i"><use href="#arr-r"/></svg></span></div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B2 · step 2 — two quick checks</span><em>web · iPhone paths shown</em></div>
+  <div class="pad app wiz">
+    <div class="steps"><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Your number</span><span class="bar"></span><span class="s now"><span class="n">2</span>Two checks</span><span class="bar"></span><span class="s"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+    <div class="row between" style="margin-top:18px"><h3 class="h-sec" style="font-size:19px">Two quick checks on your phone</h3><span class="seg"><span class="on">iPhone</span><span>Android</span></span></div>
+    <p class="sub" style="margin-top:4px">These two settings can send callers to voicemail before your assistant gets a chance. Tick each one when it's done.</p>
+    <div class="stack" style="margin-top:14px">
+      <div class="checkrow done"><div class="box"><svg class="i" style="width:14px"><use href="#check"/></svg></div><div style="flex:1"><b style="font-size:14px"><svg class="i" style="color:var(--amber-ink)"><use href="#bell-off"/></svg> Turn off "Silence Unknown Callers"</b><p class="sub" style="margin-top:3px">New customers call from numbers you haven't saved. With this on, they go to your voicemail and your assistant never hears them.</p><span class="path">Settings → Apps → Phone → Silence Unknown Callers → Off</span></div></div>
+      <div class="checkrow"><div class="box"></div><div style="flex:1"><b style="font-size:14px"><svg class="i" style="color:var(--amber-ink)"><use href="#moon"/></svg> Check Do Not Disturb isn't on during work hours</b><p class="sub" style="margin-top:3px">If your phone is on Do Not Disturb, calls may go to voicemail instead of your assistant.</p><span class="path">Settings → Focus → Do Not Disturb</span></div></div>
+    </div>
+    <div class="row between" style="margin-top:18px"><span class="btn link"><svg class="i"><use href="#arr-l"/></svg>Back</span><span class="btn primary disabled">Both done — continue<svg class="i"><use href="#arr-r"/></svg></span></div>
+    <p class="tiny center" style="margin-top:8px">The button opens once both are ticked.</p>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B3 · step 2 — Android paths</span><em>web · switcher flipped</em></div>
+  <div class="pad app wiz">
+    <div class="row between"><h3 class="h-sec" style="font-size:19px">Two quick checks on your phone</h3><span class="seg"><span>iPhone</span><span class="on">Android</span></span></div>
+    <div class="stack" style="margin-top:14px">
+      <div class="checkrow"><div class="box"></div><div style="flex:1"><b style="font-size:14px"><svg class="i" style="color:var(--amber-ink)"><use href="#bell-off"/></svg> Turn off spam blocking that sends calls to voicemail</b><p class="sub" style="margin-top:3px">New customers call from numbers you haven't saved.</p><span class="path">Phone app → ⋮ → Settings → Caller ID &amp; spam → Filter spam calls → Off</span></div></div>
+      <div class="checkrow"><div class="box"></div><div style="flex:1"><b style="font-size:14px"><svg class="i" style="color:var(--amber-ink)"><use href="#moon"/></svg> Check Do Not Disturb isn't on during work hours</b><span class="path" style="margin-top:6px">Settings → Notifications → Do Not Disturb</span></div></div>
+    </div>
+    <div class="banner" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>Paths differ a little between Samsung, Pixel and others — the words to look for are the same.</div></div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B4 · step 3 — connect it (iPhone)</span><em>web · copy, then paste into the keypad</em></div>
+  <div class="pad app wiz">
+    <div class="steps"><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Your number</span><span class="bar"></span><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Two checks</span><span class="bar"></span><span class="s now"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+    <h3 class="h-sec" style="margin-top:18px;font-size:19px">Now connect it — two short codes</h3>
+    <p class="sub" style="margin-top:4px">Copy each code, paste it into your phone's keypad, and press the green call button. Do them in order.</p>
+    <div class="stack" style="margin-top:14px">
+      <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">CODE 1 OF 2 · sends missed calls to your assistant</div><div class="code">*004*2365550148#<span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+      <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">CODE 2 OF 2 · sets how long your phone rings first</div><div class="code">**61*2365550148**10#<span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+    </div>
+    <div class="banner warn" style="margin-top:12px"><svg class="i"><use href="#warn"/></svg><div><b>Your phone will show several confirmation messages.</b> That's normal — dismiss them and carry on.</div></div>
+    <div class="row between" style="margin-top:18px"><span class="btn link"><svg class="i"><use href="#arr-l"/></svg>Back</span><span class="btn primary">I've done both<svg class="i"><use href="#arr-r"/></svg></span></div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B5 · step 3 — connect it (Android)</span><em>web-on-phone or app · tap to dial · second waits</em></div>
+  <div class="pad app wiz">
+    <h3 class="h-sec" style="font-size:19px">Now connect it — two taps</h3>
+    <p class="sub" style="margin-top:4px">Each button opens your phone's dialler with the code ready. Press call, dismiss the messages, come back.</p>
+    <div class="stack" style="margin-top:14px">
+      <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">1 OF 2 · sends missed calls to your assistant</div><span class="btn primary lg block"><svg class="i"><use href="#phone"/></svg>Dial code 1</span></div>
+      <div><div class="tiny" style="font-weight:600;color:var(--faint);margin-bottom:6px">2 OF 2 · sets how long your phone rings first</div><span class="btn lg block disabled"><svg class="i"><use href="#lock"/></svg>Dial code 2 — after code 1</span></div>
+    </div>
+    <p class="tiny" style="margin-top:10px">Prefer to type them? <span style="text-decoration:underline">Show the codes</span></p>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B6 · step 3 — after code 1</span><em>the second unlocks</em></div>
+  <div class="pad app wiz">
+    <div class="stack">
+      <div><div class="tiny" style="font-weight:600;color:var(--green-ink);margin-bottom:6px">1 OF 2 · DONE</div><span class="btn lg block" style="border-color:var(--green-line);background:var(--green-wash);color:var(--green-ink)"><svg class="i"><use href="#check"/></svg>Code 1 dialled</span></div>
+      <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">2 OF 2 · sets how long your phone rings first</div><span class="btn primary lg block"><svg class="i"><use href="#phone"/></svg>Dial code 2</span></div>
+    </div>
+    <div class="banner warn" style="margin-top:12px"><svg class="i"><use href="#warn"/></svg><div><b>Do code 2 last, always.</b> If you ever redo code 1 later, do code 2 again straight after.</div></div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>B6v · step 3 — Verizon / US Cellular</span><em>one code · no ring-time · the two losses stated (ruling 32)</em></div>
+  <div class="pad app wiz">
+    <div class="steps"><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Your number</span><span class="bar"></span><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Two checks</span><span class="bar"></span><span class="s now"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span>Check it works</span></div>
+    <h3 class="h-sec" style="margin-top:18px;font-size:19px">Now connect it — one short code</h3>
+    <p class="sub" style="margin-top:4px">Verizon uses a single code. Copy it, paste it into your phone's keypad, and press call.</p>
+    <div style="margin-top:14px"><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">THE CODE · sends missed calls to your assistant</div><div class="code">*712365550148<span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+    <div class="banner warn" style="margin-top:12px"><svg class="i"><use href="#warn"/></svg><div><b>Two things Verizon can't do.</b> We can't shorten how long your phone rings, so your voicemail may pick up first — the check in the next step will tell you. And calls when your phone is off won't reach your assistant.</div></div>
+    <div class="row between" style="margin-top:18px"><span class="btn link"><svg class="i"><use href="#arr-l"/></svg>Back</span><span class="btn primary">I've dialled it<svg class="i"><use href="#arr-r"/></svg></span></div>
+    <p class="tiny" style="margin-top:10px">To turn it off later you'll dial <span class="mono" style="font-weight:600;color:var(--ink)">*73</span>. Adjusting the ring time isn't available on Verizon.</p>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>B7 · step 4 — calling</span><em>web · live</em></div>
+  <div class="pad app wiz center">
+    <div class="steps" style="justify-content:center"><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span></span><span class="bar"></span><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span></span><span class="bar"></span><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span></span><span class="bar"></span><span class="s now"><span class="n">4</span>Check it works</span></div>
+    <div class="pulse" style="margin:22px auto 14px"><svg class="i" style="width:26px;height:26px"><use href="#phone"/></svg></div>
+    <div class="big">Calling your phone…</div>
+    <div class="banner warn" style="margin-top:14px;text-align:left"><svg class="i"><use href="#hand"/></svg><div><b>Please don't answer.</b> Let it ring, or press your side button once to silence it.</div></div>
+    <div class="progress" style="text-align:left;max-width:300px;margin:14px auto"><div class="p now"><span class="n"><span class="spin"></span></span>Calling</div><div class="p"><span class="n"></span>Your phone should be ringing</div><div class="p"><span class="n"></span>Waiting for your assistant</div></div>
+    <span class="btn link">Skip, I'll check later</span>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>B8 · step 4 — ringing</span><em>~10 seconds</em></div>
+  <div class="pad app wiz center">
+    <div class="pulse" style="margin:22px auto 14px"><svg class="i" style="width:26px;height:26px"><use href="#radio"/></svg></div>
+    <div class="big">Your phone should be ringing</div>
+    <p class="sub" style="margin-top:6px">Leave it. Your assistant picks up when it stops.</p>
+    <div class="progress" style="text-align:left;max-width:300px;margin:14px auto"><div class="p done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span>Calling</div><div class="p now"><span class="n"><span class="spin"></span></span>Your phone should be ringing</div><div class="p"><span class="n"></span>Waiting for your assistant</div></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>B9 · step 4 — received</span><em>the moment that earns the green</em></div>
+  <div class="pad app wiz center">
+    <div class="pulse ok" style="margin:22px auto 14px"><svg class="i" style="width:28px;height:28px"><use href="#check"/></svg></div>
+    <div class="big">Your number is connected</div>
+    <p class="lead" style="margin-top:8px">Your phone rings for <b>about 10 seconds</b>, then your assistant answers.</p>
+    <p class="tiny" style="margin-top:6px">We tested calls you don't answer. Calls when your phone is off work the same way.</p>
+    <div class="row" style="justify-content:center;margin-top:18px"><span class="btn primary">Done</span><span class="btn quiet">How it works</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ C ═══════════════════════════════════ -->
+<h2 class="rule" id="c">C · Connected <span>— the status card that lives on the page</span></h2>
+<p class="lede">Never a live "Active" badge — we can't watch the carrier, so the card says when we last <em>checked</em>. Everything dense sits behind three expanders; the card itself is four lines.</p>
+
+<div class="board">
+<div class="frame w520">
+  <div class="frame-label"><span>C1 · the status card</span><em>web · replaces A1's blue card</em></div>
+  <div class="pad app">
+    <div class="card green">
+      <div class="row between"><div class="row" style="gap:8px"><span class="pill ok"><svg class="i" style="width:12px"><use href="#check"/></svg>Connected</span><b style="font-size:14px">+1 (604) 555-0199</b></div><span class="tiny">Last checked 15 Sep</span></div>
+      <p class="sub" style="margin-top:10px">Your phone rings for <b style="color:var(--text)">about 10 seconds</b>, then your assistant answers.</p>
+      <div class="row" style="margin-top:12px"><span class="btn quiet sm"><svg class="i"><use href="#refresh"/></svg>Check again</span><span class="btn quiet sm"><svg class="i"><use href="#clock"/></svg>Adjust ring time</span><span class="btn quiet sm"><svg class="i"><use href="#phone"/></svg>Call your assistant to hear it</span></div>
+      <div class="hr"></div>
+      <div class="stack" style="gap:8px">
+        <div class="exp">How it works<svg class="i"><use href="#chev-d"/></svg></div>
+        <div class="exp">What's not supported<svg class="i"><use href="#chev-d"/></svg></div>
+        <div class="exp" style="color:var(--muted)">Disconnect my number<svg class="i"><use href="#chev-r"/></svg></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>C2 · "How it works" — opened</span><em>four lines · the third is a feature</em></div>
+  <div class="pad app">
+    <div class="list4">
+      <div class="li"><div class="ico"><svg class="i"><use href="#vol-x"/></svg></div><div><b>Don't pick up, or silence the ring</b><small>Your assistant answers and tells you what they wanted.</small></div></div>
+      <div class="li"><div class="ico"><svg class="i"><use href="#phone-off"/></svg></div><div><b>Phone off or no signal</b><small>Your assistant answers straight away.</small></div></div>
+      <div class="li vm"><div class="ico"><svg class="i"><use href="#vm"/></svg></div><div><b>Decline the call (red button)</b><small>It goes to <b style="display:inline">your voicemail</b> — your assistant stays out of it. Use this for calls you don't want it handling.</small></div></div>
+      <div class="li mute"><div class="ico"><svg class="i"><use href="#lock"/></svg></div><div><b>Answer it yourself</b><small>A normal private call. Not recorded, not summarised.</small></div></div>
+    </div>
+    <div class="banner" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>Tip: to silence a ring without declining, press the side button <b>once</b> — never twice.</div></div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>C3 · "What's not supported" — opened</span><em>said plainly, never buried</em></div>
+  <div class="pad app">
+    <div class="card" style="border-color:var(--line)">
+      <ul class="notes" style="font-size:13.5px;color:var(--text)">
+        <li>Calls you answer yourself aren't recorded or summarised — they stay private.</li>
+        <li>Your assistant can't answer <em>before</em> your phone rings. If you'd like that on a business-only line, <span style="text-decoration:underline">ask us</span>.</li>
+        <li>You join live calls from the app, not by us ringing your phone.</li>
+        <li>Declined calls go to your voicemail, not your assistant.</li>
+        <li>Your mobile carrier may charge for forwarded calls. Check your plan.</li>
+        <li><b>If you ever cancel, turn this off on your phone too</b> — we can't do it for you. We'll show you how.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C4 · adjust ring time</span><em>10 or 15 · never 5 · never 12</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">How long should your phone ring first?</h3>
+    <p class="sub" style="margin-top:4px">Longer gives you more time to pick up. Shorter gets your caller to your assistant faster.</p>
+    <div class="timer" style="margin-top:14px"><span class="on">10 seconds<br><small class="tiny" style="font-weight:400">about two rings</small></span><span>15 seconds<br><small class="tiny" style="font-weight:400">about three rings</small></span></div>
+    <div class="banner" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>Changing this means dialling one short code again. We'll show you, then check it worked.</div></div>
+    <div class="row" style="margin-top:14px"><span class="btn primary">Show me the code</span><span class="btn link">Cancel</span></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C5 · "Check again" — running</span><em>same test, from the card</em></div>
+  <div class="pad app">
+    <div class="card blue">
+      <div class="row" style="gap:10px"><span class="spin"></span><b style="font-size:14px">Checking your number…</b></div>
+      <p class="sub" style="margin-top:8px">We're calling your phone now. <b style="color:var(--text)">Please don't answer</b> — let it ring or silence it.</p>
+      <span class="btn link" style="margin-top:6px">Stop</span>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C6 · "Call your assistant to hear it"</span><em>the satisfying proof — one deliberate call</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Hear your assistant</h3>
+    <p class="sub" style="margin-top:4px">Call your Clinket number from any phone and your assistant picks up straight away — greeting, voice, and all.</p>
+    <div class="code" style="margin-top:12px;font-size:19px">+1 (236) 555-0148<span class="btn primary sm"><svg class="i"><use href="#phone"/></svg>Call it</span></div>
+    <p class="tiny" style="margin-top:8px">This is a real call and uses assistant minutes like any other.</p>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ C+ ═══════════════════════════════════ -->
+<h2 class="rule" id="cx">C+ · Who answers, and when <span>— what connecting changes in Assistant settings, said plainly</span></h2>
+<p class="lede">Connecting their own number changes how the four answering modes behave, because we can no longer ring the provider back. Two of the four cannot run on their own number. The sheet never hides that — it locks the card, says why in one sentence, and where there is a way to get it (a business-only line, set up by our team) it offers that way as a button.</p>
+
+<div class="board">
+<div class="frame w520">
+  <div class="frame-label"><span>C+1 · "Who answers" panel — while connected</span><em>web · inside Assistant settings</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Who answers your calls</h3>
+    <p class="sub" style="margin-top:4px">Two numbers reach your assistant. <b style="color:var(--text)">Your choice below applies to both</b> — the only difference is who rings your phone first.</p>
+    <div class="stack" style="margin-top:14px">
+      <div class="card" style="border-color:var(--green-line)">
+        <div class="row between"><div class="row" style="gap:8px"><svg class="i" style="color:var(--green-ink)"><use href="#phone"/></svg><b style="font-size:14px">Your Clinket number</b></div><span class="pill navy mono">+1 (236) 555-0148</span></div>
+        <p class="sub" style="margin-top:8px"><b style="color:var(--text)">Doesn't ring your phone</b> while your own number is connected — we can't ring you back without looping. Calls go straight to what you choose below.</p>
+        <p class="tiny" style="margin-top:4px">Good for listings and directories where you want every call handled by the assistant.</p>
+      </div>
+      <div class="card" style="border-color:#C4D6EE">
+        <div class="row between"><div class="row" style="gap:8px"><svg class="i" style="color:var(--ink)"><use href="#smart"/></svg><b style="font-size:14px">Your own number</b></div><span class="pill navy mono">+1 (604) 555-0199</span></div>
+        <p class="sub" style="margin-top:8px"><b style="color:var(--text)">Rings you first</b> for about 10 seconds. If you don't pick up, it goes to what you choose below.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>C+2 · the four modes — two locked, both explained</span><em>the live form's cards, unchanged labels</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">When should the assistant answer?</h3>
+    <p class="sub" style="margin-top:4px">Applies to calls on both of your numbers.</p>
+    <div class="stack" style="margin-top:12px;gap:8px">
+      <div class="checkrow done" style="align-items:center"><div class="box" style="border-radius:50%"><svg class="i" style="width:14px"><use href="#check"/></svg></div><div><b style="font-size:14px">Any missed call</b><p class="sub" style="margin-top:2px">Your own number rings you first; if you don't pick up, the assistant answers. Calls to your Clinket number go to the assistant straight away.</p></div></div>
+      <div class="checkrow" style="align-items:center"><div class="box" style="border-radius:50%"></div><div><b style="font-size:14px">After hours only</b><p class="sub" style="margin-top:2px">During your working hours, missed calls on either number get a message taken for you. Outside them, the assistant answers.</p></div></div>
+      <div class="checkrow" style="align-items:flex-start;opacity:1;border-style:dashed;background:var(--tint)"><div class="box" style="border-radius:50%;border-color:var(--line);color:var(--faint)"><svg class="i" style="width:13px"><use href="#lock"/></svg></div><div style="flex:1"><div class="row between"><b style="font-size:14px;color:var(--muted)">Assistant answers every call</b><span class="pill">Not with this setup</span></div><p class="sub" style="margin-top:2px">Connecting your number lets your assistant take the calls you <em>miss</em>. To have it answer <em>every</em> call to your own number — so your phone never rings — our team sets that up with you. It's best for a phone used only for the business.</p><span class="btn quiet sm" style="margin-top:8px">Ask us to set this up<svg class="i"><use href="#arr-r"/></svg></span></div></div>
+      <div class="checkrow" style="align-items:flex-start;border-style:dashed;background:var(--tint)"><div class="box" style="border-radius:50%;border-color:var(--line);color:var(--faint)"><svg class="i" style="width:13px"><use href="#lock"/></svg></div><div style="flex:1"><div class="row between"><b style="font-size:14px;color:var(--muted)">Summarize only · the assistant never speaks</b><span class="pill">Not on your own number</span></div><p class="sub" style="margin-top:2px">Calls you answer on your own number don't pass through your assistant, so there's nothing for it to listen to or summarise. Only the calls you miss reach it.</p></div></div>
+    </div>
+    <div class="banner" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>Your two modes above still apply in full to your Clinket number. <span style="text-decoration:underline">Disconnect your own number</span> to get all four back.</div></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C+3 · "Ask us to set this up" — the request</span><em>this becomes an admin alert, then a phone call from us</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Have your assistant answer every call to your own number</h3>
+    <p class="sub" style="margin-top:4px">Your phone won't ring at all — every call to +1 (604) 555-0199 goes straight to your assistant, day and night.</p>
+    <div class="banner warn" style="margin-top:12px"><svg class="i"><use href="#warn"/></svg><div><b>Only for a phone that's just for the business.</b> Family, your bank, your kids' school — nobody can ring this number and reach you directly once it's on.</div></div>
+    <div class="list4" style="margin-top:12px">
+      <div class="li mute" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#phone"/></svg></div><div><small style="font-size:12.5px">We'll <b style="display:inline">call you</b> to walk through it — it takes about ten minutes and one short code on your phone.</small></div></div>
+      <div class="li mute" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#lock"/></svg></div><div><small style="font-size:12.5px">Your assistant can't put a caller through to this number afterwards — that would ring back to itself. Give us a second number if you want callers passed to you.</small></div></div>
+    </div>
+    <div class="row between" style="margin-top:14px"><span class="btn link">Not now</span><span class="btn primary">Ask us to call me<svg class="i"><use href="#arr-r"/></svg></span></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C+4 · requested</span><em>state on the panel until an admin closes it</em></div>
+  <div class="pad app">
+    <div class="card blue">
+      <div class="row between"><span class="pill proc"><span class="dot blue"></span>We'll call you</span><span class="tiny">Asked 15 Sep</span></div>
+      <b style="display:block;margin-top:8px;font-size:14px">Assistant answers every call — set-up call pending</b>
+      <p class="sub" style="margin-top:6px">Someone from Clinket will call +1 (604) 555-0199 within a business day to set this up with you. Have your phone with you.</p>
+      <div class="row" style="margin-top:10px"><span class="btn quiet sm">Change the number to call</span><span class="btn link sm">Cancel request</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>C+5 · enabled by our team</span><em>the same status card, one line different</em></div>
+  <div class="pad app">
+    <div class="card green">
+      <div class="row between"><div class="row" style="gap:8px"><span class="pill ok"><svg class="i" style="width:12px"><use href="#check"/></svg>Connected</span><b style="font-size:14px">+1 (604) 555-0199</b></div><span class="tiny">Set up with you 16 Sep</span></div>
+      <p class="sub" style="margin-top:10px"><b style="color:var(--text)">Your assistant answers every call</b> to this number. Your phone doesn't ring.</p>
+      <div class="row" style="margin-top:12px"><span class="btn quiet sm"><svg class="i"><use href="#refresh"/></svg>Check again</span><span class="btn quiet sm"><svg class="i"><use href="#phone"/></svg>Call your assistant to hear it</span></div>
+      <div class="hr"></div>
+      <div class="banner" style="font-size:12.5px"><svg class="i"><use href="#info"/></svg><div>To go back to ringing first, or to disconnect, dial <span class="mono" style="font-weight:600;color:var(--ink)">##002#</span> — the same one code turns everything off. We'll check it took.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w520">
+  <div class="frame-label"><span>C+6 · always reachable — the settings row</span><em>connect · disconnect · adjust, from Assistant settings any time</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Assistant settings</h3>
+    <div class="stack" style="margin-top:12px;gap:8px">
+      <div class="exp"><div><div>Voice &amp; languages</div><div class="tiny" style="font-weight:400">Ava · English, French</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+      <div class="exp"><div><div>Greeting &amp; working hours</div><div class="tiny" style="font-weight:400">Mon–Sat 9:00–18:00</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+      <div class="exp" style="border-color:var(--green-line);background:var(--green-wash)"><div><div class="row" style="gap:8px">Your numbers<span class="pill ok" style="font-weight:600">Own number connected</span></div><div class="tiny" style="font-weight:400">Clinket +1 (236) 555-0148 · Own +1 (604) 555-0199 · rings 10 s</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+      <div class="exp"><div><div>Who answers, and when</div><div class="tiny" style="font-weight:400">Any missed call</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+    </div>
+    <p class="tiny" style="margin-top:10px">Before connecting, the same row reads <b>Your numbers · Clinket only</b> with <em>Connect my number</em> inside — so the door is never one-time. The card on the main page (A1) is the invitation; this row is the permanent address.</p>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ D ═══════════════════════════════════ -->
+<h2 class="rule" id="d">D · When it doesn't work <span>— every failure names its own fix</span></h2>
+<p class="lede">The test can fail four different ways, and we can tell them apart. So the provider never sees "something went wrong" — they see what happened and the one thing to do next.</p>
+
+<div class="board">
+<div class="frame w420">
+  <div class="frame-label"><span>D1 · voicemail picked up first</span><em>outbound answered · machine</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="background:var(--amber-bg);color:var(--amber-ink);margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#vm"/></svg></div>
+    <div class="big">Your voicemail picked up first</div>
+    <p class="sub" style="margin-top:8px">Your phone rang a little too long before your assistant could step in. Let's make it ring for less time.</p>
+    <div class="row" style="justify-content:center;margin-top:14px"><span class="btn primary">Shorten the ring<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link">Try again as is</span></div>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>D2 · they answered</span><em>outbound answered · human</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="background:var(--blue-bg);color:var(--blue-ink);margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#hand"/></svg></div>
+    <div class="big">Looks like you answered</div>
+    <p class="sub" style="margin-top:8px">No harm done — but for this check your assistant needs the call to go unanswered. Let it ring this time.</p>
+    <div class="row" style="justify-content:center;margin-top:14px"><span class="btn primary"><svg class="i"><use href="#refresh"/></svg>Call me again</span></div>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>D3 · nothing arrived</span><em>not answered · 45 s · nothing on the line</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="background:var(--amber-bg);color:var(--amber-ink);margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#warn"/></svg></div>
+    <div class="big">We didn't get the call</div>
+    <p class="sub" style="margin-top:8px">Your phone rang, but the call never reached your assistant. Usually this means code 1 didn't save. Let's dial it again.</p>
+    <div class="row" style="justify-content:center;margin-top:14px"><span class="btn primary">Back to the codes<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link">I'll do this later</span></div>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>D4 · couldn't connect</span><em>outbound failed</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="background:var(--red-bg);color:var(--red-ink);margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#phone-off"/></svg></div>
+    <div class="big">We couldn't reach that number</div>
+    <p class="sub" style="margin-top:8px">Check the number is right and your phone has signal, then try again.</p>
+    <div class="row" style="justify-content:center;margin-top:14px"><span class="btn primary">Check the number</span><span class="btn link">Try again</span></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D5 · skipped</span><em>honest status, no green earned</em></div>
+  <div class="pad app">
+    <div class="card amber">
+      <div class="row between"><span class="pill warn"><span class="dot amber"></span>Not checked yet</span><b style="font-size:14px">+1 (604) 555-0199</b></div>
+      <p class="sub" style="margin-top:10px">You've dialled the codes, but we haven't confirmed a call reaches your assistant yet. It takes about a minute.</p>
+      <span class="btn primary sm" style="margin-top:12px">Check it now</span>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D6 · lookup couldn't tell</span><em>fallback: a carrier picker, never a stop</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Who's your mobile carrier?</h3>
+    <p class="sub" style="margin-top:4px">We couldn't tell automatically. Pick yours so we show the right steps.</p>
+    <div class="stack" style="margin-top:12px;gap:8px">
+      <div class="exp">Rogers<svg class="i"><use href="#chev-r"/></svg></div><div class="exp">Bell<svg class="i"><use href="#chev-r"/></svg></div><div class="exp">Telus<svg class="i"><use href="#chev-r"/></svg></div><div class="exp">Fido<svg class="i"><use href="#chev-r"/></svg></div><div class="exp" style="color:var(--muted)">Another carrier<svg class="i"><use href="#chev-r"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D7 · a landline or office phone</span><em>a different route — never "unsupported"</em></div>
+  <div class="pad app">
+    <div class="banner info"><svg class="i"><use href="#bldg"/></svg><div><b>This looks like a landline or office phone system.</b></div></div>
+    <h3 class="h-sec" style="margin-top:14px">We can set your assistant up to answer every call to this line</h3>
+    <p class="sub" style="margin-top:4px">Office lines work a little differently, so someone from our team will call you to arrange it — usually within a business day.</p>
+    <div class="row" style="margin-top:14px"><span class="btn primary">Ask us to set it up</span><span class="btn link">Use a different number</span></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D8 · not available in this country yet</span><em>gate from the business address</em></div>
+  <div class="pad app">
+    <div class="banner"><svg class="i"><use href="#globe"/></svg><div><b>Connecting your own number isn't available in your region yet.</b></div></div>
+    <p class="sub" style="margin-top:12px">Your Clinket number works everywhere as normal. We'll let you know the moment this opens up where you are.</p>
+    <span class="btn quiet sm" style="margin-top:12px">Tell me when it's ready</span>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D9 · carrier not yet certified</span><em>known carrier, not yet proven</em></div>
+  <div class="pad app">
+    <div class="banner warn"><svg class="i"><use href="#warn"/></svg><div><b>We haven't finished testing this with Freedom yet.</b></div></div>
+    <p class="sub" style="margin-top:12px">You can still try — it usually works — but if the check fails we may not be able to help right away. Your Clinket number works as normal either way.</p>
+    <div class="row" style="margin-top:12px"><span class="btn quiet">Try anyway</span><span class="btn link">Not now</span></div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D10 · offline</span><em>the check needs the internet</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="background:var(--hair);color:var(--muted);margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#wifi-off"/></svg></div>
+    <div class="big">You're offline</div>
+    <p class="sub" style="margin-top:8px">Your codes are saved. Reconnect and we'll pick up where you left off.</p>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D11 · before the first call — confirm the number</span><em>no code, no text · the call itself is the proof (ruling 34)</em></div>
+  <div class="pad app">
+    <div class="card" style="border-color:#C4D6EE">
+      <div class="row" style="gap:10px"><svg class="i" style="color:var(--ink)"><use href="#shield"/></svg><b style="font-size:15px">We're about to call your phone</b></div>
+      <p class="sub" style="margin-top:8px">We'll ring <b style="color:var(--text)" class="mono">+1 (604) 555-0199</b> once. Is this your business phone?</p>
+      <p class="tiny" style="margin-top:6px">Only the owner of this line can make the call reach your assistant — that's how we know it's yours. No codes to type.</p>
+      <div class="row" style="margin-top:14px"><span class="btn primary">Yes, call it<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link">No, change the number</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w420">
+  <div class="frame-label"><span>D12 · waiting for your number</span><em>admin assigns it · says what comes next</em></div>
+  <div class="pad app">
+    <div class="card blue">
+      <div class="row" style="gap:10px"><span class="spin"></span><b style="font-size:14px">We're setting up your assistant's number</b></div>
+      <p class="sub" style="margin-top:8px">Usually within a business day. We'll email and notify you.</p>
+      <div class="hr"></div>
+      <p class="sub"><b style="color:var(--text)">Next:</b> about two minutes on your phone to connect the number you already advertise. Have your phone handy when we ping you.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ E ═══════════════════════════════════ -->
+<h2 class="rule" id="e">E · Disconnect <span>— one code, then we prove it's really off</span></h2>
+<p class="lede">Turning it off is one dial. But the setting lives at the carrier, not with us, so we check it's gone the same way we checked it worked — in reverse. <b>If the call still reaches us, it isn't off.</b></p>
+
+<div class="board">
+<div class="frame w420">
+  <div class="frame-label"><span>E1 · the code</span><em>one dial clears everything</em></div>
+  <div class="pad app">
+    <h3 class="h-sec">Disconnect your number</h3>
+    <p class="sub" style="margin-top:4px">Dial this once on your phone. It turns off everything you set up — nothing else changes.</p>
+    <div class="code" style="margin-top:12px">##002#<span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div>
+    <div class="banner" style="margin-top:12px"><svg class="i"><use href="#info"/></svg><div>Your phone's own settings screen won't show this — the code is the only way. Missed calls go back to your voicemail.</div></div>
+    <p class="tiny" style="margin-top:8px">The code shown depends on your carrier — on Verizon or US Cellular this screen shows <span class="mono" style="font-weight:600;color:var(--ink)">*73</span> instead.</p>
+    <div class="row between" style="margin-top:16px"><span class="btn link">Keep it connected</span><span class="btn primary">I've dialled it<svg class="i"><use href="#arr-r"/></svg></span></div>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>E2 · checking it's off</span><em>arrival = failure</em></div>
+  <div class="pad app center">
+    <div class="pulse" style="margin:14px auto"><svg class="i" style="width:26px;height:26px"><use href="#phone"/></svg></div>
+    <div class="big">Making sure it's off…</div>
+    <p class="sub" style="margin-top:8px">We're calling your phone. <b style="color:var(--text)">Don't answer</b> — this time it should ring out to your voicemail, not your assistant.</p>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>E3 · still connected</span><em>the call reached us — so it's NOT off</em></div>
+  <div class="pad app">
+    <div class="banner warn"><svg class="i"><use href="#warn"/></svg><div><b>It's still connected.</b> The call reached your assistant, so the code didn't take.</div></div>
+    <p class="sub" style="margin-top:12px">Dial <span class="mono" style="font-weight:600;color:var(--ink)">##002#</span> again and wait for the confirmation messages before you come back.</p>
+    <div class="row" style="margin-top:12px"><span class="btn primary"><svg class="i"><use href="#refresh"/></svg>Check again</span><span class="btn link">Help</span></div>
+  </div>
+</div>
+<div class="frame w420">
+  <div class="frame-label"><span>E4 · disconnected</span><em>the number stays yours</em></div>
+  <div class="pad app center">
+    <div class="pulse ok" style="margin:14px auto"><svg class="i" style="width:28px;height:28px"><use href="#check"/></svg></div>
+    <div class="big">Your number is disconnected</div>
+    <p class="sub" style="margin-top:8px">Missed calls go to your voicemail again. Your Clinket number keeps working, and you can reconnect any time.</p>
+    <span class="btn quiet" style="margin-top:14px">Done</span>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ F ═══════════════════════════════════ -->
+<h2 class="rule" id="f">F · The same web page on a phone and an iPad <span>— responsive, not redrawn</span></h2>
+<p class="lede">The frames below are the <em>same markup</em> as A1 and B4, laid out at 768 and 390. The sidebar folds into a top bar, the two columns stack, the code block wraps its button under the digits, and nothing is hidden or shrunk to fit. A 16px minimum on inputs stops iOS zooming on focus.</p>
+
+<div class="board">
+<div class="frame" style="flex:0 0 768px;max-width:100%">
+  <div class="frame-label"><span>F1 · A1 at iPad portrait</span><em>768</em></div>
+  <div class="dash narrow app">
+    <div class="topbar"><svg class="i"><use href="#menu"/></svg><div>Clin<span>ket</span></div><span class="pill ok" style="background:rgba(151,239,41,.15);border-color:rgba(151,239,41,.4);color:var(--green)">Active</span></div>
+    <div class="main">
+      <h2 class="h-page" style="margin-bottom:14px">AI Assistant</h2>
+      <div class="grid2 stack1">
+        <div class="card green"><div class="tiny" style="text-transform:uppercase;letter-spacing:.05em;font-weight:600;color:var(--green-ink)">Your assistant number</div><div class="row between" style="margin-top:6px"><div class="big mono">+1 (236) 555-0148</div><span class="btn primary sm"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+        <div class="card" style="border-color:#C4D6EE;background:linear-gradient(180deg,#F7FAFF,#fff)"><h3 class="h-sec">Also use the number you already advertise</h3><p class="sub" style="margin-top:4px">Customers keep calling your existing number. When you don't pick up, your assistant answers.</p><div class="row" style="margin-top:12px"><span class="btn primary">Connect my number<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link">What changes?<svg class="i"><use href="#chev-d"/></svg></span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame" style="flex:0 0 390px;max-width:100%">
+  <div class="frame-label"><span>F2 · A1 at phone width</span><em>390 · web, not the app</em></div>
+  <div class="dash narrow app">
+    <div class="topbar"><svg class="i"><use href="#menu"/></svg><div>Clin<span>ket</span></div><span></span></div>
+    <div class="main">
+      <h2 class="h-page" style="font-size:20px;margin-bottom:12px">AI Assistant</h2>
+      <div class="card green"><div class="tiny" style="text-transform:uppercase;letter-spacing:.05em;font-weight:600;color:var(--green-ink)">Your assistant number</div><div class="big mono" style="margin-top:4px;font-size:17px">+1 (236) 555-0148</div><span class="btn primary sm" style="margin-top:8px"><svg class="i"><use href="#copy"/></svg>Copy</span></div>
+      <div class="card" style="margin-top:12px;border-color:#C4D6EE;background:linear-gradient(180deg,#F7FAFF,#fff)"><h3 class="h-sec">Also use the number you already advertise</h3><p class="sub" style="margin-top:4px">Customers keep calling your existing number. When you don't pick up, your assistant answers.</p><span class="btn primary block" style="margin-top:12px">Connect my number<svg class="i"><use href="#arr-r"/></svg></span><span class="btn link block" style="margin-top:4px">What changes?<svg class="i"><use href="#chev-d"/></svg></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame" style="flex:0 0 390px;max-width:100%">
+  <div class="frame-label"><span>F3 · B4 at phone width</span><em>390 · button wraps under the code</em></div>
+  <div class="dash narrow app">
+    <div class="topbar"><svg class="i"><use href="#arr-l"/></svg><div>Connect my number</div><span></span></div>
+    <div class="main">
+      <div class="steps"><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span></span><span class="bar"></span><span class="s done"><span class="n"><svg class="i" style="width:12px"><use href="#check"/></svg></span></span><span class="bar"></span><span class="s now"><span class="n">3</span>Connect</span><span class="bar"></span><span class="s"><span class="n">4</span></span></div>
+      <h3 class="h-sec" style="margin-top:14px;font-size:18px">Now connect it — two short codes</h3>
+      <div class="stack" style="margin-top:12px">
+        <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">CODE 1 OF 2</div><div class="code" style="font-size:19px">*004*2365550148#<span class="btn primary sm block"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+        <div><div class="tiny" style="font-weight:600;color:var(--muted);margin-bottom:6px">CODE 2 OF 2</div><div class="code" style="font-size:19px">**61*2365550148**10#<span class="btn primary sm block"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+      </div>
+      <div class="banner warn" style="margin-top:12px"><svg class="i"><use href="#warn"/></svg><div><b>Several confirmation messages will appear.</b> That's normal.</div></div>
+      <span class="btn primary block" style="margin-top:14px">I've done both<svg class="i"><use href="#arr-r"/></svg></span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ G ═══════════════════════════════════ -->
+<h2 class="rule" id="g">G · The provider app <span>— the primary surface, in its own shape</span></h2>
+<p class="lede">Not the web squeezed. The codes are dialled on <em>this</em> phone, so the app does the real work: one tap opens the dialler on Android; on iPhone the code is copied and the Phone app opened. Long-press replaces hover everywhere; "What changes?" is a bottom sheet; every step is one screen with one button.</p>
+
+<div class="board">
+<div class="frame w360">
+  <div class="frame-label"><span>G1 · the card in the app</span><em>iPhone · 390pt</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:05</span><span>●●● ᯤ 55</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>AI Assistant</div>
+      <div class="body">
+        <div class="card green" style="padding:14px"><div class="tiny" style="font-weight:600;color:var(--green-ink);text-transform:uppercase;letter-spacing:.05em">Your assistant number</div><div class="big mono" style="font-size:17px;margin-top:4px">+1 (236) 555-0148</div><span class="btn primary sm" style="margin-top:8px"><svg class="i"><use href="#copy"/></svg>Copy</span></div>
+        <div class="card" style="padding:14px;border-color:#C4D6EE;background:linear-gradient(180deg,#F7FAFF,#fff)"><div class="row" style="gap:10px;align-items:flex-start"><div style="width:36px;height:36px;border-radius:10px;background:#EAF0F9;display:grid;place-items:center;color:var(--ink);flex:none"><svg class="i" style="width:18px;height:18px"><use href="#smart"/></svg></div><div><b style="font-size:14px">Also use the number you already advertise</b><p class="sub" style="margin-top:3px;font-size:12.5px">Customers keep calling your existing number. When you don't pick up, your assistant answers.</p></div></div><span class="btn primary block" style="margin-top:12px">Connect my number</span><p class="tiny center" style="margin-top:8px">Hold the card to see what changes</p></div>
+        <div class="card" style="padding:12px 14px"><div class="row between"><b style="font-size:13.5px">Pause assistant</b><span class="pill">Off</span></div></div>
+        <div class="tabbar"><span><svg class="i"><use href="#home"/></svg>Home</span><span><svg class="i"><use href="#cal"/></svg>Calendar</span><span><svg class="i"><use href="#inbox"/></svg>Inbox</span><span class="on"><svg class="i"><use href="#phone"/></svg>Assistant</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G2 · "What changes?" — bottom sheet</span><em>long-press the card, or tap the link</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:05</span><span>●●● ᯤ 55</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>AI Assistant</div>
+      <div class="body"><div class="scrim"><div class="sheet"><div class="grab"></div>
+        <b style="font-size:15px">What changes when you connect</b>
+        <div class="list4" style="margin-top:10px">
+          <div class="li" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#check"/></svg></div><div><b style="font-size:13px">Your Clinket number keeps working</b><small>Callers reach your assistant straight away.</small></div></div>
+          <div class="li" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#phone"/></svg></div><div><b style="font-size:13px">Your own number rings you first</b><small>About 10 seconds, then your assistant.</small></div></div>
+          <div class="li mute" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#lock"/></svg></div><div><b style="font-size:13px">Calls you answer stay private</b><small>Not recorded, not summarised.</small></div></div>
+          <div class="li mute" style="padding:10px 12px"><div class="ico" style="width:30px;height:30px"><svg class="i"><use href="#smart"/></svg></div><div><b style="font-size:13px">Join live calls from the app</b><small>We stop ringing your phone to bring you in.</small></div></div>
+        </div>
+        <span class="btn primary block" style="margin-top:12px">Connect my number</span>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G3 · step 1 — your number</span><em>native input · lookup chip</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:06</span><span>●●● ᯤ 55</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">1 of 4</span></div>
+      <div class="body">
+        <div><b style="font-size:18px;line-height:1.25;display:block">Which number do customers call you on?</b><p class="sub" style="margin-top:6px;font-size:13px">We've filled in the one from your profile.</p></div>
+        <div class="field"><label>Your business number</label><div class="input"><span class="mono">+1 (604) 555-0199</span><svg class="i" style="color:var(--muted)"><use href="#pencil"/></svg></div></div>
+        <div class="banner good"><svg class="i"><use href="#check"/></svg><div><b>Rogers · mobile</b> — this works. <span style="text-decoration:underline">Not right?</span></div></div>
+        <div style="margin-top:auto"><span class="btn primary lg block">Continue</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G4 · step 2 — two checks</span><em>platform known · no switcher needed</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:06</span><span>●●● ᯤ 55</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">2 of 4</span></div>
+      <div class="body">
+        <div><b style="font-size:18px;line-height:1.25;display:block">Two quick checks on this phone</b><p class="sub" style="margin-top:6px;font-size:13px">These can send callers to voicemail before your assistant gets a chance.</p></div>
+        <div class="checkrow done" style="padding:12px"><div class="box"><svg class="i" style="width:14px"><use href="#check"/></svg></div><div><b style="font-size:13.5px">Turn off "Silence Unknown Callers"</b><p class="sub" style="margin-top:2px;font-size:12.5px">New customers call from numbers you haven't saved.</p><span class="btn quiet sm" style="margin-top:8px">Open Settings<svg class="i"><use href="#arr-r"/></svg></span></div></div>
+        <div class="checkrow" style="padding:12px"><div class="box"></div><div><b style="font-size:13.5px">Check Do Not Disturb isn't on</b><p class="sub" style="margin-top:2px;font-size:12.5px">Calls may go to voicemail instead of your assistant.</p><span class="btn quiet sm" style="margin-top:8px">Open Focus<svg class="i"><use href="#arr-r"/></svg></span></div></div>
+        <div style="margin-top:auto"><span class="btn lg block disabled">Both done — continue</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G5 · step 3 — Android</span><em>one tap opens the dialler</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app" style="border-radius:22px">
+      <div class="sb"><span>10:07</span><span>▲ ▮ 55%</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">3 of 4</span></div>
+      <div class="body">
+        <div><b style="font-size:18px;line-height:1.25;display:block">Now connect it — two taps</b><p class="sub" style="margin-top:6px;font-size:13px">Each tap opens your dialler with the code ready. Press call, dismiss the messages, come back here.</p></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px">1 OF 2 · sends missed calls to your assistant</div><span class="btn primary lg block"><svg class="i"><use href="#phone"/></svg>Dial code 1</span></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px;color:var(--faint)">2 OF 2 · sets how long your phone rings first</div><span class="btn lg block disabled"><svg class="i"><use href="#lock"/></svg>Dial code 2 — after code 1</span></div>
+        <div class="banner warn"><svg class="i"><use href="#warn"/></svg><div><b>Several confirmation messages will pop up.</b> That's normal.</div></div>
+        <p class="tiny center" style="margin-top:auto">Prefer to type them? <span style="text-decoration:underline">Show the codes</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G6 · step 3 — iPhone</span><em>copy · then open Phone · paste</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:07</span><span>●●● ᯤ 55</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">3 of 4</span></div>
+      <div class="body">
+        <div><b style="font-size:18px;line-height:1.25;display:block">Now connect it — two short codes</b><p class="sub" style="margin-top:6px;font-size:13px">iPhone won't let us dial these for you. Copy, open Phone, paste into the keypad, press call.</p></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px">CODE 1 OF 2</div><div class="code">*004*2365550148#<span class="btn primary sm block"><svg class="i"><use href="#copy"/></svg>Copy &amp; open Phone</span></div></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px;color:var(--faint)">CODE 2 OF 2 · after code 1</div><div class="code lock">**61*2365550148**10#<span class="btn sm block disabled"><svg class="i"><use href="#lock"/></svg>Copy &amp; open Phone</span></div></div>
+        <div class="toast"><svg class="i"><use href="#check"/></svg>Code copied — paste it into the keypad</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G7 · step 4 — calling</span><em>full-screen · can't miss the instruction</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:08</span><span>●●● ᯤ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">4 of 4</span></div>
+      <div class="body center" style="justify-content:center">
+        <div class="pulse" style="margin:0 auto 14px"><svg class="i" style="width:26px;height:26px"><use href="#phone"/></svg></div>
+        <div class="big" style="font-size:18px">Calling this phone…</div>
+        <div class="card amber" style="padding:12px;text-align:left;margin-top:12px"><div class="row" style="gap:10px"><svg class="i" style="color:var(--amber-ink)"><use href="#hand"/></svg><div><b style="font-size:13.5px">Please don't answer.</b><p class="sub" style="margin-top:2px;font-size:12.5px">Let it ring, or press the side button once to silence it. Come back here after.</p></div></div></div>
+        <div class="progress" style="text-align:left;margin:14px 8px"><div class="p now" style="font-size:13px"><span class="n"><span class="spin"></span></span>Calling</div><div class="p" style="font-size:13px"><span class="n"></span>Your phone should be ringing</div><div class="p" style="font-size:13px"><span class="n"></span>Waiting for your assistant</div></div>
+        <span class="btn link">Skip, I'll check later</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G8 · step 4 — received</span><em>the green, earned</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:09</span><span>●●● ᯤ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number</div>
+      <div class="body center" style="justify-content:center">
+        <div class="pulse ok" style="margin:0 auto 14px"><svg class="i" style="width:28px;height:28px"><use href="#check"/></svg></div>
+        <div class="big" style="font-size:19px">Your number is connected</div>
+        <p class="lead" style="margin-top:8px;font-size:14px">Your phone rings for <b>about 10 seconds</b>, then your assistant answers.</p>
+        <p class="tiny" style="margin-top:6px">We tested calls you don't answer.</p>
+        <div style="margin-top:auto;display:grid;gap:8px"><span class="btn primary lg block">Done</span><span class="btn quiet block">How it works</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G9 · connected — the card</span><em>three expanders · Adjust · Check again</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:10</span><span>●●● ᯤ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>AI Assistant</div>
+      <div class="body">
+        <div class="card green" style="padding:14px">
+          <div class="row between"><span class="pill ok"><svg class="i" style="width:12px"><use href="#check"/></svg>Connected</span><span class="tiny">Checked 15 Sep</span></div>
+          <b class="mono" style="display:block;margin-top:8px;font-size:15px">+1 (604) 555-0199</b>
+          <p class="sub" style="margin-top:6px;font-size:12.5px">Rings you for <b style="color:var(--text)">about 10 seconds</b>, then your assistant answers.</p>
+          <div class="row" style="margin-top:10px;gap:8px"><span class="btn quiet sm"><svg class="i"><use href="#refresh"/></svg>Check again</span><span class="btn quiet sm"><svg class="i"><use href="#clock"/></svg>Adjust</span></div>
+        </div>
+        <div class="exp" style="font-size:13.5px">How it works<svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="exp" style="font-size:13.5px">What's not supported<svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="exp" style="font-size:13.5px;color:var(--muted)">Disconnect my number<svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="tabbar"><span><svg class="i"><use href="#home"/></svg>Home</span><span><svg class="i"><use href="#cal"/></svg>Calendar</span><span><svg class="i"><use href="#inbox"/></svg>Inbox</span><span class="on"><svg class="i"><use href="#phone"/></svg>Assistant</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G10 · a failure — voicemail first</span><em>bottom sheet · one fix</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:09</span><span>●●● ᯤ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number</div>
+      <div class="body"><div class="scrim"><div class="sheet center"><div class="grab"></div>
+        <div class="pulse" style="background:var(--amber-bg);color:var(--amber-ink);margin:4px auto 12px;width:56px;height:56px"><svg class="i" style="width:24px;height:24px"><use href="#vm"/></svg></div>
+        <b style="font-size:17px">Your voicemail picked up first</b>
+        <p class="sub" style="margin-top:6px;font-size:13px">Your phone rang a little too long. Let's make it ring for less time.</p>
+        <span class="btn primary lg block" style="margin-top:14px">Shorten the ring</span><span class="btn link block" style="margin-top:4px">Try again as is</span>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G11 · Android — dial permission denied</span><em>fall back to copy · never stuck</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app" style="border-radius:22px">
+      <div class="sb"><span>10:07</span><span>▲ ▮ 55%</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">3 of 4</span></div>
+      <div class="body">
+        <div class="banner"><svg class="i"><use href="#info"/></svg><div><b>We can't open your dialler without permission.</b> No problem — copy the codes instead.</div></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px">CODE 1 OF 2</div><div class="code">*004*2365550148#<span class="btn primary sm block"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+        <div><div class="tiny" style="font-weight:600;margin-bottom:6px;color:var(--faint)">CODE 2 OF 2 · after code 1</div><div class="code lock">**61*2365550148**10#<span class="btn sm block disabled"><svg class="i"><use href="#copy"/></svg>Copy</span></div></div>
+        <span class="btn link block" style="margin-top:auto">Allow dialling in Settings</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G12 · offline mid-wizard</span><em>progress kept</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:08</span><span>✕ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number</div>
+      <div class="body center" style="justify-content:center">
+        <div class="pulse" style="background:var(--hair);color:var(--muted);margin:0 auto 14px"><svg class="i" style="width:26px;height:26px"><use href="#wifi-off"/></svg></div>
+        <div class="big" style="font-size:18px">You're offline</div>
+        <p class="sub" style="margin-top:8px;font-size:13px">Your codes are saved. Reconnect and we'll carry on from step 4.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G13 · disconnect — checking it's off</span><em>arrival = failure</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:12</span><span>●●● ᯤ 53</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Disconnect my number</div>
+      <div class="body center" style="justify-content:center">
+        <div class="pulse" style="margin:0 auto 14px"><svg class="i" style="width:26px;height:26px"><use href="#phone"/></svg></div>
+        <div class="big" style="font-size:18px">Making sure it's off…</div>
+        <p class="sub" style="margin-top:8px;font-size:13px">Calling this phone. <b style="color:var(--text)">Don't answer</b> — it should ring out to your voicemail this time, not your assistant.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G14 · waiting for the number</span><em>push when it lands · says what's next</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>09:41</span><span>●●● ᯤ 80</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>AI Assistant</div>
+      <div class="body">
+        <div class="card blue" style="padding:14px"><div class="row" style="gap:10px"><span class="spin"></span><b style="font-size:14px">Setting up your assistant's number</b></div><p class="sub" style="margin-top:8px;font-size:12.5px">Usually within a business day. We'll notify you.</p><div class="hr"></div><p class="sub" style="font-size:12.5px"><b style="color:var(--text)">Next:</b> two minutes on this phone to connect the number you already advertise.</p></div>
+        <div class="card" style="padding:12px 14px;border-style:dashed"><div class="row" style="gap:10px"><div style="width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:12px;flex:none">C<span style="color:var(--green)">k</span></div><div><b style="font-size:12.5px">Your assistant is ready to connect</b><p class="tiny" style="margin-top:1px">Have your phone handy — about two minutes.</p></div></div><p class="tiny" style="margin-top:8px">↑ the push notification when the number lands</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="board" style="margin-top:22px">
+<div class="frame w360">
+  <div class="frame-label"><span>G18 · before the first call — native confirm</span><em>the app's own alert · ruling 34</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:08</span><span>●●● ᯤ 54</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Connect my number<span class="tiny" style="margin-left:auto">4 of 4</span></div>
+      <div class="body"><div class="scrim" style="justify-content:center"><div class="sheet" style="border-radius:16px;text-align:center;padding:18px 16px">
+        <b style="font-size:16px;display:block">We're about to call your phone</b>
+        <p class="sub" style="margin-top:6px;font-size:13px">We'll ring <b class="mono" style="color:var(--text)">+1 (604) 555-0199</b> once. Is this your business phone?</p>
+        <div class="hr"></div>
+        <span class="btn primary lg block">Yes, call it</span><span class="btn link block" style="margin-top:4px">No, change the number</span>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G15 · the modes on the phone — two locked</span><em>tap a locked card → the reason sheet</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:14</span><span>●●● ᯤ 53</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Who answers, and when</div>
+      <div class="body" style="gap:8px">
+        <p class="tiny" style="padding:0 2px">For calls to your own number, +1 (604) 555-0199</p>
+        <div class="checkrow done" style="padding:12px;align-items:center"><div class="box" style="border-radius:50%"><svg class="i" style="width:14px"><use href="#check"/></svg></div><div><b style="font-size:13.5px">Any missed call</b><p class="sub" style="margin-top:2px;font-size:12px">Rings you first. If you don't pick up, the assistant answers.</p></div></div>
+        <div class="checkrow" style="padding:12px;align-items:center"><div class="box" style="border-radius:50%"></div><div><b style="font-size:13.5px">After hours only</b><p class="sub" style="margin-top:2px;font-size:12px">Rings you in working hours. Outside them, the assistant answers.</p></div></div>
+        <div class="checkrow" style="padding:12px;border-style:dashed;background:var(--tint)"><div class="box" style="border-radius:50%;border-color:var(--line);color:var(--faint)"><svg class="i" style="width:12px"><use href="#lock"/></svg></div><div style="flex:1"><div class="row between"><b style="font-size:13.5px;color:var(--muted)">Assistant answers every call</b></div><span class="pill" style="margin-top:4px">Not with this setup · tap to see how</span></div></div>
+        <div class="checkrow" style="padding:12px;border-style:dashed;background:var(--tint)"><div class="box" style="border-radius:50%;border-color:var(--line);color:var(--faint)"><svg class="i" style="width:12px"><use href="#lock"/></svg></div><div style="flex:1"><b style="font-size:13.5px;color:var(--muted)">Summarize only</b><span class="pill" style="margin-top:4px;display:inline-flex">Not on your own number · why?</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G16 · "Ask us" — the sheet</span><em>the warning is the first thing they read</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:14</span><span>●●● ᯤ 53</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Who answers, and when</div>
+      <div class="body"><div class="scrim"><div class="sheet"><div class="grab"></div>
+        <b style="font-size:15px;display:block">Have your assistant answer every call to your own number</b>
+        <p class="sub" style="margin-top:6px;font-size:13px">Your phone won't ring at all — every call goes straight to your assistant.</p>
+        <div class="banner warn" style="margin-top:10px;font-size:12.5px"><svg class="i"><use href="#warn"/></svg><div><b>Only for a phone that's just for the business.</b> Nobody can ring this number and reach you directly once it's on.</div></div>
+        <p class="tiny" style="margin-top:10px">We'll call you to set it up — about ten minutes and one short code.</p>
+        <span class="btn primary lg block" style="margin-top:12px">Ask us to call me</span><span class="btn link block" style="margin-top:4px">Not now</span>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="frame w360">
+  <div class="frame-label"><span>G17 · the permanent row in settings</span><em>connect or disconnect, any time</em></div>
+  <div class="pad" style="background:var(--hair)">
+    <div class="phone app">
+      <div class="sb"><span>10:15</span><span>●●● ᯤ 53</span></div>
+      <div class="hdr"><svg class="i"><use href="#arr-l"/></svg>Assistant settings</div>
+      <div class="body" style="gap:8px">
+        <div class="exp" style="font-size:13.5px"><div><div>Voice &amp; languages</div><div class="tiny" style="font-weight:400">Ava · English, French</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="exp" style="font-size:13.5px"><div><div>Greeting &amp; working hours</div><div class="tiny" style="font-weight:400">Mon–Sat 9:00–18:00</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="exp" style="font-size:13.5px;border-color:var(--green-line);background:var(--green-wash)"><div><div>Your numbers</div><div class="tiny" style="font-weight:400">Own number connected · rings 10 s</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="exp" style="font-size:13.5px"><div><div>Who answers, and when</div><div class="tiny" style="font-weight:400">Any missed call</div></div><svg class="i"><use href="#chev-r"/></svg></div>
+        <div class="tabbar"><span><svg class="i"><use href="#home"/></svg>Home</span><span><svg class="i"><use href="#cal"/></svg>Calendar</span><span><svg class="i"><use href="#inbox"/></svg>Inbox</span><span class="on"><svg class="i"><use href="#phone"/></svg>Assistant</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════ H ═══════════════════════════════════ -->
+<h2 class="rule" id="h">H · Every sentence on this sheet <span>— and where it comes from</span></h2>
+<p class="lede">Every string is a proposed key in the existing <code>voiceAssistant.*</code> namespace, to be added to <b>all five</b> partner-web catalogues (en-US · es-US · fr-CA · gu-IN · hi-IN) and mirrored in the provider app. Two values are <b>arguments from the server</b>, never typed into the app: the measured ring delay, and the carrier + line type from the lookup. The <code>ownNumber.numberMode.ForwardExisting*</code> keys already exist in all five files and must be <b>rewritten</b> — today they end "We'll set this up for you soon."</p>
+
+<div class="frame full"><div class="frame-label"><span>H · copy table</span><em>proposed keys · 5 languages</em></div><div class="pad tbl-scroll">
+<table class="copy">
+<tr><th style="width:14%">Where</th><th style="width:34%">Key (proposed)</th><th>What it says</th></tr>
+<tr><td>A1 card</td><td><code>voiceAssistant.ownNumber.entry.title</code></td><td class="say">Also use the number you already advertise</td></tr>
+<tr><td>A1 card</td><td><code>voiceAssistant.ownNumber.entry.body</code></td><td class="say">Customers keep calling your existing number. When you don't pick up, your assistant answers.</td></tr>
+<tr><td>A1 / G1</td><td><code>voiceAssistant.ownNumber.entry.cta</code></td><td class="say">Connect my number</td></tr>
+<tr><td>A1 / A2</td><td><code>voiceAssistant.ownNumber.entry.whatChanges</code></td><td class="say">What changes?</td></tr>
+<tr><td>G1 hint</td><td><code>voiceAssistant.ownNumber.entry.holdHint</code></td><td class="say">Hold the card to see what changes</td></tr>
+<tr><td>A2 / G2 title</td><td><code>voiceAssistant.ownNumber.changes.title</code></td><td class="say">What changes when you connect your number</td></tr>
+<tr><td>A2 line 1</td><td><code>voiceAssistant.ownNumber.changes.keepsWorking</code> · <code>.keepsWorkingDesc</code></td><td class="say">Your Clinket number keeps working · Anyone who calls it reaches your assistant straight away.</td></tr>
+<tr><td>A2 line 2</td><td><code>voiceAssistant.ownNumber.changes.ringsFirst</code> · <code>.ringsFirstDesc</code></td><td class="say">Your own number rings you first · Your phone rings for about {seconds} seconds. If you don't pick up, your assistant answers.</td></tr>
+<tr><td>A2 line 3</td><td><code>voiceAssistant.ownNumber.changes.private</code> · <code>.privateDesc</code></td><td class="say">Calls you answer yourself stay private · Not recorded, not summarised. Just a normal call.</td></tr>
+<tr><td>A2 line 4</td><td><code>voiceAssistant.ownNumber.changes.joinFromApp</code> · <code>.joinFromAppDesc</code></td><td class="say">You join live calls from the app · We stop ringing your phone to bring you in — that would loop back to your assistant.</td></tr>
+<tr><td>A2 banner</td><td><code>voiceAssistant.ownNumber.changes.havePhone</code></td><td class="say">You'll need your phone with you — the last two steps happen on it. About two minutes.</td></tr>
+<tr><td>A3</td><td><code>voiceAssistant.ownNumber.handoff.title</code> · <code>.body</code> · <code>.stayHere</code> · <code>.continueHere</code></td><td class="say">Finish this on your phone · Two of the steps are done on the phone you're connecting. Scan this to open the Clinket app right where you left off. · Or keep going here — we'll show you what to type. · Continue on this computer</td></tr>
+<tr><td>B steps</td><td><code>voiceAssistant.ownNumber.steps.number</code> · <code>.checks</code> · <code>.connect</code> · <code>.verify</code></td><td class="say">Your number · Two checks · Connect · Check it works</td></tr>
+<tr><td>B1 / G3</td><td><code>voiceAssistant.ownNumber.number.title</code> · <code>.body</code> · <code>.label</code></td><td class="say">Which number do customers call you on? · We've filled in the one from your profile. Change it if customers call a different phone. · Your business number</td></tr>
+<tr><td>B1 lookup ok</td><td><code>voiceAssistant.ownNumber.number.lookupOk</code> <span class="pill navy">args from lookup</span></td><td class="say">{carrier} · {lineType} — this works with connecting.</td></tr>
+<tr><td>B1</td><td><code>voiceAssistant.ownNumber.number.notRight</code></td><td class="say">Not right?</td></tr>
+<tr><td>B2 / G4</td><td><code>voiceAssistant.ownNumber.checks.title</code> · <code>.body</code></td><td class="say">Two quick checks on your phone · These two settings can send callers to voicemail before your assistant gets a chance. Tick each one when it's done.</td></tr>
+<tr><td>B2 check 1</td><td><code>voiceAssistant.ownNumber.checks.silence.title</code> · <code>.body</code> · <code>.pathIos</code> · <code>.pathAndroid</code></td><td class="say">Turn off "Silence Unknown Callers" · New customers call from numbers you haven't saved. With this on, they go to your voicemail and your assistant never hears them. · Settings → Apps → Phone → Silence Unknown Callers → Off · Phone app → ⋮ → Settings → Caller ID &amp; spam → Filter spam calls → Off</td></tr>
+<tr><td>B3 check 1 (Android title)</td><td><code>voiceAssistant.ownNumber.checks.silence.titleAndroid</code></td><td class="say">Turn off spam blocking that sends calls to voicemail</td></tr>
+<tr><td>B2 check 2</td><td><code>voiceAssistant.ownNumber.checks.dnd.title</code> · <code>.body</code> · <code>.pathIos</code> · <code>.pathAndroid</code></td><td class="say">Check Do Not Disturb isn't on during work hours · If your phone is on Do Not Disturb, calls may go to voicemail instead of your assistant. · Settings → Focus → Do Not Disturb · Settings → Notifications → Do Not Disturb <span style="opacity:.7">(‼️ "may", not "will" — unmeasured, PLAN §9.7)</span></td></tr>
+<tr><td>B3 note</td><td><code>voiceAssistant.ownNumber.checks.androidVaries</code></td><td class="say">Paths differ a little between Samsung, Pixel and others — the words to look for are the same.</td></tr>
+<tr><td>B2 / G4 cta</td><td><code>voiceAssistant.ownNumber.checks.cta</code> · <code>.ctaHint</code></td><td class="say">Both done — continue · The button opens once both are ticked.</td></tr>
+<tr><td>G4 buttons</td><td><code>voiceAssistant.ownNumber.checks.openSettings</code> · <code>.openFocus</code></td><td class="say">Open Settings · Open Focus</td></tr>
+<tr><td>B4 / G6</td><td><code>voiceAssistant.ownNumber.connect.titleCopy</code> · <code>.bodyCopy</code></td><td class="say">Now connect it — two short codes · Copy each code, paste it into your phone's keypad, and press the green call button. Do them in order.</td></tr>
+<tr><td>G6 body</td><td><code>voiceAssistant.ownNumber.connect.bodyIosApp</code></td><td class="say">iPhone won't let us dial these for you. Copy, open Phone, paste into the keypad, press call.</td></tr>
+<tr><td>B5 / G5</td><td><code>voiceAssistant.ownNumber.connect.titleTap</code> · <code>.bodyTap</code></td><td class="say">Now connect it — two taps · Each tap opens your dialler with the code ready. Press call, dismiss the messages, come back here.</td></tr>
+<tr><td>code labels</td><td><code>voiceAssistant.ownNumber.connect.code1Label</code> · <code>.code2Label</code></td><td class="say">Code 1 of 2 · sends missed calls to your assistant · Code 2 of 2 · sets how long your phone rings first</td></tr>
+<tr><td>buttons</td><td><code>voiceAssistant.ownNumber.connect.dial1</code> · <code>.dial2</code> · <code>.dial2Locked</code> · <code>.copyOpenPhone</code> · <code>.showCodes</code> · <code>.doneBoth</code></td><td class="say">Dial code 1 · Dial code 2 · Dial code 2 — after code 1 · Copy &amp; open Phone · Show the codes · I've done both</td></tr>
+<tr><td>B4 warn</td><td><code>voiceAssistant.ownNumber.connect.popups</code></td><td class="say">Your phone will show several confirmation messages. That's normal — dismiss them and carry on.</td></tr>
+<tr><td>B6 warn ‼️</td><td><code>voiceAssistant.ownNumber.connect.code2Last</code></td><td class="say">Do code 2 last, always. If you ever redo code 1 later, do code 2 again straight after.</td></tr>
+<tr><td>G6 toast</td><td><code>voiceAssistant.ownNumber.connect.copiedToast</code></td><td class="say">Code copied — paste it into the keypad</td></tr>
+<tr><td>B7 / G7</td><td><code>voiceAssistant.ownNumber.verify.calling</code> · <code>.dontAnswer</code> · <code>.dontAnswerBody</code></td><td class="say">Calling your phone… · Please don't answer. · Let it ring, or press your side button once to silence it.</td></tr>
+<tr><td>B7 progress</td><td><code>voiceAssistant.ownNumber.verify.p1</code> · <code>.p2</code> · <code>.p3</code></td><td class="say">Calling · Your phone should be ringing · Waiting for your assistant</td></tr>
+<tr><td>B8</td><td><code>voiceAssistant.ownNumber.verify.ringingBody</code></td><td class="say">Leave it. Your assistant picks up when it stops.</td></tr>
+<tr><td>B7</td><td><code>voiceAssistant.ownNumber.verify.skip</code></td><td class="say">Skip, I'll check later</td></tr>
+<tr><td>B9 / G8</td><td><code>voiceAssistant.ownNumber.verify.connected</code></td><td class="say">Your number is connected</td></tr>
+<tr><td>B9 / C1 / G9 ‼️</td><td><code>voiceAssistant.ownNumber.ringsFor</code> <span class="pill navy">arg from the test call</span></td><td class="say">Your phone rings for about {seconds} seconds, then your assistant answers. <span style="opacity:.7">(‼️ measured T1−T0, rounded to 5, always "about" — PLAN §9.10)</span></td></tr>
+<tr><td>B9</td><td><code>voiceAssistant.ownNumber.verify.testedNoAnswer</code></td><td class="say">We tested calls you don't answer. Calls when your phone is off work the same way.</td></tr>
+<tr><td>C1</td><td><code>voiceAssistant.ownNumber.status.connected</code> · <code>.lastChecked</code> · <code>.checkAgain</code> · <code>.adjust</code> · <code>.hearIt</code></td><td class="say">Connected · Last checked {date} · Check again · Adjust ring time · Call your assistant to hear it</td></tr>
+<tr><td>C1 expanders</td><td><code>voiceAssistant.ownNumber.status.howItWorks</code> · <code>.notSupported</code> · <code>.disconnect</code></td><td class="say">How it works · What's not supported · Disconnect my number</td></tr>
+<tr><td>C2 four lines</td><td><code>voiceAssistant.ownNumber.how.silence</code> · <code>.off</code> · <code>.decline</code> · <code>.answer</code> (+ <code>Desc</code>)</td><td class="say">Don't pick up, or silence the ring · Your assistant answers and tells you what they wanted. — Phone off or no signal · Your assistant answers straight away. — Decline the call (red button) · It goes to your voicemail — your assistant stays out of it. Use this for calls you don't want it handling. — Answer it yourself · A normal private call. Not recorded, not summarised.</td></tr>
+<tr><td>C2 tip ‼️</td><td><code>voiceAssistant.ownNumber.how.silenceTip</code></td><td class="say">Tip: to silence a ring without declining, press the side button once — never twice.</td></tr>
+<tr><td>C3</td><td><code>voiceAssistant.ownNumber.notSupported.1</code> … <code>.6</code></td><td class="say">Calls you answer yourself aren't recorded or summarised — they stay private. · Your assistant can't answer before your phone rings. If you'd like that on a business-only line, ask us. · You join live calls from the app, not by us ringing your phone. · Declined calls go to your voicemail, not your assistant. · Your mobile carrier may charge for forwarded calls. Check your plan. · If you ever cancel, turn this off on your phone too — we can't do it for you. We'll show you how.</td></tr>
+<tr><td>C4</td><td><code>voiceAssistant.ownNumber.adjust.title</code> · <code>.body</code> · <code>.opt10</code> · <code>.opt15</code> · <code>.note</code> · <code>.cta</code></td><td class="say">How long should your phone ring first? · Longer gives you more time to pick up. Shorter gets your caller to your assistant faster. · 10 seconds · about two rings · 15 seconds · about three rings · Changing this means dialling one short code again. We'll show you, then check it worked. · Show me the code</td></tr>
+<tr><td>C5</td><td><code>voiceAssistant.ownNumber.recheck.title</code> · <code>.body</code></td><td class="say">Checking your number… · We're calling your phone now. Please don't answer — let it ring or silence it.</td></tr>
+<tr><td>C6</td><td><code>voiceAssistant.ownNumber.hear.title</code> · <code>.body</code> · <code>.cta</code> · <code>.note</code></td><td class="say">Hear your assistant · Call your Clinket number from any phone and your assistant picks up straight away — greeting, voice, and all. · Call it · This is a real call and uses assistant minutes like any other.</td></tr>
+<tr><td>D1 ‼️</td><td><code>voiceAssistant.ownNumber.fail.voicemail.title</code> · <code>.body</code> · <code>.cta</code> · <code>.alt</code></td><td class="say">Your voicemail picked up first · Your phone rang a little too long before your assistant could step in. Let's make it ring for less time. · Shorten the ring · Try again as is</td></tr>
+<tr><td>D2</td><td><code>voiceAssistant.ownNumber.fail.answered.title</code> · <code>.body</code> · <code>.cta</code></td><td class="say">Looks like you answered · No harm done — but for this check your assistant needs the call to go unanswered. Let it ring this time. · Call me again</td></tr>
+<tr><td>D3</td><td><code>voiceAssistant.ownNumber.fail.nothing.title</code> · <code>.body</code> · <code>.cta</code> · <code>.alt</code></td><td class="say">We didn't get the call · Your phone rang, but the call never reached your assistant. Usually this means code 1 didn't save. Let's dial it again. · Back to the codes · I'll do this later</td></tr>
+<tr><td>D4</td><td><code>voiceAssistant.ownNumber.fail.unreachable.title</code> · <code>.body</code> · <code>.cta</code> · <code>.alt</code></td><td class="say">We couldn't reach that number · Check the number is right and your phone has signal, then try again. · Check the number · Try again</td></tr>
+<tr><td>D5</td><td><code>voiceAssistant.ownNumber.status.notChecked</code> · <code>.notCheckedBody</code> · <code>.checkNow</code></td><td class="say">Not checked yet · You've dialled the codes, but we haven't confirmed a call reaches your assistant yet. It takes about a minute. · Check it now</td></tr>
+<tr><td>D6</td><td><code>voiceAssistant.ownNumber.carrier.title</code> · <code>.body</code> · <code>.other</code></td><td class="say">Who's your mobile carrier? · We couldn't tell automatically. Pick yours so we show the right steps. · Another carrier</td></tr>
+<tr><td>D7 ‼️</td><td><code>voiceAssistant.ownNumber.landline.banner</code> · <code>.title</code> · <code>.body</code> · <code>.cta</code> · <code>.alt</code></td><td class="say">This looks like a landline or office phone system. · We can set your assistant up to answer every call to this line · Office lines work a little differently, so someone from our team will call you to arrange it — usually within a business day. · Ask us to set it up · Use a different number <span style="opacity:.7">(‼️ never the word "unsupported" — PLAN §9.4)</span></td></tr>
+<tr><td>D8</td><td><code>voiceAssistant.ownNumber.region.banner</code> · <code>.body</code> · <code>.cta</code></td><td class="say">Connecting your own number isn't available in your region yet. · Your Clinket number works everywhere as normal. We'll let you know the moment this opens up where you are. · Tell me when it's ready</td></tr>
+<tr><td>D9</td><td><code>voiceAssistant.ownNumber.carrierUntested.banner</code> · <code>.body</code> · <code>.cta</code> · <code>.alt</code> <span class="pill navy">arg</span></td><td class="say">We haven't finished testing this with {carrier} yet. · You can still try — it usually works — but if the check fails we may not be able to help right away. Your Clinket number works as normal either way. · Try anyway · Not now</td></tr>
+<tr><td>D10 / G12</td><td><code>voiceAssistant.ownNumber.offline.title</code> · <code>.body</code></td><td class="say">You're offline · Your codes are saved. Reconnect and we'll pick up where you left off.</td></tr>
+<tr><td>D11 ‼️ (rewritten — ruling 34)</td><td><code>voiceAssistant.ownNumber.confirmCall.title</code> · <code>.body</code> · <code>.why</code> · <code>.yes</code> · <code>.no</code></td><td class="say">We're about to call your phone · We'll ring {number} once. Is this your business phone? · Only the owner of this line can make the call reach your assistant — that's how we know it's yours. No codes to type. · Yes, call it · No, change the number <span style="opacity:.7">(replaces the SMS-code frame: a landline cannot receive a text, and the forwarded arrival is a stronger proof than any code)</span></td></tr>
+<tr><td>D12 / G14 ‼️</td><td><code>voiceAssistant.ownNumber.waiting.title</code> · <code>.body</code> · <code>.next</code></td><td class="say">We're setting up your assistant's number · Usually within a business day. We'll email and notify you. · Next: about two minutes on your phone to connect the number you already advertise. Have your phone handy when we ping you.</td></tr>
+<tr><td>G14 push</td><td><code>Push_VoiceAssistantReadyToConnect_Title</code> · <code>_Body</code> <span class="pill navy">server · en.json</span></td><td class="say">Your assistant is ready to connect · Have your phone handy — about two minutes.</td></tr>
+<tr><td>E1</td><td><code>voiceAssistant.ownNumber.disconnect.title</code> · <code>.body</code> · <code>.note</code> · <code>.keep</code> · <code>.dialled</code></td><td class="say">Disconnect your number · Dial this once on your phone. It turns off everything you set up — nothing else changes. · Your phone's own settings screen won't show this — the code is the only way. Missed calls go back to your voicemail. · Keep it connected · I've dialled it</td></tr>
+<tr><td>E2 / G13</td><td><code>voiceAssistant.ownNumber.disconnect.checking</code> · <code>.checkingBody</code></td><td class="say">Making sure it's off… · We're calling your phone. Don't answer — this time it should ring out to your voicemail, not your assistant.</td></tr>
+<tr><td>E3 ‼️</td><td><code>voiceAssistant.ownNumber.disconnect.stillOn</code> · <code>.stillOnBody</code></td><td class="say">It's still connected. The call reached your assistant, so the code didn't take. · Dial ##002# again and wait for the confirmation messages before you come back.</td></tr>
+<tr><td>E4</td><td><code>voiceAssistant.ownNumber.disconnect.done</code> · <code>.doneBody</code></td><td class="say">Your number is disconnected · Missed calls go to your voicemail again. Your Clinket number keeps working, and you can reconnect any time.</td></tr>
+<tr><td>B6v ‼️ Verizon</td><td><code>voiceAssistant.ownNumber.connect.titleOne</code> · <code>.bodyVerizon</code> · <code>.codeOneLabel</code> · <code>.verizonLosses</code> · <code>.verizonOffNote</code> · <code>.dialledIt</code></td><td class="say">Now connect it — one short code · Verizon uses a single code. Copy it, paste it into your phone's keypad, and press call. · The code · sends missed calls to your assistant · Two things Verizon can't do. We can't shorten how long your phone rings, so your voicemail may pick up first — the check in the next step will tell you. And calls when your phone is off won't reach your assistant. · To turn it off later you'll dial *73. Adjusting the ring time isn't available on Verizon. · I've dialled it <span style="opacity:.7">(ruling 32 — template family chosen by the lookup's carrier name, PLAN §17.8)</span></td></tr>
+<tr><td>E1 Verizon</td><td><code>voiceAssistant.ownNumber.disconnect.carrierNote</code></td><td class="say">The code shown depends on your carrier — on Verizon or US Cellular this screen shows *73 instead.</td></tr>
+<tr><td>D9 (now the default for any uncertified carrier)</td><td><code>voiceAssistant.ownNumber.carrierUntested.*</code> <span class="pill navy">arg</span></td><td class="say"><span style="opacity:.7">unchanged strings — but with all three countries on at launch (ruling 31), this is what EVERY carrier not in the measured `CertifiedCarriers` map sees. The confident copy is earned per carrier by a live test, never by region.</span></td></tr>
+<tr><td>C+1 ‼️</td><td><code>voiceAssistant.ownNumber.who.title</code> · <code>.body</code> · <code>.clinketNoRing</code> · <code>.clinketHint</code> · <code>.ownRingsFirst</code></td><td class="say">Who answers your calls · Two numbers reach your assistant. Your choice below applies to both — the only difference is who rings your phone first. · Doesn't ring your phone while your own number is connected — we can't ring you back without looping. Calls go straight to what you choose below. · Good for listings and directories where you want every call handled by the assistant. · Rings you first for about {seconds} seconds. If you don't pick up, it goes to what you choose below. <span style="opacity:.7">(‼️ one Voiceline, one mode: a forwarded call and a direct call are indistinguishable on arrival, so the mode can never differ per number — PLAN §17.4)</span></td></tr>
+<tr><td>C+2 title</td><td><code>voiceAssistant.ownNumber.modes.title</code> · <code>.appliesBoth</code></td><td class="say">When should the assistant answer? · Applies to calls on both of your numbers.</td></tr>
+<tr><td>C+2 open modes ‼️</td><td><code>voiceAssistant.ownNumber.modes.anyMissedDesc</code> · <code>.afterHoursDesc</code></td><td class="say">Your own number rings you first; if you don't pick up, the assistant answers. Calls to your Clinket number go to the assistant straight away. · During your working hours, missed calls on either number get a message taken for you. Outside them, the assistant answers. <span style="opacity:.7">(own-number variants of the live descriptions — the live ones promise "your phone rings first", which the Clinket number can no longer do)</span></td></tr>
+<tr><td>C+2 cards</td><td><code>voiceAssistant.form.hoursMode.*</code> <span class="pill navy">existing ×5</span></td><td class="say">Any missed call · After hours only · Assistant answers every call · Summarize only · the assistant never speaks — <span style="opacity:.7">labels unchanged; the live descriptions stay for the two open modes</span></td></tr>
+<tr><td>C+2 lock 1 ‼️</td><td><code>voiceAssistant.ownNumber.modes.aiFirstLocked.pill</code> · <code>.body</code> · <code>.cta</code></td><td class="say">Not with this setup · Connecting your number lets your assistant take the calls you miss. To have it answer every call to your own number — so your phone never rings — our team sets that up with you. It's best for a phone used only for the business. · Ask us to set this up</td></tr>
+<tr><td>C+2 lock 2 ‼️</td><td><code>voiceAssistant.ownNumber.modes.summarizeLocked.pill</code> · <code>.body</code></td><td class="say">Not on your own number · Calls you answer on your own number don't pass through your assistant, so there's nothing for it to listen to or summarise. Only the calls you miss reach it.</td></tr>
+<tr><td>C+2 note</td><td><code>voiceAssistant.ownNumber.modes.clinketStillFull</code></td><td class="say">Your two modes above still apply in full to your Clinket number. Disconnect your own number to get all four back.</td></tr>
+<tr><td>C+3 / G16</td><td><code>voiceAssistant.ownNumber.askAll.title</code> · <code>.body</code> · <code>.warn</code> · <code>.warnBody</code> · <code>.weCall</code> · <code>.noTransfer</code> · <code>.cta</code> · <code>.notNow</code></td><td class="say">Have your assistant answer every call to your own number · Your phone won't ring at all — every call to {number} goes straight to your assistant, day and night. · Only for a phone that's just for the business. · Family, your bank, your kids' school — nobody can ring this number and reach you directly once it's on. · We'll call you to walk through it — it takes about ten minutes and one short code on your phone. · Your assistant can't put a caller through to this number afterwards — that would ring back to itself. Give us a second number if you want callers passed to you. · Ask us to call me · Not now</td></tr>
+<tr><td>C+4</td><td><code>voiceAssistant.ownNumber.askAll.pending.pill</code> · <code>.title</code> · <code>.body</code> · <code>.changeNumber</code> · <code>.cancel</code></td><td class="say">We'll call you · Assistant answers every call — set-up call pending · Someone from Clinket will call {number} within a business day to set this up with you. Have your phone with you. · Change the number to call · Cancel request</td></tr>
+<tr><td>C+4 admin ‼️</td><td><code>AdminAlert · VoiceOwnNumberAnswerAllRequested</code> <span class="pill navy">admin-internal, English OK (§3.6)</span></td><td class="say">Business {name} ({id}) asked for "assistant answers every call" on their own number {number}. Call them, confirm it's a business-only line, walk them through *21*, then mark it enabled.</td></tr>
+<tr><td>C+5</td><td><code>voiceAssistant.ownNumber.answersAll.enabled</code> · <code>.enabledBody</code> · <code>.setUpWithYou</code> · <code>.offNote</code></td><td class="say">Your assistant answers every call · to this number. Your phone doesn't ring. · Set up with you {date} · To go back to ringing first, or to disconnect, dial ##002# — the same one code turns everything off. We'll check it took.</td></tr>
+<tr><td>C+6 / G17</td><td><code>voiceAssistant.settings.yourNumbers</code> · <code>.yourNumbersConnected</code> · <code>.yourNumbersClinketOnly</code> · <code>.whoAnswers</code></td><td class="say">Your numbers · Own number connected · Clinket only · Who answers, and when</td></tr>
+<tr><td>existing ‼️</td><td><code>voiceAssistant.form.numberMode.ForwardExistingDesc</code> <span class="pill warn">rewrite ×5</span></td><td class="say">today: "Keep the number you already advertise. We'll set this up for you soon." → <b>drop the second sentence</b> the day this ships.</td></tr>
+</table>
+<ul class="notes" style="margin-top:14px">
+  <li><b>Not one technical word a provider can read.</b> No conditional, DID, diversion, MMI, carrier rule, timer, forwarding condition, unconditional. The codes themselves appear only as things to copy or tap, labelled by what they do.</li>
+  <li><b>Numbers are arguments, never baked in.</b> The ring delay is measured by the test call; the carrier and line type come from the lookup; the date is the server's.</li>
+  <li><b>The third "how it works" line is a capability.</b> "Decline → your voicemail" is how a provider keeps junk calls off the assistant and off the bill. It is never worded as a limitation.</li>
+</ul>
+</div></div>
+
+<!-- ═══════════════════════════════════ I ═══════════════════════════════════ -->
+<h2 class="rule" id="i">I · Rules this sheet is drawn to</h2>
+<div class="frame full"><div class="pad">
+<ul class="notes">
+  <li><b>An addition, never a choice.</b> There is no "new number or my number" fork anywhere. The Clinket number stays live; connecting adds a second way in. Both work at once, safely, because in this mode we never dial the provider back.</li>
+  <li><b>One job per screen, one expander at most.</b> Four wizard steps exist so each is trivial. Everything dense — how it works, what's not supported, disconnect — lives behind the status card's three expanders, never inside the wizard.</li>
+  <li><b>Brand green fills the chosen action only.</b> One green button per screen. Amber is a caution or a limit, blue is work in progress, red is a stop, navy is neutral. No other colour carries meaning. Icons are lucide, the app's own set — no emoji, nothing that reads as generated.</li>
+  <li><b>The status is a date, never a light.</b> "Last checked 15 Sep" with Check again — never a live "Active" pill. We cannot watch the carrier, so we say when we last looked. Skipping the test leaves it honestly at "Not checked yet".</li>
+  <li><b>Every failure names its own fix.</b> Voicemail first → shorten the ring. You answered → call me again. Nothing arrived → back to the codes. Couldn't reach → check the number. Never "something went wrong".</li>
+  <li><b>The assistant never answers the test call</b> — it couldn't be heard anyway; both ends are ours once the carrier forwards. The proof is the call arriving. "Hear it" is its own deliberate button on the status card.</li>
+  <li><b>Code 2 last, always.</b> The second button is locked until the first is done, on web and in the app, and the amber note says why in plain words.</li>
+  <li><b>Mobile is the primary surface; web hands off.</b> Web shows the codes and a QR to continue in the app. In the app, Android dials with one tap and iPhone copies-and-opens-Phone — iOS will not dial a code containing * or # from an app, so the sheet never pretends it can.</li>
+  <li><b>Touch has no hover.</b> Every hover affordance on the web has a tap or long-press twin: "What changes?" is a tappable link on web and a long-press-or-tap bottom sheet in the app. Nothing is discoverable by hover alone.</li>
+  <li><b>Responsive, not reflowed.</b> Section F is the same markup at 768 and 390 — the sidebar folds to a top bar, columns stack, the copy button wraps under the code, inputs stay 16px so iOS doesn't zoom. Tested shapes: laptop, iPad portrait, phone, and a folded phone at 280 where the code block scrolls horizontally inside its own box.</li>
+  <li><b>A locked mode is explained, never greyed.</b> "Assistant answers every call" and "Summarize only" cannot run on the provider's own number. Each card stays visible, says in one sentence why, and — where our team can provide it — offers "Ask us to set this up", which raises an admin alert and ends in a phone call from us, never in a code the provider is left to find. The two open modes still apply in full to the Clinket number, and disconnecting restores all four.</li>
+  <li><b>The door is never one-time.</b> The A1 card is the invitation; <em>Assistant settings → Your numbers</em> is the permanent address for connect, adjust and disconnect, on web and in the app.</li>
+  <li><b>The call is the proof of ownership.</b> There is no SMS code and no OTP anywhere on this sheet — a landline could never receive one, and a forwarded call can only reach this business's number if the person who controls the line put it there. The only gate before the first dial is a plain confirm (D11 / G18): "We're about to call {number}. Is this your business phone?"</li>
+  <li><b>Confidence is earned per carrier, never per country.</b> All three regions are switched on at launch (ruling 31), so a carrier we have measured gets the confident copy and its own ring-time cap; every other carrier — in any country — gets D9's "we haven't finished testing this with {carrier} yet — try anyway" and the default 10 seconds. Verizon and US Cellular (ruling 32) get their own step 3 with one code, no ring-time step, and both losses stated before the provider dials.</li>
+  <li><b>Never a dead end.</b> Landline → "ask us to set it up". Unknown carrier → a picker. Region gated → "tell me when it's ready". Offline → progress kept. Permission denied → copy instead. Every edge has a next tap.</li>
+  <li><b>Every string is a key in five languages</b>, and the two numbers on the sheet are arguments the server supplies.</li>
+</ul>
+<div class="out">
+  <b>Deliberately not on this sheet</b>
+  The admin phone call and enablement for "assistant answers every call" (<code>*21*</code>, PLAN §3.2) and the admin-assisted landline route are admin-portal flows and keep their own sheet. The admin number-assignment screen is unchanged. Whether "Last checked" and a separate join number are persisted is a schema decision the owner has not yet made (PLAN §14 ruling 11) — this sheet draws the words, not the storage. The register row for this sheet is PLAN §16.
+</div>
+</div></div>
+
+</div>
+</body>
+</html>

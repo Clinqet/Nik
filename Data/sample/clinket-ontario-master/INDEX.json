@@ -1,0 +1,494 @@
+{
+  "project": "Clinket Canada provider scrape",
+  "generatedAt": "2026-09-23T16:35:16.097373-04:00",
+  "timezone": "America/Toronto",
+  "schema": "_schema/provider.schema.json",
+  "totals": {
+    "providers": 860,
+    "cities": 12,
+    "files": 495,
+    "phones": 843,
+    "emails": 264,
+    "websites": 388
+  },
+  "cities": [
+    {
+      "city": "hamilton",
+      "providerCount": 91,
+      "fileCount": 52,
+      "contactCoverage": {
+        "phone": 88,
+        "email": 62,
+        "website": 80
+      },
+      "byArea": {
+        "Hamilton": 35,
+        "Stoney Creek": 12,
+        "Mountain": 11,
+        "Ancaster": 9,
+        "Downtown": 8,
+        "Dundas": 8,
+        "Waterdown": 8
+      },
+      "byCategory": {
+        "electrical": 12,
+        "hvac": 10,
+        "handyman": 9,
+        "plumbing": 9,
+        "landscaping": 9,
+        "auto-mechanic": 8,
+        "hair-salon": 8,
+        "house-cleaning": 6,
+        "movers": 5,
+        "appliance-repair": 4,
+        "roofing": 2,
+        "locksmith": 2,
+        "pest-control": 2,
+        "pet-care": 2,
+        "painting": 2,
+        "photographers": 1,
+        "lawyers": 1,
+        "tutors": 1
+      },
+      "path": "hamilton/"
+    },
+    {
+      "city": "burlington",
+      "providerCount": 63,
+      "fileCount": 44,
+      "contactCoverage": {
+        "phone": 61,
+        "email": 16,
+        "website": 23
+      },
+      "byArea": {
+        "general": 30,
+        "downtown": 10,
+        "tyandaga": 9,
+        "aldershot": 6,
+        "millcroft": 4,
+        "headon": 2,
+        "Headon": 1,
+        "Tyandaga": 1
+      },
+      "byCategory": {
+        "plumbing": 8,
+        "hvac": 6,
+        "electrical": 6,
+        "painting": 6,
+        "auto-mechanic": 5,
+        "roofing": 5,
+        "hair-salon": 5,
+        "landscaping": 5,
+        "handyman": 3,
+        "house-cleaning": 2,
+        "movers": 2,
+        "appliance-repair": 2,
+        "locksmith": 2,
+        "pest-control": 2,
+        "lawyers": 1,
+        "pet-care": 1,
+        "massage-therapy": 1,
+        "dental": 1
+      },
+      "path": "burlington/"
+    },
+    {
+      "city": "oakville",
+      "providerCount": 70,
+      "fileCount": 47,
+      "contactCoverage": {
+        "phone": 66,
+        "email": 28,
+        "website": 43
+      },
+      "byArea": {
+        "general": 21,
+        "brontee": 20,
+        "clearview": 9,
+        "downtown": 7,
+        "glen-abbey": 7,
+        "river-oaks": 6
+      },
+      "byCategory": {
+        "hvac": 8,
+        "landscaping": 8,
+        "plumbing": 8,
+        "electrical": 7,
+        "auto-mechanic": 6,
+        "roofing": 6,
+        "movers": 3,
+        "house-cleaning": 3,
+        "painting": 3,
+        "handyman": 3,
+        "hair-salon": 3,
+        "appliance-repair": 2,
+        "locksmith": 2,
+        "tutors": 2,
+        "accountants": 1,
+        "lawyers": 1,
+        "massage-therapy": 1,
+        "pest-control": 1,
+        "pet-care": 1,
+        "photographers": 1
+      },
+      "path": "oakville/"
+    },
+    {
+      "city": "mississauga",
+      "providerCount": 83,
+      "fileCount": 48,
+      "contactCoverage": {
+        "phone": 82,
+        "email": 20,
+        "website": 32
+      },
+      "byArea": {
+        "general": 36,
+        "port-credit": 16,
+        "streetsville": 10,
+        "erin-mills": 8,
+        "downtown": 4,
+        "meadowvale": 4,
+        "malton": 3,
+        "Erin Mills": 1,
+        "Clarkson": 1
+      },
+      "byCategory": {
+        "hvac": 9,
+        "plumbing": 8,
+        "landscaping": 8,
+        "auto-mechanic": 8,
+        "electrical": 7,
+        "painting": 7,
+        "roofing": 7,
+        "house-cleaning": 6,
+        "hair-salon": 5,
+        "handyman": 3,
+        "movers": 3,
+        "photographers": 2,
+        "appliance-repair": 2,
+        "massage-therapy": 2,
+        "accountants": 1,
+        "lawyers": 1,
+        "locksmith": 1,
+        "pet-care": 1,
+        "tutors": 1,
+        "pest-control": 1
+      },
+      "path": "mississauga/"
+    },
+    {
+      "city": "toronto",
+      "providerCount": 79,
+      "fileCount": 58,
+      "contactCoverage": {
+        "phone": 77,
+        "email": 26,
+        "website": 34
+      },
+      "byArea": {
+        "north-york": 18,
+        "scarborough": 15,
+        "general": 14,
+        "downtown": 9,
+        "etobicoke": 8,
+        "york": 7,
+        "east-york": 6,
+        "Downtown": 2
+      },
+      "byCategory": {
+        "electrical": 10,
+        "plumbing": 9,
+        "roofing": 8,
+        "auto-mechanic": 7,
+        "hvac": 7,
+        "painting": 6,
+        "hair-salon": 6,
+        "house-cleaning": 4,
+        "landscaping": 4,
+        "appliance-repair": 3,
+        "handyman": 3,
+        "pest-control": 3,
+        "photographers": 2,
+        "locksmith": 2,
+        "lawyers": 1,
+        "massage-therapy": 1,
+        "movers": 1,
+        "tutors": 1,
+        "pet-care": 1
+      },
+      "path": "toronto/"
+    },
+    {
+      "city": "brampton",
+      "providerCount": 88,
+      "fileCount": 49,
+      "contactCoverage": {
+        "phone": 87,
+        "email": 12,
+        "website": 26
+      },
+      "byArea": {
+        "general": 29,
+        "bramalea": 26,
+        "downtown": 16,
+        "springdale": 7,
+        "gore": 5,
+        "heart-lake": 3,
+        "Heart Lake": 1,
+        "Springdale": 1
+      },
+      "byCategory": {
+        "plumbing": 14,
+        "hvac": 12,
+        "electrical": 10,
+        "painting": 9,
+        "hair-salon": 8,
+        "auto-mechanic": 7,
+        "roofing": 7,
+        "house-cleaning": 6,
+        "landscaping": 3,
+        "appliance-repair": 3,
+        "handyman": 3,
+        "locksmith": 2,
+        "movers": 2,
+        "tutors": 2,
+        "dental": 1,
+        "accountants": 1,
+        "lawyers": 1,
+        "pest-control": 1,
+        "photographers": 1
+      },
+      "path": "brampton/"
+    },
+    {
+      "city": "vaughan",
+      "providerCount": 100,
+      "fileCount": 46,
+      "contactCoverage": {
+        "phone": 99,
+        "email": 29,
+        "website": 54
+      },
+      "byArea": {
+        "general": 32,
+        "woodbridge": 22,
+        "concord": 21,
+        "maple": 14,
+        "thornhill": 6,
+        "Woodbridge": 3,
+        "kleinburg": 2
+      },
+      "byCategory": {
+        "plumbing": 13,
+        "electrical": 12,
+        "auto-mechanic": 11,
+        "hvac": 11,
+        "roofing": 9,
+        "hair-salon": 9,
+        "house-cleaning": 5,
+        "landscaping": 5,
+        "painting": 5,
+        "appliance-repair": 4,
+        "handyman": 4,
+        "movers": 3,
+        "photographers": 2,
+        "locksmith": 1,
+        "pest-control": 1,
+        "pet-care": 1,
+        "tutors": 1,
+        "dental": 1,
+        "lawyers": 1,
+        "massage-therapy": 1
+      },
+      "path": "vaughan/"
+    },
+    {
+      "city": "markham",
+      "providerCount": 87,
+      "fileCount": 42,
+      "contactCoverage": {
+        "phone": 84,
+        "email": 29,
+        "website": 35
+      },
+      "byArea": {
+        "general": 29,
+        "unionville": 27,
+        "markham-village": 17,
+        "cornell": 7,
+        "milliken": 4,
+        "buttonville": 3
+      },
+      "byCategory": {
+        "electrical": 12,
+        "plumbing": 11,
+        "hvac": 10,
+        "auto-mechanic": 9,
+        "roofing": 8,
+        "hair-salon": 7,
+        "landscaping": 4,
+        "appliance-repair": 4,
+        "handyman": 4,
+        "house-cleaning": 4,
+        "painting": 4,
+        "movers": 2,
+        "accountants": 1,
+        "lawyers": 1,
+        "locksmith": 1,
+        "massage-therapy": 1,
+        "pest-control": 1,
+        "pet-care": 1,
+        "tutors": 1,
+        "photographers": 1
+      },
+      "path": "markham/"
+    },
+    {
+      "city": "cambridge",
+      "providerCount": 74,
+      "fileCount": 40,
+      "contactCoverage": {
+        "phone": 74,
+        "email": 16,
+        "website": 32
+      },
+      "byArea": {
+        "general": 33,
+        "galt": 19,
+        "hespeler": 8,
+        "downtown": 7,
+        "preston": 6,
+        "Galt": 1
+      },
+      "byCategory": {
+        "hvac": 7,
+        "electrical": 7,
+        "plumbing": 7,
+        "hair-salon": 6,
+        "auto-mechanic": 6,
+        "roofing": 6,
+        "appliance-repair": 5,
+        "landscaping": 5,
+        "painting": 5,
+        "handyman": 3,
+        "house-cleaning": 3,
+        "movers": 3,
+        "locksmith": 2,
+        "massage-therapy": 2,
+        "accountants": 2,
+        "pest-control": 2,
+        "dental": 1,
+        "lawyers": 1,
+        "photographers": 1
+      },
+      "path": "cambridge/"
+    },
+    {
+      "city": "richmond-hill",
+      "providerCount": 49,
+      "fileCount": 24,
+      "contactCoverage": {
+        "phone": 49,
+        "email": 8,
+        "website": 13
+      },
+      "byArea": {
+        "downtown": 21,
+        "general": 11,
+        "bayview": 9,
+        "oak-ridges": 5,
+        "mill-pond": 3
+      },
+      "byCategory": {
+        "plumbing": 8,
+        "hvac": 6,
+        "landscaping": 6,
+        "electrical": 5,
+        "roofing": 5,
+        "auto-mechanic": 5,
+        "hair-salon": 5,
+        "house-cleaning": 2,
+        "locksmith": 2,
+        "pest-control": 1,
+        "appliance-repair": 1,
+        "painting": 1,
+        "handyman": 1,
+        "movers": 1
+      },
+      "path": "richmond-hill/"
+    },
+    {
+      "city": "pickering",
+      "providerCount": 35,
+      "fileCount": 21,
+      "contactCoverage": {
+        "phone": 35,
+        "email": 10,
+        "website": 8
+      },
+      "byArea": {
+        "bay-ridges": 18,
+        "general": 10,
+        "rosebank": 6,
+        "amberlea": 1
+      },
+      "byCategory": {
+        "electrical": 6,
+        "plumbing": 6,
+        "hvac": 5,
+        "auto-mechanic": 4,
+        "hair-salon": 3,
+        "roofing": 3,
+        "appliance-repair": 1,
+        "house-cleaning": 1,
+        "landscaping": 1,
+        "locksmith": 1,
+        "movers": 1,
+        "painting": 1,
+        "pest-control": 1,
+        "handyman": 1
+      },
+      "path": "pickering/"
+    },
+    {
+      "city": "ajax",
+      "providerCount": 41,
+      "fileCount": 24,
+      "contactCoverage": {
+        "phone": 41,
+        "email": 8,
+        "website": 8
+      },
+      "byArea": {
+        "downtown": 18,
+        "general": 10,
+        "meadow-ridge": 7,
+        "pickering-village": 6
+      },
+      "byCategory": {
+        "hvac": 7,
+        "plumbing": 7,
+        "electrical": 6,
+        "hair-salon": 5,
+        "auto-mechanic": 4,
+        "roofing": 4,
+        "appliance-repair": 1,
+        "handyman": 1,
+        "house-cleaning": 1,
+        "landscaping": 1,
+        "locksmith": 1,
+        "movers": 1,
+        "painting": 1,
+        "pest-control": 1
+      },
+      "path": "ajax/"
+    }
+  ],
+  "notes": [
+    "Public web sources only; contacts never invented.",
+    "Wave 2: +RH/Pickering/Ajax, category expand (movers/locksmith/etc.), email deepen pass 1.",
+    "Kijiji/Facebook Marketplace largely skipped due to login/CAPTCHA walls."
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "contentHash": "3E6783F6F7B5E8D7048FFDFF2D42365387B8E2923D50B289D30E61947D5511ED",
+  "pipelineFingerprint": "0ab241d36357432abfa381b72d9628a8:605e5c5cedbd4f1397642f2aad131c79:6796ddb61486459f9666ec5d4053cadc:cap=1",
+  "docName": "pdf_duration_grid_crosstab.pdf",
+  "pageCount": 1,
+  "docTitle": "Massage and Facial Treatment Menu",
+  "docSummary": "A spa menu covering Swedish, Deep tissue, Hot stone, and Prenatal massages with 30, 60, and 90 minute options, plus Hydrating, Anti-aging, and Acne care facials in Express, Classic, and Luxury categories.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Massage menu",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Massage",
+            "30 min",
+            "60 min",
+            "90 min"
+          ],
+          [
+            "Swedish",
+            "$60",
+            "$90",
+            "$120"
+          ],
+          [
+            "Deep tissue",
+            "$70",
+            "$100",
+            "$135"
+          ],
+          [
+            "Hot stone",
+            "$75",
+            "$110",
+            "$150"
+          ],
+          [
+            "Prenatal",
+            "$65",
+            "$95",
+            "$130"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Facials by skin type",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            "Express",
+            "Classic",
+            "Luxury"
+          ],
+          [
+            "Hydrating",
+            "$45",
+            "$80",
+            "$120"
+          ],
+          [
+            "Anti-aging",
+            "$55",
+            "$95",
+            "$140"
+          ],
+          [
+            "Acne care",
+            "$50",
+            "$85",
+            "$125"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": []
+}

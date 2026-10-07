@@ -1,0 +1,153 @@
+{
+  "contentHash": "41562EC1E1C16F3F055DE2957BDCA3D9D7592D99C0BF640897E8D82F51AFA05F",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "pptx_two_textbox_columns.pptx",
+  "pageCount": 3,
+  "docTitle": "Glow Salon Service Menu",
+  "docSummary": "A salon menu covering hair services and prices, nail services with prices and appointment times, and waxing services with prices.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Slide 1",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Glow Salon — Hair",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Haircut",
+            "$25"
+          ],
+          [
+            "Beard trim",
+            "$15"
+          ],
+          [
+            "Kids cut",
+            "$18"
+          ],
+          [
+            "Full head colour",
+            "$80"
+          ],
+          [
+            "Root touch up",
+            "$55"
+          ],
+          [
+            "Highlights",
+            "$120"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Slide 2",
+      "listItems": [],
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Nails",
+      "listItems": [],
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Service",
+            "Price",
+            "Time"
+          ],
+          [
+            "Manicure",
+            "$30",
+            "30 min"
+          ],
+          [
+            "Pedicure",
+            "$45",
+            "45 min"
+          ],
+          [
+            "Gel manicure",
+            "$55",
+            "60 min"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 2,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Slide 3",
+      "listItems": [],
+      "pageNumber": 3,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Waxing",
+      "listItems": [],
+      "pageNumber": 3,
+      "imageIndex": -1
+    },
+    {
+      "kind": "List",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [
+        "Upper lip – $8",
+        "Eyebrows – $10",
+        "Full legs – $45",
+        "Underarms – $15",
+        "Brazilian – $60"
+      ],
+      "pageNumber": 3,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [],
+  "unpairedPriceLines": 0
+}

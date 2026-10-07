@@ -1,0 +1,80 @@
+info: Clinqet.Infrastructure.Services.Communication.ServiceBusService[0]
+      ServiceBusService initialized successfully with queues: booking-emails-dev, quote-emails-dev, booking-timeout-check-dev, notifications-dev, booking-reminders-dev, provider-confirmation-requests-dev, booking-cancellations-dev, login-attempts-dev, user-activities-dev, email-notifications-dev, analytics-events-dev, customer-identity-sync-dev
+  -> queued 6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264398534120330
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Localization directory set to: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources/Localization
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\en.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: en
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\hi.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: hi
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\gu.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: gu
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\fr.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: fr
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Checking for localization file at: C:\Users\nik.adhaduk\AppData\Local\Temp\claude\c--Nik\26123506-1095-41f2-9452-7232ff843860\scratchpad\proof\live\bin\Debug\net10.0\Resources\Localization\es.json
+info: Clinqet.Infrastructure.Services.Language.LocalizationService[0]
+      Loaded 3514 localization strings for language: es
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      CategoryCacheService initialized - Caching: True, Duration: 24 hours, Key: GlobalCategories
+info: Clinqet.Infrastructure.Services.Search.AzureAIFoundryEmbeddingService[0]
+      EmbeddingService initialized: Model=text-embedding-3-large, MaxBatch=2048, MaxTokensPerRequest=40000, MaxLength=30000, CacheEntries=5000 (~59 MB)
+pass 1 [6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264398534120330]: continuation 0, pictures 0, attempt 1, fresh False, readings so far 0, AI spent 0
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Processing knowledge ingest for doc 55af3e34aeb546fdb2279ca720af18d5, business 6TCWOI, DeliveryCount=1, MessageId=6TCWOI:55af3e34aeb546fdb2279ca720af18d5:Full:639264398534120330
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5 reused its content artefact: no extraction, no describe call, 199 caption(s), 114 image pointer(s) reused.
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/text-embedding-3-large/embeddings?*
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.ClientHandler[101]
+      Received HTTP response headers after 1022.2582ms - 200
+info: System.Net.Http.HttpClient.AzureAIFoundryEmbedding.LogicalHandler[101]
+      End processing HTTP request after 1036.6009ms - 200
+info: Clinqet.Communications.Functions.KnowledgeIngestProcessorFunction[0]
+      Knowledge doc 55af3e34aeb546fdb2279ca720af18d5 indexed: 361 cards, 46 pages, business 6TCWOI.
+  pass 1 took 31s; row Ready progress  /
+ingest finished in 31s after 1 pass(es)
+PICTURE DESCRIPTIONS: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 (reasoning 0) tokens, 0s in calls, $0.0000
+PICTURE TEXT READER: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 tokens, 0s, $0.0000
+PICTURE TEXT VERIFIER: 0 call(s), 0 failed, prompt 0 (cached 0), completion 0 tokens, 0s, $0.0000
+PICTURE TEXT DOCUMENT INTELLIGENCE: 0 call(s), 0 page(s)
+info: Clinqet.Infrastructure.Data.COSMOS.SelectedCategoryRepository[0]
+      Getting selected categories for business 6TCWOI
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cache miss, fetching from database
+info: Clinqet.Infrastructure.Data.COSMOS.CategoryRepository[0]
+      Getting global categories
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cache miss, fetching from database
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cached successfully - Count: 340, Expiration: 24 hours
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryCacheService[0]
+      Global categories cached successfully - Count: 340, Expiration: 24 hours
+info: Clinqet.Infrastructure.Data.COSMOS.CategoryRepository[0]
+      Getting custom categories for business 6TCWOI
+info: Clinqet.Infrastructure.Services.CategoryServices.CategoryPromptService[0]
+      Category prompt built and cached - Categories: 341, ScopeCountry: (none), ScopeCity: (none), CacheKey: CategoryPrompt_456D452B83C01667
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[100]
+      Start processing HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[100]
+      Sending HTTP request POST https://clinket-ai-foundry-nonprod-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-6-luna/chat/completions?*
+info: System.Net.Http.HttpClient.IAICompletionService.ClientHandler[101]
+      Received HTTP response headers after 5393.5676ms - 200
+info: System.Net.Http.HttpClient.IAICompletionService.LogicalHandler[101]
+      End processing HTTP request after 5394.0998ms - 200
+info: Clinqet.Infrastructure.Services.AI.AICompletionService[0]
+      AI chat usage G1-draft-offering-judge on gpt-6-luna (Bulk): prompt 1720 (cached 1717), completion 766 (reasoning 609), finish stop, estCostUsd 0.000400
+info: Clinqet.Communications.Services.KnowledgeServiceDraftAnalyticsJob[0]
+      Clinket AI Data Analytics finished for doc 55af3e34aeb546fdb2279ca720af18d5 (business 6TCWOI) on attempt 1 in 10s.
+analytics job ran
+ROW {"docId":"55af3e34aeb546fdb2279ca720af18d5","docName":"MG Windsor EV - Brochure.pdf","status":"Ready","pageCount":46,"passageCount":361,"failureReasonKey":null,"readingNotices":[{"key":"Info_KnowledgeValueUnconfirmed","args":null}],"images":114,"drafts":{"runAt":"2026-10-01T08:24:57.3551528Z","outcome":"Ran","candidateCount":5,"draftCount":0,"alreadyInCatalogCount":0,"notFullyScanned":false,"judgeRemovedCount":5,"failureReasonKey":null}}

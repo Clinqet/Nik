@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim your profile</title>
+<style>
+:root{
+  /* LIVE provider-web tokens — no new values */
+  --ink:#032858; --body:#171717; --muted:#5F5F5F; --line:#E7E7E7; --page:#F5F5F5; --paper:#FFFFFF;
+  --green:#97EF29; --green-hover:#85D61F; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0E7A3A;
+  --amber:#9A5B00; --amber-soft:#FFF7E6; --amber-line:#FFB020;
+  --red:#FF3B30; --red-soft:#FFECEC; --info:#E4EEFB; --info-ink:#14477E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#EEF0F3;color:var(--body);font:14px/1.5 "Lufga","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+header.sheet{background:var(--ink);color:#fff;padding:24px 32px}
+header.sheet h1{margin:0 0 6px;font-size:22px;font-weight:600}
+header.sheet p{margin:0;opacity:.85;font-size:13px;max-width:1000px}
+main.sheetmain{padding:0 32px 64px;max-width:1600px}
+h2.sec{color:var(--ink);font-size:17px;font-weight:600;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+h2.sec .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+.lead{color:var(--muted);font-size:13px;max-width:1000px;margin:6px 0 0}
+.row{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+.dev{background:#fff;border:1px solid #D9DCE1;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(3,40,88,.08)}
+.dev .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.scroll{overflow:auto;max-width:100%}
+.lap{width:1180px}
+.tab{width:820px}
+.ph{width:375px;border-radius:30px;border:9px solid #22262B}
+/* ───────── the page itself (container queries make one markup render per device) ───────── */
+.pg{container-type:inline-size;background:var(--page);font-family:"Lufga","Segoe UI",system-ui,sans-serif}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-bottom:1px solid var(--line);padding:14px 32px}
+.top svg.brand{height:30px;width:auto;display:block}
+.top .signin{min-height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--line);background:#fff;font:600 14px "Lufga",system-ui;color:var(--body);display:inline-flex;align-items:center}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 32px 32px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:start}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--green-soft);border:1px solid var(--green-line);color:var(--green-ink);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:#2DB34A;box-shadow:0 0 0 4px rgba(45,179,74,.15)}
+h1.h{font-size:40px;line-height:1.12;font-weight:600;margin:14px 0 10px;color:var(--ink);letter-spacing:-.4px}
+p.sub{font-size:16px;color:var(--muted);margin:0 0 20px;max-width:52ch}
+.wait{display:flex;gap:10px;align-items:center;background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:14px;padding:12px 14px;color:var(--amber);font-size:14px;margin-bottom:18px}
+.wait b{font-weight:600}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{min-height:48px;border-radius:12px;padding:0 22px;font:600 15px "Lufga",system-ui;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;cursor:pointer}
+.btn.g{background:var(--green);color:var(--body)}
+.btn.o{background:#fff;border-color:var(--line);color:var(--body)}
+.btn.full{width:100%}
+.hint{font-size:12.5px;color:var(--muted);margin-top:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.prev .cover{height:96px;background:linear-gradient(135deg,#DDE7F3,#EEF5E3)}
+.prev .bd{padding:0 18px 18px}
+.logo{width:64px;height:64px;border-radius:16px;background:#fff;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.08);margin-top:-32px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ink);font-size:22px}
+.prev h3{margin:10px 0 2px;font-size:18px;font-weight:600}
+.prev .meta{font-size:13px;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:#FAFBFC}
+.svcrow{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #F1F2F4;padding:9px 0;font-size:13.5px}
+.svcrow .p{color:var(--ink);font-weight:600;white-space:nowrap}
+.svcrow .por{color:var(--muted);white-space:nowrap}
+.seen{font-size:11.5px;color:var(--muted);text-align:center;margin-top:8px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.ben{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.ben .ic{width:40px;height:40px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.ben h4{margin:0 0 4px;font-size:15px;font-weight:600}
+.ben p{margin:0;font-size:13px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.step .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.quiet{margin-top:34px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap}
+.quiet a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.foot{background:#fff;border-top:1px solid var(--line);padding:18px 32px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot nav{display:flex;gap:14px;flex-wrap:wrap}
+.foot a{color:var(--muted);text-decoration:none}
+.code{display:flex;gap:8px;margin:10px 0}
+.code span{flex:1;height:52px;max-width:52px;border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:600}
+.box{border-radius:12px;padding:11px 13px;font-size:13.5px;margin:10px 0}
+.box.ok{background:var(--green-soft);border:1px solid var(--green-line);color:var(--green-ink)}
+.box.err{background:var(--red-soft);border:1px solid var(--red);color:var(--red)}
+.box.warn{background:var(--amber-soft);border:1px solid var(--amber-line);color:var(--amber)}
+.box.info{background:var(--info);border:1px solid #C7DBF6;color:var(--info-ink)}
+.sheetbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;max-width:440px}
+.radio{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:8px;font-size:14px}
+.radio.on{border-color:var(--green);background:var(--green-soft)}
+.radio i{flex:0 0 18px;height:18px;border-radius:50%;border:2px solid #B9BEC6;margin-top:2px}
+.radio.on i{border:6px solid var(--ink)}
+.sk{background:linear-gradient(90deg,#E9ECF0,#F4F5F7,#E9ECF0);border-radius:10px}
+/* iPad */
+@container (max-width: 900px){
+  .wrap{padding:28px 24px}
+  .hero{grid-template-columns:1fr 1fr;gap:22px}
+  h1.h{font-size:32px}
+  .benefits{grid-template-columns:repeat(3,1fr);gap:12px}
+}
+/* phone */
+@container (max-width: 560px){
+  .top{padding:12px 16px}.top svg.brand{height:24px}
+  .wrap{padding:20px 16px 16px}
+  .hero{grid-template-columns:1fr;gap:18px}
+  h1.h{font-size:26px}
+  p.sub{font-size:15px}
+  .cta .btn{width:100%}
+  .benefits,.steps{grid-template-columns:1fr;gap:10px}
+  .foot{padding:16px;flex-direction:column}
+}
+@media (max-width:700px){main.sheetmain{padding:0 16px 48px}header.sheet{padding:20px 16px}}
+table.copy{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:12.5px;margin-top:12px}
+table.copy th,table.copy td{padding:8px 10px;border-bottom:1px solid #F1F2F4;text-align:left;vertical-align:top}
+table.copy th{background:#FAFBFC;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+code{font-size:12px;background:#F1F3F6;padding:1px 5px;border-radius:5px}
+</style>
+</head>
+<body>
+<header class="sheet">
+  <h1>Claim your profile — the page a provider opens from our email</h1>
+  <p>Governs PLAN.md §6. Opened from "Claim your profile" or "Stop them" in the email footer of a business the provider has not taken over. It is the conversion moment: personal, true, one clear action (get a sign-in code), the product shown honestly, and stopping the emails still easy but secondary. Provider web route, no sign-in needed, not indexed by search engines. Every value shown comes from the server for THIS business — nothing is invented. Live tokens, real logo. Frames: laptop 1180 · iPad 820 · phone 375.</p>
+</header>
+<main class="sheetmain">
+
+<template id="page">
+  <div class="pg">
+    <div class="top"><svg role="img" aria-label="Clinket Business" class="brand" width="395" height="123" viewBox="207 350 395 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M539.248 431.801C523.593 431.801 512 420.418 512 405.373C512 390.328 523.593 378.945 538.95 378.945C554.407 378.945 566 390.328 566 405.472C566 406.858 565.901 408.342 565.703 409.629H523.89C525.574 416.954 531.519 421.804 539.446 421.804C545.292 421.804 550.345 419.23 552.921 415.37H565.207C561.145 425.169 551.237 431.801 539.248 431.801ZM538.95 388.942C531.618 388.942 525.772 393.495 523.989 400.523H554.11C552.426 393.594 546.481 388.942 538.95 388.942Z" fill="#032858"/>
+<path d="M467 431.801V359.997H478.085V404.276L500.155 380.94H514.208L492.534 403.578L515 431.801H500.748L484.814 411.756L478.085 418.836V431.801H467Z" fill="#032858"/>
+<path d="M410 431.801V378.945H421.159V386.742C425.244 381.679 431.122 378.945 438.295 378.945C450.351 378.945 458.421 387.046 458.421 399.298V416.106C458.421 419.042 460.114 420.865 463.004 420.865H464V431.801H460.812C451.945 431.801 447.262 427.244 447.262 418.637V403.044C447.262 395.146 442.28 389.881 434.609 389.881C426.539 389.881 421.159 395.247 421.159 403.247V431.801H410Z" fill="#032858"/>
+<path d="M399.951 373.084C396.035 373.084 393 370.009 393 366.042C393 361.975 396.035 359 399.951 359C403.965 359 407 361.975 407 366.042C407 370.009 403.965 373.084 399.951 373.084ZM394.469 431.801V378.945H405.434V431.801H394.469Z" fill="#032858"/>
+<path d="M586.034 377.945H596V390.915H586.034V414.915C586.034 418.656 588.301 420.881 591.946 420.881H595V431.801H590.369C580.32 431.801 575 426.745 575 417.442V390.915H569V377.945H575V364.562L586.034 359V377.945Z" fill="#032858"/>
+<path d="M385.369 431.801C375.32 431.801 370 426.745 370 417.443L370 364.056L381.034 359V414.915C381.034 418.656 383.3 420.881 386.946 420.881H390V431.801H385.369Z" fill="#032858"/>
+<path d="M341.197 432C325.656 432 314 420.617 314 405.572C314 390.527 325.656 379.145 341.197 379.145C354.447 379.145 364.908 387.459 367 399.337H355.145C353.352 393.695 347.872 389.835 341.197 389.835C332.231 389.835 325.457 396.664 325.457 405.572C325.457 414.481 332.231 421.31 341.197 421.31C347.872 421.31 353.352 417.45 355.145 411.808H367C364.908 423.686 354.447 432 341.197 432Z" fill="#032858"/>
+<path d="M282.221 434C274.062 434 266.822 432.327 260.499 428.982C254.176 425.536 249.178 420.924 245.507 415.146C242.132 409 240.132 402.5 240 395.076C240 387.575 241.836 380.936 245.507 375.158C249.178 369.279 254.176 364.616 260.499 361.17C266.822 357.723 274.062 356 282.221 356H294L286.895 368.985L283.139 375.918C279.161 375.918 275.745 376.78 272.89 378.503C270.034 380.125 267.79 382.405 266.159 385.345C264.629 388.183 263.864 391.427 263.864 395.076C263.864 398.725 264.629 402.019 266.159 404.959C267.79 407.797 270.034 410.078 272.89 411.801C275.745 413.423 279.161 414.234 283.139 414.234H294V434H282.221Z" fill="#97EF29"/>
+<path d="M224.779 376C232.938 376 240.178 377.673 246.501 381.018C252.824 384.464 257.822 389.076 261.493 394.854C265.164 400.733 267 407.423 267 414.924C267 422.425 265.164 429.064 261.493 434.842C257.822 440.721 252.824 445.384 246.501 448.83C240.178 452.277 232.938 454 224.779 454H213L220.105 441.015L223.861 434.082C227.839 434.082 231.255 433.22 234.11 431.497C236.966 429.875 239.21 427.595 240.841 424.655C242.371 421.817 243.136 418.573 243.136 414.924C243.136 411.275 242.371 407.981 240.841 405.041C239.21 402.203 236.966 399.922 234.11 398.199C231.255 396.577 227.839 395.766 223.861 395.766H213V376H224.779Z" fill="#97EF29"/>
+<path d="M588.967 467C584.683 467 581.862 464.775 581.862 461.539H585.832C585.832 462.854 587.121 463.73 589.002 463.73C590.743 463.73 591.892 462.955 591.892 461.876C591.892 458.775 582.141 460.494 582.141 454.393C582.141 451.056 584.892 449 588.827 449C592.867 449 595.584 451.124 595.584 454.225H591.614C591.614 453.045 590.464 452.236 588.793 452.236C587.156 452.236 586.076 452.944 586.076 453.989C586.076 456.989 595.862 455.337 595.862 461.472C595.862 464.809 593.111 467 588.967 467Z" fill="#032858"/>
+<path d="M572.967 467C568.683 467 565.862 464.775 565.862 461.539H569.832C569.832 462.854 571.121 463.73 573.002 463.73C574.743 463.73 575.892 462.955 575.892 461.876C575.892 458.775 566.141 460.494 566.141 454.393C566.141 451.056 568.892 449 572.827 449C576.867 449 579.584 451.124 579.584 454.225H575.614C575.614 453.045 574.464 452.236 572.793 452.236C571.156 452.236 570.076 452.944 570.076 453.989C570.076 456.989 579.862 455.337 579.862 461.472C579.862 464.809 577.111 467 572.967 467Z" fill="#032858"/>
+<path d="M554.945 467C549.727 467 545.862 463.124 545.862 458C545.862 452.876 549.727 449 554.846 449C559.998 449 563.862 452.876 563.862 458.034C563.862 458.506 563.829 459.011 563.763 459.449H549.826C550.387 461.944 552.369 463.596 555.011 463.596C556.96 463.596 558.644 462.719 559.503 461.404H563.598C562.244 464.742 558.941 467 554.945 467ZM554.846 452.404C552.402 452.404 550.453 453.955 549.859 456.348H559.899C559.338 453.989 557.356 452.404 554.846 452.404Z" fill="#032858"/>
+<path d="M524.862 467V449.414H528.789V451.655C530.226 449.931 532.294 449 534.818 449C539.06 449 541.899 451.759 541.899 455.931V461.655C541.899 462.655 542.495 463.276 543.512 463.276H543.862V467H542.741C539.621 467 537.973 465.448 537.973 462.517V457.207C537.973 454.517 536.22 452.724 533.521 452.724C530.681 452.724 528.789 454.552 528.789 457.276V467H524.862Z" fill="#032858"/>
+<path d="M518.414 446.828C517.054 446.828 516 445.774 516 444.414C516 443.02 517.054 442 518.414 442C519.808 442 520.862 443.02 520.862 444.414C520.862 445.774 519.808 446.828 518.414 446.828ZM516.51 466.956V449.616H520.318V466.956H516.51Z" fill="#032858"/>
+<path d="M507.104 467C502.821 467 500 464.775 500 461.539H503.97C503.97 462.854 505.259 463.73 507.139 463.73C508.881 463.73 510.03 462.955 510.03 461.876C510.03 458.775 500.279 460.494 500.279 454.393C500.279 451.056 503.03 449 506.965 449C511.005 449 513.721 451.124 513.721 454.225H509.751C509.751 453.045 508.602 452.236 506.93 452.236C505.294 452.236 504.214 452.944 504.214 453.989C504.214 456.989 514 455.337 514 461.472C514 464.809 511.249 467 507.104 467Z" fill="#032858"/>
+<path d="M486.66 467C482.664 467 480 464.31 480 460.207V449H483.825V459.069C483.825 461.586 485.431 463.276 487.89 463.276C490.486 463.276 492.228 461.552 492.228 459V449H496.053V461.241C496.053 462.241 496.668 462.862 497.658 462.862H498V466.586H496.873C494.584 466.586 493.116 465.69 492.535 464.034C491.203 465.966 489.188 467 486.66 467Z" fill="#032858"/>
+<path d="M459 466.59V442H462.919V451.665C464.424 449.855 466.593 448.762 469.217 448.762C474.221 448.762 478 452.69 478 457.881C478 463.072 474.221 467 469.217 467C466.593 467 464.424 465.907 462.919 464.097V466.59H459ZM468.448 463.311C471.597 463.311 473.941 460.955 473.941 457.881C473.941 454.807 471.597 452.451 468.448 452.451C465.298 452.451 462.919 454.807 462.919 457.881C462.919 460.955 465.298 463.311 468.448 463.311Z" fill="#032858"/>
+</svg><a class="signin">Sign in</a></div>
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Your business is live on Clinket</span>
+          <h1 class="h">Joe's Plumbing is already on Clinket</h1>
+          <p class="sub">Customers in Hamilton can find your services today. Claim your free profile to reply to them, add your prices and take bookings.</p>
+          <div class="wait"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><b>2 customers are waiting</b> for your reply.</span></div>
+          <div class="cta">
+            <a class="btn g">Send me a sign-in code</a>
+            <a class="btn o">See my public page</a>
+          </div>
+          <p class="hint">We'll email a 6-digit code to i•••@joesplumbing.com — the address this message came to. No password needed.</p>
+        </div>
+        <div>
+          <div class="card prev">
+            <div class="cover"></div>
+            <div class="bd">
+              <div class="logo">J</div>
+              <h3>Joe's Plumbing</h3>
+              <div class="meta">Plumbing · Hamilton, ON</div>
+              <div class="chips"><span class="chip">6 services</span><span class="chip">Mon–Sat</span><span class="chip">Serves 25 km</span></div>
+              <div class="svcrow"><span>Drain cleaning</span><span class="p">$120</span></div>
+              <div class="svcrow"><span>Water heater install</span><span class="por">Price on request</span></div>
+              <div class="svcrow"><span>Leak repair</span><span class="p">From $90</span></div>
+            </div>
+          </div>
+          <div class="seen">This is how customers see you today.</div>
+        </div>
+      </div>
+
+      <div class="benefits">
+        <div class="ben"><div class="ic">🔎</div><h4>Get found nearby</h4><p>Show up when customers in your area search for what you do.</p></div>
+        <div class="ben"><div class="ic">💬</div><h4>Reply and take bookings</h4><p>Answer requests, send quotes and confirm bookings in one place.</p></div>
+        <div class="ben"><div class="ic">✓</div><h4>Free to start</h4><p>Claiming your profile is free. Upgrade only if you want more.</p></div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><span>Get a code by email</span></div>
+        <div class="step"><span class="n">2</span><span>Check the details we set up</span></div>
+        <div class="step"><span class="n">3</span><span>Start replying to customers</span></div>
+      </div>
+
+      <div class="quiet">Not your business, or don't want these emails? <a>Stop these emails</a></div>
+    </div>
+    <div class="foot"><span>Clinket listed Joe's Plumbing from public business information. © 2026 Clinket</span><nav><a>Help</a><a>Terms</a><a>Privacy</a><a>Do not sell or share my information</a></nav></div>
+  </div>
+</template>
+
+<h2 class="sec">1 · The page — laptop, iPad, phone <span class="n">one markup, three layouts</span></h2>
+<p class="lead">Left: who they are, the waiting customers (only when there are any), and ONE main action. Right: their real profile exactly as customers see it. Below: what Clinket does for them in three honest lines and the three steps. "Stop these emails" stays easy to find but quiet, at the end.</p>
+<div class="row"><div class="dev scroll"><div class="cap">Laptop · 1180</div><div class="lap" data-page></div></div></div>
+<div class="row">
+  <div class="dev scroll"><div class="cap">iPad · 820</div><div class="tab" data-page></div></div>
+  <div class="dev ph"><div class="cap">Phone · 375</div><div data-page></div></div>
+</div>
+
+<h2 class="sec">2 · "Send me a sign-in code" — the claim, on the page <span class="n">no extra screen</span></h2>
+<p class="lead">The code goes to the address the email was sent to, so only its reader can continue. After the right code they are signed in, the take-over happens (PLAN §4.2), and they land in their business dashboard.</p>
+<div class="row">
+  <div class="dev"><div class="cap">Code sent</div><div style="padding:20px;width:420px;max-width:100%" class="pg">
+    <h3 style="margin:0 0 4px;font-size:18px;font-weight:600">Enter your code</h3>
+    <p class="hint" style="margin:0">We emailed a 6-digit code to i•••@joesplumbing.com.</p>
+    <div class="code"><span>3</span><span>9</span><span>4</span><span></span><span></span><span></span></div>
+    <a class="btn g full">Open my business</a>
+    <p class="hint">Didn't get it? <a style="color:var(--ink);font-weight:600;text-decoration:underline">Send a new code</a></p>
+  </div></div>
+  <div class="dev"><div class="cap">States</div><div style="padding:20px;width:420px;max-width:100%" class="pg">
+    <a class="btn g full" style="opacity:.6">Sending your code…</a>
+    <div class="box err">That code isn't right. Check it and try again.</div>
+    <div class="box warn">Too many codes were requested. Please try again later or contact support. <span style="opacity:.7">(server sentence)</span></div>
+    <div class="box info">You're offline. Connect to the internet and try again.</div>
+    <div class="box ok">A new code is on its way.</div>
+  </div></div>
+</div>
+
+<h2 class="sec">3 · "Stop these emails" — a small sheet, never a one-click link</h2>
+<p class="lead">Mail scanners open links on their own, so nothing stops until a person presses the button. "This isn't my business" also stops the emails AND tells our team the contact details are wrong (one admin alert) — the scraped-data mistake gets fixed instead of repeated.</p>
+<div class="row">
+  <div class="sheetbox pg">
+    <h3 style="margin:0 0 4px;font-size:18px;font-weight:600">Stop Clinket emails for Joe's Plumbing?</h3>
+    <p class="hint" style="margin:0 0 6px">Tell us why so we get it right:</p>
+    <div class="radio on"><i></i><span>I don't want these emails</span></div>
+    <div class="radio"><i></i><span>This isn't my business</span></div>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><a class="btn g" style="flex:1">Stop emails</a><a class="btn o" style="flex:1">Keep them</a></div>
+    <p class="hint">You can still claim your profile any time.</p>
+  </div>
+  <div class="sheetbox pg">
+    <div class="box ok" style="margin-top:0">Done. You won't get these emails any more.</div>
+    <p class="hint">Changed your mind? <a style="color:var(--ink);font-weight:600;text-decoration:underline">Claim your free profile</a> — it takes a minute.</p>
+    <div class="box info">Thanks — we'll check the contact details for this business. You won't get these emails any more. <span style="opacity:.7">(after "This isn't my business")</span></div>
+  </div>
+</div>
+
+<h2 class="sec">4 · Every other state <span class="n">same header and footer on all of them</span></h2>
+<div class="row">
+  <div class="sheetbox pg"><b style="font-size:16px">Loading</b>
+    <div class="sk" style="height:22px;width:70%;margin:12px 0 8px"></div><div class="sk" style="height:14px;width:90%;margin-bottom:6px"></div><div class="sk" style="height:14px;width:60%;margin-bottom:14px"></div><div class="sk" style="height:48px;width:100%"></div></div>
+  <div class="sheetbox pg"><b style="font-size:16px">Already claimed</b>
+    <p class="hint" style="margin:6px 0 12px">You already manage Joe's Plumbing on Clinket. Sign in to see your requests.</p><a class="btn g full">Sign in</a></div>
+  <div class="sheetbox pg"><b style="font-size:16px">Emails stopped earlier</b>
+    <div class="box info">You stopped these emails. Your profile is still waiting for you.</div><a class="btn g full">Send me a sign-in code</a><p class="hint"><a style="color:var(--ink);font-weight:600;text-decoration:underline">Turn emails back on</a></p></div>
+  <div class="sheetbox pg"><b style="font-size:16px">Link expired or broken</b>
+    <p class="hint" style="margin:6px 0 12px">This link has expired. Sign in to Clinket or contact support.</p><a class="btn g full">Sign in</a><a class="btn o full" style="margin-top:8px">Contact support</a></div>
+  <div class="sheetbox pg"><b style="font-size:16px">Business no longer listed</b>
+    <p class="hint" style="margin:6px 0 12px">This business isn't on Clinket any more.</p><a class="btn o full">Go to Clinket Business</a></div>
+  <div class="sheetbox pg"><b style="font-size:16px">Couldn't load · offline</b>
+    <div class="box err">We couldn't load this page. Try again.</div><div class="box info">You're offline. Connect to the internet and try again.</div><a class="btn o full">Try again</a></div>
+</div>
+
+<h2 class="sec">5 · Where every value and word comes from</h2>
+<table class="copy">
+<tr><th>On the page</th><th>Source</th></tr>
+<tr><td>Business name, city, category, logo/cover, services (3 shown, price or "Price on request"), days open, service radius</td><td>Server, for the business the signed link names — the same values customers see on the public page. Nothing about any customer</td></tr>
+<tr><td>"2 customers are waiting for your reply"</td><td>Server count of open leads + booking requests + unread customer messages for this business; the line is hidden at 0. Never names a customer</td></tr>
+<tr><td>Masked address (i•••@joesplumbing.com)</td><td>Server — the account email the email was sent to</td></tr>
+<tr><td>Headline, sub-line, benefits, steps, buttons, states, footer</td><td>Provider web app keys, all 5 languages (en, es, fr, gu, hi); "Free to start" must stay true to the live plan catalogue (Free plan exists)</td></tr>
+<tr><td>Code limit / wrong code</td><td>Existing localized server sentences</td></tr>
+<tr><td>"See my public page"</td><td>The business's existing public page link (friendly name)</td></tr>
+</table>
+<p class="lead" style="margin-top:12px">Not shown on purpose: any customer detail, the phone number, plan prices, anything the server cannot prove for this business. The page is <code>noindex</code>; the link is signed and expires; every call it makes is rate-limited like other code requests.</p>
+</main>
+<script>
+const tpl=document.getElementById('page').innerHTML;
+document.querySelectorAll('[data-page]').forEach(el=>{el.innerHTML=tpl;});
+</script>
+</body>
+</html>

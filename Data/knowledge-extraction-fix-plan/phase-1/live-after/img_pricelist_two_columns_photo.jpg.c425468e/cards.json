@@ -1,0 +1,66 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_c425468ec8c34f0890587e62f0136e72_0",
+    "docName": "img_pricelist_two_columns_photo.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "GLOW SALON",
+    "content": "- Haircut $25\n- Beard trim $15\n- Kids cut $18\n- Full head colour $80\n- Root touch up $55\n- Highlights $120\n- Keratin treatment $250\n- Blow dry $30\n- Updo $65\n- Deep conditioning $40",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_c425468ec8c34f0890587e62f0136e72_1",
+    "docName": "img_pricelist_two_columns_photo.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "GLOW SALON",
+    "content": "A price list headed “GLOW SALON” showing: Haircut $25; Beard trim $15; Kids cut $18; Full head colour $80; Root touch up $55; Highlights $120; Keratin treatment $250; Blow dry $30; Updo $65; Deep conditioning $40.",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "c425468ec8c34f0890587e62f0136e72:e3e8c23d814b659d"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_c425468ec8c34f0890587e62f0136e72_2",
+    "docName": "img_pricelist_two_columns_photo.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "GLOW SALON",
+    "content": "# GLOW SALON | | | |---|---| | Haircut | $25 | | Beard trim | $15 | | Kids cut | $18 | | Full head colour | $80 | | Root touch up | $55 | | Highlights | $120 | | Keratin treatment | $250 | | Blow dry | $30 | | Updo | $65 | | Deep conditioning | $40 |",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_c425468ec8c34f0890587e62f0136e72_3",
+    "docName": "img_pricelist_two_columns_photo.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Glow Salon Price List — overview\nA Glow Salon price list covering haircuts, beard trims, kids cuts, full head colour, root touch ups, highlights, keratin treatments, blow dries, updos, and deep conditioning.\nSections: GLOW SALON (10)",
+    "docTitle": "Glow Salon Price List",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

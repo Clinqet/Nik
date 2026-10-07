@@ -1,0 +1,52 @@
+{
+  "businessId": "SX3SG2",
+  "docId": "e20a44eb9cce470abf36e0f05b3b0d89",
+  "docName": "img_pricelist_lowercase_inline.jpg",
+  "docTitle": "Nail Bar Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 48905,
+  "pageCount": 1,
+  "passageCount": 4,
+  "contentHash": "88AA6D4C9EFFC24A9CEB627B721DAA8B6D1568901562F046B504F1576424223F",
+  "blobPath": "SX3SG2/e20a44eb9cce470abf36e0f05b3b0d89/img_pricelist_lowercase_inline.jpg",
+  "sourceKind": "File",
+  "receptionistAccess": "AnswersAndSends",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-11T22:51:59.4504841Z",
+    "outcome": "Ran",
+    "candidateCount": 6,
+    "draftCount": 0,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false
+  },
+  "images": [
+    {
+      "imageId": "88aa6d4c9effc24a",
+      "page": 1,
+      "anchorPath": "nail bar",
+      "blobPath": "SX3SG2/_images/e20a44eb9cce470abf36e0f05b3b0d89/88aa6d4c9effc24a.jpg",
+      "thumbPath": "SX3SG2/_images/e20a44eb9cce470abf36e0f05b3b0d89/88aa6d4c9effc24a.jpg.thumb.webp",
+      "contentHash": "88aa6d4c9effc24a9ceb627b721daa8b6d1568901562f046b504f1576424223f",
+      "kind": "TextSnapshot",
+      "caption": "A nail bar service price list reading “nail bar,” “classic manicure $30,” “gel manicure $45,” “spa pedicure $45,” “acrylic full set $65,” “nail art per nail $3,” and “polish change $15.”",
+      "sendable": false,
+      "width": 1419,
+      "height": 765,
+      "bytes": 48905,
+      "source": "Upload",
+      "status": "ThumbReady"
+    }
+  ],
+  "id": "e20a44eb9cce470abf36e0f05b3b0d89",
+  "type": "KnowledgeDocument",
+  "_etag": "\"09004f85-0000-0200-0000-6aa4860f0000\"",
+  "createdAt": "2026-09-10T20:33:39.1689585Z",
+  "updatedAt": "2026-09-11T22:51:59.5115285Z",
+  "_rid": "789SAKsUF+S4BAAAAAAAAA==",
+  "_self": "dbs/789SAA==/colls/789SAKsUF+Q=/docs/789SAKsUF+S4BAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1789167119
+}

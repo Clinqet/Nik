@@ -1,0 +1,21 @@
+cards=5
+--- SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_0 [Table] section='શ્રી બ્યુટી પાર્લર' page=1 img= scripts=["Gujr","Latn"] chars=145 title='શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ' type='Document'
+    સેવા: વાળ કાપવા | કિંમત: ₹250
+    સેવા: ફેશિયલ | કિંમત: ₹800
+    સેવા: મસાજ | કિંમત: ₹500
+    સેવા: બ્રાઇડલ મેકઅપ | કિંમત: ₹5,000
+    સેવા: થ્રેડિંગ | કિંમત: ₹50
+--- SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_1 [ImageCaption] section='શ્રી બ્યુટી પાર્લર' page=1 img=6fcd9c32ee6e4c8397c7babc7121a462:d81727f429f17040 scripts=["Gujr","Latn"] chars=118 title='શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ' type='Document'
+    ગુજરાતી દરપત્રક: “શ્રી બ્યુટી પાર્લર” — વાળ કાપવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50.
+--- SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_2 [DocSummary] section='' page= img= scripts=["Gujr","Latn"] chars=276 title='શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ' type='Document'
+    શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ — overview
+    શ્રી બ્યુટી પાર્લરની સેવા કિંમત સૂચિ, જેમાં વાળ કાપવા, ફેશિયલ, મસાજ, બ્રાઇડલ મેકઅપ અને થ્રેડિંગની કિંમતો સામેલ છે.
+    5 records
+    સેવા: વાળ કાપવા (1), ફેશિયલ (1), મસાજ (1), બ્રાઇડલ મેકઅપ (1), થ્રેડિંગ (1)
+    કિંમત: ₹50 to ₹5,000 (typical)
+--- SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_3 [DocAggregate] section='સેવા' page= img= scripts=["Gujr","Latn"] chars=139 title='શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ' type='Document'
+    શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ — overview — સેવા
+    5 records — સેવા: વાળ કાપવા (1), ફેશિયલ (1), મસાજ (1), બ્રાઇડલ મેકઅપ (1), થ્રેડિંગ (1)
+--- SX3SG2_6fcd9c32ee6e4c8397c7babc7121a462_4 [DocAggregate] section='કિંમત' page= img= scripts=["Gujr","Latn"] chars=96 title='શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ' type='Document'
+    શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ — overview — કિંમત
+    5 records — કિંમત: ₹50 to ₹5,000 (typical)

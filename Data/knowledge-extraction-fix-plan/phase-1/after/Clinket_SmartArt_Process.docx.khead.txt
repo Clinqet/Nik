@@ -1,0 +1,29 @@
+# Clinket_SmartArt_Process.docx
+blocks=3 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Paragraph    p1
+      How a booking works
+[  1] List         p1
+      - Book online
+      - we confirm within 2 hours
+      - Review
+      - Technician arrives
+      - Review
+[  2] Paragraph    p1
+      Prices exclude VAT.
+
+## INVENTORY
+
+
+## CARDS (3)  warnings=0
+--- card 0 [Text] section='' page= tokens~5 img=-1
+    How a booking works
+--- card 1 [Text] section='' page= tokens~20 img=-1
+    - Book online
+    - we confirm within 2 hours
+    - Review
+    - Technician arrives
+    - Review
+--- card 2 [Text] section='' page= tokens~5 img=-1
+    Prices exclude VAT.

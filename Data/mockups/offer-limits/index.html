@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offer limits — how many uses, how much discount — provider web + phone, customer web + phone</title>
+<style>
+  :root{
+    /* ‼️ These are the LIVE app tokens, read from clinqetwebpartnerapp/tailwind.config.js — not new values.
+       The sheet must teach the real palette, or it teaches the wrong design. */
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-sel:#DFFABD; --green-ink:#0e7a3a;
+    --amber:#F5A623; --amber-ink:#9A5B00; --amber-soft:#FFF7E8; --amber-line:#F1D9A7;
+    --blue:#2F80ED; --info:#E4EEFB; --info-line:#C7DBF6; --info-ink:#14477E;
+    --red:#B3261E; --red-soft:#FCECEA; --red-line:#F2C4C0;
+    --paper:#FFFFFF; --card:#F5F5F5; --inset:#F7F8FA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header.sheet p{margin:0;opacity:.82;font-size:13px;max-width:900px}
+  main{padding:0 32px 64px}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+  h3.sub{color:var(--ink);font-size:14px;margin:20px 0 8px}
+
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .frame .bd{padding:14px}
+  .web{width:440px;max-width:100%}
+  .web.wide{width:680px}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B;max-width:100%}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+  .card + .card{margin-top:12px}
+  .card .t{font-size:14px;font-weight:600;color:var(--body)}
+  .card .h{font-size:12px;color:var(--muted);margin-top:3px}
+  .card.on{background:var(--paper)}
+
+  label.fld{display:block;font-size:12px;font-weight:600;color:var(--ink);margin:0 0 5px}
+  .inp{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper);font-size:14px;color:var(--body)}
+  .inp.money{padding-left:26px}
+  .inpwrap{position:relative}
+  .inpwrap .cur{position:absolute;left:11px;top:10px;color:var(--muted);font-size:14px}
+  .hint{font-size:11px;color:var(--muted);margin-top:5px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:520px){ .two{grid-template-columns:1fr} }
+
+  /* — the modernised limit control: a switch makes "no limit" EXPLICIT instead of implied by an empty box — */
+  .lim{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:border-color .15s}
+  .lim + .lim{margin-top:10px}
+  .lim.on{border-color:#CFE3FA;box-shadow:0 0 0 3px rgba(47,128,237,.07)}
+  .lim .hd{display:flex;align-items:flex-start;gap:12px}
+  .lim .hd .tx{flex:1;min-width:0}
+  .lim .hd .tt{font-size:14px;font-weight:600;color:var(--body)}
+  .lim .hd .hh{font-size:12px;color:var(--muted);margin-top:2px}
+  .sw{width:44px;height:26px;border-radius:999px;background:#D3D6DA;position:relative;flex:none;margin-top:2px;transition:background .15s}
+  .sw i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.28);transition:left .15s}
+  .sw.on{background:var(--green)} .sw.on i{left:21px}
+  /* The control sits in a soft inset, not under a dashed rule — and it is sized to the NUMBER, not the card. */
+  .lim .body{margin-top:11px;background:var(--inset);border-radius:10px;padding:9px 11px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .lim .body .unit{font-size:13px;color:var(--muted)}
+  .stepper{display:inline-flex;align-items:stretch;background:var(--paper);border:1px solid var(--line);border-radius:9px;overflow:hidden;flex:none}
+  .stepper .b{width:34px;color:var(--ink);font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;background:var(--paper)}
+  .stepper .b + .v{border-left:1px solid var(--line)}
+  .stepper .v + .b{border-left:1px solid var(--line)}
+  .stepper .v{min-width:46px;padding:0 6px;text-align:center;font-size:15px;font-weight:600;color:var(--body);display:flex;align-items:center;justify-content:center;height:36px}
+  .moneybox{position:relative;flex:none}
+  .moneybox .cur{position:absolute;left:10px;top:9px;color:var(--muted);font-size:14px;font-weight:600}
+  .moneybox input{width:108px;height:36px;border:1px solid var(--line);border-radius:9px;padding:0 10px 0 24px;font-size:15px;font-weight:600;color:var(--body);background:var(--paper)}
+  .preview{display:flex;align-items:flex-start;gap:8px;margin-top:14px;background:var(--info);border:1px solid var(--info-line);border-radius:12px;padding:10px 13px;font-size:12px;line-height:17px;color:var(--info-ink)}
+  .preview .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex:none;margin-top:5px}
+
+  .meter{margin-top:10px}
+  .meter .lbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+  .meter .lbl .k{color:var(--muted)} .meter .lbl .v{color:var(--body);font-weight:600}
+  .bar{height:7px;border-radius:999px;background:#E9EBEE;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:999px;background:var(--green)}
+  .bar.warn i{background:var(--amber)}
+  .bar.full i{background:var(--amber)}
+
+  .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600}
+  .pill.live{background:var(--green-soft);color:#3D6B00;border:1px solid var(--green-line)}
+  .pill.stop{background:var(--amber-soft);color:var(--amber-ink);border:1px solid var(--amber-line)}
+  .pill.off{background:#EFEFEF;color:var(--muted);border:1px solid var(--line)}
+
+  .panel{margin-top:12px;border-radius:12px;padding:11px 14px;font-size:12px;line-height:16px}
+  .panel.amber{background:var(--amber-soft);border:1px solid var(--amber-line);color:var(--amber-ink)}
+  .panel.amber b{color:var(--amber-ink);font-size:13px;display:block;margin-bottom:5px}
+  .panel.grey{background:#F7F8FA;border:1px solid var(--line);color:var(--muted)}
+
+  .btn{display:inline-block;border-radius:12px;padding:10px 15px;font-size:14px;font-weight:600;border:1px solid transparent;white-space:nowrap}
+  .btn.go{background:var(--green);color:#0a0a0a}
+  .btn.out{background:var(--paper);border-color:var(--line);color:var(--body)}
+  .btn.dis{background:#E7E7E7;color:var(--muted)}
+  .btn.sm{padding:7px 12px;font-size:13px}
+
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  .rule{background:var(--green-soft);border:1px solid var(--green-line);border-left:4px solid var(--green);padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  .rule b{color:#2F5300}
+
+  table.words{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  table.words th,table.words td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.words th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px;color:#333}
+  .tiny{font-size:11px;color:var(--muted);margin-top:6px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink);font-size:14px}
+  .sheetp{background:var(--paper);border-top-left-radius:20px;border-top-right-radius:20px;padding:14px 16px 18px;border-top:1px solid var(--line)}
+  .grab{width:44px;height:4px;border-radius:2px;background:#D9D9D9;margin:0 auto 12px}
+  .act{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);font-size:14px}
+  .act:last-child{border-bottom:0}
+  .act .ic{width:26px;height:26px;border-radius:8px;background:#EEF3FA;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+  .skel{background:linear-gradient(90deg,#EEF0F3 25%,#F7F8FA 37%,#EEF0F3 63%);border-radius:5px;height:11px}
+  .err{color:#B42318;font-size:12px;margin-top:8px}
+  .cust{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--paper)}
+  .cust .nm{font-weight:600;font-size:14px;color:var(--body)}
+  .cust .pr{font-size:15px;font-weight:700;color:var(--ink);margin-top:4px}
+  .tag{display:inline-block;background:var(--green-soft);border:1px solid var(--green-line);color:#3D6B00;border-radius:8px;padding:2px 8px;font-size:11px;font-weight:600;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header class="sheet">
+  <h1>Offer limits — how many uses, how much discount</h1>
+  <p>Provider web + phone, and what the customer sees. A provider can cap an offer two ways: by <b>number of uses</b> and by <b>total discount given</b>. Either one reaching its limit stops the offer everywhere — marketplace, provider page and the phone assistant — automatically. Raising a limit starts it again. Drawn for approval; nothing is built.</p>
+</header>
+
+<main>
+
+<div class="rule">
+  <b>The one rule that decides everything on this sheet.</b> An offer is shown when it is <b>under every limit that is set</b>. A limit left blank means “no limit”. Nothing is ever deleted or switched off by the platform — the provider’s own on/off switch stays theirs.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>1 · Setting the limits <span class="n">provider · offer form · web 440 px column</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Create / edit offer — Limits — default, both off</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="t">Limits</div>
+        <div class="h">Optional. With both off, this offer runs until its end date.</div>
+
+        <div style="margin-top:12px">
+          <div class="lim">
+            <div class="hd">
+              <div class="tx">
+                <div class="tt">Stop after a number of uses</div>
+                <div class="hh">No limit — any number of customers can claim it.</div>
+              </div>
+              <span class="sw"><i></i></span>
+            </div>
+          </div>
+          <div class="lim">
+            <div class="hd">
+              <div class="tx">
+                <div class="tt">Stop after a total discount</div>
+                <div class="hh">No limit — you have not capped what you give away.</div>
+              </div>
+              <span class="sw"><i></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview"><span class="dot"></span><span>This offer will keep running until <b>30 September</b>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Both on — a stepper for uses, a money box for discount</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="t">Limits</div>
+        <div class="h">Optional. With both off, this offer runs until its end date.</div>
+
+        <div style="margin-top:12px">
+          <div class="lim on">
+            <div class="hd">
+              <div class="tx">
+                <div class="tt">Stop after a number of uses</div>
+                <div class="hh">How many customers can claim it.</div>
+              </div>
+              <span class="sw on"><i></i></span>
+            </div>
+            <div class="body">
+              <div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span>
+            </div>
+          </div>
+          <div class="lim on">
+            <div class="hd">
+              <div class="tx">
+                <div class="tt">Stop after a total discount</div>
+                <div class="hh">The total you are willing to give away.</div>
+              </div>
+              <span class="sw on"><i></i></span>
+            </div>
+            <div class="body">
+              <div class="moneybox"><span class="cur">$</span><input value="500"></div><span class="unit">total discount</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview"><span class="dot"></span><span>Stops at <b>50 uses</b> or <b>$500 given</b> — whichever comes first — or on <b>30 September</b>.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">One on, one off — the mixed case reads cleanly</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="t">Limits</div>
+        <div style="margin-top:12px">
+          <div class="lim on">
+            <div class="hd">
+              <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">How many customers can claim it.</div></div>
+              <span class="sw on"><i></i></span>
+            </div>
+            <div class="body"><div class="stepper"><span class="b">−</span><span class="v">20</span><span class="b">+</span></div><span class="unit">uses</span></div>
+          </div>
+          <div class="lim">
+            <div class="hd">
+              <div class="tx"><div class="tt">Stop after a total discount</div><div class="hh">No limit — you have not capped what you give away.</div></div>
+              <span class="sw"><i></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="preview"><span class="dot"></span><span>Stops at <b>20 uses</b> — or on <b>30 September</b>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">‼️ Number rules — whole uses, decimal money</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="lim on">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">Whole numbers only — you cannot serve half a customer.</div></div>
+            <span class="sw on"><i></i></span>
+          </div>
+          <div class="body">
+            <div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span>
+            <div class="hint">Minimum 1. No decimal point, and the keypad on a phone shows digits only.</div>
+          </div>
+        </div>
+        <div class="lim on">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a total discount</div><div class="hh">Money — decimals allowed, to the currency's own precision.</div></div>
+            <span class="sw on"><i></i></span>
+          </div>
+          <div class="body">
+            <div class="moneybox"><span class="cur">$</span><input value="500.50"></div><span class="unit">total discount</span>
+            <div class="hint">Two decimal places for $ / € / £ / ₹ / C$. Zero for a currency that has no minor unit. The decimal keypad opens on a phone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Turning a limit off while it is already running</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="t">Limits</div>
+        <div style="margin-top:12px">
+          <div class="lim on">
+            <div class="hd">
+              <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">12 customers have already claimed it.</div></div>
+              <span class="sw on"><i></i></span>
+            </div>
+            <div class="body"><div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span></div>
+          </div>
+        </div>
+        <div class="panel grey" style="margin-top:12px">Turning this off lets the offer keep running with no cap. The 12 uses so far are kept, so turning it back on picks up where it left off.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Wording rule.</b> No provider ever reads “redemption”, “cap”, “budget”, “counter” or “limit reached at the predicate”. The words on screen are <b>uses</b>, <b>discount</b>, <b>stop</b>, <b>start again</b>. The section is titled <b>Limits</b>, never “Constraints” or “Caps”.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>2 · The offer card, every state <span class="n">provider · offer list · web</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">A · Running, no limits set</div>
+    <div class="bd">
+      <div class="card on">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill live">Running</span>
+        </div>
+        <div class="panel grey" style="margin-top:10px">No limits set — 18 uses so far.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">B · Running, with limits — the normal case</div>
+    <div class="bd">
+      <div class="card on">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill live">Running</span>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div>
+          <div class="bar"><i style="width:24%"></i></div>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Discount given</span><span class="v">$180 of $500</span></div>
+          <div class="bar"><i style="width:36%"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">C · Close to a limit — a quiet heads-up at 80%, not an alarm</div>
+    <div class="bd">
+      <div class="card on">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill live">Running</span>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Uses</span><span class="v">42 of 50</span></div>
+          <div class="bar warn"><i style="width:84%"></i></div>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Discount given</span><span class="v">$180 of $500</span></div>
+          <div class="bar"><i style="width:36%"></i></div>
+        </div>
+        <div class="panel grey" style="margin-top:10px">8 uses left. Raise the limit any time to keep it running.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">D · Stopped — the use limit was reached</div>
+    <div class="bd">
+      <div class="card on" style="border-color:var(--amber-line)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill stop">Stopped</span>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Uses</span><span class="v">50 of 50</span></div>
+          <div class="bar full"><i style="width:100%"></i></div>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Discount given</span><span class="v">$420 of $500</span></div>
+          <div class="bar"><i style="width:84%"></i></div>
+        </div>
+        <div class="panel amber">
+          <b>This offer has stopped — it reached 50 uses.</b>
+          Customers can no longer see it. Raise the limit to start it again.
+        </div>
+        <div style="margin-top:10px"><a class="btn go sm">Raise the limit</a> <a class="btn out sm">Leave it stopped</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">E · Stopped — the discount limit was reached, and it went slightly over</div>
+    <div class="bd">
+      <div class="card on" style="border-color:var(--amber-line)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill stop">Stopped</span>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Uses</span><span class="v">37 of 50</span></div>
+          <div class="bar"><i style="width:74%"></i></div>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Discount given</span><span class="v">$509 of $500</span></div>
+          <div class="bar full"><i style="width:100%"></i></div>
+        </div>
+        <div class="panel amber">
+          <b>This offer has stopped — it reached your $500 discount limit.</b>
+          The last booking took it $9 over, because we never change a discount a customer was already shown.
+        </div>
+        <div style="margin-top:10px"><a class="btn go sm">Raise the limit</a> <a class="btn out sm">Leave it stopped</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">F · Loading · G · Could not load · H · No permission</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="skel" style="width:60%;height:14px"></div>
+        <div class="skel" style="width:40%;margin-top:8px"></div>
+        <div class="skel" style="width:100%;margin-top:14px;height:7px"></div>
+        <div class="skel" style="width:100%;margin-top:12px;height:7px"></div>
+      </div>
+      <div class="card on">
+        <div class="t">Summer Special — 20% off</div>
+        <div class="err">We could not load this offer’s usage just now. <a href="#" style="color:var(--blue)">Try again</a></div>
+      </div>
+      <div class="card on">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+          <div><div class="t">Summer Special — 20% off</div><div class="h">Ends 30 September</div></div>
+          <span class="pill live">Running</span>
+        </div>
+        <div class="meter">
+          <div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div>
+          <div class="bar"><i style="width:24%"></i></div>
+        </div>
+        <div class="panel grey" style="margin-top:10px">Only an owner or manager can change an offer’s limits.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>Why the numbers are shown but not editable.</b> “12 of 50” and “$180 of $500” are counted by the platform, so they are read-only — a provider can never type over them. <b>The limits themselves always stay editable</b>, including while the offer is stopped: that is the whole point, they raise one and it starts again.
+</div>
+
+<div class="note">
+  <b>Why it can go over.</b> If $499 of a $500 limit is used and the next booking’s discount is $10, that booking still gets its full $10 — we never shrink a discount a customer has already been shown, and we never leave an offer “running” that rejects everyone. The offer then stops at $509, and the card says so plainly. <b>Owner-approved, 2026-09-22.</b>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>3 · Responsive — the same page at three widths <span class="n">web · this is where we have gone wrong before</span></h2>
+
+<div class="row">
+  <div class="frame web wide">
+    <div class="cap">Laptop ≥ 1024 px — the switch rows run full width; controls stay left-aligned and compact</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="lim on">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">How many customers can claim it.</div></div>
+            <span class="sw on"><i></i></span>
+          </div>
+          <div class="body"><div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span></div>
+        </div>
+        <div class="meter"><div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div><div class="bar"><i style="width:24%"></i></div></div>
+        <div class="meter"><div class="lbl"><span class="k">Discount given</span><span class="v">$180 of $500</span></div><div class="bar"><i style="width:36%"></i></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame" style="width:360px">
+    <div class="cap">iPad ~768 px — identical structure, larger tap targets</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="lim on">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">How many customers can claim it.</div></div>
+            <span class="sw on"><i></i></span>
+          </div>
+          <div class="body"><div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span></div>
+        </div>
+        <div class="meter"><div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div><div class="bar"><i style="width:24%"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame" style="width:280px">
+    <div class="cap">Phone browser ≤ 520 px — the switch row never wraps; nothing truncates</div>
+    <div class="bd">
+      <div class="card on">
+        <div class="lim on">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a number of uses</div><div class="hh">How many customers can claim it.</div></div>
+            <span class="sw on"><i></i></span>
+          </div>
+          <div class="body"><div class="stepper"><span class="b">−</span><span class="v">50</span><span class="b">+</span></div><span class="unit">uses</span></div>
+        </div>
+        <div class="lim">
+          <div class="hd">
+            <div class="tx"><div class="tt">Stop after a total discount</div><div class="hh">No limit.</div></div>
+            <span class="sw"><i></i></span>
+          </div>
+        </div>
+        <div class="meter"><div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div><div class="bar"><i style="width:24%"></i></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Number rules, binding.</b> <b>Uses is a whole number</b> — integer only, minimum 1, no decimal point, and the phone keypad is digits-only. A provider cannot serve half a customer, and a fractional cap has no meaning.
+  <b>Discount is money</b> — decimals allowed to that currency's own precision (two places for $ / € / £ / ₹ / C$, zero for a currency with no minor unit), the decimal keypad opens on a phone, and it is rounded and stored by the one shared money rule, never by a second one on the screen.
+  Both reject zero and negatives: a limit of 0 would mean "nobody may claim this", which is what turning the switch <i>off</i> is for.
+</div>
+
+<div class="rule">
+  <b>Responsive rules, binding.</b> The limit rows are <b>always one per line</b> at every width — they are never placed side by side, because two switches on one line is where a provider mis-taps · the title and hint wrap; the switch never moves off the right edge and never wraps below · the stepper and money box stay left-aligned and grow to full width only below 520 px · the two meters are always full width · numbers never truncate or ellipsis — the card grows · every tap target is at least 44 px · the money symbol sits inside the field, never as a separate label · no horizontal scrolling at any width.
+</div>
+
+<div class="note">
+  <b>Why a switch and not an empty box.</b> The first draft used a text field with “No limit” as placeholder text. That is ambiguous in exactly the wrong direction — an empty box can read as <i>zero</i>, i.e. “nobody may claim this”, which is the opposite of what it means. A switch says <b>off = no limit</b> in words, and only then asks for a number. It is also far better on a phone, where a placeholder disappears the moment the keyboard opens.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>4 · Provider phone app <span class="n">complements the phone, does not copy the web</span></h2>
+
+<div class="row">
+  <div class="frame phone">
+    <div class="topbar"><span>Offers</span><span style="color:var(--muted);font-weight:400;font-size:12px">3</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="card on">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+          <div><div class="t">Summer Special</div><div class="h">20% off · ends 30 Sep</div></div>
+          <span class="pill live">Running</span>
+        </div>
+        <div class="meter"><div class="lbl"><span class="k">Uses</span><span class="v">12 of 50</span></div><div class="bar"><i style="width:24%"></i></div></div>
+        <div class="meter"><div class="lbl"><span class="k">Discount</span><span class="v">$180 of $500</span></div><div class="bar"><i style="width:36%"></i></div></div>
+      </div>
+      <div class="card on" style="border-color:var(--amber-line)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+          <div><div class="t">First 20 Free Trims</div><div class="h">100% off · ends 15 Oct</div></div>
+          <span class="pill stop">Stopped</span>
+        </div>
+        <div class="meter"><div class="lbl"><span class="k">Uses</span><span class="v">20 of 20</span></div><div class="bar full"><i style="width:100%"></i></div></div>
+        <div class="panel amber">Reached 20 uses. Press and hold to raise the limit.</div>
+      </div>
+      <div class="tiny">Press and hold any offer for quick actions.</div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="topbar"><span>Offers</span><span style="color:var(--muted);font-weight:400;font-size:12px">3</span></div>
+    <div class="bd" style="padding:12px;background:#EDEFF2">
+      <div class="card on" style="opacity:.45">
+        <div class="t">Summer Special</div><div class="h">20% off · ends 30 Sep</div>
+      </div>
+      <div style="height:90px"></div>
+      <div class="sheetp" style="margin:0 -12px -12px">
+        <div class="grab"></div>
+        <div style="font-weight:600;color:var(--ink);margin-bottom:6px">First 20 Free Trims</div>
+        <div class="act"><span class="ic">+</span><span>Raise the use limit</span></div>
+        <div class="act"><span class="ic">$</span><span>Raise the discount limit</span></div>
+        <div class="act"><span class="ic">✎</span><span>Edit offer</span></div>
+        <div class="act"><span class="ic">⏻</span><span>Turn this offer off</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Phone-native rules.</b> <b>Press and hold</b> an offer opens the quick-actions sheet — raising a limit is two taps, not a form · the sheet is dismissed by swiping down · the meters are the same two bars as web so the two apps read identically · haptic tap on press-and-hold · the stopped card keeps its amber border so it is findable by colour while scrolling.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>5 · What the customer sees <span class="n">customer web + phone · the rule is simply “hidden”</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Running — the offer shows on the card</div>
+    <div class="bd">
+      <div class="cust">
+        <div class="nm">Emergency plumbing repair</div>
+        <div class="h" style="color:var(--muted);font-size:12px">Bright Plumbing · 2.1 km away</div>
+        <div class="pr">$80</div>
+        <span class="tag">20% off — Summer Special</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Stopped — the offer is simply not there. Nothing else changes.</div>
+    <div class="bd">
+      <div class="cust">
+        <div class="nm">Emergency plumbing repair</div>
+        <div class="h" style="color:var(--muted);font-size:12px">Bright Plumbing · 2.1 km away</div>
+        <div class="pr">$80</div>
+      </div>
+      <div class="panel grey" style="margin-top:10px">No “this offer has ended” message, no greyed-out badge, no empty space. A customer never learns an offer existed.</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Customer rule.</b> A stopped offer is <b>absent</b>, not disabled. It disappears from the search card, the service page, the provider page, the structured data we give search engines, and the phone assistant — all from the same one rule, with no extra code per surface.
+  <b>The phone assistant never says “only 3 left”</b> — we cannot be accurate to the second, and a number we cannot honour is worse than saying nothing.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>6 · Every word on this sheet <span class="n">one key per string, five languages, both apps</span></h2>
+
+<table class="words">
+  <tr><th style="width:26%">Where</th><th style="width:37%">English</th><th>Key</th></tr>
+  <tr><td>Section title</td><td>Limits</td><td><code>offer.limits.title</code></td></tr>
+  <tr><td>Section hint</td><td>Optional. With both off, this offer runs until its end date.</td><td><code>offer.limits.hint</code></td></tr>
+  <tr><td>Uses switch</td><td>Stop after a number of uses</td><td><code>offer.limits.uses.label</code></td></tr>
+  <tr><td>Uses hint, on</td><td>How many customers can claim it.</td><td><code>offer.limits.uses.hint</code></td></tr>
+  <tr><td>Uses hint, off</td><td>No limit — any number of customers can claim it.</td><td><code>offer.limits.uses.off</code></td></tr>
+  <tr><td>Discount switch</td><td>Stop after a total discount</td><td><code>offer.limits.amount.label</code></td></tr>
+  <tr><td>Discount hint, on</td><td>The total you are willing to give away.</td><td><code>offer.limits.amount.hint</code></td></tr>
+  <tr><td>Discount hint, off</td><td>No limit — you have not capped what you give away.</td><td><code>offer.limits.amount.off</code></td></tr>
+  <tr><td>Uses hint, already running</td><td>{n} customers have already claimed it.</td><td><code>offer.limits.uses.sofar</code></td></tr>
+  <tr><td>Turning a limit off</td><td>Turning this off lets the offer keep running with no cap. The {n} uses so far are kept, so turning it back on picks up where it left off.</td><td><code>offer.limits.turningoff</code></td></tr>
+  <tr><td>Uses — whole numbers</td><td>Whole numbers only — you cannot serve half a customer.</td><td><code>offer.limits.uses.whole</code></td></tr>
+  <tr><td>Discount — decimals</td><td>Money — decimals allowed, to the currency's own precision.</td><td><code>offer.limits.amount.decimals</code></td></tr>
+  <tr><td>Validation — uses</td><td>Enter a whole number of 1 or more.</td><td><code>offer.limits.uses.invalid</code></td></tr>
+  <tr><td>Validation — discount</td><td>Enter an amount greater than zero.</td><td><code>offer.limits.amount.invalid</code></td></tr>
+  <tr><td>Summary, both set</td><td>This offer stops at {uses} uses or {amount} given, whichever comes first — or on {date}.</td><td><code>offer.limits.summary.both</code></td></tr>
+  <tr><td>Summary, uses only</td><td>This offer stops at {uses} uses — or on {date}.</td><td><code>offer.limits.summary.uses</code></td></tr>
+  <tr><td>Summary, amount only</td><td>This offer stops at {amount} given — or on {date}.</td><td><code>offer.limits.summary.amount</code></td></tr>
+  <tr><td>Summary, none</td><td>This offer will keep running until {date}.</td><td><code>offer.limits.summary.none</code></td></tr>
+  <tr><td>Meter — uses</td><td>Uses</td><td><code>offer.limits.meter.uses</code></td></tr>
+  <tr><td>Meter — discount</td><td>Discount given</td><td><code>offer.limits.meter.amount</code></td></tr>
+  <tr><td>Meter value</td><td>{used} of {limit}</td><td><code>offer.limits.meter.value</code></td></tr>
+  <tr><td>No limits set</td><td>No limits set — {used} uses so far.</td><td><code>offer.limits.meter.unlimited</code></td></tr>
+  <tr><td>Pill — running</td><td>Running</td><td><code>offer.state.running</code></td></tr>
+  <tr><td>Pill — stopped</td><td>Stopped</td><td><code>offer.state.stopped</code></td></tr>
+  <tr><td>Nearly there</td><td>{n} uses left. Raise the limit any time to keep it running.</td><td><code>offer.limits.nearlimit.uses</code></td></tr>
+  <tr><td>Stopped — uses</td><td>This offer has stopped — it reached {limit} uses.</td><td><code>offer.limits.stopped.uses</code></td></tr>
+  <tr><td>Stopped — amount</td><td>This offer has stopped — it reached your {limit} discount limit.</td><td><code>offer.limits.stopped.amount</code></td></tr>
+  <tr><td>Stopped — both</td><td>This offer has stopped — it reached both of your limits.</td><td><code>offer.limits.stopped.both</code></td></tr>
+  <tr><td>Stopped — follow-on</td><td>Customers can no longer see it. Raise the limit to start it again.</td><td><code>offer.limits.stopped.more</code></td></tr>
+  <tr><td>Went over</td><td>The last booking took it {over} over, because we never change a discount a customer was already shown.</td><td><code>offer.limits.stopped.over</code></td></tr>
+  <tr><td>Action</td><td>Raise the limit</td><td><code>offer.limits.raise</code></td></tr>
+  <tr><td>Action</td><td>Leave it stopped</td><td><code>offer.limits.keepstopped</code></td></tr>
+  <tr><td>Could not load</td><td>We could not load this offer’s usage just now.</td><td><code>offer.limits.loadfailed</code></td></tr>
+  <tr><td>No permission</td><td>Only an owner or manager can change an offer’s limits.</td><td><code>offer.limits.nopermission</code></td></tr>
+  <tr><td>Phone — quick actions</td><td>Press and hold any offer for quick actions.</td><td><code>offer.list.longpress.hint</code></td></tr>
+  <tr><td>Phone — action</td><td>Raise the use limit</td><td><code>offer.limits.raise.uses</code></td></tr>
+  <tr><td>Phone — action</td><td>Raise the discount limit</td><td><code>offer.limits.raise.amount</code></td></tr>
+  <tr><td>Server refusal at checkout</td><td>This offer has just ended.</td><td><code>offer.limits.justended</code></td></tr>
+</table>
+
+<div class="note">
+  <b>Colour and type are the house set, not new ones.</b> Navy <code>#032858</code> for headings and emphasis · brand green <code>#97EF29</code> for the chosen action and a healthy meter · amber <code>#F5A623</code> for a limit reached, never red — nothing has gone wrong, the offer did its job · grey <code>#5F5F5F</code> for hints. Card radius 16 px, button radius 12 px, input radius 12 px, meter bar 7 px. Body 14 px, card title 14 px/600, hint 12 px, meter label 12 px.
+</div>
+
+<div class="note">
+  <b>What this sheet does NOT cover, and must not be assumed from it.</b> The edge cases listed on this sheet are <b>examples only</b>. The implementing session must work through every case it finds — races for the last use, a limit lowered below what is already used, a cancelled booking giving a use back, an offer deleted mid-checkout, a retried write, and anything else — and design for each one deliberately.
+</div>
+
+</main>
+</body>
+</html>

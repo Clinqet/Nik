@@ -1,0 +1,204 @@
+{
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "img_gujarati_pricelist.png",
+  "pageCount": 1,
+  "docTitle": "શ્રી અજય પાટીદારની ભાવ યાદી",
+  "docSummary": "પાન સોપારી, શરબત, મસાજ, લાઈટ સાઉન્ડ અને ફોટોની કિંમતો દર્શાવતી ભાવ યાદી.",
+  "docLanguage": "gu",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "શ્રી અજય પાટીદાર",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "પાન સોપારી",
+            "₹250"
+          ],
+          [
+            "શરબત",
+            "₹800"
+          ],
+          [
+            "મસાજ",
+            "₹500"
+          ],
+          [
+            "લાઈટ સાઉન્ડ",
+            "₹5,000"
+          ],
+          [
+            "ફોટો",
+            "₹50"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "2 414",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "1, 54 | ₹250\n$22144 | ₹ 800\nWIE 24 | ₹5,000\n3 โรงเ | ₹50\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "ક્રીમ રંગની પૃષ્ઠભૂમિ પર ગુજરાતી લખાણવાળી પાંચ-પંક્તિની ભાવસૂચિ છે; જમણી બાજુએ ₹250, ₹800, ₹500, ₹5,000 અને ₹50 દેખાય છે."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "d81727f429f17040",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "blobPath": "NKN607/_images/526c1daee4fe4ddebb9f384ad3987f0d/d81727f429f17040.png",
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "2 414"
+    }
+  ],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "606e627e-f6cb-4428-89c8-81962cca9fdd",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, Heading 1",
+          "ocrReading": "# 2 414",
+          "firstAiReading": "",
+          "passageIds": [],
+          "thirdReading": "શ્રી બ્યુટી પાર્લર",
+          "selectedReading": "# 2 414",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "no usable source reading, so the line was kept"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '1, 54'",
+          "ocrReading": "1, 54 | ₹250",
+          "firstAiReading": "",
+          "sourceServiceName": "1, 54",
+          "passageIds": [],
+          "thirdReading": "વાળ કાપવા | ₹250",
+          "selectedReading": "1, 54 | ₹250",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "no usable source reading, so the line was kept"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '$22144'",
+          "ocrReading": "$22144 | ₹ 800",
+          "firstAiReading": "",
+          "sourceServiceName": "$22144",
+          "passageIds": [],
+          "thirdReading": "ફેશિયલ | ₹800",
+          "selectedReading": "$22144 | ₹ 800",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "no usable source reading, so the line was kept"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'4211%' reads 'મંડપ'",
+          "location": "page 1, table 1, row '4211%', column 1",
+          "ocrReading": "4211%",
+          "firstAiReading": "મંડપ",
+          "sourceServiceName": "4211%",
+          "passageIds": [],
+          "thirdReading": "મસાજ",
+          "selectedReading": "મસાજ",
+          "disposition": "UncertainThirdReadingUsed",
+          "remainingUncertainty": "the source check matches neither existing reading"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row 'WIE 24'",
+          "ocrReading": "WIE 24 | ₹5,000",
+          "firstAiReading": "",
+          "sourceServiceName": "WIE 24",
+          "passageIds": [],
+          "thirdReading": "બ્રાઇડલ મેકઅપ | ₹5,000",
+          "selectedReading": "WIE 24 | ₹5,000",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "no usable source reading, so the line was kept"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '3 โรงเ'",
+          "ocrReading": "3 โรงเ | ₹50",
+          "firstAiReading": "",
+          "sourceServiceName": "3 โรงเ",
+          "passageIds": [],
+          "thirdReading": "થ્રેડિંગ | ₹50",
+          "selectedReading": "3 โรงเ | ₹50",
+          "disposition": "SourceUnitRestored",
+          "remainingUncertainty": "no usable source reading, so the line was kept"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

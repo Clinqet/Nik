@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Stoney Creek",
+    "category": "house-cleaning",
+    "scrapedAt": "2026-09-23T15:48:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "description": "Bonded and insured cleaning company serving Stoney Creek and Hamilton — residential, commercial, strata, and short-term rental cleaning.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "stoneycreekcleaners@gmail.com",
+      "businessPhone": "905-512-7254",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.stoneycreekcleaners.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "9 Bradshaw Drive",
+        "city": "Stoney Creek",
+        "area": "Stoney Creek",
+        "province": "ON",
+        "postalCode": "L8J 0K7",
+        "country": "Canada",
+        "formatted": "9 Bradshaw Drive, Stoney Creek, ON L8J 0K7"
+      },
+      "serviceAreas": [
+        "Stoney Creek",
+        "Hamilton",
+        "Ancaster",
+        "Dundas",
+        "Waterdown"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "house-cleaning",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Deep Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Residential Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Move-In / Move-Out Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.stoneycreekcleaners.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:48:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.95,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:48:00-04:00",
+      "id": "hamilton-stoney-creek-stoney-creek-cleaners",
+      "businessName": "Stoney Creek Cleaners"
+    }
+  ]
+}

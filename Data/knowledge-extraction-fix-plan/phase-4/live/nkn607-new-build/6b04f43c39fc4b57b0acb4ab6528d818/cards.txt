@@ -1,0 +1,17 @@
+cards=7
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_0 [Text] section='PRIYA SHARMA' page= img= scripts=["Latn"] chars=50 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Senior Hair Stylist 416-555-0199 priya@example.com
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_1 [Text] section='SKILLS' page= img= scripts=["Latn"] chars=49 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Balayage Keratin Bridal styling Colour correction
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_2 [Text] section='CERTIFICATIONS' page= img= scripts=["Latn"] chars=46 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Redken Colour Specialist 2021 Olaplex Pro 2022
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_3 [Text] section='PROFILE' page= img= scripts=["Latn"] chars=122 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices.
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_4 [Text] section='EXPERIENCE' page= img= scripts=["Latn"] chars=212 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000.
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_5 [Text] section='EDUCATION' page= img= scripts=["Latn"] chars=34 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Marvel Beauty School, Diploma 2012
+--- NKN607_6b04f43c39fc4b57b0acb4ab6528d818_6 [DocSummary] section='' page= img= scripts=["Latn"] chars=354 title='Priya Sharma Hair Stylist Resume' type='Document'
+    Priya Sharma Hair Stylist Resume — overview
+    Resume for senior hair stylist Priya Sharma, covering balayage, keratin, bridal styling and colour correction skills; Redken and Olaplex certifications; salon experience, profile and beauty school education.
+    Sections: SKILLS (4), EXPERIENCE (4), PRIYA SHARMA (3), CERTIFICATIONS (2), PROFILE (1), EDUCATION (1)

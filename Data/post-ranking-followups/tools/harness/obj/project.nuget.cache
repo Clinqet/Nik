@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "eIpbvZI4/9o=",
+  "success": true,
+  "projectFilePath": "c:\\Nik\\TempRepo\\Data\\post-ranking-followups\\tools\\harness\\Harness.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.8\\microsoft.extensions.configuration.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.8\\microsoft.extensions.configuration.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\10.0.8\\microsoft.extensions.configuration.fileextensions.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.configuration.json\\10.0.8\\microsoft.extensions.configuration.json.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.8\\microsoft.extensions.fileproviders.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\10.0.8\\microsoft.extensions.fileproviders.physical.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\10.0.8\\microsoft.extensions.filesystemglobbing.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.8\\microsoft.extensions.primitives.10.0.8.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\nik.adhaduk\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

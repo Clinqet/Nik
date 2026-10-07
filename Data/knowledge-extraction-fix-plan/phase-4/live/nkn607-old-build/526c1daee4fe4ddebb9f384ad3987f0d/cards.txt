@@ -1,0 +1,18 @@
+cards=4
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_0 [Table] section='શ્રી અજય પાટીદાર' page=1 img= scripts=["Gujr","Latn"] chars=73 title='શ્રી અજય પાટીદારની ભાવ યાદી' type='Document'
+    પાન સોપારી | ₹250
+    શરબત | ₹800
+    મસાજ | ₹500
+    લાઈટ સાઉન્ડ | ₹5,000
+    ફોટો | ₹50
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_1 [Text] section='2 414' page=1 img= scripts=["Latn","Gujr"] chars=56 title='શ્રી અજય પાટીદારની ભાવ યાદી' type='Document'
+    1, 54 | ₹250
+    $22144 | ₹ 800
+    WIE 24 | ₹5,000
+    3 โรงเ | ₹50
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_2 [ImageCaption] section='2 414' page=1 img=526c1daee4fe4ddebb9f384ad3987f0d:d81727f429f17040 scripts=["Gujr","Latn"] chars=121 title='શ્રી અજય પાટીદારની ભાવ યાદી' type='Document'
+    ક્રીમ રંગની પૃષ્ઠભૂમિ પર ગુજરાતી લખાણવાળી પાંચ-પંક્તિની ભાવસૂચિ છે; જમણી બાજુએ ₹250, ₹800, ₹500, ₹5,000 અને ₹50 દેખાય છે.
+--- NKN607_526c1daee4fe4ddebb9f384ad3987f0d_3 [DocSummary] section='' page= img= scripts=["Gujr","Latn"] chars=153 title='શ્રી અજય પાટીદારની ભાવ યાદી' type='Document'
+    શ્રી અજય પાટીદારની ભાવ યાદી — overview
+    પાન સોપારી, શરબત, મસાજ, લાઈટ સાઉન્ડ અને ફોટોની કિંમતો દર્શાવતી ભાવ યાદી.
+    Sections: શ્રી અજય પાટીદાર (5), 2 414 (4)

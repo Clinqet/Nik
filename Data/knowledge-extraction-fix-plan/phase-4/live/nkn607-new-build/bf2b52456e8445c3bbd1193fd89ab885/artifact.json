@@ -1,0 +1,154 @@
+{
+  "contentHash": "B8210D35CD5B9243548EEE305C94B243456203CDA713F8CB1A99F04112C444BE",
+  "pipelineFingerprint": "5081f0f3ced54220be3c9dd2df57a62a:15c02f92315c494c88a56f0c26829c3f:4f4db4de3626484eb6f8dfdca752a1f1:cap=1",
+  "docName": "pdf_headerless_price_table.pdf",
+  "pageCount": 1,
+  "docTitle": "Nails & Lashes Price List",
+  "docSummary": "Lists prices for manicure and pedicure services, acrylic nails, nail art, lash sets and fills, lash lift and tint, and brow services. Notes a deposit requirement for lash sets and a cancellation notice policy.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "NAILS & LASHES",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "",
+            ""
+          ],
+          [
+            "Classic manicure",
+            "$30"
+          ],
+          [
+            "Gel manicure",
+            "$45"
+          ],
+          [
+            "Spa pedicure",
+            "$45"
+          ],
+          [
+            "Gel pedicure",
+            "$60"
+          ],
+          [
+            "Acrylic full set",
+            "$65"
+          ],
+          [
+            "Acrylic fill",
+            "$40"
+          ],
+          [
+            "Nail art (per nail)",
+            "$3"
+          ],
+          [
+            "Polish change",
+            "$15"
+          ],
+          [
+            "Classic lash set",
+            "$120"
+          ],
+          [
+            "Volume lash set",
+            "$160"
+          ],
+          [
+            "Lash fill (2 weeks)",
+            "$70"
+          ],
+          [
+            "Lash lift",
+            "$80"
+          ],
+          [
+            "Brow lamination",
+            "$75"
+          ],
+          [
+            "Brow tint",
+            "$20"
+          ],
+          [
+            "Lash tint",
+            "$20"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Paragraph",
+      "headingLevel": 0,
+      "text": "Deposit of $20 required for lash sets. 24 hours notice for cancellations.\n",
+      "listItems": [],
+      "pageNumber": 1,
+      "isPageFurniture": false,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "unreadablePictures": 0,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionPagesFailedTransiently": 0,
+  "visionRenderFailed": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "7d4178a8-f76a-41fd-84da-8d4c5bd6cd33",
+      "discrepancies": [
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'Acrylic' reads 'Acril'",
+          "location": "page 1, table 1, row 'Acrylic full set', column 1",
+          "ocrReading": "Acrylic full set",
+          "firstAiReading": "Acril full set",
+          "sourceServiceName": "Acrylic full set",
+          "passageIds": [],
+          "selectedReading": "Acrylic full set",
+          "disposition": "SourceReadingRetained",
+          "remainingUncertainty": "the source check read a different part of the page"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'Acrylic' reads 'Acril'",
+          "location": "page 1, table 1, row 'Acrylic fill', column 1",
+          "ocrReading": "Acrylic fill",
+          "firstAiReading": "Acril fill",
+          "sourceServiceName": "Acrylic fill",
+          "passageIds": [],
+          "selectedReading": "Acrylic fill",
+          "disposition": "SourceReadingRetained",
+          "remainingUncertainty": "the source check read a different part of the page"
+        }
+      ]
+    }
+  ],
+  "unpairedPriceLines": 0
+}

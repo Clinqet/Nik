@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Mountain",
+    "category": "plumbing",
+    "scrapedAt": "2026-09-23T15:41:00-04:00",
+    "providerCount": 3,
+    "sourcesNote": "public web only"
+  },
+  "providers": [
+    {
+      "id": "hamilton-mountain-plumbway",
+      "businessName": "Plumbway",
+      "description": "Hamilton plumbing and drain cleaning specialist since 1996 serving residential, commercial, industrial and municipal customers.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 30,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "info@plumbway.com",
+      "businessPhone": "905-574-3456",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.plumbway.com/",
+        "other": []
+      },
+      "address": {
+        "street": "171 Glover Rd",
+        "postalCode": "L0R 1P0",
+        "formatted": "171 Glover Rd, Hannon, ON L0R 1P0",
+        "area": "Mountain",
+        "city": "Hamilton",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Dundas",
+        "Ancaster",
+        "Burlington",
+        "Stoney Creek",
+        "Grimsby",
+        "Milton",
+        "Oakville",
+        "Brantford"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Mountain",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Plumbing",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.plumbway.com/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    },
+    {
+      "id": "hamilton-mountain-john-the-plumber-hamilton",
+      "businessName": "John The Plumber Hamilton",
+      "description": "Licensed and insured Hamilton plumbers offering 24/7 emergency plumbing, drain cleaning, water heaters, and sump pumps since 2006. 2-year plumbing warranty.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 20,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "john@johntheplumber.ca",
+      "businessPhone": "905-645-0467",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://johntheplumber.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "38 Gledhill Cres",
+        "postalCode": "L9C 6H4",
+        "formatted": "38 Gledhill Cres, Hamilton, ON L9C 6H4",
+        "city": "Hamilton",
+        "area": "Mountain",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Ancaster",
+        "Dundas",
+        "Stoney Creek",
+        "Westdale",
+        "Hamilton Mountain"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Mountain",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": "Upfront flat-rate pricing"
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater Installation and Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Emergency Plumbing",
+          "description": "24/7",
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sump Pump Installation",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Camera Inspections",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "OPEN 24 HOURS"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://johntheplumber.ca/hamilton/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        },
+        {
+          "url": "https://johntheplumber.ca/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:34:23-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": "deepen_pass1 email from public web"
+      },
+      "scrapedAt": "2026-09-23T16:34:23-04:00"
+    },
+    {
+      "id": "hamilton-mountain-greg-s-plumbing-heating-inc",
+      "businessName": "Greg's Plumbing & Heating Inc.",
+      "description": "Licensed and insured plumbing company based in Hamilton since 2018. Same-day service for drains, leaks, sewer backups, toilets, and water heaters.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 8,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": "admin@gregsplumbing.ca",
+      "businessPhone": "905-928-6831",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://gregsplumbing.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "69 Bigwin Rd Unit 1",
+        "postalCode": "L8W 3R4",
+        "formatted": "69 Bigwin Rd Unit 1, Hamilton, ON L8W 3R4",
+        "city": "Hamilton",
+        "area": "Mountain",
+        "province": "ON",
+        "country": "Canada"
+      },
+      "serviceAreas": [
+        "Hamilton Mountain",
+        "Westdale",
+        "Durand",
+        "Corktown",
+        "Downtown",
+        "Ancaster",
+        "Dundas",
+        "Stoney Creek",
+        "Binbrook"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Mountain",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "plumbing",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Drain Cleaning",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Sewer Backup Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Leak Repair",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Water Heater Repairs",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Camera Inspections",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": "Same-day appointments when schedule allows"
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://gregsplumbing.ca/hamilton-plumbers/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T15:41:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 0.8,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T15:41:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# pdf_price_shapes_tiers_units.pdf.ef5d0c54
+blocks=6 pageCount=1 docType=Other
+cards=3 imageCards=0 warnings=0
+
+--- card 0 [Text] section='ProFix Home Services — rate card' page=1 img= chars=449
+    Service call $95/hr (minimum 1 hour)
+    After-hours call $150/hr
+    Lawn cut $45/visit
+    Porcelain tile installation $3/sq ft
+    Storage unit rental $120/month
+    Excavator rental $350/day
+    Haircut Men $20 Women $30
+    Colour $50 / $70 (short / long)
+    Highlights from $120
+    Repairs $80+
+    Consultation Free
+    Balayage $180—$260
+    Gutter cleaning US$45 per visit
+    Pressure washing 30 - 45 per hour
+    Deposit $50 on all bookings over $300
+    Total for package deal $1,250 (save $150)
+--- card 1 [Table] section='ProFix Home Services — rate card › Detailing menu' page=1 img= chars=193
+    Package: Exterior wash | Small: $25 | Medium: $30 | Large: $40
+    Package: Interior detail | Small: $80 | Medium: $100 | Large: $130
+    Package: Full detail | Small: $150 | Medium: $180 | Large: $220
+--- card 2 [Table] section='ProFix Home Services — rate card › Rupee card' page=1 img= chars=159
+    Machine: Volvo EC210 excavator | Price (INR): 1,05,00,000
+    Machine: JCB 3DX backhoe | Price (INR): 32,50,000
+    Machine: Bobcat S70 loader | Price (INR): 18,75,000

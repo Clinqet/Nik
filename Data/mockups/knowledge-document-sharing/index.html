@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — AI Knowledge: "Send details to callers" (the relevant details, by WhatsApp or email — never the whole file)</title>
+<style>
+  :root { --navy:#032858; --green:#97EF29; --green-soft:#F4FFE4; --ink:#101010; --muted:#5F5F5F; --faint:#919191; --border:#E7E7E7; --hair:#F0F0F0; --bg:#F7F7F8; --card:#fff; --field:#F5F5F5; --info-bg:#E4EEFB; --info-border:#C7DBF6; --danger:#B3261E; --danger-bg:#FCECEA; --danger-border:#F2C4C0; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Lufga','Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--ink); padding:24px 16px 90px; }
+  .wrap { max-width:1240px; margin:0 auto; }
+  h1 { font-size:22px; color:var(--navy); }
+  h1 span { color:var(--faint); font-weight:400; font-size:13.5px; display:block; margin-top:5px; line-height:1.5; max-width:980px; }
+  .section-title { margin:44px 0 6px; font-size:17px; color:var(--navy); border-top:1px solid var(--border); padding-top:22px; }
+  .section-sub { font-size:13px; color:var(--muted); margin-bottom:16px; max-width:920px; line-height:1.55; }
+  .board { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+  .frame { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+  .frame-label { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); padding:10px 14px; border-bottom:1px solid var(--hair); background:#FAFAFB; display:flex; justify-content:space-between; gap:8px; }
+  .frame-label em { font-style:normal; color:#3F7A00; }
+  .w760 { width:760px; max-width:100%; } .w560 { width:560px; max-width:100%; } .w720 { width:720px; max-width:100%; }
+  .pad { padding:16px; }
+  .pill { display:inline-flex; align-items:center; gap:4px; border-radius:999px; padding:3px 9px; font-size:11px; font-weight:600; background:#F5F5F5; color:var(--muted); border:1px solid var(--border); white-space:nowrap; }
+  .pill.ok { background:var(--green-soft); color:#3F7A00; border-color:#CBE9A6; }
+  .pill.info { background:var(--info-bg); color:var(--navy); border-color:var(--info-border); }
+  .pill.off { background:#fff; color:var(--faint); border-style:dashed; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border-radius:999px; padding:9px 16px; font-size:13px; font-weight:600; border:1px solid var(--border); background:#fff; color:var(--ink); white-space:nowrap; }
+  .btn.primary { background:var(--green); border-color:var(--green); font-weight:700; }
+  .btn.small { padding:6px 12px; font-size:12px; }
+  .btn.danger-ghost { color:var(--danger); border-color:var(--danger-border); }
+  .note { font-size:12px; color:var(--faint); line-height:1.55; }
+  .ann { background:#FFFDE7; border:1px dashed #E0D890; color:#6b5d00; border-radius:10px; padding:9px 11px; font-size:12px; line-height:1.5; margin-top:10px; }
+  .ann.good { background:#F4FFE4; border-color:#CBE9A6; color:#33610a; }
+  .ann b { display:block; margin-bottom:2px; }
+  table.rules { width:100%; border-collapse:collapse; font-size:12.5px; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  table.rules th, table.rules td { padding:9px 11px; border-bottom:1px solid var(--hair); text-align:left; vertical-align:top; }
+  table.rules th { background:#FAFAFB; color:var(--navy); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  table.rules td.yes { color:#3F7A00; font-weight:600; } table.rules td.no { color:var(--danger); font-weight:600; } table.rules td.na { color:var(--faint); }
+  table.rules tr:last-child td { border-bottom:none; }
+  code { font-family:ui-monospace,Consolas,monospace; font-size:11.5px; background:#F3F3F3; border:1px solid #E5E5E5; border-radius:5px; padding:1px 5px; }
+  .page-h { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+  .page-h h2 { font-size:18px; font-weight:500; } .page-h p { font-size:12.5px; color:var(--muted); margin-top:4px; max-width:420px; line-height:1.45; }
+  .usage { font-size:12px; color:var(--muted); text-align:right; }
+  .doc { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair); } .doc:last-child { border-bottom:none; }
+  .doc-ico { width:34px; height:34px; border-radius:9px; background:var(--green-soft); border:1px solid #DCEFC2; display:flex; align-items:center; justify-content:center; flex:none; } .doc-ico svg { width:16px; height:16px; stroke:#3F7A00; }
+  .doc-main { flex:1; min-width:0; } .doc-name { font-size:13.5px; font-weight:600; display:flex; flex-wrap:wrap; align-items:center; gap:6px; } .doc-meta { font-size:11.5px; color:var(--faint); margin-top:2px; } .doc-link { font-size:11.5px; color:var(--navy); margin-top:2px; text-decoration:underline; text-underline-offset:2px; }
+  .doc-actions { display:flex; gap:6px; flex:none; }
+  .spin { display:inline-block; width:11px; height:11px; border:2px solid #C7DBF6; border-top-color:var(--navy); border-radius:50%; }
+  .modal { background:#fff; } .modal-h { display:flex; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--hair); font-size:15px; font-weight:600; } .modal-h .x { color:var(--faint); font-weight:400; } .modal-b { padding:16px; display:flex; flex-direction:column; gap:12px; } .modal-f { display:flex; justify-content:flex-end; gap:8px; padding:12px 16px; border-top:1px solid var(--hair); background:#FAFAFB; }
+  .fs { position:relative; background:var(--field); border:1px solid var(--border); border-radius:12px; padding:18px 36px 8px 12px; min-height:48px; } .fs-lbl { position:absolute; top:6px; left:12px; font-size:10.5px; color:var(--faint); } .fs-val { font-size:13px; } .fs-cv { position:absolute; right:12px; top:50%; width:8px; height:8px; border-right:2px solid #5F5F5F; border-bottom:2px solid #5F5F5F; transform:translateY(-70%) rotate(45deg); }
+  .trow { border:1px solid #C7D7FE; background:#EEF2FF; border-radius:14px; padding:14px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; } .trow .lbl { font-size:13.5px; font-weight:500; } .trow .desc { font-size:12px; color:#3730A3; margin-top:3px; line-height:1.45; max-width:420px; }
+  .trow.off { border-color:var(--border); background:#fff; } .trow.off .desc { color:var(--muted); }
+  .sw { width:44px; height:24px; border-radius:999px; background:#D1D5DB; position:relative; flex:none; margin-top:2px; } .sw i { position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.2); } .sw.on { background:#97EF2A; } .sw.on i { left:22px; }
+  .phone { width:360px; max-width:100%; background:#fff; border:1px solid var(--border); border-radius:28px; overflow:hidden; }
+  .m-top { display:flex; align-items:center; gap:10px; padding:12px 14px; font-size:15px; font-weight:600; border-bottom:1px solid var(--hair); } .m-back { width:9px; height:9px; border-left:2px solid #333; border-bottom:2px solid #333; transform:rotate(45deg); margin-left:4px; }
+  .ecard { background:#fff; border-radius:16px; margin:14px; padding:16px; box-shadow:0 8px 30px rgba(0,0,0,.18); } .ecard h4 { font-size:15px; font-weight:600; margin-bottom:12px; }
+  .pf { background:var(--field); border:1px solid var(--border); border-radius:12px; padding:8px 12px; margin-bottom:10px; } .pf .l { font-size:10.5px; color:var(--faint); } .pf .v { font-size:13px; display:flex; justify-content:space-between; }
+  .mrow { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:12px; border:1px solid #C7D7FE; background:#EEF2FF; border-radius:12px; margin-bottom:10px; } .mrow .lbl { font-size:13px; font-weight:500; } .mrow .desc { font-size:11.5px; color:#3730A3; margin-top:2px; line-height:1.4; }
+  .msw { width:40px; height:20px; border-radius:20px; background:#A3E635; position:relative; flex:none; margin-top:2px; } .msw i { position:absolute; top:2px; left:22px; width:16px; height:16px; border-radius:8px; background:#fff; }
+  .mbtns { display:flex; gap:8px; margin-top:4px; } .mbtns .btn { flex:1; }
+  .wa { background:#E5DDD5; padding:16px; } .bubble { background:#fff; border-radius:10px; padding:10px 12px; font-size:13px; line-height:1.5; max-width:300px; box-shadow:0 1px 1px rgba(0,0,0,.1); } .bubble .docchip { display:flex; align-items:center; gap:8px; background:#F0F2F5; border-radius:8px; padding:8px 10px; margin-bottom:8px; font-size:12.5px; } .bubble .ft { font-size:11px; color:#8A8A8A; margin-top:6px; }
+  .email { background:#fff; } .email .hdr { background:#FAFAFB; padding:10px 14px; font-size:12px; color:var(--muted); border-bottom:1px solid var(--hair); } .email .hdr b { color:var(--ink); } .email .body { padding:18px; } .email .brand { color:var(--navy); font-weight:700; font-size:14px; } .email h3 { font-size:16px; color:var(--navy); margin:10px 0 8px; } .email p { font-size:13px; line-height:1.55; margin:0 0 10px; } .email .det { background:#F9F9F9; border-left:4px solid var(--green); border-radius:4px; padding:12px 14px; font-size:12.5px; line-height:1.6; margin:8px 0 12px; } .email .det h5 { font-size:12.5px; color:var(--navy); margin-bottom:4px; } .email .att { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); border-radius:10px; padding:8px 10px; font-size:12.5px; background:#FAFAFB; } .email .ft { font-size:11px; color:var(--faint); border-top:1px solid var(--hair); padding-top:10px; margin-top:12px; line-height:1.5; }
+  .pdf { background:#fff; border:1px solid var(--border); padding:18px 20px; font-size:12.5px; line-height:1.55; box-shadow:0 4px 14px rgba(0,0,0,.08); } .pdf .top { display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:10px; } .pdf .top b { color:var(--navy); font-size:15px; } .pdf h5 { font-size:13px; color:var(--navy); margin:10px 0 4px; } .pdf ul { padding-left:16px; } .pdf .ft { font-size:11px; color:var(--faint); border-top:1px solid var(--hair); margin-top:12px; padding-top:8px; }
+  .script { background:#fff; border:1px solid var(--border); border-radius:14px; padding:14px 16px; font-size:12.5px; line-height:1.6; } .script b { color:var(--navy); } .script .sys { color:var(--faint); font-style:italic; }
+  .q { margin-top:40px; background:#fff; border:2px solid var(--navy); border-radius:16px; padding:18px 20px; font-size:13px; line-height:1.6; } .q b { color:var(--navy); font-size:15px; display:block; margin-bottom:8px; } .q ol { padding-left:20px; } .q li { margin-bottom:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>AI Knowledge — "Send details to callers"
+  <span>When a caller asks for something the receptionist found in the provider's material, it can now <b>send them just those details</b> — by <b>WhatsApp or email</b>, the caller's choice — as a clean one-page "Information from {Business}" PDF (and, for email, the same details in the body). <b>Never the whole file.</b> No AI-written text. One platform setting switches the whole feature on; one switch per document (on by default) lets the provider keep internal material out. SMS never. This page is the approval gate. Nothing is built.</span>
+</h1>
+
+<!-- 1 -->
+<div class="section-title">1 · The one provider control — in the document editor, ON by default</div>
+<p class="section-sub">A single switch row in the existing Document-details editor (web) / Edit-details card (mobile). No new screen, no checkboxes. It saves on tap, like Pause/Private on the AI Voice Assistant page.</p>
+<div class="board">
+  <div class="frame w560">
+    <div class="frame-label"><span>WEB · Document details</span><em>switch ON (default)</em></div>
+    <div class="modal">
+      <div class="modal-h">Document details <span class="x">✕</span></div>
+      <div class="modal-b">
+        <div class="fs"><span class="fs-lbl">Type</span><span class="fs-val">Inventory</span><i class="fs-cv"></i></div>
+        <div class="fs"><span class="fs-lbl">Link to one offering</span><span class="fs-val">Not linked</span><i class="fs-cv"></i></div>
+        <div class="trow">
+          <div><div class="lbl">Send details to callers</div><div class="desc">When a caller asks, your receptionist can send them the relevant details from this document by WhatsApp or email — never the whole file. Turn this off for internal material.</div></div>
+          <div class="sw on"><i></i></div>
+        </div>
+      </div>
+      <div class="modal-f"><span class="btn">Cancel</span><span class="btn primary">Save</span></div>
+    </div>
+    <div class="pad" style="padding-top:0"><div class="ann good"><b>One row, one sentence.</b> Off ⇒ the same row with the knob grey and the same sentence. Saving ⇒ the knob spins; failure ⇒ the standard "Couldn't update that — try again" toast and the knob goes back. Nothing else on the page changes.</div></div>
+  </div>
+
+  <div class="phone">
+    <div class="frame-label"><span>MOBILE · Edit details</span><em>same row, same words</em></div>
+    <div style="background:#EAEAEA;padding:18px 0">
+      <div class="ecard">
+        <h4>Document details</h4>
+        <div class="pf"><div class="l">Document type</div><div class="v"><span>Inventory</span><span style="color:#9A9A9A">›</span></div></div>
+        <div class="pf"><div class="l">Link to offering</div><div class="v"><span>Not linked</span><span style="color:#9A9A9A">›</span></div></div>
+        <div class="mrow"><div><div class="lbl">Send details to callers</div><div class="desc">When a caller asks, your receptionist can send them the relevant details from this document by WhatsApp or email — never the whole file. Turn this off for internal material.</div></div><div class="msw"><i></i></div></div>
+        <div class="mbtns"><span class="btn">Cancel</span><span class="btn primary">Save details</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="section-title">2 · The list stays clean — a pill only when a document is switched OFF</div>
+<div class="board">
+  <div class="frame w760">
+    <div class="frame-label"><span>WEB · /dashboard/profile/knowledge</span></div>
+    <div class="pad">
+      <div class="page-h"><div><h2>AI Knowledge</h2><p>What your AI receptionist knows about your business beyond your services — policies, spec sheets, FAQs.</p></div><div class="usage"><b>3</b> of 20 documents<br><span style="color:#919191"><b>740</b> of about 2,000 searchable parts</span><br><span class="btn primary small" style="margin-top:8px">Upload documents</span></div></div>
+      <div class="doc"><div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="doc-main"><div class="doc-name">Hamilton inventory <span class="pill">Inventory</span> <span class="pill ok">Ready</span></div><div class="doc-meta">54 records · 68 searchable parts · 640 KB · added Aug 20</div></div><div class="doc-actions"><span class="btn small">Replace</span><span class="btn small danger-ghost">Delete</span><span class="btn small">⋯</span></div></div>
+      <div class="doc"><div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="doc-main"><div class="doc-name">Dealer cost sheet 2026 <span class="pill">Price list</span> <span class="pill ok">Ready</span> <span class="pill off">Not shared</span></div><div class="doc-meta">2 pages · 9 searchable parts · 120 KB · added Aug 18</div></div><div class="doc-actions"><span class="btn small">Replace</span><span class="btn small danger-ghost">Delete</span><span class="btn small">⋯</span></div></div>
+      <div class="doc"><div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg></div><div class="doc-main"><div class="doc-name">Delivery zones and fees <span class="pill">Policy</span> <span class="pill info"><span class="spin"></span> Processing</span></div><div class="doc-meta">3 pages · 1.1 MB · added just now</div></div><div class="doc-actions"><span class="btn small">Delete</span></div></div>
+      <div class="ann">Default is on, so most rows show nothing new. "Not shared" appears only where the provider switched it off. Mobile: the same pill on the same rows. FAQs: no switch, no pill. Everything else on the page is unchanged.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="section-title">3 · What the caller receives — the details, not the file</div>
+<p class="section-sub">The platform lays out the 1–3 pieces of material that answered the caller into a one-page PDF (the same engine as booking/invoice PDFs). WhatsApp carries that PDF with one fixed message; email carries the same details in the body plus the PDF. Shown for the live-demo case: "send me the inspection report for the 2016 D6".</p>
+<div class="board">
+  <div class="frame" style="width:380px"><div class="frame-label"><span>WHATSAPP</span><em>utility template · PDF attached</em></div>
+    <div class="wa"><div class="bubble"><div class="docchip">📄 Information-from-Hamilton-Equipment.pdf · 1 page</div>Hi! As you asked on your call with <b>Hamilton Equipment</b>, here is the information you requested — it's attached. Sent exactly as Hamilton Equipment provides it.<div class="ft">Sent by Clinket at your request. · 2:14 PM</div></div></div>
+    <div class="pad"><div class="ann">Same rail as the booking/invoice PDFs (consent, 24 h-window free send, idempotency, alerts). One new template <code>clinket_info_ready</code>, utility, document header, one variable — needs Meta approval once per language before WhatsApp is offered. No SMS fallback.</div></div>
+  </div>
+  <div class="frame" style="width:420px"><div class="frame-label"><span>THE PDF (both channels)</span></div>
+    <div class="pad"><div class="pdf">
+      <div class="top" style="align-items:flex-start">
+        <div style="display:flex;gap:10px;align-items:center"><div style="width:56px;height:28px;border:1px dashed #B5B5B5;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#919191">logo</div><div><b style="font-size:13px">Hamilton Equipment</b><div style="font-size:10px;color:#919191">+1 905-555-0142</div></div></div>
+        <div style="text-align:right"><b style="font-size:13px">Information from Hamilton Equipment</b><div style="font-size:10px;color:#919191">Aug 20, 2026</div></div>
+      </div>
+      <h5>Hamilton inventory — Unit H-044</h5>
+      <table style="width:100%;border-collapse:collapse;font-size:12px"><tr><td style="color:#919191;width:110px;padding:2px 0">Model</td><td>Cat D6</td></tr><tr><td style="color:#919191;padding:2px 0">Year</td><td>2016</td></tr><tr><td style="color:#919191;padding:2px 0">Hours</td><td>4,210</td></tr><tr><td style="color:#919191;padding:2px 0">Price</td><td>CA$ 189,000</td></tr><tr><td style="color:#919191;padding:2px 0">Location</td><td>Hamilton yard</td></tr></table>
+      <h5>Inspection report</h5>
+      <p>Undercarriage at 60 %; hydraulics serviced 03/2026; blade edges replaced; no leaks found on pressure test; cab A/C operational; ROPS intact; recommended: track tension adjustment within 250 h. … (the provider's own text, joined across its pieces, unchanged)</p>
+      <div class="ft" style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><span>Provided by Hamilton Equipment from their own material. Prices and availability may change — Hamilton Equipment will confirm. Sent by Clinket at your request.</span><span style="white-space:nowrap"><b style="color:#032858">Clinket</b> · 1/1</span></div>
+    </div></div>
+    <div class="pad" style="padding-top:0"><div class="ann good"><b>Deterministic layout, zero AI text — and it reads whole.</b> Header/footer are the invoice PDF's own composition: the provider's logo (small, top-left; falls back to the name if missing) and the Clinket logo in the footer — no watermark (recommended off: a logo behind text hurts reading). A card never cuts a sentence or a row; a long record split across pieces is <b>joined automatically</b> (bounded at ~2 pages, then "… continues — the owner can send the rest"); <code>label: value</code> records become a two-column table; a sentence repeated between adjacent pieces is shown once; only the provider's own text is sendable (never the AI-written overview or image descriptions). Hindi/Gujarati material needs an embedded font (today's PDFs have none) — included.</div>
+    <div class="ann"><b>Caps and timing.</b> ≤3 pieces per send, ≤2 sends per call, ≤~2 pages; unknown refs ignored, none valid ⇒ refusal. The tool only validates and queues (under a second, on the call); the PDF is rendered and sent in the background — typically 3–10 s to WhatsApp/email. Before delivery is wired, sample PDFs rendered from the live index are sent to you for approval.</div></div>
+  </div>
+  <div class="frame w560"><div class="frame-label"><span>EMAIL</span><em>fixed template · details in the body + PDF</em></div>
+    <div class="email"><div class="hdr">From: <b>Clinket</b> · To: m•••••@gmail.com<br>Subject: <b>Information from Hamilton Equipment</b></div>
+      <div class="body"><div class="brand">Clinket</div><h3>The information you asked for</h3><p>Hi Maria,</p><p>On your call with <b>Hamilton Equipment</b> you asked for the details below. They're also attached as a PDF.</p>
+        <div class="det"><h5>Hamilton inventory — Unit H-044</h5>Model: Cat D6 · Year: 2016 · Hours: 4,210<br>Price: CA$ 189,000<br>Location: Hamilton yard<h5 style="margin-top:8px">Inspection report</h5>Undercarriage at 60 %; hydraulics serviced 03/2026; blade edges replaced; … (the provider's own text)</div>
+        <div class="att">📎 Information-from-Hamilton-Equipment.pdf</div>
+        <p style="margin-top:12px;font-size:12px;color:#5F5F5F">Provided by Hamilton Equipment from their own material. Prices and availability may change — Hamilton Equipment will confirm. Questions? Call them back on +1 905-555-0142.</p>
+        <div class="ft">Sent by Clinket at your request. © 2026 Clinket</div></div></div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="section-title">4 · What the caller hears</div>
+<div class="board"><div class="frame w760"><div class="pad">
+  <div class="script"><p><b>Caller:</b> Can you send me that inspection report?</p><p><b>Receptionist:</b> Of course — to your WhatsApp on this number, or by email?</p><p><b>Caller:</b> WhatsApp.</p><p class="sys">(send_material_info with the refs of the 2 results that held the D6 record — nothing else)</p><p><b>Receptionist:</b> Sending you the inspection details to your WhatsApp now — it'll be there in a moment. Anything else about the D6?</p></div>
+  <div class="script" style="margin-top:12px"><p><b>Caller:</b> Text it to me.</p><p><b>Receptionist:</b> I can send it to your WhatsApp on this number, or by email — which do you prefer?</p><p class="sys">(a text message is never offered for the owner's material)</p></div>
+  <div class="script" style="margin-top:12px"><p><b>Caller:</b> Email me the cost sheet.</p><p class="sys">(that document is switched off — its results carry no ref)</p><p><b>Receptionist:</b> I can't send that one out, but I can read you the key points now — or take your details so the owner sends it to you. Which would you prefer?</p></div>
+  <div class="ann good"><b>Cost and tokens, per send:</b> the receptionist passes ~30 tokens (the refs); the platform reads ≤3 cards, renders one PDF, sends one WhatsApp utility message (≈ $0.01–0.04) or one email. Nothing is composed by the AI.</div>
+</div></div></div>
+
+<!-- 5 -->
+<div class="section-title">5 · Every state, both platforms (short)</div>
+<div class="board"><div class="frame w760"><div class="pad">
+<table class="rules">
+  <tr><th>State</th><th>Behaviour (web = mobile)</th></tr>
+  <tr><td>Platform setting off</td><td>Switch row and pills absent; the receptionist keeps today's "cannot send" rule word for word.</td></tr>
+  <tr><td>Default (switch on)</td><td>Nothing new on the row; the receptionist may send details from it.</td></tr>
+  <tr><td>Switched off</td><td>"Not shared" pill; its results carry no ref; the receptionist never offers it.</td></tr>
+  <tr><td>Processing</td><td>Editor not openable (today's rule); the previous switch value stands.</td></tr>
+  <tr><td>Failed / FAQ</td><td>Switch disabled (nothing to send) / no switch.</td></tr>
+  <tr><td>Saving · save failed</td><td>Knob spins · standard toast and the knob goes back.</td></tr>
+  <tr><td>No permission (<code>voice.settings.manage</code>)</td><td>Pill visible, editor unreachable (as today).</td></tr>
+  <tr><td>Empty / loading / error / limits</td><td>Unchanged.</td></tr>
+  <tr><td>WhatsApp template not yet approved</td><td>The receptionist offers email only; the tool refuses WhatsApp naming email.</td></tr>
+</table>
+</div></div></div>
+
+<!-- 6 -->
+<div class="section-title">6 · Per-action backend map — nothing is a stub</div>
+<div class="board"><div class="frame w760"><div class="pad">
+<table class="rules">
+  <tr><th>Control / behaviour</th><th>Served by</th><th>Exists?</th></tr>
+  <tr><td>The switch</td><td><code>PATCH /api/v1/knowledge/documents/{docId}/sharing</code> → flag on the registry row (ETag CAS)</td><td class="no">No — built in this phase (after the §0.7 yes)</td></tr>
+  <tr><td>"Not shared" pill · row absent when off</td><td><code>shareWithCallers</code> + <code>materialSharingEnabled</code> on the list response</td><td class="no">No — this phase</td></tr>
+  <tr><td>Receptionist knows what it may send</td><td><code>ref</code> on each search_knowledge result from a switched-on document</td><td class="no">No — this phase</td></tr>
+  <tr><td>Receptionist sends it</td><td>MCP tool <code>send_material_info(refs[], channel?, email?)</code> → voice-postcall queue → Functions: PDF + WhatsApp rail / email with attachment</td><td class="no">No — this phase</td></tr>
+  <tr><td>Channel choice, ask-for-email, read-back</td><td>existing <code>VoiceSendChannelResolver</code></td><td class="yes">Yes — reused</td></tr>
+  <tr><td>PDF engine · WhatsApp PDF rail · email attachment call</td><td>existing QuestPDF service · <code>DocumentDeliveryService</code> · <code>IEmailService.SendTemplatedEmailAsync(attachments)</code></td><td class="yes">Yes — reused (one new method each)</td></tr>
+  <tr><td>"Details sent" card in Call Follow-ups</td><td>existing <code>SharedDetails</code> card (now also Email/WhatsApp + the material name)</td><td class="yes">Yes — reused</td></tr>
+  <tr><td>The WhatsApp message</td><td>new template <code>clinket_info_ready</code> (utility, document header)</td><td class="no">Needs Meta approval per language — WhatsApp is offered only once approved</td></tr>
+  <tr><td>SMS</td><td>—</td><td class="na">Never</td></tr>
+</table>
+</div></div></div>
+
+<!-- 7 -->
+<div class="section-title">7 · Copy for approval</div>
+<div class="board"><div class="frame w760"><div class="pad">
+<table class="rules">
+  <tr><th>Where</th><th>English</th></tr>
+  <tr><td>Switch label (web + mobile)</td><td>Send details to callers</td></tr>
+  <tr><td>Helper line</td><td>When a caller asks, your receptionist can send them the relevant details from this document by WhatsApp or email — never the whole file. Turn this off for internal material.</td></tr>
+  <tr><td>Pill (off only)</td><td>Not shared</td></tr>
+  <tr><td>Save failed</td><td>Couldn't update that — try again.</td></tr>
+  <tr><td>WhatsApp template</td><td>Hi! As you asked on your call with {{1}}, here is the information you requested — it's attached. Sent exactly as {{1}} provides it. · footer: Sent by Clinket at your request.</td></tr>
+  <tr><td>Email</td><td>Subject "Information from {Business}" · "Hi {name|there}, on your call with {Business} you asked for the details below. They're also attached as a PDF." · the details · footer line as drawn</td></tr>
+  <tr><td>PDF footer (both)</td><td>Provided by {Business} from their own material. Prices and availability may change — {Business} will confirm. Sent by Clinket at your request.</td></tr>
+  <tr><td>Call Follow-ups card</td><td>Details sent · WhatsApp / Email · {material title}</td></tr>
+</table>
+<div class="ann" style="margin-top:12px">Every key lands in all five web catalogs and all five mobile catalogs; the email template in all five language folders; the WhatsApp template per language under the proof protocol.</div>
+</div></div></div>
+
+<div class="q"><b>What I need from you</b>
+  <ol>
+    <li>This design — details excerpt as a PDF, WhatsApp + email, one platform setting, switch on by default — yes?</li>
+    <li>§0.7: one field <code>shareWithCallers</code> (default true) on the knowledge-document row; no new container/index. Approve?</li>
+    <li>Copy in §7 — edits?</li>
+    <li>Caps: 3 pieces per send, 2 sends per call — OK?</li>
+    <li>WhatsApp template: I prepare and submit it under the proof protocol when you say go (after 2026-08-28)?</li>
+  </ol>
+</div>
+
+</div>
+</body>
+</html>

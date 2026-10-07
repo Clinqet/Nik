@@ -1,0 +1,138 @@
+
+═══ GROUP B  (23/23 pass)
+  [PASS] B01 2-col price list, no header
+  [PASS] B02 3-col, no header
+  [PASS] B03 price ranges
+  [PASS] B04 all-numeric first row (schedule)
+  [PASS] B05 single column
+  [PASS] B06 section label row inside a table
+  [PASS] B07 non-dollar currency (Hindi)
+  [PASS] B08 price with words
+  [PASS] B09 FAQ table, no header
+  [PASS] B10 header repeated mid-table (OCR page break)
+  [PASS] B11 blank first column
+  [PASS] B12 transposed spec sheet
+  [PASS] B13 2-row header (merged cells)
+  [PASS] B14 units row under the header
+  [PASS] B15 footnote row
+  [PASS] B16 single-cell table (content must survive)
+  [PASS] B17 2-row table
+  [PASS] B18 numbers-only table
+  [PASS] B19 flyer text, no colons
+  [PASS] B20 markdown GFM pipe table
+  [PASS] B21 markdown definition list
+  [PASS] B22 OCR garbage
+  [PASS] B23 cross-tab
+
+═══ GROUP C  (15/16 pass)
+  [PASS] C01 2-col WITH declared header
+  [PASS] C02 declared NUMERIC header
+  [PASS] C03 ragged rows
+  [PASS] C04 total / footer row
+  [PASS] C05 mixed-language table
+  [PASS] C06 whole-Hindi document
+  [PASS] C07 numbered policy list
+  [PASS] C08 bulleted list with intro
+  [PASS] C09 riding caption before a table
+  [FAIL] C10 heading with no content
+         want: no cards at all
+         got : Terms and Conditions
+  [PASS] C11 heading-then-table prefixing
+  [PASS] C12 DI page furniture stripped
+  [PASS] C13 text-form list WITH colons
+  [PASS] C14 wide 23-column JSON table (declared header)
+  [PASS] C15 long prose policy (sentence path)
+  [PASS] C16 HTML table with <th>
+
+═══ GROUP A  (12/13 pass)
+  [PASS] A01 2-col, row 1 IS data, column 2 shape differs — must NOT infer a header
+  [PASS] A02 3-col, only ONE column differs — must NOT infer a header
+  [PASS] A03 cross-tab, 3 of 4 differ — MUST infer, and Medium: $40 must be right
+  [PASS] A04 single-column DECLARED header — R4 must NOT fire
+  [PASS] A05 ["","with peel","$95"] — R3 must NOT fire; H1 must
+  [PASS] A06 duplicate header labels, no sub-header row — H5 positional suffix
+  [PASS] A07 1-row table (undeclared) — R2, content survives
+  [PASS] A08 2-row table — Tier 3, no invented labels
+  [PASS] A09 Service/Price with HasHeaderRow=false — 2 cols are never inferred
+  [PASS] A10 prose containing "since 2019" — R5 must NOT split it
+  [FAIL] A11 rupee / euro / yen / 800- classifier parity
+         want: some body contains "Price: ₹800"
+         want: some body contains "Price: 800/-"
+         want: some body contains "Service: Facial"
+         got : Service | Duration | Price
+         got : Facial | 30 min | ₹800
+         got : Massage | 60 min | 1,50 €
+         got : Wax | 20 min | 800/-
+  [PASS] A12 RTL table — no crash, cells intact
+  [PASS] A13 23-column JSON declared header — labels preserved
+
+═══ GROUP F  (0/2 pass)
+  [FAIL] F01 DOCX tables (HasHeaderRow=false)
+         want: some body contains "Service: Haircut | Duration: 30 min | Price: $20"
+         got : Service | Duration | Price
+         got : Haircut | 30 min | $20
+         got : Keratin | 2 hr | $80
+         got : Updo | 1 hr | $50
+         got : .
+         got : Manicure | $30
+         got : Pedicure | $40
+  [FAIL] F02 XLSX sheets (HasHeaderRow=false)
+         want: some body contains "Machine: CAT 340 | Rate: 500 | Year: 2019"
+         got : Machine | Rate | Year
+         got : CAT 340 | 500 | 2019
+         got : Kubota | 300 | 2021
+         got : Bobcat | 250 | 2020
+         got : Manicure | $30
+         got : Pedicure | $40
+
+═══ GROUP R7  (10/10 pass)
+  [PASS] R701 LIVE DI shape: value on its own line, wrapped name
+  [PASS] R702 LIVE DI shape: alternating single-line paragraphs
+  [PASS] R703 three columns flattened (short hair / long hair)
+  [PASS] R704 GENERIC beyond prices: a flattened hours table
+  [PASS] R705 GENERIC beyond prices: a flattened spec sheet
+  [PASS] R706 GUARD: a phone number is NEVER a price
+  [PASS] R707 GUARD: prose carrying stray prices stays PROSE
+  [PASS] R708 GUARD: one lone pair is not a price list
+  [PASS] R709 GENERIC across scripts: a Hindi flattened price list
+  [PASS] R710 percentages and durations pair too
+
+═══ GROUP L  (5/5 pass)
+  [PASS] L01 THREADING section (live: "Eyebrows: Upperlips | $7: $2")
+  [PASS] L02 FACIAL section (live: "Chemical peels: 03 plus bridal facial | $80: $70")
+  [PASS] L03 WAXING section (live: "Half/full hands: Underarms | $10/15: $5")
+  [PASS] L04 POLICING flyer text (live: prices merged into one blob)
+  [PASS] L05 HAIR TREATMENT flyer text (live: whole section one blob)
+
+═══ GROUP INV  (6/6 pass)
+  [PASS] INV01 salon shape: sections with entry counts, no column stats
+  [PASS] INV02 catalogue shape: record count + typed columns, identifiers and constants dropped
+  [PASS] INV03 junk year is excluded from the spoken range (p5-p95, never min-max)
+  [PASS] INV04 structureless prose yields NO inventory
+  [PASS] INV05 identical schemas merge: one 6-record group, counts summed
+  [PASS] INV06 Devanagari sections and counts, verbatim
+
+═══ GROUP D  (13/13 pass)
+  [PASS] D01 2-col price list → one candidate per priced row, name + verbatim price
+  [PASS] D02 bare numbers and % are NOT prices (owner-locked)
+  [PASS] D03 any script: ₹ and trailing /- are currency-marked
+  [PASS] D04 id/stock first column is skipped — the name is the next word-bearing cell; other cells are labelled
+  [PASS] D05 list items and prose sentences: only the priced unit becomes a candidate; unpriced ones are context
+  [PASS] D06 URL capture — a row that names its own links OWNS them; neighbours only fill silence
+  [PASS] D07 duplicates collapse, decided hashes are skipped BEFORE the cap, the cap sets NotFullyScanned
+  [PASS] D08 anchor: price must equal a candidate number (±0.005) AND ≥60% of the name's tokens must sit on the line
+  [PASS] D09 anchor is 1:1 greedy by overlap; a range anchors only when both numbers are on the line ($50/70 splits)
+  [PASS] D10 skip ⇒ no draft; update ⇒ Update kind with the matched service's name; judge drop ⇒ no draft
+  [PASS] D11 dedupe keeps the highest confidence; MaxDraftsPerDocument caps by confidence; needsReview from flag OR threshold; queueRank orders review-first then confidence
+  [PASS] D12 currency mismatch: € in a CAD business flags, $ does not, an unknown business currency never flags
+  [PASS] D13 the same document builds byte-identical ids across runs (deterministic, no clock in the id)
+
+══════ TOTAL 84/88 PASS   (4 FAIL)
+       group A: 12/13   failing: A11
+       group B: 23/23   failing: 
+       group C: 15/16   failing: C10
+       group D: 13/13   failing: 
+       group F: 0/2   failing: F01, F02
+       group INV: 6/6   failing: 
+       group L: 5/5   failing: 
+       group R7: 10/10   failing: 

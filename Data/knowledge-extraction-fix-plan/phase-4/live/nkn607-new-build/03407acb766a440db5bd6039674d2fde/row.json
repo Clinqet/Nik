@@ -1,0 +1,53 @@
+{
+  "businessId": "NKN607",
+  "docId": "03407acb766a440db5bd6039674d2fde",
+  "docName": "img_pricelist_two_columns_photo.jpg",
+  "docTitle": "Glow Salon Price List",
+  "docType": "Other",
+  "linkedServiceIds": [],
+  "status": "Ready",
+  "sizeBytes": 79490,
+  "pageCount": 1,
+  "passageCount": 3,
+  "contentHash": "E3E8C23D814B659D7AED318D49C19E353CE0A7E14BBB64A17F5658DDD6D7C511",
+  "blobPath": "NKN607/03407acb766a440db5bd6039674d2fde/img_pricelist_two_columns_photo-20260925-052222-98addb5cb73b.jpg",
+  "sourceKind": "File",
+  "receptionistAccess": "NotUsed",
+  "searchAudience": "Team",
+  "serviceDraftAnalytics": {
+    "runAt": "2026-09-25T20:02:38.7498702Z",
+    "outcome": "Ran",
+    "candidateCount": 10,
+    "draftCount": 10,
+    "alreadyInCatalogCount": 0,
+    "notFullyScanned": false
+  },
+  "images": [
+    {
+      "imageId": "e3e8c23d814b659d",
+      "page": 1,
+      "anchorPath": "GLOW SALON",
+      "blobPath": "NKN607/_images/03407acb766a440db5bd6039674d2fde/e3e8c23d814b659d.jpg",
+      "thumbPath": "NKN607/_images/03407acb766a440db5bd6039674d2fde/e3e8c23d814b659d.jpg.thumb.webp",
+      "contentHash": "e3e8c23d814b659d7aed318d49c19e353ce0a7e14bbb64a17f5658ddd6d7c511",
+      "kind": "TextSnapshot",
+      "caption": "GLOW SALON. Haircut $25; Beard trim $15; Kids cut $18; Full head colour $80; Root touch up $55; Highlights $120; Keratin treatment $250; Blow dry $30; Updo $65; Deep conditioning $40.",
+      "captionContextHash": "5AC590AAF7FA08EF",
+      "sendable": false,
+      "width": 1437,
+      "height": 1089,
+      "bytes": 79490,
+      "source": "Upload",
+      "status": "ThumbReady"
+    }
+  ],
+  "id": "03407acb766a440db5bd6039674d2fde",
+  "type": "KnowledgeDocument",
+  "_etag": "\"5b0b7be5-0000-0200-0000-6ab6d35e0000\"",
+  "createdAt": "2026-09-25T05:22:22.9799835Z",
+  "updatedAt": "2026-09-25T20:02:38.7941103Z",
+  "_rid": "ezpkAL1hvTEJAAAAAAAAAA==",
+  "_self": "dbs/ezpkAA==/colls/ezpkAL1hvTE=/docs/ezpkAL1hvTEJAAAAAAAAAA==/",
+  "_attachments": "attachments/",
+  "_ts": 1790366558
+}

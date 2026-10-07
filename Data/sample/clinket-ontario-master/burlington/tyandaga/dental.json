@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "Tyandaga",
+    "category": "dental",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "burlington-tyandaga-dentistry-at-the-grove",
+      "businessName": "Dentistry at The Grove",
+      "description": "Burlington dental clinic offering family dentistry and TMJ jaw massage.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "289-427-8200",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://grovedentistry.com/",
+        "other": []
+      },
+      "address": {
+        "street": "2142 Mountain Grove Avenue",
+        "city": "Burlington",
+        "area": "Tyandaga",
+        "postalCode": "L7P 2J3",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "2142 Mountain Grove Avenue, Burlington, ON L7P 2J3"
+      },
+      "serviceAreas": [
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "Tyandaga",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "dental",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Family Dentistry",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "TMJ Jaw Massage",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://grovedentistry.com/tmj-jaw-massage/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.7,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

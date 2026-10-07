@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "graphApiVersion": "v25.0",
+  "canadaWabaId": "1302322178177914",
+  "verifiedAtUtc": "2026-07-28T19:50:08.238Z",
+  "safeNotBeforeUtc": "2026-08-28T00:00:00Z",
+  "policy": {
+    "defaultMode": "Auto",
+    "requestedCategory": "UTILITY",
+    "allowCategoryChange": false,
+    "proofNamesAreNeverRuntimeTemplateNames": true,
+    "recreateOneTargetPerInvocation": true,
+    "cleanupOneProofPerInvocation": true,
+    "cleanupRequiresOriginalApprovedUtilityWithExactComponents": true,
+    "marketingIsForbidden": true,
+    "autoWorkflow": [
+      "Validate the local plan and all protected production variants.",
+      "Refuse every mutation before safeNotBeforeUtc.",
+      "Select the first unfinished entry in plan order.",
+      "If its original locale is missing, submit exactly that one locale as UTILITY and stop.",
+      "If Meta review is pending, make no mutation and stop.",
+      "If the original locale is APPROVED/UTILITY with exact components, delete only its matching proof and stop.",
+      "On the next invocation, resume with the next unfinished entry.",
+      "Finish only when all four original locales are APPROVED/UTILITY and all four proofs are absent."
+    ]
+  },
+  "protectedProductionTemplates": [
+    {
+      "name": "clinket_ai_minutes_low",
+      "variants": [
+        {
+          "id": "889711437509317",
+          "language": "en_US",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "3173138752894004",
+          "language": "gu",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "2006494659969458",
+          "language": "hi",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        }
+      ]
+    },
+    {
+      "name": "clinket_optin_first_contact",
+      "variants": [
+        {
+          "id": "1004928478761072",
+          "language": "en_US",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "27068775296096390",
+          "language": "fr_CA",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "2052340885362706",
+          "language": "gu",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "1000365602725945",
+          "language": "hi",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        }
+      ]
+    },
+    {
+      "name": "clinket_plan_trial_ended",
+      "variants": [
+        {
+          "id": "3354770701357814",
+          "language": "en_US",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "1062838059432282",
+          "language": "fr_CA",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "2151289262396236",
+          "language": "gu",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        },
+        {
+          "id": "1012743134989330",
+          "language": "hi",
+          "status": "APPROVED",
+          "category": "UTILITY"
+        }
+      ]
+    }
+  ],
+  "obsoleteProofsDeleted": [
+    {
+      "id": "2487343415024938",
+      "name": "clinket_ai_minutes_low_utility_test",
+      "language": "fr_CA",
+      "reason": "Superseded by the closer French AI-minutes proof.",
+      "verifiedAbsent": true
+    },
+    {
+      "id": "899920239834638",
+      "name": "clinket_optin_first_contact_utility_test",
+      "language": "es",
+      "reason": "Unsafe wording claimed the customer submitted a service request.",
+      "verifiedAbsent": true
+    }
+  ],
+  "entries": [
+    {
+      "key": "ai_minutes_low_fr",
+      "originalTemplateName": "clinket_ai_minutes_low",
+      "targetLanguage": "fr_CA",
+      "proof": {
+        "id": "1690692622150301",
+        "name": "clinket_ai_minutes_balance_notice_fr",
+        "status": "APPROVED",
+        "category": "UTILITY",
+        "rejectedReason": "NONE"
+      },
+      "expectedComponentTypes": [
+        "BODY",
+        "BUTTONS"
+      ],
+      "expectedPlaceholders": [
+        "{{1}}",
+        "{{2}}"
+      ],
+      "components": [
+        {
+          "type": "BODY",
+          "text": "Bonjour {{1}}, il reste environ {{2}} minutes à votre Assistant IA Clinket ce mois-ci. Vous pouvez consulter votre solde et, au besoin, ajouter des minutes dans votre tableau de bord Clinket.",
+          "example": {
+            "body_text": [
+              [
+                "Alex",
+                "20"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "BUTTONS",
+          "buttons": [
+            {
+              "type": "URL",
+              "text": "Gérer les minutes",
+              "url": "https://business.clinket.com/dashboard/billing"
+            }
+          ]
+        }
+      ],
+      "englishReference": {
+        "id": "889711437509317",
+        "body": "Hi {{1}}, your Clinket AI Assistant has about {{2}} minutes left this month. Top up on your Clinket dashboard anytime to keep it answering your calls without interruption.",
+        "buttonText": "Top up"
+      },
+      "closenessDecision": "Preserves the monthly remaining-minute notice, AI Assistant, dashboard, and optional addition of minutes. It omits only the interruption-prevention sales framing that caused classification risk."
+    },
+    {
+      "key": "ai_minutes_low_es",
+      "originalTemplateName": "clinket_ai_minutes_low",
+      "targetLanguage": "es",
+      "proof": {
+        "id": "2146775059212492",
+        "name": "clinket_ai_minutes_balance_notice_es",
+        "status": "APPROVED",
+        "category": "UTILITY",
+        "rejectedReason": "NONE"
+      },
+      "expectedComponentTypes": [
+        "BODY",
+        "BUTTONS"
+      ],
+      "expectedPlaceholders": [
+        "{{1}}",
+        "{{2}}"
+      ],
+      "components": [
+        {
+          "type": "BODY",
+          "text": "Hola, {{1}}. A tu Asistente de IA de Clinket le quedan aproximadamente {{2}} minutos este mes. Puedes consultar tu saldo y, si lo necesitas, agregar minutos desde el panel de Clinket.",
+          "example": {
+            "body_text": [
+              [
+                "Alex",
+                "20"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "BUTTONS",
+          "buttons": [
+            {
+              "type": "URL",
+              "text": "Administrar minutos",
+              "url": "https://business.clinket.com/dashboard/billing"
+            }
+          ]
+        }
+      ],
+      "englishReference": {
+        "id": "889711437509317",
+        "body": "Hi {{1}}, your Clinket AI Assistant has about {{2}} minutes left this month. Top up on your Clinket dashboard anytime to keep it answering your calls without interruption.",
+        "buttonText": "Top up"
+      },
+      "closenessDecision": "Preserves the monthly remaining-minute notice, AI Assistant, dashboard, and optional addition of minutes. It omits only the interruption-prevention sales framing that caused classification risk."
+    },
+    {
+      "key": "optin_first_contact_es",
+      "originalTemplateName": "clinket_optin_first_contact",
+      "targetLanguage": "es",
+      "proof": {
+        "id": "1515263106483436",
+        "name": "clinket_contact_permission_notice_es",
+        "status": "APPROVED",
+        "category": "UTILITY",
+        "rejectedReason": "NONE"
+      },
+      "expectedComponentTypes": [
+        "BODY",
+        "FOOTER",
+        "BUTTONS"
+      ],
+      "expectedPlaceholders": [
+        "{{1}}",
+        "{{2}}"
+      ],
+      "components": [
+        {
+          "type": "BODY",
+          "text": "Hola, {{1}}. {{2}} solicita tu autorización para iniciar una conversación contigo por WhatsApp desde Clinket acerca de un servicio. Responde *YES* para autorizar esta conversación o *STOP* para rechazarla y dejar de recibir mensajes de Clinket por WhatsApp.",
+          "example": {
+            "body_text": [
+              [
+                "Alex",
+                "Sparkle Salon"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "FOOTER",
+          "text": "Solicitud de contacto de un proveedor de Clinket."
+        },
+        {
+          "type": "BUTTONS",
+          "buttons": [
+            {
+              "type": "QUICK_REPLY",
+              "text": "YES / Continuar"
+            },
+            {
+              "type": "QUICK_REPLY",
+              "text": "STOP / Rechazar"
+            }
+          ]
+        }
+      ],
+      "englishReference": {
+        "id": "1004928478761072",
+        "body": "Hi {{1}}, this is {{2}} on Clinket. You can chat with us right here on WhatsApp about your service. Reply *YES* to continue, or *STOP* to opt out at any time.",
+        "footer": "From a Clinket provider you contacted.",
+        "buttonTexts": [
+          "Yes, continue",
+          "Stop"
+        ]
+      },
+      "closenessDecision": "Preserves the provider identity, service-related WhatsApp conversation, YES authorization, and STOP opt-out. It replaces the English contact assumption with truthful provider-initiated authorization because the CRM trigger does not prove that the customer previously contacted the provider."
+    },
+    {
+      "key": "plan_trial_ended_es",
+      "originalTemplateName": "clinket_plan_trial_ended",
+      "targetLanguage": "es",
+      "proof": {
+        "id": "1022659547217678",
+        "name": "clinket_plan_trial_status_update",
+        "status": "APPROVED",
+        "category": "UTILITY",
+        "rejectedReason": "NONE"
+      },
+      "expectedComponentTypes": [
+        "BODY",
+        "BUTTONS"
+      ],
+      "expectedPlaceholders": [
+        "{{1}}",
+        "{{2}}",
+        "{{2}}"
+      ],
+      "components": [
+        {
+          "type": "BODY",
+          "text": "Actualización de tu cuenta, {{1}}: finalizó la prueba gratuita del plan Clinket {{2}}. Como no se registró ningún método de pago, tu cuenta pasó automáticamente al plan gratuito. Tu cuenta y tus datos siguen disponibles. Puedes administrar el método de pago y el plan {{2}} desde el panel de Clinket.",
+          "example": {
+            "body_text": [
+              [
+                "Alex",
+                "Premium"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "BUTTONS",
+          "buttons": [
+            {
+              "type": "URL",
+              "text": "Administrar plan",
+              "url": "https://business.clinket.com/dashboard/billing"
+            }
+          ]
+        }
+      ],
+      "englishReference": {
+        "id": "3354770701357814",
+        "body": "Hi {{1}}, your free trial of Clinket {{2}} has ended. Since no payment method was added, you've moved to the free Clinket plan, and everything in your account stays exactly as it is. Add a payment method to get {{2}} back anytime.",
+        "buttonText": "Add payment method"
+      },
+      "closenessDecision": "Preserves trial completion, missing payment method, automatic free-plan move, account and data continuity, and billing management. It removes only the direct plan-recovery promotion while retaining the operational billing path."
+    }
+  ]
+}

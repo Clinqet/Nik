@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clinket Mobile — Voice Assistant: Live Call + Call Follow-ups + Standing Instructions (mockup)</title>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  /* Real Lufga font from the partner web app so the mockup matches production type */
+  @font-face { font-family:"Lufga"; font-weight:400; font-display:swap; src:url("../../../clinqetwebpartnerapp/src/assets/font/lufga/LufgaRegular.woff") format("woff"); }
+  @font-face { font-family:"Lufga"; font-weight:500; font-display:swap; src:url("../../../clinqetwebpartnerapp/src/assets/font/lufga/LufgaMedium.woff") format("woff"); }
+  @font-face { font-family:"Lufga"; font-weight:600; font-display:swap; src:url("../../../clinqetwebpartnerapp/src/assets/font/lufga/LufgaSemiBold.woff") format("woff"); }
+  @font-face { font-family:"Lufga"; font-weight:700; font-display:swap; src:url("../../../clinqetwebpartnerapp/src/assets/font/lufga/LufgaBold.woff") format("woff"); }
+  @font-face { font-family:"Lufga"; font-weight:800; font-display:swap; src:url("../../../clinqetwebpartnerapp/src/assets/font/lufga/LufgaExtraBold.woff") format("woff"); }
+
+  /* ---- exact mobile theme tokens (src/theme/index.ts) ---- */
+  :root{
+    --bg:#FFFFFF; --surface:#FAFAFB; --surfaceEl:#FFFFFF;
+    --textPri:#032858; --textStrong:#101010; --textSec:#5F5F5F; --textMuted:#8e8e93;
+    --border:#E7E7E7; --separator:#EEF0F3;
+    --green:#97EF29; --greenSoft:#F4FFE4; --navy:#032858; --onNavy:#FFFFFF;
+    --inputBg:#FAFAFB; --inputBorder:#E7E7E7; --placeholder:#8e8e93;
+    --danger:#FF3B30; --dangerSoft:#FFF1F1; --success:#2F7D00; --successSoft:#F0FFE1;
+    --pageBg:#EEF1F4; --liveGreen:#22C55E;
+  }
+  body.dark{
+    --bg:#000000; --surface:#141416; --surfaceEl:#1C1C1E;
+    --textPri:#FFFFFF; --textStrong:#FFFFFF; --textSec:rgba(235,235,245,.78); --textMuted:rgba(235,235,245,.55);
+    --border:rgba(255,255,255,.12); --separator:rgba(255,255,255,.08);
+    --green:#97EF29; --greenSoft:rgba(151,239,41,.15); --navy:#1F1F22; --onNavy:#FFFFFF;
+    --inputBg:#1C1C1E; --inputBorder:rgba(255,255,255,.14); --placeholder:rgba(235,235,245,.4);
+    --danger:#FF6B61; --dangerSoft:rgba(255,107,97,.16); --success:#8FE34D; --successSoft:rgba(151,239,41,.14);
+    --pageBg:#0a0a0b; --liveGreen:#34D399;
+  }
+
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+  body{margin:0;font-family:"Lufga",Arial,Helvetica,sans-serif;background:var(--pageBg);color:var(--textStrong);transition:background .25s}
+
+  /* toolbar */
+  .toolbar{position:sticky;top:0;z-index:50;background:rgba(3,40,88,.96);color:#fff;backdrop-filter:blur(8px);
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .toolbar h1{font-size:15px;font-weight:800;margin:0;letter-spacing:.2px}
+  .toolbar .tag{font-size:11px;background:var(--green);color:#062;padding:2px 8px;border-radius:999px;font-weight:700}
+  .seg{display:flex;background:rgba(255,255,255,.1);border-radius:999px;padding:3px;gap:2px}
+  .seg button{border:0;background:transparent;color:#cdd8ea;font-family:inherit;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;cursor:pointer}
+  .seg button.on{background:var(--green);color:#062}
+  .tg{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .tg button{border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-family:inherit;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;display:flex;gap:6px;align-items:center}
+  .tg button.on{background:#fff;color:#032858}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:26px 20px 80px}
+  .lead{color:var(--textSec);max-width:760px;margin:0 0 8px;font-size:13.5px;line-height:1.55}
+  body:not(.dark) .lead{color:#3b4a60}
+  .rail{display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start;justify-content:center;margin-top:18px}
+  .col{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .col .cap{font-size:12.5px;font-weight:700;color:#fff;background:#032858;padding:5px 12px;border-radius:999px}
+  body.dark .col .cap{background:#1C1C1E;border:1px solid var(--border)}
+  .col .sub{font-size:11.5px;color:var(--textSec);max-width:360px;text-align:center;line-height:1.5}
+  body:not(.dark) .col .sub{color:#52617a}
+
+  /* phone frame */
+  .phone{width:372px;height:760px;background:var(--bg);border-radius:46px;border:1px solid var(--border);
+    box-shadow:0 30px 60px -22px rgba(3,16,40,.45),0 0 0 11px #0c0c0e,0 0 0 12px #2a2a2e;position:relative;overflow:hidden;display:flex;flex-direction:column}
+  body.dark .phone{box-shadow:0 30px 60px -22px rgba(0,0,0,.7),0 0 0 11px #050506,0 0 0 12px #313135}
+  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:30px;background:#0c0c0e;border-bottom-left-radius:18px;border-bottom-right-radius:18px;z-index:30}
+  .statusbar{height:46px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 6px;font-size:12px;font-weight:700;color:var(--textStrong);flex:0 0 auto}
+  .statusbar .ic{display:flex;gap:5px;align-items:center}
+  .screen{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+  .navbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:6px 16px 12px;border-bottom:1px solid var(--separator)}
+  .navbar .ttl{font-size:17px;font-weight:800;color:var(--textStrong)}
+  .iconbtn{width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:var(--textPri)}
+  .body{flex:1;min-height:0;overflow:auto;padding:14px 16px 16px}
+  .homebar{flex:0 0 auto;height:26px;display:flex;align-items:center;justify-content:center}
+  .homebar i{width:130px;height:5px;border-radius:999px;background:var(--textMuted);opacity:.5}
+
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .pill.live{background:var(--green);color:#06320f}
+  .pill.amber{background:#FFFBEB;color:#92400E}
+  body.dark .pill.amber{background:rgba(245,158,11,.16);color:#FCD9A0}
+  .dot{width:8px;height:8px;border-radius:999px;background:var(--liveGreen);display:inline-block;box-shadow:0 0 0 0 rgba(34,197,94,.55);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+
+  /* live call screen */
+  .callerCard{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:16px;background:var(--surfaceEl)}
+  .avatar{width:46px;height:46px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--greenSoft);color:#2c7a00;flex:0 0 auto}
+  body.dark .avatar{color:var(--green)}
+  .callerCard .nm{font-size:15.5px;font-weight:700;color:var(--textStrong);line-height:1.2}
+  .callerCard .ph{font-size:12.5px;color:var(--textSec);margin-top:2px}
+  .chip{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--surface);border:1px solid var(--border);color:var(--textSec)}
+  .streamNote{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--textMuted);margin:10px 2px 4px}
+
+  .tscroll{flex:1;min-height:0;overflow:auto;padding:6px 2px;display:flex;flex-direction:column;gap:9px}
+  .seg-row{display:flex;flex-direction:column;max-width:84%}
+  .seg-row.caller{align-self:flex-start;align-items:flex-start}
+  .seg-row.asst{align-self:flex-end;align-items:flex-end}
+  .seg-lbl{font-size:10px;font-weight:700;color:var(--textMuted);margin:0 6px 3px;text-transform:uppercase;letter-spacing:.4px}
+  .bubble{padding:9px 12px;border-radius:15px;font-size:13.5px;line-height:1.4}
+  .caller .bubble{background:var(--surfaceEl);border:1px solid var(--border);color:var(--textStrong);border-bottom-left-radius:5px}
+  .asst .bubble{background:var(--navy);color:var(--onNavy);border-bottom-right-radius:5px}
+  body.dark .asst .bubble{border:1px solid var(--border)}
+  .typing{align-self:flex-end;display:flex;gap:4px;padding:11px 14px;background:var(--navy);border-radius:15px;border-bottom-right-radius:5px}
+  body.dark .typing{border:1px solid var(--border)}
+  .typing span{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.85);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+  .listening{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--textMuted);font-size:13px;font-style:italic}
+  .wave{display:flex;gap:4px;align-items:flex-end;height:28px}
+  .wave i{width:4px;background:var(--green);border-radius:2px;animation:eq 1s infinite ease-in-out}
+  .wave i:nth-child(1){height:8px;animation-delay:0s}.wave i:nth-child(2){height:20px;animation-delay:.1s}.wave i:nth-child(3){height:14px;animation-delay:.2s}.wave i:nth-child(4){height:26px;animation-delay:.3s}.wave i:nth-child(5){height:10px;animation-delay:.15s}
+  @keyframes eq{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+  .actions{flex:0 0 auto;padding-top:12px;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--separator);margin-top:8px}
+  .btn{border:0;font-family:inherit;cursor:pointer;border-radius:14px;padding:14px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px;width:100%}
+  .btn.primary{background:var(--green);color:#06320f}
+  .btn.ghost{background:transparent;border:1.5px solid var(--border);color:var(--textStrong)}
+  .btn.small{padding:10px;font-size:13.5px;border-radius:12px}
+  .hint{text-align:center;font-size:11px;color:var(--textMuted);margin-top:-3px}
+  .btn.stacked{flex-direction:column;align-items:stretch;gap:3px;padding:11px 14px;position:relative}
+  .btn .bt{display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;line-height:1.2}
+  .btn .bs{font-size:11px;font-weight:500;text-align:center;line-height:1.3}
+  .btn.primary .bs{color:#0b4a16}
+  .btn.ghost .bs{color:var(--textSec)}
+  .recpill{font-size:9px;font-weight:800;background:#06320f;color:var(--green);padding:2px 7px;border-radius:999px;letter-spacing:.4px}
+
+  .callbar{flex:0 0 auto;margin-top:8px;background:var(--navy);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:11px}
+  body.dark .callbar{border:1px solid var(--border)}
+  .callbar .row1{display:flex;align-items:center;gap:9px;color:#fff}
+  .callbar .row1 .t{font-size:14px;font-weight:700}
+  .callbar .row1 .tm{margin-left:auto;font-size:13px;color:#cfe;font-variant-numeric:tabular-nums}
+  .callbar .ctrls{display:flex;gap:10px;justify-content:space-between}
+  .cbtn{flex:1;border:0;font-family:inherit;cursor:pointer;border-radius:12px;padding:11px 8px;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,.12);color:#fff}
+  .cbtn.end{background:var(--danger);color:#fff}
+  .osnote{font-size:10.5px;color:rgba(255,255,255,.6);text-align:center}
+
+  .endOverlay{position:absolute;inset:0;background:var(--overlay,rgba(3,16,40,.55));backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;z-index:25}
+  .endCard{background:var(--surfaceEl);border:1px solid var(--border);border-radius:22px;padding:26px 22px;width:78%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .endCard .ok{width:56px;height:56px;border-radius:999px;background:var(--greenSoft);color:#2c7a00;display:flex;align-items:center;justify-content:center}
+  body.dark .endCard .ok{color:var(--green)}
+
+  /* follow-ups */
+  .liveBanner{display:flex;align-items:center;gap:11px;padding:12px 13px;border:1.6px solid var(--green);border-radius:16px;background:var(--greenSoft);cursor:pointer;margin-bottom:13px}
+  .liveBanner .gi{width:38px;height:38px;border-radius:12px;background:var(--green);color:#06320f;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .filters{display:flex;gap:7px;overflow:auto;padding-bottom:9px;margin-bottom:4px}
+  .fchip{flex:0 0 auto;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;border:1px solid var(--border);color:var(--textSec);background:var(--surfaceEl);white-space:nowrap}
+  .fchip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  body.dark .fchip.on{background:var(--green);color:#06320f;border-color:var(--green)}
+  .fchip.review.on{background:#FFFBEB;color:#92400E;border-color:#F6D89A}
+  .sumCard{border:1px solid var(--border);border-radius:16px;background:var(--surfaceEl);padding:13px;margin-bottom:11px}
+  .sumHead{display:flex;gap:11px;align-items:flex-start}
+  .pa{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex:0 0 auto}
+  .pa.ai{background:var(--greenSoft);color:#2c7a00}.pa.you{background:#E8F0FF;color:#1d4ed8}.pa.vm{background:#EAF0FB;color:#032858}.pa.miss{background:#FFECEA;color:#d23b30}
+  body.dark .pa.you{background:rgba(59,130,246,.18);color:#9bc1ff}body.dark .pa.vm{background:rgba(255,255,255,.08);color:#cdd8ea}body.dark .pa.miss{background:rgba(255,107,97,.16);color:#ff9b92}body.dark .pa.ai{color:var(--green)}
+  .sumHead .nm{font-size:14px;font-weight:700;color:var(--textStrong)}
+  .sumHead .meta{font-size:11.5px;color:var(--textMuted);margin-top:1px}
+  .intent{font-size:13px;color:var(--textPri);font-weight:600;margin:9px 0 3px}
+  body.dark .intent{color:#cfe0ff}
+  .summary{font-size:12.5px;color:var(--textSec);line-height:1.45}
+  .chiprow{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .schip{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:999px;display:inline-flex;gap:4px;align-items:center}
+  .schip.green{background:var(--greenSoft);color:#2c7a00}.schip.amber{background:#FFFBEB;color:#92400E}.schip.gray{background:var(--surface);color:var(--textSec);border:1px solid var(--border)}
+  body.dark .schip.green{color:var(--green)}body.dark .schip.amber{background:rgba(245,158,11,.16);color:#FCD9A0}
+  .qrow{display:flex;gap:8px;margin-top:11px;border-top:1px solid var(--separator);padding-top:10px}
+  .qbtn{font-size:12px;font-weight:600;color:var(--textPri);display:flex;align-items:center;gap:5px;padding:5px 0}
+  body.dark .qbtn{color:#cfe0ff}
+  /* recording player */
+  .player{margin-top:11px;border:1px solid var(--border);border-radius:13px;background:var(--surface);padding:11px}
+  .player .top{display:flex;align-items:center;gap:10px}
+  .play{width:38px;height:38px;border-radius:999px;background:var(--green);color:#06320f;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .track{flex:1;height:6px;border-radius:999px;background:var(--border);position:relative}
+  .track i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--green);border-radius:999px}
+  .track b{position:absolute;left:38%;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:999px;background:var(--navy);border:2px solid #fff}
+  .clock{font-size:11px;color:var(--textMuted);font-variant-numeric:tabular-nums}
+  .spd{font-size:11px;font-weight:700;color:var(--textPri);border:1px solid var(--border);border-radius:8px;padding:3px 7px}
+  .dl{margin-left:auto;color:var(--textSec)}
+  .sugg{margin-top:11px;border:1px dashed var(--border);border-radius:13px;padding:11px;background:var(--surface)}
+  .sugg .st{font-size:11px;font-weight:800;color:var(--textPri);text-transform:uppercase;letter-spacing:.4px}
+  body.dark .sugg .st{color:#cfe0ff}
+  .kv{display:flex;justify-content:space-between;font-size:12px;margin-top:5px}.kv .k{color:var(--textMuted)}.kv .v{color:var(--textStrong);font-weight:600}
+  .sgactions{display:flex;gap:8px;margin-top:10px}
+
+  /* standing instructions form */
+  .sectionLbl{font-size:13px;font-weight:800;color:var(--textStrong);display:flex;align-items:center;gap:8px;margin-top:4px}
+  .opt{font-size:10.5px;font-weight:700;color:var(--textMuted);background:var(--surface);border:1px solid var(--border);padding:1px 7px;border-radius:999px}
+  .desc{font-size:12px;color:var(--textSec);line-height:1.5;margin:6px 0 0}
+  .example{font-size:11.5px;color:var(--textMuted);font-style:italic;margin:8px 0 8px;line-height:1.5}
+  .ta{border:1px solid var(--inputBorder);background:var(--inputBg);border-radius:13px;padding:12px;min-height:132px;font-size:13px;color:var(--textStrong);line-height:1.5}
+  .ta .ph{color:var(--placeholder)}
+  .counter{text-align:right;font-size:11px;color:var(--textMuted);margin-top:6px}
+  .disclaimer{display:flex;gap:9px;background:var(--greenSoft);border:1px solid var(--green);border-radius:13px;padding:11px;margin-bottom:14px}
+  .disclaimer .di{color:#2c7a00;flex:0 0 auto}body.dark .disclaimer .di{color:var(--green)}
+  .disclaimer p{margin:0;font-size:11.5px;color:var(--textSec);line-height:1.45}
+  .hoursCard{border:1px solid var(--border);border-radius:13px;padding:11px;margin-top:10px;display:flex;gap:10px;align-items:flex-start}
+  .hoursCard.sel{border-color:var(--green);background:var(--greenSoft)}
+  .radio{width:20px;height:20px;border-radius:999px;border:2px solid var(--border);flex:0 0 auto;margin-top:1px;display:flex;align-items:center;justify-content:center}
+  .hoursCard.sel .radio{border-color:var(--green)}.hoursCard.sel .radio i{width:9px;height:9px;border-radius:999px;background:var(--green)}
+  .hoursCard .ht{font-size:13px;font-weight:700;color:var(--textStrong)}.hoursCard .hd{font-size:11.5px;color:var(--textSec);margin-top:2px;line-height:1.4}
+
+  .footNote{max-width:1000px;margin:30px auto 0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px}
+  body:not(.dark) .footNote{background:#fff;border-color:#e3e8ef;box-shadow:0 10px 30px -18px rgba(3,16,40,.3)}
+  .footNote h3{margin:0 0 8px;font-size:14px;color:var(--textStrong)}
+  .footNote ul{margin:0;padding-left:18px;color:var(--textSec);font-size:12.5px;line-height:1.7}
+  .footNote b{color:var(--textStrong)}
+  .ringSpin{position:absolute;inset:-5px;border:2.6px solid var(--green);border-top-color:transparent;border-radius:999px;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <h1>Clinket Mobile · Voice Assistant</h1>
+    <span class="tag">MOCKUP — for approval</span>
+    <div class="seg" id="stateSeg">
+      <button data-st="watching" class="on">AI live (watching)</button>
+      <button data-st="joining">Joining</button>
+      <button data-st="incall">In call</button>
+      <button data-st="ended">Ended</button>
+    </div>
+    <div class="tg">
+      <button id="streamBtn" class="on"><i data-lucide="radio" style="width:14px;height:14px"></i> Live stream: on</button>
+      <button id="themeBtn"><i data-lucide="moon" style="width:14px;height:14px"></i> Dark</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="lead"><b>Decision recap.</b> Full-screen <b>Live Call</b> screen (dedicated), real-time transcript over SignalR, and the <b>WatchVoiceLive / UnwatchVoiceLive</b> cost gate so transcript fan-out reaches a provider <i>only</i> while this screen is open (or after they tap the “call in progress” push). “Join from the app” is the promoted primary action via <b>react-native-webrtc + Telnyx’s official RN SDK</b> with CallKit/ConnectionService for correct call audio; “Ring my phone” stays the secondary fallback.</p>
+    <p class="lead">Use the segmented control above to switch the Live Call screen states, and the Dark toggle to check both appearances. Transcript streams in automatically to mimic the live feed.</p>
+
+    <div class="rail">
+      <!-- ============ PHONE A : LIVE CALL ============ -->
+      <div class="col">
+        <div class="cap">1 · Live Call screen (new)</div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="statusbar"><span>9:41</span><span class="ic"><i data-lucide="signal" style="width:15px;height:15px"></i><i data-lucide="wifi" style="width:15px;height:15px"></i><i data-lucide="battery-full" style="width:17px;height:17px"></i></span></div>
+          <div class="screen">
+            <div class="navbar">
+              <div class="iconbtn"><i data-lucide="chevron-left"></i></div>
+              <div class="ttl">Live call</div>
+              <div style="margin-left:auto;display:flex;gap:7px;align-items:center">
+                <span class="pill live"><span class="dot"></span>LIVE</span>
+                <span style="font-size:13px;font-weight:700;color:var(--textStrong);font-variant-numeric:tabular-nums" id="timerA">02:14</span>
+              </div>
+            </div>
+            <div class="body" style="display:flex;flex-direction:column">
+              <!-- carrier (Telnyx/Plivo) is internal-only — NEVER shown to the provider/caller -->
+              <div class="callerCard">
+                <div class="avatar"><i data-lucide="bot"></i></div>
+                <div style="flex:1;min-width:0">
+                  <div class="nm">Priya</div>
+                  <div class="ph">+91 98765 •••• 12</div>
+                </div>
+                <span class="chip" style="background:var(--greenSoft);color:#2c7a00;border-color:transparent">AI answering</span>
+              </div>
+              <div class="streamNote"><i data-lucide="radio" style="width:13px;height:13px"></i> Streaming live · only while you’re on this screen</div>
+
+              <div class="tscroll" id="tscrollA">
+                <div class="seg-row caller"><span class="seg-lbl">Caller</span><div class="bubble">Hi, do you do bridal makeup?</div></div>
+                <div class="seg-row asst"><span class="seg-lbl">Assistant</span><div class="bubble">Yes — we offer bridal packages. What date are you looking at?</div></div>
+                <div class="seg-row caller"><span class="seg-lbl">Caller</span><div class="bubble">The 14th of next month, morning.</div></div>
+              </div>
+
+              <!-- listening empty state (hidden by default) -->
+              <div class="listening hidden" id="listenA">
+                <div class="wave"><i></i><i></i><i></i><i></i><i></i></div>
+                Listening…
+              </div>
+
+              <!-- ACTIONS : watching — each button self-describes; Recommended badge is bound to app-join -->
+              <div class="actions" id="actWatching">
+                <button class="btn primary stacked">
+                  <span class="bt"><i data-lucide="phone-call"></i> Join from the app <span class="recpill">RECOMMENDED</span></span>
+                  <span class="bs">Best audio — speak to the caller right now</span>
+                </button>
+                <button class="btn ghost stacked">
+                  <span class="bt"><i data-lucide="phone"></i> Ring my phone</span>
+                  <span class="bs">We’ll call your number, then connect you to the caller</span>
+                </button>
+              </div>
+
+              <!-- ACTIONS : joining -->
+              <div class="actions hidden" id="actJoining">
+                <button class="btn primary" style="opacity:.85"><span class="spinner" style="width:16px;height:16px;border:2.5px solid #06320f;border-top-color:transparent;border-radius:999px;display:inline-block;animation:spin 1s linear infinite"></span> Connecting you…</button>
+                <div class="hint">Using your microphone · setting up secure audio</div>
+              </div>
+
+              <!-- ACTIONS : in call -->
+              <div class="callbar hidden" id="actIncall">
+                <div class="row1"><span class="dot"></span><span class="t">In call with Priya</span><span class="tm" id="timerCall">00:08</span></div>
+                <div class="ctrls">
+                  <button class="cbtn"><i data-lucide="mic"></i>Mute</button>
+                  <button class="cbtn"><i data-lucide="volume-2"></i>Speaker</button>
+                  <button class="cbtn end"><i data-lucide="phone-off"></i>End</button>
+                </div>
+                <div class="osnote">Audio routed by your phone’s call system (CallKit / ConnectionService)</div>
+              </div>
+            </div>
+            <div class="homebar"><i></i></div>
+          </div>
+          <!-- ended overlay -->
+          <div class="endOverlay hidden" id="endA">
+            <!-- (a) preparing — summary not generated yet (async post-call function) -->
+            <div class="endCard" id="endPreparing">
+              <div class="ok" style="background:var(--surface);position:relative">
+                <i data-lucide="phone-off" style="width:25px;height:25px;color:var(--textSec)"></i>
+                <span class="ringSpin"></span>
+              </div>
+              <div style="font-size:17px;font-weight:800;color:var(--textStrong)">Call ended</div>
+              <div style="font-size:12.5px;color:var(--textSec);line-height:1.5">Preparing your summary and suggested actions. This usually takes a few moments.</div>
+              <button class="btn ghost small" style="margin-top:4px;width:100%;opacity:.8" disabled><span style="width:15px;height:15px;border:2.5px solid var(--textMuted);border-top-color:transparent;border-radius:999px;display:inline-block;animation:spin 1s linear infinite"></span> Preparing summary…</button>
+              <button class="btn ghost small" style="width:100%"><i data-lucide="list"></i> Back to Call Follow-ups</button>
+              <div style="font-size:11px;color:var(--textMuted);line-height:1.4">You can leave — we’ll notify you the moment it’s ready.</div>
+            </div>
+            <!-- (b) ready — CallSummaryReady arrived over SignalR -->
+            <div class="endCard hidden" id="endReady">
+              <div class="ok"><i data-lucide="check" style="width:30px;height:30px"></i></div>
+              <div style="font-size:17px;font-weight:800;color:var(--textStrong)">Summary ready</div>
+              <div style="font-size:12.5px;color:var(--textSec);line-height:1.5">Your call summary and suggested actions are ready to review.</div>
+              <button class="btn primary small" style="margin-top:4px;width:100%"><i data-lucide="clipboard-list"></i> View summary</button>
+              <button class="btn ghost small" style="width:100%"><i data-lucide="list"></i> Back to Call Follow-ups</button>
+            </div>
+          </div>
+        </div>
+        <div class="sub">Opens from the “Call in progress” push or by tapping the live banner. Caller bubbles left, assistant right, auto-scrolls. Join-from-app is primary while the AI is speaking.</div>
+      </div>
+
+      <!-- ============ PHONE B : CALL FOLLOW-UPS ============ -->
+      <div class="col">
+        <div class="cap">2 · Call Follow-ups (entry + history)</div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="statusbar"><span>9:41</span><span class="ic"><i data-lucide="signal" style="width:15px;height:15px"></i><i data-lucide="wifi" style="width:15px;height:15px"></i><i data-lucide="battery-full" style="width:17px;height:17px"></i></span></div>
+          <div class="screen">
+            <div class="navbar">
+              <div class="iconbtn"><i data-lucide="chevron-left"></i></div>
+              <div class="ttl">Call Follow-ups</div>
+              <span class="pill amber" style="margin-left:auto"><i data-lucide="bell" style="width:12px;height:12px"></i> 2 to review</span>
+            </div>
+            <div class="body">
+              <div class="liveBanner">
+                <div class="gi"><i data-lucide="phone-incoming"></i></div>
+                <div style="flex:1;min-width:0">
+                  <div style="font-size:13.5px;font-weight:700;color:#06320f;display:flex;align-items:center;gap:7px"><span class="dot"></span>Live call in progress</div>
+                  <div style="font-size:11.5px;color:#2c7a00;margin-top:2px">Priya · the assistant is answering · 02:14</div>
+                </div>
+                <i data-lucide="chevron-right" style="color:#2c7a00"></i>
+              </div>
+
+              <div class="filters">
+                <div class="fchip on">All · 23</div>
+                <div class="fchip">AI answered · 14</div>
+                <div class="fchip">You answered · 6</div>
+                <div class="fchip">Voicemail · 3</div>
+                <div class="fchip review on">Needs review · 2</div>
+              </div>
+
+              <!-- expanded AI summary card -->
+              <div class="sumCard">
+                <div class="sumHead">
+                  <div class="pa ai">AI</div>
+                  <div style="flex:1;min-width:0">
+                    <div class="nm">Sam R. · +1 519 •••• 228</div>
+                    <div class="meta">Jun 24, 9:02 AM · 03:41</div>
+                  </div>
+                  <i data-lucide="chevron-up" style="color:var(--textMuted)"></i>
+                </div>
+                <div class="intent">Booking request — bridal makeup</div>
+                <div class="summary">Caller asked about bridal packages for next month and the assistant booked a morning slot on the 14th, confirmed over WhatsApp.</div>
+                <div class="chiprow">
+                  <span class="schip green"><i data-lucide="calendar-check" style="width:12px;height:12px"></i> Booking created</span>
+                  <span class="schip amber">1 to review</span>
+                  <span class="schip gray"><i data-lucide="file-audio" style="width:12px;height:12px"></i> Recording</span>
+                  <span class="schip gray"><i data-lucide="captions" style="width:12px;height:12px"></i> Transcript</span>
+                </div>
+                <div class="qrow">
+                  <div class="qbtn"><i data-lucide="phone" style="width:14px;height:14px"></i> Call back</div>
+                  <div class="qbtn"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Listen</div>
+                  <div class="qbtn" style="margin-left:auto"><i data-lucide="chevron-up" style="width:14px;height:14px"></i> Details</div>
+                </div>
+                <div class="player">
+                  <div class="top">
+                    <div class="play"><i data-lucide="pause" style="width:17px;height:17px"></i></div>
+                    <div class="track"><i></i><b></b></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;margin-top:9px">
+                    <span class="clock">01:24 / 03:41</span>
+                    <span class="spd">1.5×</span>
+                    <span class="dl"><i data-lucide="download" style="width:17px;height:17px"></i></span>
+                  </div>
+                </div>
+                <div class="sugg">
+                  <div class="st">Suggested action · Draft booking</div>
+                  <div class="kv"><span class="k">Customer</span><span class="v">Sam R.</span></div>
+                  <div class="kv"><span class="k">Service</span><span class="v">Bridal makeup</span></div>
+                  <div class="kv"><span class="k">Requested</span><span class="v">Jul 14 · morning</span></div>
+                  <div class="sgactions">
+                    <button class="btn primary small" style="flex:1"><i data-lucide="check"></i> Apply</button>
+                    <button class="btn ghost small" style="flex:1">Dismiss</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- collapsed cards -->
+              <div class="sumCard">
+                <div class="sumHead">
+                  <div class="pa you">YOU</div>
+                  <div style="flex:1;min-width:0"><div class="nm">Alex P. · +1 226 •••• 771</div><div class="meta">Jun 24, 8:30 AM · 02:05</div></div>
+                  <i data-lucide="chevron-down" style="color:var(--textMuted)"></i>
+                </div>
+                <div class="intent">You answered — quick question</div>
+                <div class="summary" style="-webkit-line-clamp:2">Caller asked about availability this weekend; you handled it directly.</div>
+              </div>
+              <div class="sumCard">
+                <div class="sumHead">
+                  <div class="pa vm"><i data-lucide="voicemail" style="width:16px;height:16px"></i></div>
+                  <div style="flex:1;min-width:0"><div class="nm">+1 519 •••• 044</div><div class="meta">Jun 23, 6:12 PM · 00:42</div></div>
+                  <i data-lucide="chevron-down" style="color:var(--textMuted)"></i>
+                </div>
+                <div class="intent">Voicemail</div>
+              </div>
+            </div>
+            <div class="homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="sub">A compact live banner is the entry into the full-screen live view. History keeps full parity: filters with counts, needs-review, recording player + download, suggestions apply/dismiss.</div>
+      </div>
+
+      <!-- ============ PHONE C : STANDING INSTRUCTIONS ============ -->
+      <div class="col">
+        <div class="cap">3 · Application form · Standing instructions (gap)</div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="statusbar"><span>9:41</span><span class="ic"><i data-lucide="signal" style="width:15px;height:15px"></i><i data-lucide="wifi" style="width:15px;height:15px"></i><i data-lucide="battery-full" style="width:17px;height:17px"></i></span></div>
+          <div class="screen">
+            <div class="navbar">
+              <div class="iconbtn"><i data-lucide="chevron-left"></i></div>
+              <div class="ttl">AI Voice Assistant</div>
+              <span class="pill" style="margin-left:auto;background:var(--greenSoft);color:#2c7a00">Active</span>
+            </div>
+            <div class="body">
+              <div class="disclaimer">
+                <i data-lucide="volume-2" class="di" style="width:18px;height:18px"></i>
+                <p>Callers always hear a short disclosure that they’re speaking with an AI assistant before it answers.</p>
+              </div>
+
+              <div class="sectionLbl">Greeting persona <span class="opt">Optional</span></div>
+              <p class="example">e.g. “Warm and upbeat, mentions our weekend offers.”</p>
+              <div class="ta" style="min-height:60px"><span class="ph">Describe how the assistant should sound…</span></div>
+              <div class="counter">0 / 150</div>
+
+              <div class="sectionLbl" style="margin-top:18px">Standing instructions <span class="opt">Optional</span></div>
+              <p class="desc">Rules the assistant must always follow on your calls — it obeys these over its defaults (it can’t be talked out of them), except identity &amp; privacy checks.</p>
+              <p class="example">e.g. “Never book Sundays. Quote ₹5,000+ for bridal. Always offer a free consultation. We don’t do home visits outside the city.”</p>
+              <div class="ta"><span class="ph">Add any rules, prices, do’s and don’ts the assistant should always honour…</span></div>
+              <div class="counter">0 / 1000</div>
+
+              <div class="sectionLbl" style="margin-top:18px">When should the assistant answer?</div>
+              <div class="hoursCard sel">
+                <div class="radio"><i></i></div>
+                <div><div class="ht">Any missed call</div><div class="hd">Answers whenever you miss, decline, or can’t pick up — 24/7.</div></div>
+              </div>
+              <div class="hoursCard">
+                <div class="radio"></div>
+                <div><div class="ht">After hours only</div><div class="hd">Answers only outside your working hours; inside hours goes to voicemail.</div></div>
+              </div>
+              <div class="hoursCard">
+                <div class="radio"></div>
+                <div><div class="ht">Summaries only</div><div class="hd">Never converses — missed calls go to voicemail and you get a summary.</div></div>
+              </div>
+            </div>
+            <div class="homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="sub">Mirrors the web exactly: heading + helper + example + textarea + live counter; limit comes from <code>/voice-assistant/options</code> (default 1000). The 3 hours modes shown for context.</div>
+      </div>
+    </div>
+
+    <div class="footNote">
+      <h3>How this satisfies the cost &amp; performance requirement</h3>
+      <ul>
+        <li><b>Targeted streaming only.</b> The Live Call screen invokes <b>WatchVoiceLive</b> on mount (and re-asserts on every SignalR reconnect — groups don’t auto-rejoin) and <b>UnwatchVoiceLive</b> on unmount. A provider who isn’t on this screen receives <i>zero</i> transcript fan-out — identical to web. The 20s poll is dropped in favour of push.</li>
+        <li><b>“Call in progress” push.</b> The existing <code>VoiceLiveCallStarted</code> notification deep-links straight here (new route added to <code>notificationNavigation.ts</code>); an in-app banner offers one-tap entry while foregrounded.</li>
+        <li><b>Join from the app = best-practice VoIP.</b> <code>react-native-webrtc</code> + Telnyx’s official RN SDK with CallKit/ConnectionService for correct audio focus &amp; routing, behind a <b>LiveCallTransport</b> seam — Telnyx now (Canada), Plivo later (India), cleanly separate.</li>
+        <li><b>Graceful fallback.</b> If the native SDK/region can’t do app-audio, “Join from the app” hides and “Ring my phone” remains — the screen never dead-ends.</li>
+        <li><b>Summary &amp; recording are async — and we say so.</b> On end the screen shows <i>“Call ended · preparing your summary”</i> (never a dead “View summary”). It unlocks the instant <code>CallSummaryReady</code> arrives over SignalR (bounded poll fallback if the push is missed); until then the provider can leave and gets the push. The recording is copied by a <i>separate</i> message and can land later — the player shows “preparing… / will be available shortly” and self-retries a fresh SAS rather than erroring. The history list &amp; needs-review badge also refresh in place when <code>CallSummaryReady</code> fires (matching web).</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+  lucide.createIcons();
+  const body=document.body, themeBtn=document.getElementById('themeBtn');
+  themeBtn.onclick=()=>{const d=body.classList.toggle('dark');themeBtn.classList.toggle('on',d);
+    themeBtn.innerHTML = d ? '<i data-lucide="sun" style="width:14px;height:14px"></i> Light' : '<i data-lucide="moon" style="width:14px;height:14px"></i> Dark'; lucide.createIcons();};
+
+  // live-call state switcher
+  const states={watching:'actWatching',joining:'actJoining',incall:'actIncall'};
+  const seg=document.getElementById('stateSeg');
+  let endTimer=null;
+  function setState(st){
+    seg.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.st===st));
+    ['actWatching','actJoining','actIncall'].forEach(id=>document.getElementById(id).classList.add('hidden'));
+    const ended = st==='ended';
+    document.getElementById('endA').classList.toggle('hidden', !ended);
+    if(states[st]) document.getElementById(states[st]).classList.remove('hidden');
+    // simulate the async post-call summary: "preparing" → (CallSummaryReady) → "ready"
+    if(endTimer){clearTimeout(endTimer);endTimer=null;}
+    const prep=document.getElementById('endPreparing'), ready=document.getElementById('endReady');
+    if(ended){
+      prep.classList.remove('hidden'); ready.classList.add('hidden');
+      endTimer=setTimeout(()=>{prep.classList.add('hidden');ready.classList.remove('hidden');lucide.createIcons();},4500);
+    }
+  }
+  seg.querySelectorAll('button').forEach(b=>b.onclick=()=>setState(b.dataset.st));
+
+  // simulated live transcript streaming
+  const feed=[
+    {who:'asst',t:'Perfect, the 14th in the morning works. May I take your name?'},
+    {who:'caller',t:'Sure, it’s Priya.'},
+    {who:'asst',t:'Thanks Priya — I’ve pencilled in 10 AM. Shall I confirm it by WhatsApp?'},
+    {who:'caller',t:'Yes please.'},
+    {who:'asst',t:'Done! You’ll get the confirmation shortly. Anything else?'}
+  ];
+  let i=0; const scroll=document.getElementById('tscrollA');
+  let typing=null;
+  function addTyping(){typing=document.createElement('div');typing.className='typing';typing.innerHTML='<span></span><span></span><span></span>';scroll.appendChild(typing);scroll.scrollTop=scroll.scrollHeight;}
+  function streamNext(){
+    const streamOn=document.getElementById('streamBtn').classList.contains('on');
+    if(!streamOn || i>=feed.length) return;
+    if(typing){typing.remove();typing=null;}
+    const m=feed[i++];
+    const row=document.createElement('div');row.className='seg-row '+(m.who==='caller'?'caller':'asst');
+    row.innerHTML='<span class="seg-lbl">'+(m.who==='caller'?'Caller':'Assistant')+'</span><div class="bubble">'+m.t+'</div>';
+    scroll.appendChild(row);scroll.scrollTop=scroll.scrollHeight;
+    if(i<feed.length) setTimeout(addTyping,700);
+  }
+  setTimeout(addTyping,900);
+  setInterval(streamNext,2600);
+
+  const streamBtn=document.getElementById('streamBtn');
+  streamBtn.onclick=()=>{const on=streamBtn.classList.toggle('on');
+    streamBtn.innerHTML = on ? '<i data-lucide="radio" style="width:14px;height:14px"></i> Live stream: on' : '<i data-lucide="radio" style="width:14px;height:14px"></i> Live stream: off'; lucide.createIcons();};
+
+  // ticking timers
+  let sec=134; setInterval(()=>{sec++;const m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');document.getElementById('timerA').textContent=m+':'+s;},1000);
+  let csec=8; setInterval(()=>{csec++;const m=String(Math.floor(csec/60)).padStart(2,'0'),s=String(csec%60).padStart(2,'0');const el=document.getElementById('timerCall');if(el)el.textContent=m+':'+s;},1000);
+  const sp=document.createElement('style');sp.textContent='@keyframes spin{to{transform:rotate(360deg)}}';document.head.appendChild(sp);
+</script>
+</body>
+</html>

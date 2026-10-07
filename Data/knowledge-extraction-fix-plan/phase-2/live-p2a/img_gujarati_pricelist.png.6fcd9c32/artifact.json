@@ -1,0 +1,173 @@
+{
+  "contentHash": "D81727F429F17040D4A562A1FE36A54AEFAB3505B32F3C066F71FA4C27C4C65D",
+  "pipelineFingerprint": "eec9fe5bb9c749d9ba2494d2ca9ab488:a12a037a5b0a4190943a0d93da909a37:153be38764c440b1ade6240b2a0dd090:cap=1",
+  "docName": "img_gujarati_pricelist.png",
+  "pageCount": 1,
+  "docTitle": "શ્રી બ્યુટી પાર્લર સેવા કિંમત સૂચિ",
+  "docSummary": "શ્રી બ્યુટી પાર્લરની સેવા કિંમત સૂચિ, જેમાં વાળ કાપવા, ફેશિયલ, મસાજ, બ્રાઇડલ મેકઅપ અને થ્રેડિંગની કિંમતો સામેલ છે.",
+  "docLanguage": "gu",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "શ્રી બ્યુટી પાર્લર",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "સેવા",
+            "કિંમત"
+          ],
+          [
+            "વાળ કાપવા",
+            "₹250"
+          ],
+          [
+            "ફેશિયલ",
+            "₹800"
+          ],
+          [
+            "મસાજ",
+            "₹500"
+          ],
+          [
+            "બ્રાઇડલ મેકઅપ",
+            "₹5,000"
+          ],
+          [
+            "થ્રેડિંગ",
+            "₹50"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "ImageMarker",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": 0
+    }
+  ],
+  "imageCaptions": {
+    "0": "ગુજરાતી દરપત્રક: “શ્રી બ્યુટી પાર્લર” — વાળ કાપવા ₹250, ફેશિયલ ₹800, મસાજ ₹500, બ્રાઇડલ મેકઅપ ₹5,000 અને થ્રેડિંગ ₹50."
+  },
+  "images": [
+    {
+      "index": 0,
+      "imageId": "d81727f429f17040",
+      "contentHash": "d81727f429f17040d4a562a1fe36a54aefab3505b32f3c066f71fa4c27c4c65d",
+      "blobPath": "SX3SG2/_images/6fcd9c32ee6e4c8397c7babc7121a462/d81727f429f17040.png",
+      "width": 1410,
+      "height": 670,
+      "bytes": 111530,
+      "kind": "TextSnapshot",
+      "source": "Upload",
+      "quality": "Ok",
+      "captionRefused": false,
+      "page": 1,
+      "anchorPath": "શ્રી બ્યુટી પાર્લર"
+    }
+  ],
+  "droppedImages": 0,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "reviews": [
+    {
+      "pageNumber": 1,
+      "verificationId": "4a210244-41d3-41c3-9862-ff909b219c42",
+      "discrepancies": [
+        {
+          "fields": [
+            "text"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, Heading 1",
+          "ocrReading": "# 2 414",
+          "firstAiReading": "",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '1, 54'",
+          "ocrReading": "1, 54 | ₹250",
+          "firstAiReading": "",
+          "sourceServiceName": "1, 54",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '$22144'",
+          "ocrReading": "$22144 | ₹ 800",
+          "firstAiReading": "",
+          "sourceServiceName": "$22144",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "service name"
+          ],
+          "reason": "'4211%' reads 'મસાજ'",
+          "location": "page 1, table 1, row '4211%', column 1",
+          "ocrReading": "4211%",
+          "firstAiReading": "મસાજ",
+          "sourceServiceName": "4211%",
+          "passageIds": [],
+          "selectedReading": "મસાજ",
+          "disposition": "CandidateReadingRetained",
+          "remainingUncertainty": "no usable source reading, and the page does not print these characters as text"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '11 24'",
+          "ocrReading": "11 24 | ₹5,000",
+          "firstAiReading": "",
+          "sourceServiceName": "11 24",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        },
+        {
+          "fields": [
+            "price"
+          ],
+          "reason": "the transcript has no unit carrying this source content",
+          "location": "page 1, table 1, row '3 โรงเ'",
+          "ocrReading": "3 โรงเ | ₹50",
+          "firstAiReading": "",
+          "sourceServiceName": "3 โรงเ",
+          "passageIds": [],
+          "selectedReading": "",
+          "disposition": "SourceUnitNotOnPage"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "city": "Burlington",
+    "area": "Headon",
+    "category": "massage-therapy",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "burlington-headon-denise-semple-associates",
+      "businessName": "Denise Semple & Associates",
+      "description": "RMT-run wellness clinic in Burlington offering registered massage therapy, manual osteopathy and craniosacral therapy. Owner Denise Semple.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": 25,
+      "owner": {
+        "name": "Denise Semple",
+        "email": "info@dsanda.ca",
+        "phone": "905-639-7113"
+      },
+      "businessEmail": "info@dsanda.ca",
+      "businessPhone": "905-639-7113",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://dsanda.ca/",
+        "other": []
+      },
+      "address": {
+        "street": "3070 Mainway #2",
+        "city": "Burlington",
+        "area": "Headon",
+        "postalCode": "L7M 1A3",
+        "province": "ON",
+        "country": "Canada",
+        "formatted": "3070 Mainway #2, Burlington, ON L7M 1A3"
+      },
+      "serviceAreas": [
+        "Burlington"
+      ],
+      "geo": {
+        "city": "Burlington",
+        "area": "Headon",
+        "region": "Halton"
+      },
+      "categories": [
+        {
+          "category": "massage-therapy",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Registered Massage Therapy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Manual Osteopathy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Craniosacral Therapy",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [
+          {
+            "day": "Monday",
+            "open": "09:00",
+            "close": "20:30",
+            "closed": false
+          },
+          {
+            "day": "Tuesday",
+            "open": "09:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Wednesday",
+            "open": "08:30",
+            "close": "20:30",
+            "closed": false
+          },
+          {
+            "day": "Thursday",
+            "open": "09:30",
+            "close": "20:00",
+            "closed": false
+          },
+          {
+            "day": "Friday",
+            "open": "07:00",
+            "close": "21:00",
+            "closed": false
+          },
+          {
+            "day": "Saturday",
+            "open": "08:30",
+            "close": "17:00",
+            "closed": false
+          },
+          {
+            "day": "Sunday",
+            "open": "09:00",
+            "close": "16:00",
+            "closed": false
+          }
+        ],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://dsanda.ca/our-team/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": true,
+        "completenessScore": 1.0,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

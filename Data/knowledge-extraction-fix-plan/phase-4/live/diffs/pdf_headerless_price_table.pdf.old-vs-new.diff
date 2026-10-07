@@ -1,0 +1,23 @@
+
+
+--- old-build/artifact-blocks
++++ new-build/artifact-blocks
+@@ -1,9 +1,10 @@
+ docTitle=Nails & Lashes Price List lang=en pages=1 visionDegraded=False imageLaneDegraded=False dropped=0 images=0 captions=0 reviews=1
+-summary: Lists prices for manicures, pedicures, acrylic nails, nail art, lash sets and fills, lash lift and tint, and brow lamination and tint. Requires a $20 deposit for lash sets and 24 hours’ notice for cancellations.
++summary: Lists prices for manicure and pedicure services, acrylic nails, nail art, lash sets and fills, lash lift and tint, and brow services. Notes a deposit requirement for lash sets and a cancellation notice policy.
+ [  0] Heading      p1 H1
+       NAILS & LASHES
+ [  1] Table        p1
+-      hasHeader=False caption= rows=15
++      hasHeader=False caption= rows=16
++      |  |  |
+       | Classic manicure | $30 |
+       | Gel manicure | $45 |
+       | Spa pedicure | $45 |
+@@ -26,4 +27,4 @@
+ ## captions
+ ## images
+ ## reviews
+-  {"pageNumber":1,"verificationId":"ccf445c5-8705-440e-8bae-553124d1677f","discrepancies":[{"fields":["price"],"reason":"the row's column count changed from 2 to 1; 'Acrylic' reads 'Acrlic'; 'Acrlic fill — $40' was added","location":"page 1, table 1, row 'Acrylic full set'","ocrReading":"Acrylic full set | $65","firstAiReading":"- Acrlic full set — $65 - Acrlic fill — $40","sourceServiceName":"Acrylic full set","passageIds":[],"thirdReading":"Acrylic full set | $65","selectedReading":"- Acrlic full set — $65 - Acrlic fill — $40","disposition":"ResolvedToSourceReading","remainingUncertainty":"the confirmed reading does not carry every word this passage holds, so the page kept the machine reading"},{"fields":["price"],"reason":"the transcript has no unit carrying this source content","location":"page 1, table 1, row 'Acrylic fill'","ocrReading":"Acrylic fill | $40","firstAiReading":"","sourceServiceName":"Acrylic fill","passageIds":[],"thirdReading":"Acrylic fill | $40","selectedReading":"Acrylic fill | $40","disposition":"SourceUnitRestored"}]}
++  {"pageNumber":1,"verificationId":"7d4178a8-f76a-41fd-84da-8d4c5bd6cd33","discrepancies":[{"fields":["service name"],"reason":"'Acrylic' reads 'Acril'","location":"page 1, table 1, row 'Acrylic full set', column 1","ocrReading":"Acrylic full set","firstAiReading":"Acril full set","sourceServiceName":"Acrylic full set","passageIds":[],"selectedReading":"Acrylic full set","disposition":"SourceReadingRetained","remainingUncertainty":"the source check read a different part of the page"},{"fields":["service name"],"reason":"'Acrylic' reads 'Acril'","location":"page 1, table 1, row 'Acrylic fill', column 1","ocrReading":"Acrylic fill","firstAiReading":"Acril fill","sourceServiceName":"Acrylic fill","passageIds":[],"selectedReading":"Acrylic fill","disposition":"SourceReadingRetained","remainingUncertainty":"the source check read a different part of the page"}]}

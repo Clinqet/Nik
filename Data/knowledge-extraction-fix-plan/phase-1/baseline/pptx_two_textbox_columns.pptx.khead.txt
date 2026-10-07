@@ -1,0 +1,77 @@
+# pptx_two_textbox_columns.pptx
+blocks=10 images=0 skipped=0 lost=0 pages=3 ceilingCollapsed=0
+
+## BLOCKS
+[  0] Heading      p1 H1
+      Slide 1
+[  1] Paragraph    p1
+      Glow Salon — Hair
+[  2] List         p1
+      - Haircut
+      - Beard trim
+      - Kids cut
+      - Full head colour
+      - Root touch up
+      - Highlights
+[  3] List         p1
+      - $25
+      - $15
+      - $18
+      - $80
+      - $55
+      - $120
+[  4] Heading      p2 H1
+      Slide 2
+[  5] Paragraph    p2
+      Nails
+[  6] Table        p2
+      hasHeader=False caption= rows=4
+      | Service | Price | Time |
+      | Manicure | $30 | 30 min |
+      | Pedicure | $45 | 45 min |
+      | Gel manicure | $55 | 60 min |
+[  7] Heading      p3 H1
+      Slide 3
+[  8] Paragraph    p3
+      Waxing
+[  9] List         p3
+      - Upper lip – $8
+      - Eyebrows – $10
+      - Full legs – $45
+      - Underarms – $15
+      - Brazilian – $60
+
+## INVENTORY
+Sections: Slide 1 (13), Slide 3 (6), Slide 2 (5)
+
+## CARDS (6)  warnings=0
+--- card 0 [Text] section='Slide 1' page=1 tokens~5 img=-1
+    Glow Salon — Hair
+--- card 1 [Text] section='Slide 1' page=1 tokens~21 img=-1
+    - Haircut
+    - Beard trim
+    - Kids cut
+    - Full head colour
+    - Root touch up
+    - Highlights
+--- card 2 [Text] section='Slide 1' page=1 tokens~9 img=-1
+    - $25
+    - $15
+    - $18
+    - $80
+    - $55
+    - $120
+--- card 3 [Table] section='Slide 2' page=2 tokens~26 img=-1
+    Nails
+    Service | Price | Time
+    Manicure | $30 | 30 min
+    Pedicure | $45 | 45 min
+    Gel manicure | $55 | 60 min
+--- card 4 [Text] section='Slide 3' page=3 tokens~2 img=-1
+    Waxing
+--- card 5 [Text] section='Slide 3' page=3 tokens~22 img=-1
+    - Upper lip – $8
+    - Eyebrows – $10
+    - Full legs – $45
+    - Underarms – $15
+    - Brazilian – $60

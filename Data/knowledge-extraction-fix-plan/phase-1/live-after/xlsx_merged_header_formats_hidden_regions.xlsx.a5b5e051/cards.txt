@@ -1,0 +1,41 @@
+cards=9
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_0 [Table] section='Prices' page= img= scripts=["Latn"] chars=933 title='Salon Prices and Opening Hours' type='Document'
+    Service: Haircut | Price (Short hair): $25.00 | Price (Long hair): $35.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-01 | Notes: Walk-ins welcome
+    Service: Full head colour | Price (Short hair): $80.00 | Price (Long hair): $110.00 | Duration: 90 min | Discount: 15% | Valid from: 2026-01-02 | Notes: Includes toner Patch test 48h before Ask about Olaplex add-on
+    Service: Highlights | Price (Short hair): $120.00 | Price (Long hair): $160.00 | Duration: 120 min | Discount: 15% | Valid from: 2026-01-03 | Notes: Walk-ins welcome
+    Service: Keratin treatment | Price (Short hair): $250.00 | Price (Long hair): $320.00 | Duration: 180 min | Discount: 15% | Valid from: 2026-01-04 | Notes: Walk-ins welcome
+    Service: Blow dry | Price (Short hair): $30.00 | Price (Long hair): $40.00 | Duration: 30 min | Discount: 15% | Valid from: 2026-01-05 | Notes: Walk-ins welcome
+    Service: Average short price | Price (Short hair): $101.00
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_1 [Table] section='Prices' page= img= scripts=["Latn"] chars=130 title='Salon Prices and Opening Hours' type='Document'
+    Treatment | Guarantee days | Redo policy
+    Keratin treatment | 7 | Free redo within a week
+    Full head colour | 5 | Toner refresh free
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_2 [Table] section='Sheet2' page= img= scripts=["Latn"] chars=71 title='Salon Prices and Opening Hours' type='Document'
+    Opening hours | Mon–Fri 9:00–18:00
+    Saturday | 10:00–16:00
+    Deposit | 20%
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_3 [DocSummary] section='' page= img= scripts=["Latn"] chars=675 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview
+    Lists six salon services with short- and long-hair prices, durations, discounts, validity dates, and notes. Includes treatment guarantee and redo policies, the average short price, and opening hours, including a 20% deposit.
+    Sections: Prices (9), Sheet2 (3)
+    6 records
+    Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)
+    Price (Short hair): $25.00 to $250.00 (typical)
+    Price (Long hair): $35.00 to $320.00 (typical)
+    Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)
+    Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_4 [DocAggregate] section='Service' page= img= scripts=["Latn"] chars=184 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview — Service
+    6 records — Service: Haircut (1), Full head colour (1), Highlights (1), Keratin treatment (1), Blow dry (1), Average short price (1)
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_5 [DocAggregate] section='Price (Short hair)' page= img= scripts=["Latn"] chars=122 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview — Price (Short hair)
+    6 records — Price (Short hair): $25.00 to $250.00 (typical)
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_6 [DocAggregate] section='Price (Long hair)' page= img= scripts=["Latn"] chars=120 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview — Price (Long hair)
+    6 records — Price (Long hair): $35.00 to $320.00 (typical)
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_7 [DocAggregate] section='Duration' page= img= scripts=["Latn"] chars=123 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview — Duration
+    6 records — Duration: 30 min (2), 90 min (1), 120 min (1), 180 min (1)
+--- SX3SG2_a5b5e0517e1840cd84e7f9f2895cc0ca_8 [DocAggregate] section='Valid from' page= img= scripts=["Latn"] chars=157 title='Salon Prices and Opening Hours' type='Document'
+    Salon Prices and Opening Hours — overview — Valid from
+    6 records — Valid from: 2026-01-01 (1), 2026-01-02 (1), 2026-01-03 (1), 2026-01-04 (1), 2026-01-05 (1)

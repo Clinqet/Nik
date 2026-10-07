@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service price honesty — the minimum IS the price, and extras are disclosed — customer web + phone, provider web + phone</title>
+<style>
+  :root{
+    /* LIVE app tokens, read from clinqetwebpartnerapp/tailwind.config.js — not new values. */
+    --ink:#032858; --body:#101010; --muted:#5F5F5F; --line:#E7E7E7; --page:#F6F7F9;
+    --green:#97EF29; --green-soft:#F4FFE4; --green-line:#CBE9A6; --green-ink:#0e7a3a;
+    --amber:#F5A623; --amber-ink:#9A5B00; --amber-soft:#FFF7E8; --amber-line:#F1D9A7;
+    --blue:#2F80ED; --info:#E4EEFB; --info-line:#C7DBF6; --info-ink:#14477E;
+    --red:#B3261E; --red-soft:#FCECEA; --red-line:#F2C4C0;
+    --paper:#FFFFFF; --card:#F5F5F5; --inset:#F7F8FA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--body);font:14px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+  header.sheet{background:var(--ink);color:#fff;padding:28px 32px}
+  header.sheet h1{margin:0 0 6px;font-size:22px;letter-spacing:.2px}
+  header.sheet p{margin:0;opacity:.82;font-size:13px;max-width:940px}
+  main{padding:0 32px 64px}
+  h2{color:var(--ink);font-size:17px;margin:36px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--green)}
+  h2 .n{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:14px}
+  .frame{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .frame .cap{background:#FAFBFC;border-bottom:1px solid var(--line);padding:7px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .frame .bd{padding:14px}
+  .web{width:330px;max-width:100%}
+  .web.wide{width:560px}
+  .phone{width:300px;border-radius:24px;border:8px solid #22262B;max-width:100%}
+
+  /* — the customer search-result card — */
+  .sc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .sc .img{height:82px;background:linear-gradient(135deg,#E9EEF5,#DDE5EF)}
+  .sc .bd2{padding:11px 12px 12px}
+  .sc .nm{font-size:14px;font-weight:600;color:var(--body);line-height:1.3}
+  .sc .biz{font-size:12px;color:var(--muted);margin-top:2px}
+  .sc .priceline{display:flex;align-items:baseline;gap:7px;margin-top:8px;flex-wrap:wrap}
+  .sc .pr{font-size:17px;font-weight:700;color:var(--ink);line-height:1.1}
+  .sc .per{font-size:12px;color:var(--muted);font-weight:500}
+  .xtra{display:inline-block;background:var(--amber-soft);border:1px solid var(--amber-line);color:var(--amber-ink);border-radius:7px;padding:1px 7px;font-size:11px;font-weight:600;white-space:nowrap}
+  .sc .stars{font-size:12px;color:var(--muted);margin-top:7px}
+  .wrong{border-color:var(--red-line)!important;background:var(--red-soft)}
+  .wrong .pr{color:var(--red)}
+  .tagbad{display:inline-block;background:var(--red);color:#fff;border-radius:6px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.3px}
+  .taggood{display:inline-block;background:var(--green);color:#0a0a0a;border-radius:6px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.3px}
+
+  /* — the detail page price block — */
+  .pblock{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper)}
+  .pblock .head{font-size:22px;font-weight:700;color:var(--ink);line-height:1.1}
+  .pblock .sub{font-size:12px;color:var(--muted);margin-top:3px}
+  .lines{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+  .ln{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:5px 0}
+  .ln .k{color:var(--body)} .ln .k small{display:block;color:var(--muted);font-size:11px;margin-top:1px}
+  .ln .v{color:var(--body);font-weight:600;white-space:nowrap}
+  .ln.min{background:var(--amber-soft);margin:6px -8px 0;padding:7px 8px;border-radius:8px}
+  .ln.min .k{color:var(--amber-ink);font-weight:600} .ln.min .v{color:var(--amber-ink)}
+
+  .panel{margin-top:12px;border-radius:12px;padding:11px 13px;font-size:12px;line-height:17px}
+  .panel.info{background:var(--info);border:1px solid var(--info-line);color:var(--info-ink)}
+  .panel.grey{background:var(--inset);border:1px solid var(--line);color:var(--muted)}
+
+  .note{background:#FFFDF5;border:1px solid #FFE2AC;border-left:4px solid var(--amber);padding:11px 13px;border-radius:6px;color:#6B4A00;font-size:13px;margin:14px 0}
+  .rule{background:var(--green-soft);border:1px solid var(--green-line);border-left:4px solid var(--green);padding:11px 13px;border-radius:6px;font-size:13px;margin:14px 0}
+  .rule b{color:#2F5300}
+  .bad{background:var(--red-soft);border:1px solid var(--red-line);border-left:4px solid var(--red);padding:11px 13px;border-radius:6px;color:#7A1A14;font-size:13px;margin:14px 0}
+
+  table.words,table.rules{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px;background:var(--paper)}
+  table.words th,table.words td,table.rules th,table.rules td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.words th,table.rules th{background:#FAFBFC;color:var(--ink);font-weight:600}
+  code{background:#F1F2F4;border-radius:4px;padding:1px 5px;font-size:12px;color:#333}
+  .tiny{font-size:11px;color:var(--muted);margin-top:6px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink);font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="sheet">
+  <h1>Service price honesty — the minimum IS the price, and extras are disclosed</h1>
+  <p>Customer web + phone, and the provider control that sets it (§5b). Today a service listed at $80 with a $120 minimum shows <b>$80</b> on the card, tells <b>Google</b> $80 through structured data, and bills <b>$120</b>. The phone assistant already says it correctly. This sheet makes the screen catch up. Two separate fixes: (1) the headline price must never be lower than what will actually be charged; (2) extras that are added on top are flagged on the card and itemised on the page. Drawn for approval; nothing is built.</p>
+</header>
+
+<main>
+
+<div class="bad">
+  <b>The defect, in one line.</b> <code>QuotePriceCalculator</code> raises a total to <code>minimumCharge</code>, but <code>servicePrice.js</code> renders <code>fixedPrice</code> and ignores the minimum — and <code>serviceOfferPrice</code> hands <code>Math.min(...)</code> to <b>schema.org</b>. So we would understate the price on screen <b>and declare the understated figure to a search engine</b>.
+</div>
+
+<div class="note">
+  <b>‼️ HONEST SCOPE — corrected 2026-09-22. This is LATENT, not live.</b> <b>No provider UI sets <code>minimumCharge</code> today</b> — verified, zero matches in either provider app. So the $80-shown / $120-billed case cannot happen through the product right now; it can only arrive by bulk import, seeding or a direct API call.
+  <b>But the data model carries it, <code>QuotePriceCalculator</code> honours it, and the phone assistant already states it</b> — <code>CatalogPriceNarrator</code>'s own comment says <i>"No UI sets it yet, which is precisely why the branch is here with a test: the day one appears, the receptionist must not silently under-quote."</i>
+  <b>The phone is already defended. The screen is not.</b> This sheet defends the screen on the same terms, before a UI appears rather than after.
+</div>
+
+<div class="rule">
+  <b>Price type and minimum charge are two different fields — this is the thing to be clear about.</b>
+  <b><code>priceType</code></b> is exactly one of <b>Fixed</b>, <b>Range</b> or <b>Hourly</b> (or nothing set) — a provider picks one, and only its own amounts apply.
+  <b><code>minimumCharge</code></b> is a <b>separate, optional field</b> whose own definition in the entity is <i>"Minimum total charge"</i>. It means <b>"whatever the sum comes to, the bill will not be less than this"</b>, and the calculator applies it after any discount and before tax.
+  So a provider could set <b>Fixed $80</b> <i>and</i> <b>minimum $120</b>. They are not alternatives; the second is a floor under the first. In the table below, <b>Stored</b> is what their chosen price type holds and <b>Minimum</b> is that separate floor.
+</div>
+
+<div class="rule">
+  <b>The two rules this sheet draws.</b>
+  <b>RULE 1 — the headline is never below the real floor.</b> When the minimum charge exceeds the computed headline, <b>the minimum becomes the headline</b>, everywhere: card, service page, provider page and structured data.
+  <b>RULE 2 — extras are flagged, not hidden.</b> A charge that is <i>added</i> (a visit fee, a travel fee) gets a short flag on the card and its amount on the page. ‼️ Never a total, because a travel charge cannot be totalled until we know where the customer is.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>1 · Rule 1 — the minimum is the price <span class="n">customer search card · before and after</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap"><span class="tagbad">TODAY</span> &nbsp;listed $80 · minimum charge $120</div>
+    <div class="bd">
+      <div class="sc wrong">
+        <div class="img"></div>
+        <div class="bd2">
+          <div class="nm">Emergency drain unblocking</div>
+          <div class="biz">Bright Plumbing · 2.1 km</div>
+          <div class="priceline"><span class="pr">$80</span></div>
+          <div class="stars">4.8 ★ (36)</div>
+        </div>
+      </div>
+      <div class="panel grey" style="margin-top:10px">The customer will be charged <b>$120</b>. We also tell Google the price is $80.</div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap"><span class="taggood">FIXED</span> &nbsp;the minimum becomes the headline</div>
+    <div class="bd">
+      <div class="sc">
+        <div class="img"></div>
+        <div class="bd2">
+          <div class="nm">Emergency drain unblocking</div>
+          <div class="biz">Bright Plumbing · 2.1 km</div>
+          <div class="priceline"><span class="pr">$120</span><span class="per">minimum</span></div>
+          <div class="stars">4.8 ★ (36)</div>
+        </div>
+      </div>
+      <div class="panel grey" style="margin-top:10px">One word — <b>minimum</b> — so the number is not mistaken for a fixed quote.</div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Unaffected · minimum $50 is BELOW the $80 headline</div>
+    <div class="bd">
+      <div class="sc">
+        <div class="img"></div>
+        <div class="bd2">
+          <div class="nm">Tap washer replacement</div>
+          <div class="biz">Bright Plumbing · 2.1 km</div>
+          <div class="priceline"><span class="pr">$80</span></div>
+          <div class="stars">4.8 ★ (36)</div>
+        </div>
+      </div>
+      <div class="panel grey" style="margin-top:10px">A minimum lower than the price changes nothing and is never shown.</div>
+    </div>
+  </div>
+</div>
+
+<h2>2 · Rule 1 across every price type <span class="n">the cases that are NOT a simple fixed price</span></h2>
+
+<table class="rules">
+  <tr><th style="width:15%">Price type</th><th style="width:22%">Stored</th><th style="width:17%">Minimum</th><th style="width:22%">Card shows</th><th>Why</th></tr>
+  <tr><td><b>Fixed</b></td><td>$80</td><td>—</td><td><b>$80</b></td><td>unchanged</td></tr>
+  <tr><td><b>Fixed</b></td><td>$80</td><td>$120</td><td><b>$120</b> minimum</td><td>‼️ the floor IS the price</td></tr>
+  <tr><td><b>Fixed</b></td><td>$80</td><td>$50</td><td><b>$80</b></td><td>a lower floor is invisible</td></tr>
+  <tr><td><b>Range</b></td><td>$80 – $150</td><td>$120</td><td><b>$120 – $150</b></td><td>‼️ the floor raises the START, the top is untouched</td></tr>
+  <tr><td><b>Range</b></td><td>$80 – $150</td><td>$200</td><td><b>$200</b> minimum</td><td>the floor is above the whole range, so the range is meaningless</td></tr>
+  <tr><td><b>Hourly</b></td><td>$40 / hour</td><td>$120</td><td><b>$40</b> per hour · <b>$120 minimum</b></td><td>‼️ <b>NEVER replace the rate with the floor</b> — they are different units. Both are shown</td></tr>
+  <tr><td><b>Hourly</b></td><td>$40 / hour, min 2 h</td><td>—</td><td><b>$40</b> per hour · <b>2 h minimum</b></td><td>a minimum <i>duration</i> is not a minimum <i>charge</i></td></tr>
+  <tr><td><b>None</b></td><td>no price set</td><td>$120</td><td><b>From $120</b></td><td>a floor with no price is still a real number the customer can rely on</td></tr>
+  <tr><td><b>None</b></td><td>no price set</td><td>—</td><td><b>Get a quote</b></td><td>unchanged — ‼️ never render $0</td></tr>
+</table>
+
+<div class="note">
+  <b>The hourly case is the one that would be got wrong.</b> A $120 minimum against a $40/hour rate does not make the headline $120 — that would read as a flat price. Rate and floor are different units and <b>both</b> are shown. This is the only row where two numbers appear.
+</div>
+
+<h2>2b · The same nine cases, as the customer actually sees them <span class="n">‼️ the table above is the rule; THESE are the cards</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Fixed — the ordinary case</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Boiler service</div><div class="biz">Bright Plumbing · 2.1 km</div>
+      <div class="priceline"><span class="pr">$80</span></div><div class="stars">4.8 ★ (36)</div>
+    </div></div></div>
+  </div>
+  <div class="frame web">
+    <div class="cap">‼️ RANGE — the whole range, always</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Full house deep clean</div><div class="biz">SparkleWorks · 3.4 km</div>
+      <div class="priceline"><span class="pr">$80 – $150</span></div><div class="stars">4.7 ★ (61)</div>
+    </div></div>
+      <div class="panel grey">Both ends, always. ‼️ Never collapsed to “from $80” when a maximum exists.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Range with no maximum set</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Garden clearance</div><div class="biz">GreenHand · 5.0 km</div>
+      <div class="priceline"><span class="pr">From $80</span></div><div class="stars">4.5 ★ (12)</div>
+    </div></div>
+      <div class="panel grey">Only when <code>maxPrice</code> is genuinely absent.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">‼️ HOURLY — rate per hour</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Handyman — general repairs</div><div class="biz">FixIt Co · 1.8 km</div>
+      <div class="priceline"><span class="pr">$40</span><span class="per">/ hour</span></div><div class="stars">4.9 ★ (88)</div>
+    </div></div></div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Hourly with a shortest booking</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Handyman — general repairs</div><div class="biz">FixIt Co · 1.8 km</div>
+      <div class="priceline"><span class="pr">$40</span><span class="per">/ hour · 2 h minimum</span></div><div class="stars">4.9 ★ (88)</div>
+    </div></div>
+      <div class="panel grey">A minimum <i>duration</i>, not a minimum charge.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Hourly with a minimum CHARGE — both numbers</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Handyman — general repairs</div><div class="biz">FixIt Co · 1.8 km</div>
+      <div class="priceline"><span class="pr">$40</span><span class="per">/ hour</span><span class="per">· $120 minimum</span></div><div class="stars">4.9 ★ (88)</div>
+    </div></div>
+      <div class="panel grey">‼️ The rate is never replaced by the floor — different units.</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Range raised by a minimum</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Full house deep clean</div><div class="biz">SparkleWorks · 3.4 km</div>
+      <div class="priceline"><span class="pr">$120 – $150</span><span class="per">minimum $120</span></div><div class="stars">4.7 ★ (61)</div>
+    </div></div>
+      <div class="panel grey">The floor lifts the start; the top is untouched.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Minimum above the whole range</div>
+    <div class="bd"><div class="sc"><div class="img"></div><div class="bd2">
+      <div class="nm">Full house deep clean</div><div class="biz">SparkleWorks · 3.4 km</div>
+      <div class="priceline"><span class="pr">$200</span><span class="per">minimum</span></div><div class="stars">4.7 ★ (61)</div>
+    </div></div>
+      <div class="panel grey">The range is below the floor, so it is meaningless and is not shown.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">No price · and no price with a floor</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Full rewire survey</div><div class="biz">VoltRight · 3.8 km</div>
+        <div class="priceline"><span class="pr" style="font-size:15px">Get a quote</span></div><div class="stars">4.9 ★ (52)</div>
+      </div></div>
+      <div style="height:10px"></div>
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Emergency attendance</div><div class="biz">VoltRight · 3.8 km</div>
+        <div class="priceline"><span class="pr">From $120</span></div><div class="stars">4.9 ★ (52)</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Where these appear — every surface, not just the card.</b> The <b>search results page</b>, the <b>category and city landing pages</b>, the <b>recently viewed and trending rails</b>, the <b>service detail page</b>, the <b>provider Open Page</b>, the <b>cart</b> and the <b>schema.org Offer</b>. ‼️ <b>They must all read from the ONE formatter</b> (<code>utils/servicePrice.js</code>) — it is already the only place a service price becomes a string, and that must stay true.
+</div>
+
+<div class="note">
+  <b>‼️ D46 — A DEFECT FOUND WHILE DRAWING THIS SHEET, and it is exactly the range problem.</b>
+  The C# side normalises the price type through <code>NormalizePriceType()</code>, which accepts <b>four</b> spellings — <code>range</code>, <code>starting_from</code>, <code>startingfrom</code>, <code>starting from</code> — and maps them all to <code>range</code>.
+  <b><code>servicePrice.js</code> has no normaliser at all.</b> It switches on the raw lower-cased string, so anything other than exactly <code>fixed</code>, <code>range</code> or <code>hourly</code> falls to <code>default</code> and renders <code>fixedPrice || startPrice || minimumCharge</code> — <b>which silently drops the maximum and shows a single number where a range should be.</b>
+  The provider forms write <code>"range"</code>, so form-created services are fine today. Anything from bulk import, seeding, a draft path or an older client is not. <b>The fix is to normalise on the JS side with the same four spellings, and pin it with a test.</b>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>3 · Rule 2 — extras are flagged on the card <span class="n">short words, no arithmetic</span></h2>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Visit fee only</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Boiler service</div><div class="biz">Bright Plumbing · 2.1 km</div>
+        <div class="priceline"><span class="pr">$80</span><span class="xtra">+ Visit fee</span></div>
+        <div class="stars">4.8 ★ (36)</div>
+      </div></div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Travel charge only</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Mobile car valet</div><div class="biz">ShinePro · 6.4 km</div>
+        <div class="priceline"><span class="pr">$60</span><span class="xtra">+ Travel fee</span></div>
+        <div class="stars">4.6 ★ (18)</div>
+      </div></div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Both — one flag, not two</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Emergency electrician</div><div class="biz">VoltRight · 3.8 km</div>
+        <div class="priceline"><span class="pr">$95</span><span class="xtra">+ Visit and travel fees</span></div>
+        <div class="stars">4.9 ★ (52)</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="frame web">
+    <div class="cap">Minimum AND extras — both appear</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Emergency drain unblocking</div><div class="biz">Bright Plumbing · 2.1 km</div>
+        <div class="priceline"><span class="pr">$120</span><span class="per">minimum</span><span class="xtra">+ Visit fee</span></div>
+        <div class="stars">4.8 ★ (36)</div>
+      </div></div>
+      <div class="panel grey" style="margin-top:10px">The floor and the add-on are different facts and are never merged.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">‼️ A charge switched ON with NO amount — skipped</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Gutter clearing</div><div class="biz">TopHome · 4.2 km</div>
+        <div class="priceline"><span class="pr">$70</span></div>
+        <div class="stars">4.4 ★ (9)</div>
+      </div></div>
+      <div class="panel grey" style="margin-top:10px">Matches the calculator's own <code>Enabled &amp;&amp; HasValue</code> rule — a toggle with no number changes no total, so it is not announced.</div>
+    </div>
+  </div>
+  <div class="frame web">
+    <div class="cap">Quote-only, with a visit fee</div>
+    <div class="bd">
+      <div class="sc"><div class="img"></div><div class="bd2">
+        <div class="nm">Full rewire survey</div><div class="biz">VoltRight · 3.8 km</div>
+        <div class="priceline"><span class="pr" style="font-size:15px">Get a quote</span><span class="xtra">+ Visit fee</span></div>
+        <div class="stars">4.9 ★ (52)</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>‼️ CAPITALISATION, BINDING — this is the app's existing convention, not a new one.</b>
+  <b>A badge or pill is SENTENCE CASE</b> — first word capitalised, nothing else. The customer app already does this everywhere: <i>"First booking"</i>, <i>"Action needed"</i>, <i>"AI powered"</i>, <i>"For you"</i>, <i>"Expanding to your area"</i>. So it is <b>"+ Visit fee"</b>, never "+ visit fee" and never "+ Visit Fee".
+  <b>An inline suffix beside a number is lowercase</b> — the app already ships <code>"search.taxIncluded": "tax included"</code>. So it is <b>"$120 minimum"</b> and <b>"$40 / hour"</b>, lowercase.
+  ‼️ <b>The distinction is what the element IS, not where it sits</b>: a bordered pill is a badge; loose words next to a figure are a suffix. Every new string on this sheet follows one of those two rules, and the copy table below marks which.
+</div>
+
+<div class="rule">
+  <b>Card rules, binding.</b> ‼️ <b>The flag NEVER carries an amount</b> — a travel charge cannot be totalled until we know the customer's distance, so a number on the card would be false precision. Amounts live on the page.
+  One flag maximum, joined with the locale's own "and".
+  A zero or unset amount is skipped, matching <code>Enabled &amp;&amp; HasValue</code>.
+  The flag is amber, never red — nothing is wrong, it is information.
+  Money always through <code>formatCurrency</code> (currency + locale) — ‼️ <b>never</b> the phone narrator, which is deliberately currency-free.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>4 · The detail page — where the amounts live <span class="n">service page · provider Open Page · web</span></h2>
+
+<div class="row">
+  <div class="frame web wide">
+    <div class="cap">Everything at once — minimum, visit fee, travel fee, free allowance</div>
+    <div class="bd">
+      <div class="pblock">
+        <div class="head">$120 <span style="font-size:13px;font-weight:600;color:var(--muted)">minimum</span></div>
+        <div class="sub">Emergency drain unblocking · Bright Plumbing</div>
+        <div class="lines">
+          <div class="ln"><span class="k">Listed price</span><span class="v">$80</span></div>
+          <div class="ln"><span class="k">Visit fee<small>Added once per visit</small></span><span class="v">+ $40</span></div>
+          <div class="ln"><span class="k">Travel<small>First 10 km included, then per km</small></span><span class="v">+ $2 / km</span></div>
+          <div class="ln min"><span class="k">Minimum charge<small>You will not be charged less than this</small></span><span class="v">$120</span></div>
+        </div>
+        <div class="panel info">Your final price depends on how far away you are. You will see the exact amount before you confirm anything.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame web">
+    <div class="cap">Hourly — rate and floor, both</div>
+    <div class="bd">
+      <div class="pblock">
+        <div class="head">$40 <span style="font-size:13px;font-weight:600;color:var(--muted)">per hour</span></div>
+        <div class="sub">Handyman · FixIt Co</div>
+        <div class="lines">
+          <div class="ln"><span class="k">Hourly rate</span><span class="v">$40</span></div>
+          <div class="ln"><span class="k">Shortest booking</span><span class="v">2 hours</span></div>
+          <div class="ln min"><span class="k">Minimum charge</span><span class="v">$120</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  <b>‼️ Structured data must be corrected too, and this is the part that is easy to forget.</b> <code>serviceOfferPrice</code> feeds the <b>schema.org</b> <code>Offer</code> that search engines read. It currently takes <code>Math.min(...)</code> of every candidate, so it publishes the <i>lowest</i> number we hold. It must publish the <b>same figure the card shows</b> — otherwise we are making an understated price claim to a search engine, which is a stronger claim than screen text.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>5 · Phone <span class="n">customer app · the same two rules, laid out for a narrow screen</span></h2>
+
+<div class="row">
+  <div class="frame phone">
+    <div class="topbar"><span>Results</span><span style="color:var(--muted);font-weight:400;font-size:12px">28</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="sc"><div class="img" style="height:70px"></div><div class="bd2">
+        <div class="nm">Emergency drain unblocking</div><div class="biz">Bright Plumbing · 2.1 km</div>
+        <div class="priceline"><span class="pr">$120</span><span class="per">minimum</span></div>
+        <div class="priceline" style="margin-top:5px"><span class="xtra">+ Visit fee</span></div>
+        <div class="stars">4.8 ★ (36)</div>
+      </div></div>
+      <div style="height:10px"></div>
+      <div class="sc"><div class="img" style="height:70px"></div><div class="bd2">
+        <div class="nm">Mobile car valet</div><div class="biz">ShinePro · 6.4 km</div>
+        <div class="priceline"><span class="pr">$60</span><span class="xtra">+ Travel fee</span></div>
+        <div class="stars">4.6 ★ (18)</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="topbar"><span>Emergency drain unblocking</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="pblock">
+        <div class="head">$120 <span style="font-size:12px;font-weight:600;color:var(--muted)">minimum</span></div>
+        <div class="sub">Bright Plumbing</div>
+        <div class="lines">
+          <div class="ln"><span class="k">Listed price</span><span class="v">$80</span></div>
+          <div class="ln"><span class="k">Visit fee</span><span class="v">+ $40</span></div>
+          <div class="ln"><span class="k">Travel<small>First 10 km included</small></span><span class="v">+ $2 / km</span></div>
+          <div class="ln min"><span class="k">Minimum charge</span><span class="v">$120</span></div>
+        </div>
+        <div class="panel info">Your final price depends on how far away you are. You will see it before you confirm.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Responsive rules, binding.</b> ‼️ <b>The price and the flag never truncate or ellipsis</b> — the flag wraps to its own line below the price, which is what the phone frame above shows.
+  The price line never wraps mid-number.
+  On the detail page each row keeps its label left and amount right at every width; the sub-label wraps under the label, never under the amount.
+  No horizontal scrolling at any width.
+  The flag stays a single tap target of at least 44 px if it is ever made tappable.
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<h2>5b · The provider control that sets it <span class="n">‼️ provider web AND provider phone app · added 2026-09-22</span></h2>
+
+<div class="rule">
+  <b>‼️ THE APPROVED WORDING — owner-approved 2026-09-22. Use these exact words.</b><br><br>
+  <b>TITLE:</b> &nbsp; <code style="font-size:14px;background:var(--paper);padding:3px 8px">Set a minimum charge</code><br><br>
+  <b>HINT (web):</b> &nbsp; <code style="font-size:14px;background:var(--paper);padding:3px 8px">A customer is never charged less than this, even for a small job.</code><br><br>
+  <b>HINT (phone, shorter):</b> &nbsp; <code style="font-size:14px;background:var(--paper);padding:3px 8px">A customer is never charged less than this.</code><br><br>
+  ‼️ <b>The hint names the CUSTOMER as the one charged.</b> An earlier draft said <i>"You will never be paid less than this"</i> and the owner rejected it: <b>the provider does not pay — the customer does.</b> The hint also says <i>why</i> a provider would want it — <b>"even for a small job"</b> — so a $20 job does not cost more in travel than it earns.
+  <b>Keys:</b> <code>provider.price.minimum.label</code> · <code>provider.price.minimum.hint</code> · <code>provider.price.minimum.labelShort</code> · <code>provider.price.minimum.hintShort</code> — all listed in §6.
+</div>
+
+<div class="note">
+  <b>Why this is here at all.</b> Everything else on this sheet is the customer end. But <b>no provider can set a minimum charge today</b> — the field exists, the calculator honours it, the phone assistant states it, and there is simply no control. This frame closes that, so the feature is whole rather than half-built.
+  <b>Owned by PHASE 4</b>, not Phase 3 — the rest of this sheet is Phase 3. See the traceability table, <code>findings\PHASE-3-DESIGN-DECISIONS.md</code> §1b.
+</div>
+
+<div class="row">
+  <div class="frame web wide">
+    <div class="cap">Provider web — the existing extras group, with ONE row added</div>
+    <div class="bd">
+      <div class="pblock">
+        <div style="font-size:14px;font-weight:600;color:var(--body);margin-bottom:2px">Price</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Fixed · $80</div>
+
+        <div class="lines" style="border-top:0;padding-top:0">
+          <div class="ln" style="align-items:center"><span class="k">Add Charge per Visit<small>Existing control, unchanged</small></span><span class="v" style="color:var(--muted);font-weight:500">$40</span></div>
+          <div class="ln" style="align-items:center"><span class="k">Add Charge per Distance<small>Existing control, unchanged</small></span><span class="v" style="color:var(--muted);font-weight:500">$2 / km</span></div>
+          <div class="ln min" style="align-items:center"><span class="k">Set a minimum charge<small>A customer is never charged less than this, even for a small job.</small></span><span class="v">$120</span></div>
+        </div>
+
+        <div class="panel info">‼️ <b>It goes LAST, and the order becomes the calculation a provider can read top to bottom:</b> base price → add visit → add distance → <b>apply the floor</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame phone">
+    <div class="topbar"><span>Price</span></div>
+    <div class="bd" style="padding:12px">
+      <div class="pblock" style="padding:12px">
+        <div style="font-size:13px;font-weight:600;margin-bottom:10px">Extra charges</div>
+        <div class="ln" style="align-items:center;padding:8px 0"><span class="k" style="font-size:12px">Charge per visit</span><span class="v" style="font-size:12px">$40</span></div>
+        <div class="ln" style="align-items:center;padding:8px 0"><span class="k" style="font-size:12px">Charge per distance</span><span class="v" style="font-size:12px">$2 / km</span></div>
+        <div class="ln min" style="align-items:center;padding:8px"><span class="k" style="font-size:12px">Minimum charge<small style="font-size:10px">A customer is never charged less than this.</small></span><span class="v" style="font-size:12px">$120</span></div>
+      </div>
+      <div class="panel grey">Same three rows, same order, same words — ‼️ the phone app is <b>not</b> an afterthought here.</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule">
+  <b>Provider control rules, binding.</b>
+  ‼️ <b>NO new section.</b> It is one more row in the extras group that already exists, using the <b>same switch-reveals-an-amount</b> pattern as the two rows above it and as the approved <code>offer-limits</code> sheet — one pattern, three screens.
+  ‼️ <b>It goes LAST</b>, because it is a floor on the total <i>including</i> the visit and distance charges. The reading order is the calculation order.
+  ‼️ <b>Provider web AND the provider phone app, in the same change</b> — CLAUDE.md §0.7.1. Same rows, same order, same wording.
+  <b>It is money</b>, so decimals to the currency's precision, and it rejects zero and negatives — a zero floor means nothing, which is what leaving the switch <i>off</i> is for.
+  <b>Off is the default.</b> An existing service with no minimum is untouched and shows the switch off.
+</div>
+
+<h2>6 · Every word <span class="n">one key per string · five languages · web and phone</span></h2>
+
+<table class="words">
+  <tr><th style="width:26%">Where</th><th style="width:34%">English</th><th>Key</th></tr>
+  <tr><td><b>Suffix</b> — floor</td><td>minimum <i>(lowercase)</i></td><td><code>service.price.minimumSuffix</code></td></tr>
+  <tr><td>Price suffix — hourly</td><td>per hour</td><td><code>search.pricePerHour</code> <i>(exists)</i></td></tr>
+  <tr><td>Price — no price set</td><td>Get a quote</td><td><code>service.price.quoteOnly</code> <i>(exists)</i></td></tr>
+  <tr><td>Price — floor only</td><td>From {amount}</td><td><code>service.price.fromMinimum</code></td></tr>
+  <tr><td><b>Badge</b> — visit</td><td>+ Visit fee <i>(sentence case)</i></td><td><code>service.extras.visit.short</code></td></tr>
+  <tr><td>Card flag — distance</td><td>+ travel</td><td><code>service.extras.travel.short</code></td></tr>
+  <tr><td><b>Badge</b> — both</td><td>+ Visit and travel fees <i>(sentence case)</i></td><td><code>service.extras.both.short</code></td></tr>
+  <tr><td>Page row</td><td>Listed price</td><td><code>service.price.listed</code></td></tr>
+  <tr><td>Page row</td><td>Visit fee</td><td><code>service.extras.visit.label</code></td></tr>
+  <tr><td>Page sub-label</td><td>Added once per visit</td><td><code>service.extras.visit.hint</code></td></tr>
+  <tr><td>Page row</td><td>Travel</td><td><code>service.extras.travel.label</code></td></tr>
+  <tr><td>Page sub-label</td><td>First {distance} included, then per {unit}</td><td><code>service.extras.travel.hint</code></td></tr>
+  <tr><td>Page sub-label, no allowance</td><td>Charged per {unit}</td><td><code>service.extras.travel.hintNoFree</code></td></tr>
+  <tr><td>Page row</td><td>Minimum charge</td><td><code>service.price.minimum.label</code></td></tr>
+  <tr><td>Page sub-label</td><td>You will not be charged less than this</td><td><code>service.price.minimum.hint</code></td></tr>
+  <tr><td>Page row</td><td>Hourly rate</td><td><code>service.price.hourly.label</code></td></tr>
+  <tr><td>Page row</td><td>Shortest booking</td><td><code>service.price.minimumHours.label</code></td></tr>
+  <tr><td>Page note</td><td>Your final price depends on how far away you are. You will see the exact amount before you confirm anything.</td><td><code>service.price.distanceNote</code></td></tr>
+  <tr><td>Page note, no travel charge</td><td>You will see the exact amount before you confirm anything.</td><td><code>service.price.confirmNote</code></td></tr>
+  <tr><th colspan="3" style="background:var(--green-soft);color:#2F5300">‼️ PROVIDER side (§5b) — web AND the provider phone app, same change</th></tr>
+  <tr><td>Control label</td><td>Set a minimum charge</td><td><code>provider.price.minimum.label</code></td></tr>
+  <tr><td>Control hint</td><td>A customer is never charged less than this, even for a small job.</td><td><code>provider.price.minimum.hint</code></td></tr>
+  <tr><td>Phone label</td><td>Minimum charge</td><td><code>provider.price.minimum.labelShort</code></td></tr>
+  <tr><td>Phone hint</td><td>A customer is never charged less than this.</td><td><code>provider.price.minimum.hintShort</code></td></tr>
+  <tr><td>Validation</td><td>Enter an amount greater than zero.</td><td><code>provider.price.minimum.invalid</code></td></tr>
+</table>
+
+<div class="note">
+  <b>‼️ The unit is never hard-coded.</b> D-43 froze the pricing distance unit with the price, so <code>{unit}</code> renders the value stored on that service — kilometre or mile — and is never converted. A wrong unit on a price is worse than no number at all.
+</div>
+
+<div class="note">
+  <b>What this sheet does NOT settle, and must not be assumed from it.</b> The states drawn here are examples. The implementing session must work through every case it finds — a currency with no minor unit, a service whose minimum equals its price exactly, a range whose start and end are equal, a travel charge with a free allowance larger than any realistic distance, tax-inclusive versus tax-exclusive display, and anything else — and design for each one deliberately.
+</div>
+
+</main>
+</body>
+</html>

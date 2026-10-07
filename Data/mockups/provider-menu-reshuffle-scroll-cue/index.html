@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Provider menu reshuffle + scroll cue — approval mockup</title>
+<style>
+  :root{
+    --navy:#032858;
+    --lime:#97EF29;
+    --rail-idle:#919191;
+    --ink:#101010;
+    --muted:#5F5F5F;
+    --line:#E7E7E7;
+    --bg:#F5F7FA;
+    --card:#ffffff;
+    --amber:#E08600;
+    --red:#C63535;
+    --railh:640px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:28px 20px 90px}
+  h1{font-size:26px;margin:0 0 6px;color:var(--navy);letter-spacing:-.2px}
+  h2{font-size:19px;margin:0 0 4px;color:var(--navy)}
+  h3{font-size:14px;margin:0 0 10px;color:var(--navy);text-transform:uppercase;letter-spacing:.6px}
+  p{margin:0 0 12px;color:#333}
+  .lede{color:var(--muted);margin:0 0 22px;max-width:78ch}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 22px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#F0FFE1;color:#2F7D00;border:1px solid #D6F5AE}
+  .tag.q{background:#FFF6E8;color:#9A5B00;border-color:#FFE2B8}
+  .tag.n{background:#EEF3FA;color:var(--navy);border-color:#D9E4F2}
+  .note{font-size:13.5px;color:var(--muted);background:#FAFBFC;border-left:3px solid var(--lime);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0 0}
+  .note.warn{border-left-color:var(--amber)}
+  .note.stop{border-left-color:var(--red)}
+  code{background:#F1F3F6;padding:1px 5px;border-radius:4px;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+
+  /* ---------- rail ---------- */
+  .rail{
+    width:264px;background:var(--navy);border-radius:16px;
+    display:flex;flex-direction:column;padding:14px 12px;
+    height:var(--railh);flex:none;
+  }
+  .rail .brand{display:flex;align-items:center;gap:9px;padding:2px 4px 12px;flex:none}
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--lime)}
+  .brand .word{color:#fff;font-weight:700;letter-spacing:.3px;font-size:15px}
+  .scrollwrap{position:relative;flex:1;min-height:0}
+  .scroller{
+    height:100%;overflow-y:auto;display:flex;flex-direction:column;gap:5px;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .scroller::-webkit-scrollbar{display:none}
+  .row{
+    display:flex;align-items:center;gap:12px;padding:9px 13px;border-radius:11px;
+    color:var(--rail-idle);font-weight:600;font-size:13.5px;flex:none;cursor:default;
+  }
+  .row:hover{color:#fff}
+  .row.active{background:var(--lime);color:#000}
+  .row svg{width:18px;height:18px;flex:none}
+  .footrow{
+    flex:none;margin-top:10px;display:flex;align-items:center;gap:11px;
+    padding:9px 13px;border-radius:11px;color:#fff;font-weight:600;font-size:13.5px;
+    border-top:1px solid rgba(255,255,255,.08);padding-top:14px;
+  }
+  .footrow .disc{width:30px;height:30px;border-radius:50%;background:var(--lime);color:#000;display:grid;place-items:center;font-weight:800;font-size:13px}
+
+  /* ---------- cue: shared plumbing ---------- */
+  .cue{position:absolute;left:0;right:0;pointer-events:none;opacity:0;transition:opacity .18s ease}
+  .cue.top{top:0}
+  .cue.bot{bottom:0}
+  [data-up="true"]  .cue.top{opacity:1}
+  [data-down="true"].cue.bot,
+  [data-down="true"] .cue.bot{opacity:1}
+
+  /* A — fade + chevron + bar */
+  .fade{height:56px}
+  .fade.bot{background:linear-gradient(to top,var(--navy) 34%,rgba(3,40,88,0) 100%)}
+  .fade.top{background:linear-gradient(to bottom,var(--navy) 34%,rgba(3,40,88,0) 100%)}
+  .chev{position:absolute;left:50%;transform:translateX(-50%);bottom:5px;color:var(--lime);display:block}
+  .cue.top .chev{bottom:auto;top:5px;transform:translateX(-50%) rotate(180deg)}
+  @media (prefers-reduced-motion:no-preference){
+    [data-down="true"] .cue.bot .chev{animation:nudge 1.9s ease-in-out 3}
+  }
+  @keyframes nudge{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(3px)}}
+
+  /* visible lime scrollbar variant */
+  .bar .scroller{scrollbar-width:thin;scrollbar-color:var(--lime) rgba(255,255,255,.10)}
+  .bar .scroller::-webkit-scrollbar{display:block;width:6px}
+  .bar .scroller::-webkit-scrollbar-track{background:rgba(255,255,255,.10);border-radius:8px}
+  .bar .scroller::-webkit-scrollbar-thumb{background:var(--lime);border-radius:8px}
+
+  /* D — hairline edge rule */
+  .edge{height:2px;background:linear-gradient(90deg,rgba(151,239,41,0) 0%,var(--lime) 22%,var(--lime) 78%,rgba(151,239,41,0) 100%)}
+  .edge.bot{box-shadow:0 -10px 16px -8px rgba(3,40,88,.95)}
+  .edge.top{box-shadow:0 10px 16px -8px rgba(3,40,88,.95)}
+
+  /* E — count pill */
+  .pillcue{height:52px;background:linear-gradient(to top,var(--navy) 40%,rgba(3,40,88,0) 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
+  .pillcue.top{background:linear-gradient(to bottom,var(--navy) 40%,rgba(3,40,88,0) 100%);align-items:flex-start;padding:6px 0 0}
+  .morepill{background:var(--lime);color:#04240A;font-weight:800;font-size:11.5px;letter-spacing:.3px;padding:3px 11px;border-radius:999px;display:flex;align-items:center;gap:5px}
+
+  /* ---------- customer account sidebar (white panel) ---------- */
+  .wrail{width:264px;flex:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 10px;height:var(--custh,420px);display:flex;flex-direction:column}
+  .wrail .gh2{font-size:10.5px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:#9CA3AF;padding:10px 10px 5px}
+  .wrail .r{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;font-size:13.5px;color:#1B1B1B}
+  .wrail .r .ic{width:17px;height:17px;border-radius:5px;background:#E9EDF3;flex:none}
+  .wrail .r.on{background:var(--lime);color:#000;font-weight:600}
+  .wfade{height:52px}
+  .wfade.bot{background:linear-gradient(to top,#fff 34%,rgba(255,255,255,0) 100%)}
+  .wfade.top{background:linear-gradient(to bottom,#fff 34%,rgba(255,255,255,0) 100%)}
+  .cue.navy .chev{color:var(--navy)}
+
+  /* ---------- layout helpers ---------- */
+  .lab{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+  .spec{width:264px;flex:none}
+  .spec .cap{margin-top:10px;font-size:12.5px;color:var(--muted);min-height:52px}
+  .spec .name{font-weight:800;color:var(--navy);font-size:13.5px;display:flex;align-items:center;gap:7px;margin-bottom:8px}
+  .letter{width:20px;height:20px;border-radius:6px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800}
+  .spec.rec .letter{background:var(--lime);color:#04240A}
+
+  .controls{display:flex;gap:20px;flex-wrap:wrap;align-items:center;background:#FAFBFC;border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:0 0 20px}
+  .controls label{font-size:12.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px}
+  .seg{display:flex;border:1px solid #D9E4F2;border-radius:9px;overflow:hidden}
+  .seg button{border:0;background:#fff;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer;color:var(--muted)}
+  .seg button+button{border-left:1px solid #D9E4F2}
+  .seg button[aria-pressed="true"]{background:var(--lime);color:#04240A;font-weight:700}
+
+  /* ---------- order diff ---------- */
+  .diff{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:760px){.diff{grid-template-columns:1fr}}
+  .col{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .col h4{margin:0;padding:10px 14px;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;background:#FAFBFC;border-bottom:1px solid var(--line);color:var(--muted)}
+  .col ol{margin:0;padding:8px 8px 10px 34px}
+  .col li{padding:4px 0;font-size:14px}
+  .col li.moved{color:#2F7D00;font-weight:700}
+  .col li.hold{color:#9AA3AE}
+  .col .sep{list-style:none;margin:6px 0 6px -22px;border-top:1px dashed #D9E4F2;padding:0;height:1px}
+
+  /* ---------- mobile ---------- */
+  .phones{display:flex;gap:22px;flex-wrap:wrap}
+  .phone{width:288px;flex:none}
+  .phone .screen{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 3px 14px rgba(3,40,88,.07)}
+  .phone .bar{background:var(--navy);color:#fff;padding:12px 16px;font-weight:700;font-size:14px}
+  .grp{padding:10px 0 4px}
+  .grp .gh{font-size:10.5px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:#9CA3AF;padding:6px 16px}
+  .mrow{display:flex;align-items:center;gap:11px;padding:9px 16px;font-size:13.5px;color:#1B1B1B;border-bottom:1px solid #F3F4F6}
+  .mrow .ic{width:26px;height:26px;border-radius:8px;background:#F1F3F6;flex:none}
+  .mrow.new{background:#F7FFEC}
+  .mrow.moved{color:#2F7D00;font-weight:600}
+  .mrow .badge{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.4px;color:#2F7D00;background:#EAFBD4;border-radius:999px;padding:2px 7px}
+  .mrow .badge.mv{color:#9A5B00;background:#FFF3E0}
+  .phone .cap{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .scrollbox{max-height:520px;overflow:auto}
+
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+  .tblwrap{overflow-x:auto}
+  ul.tight{margin:0 0 0 18px;padding:0}
+  ul.tight li{margin:0 0 7px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Provider menu — reshuffle + “there is more below” cue</h1>
+  <p class="lede">
+    Approval mockup for provider <strong>web</strong> (the navy rail) and the provider <strong>mobile app</strong>
+    (the Profile menu). Nothing has been written into either app yet. Colours are the live brand values —
+    navy <code>#032858</code>, lime <code>#97EF29</code>, idle text <code>#919191</code>. The rails below are
+    real scroll containers, so every cue state you see is the actual behaviour, not a drawing.
+  </p>
+
+  <!-- ============ 1. ORDER ============ -->
+  <section>
+    <div class="sechead"><h2>1 · Rail order</h2><span class="tag">Confirmed</span></div>
+    <p>Everything through Customers is untouched. The five business rows below it are re-sequenced.</p>
+    <div class="diff">
+      <div class="col">
+        <h4>Today</h4>
+        <ol>
+          <li class="hold">Dashboard</li><li class="hold">Calendar</li><li class="hold">Services</li>
+          <li class="hold">Leads</li><li class="hold">Insights</li><li class="hold">Inbox</li>
+          <li class="hold">My Bookings</li><li class="hold">My Quotes</li><li class="hold">Invoices</li>
+          <li class="hold">Customers</li>
+          <li class="sep"></li>
+          <li>Refund Requests</li><li>Billing</li><li>Team</li><li>Activity</li><li>Call Follow-ups</li>
+        </ol>
+      </div>
+      <div class="col">
+        <h4>Proposed</h4>
+        <ol>
+          <li class="hold">Dashboard</li><li class="hold">Calendar</li><li class="hold">Services</li>
+          <li class="hold">Leads</li><li class="hold">Insights</li><li class="hold">Inbox</li>
+          <li class="hold">My Bookings</li><li class="hold">My Quotes</li><li class="hold">Invoices</li>
+          <li class="hold">Customers</li>
+          <li class="sep"></li>
+          <li class="moved">Team</li><li class="moved">Billing</li><li class="moved">Call Follow-ups</li>
+          <li class="moved">Activity</li><li class="moved">Refund Requests</li>
+        </ol>
+      </div>
+    </div>
+    <p class="note">
+      <strong>Revised — Refund Requests is last again.</strong> I had argued it up one place on the grounds that a
+      customer is waiting on it. You have overruled that: it is simply not opened often. That is your call on your
+      own providers, so the tail is now exactly the order you first wrote —
+      Team · Billing · Call&nbsp;Follow-ups · Activity · Refund&nbsp;Requests.
+    </p>
+    <p class="note warn">
+      <strong>One existing guard has to be rewritten.</strong> <code>sidebarRailConsistency.test.js</code> currently
+      asserts <em>“Call Follow-ups is the last row in the rail … so no feature flag can displace it.”</em> That was a
+      recorded earlier decision. It gets replaced with a test pinning <em>this</em> order — not deleted, and called
+      out here rather than changed quietly.
+    </p>
+    <p class="note">
+      Row count varies with feature flags and the signed-in person’s permissions: <strong>15 rows</strong> with every
+      flag on, as few as <strong>8</strong> for a restricted role. Insights, Billing, Refund Requests and Call
+      Follow-ups each disappear entirely when their flag is off. That is exactly why the scroll cue below must be
+      measured, never assumed.
+    </p>
+  </section>
+
+  <!-- ============ 2. CUE OPTIONS ============ -->
+  <section>
+    <div class="sechead"><h2>2 · Scroll cue — five options, live</h2><span class="tag q">Needs your pick</span></div>
+    <p>
+      Drag the height down until the rail overflows and the cues appear; drag it back up and they all vanish.
+      That is the “only when there is scroll” requirement, working.
+    </p>
+
+    <div class="controls">
+      <label for="h">Rail height</label>
+      <input id="h" type="range" min="300" max="900" step="10" value="560" style="width:230px" />
+      <span id="hval" style="font-weight:700;color:var(--navy);min-width:74px">560 px</span>
+      <label>Rows</label>
+      <div class="seg" id="rowseg">
+        <button data-n="15" aria-pressed="true">15 · all flags</button>
+        <button data-n="11" aria-pressed="false">11 · typical</button>
+        <button data-n="8"  aria-pressed="false">8 · restricted</button>
+      </div>
+    </div>
+
+    <div class="lab" id="lab"></div>
+
+    <p class="note">
+      <strong>Every option shares the same four rules.</strong> It renders only on measured overflow
+      (<code>scrollHeight − clientHeight &gt; 1</code>, re-measured on container resize <em>and</em> content change,
+      mirroring the existing <code>useHorizontalOverflow</code> hook). It appears at the <em>top</em> edge too once
+      you have scrolled down, so it says <em>which way</em> there is more. It never intercepts a click. And it drops
+      its motion under <code>prefers-reduced-motion</code>.
+    </p>
+    <p class="note">
+      <strong>You have already ruled on this once.</strong> <code>global.css</code> line 342 carries your own note:
+      <em>“Chip strips that overflow at phone/tablet widths keep a THIN brand scrollbar — an invisible scroller hides
+      half the filters with no hint they exist (owner, 2026-08-13, the activity chips).”</em> The Profile menu you
+      circled follows it (<code>bookings-table-scroll</code>, navy 5&nbsp;px thumb) — which is exactly why that menu
+      <em>does</em> show a bar. The dashboard rail is the single surface that opted out, with
+      <code>sidebar-scroll-hidden</code>. So the visible thin bar is not a new idea; it is the house rule, and the
+      rail is the exception. It only has to be <strong>lime</strong> here, because a navy thumb on a navy rail is
+      invisible — and <code>.sidebar-scroll</code> with a lime thumb is already written in <code>global.css</code>
+      and used by nothing.
+    </p>
+    <p class="note warn">
+      <strong>Why the bar alone (B) is not enough.</strong> On macOS, iPadOS and iOS Safari the browser hides overlay
+      scrollbars until a scroll gesture has already started — so on exactly the iPad and laptop you described, B
+      draws nothing until the user has already discovered the scroll by accident. The chip strips get away with it
+      because their content is visibly clipped mid-chip; a rail clips cleanly between rows and looks finished.
+    </p>
+    <p class="note">
+      <strong>C is chosen, and E is rejected on brand grounds.</strong> Lime means “this row is selected” on this
+      rail — the active row is a solid lime pill. E’s “+N more” is a second solid lime chip that is not selectable,
+      which is the confusion the brand rule exists to prevent. C’s chevron is a thin lime glyph, so it reads as an
+      arrow, not a control. E also needs a localized plural string in five catalogues and a count that must stay
+      correct while scrolling; C has no text at all.
+    </p>
+    <p class="note warn">
+      <strong>Recorded difference:</strong> C drops the visible scrollbar, so it does not literally follow the
+      chip-strip rule at <code>global.css:342</code>. It meets that rule’s intent — never hide the fact that content
+      overflows — with a mechanism suited to a rail that clips cleanly between rows. If position and length ever
+      matter, the answer is to add the thin lime bar back (that is option A), not to move to E.
+    </p>
+  </section>
+
+  <!-- ============ 3. STATES ============ -->
+  <section>
+    <div class="sechead"><h2>3 · Every state, for the chosen option (C)</h2><span class="tag n">Review</span></div>
+    <p>Four states, side by side, each locked to its scroll position.</p>
+    <div class="lab" id="states"></div>
+    <p class="note">
+      <strong>Also covered, and unchanged by this work:</strong> the <em>collapsed</em> desktop rail (76&nbsp;px, icons
+      only) uses the identical cue at the identical edges. The <em>phone / tablet web drawer</em> is the same rail
+      component inside a slide-over, so it inherits the cue with no extra code. The pinned
+      <strong>My&nbsp;Profile</strong> footer sits outside the scroll container and never moves — the fade must stop
+      at the list edge, not run under the footer.
+    </p>
+  </section>
+
+  <!-- ============ 4. MOBILE ============ -->
+  <section>
+    <div class="sechead"><h2>4 · Mobile app — rethought from scratch</h2><span class="tag q">Needs your pick</span></div>
+    <p>
+      You are right that the web Profile menu cannot be copied — it has no Team, no Billing, no Activity, no Refund
+      Requests. Those live in the web <em>rail</em>, and <strong>mobile has no rail</strong>. So I stopped trying to
+      mirror a screen and looked instead at where every destination can actually be reached on a phone today.
+    </p>
+
+    <div class="tblwrap">
+      <table>
+        <tr><th style="width:30%">Destination</th><th style="width:26%">Reachable on mobile from</th><th>Verdict</th></tr>
+        <tr><td>Dashboard · Bookings · Leads · Inbox</td><td>Bottom tab</td><td>Fine — one tap, always visible</td></tr>
+        <tr><td>Quotes · Customers · Calendar · Invoices&nbsp;or&nbsp;Insights · Call&nbsp;Follow-ups</td>
+            <td>FAB arc <em>and</em> the Profile list</td><td>Fine — the FAB is the shortcut</td></tr>
+        <tr><td>Address · Service Area · Category · Services&nbsp;&amp;&nbsp;Price · Availability · Licence · Portfolio · Reviews · Offers · Voice&nbsp;Assistant</td>
+            <td>Profile list only</td><td>Fine — setup, opened rarely, and a literal match for the web Profile menu you circled</td></tr>
+        <tr style="background:#FFF6E8"><td><strong>Team · Activity · Refund Requests · Plan&nbsp;&amp;&nbsp;Billing · Payment Settings</strong></td>
+            <td><strong>Profile list only</strong></td>
+            <td><strong>This is the actual problem.</strong> No tab, no FAB, and they sit in the middle of a 21-row
+                list that opens with Plan&nbsp;&amp;&nbsp;Billing and closes with Calendar</td></tr>
+      </table>
+    </div>
+
+    <p style="margin-top:16px">
+      So the biggest value on mobile is not “put the five rows in the same order as web”. It is:
+      <strong>break the 21-row block into four headed groups, each answering one question.</strong> Same rows, same
+      names, same permission and flag gates, same destinations — just findable.
+    </p>
+    <p class="note">
+      <strong>Group order is yours, and here is the trade-off in one line.</strong> <em>Your business</em> leads, so
+      the ten setup rows sit above the day-to-day ones. The argument for it: somebody who tapped <em>Profile</em>
+      most likely came for exactly those rows, and it makes the screen open with a literal match of the web menu.
+      The argument against: those are the rows a settled provider opens least. Your call, applied as asked.
+    </p>
+
+    <div class="phones" style="margin-top:20px">
+      <div class="phone">
+        <div class="screen">
+          <div class="bar">Today</div>
+          <div class="scrollbox">
+            <div class="grp">
+              <div class="gh">Business Management</div>
+              <div class="mrow"><span class="ic"></span>Plan &amp; Billing</div>
+              <div class="mrow"><span class="ic"></span>Payment Settings</div>
+              <div class="mrow"><span class="ic"></span>Refund Requests</div>
+              <div class="mrow"><span class="ic"></span>Insights</div>
+              <div class="mrow"><span class="ic"></span>Team</div>
+              <div class="mrow"><span class="ic"></span>Activity</div>
+              <div class="mrow"><span class="ic"></span>Business Address</div>
+              <div class="mrow"><span class="ic"></span>Manage Service Area</div>
+              <div class="mrow"><span class="ic"></span>Business Category</div>
+              <div class="mrow"><span class="ic"></span>Manage Services &amp; Price</div>
+              <div class="mrow"><span class="ic"></span>Set Availability</div>
+              <div class="mrow"><span class="ic"></span>Licence &amp; Certifications</div>
+              <div class="mrow"><span class="ic"></span>Portfolio</div>
+              <div class="mrow"><span class="ic"></span>Reviews</div>
+              <div class="mrow"><span class="ic"></span>Offers</div>
+              <div class="mrow"><span class="ic"></span>My Quotes</div>
+              <div class="mrow"><span class="ic"></span>Invoice</div>
+              <div class="mrow"><span class="ic"></span>Customers</div>
+              <div class="mrow"><span class="ic"></span>Voice Assistant</div>
+              <div class="mrow"><span class="ic"></span>Call Follow-ups</div>
+              <div class="mrow"><span class="ic"></span>Calendar</div>
+            </div>
+          </div>
+        </div>
+        <p class="cap">21 rows under one heading. Billing sits beside Portfolio; Activity sits beside Business Address.</p>
+      </div>
+
+      <div class="phone">
+        <div class="screen">
+          <div class="bar" style="background:#0B3D7A">Option 1 — four headed groups (revised to your order)</div>
+          <div class="scrollbox">
+            <div class="grp">
+              <div class="gh">Your business <span style="color:#2F7D00">· = the web menu you circled</span></div>
+              <div class="mrow"><span class="ic"></span>Business Address</div>
+              <div class="mrow"><span class="ic"></span>Manage Service Area</div>
+              <div class="mrow"><span class="ic"></span>Business Category</div>
+              <div class="mrow"><span class="ic"></span>Manage Services &amp; Price</div>
+              <div class="mrow"><span class="ic"></span>Set Availability</div>
+              <div class="mrow"><span class="ic"></span>Licence &amp; Certifications</div>
+              <div class="mrow"><span class="ic"></span>Portfolio</div>
+              <div class="mrow"><span class="ic"></span>Reviews</div>
+              <div class="mrow"><span class="ic"></span>Offers</div>
+              <div class="mrow"><span class="ic"></span>AI Voice Assistant</div>
+            </div>
+            <div class="grp">
+              <div class="gh">Team &amp; plan <span style="color:#2F7D00">· new</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Team<span class="badge">was buried</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Activity<span class="badge">was buried</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Plan &amp; Billing<span class="badge">was buried</span></div>
+            </div>
+            <div class="grp">
+              <div class="gh">Work <span style="color:#2F7D00">· new</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Calendar</div>
+              <div class="mrow new moved"><span class="ic"></span>My Quotes</div>
+              <div class="mrow new moved"><span class="ic"></span>Invoice</div>
+              <div class="mrow new moved"><span class="ic"></span>Customers</div>
+              <div class="mrow new moved"><span class="ic"></span>Call Follow-ups</div>
+              <div class="mrow new moved"><span class="ic"></span>Insights</div>
+            </div>
+            <div class="grp">
+              <div class="gh">Payments <span style="color:#2F7D00">· new, and last</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Payment Settings<span class="badge mv">moved here</span></div>
+              <div class="mrow new moved"><span class="ic"></span>Refund Requests<span class="badge mv">moved here</span></div>
+            </div>
+            <div class="grp">
+              <div class="gh">Account Management <span style="color:#9CA3AF">· unchanged</span></div>
+              <div class="mrow"><span class="ic"></span>Profile Setting</div>
+              <div class="mrow"><span class="ic"></span>Change Password</div>
+              <div class="mrow"><span class="ic"></span>Security &amp; Passkeys</div>
+              <div class="mrow"><span class="ic"></span>Notifications</div>
+              <div class="mrow"><span class="ic"></span>Appearance <span style="margin-left:auto;font-size:10.5px;color:#9CA3AF">mobile-only</span></div>
+              <div class="mrow"><span class="ic"></span>Language <span style="margin-left:auto;font-size:10.5px;color:#9CA3AF">mobile-only</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="cap">
+          Nothing renamed, nothing removed, no new screen. “Your business” is a row-for-row, order-for-order match of
+          the web Profile menu you circled. Refund Requests leaves the day-to-day group entirely and pairs with
+          Payment Settings in a Payments group at the end.
+        </p>
+      </div>
+
+      <div class="phone">
+        <div class="screen">
+          <div class="bar">Option 2 — reorder in place only</div>
+          <div class="scrollbox">
+            <div class="grp">
+              <div class="gh">Business Management</div>
+              <div class="mrow new moved"><span class="ic"></span>Team</div>
+              <div class="mrow new moved"><span class="ic"></span>Plan &amp; Billing</div>
+              <div class="mrow new moved"><span class="ic"></span>Call Follow-ups</div>
+              <div class="mrow new moved"><span class="ic"></span>Refund Requests</div>
+              <div class="mrow new moved"><span class="ic"></span>Activity</div>
+              <div class="mrow"><span class="ic"></span>Insights</div>
+              <div class="mrow"><span class="ic"></span>Payment Settings</div>
+              <div class="mrow"><span class="ic"></span>My Quotes</div>
+              <div class="mrow"><span class="ic"></span>Invoice</div>
+              <div class="mrow"><span class="ic"></span>Customers</div>
+              <div class="mrow"><span class="ic"></span>Calendar</div>
+              <div class="mrow"><span class="ic"></span>Business Address</div>
+              <div class="mrow"><span class="ic"></span>Manage Service Area</div>
+              <div class="mrow"><span class="ic"></span>Business Category</div>
+              <div class="mrow"><span class="ic"></span>Manage Services &amp; Price</div>
+              <div class="mrow"><span class="ic"></span>Set Availability</div>
+              <div class="mrow"><span class="ic"></span>Licence &amp; Certifications</div>
+              <div class="mrow"><span class="ic"></span>Portfolio</div>
+              <div class="mrow"><span class="ic"></span>Reviews</div>
+              <div class="mrow"><span class="ic"></span>Offers</div>
+              <div class="mrow"><span class="ic"></span>AI Voice Assistant</div>
+            </div>
+          </div>
+        </div>
+        <p class="cap">
+          Smallest diff: the five agreed rows go to the top of the one existing block, everything else keeps its
+          current sequence. No new headings, no new localization keys. Still a 21-row scan.
+        </p>
+      </div>
+    </div>
+
+    <p class="note warn">
+      <strong>One divergence you should sign off knowingly.</strong> Web keeps <em>Payment Settings</em> under
+      Profile → <em>Account Management</em>. Pairing it with Refund Requests in a mobile <em>Payments</em> group is
+      a deliberate mobile-specific choice, not a mirror of web. It is defensible — both rows are the customer-money
+      side of the product, and both hang off the online-booking-pay packages — but the two apps will now file that
+      row differently, and I will record it as an owner decision rather than let it read as drift.
+    </p>
+    <p class="note">
+      <strong>The Payments group is doubly conditional.</strong> Payment Settings is gated on
+      <code>payments.billingUiEnabled</code>; Refund Requests on <code>payments.onlineBookingPayEnabled</code>
+      <em>and</em> <code>shows("refundRequests")</code>. With both off the group vanishes heading and all — which is
+      the correct behaviour, and the reason the heading can never be hardcoded above the rows.
+    </p>
+    <p class="note warn">
+      <strong>A group whose rows are all hidden must render no heading.</strong> Every row keeps the gate it has
+      today — <code>shows("team")</code>, <code>payments.billingUiEnabled</code>,
+      <code>payments.onlineBookingPayEnabled</code>, <code>payments.smartAnalyticsEnabled</code>,
+      <code>payments.aiAssistantEnabled</code>. A Technician on a Free plan would otherwise see an empty
+      “Team &amp; plan” heading, which is worse than no group at all.
+    </p>
+    <p class="note">
+      <strong>Three things I considered and did NOT propose</strong>, because each is a separate decision rather than
+      part of a reshuffle: a <em>“More” bottom tab</em> (the FAB already owns that slot and is an approved design);
+      <em>search inside the menu</em> (genuinely useful at 21 rows, but it is a new control with its own empty and
+      no-match states and deserves its own mockup); and <em>surfacing Team / Refund Requests on the mobile dashboard
+      home</em> (a better answer to “hard to find” than any menu order, and worth doing — separately).
+    </p>
+    <p class="note">
+      <strong>Three mobile/web differences I am deliberately NOT “fixing”</strong>, because each is correct as it
+      stands: <em>Appearance</em> and <em>Language</em> are mobile-only (web puts the language picker in the rail
+      header and follows the OS theme); <em>Do not sell or share my data</em> is mobile-only under Legal and is a
+      CCPA-style in-app requirement; <em>Data Deletion</em> sits under Legal on mobile but Support on web — moving it
+      is churn with an App&nbsp;Store reachability rule attached, so I would leave it and record the divergence.
+    </p>
+    <p class="note warn">
+      <strong>Option 1 needs four headings in five catalogues</strong>
+      (<code>en-US · fr-CA · hi-IN · gu-IN · es-US</code>, identical key sets):
+      <em>Your business</em> · <em>Team &amp; plan</em> · <em>Work</em> · <em>Payments</em>. Three are new;
+      <em>Your business</em> can reuse the existing <code>PROFILE_SCREEN.BUSINESS_MANAGEMENT</code> string instead if
+      you would rather not add a key — say which you prefer.
+    </p>
+  </section>
+
+  <!-- ============ 5. CUSTOMER APPS ============ -->
+  <section>
+    <div class="sechead"><h2>5 · Customer web + customer app</h2><span class="tag q">Needs your pick</span></div>
+    <p>
+      I checked both. Short answer: <strong>the customer apps need the scroll cue for the same reason, need a much
+      smaller order change, and have a naming problem that is worse than the provider one.</strong> The customer
+      mobile app mirrors customer web <em>row for row, order for order, label for label</em> — I verified each one —
+      so every decision below applies to both at once. There is no separate mobile choice to make here.
+    </p>
+
+    <h3 style="margin-top:20px">5.1 · Scroll cue — yes, the same defect</h3>
+    <p>
+      <code>accountSidebarLayout.jsx</code> line 204 renders the desktop account sidebar as
+      <code>sticky top-5 max-h-[calc(100vh-40px)] overflow-y-auto <strong>no-scrollbar</strong></code>. That is a
+      capped-height scroll container with the scrollbar deliberately suppressed — the identical defect to the
+      provider rail, on 20 rows across three groups plus headings. It will overflow on any laptop.
+    </p>
+    <p class="note">
+      <strong>The cue inverts for this surface.</strong> The provider rail is navy, so it takes a navy fade and a
+      lime chevron. The customer sidebar is a white panel on white, so it takes a <em>white</em> fade and a
+      <em>navy</em> chevron — lime on white at 18&nbsp;px would fail contrast, and navy is already the brand’s
+      colour for this kind of mark. Same option C, same measured-overflow rule, mirrored palette.
+    </p>
+    <div class="lab" id="custlab" style="margin-top:16px"></div>
+
+    <h3 style="margin-top:26px">5.2 · Naming — one group, four different conventions</h3>
+    <p>These are the eight rows in the group headed <strong>“My Account”</strong>, exactly as they read today:</p>
+    <div class="tblwrap">
+      <table>
+        <tr><th style="width:26%">Row</th><th style="width:26%">Convention</th><th>Problem</th></tr>
+        <tr><td>Profile Information</td><td>Noun phrase</td><td>—</td></tr>
+        <tr><td><strong>My Bookings</strong></td><td>“My” + Title Case</td><td>Repeats the group heading</td></tr>
+        <tr><td>Quotes</td><td>Bare noun</td><td>—</td></tr>
+        <tr><td>Messages</td><td>Bare noun</td><td>—</td></tr>
+        <tr><td><strong>My Reviews</strong></td><td>“My” + Title Case</td><td>Repeats the group heading</td></tr>
+        <tr style="background:#FFF1F1"><td><strong>My invoices</strong></td><td>“My” + <strong>sentence case</strong></td><td><strong>Casing bug — visible on screen, sits directly under “My Bookings”</strong></td></tr>
+        <tr><td>Manage Addresses</td><td>Verb phrase</td><td>The only imperative in the list</td></tr>
+        <tr><td>Payments</td><td>Bare noun</td><td>—</td></tr>
+      </table>
+    </div>
+    <p class="note warn">
+      <strong>My recommendation: drop “My” from every row, and this settles the provider question too.</strong>
+      The group heading is <em>literally</em> “My Account”. Every “My” beneath it says the same word twice. Five of
+      the eight rows already do it this way — the “My” rows are the minority, not the standard. That gives one rule
+      for the whole product rather than two: <strong>ownership is established by the context, never repeated on the
+      row.</strong> On the provider rail the context is the dashboard itself; here it is the group heading. Same
+      rule, both apps.
+    </p>
+    <p class="note">
+      <strong>“My invoices” is a bug either way.</strong> Whatever you decide about “My”, that lowercase <em>i</em>
+      sitting two rows under “My Bookings” should be fixed in this change.
+    </p>
+
+    <h3 style="margin-top:26px">5.3 · Order — one small move, no new groups</h3>
+    <p>
+      The three groups are already clean and I would not touch them. Inside <strong>My Account</strong>, though,
+      <em>Manage Addresses</em> currently sits between the two money rows. Grouping the eight into three silent runs
+      — your details, your activity, your money — costs nothing and needs no new heading:
+    </p>
+    <div class="diff" style="margin-top:12px">
+      <div class="col">
+        <h4>Today</h4>
+        <ol>
+          <li>Profile Information</li><li>My Bookings</li><li>Quotes</li><li>Messages</li>
+          <li>My Reviews</li><li>My invoices</li><li class="moved" style="color:#9A5B00">Manage Addresses</li><li>Payments</li>
+        </ol>
+      </div>
+      <div class="col">
+        <h4>Proposed — renamed and re-run</h4>
+        <ol>
+          <li>Profile Information</li><li class="moved">Addresses</li>
+          <li class="sep"></li>
+          <li class="moved">Bookings</li><li>Quotes</li><li>Messages</li><li class="moved">Reviews</li>
+          <li class="sep"></li>
+          <li class="moved">Invoices</li><li>Payments</li>
+        </ol>
+      </div>
+    </div>
+    <p class="note">
+      <strong>A pattern already solved here that provider mobile should copy.</strong>
+      <code>useVisibleNavGroups</code> in <code>accountSidebarNav.js</code> already ends with
+      <code>.filter((group) =&gt; group.items.length &gt; 0)</code> — a group whose every row is flag-hidden renders
+      no heading. That is exactly the rule I said the new provider-mobile groups need. Same idea, not a new
+      invention.
+    </p>
+    <p class="note warn">
+      <strong>One thing I would leave alone:</strong> <em>Manage Addresses</em> → <em>Addresses</em> is the only row
+      above where I am less sure. “Manage” is the only imperative in the list, but it is also the only row that is
+      purely an editing surface. Say the word if you would rather keep it.
+    </p>
+  </section>
+
+  <!-- ============ 6. WHAT I WOULD CHANGE ============ -->
+  <section>
+    <div class="sechead"><h2>6 · What actually gets touched</h2><span class="tag n">For information</span></div>
+    <div class="tblwrap">
+      <table>
+        <tr><th style="width:44%">File</th><th>Change</th></tr>
+        <tr><td><code>clinqetwebpartnerapp/…/dashboard/layout/Sidebar.jsx</code></td><td>Re-sequence the five pushes; wrap the list in the cue markup</td></tr>
+        <tr><td><code>clinqetwebpartnerapp/src/hooks/useVerticalOverflow.js</code> <span style="color:#2F7D00;font-weight:700">new</span></td><td>Vertical twin of the existing <code>useHorizontalOverflow</code>; returns <code>{ref, canScrollUp, canScrollDown}</code></td></tr>
+        <tr><td><code>clinqetwebpartnerapp/src/app/global.css</code></td><td>Cue styles; the already-authored but unused <code>.sidebar-scroll</code> lime thumb gets used or deleted</td></tr>
+        <tr><td><code>…/layout/sidebarRailConsistency.test.js</code></td><td>Replace the “Call Follow-ups is last” assertions with the new order; keep every other guard</td></tr>
+        <tr><td><code>…/layout/sidebarScrollCue.test.jsx</code> <span style="color:#2F7D00;font-weight:700">new</span></td><td>No cue when it fits · bottom cue only at top · both in the middle · top cue only at the end · never <code>pointer-events</code></td></tr>
+        <tr><td><code>clinqetmobilepartnerapp/…/ProfileScreen/index.tsx</code></td><td>Re-group per whichever mobile option you pick; each group renders nothing when every row in it is gated away</td></tr>
+        <tr><td>5 × <code>public/lang/*.json</code> (partner)</td><td>Mobile option 1 only — three heading keys, five files, identical key sets. Option 2 needs none. Plus the “My” removals if approved</td></tr>
+        <tr><td><code>clinqetwebuserapp/…/customer/accountSidebarLayout.jsx</code></td><td>Replace <code>no-scrollbar</code> with the cue — white fade, navy chevron</td></tr>
+        <tr><td><code>clinqetwebuserapp/…/customer/accountSidebarNav.js</code></td><td>Re-run the My&nbsp;Account items; no group changes</td></tr>
+        <tr><td><code>clinqetwebuserapp/public/lang/*.json</code></td><td>Label values only — the “My” removals and the <em>My invoices</em> casing fix, every language</td></tr>
+        <tr><td><code>clinqetmobileuserapp/…/profile/MyProfileScreen.tsx</code> + <code>src/Locales/*.json</code></td><td>Identical re-run and relabel — it mirrors customer web row for row</td></tr>
+      </table>
+    </div>
+    <p class="note stop">
+      <strong>No schema change of any kind</strong> — no SQL, no Cosmos, no search index. This is ordering and one
+      presentational affordance. No new route, so no deep-link or app-association work either.
+    </p>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>7 · What I still need from you</h2><span class="tag q">Decisions</span></div>
+    <ul class="tight">
+      <li><strong>Provider mobile</strong> — option&nbsp;1 (four groups) or option&nbsp;2 (reorder in place)?</li>
+      <li><strong>Heading words</strong>, if option&nbsp;1: <em>Your business · Team &amp; plan · Work · Payments</em> as proposed, or your own — and whether “Your business” reuses the existing <code>BUSINESS_MANAGEMENT</code> string rather than adding a key.</li>
+      <li><strong>Payment Settings divergence</strong> — mobile files it under Payments, web keeps it under Account Management. Sign off or tell me to match web.</li>
+      <li><strong>Drop “My”</strong> across both products — <em>Quotes · Bookings · Reviews · Invoices</em> — or keep it? (The <em>My invoices</em> casing bug gets fixed either way.)</li>
+      <li><strong>Manage Addresses → Addresses</strong> on the customer side, or leave the verb?</li>
+    </ul>
+    <p class="note">
+      Cue option <strong>C</strong> and the provider rail order are settled. Nothing is implemented — no file in any
+      of the four apps has been modified.
+    </p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var ROWS = ["Dashboard","Calendar","Services","Leads","Insights","Inbox","My Bookings",
+              "My Quotes","Invoices","Customers","Team","Billing","Call Follow-ups",
+              "Refund Requests","Activity"];
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.8"/></svg>';
+  var CHEV = '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+
+  var OPTIONS = [
+    { k:"A", rec:false, bar:true,  name:"Fade + chevron + lime bar",
+      cap:"Navy fade so rows dissolve instead of being chopped, a lime chevron pointing the way, and the thin lime scrollbar for position. Most information, most ink.",
+      cue:function(side){ return '<div class="fade '+side+'"></div>'+CHEV; } },
+    { k:"B", rec:false, bar:true,  name:"Lime scrollbar only",
+      cap:"Just un-hide the scrollbar with the lime style already sitting unused in global.css. Smallest change — but macOS and iPadOS hide overlay scrollbars until you already scroll, which is the exact failure being reported.",
+      cue:function(){ return ""; } },
+    { k:"C", rec:true,  bar:false, name:"Fade + chevron, no bar",
+      cap:"CHOSEN. The glanceable cue on its own — no text to localize, no number that can be wrong, and a thin lime arrow rather than a filled lime chip, so it never reads as a selected row. What it gives up is position and length: you know there is more, not how much.",
+      cue:function(side){ return '<div class="fade '+side+'"></div>'+CHEV; } },
+    { k:"D", rec:false, bar:true,  name:"Hairline lime rule + bar",
+      cap:"A 2px lime rule with a soft navy shadow at the overflowing edge — crisper than a fade and it keeps the row text fully legible. Quietest option, and the least likely to be confused with the lime active-row pill.",
+      cue:function(side){ return '<div class="edge '+side+'"></div>'; } },
+    { k:"E", rec:false, bar:false, name:"“+N more” pill",
+      cap:"States the count outright, so there is no guessing. Most explicit, but it adds a number that must be localized and it is a second lime chip on a rail that already uses lime for the selected row.",
+      cue:function(side){ return '<div class="pillcue '+side+'"><span class="morepill" data-count>+3 more</span></div>'; } }
+  ];
+
+  function railHTML(opt, n){
+    var rows = "";
+    for (var i=0;i<n;i++){
+      rows += '<div class="row'+(i===0?" active":"")+'">'+ICON+'<span>'+ROWS[i]+'</span></div>';
+    }
+    return ''+
+      '<div class="rail'+(opt.bar?" bar":"")+'">'+
+        '<div class="brand"><span class="mark"></span><span class="word">Clinket</span></div>'+
+        '<div class="scrollwrap">'+
+          '<div class="cue top">'+opt.cue("top")+'</div>'+
+          '<div class="scroller">'+rows+'</div>'+
+          '<div class="cue bot">'+opt.cue("bot")+'</div>'+
+        '</div>'+
+        '<div class="footrow"><span class="disc">A</span><span>My Profile</span></div>'+
+      '</div>';
+  }
+
+  function wire(wrapEl){
+    var sc = wrapEl.querySelector(".scroller");
+    var pill = wrapEl.querySelector("[data-count]");
+    function upd(){
+      var over = sc.scrollHeight - sc.clientHeight > 1;
+      var down = over && (sc.scrollHeight - sc.clientHeight - sc.scrollTop > 1);
+      var up   = over && sc.scrollTop > 1;
+      wrapEl.setAttribute("data-down", down ? "true" : "false");
+      wrapEl.setAttribute("data-up",   up   ? "true" : "false");
+      if (pill){
+        var hidden = 0, edge = sc.scrollTop + sc.clientHeight;
+        Array.prototype.forEach.call(sc.children, function(r){
+          if (r.offsetTop + r.offsetHeight - 2 > edge) { hidden++; }
+        });
+        pill.textContent = "+" + hidden + " more";
+      }
+    }
+    sc.addEventListener("scroll", upd, {passive:true});
+    if (window.ResizeObserver){ new ResizeObserver(upd).observe(sc); }
+    upd();
+    return upd;
+  }
+
+  var lab = document.getElementById("lab");
+  var count = 15;
+
+  function build(){
+    lab.innerHTML = "";
+    OPTIONS.forEach(function(o){
+      var d = document.createElement("div");
+      d.className = "spec" + (o.rec ? " rec" : "");
+      d.innerHTML = '<div class="name"><span class="letter">'+o.k+'</span>'+o.name+
+                    (o.rec?' <span class="tag" style="margin-left:2px">rec</span>':'')+'</div>'+
+                    railHTML(o, count)+
+                    '<div class="cap">'+o.cap+'</div>';
+      lab.appendChild(d);
+      wire(d.querySelector(".scrollwrap"));
+    });
+  }
+
+  var h = document.getElementById("h"), hval = document.getElementById("hval");
+  h.addEventListener("input", function(){
+    document.documentElement.style.setProperty("--railh", h.value + "px");
+    hval.textContent = h.value + " px";
+  });
+  document.documentElement.style.setProperty("--railh", h.value + "px");
+
+  document.getElementById("rowseg").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) { return; }
+    Array.prototype.forEach.call(this.children, function(x){ x.setAttribute("aria-pressed","false"); });
+    b.setAttribute("aria-pressed","true");
+    count = Number(b.getAttribute("data-n"));
+    build();
+  });
+
+  build();
+
+  /* ---- customer account sidebar, option C inverted for a white panel ---- */
+  var CUST = [
+    { g:"My Account", rows:["Profile Information","Addresses","Bookings","Quotes","Messages","Reviews","Invoices","Payments"] },
+    { g:"Account Management", rows:["Notifications","Change Password","Security & MFA","Passkey Management"] },
+    { g:"Support & Legal", rows:["About Us","Help Center","FAQs","Terms & Conditions","Privacy Policy","Cookies Policy","Community Guidelines","Data Deletion"] }
+  ];
+  function custHTML(){
+    var inner = "";
+    CUST.forEach(function(sec, si){
+      inner += '<div class="gh2">'+sec.g+'</div>';
+      sec.rows.forEach(function(r, ri){
+        inner += '<div class="r'+(si===0&&ri===0?" on":"")+'"><span class="ic"></span>'+r+'</div>';
+      });
+    });
+    return '<div class="wrail">'+
+      '<div class="scrollwrap">'+
+        '<div class="cue top navy"><div class="wfade top"></div>'+CHEV+'</div>'+
+        '<div class="scroller">'+inner+'</div>'+
+        '<div class="cue bot navy"><div class="wfade bot"></div>'+CHEV+'</div>'+
+      '</div></div>';
+  }
+  var chost = document.getElementById("custlab");
+  if (chost){
+    [["Fits — nothing drawn","560px"],["Overflowing, at the top","360px"],["Same panel, scrolled down","360px"]]
+      .forEach(function(s, i){
+        var d = document.createElement("div");
+        d.className = "spec";
+        d.innerHTML = '<div class="name">'+s[0]+'</div>'+custHTML()+
+          '<div class="cap">'+(i===0
+            ? "Tall window: the panel fits, so no fade and no chevron — exactly as it looks today."
+            : i===1
+              ? "Laptop height: bottom fade and a NAVY chevron. Lime is reserved for the selected row, which is why the chevron is not lime here."
+              : "Scrolled down: the cue has moved to the top edge and the bottom edge is clear, because that is where the remaining content is.")+'</div>';
+        chost.appendChild(d);
+        d.querySelector(".wrail").style.setProperty("--custh", s[1]);
+        var wrapEl = d.querySelector(".scrollwrap");
+        var sc = wrapEl.querySelector(".scroller");
+        var upd = wire(wrapEl);
+        if (i === 2){
+          sc.style.overflowY = "hidden";
+          requestAnimationFrame(function(){ sc.scrollTop = sc.scrollHeight; upd(); });
+        }
+      });
+  }
+
+  /* ---- states strip, option A, locked scroll positions ---- */
+  var A = OPTIONS[2];
+  var STATES = [
+    { t:"Fits — no cue at all", n:8,  pos:"top",    cap:"Big monitor, or a restricted role with fewer rows. Nothing is drawn; the rail is exactly as it is today." },
+    { t:"Overflowing, at the top", n:15, pos:"top", cap:"Bottom cue only. There is more below and nothing above." },
+    { t:"Overflowing, mid-list", n:15, pos:"mid",   cap:"Both edges cued — more in both directions." },
+    { t:"Scrolled to the end", n:15, pos:"bottom", cap:"Top cue only. You have reached the last row, and the cue says so by disappearing." }
+  ];
+  var host = document.getElementById("states");
+  STATES.forEach(function(s){
+    var d = document.createElement("div");
+    d.className = "spec";
+    d.innerHTML = '<div class="name">'+s.t+'</div>'+railHTML(A, s.n)+'<div class="cap">'+s.cap+'</div>';
+    host.appendChild(d);
+    var wrapEl = d.querySelector(".scrollwrap");
+    var sc = wrapEl.querySelector(".scroller");
+    var upd = wire(wrapEl);
+    sc.style.overflowY = "hidden";
+    requestAnimationFrame(function(){
+      if (s.pos === "mid")    { sc.scrollTop = (sc.scrollHeight - sc.clientHeight) / 2; }
+      if (s.pos === "bottom") { sc.scrollTop = sc.scrollHeight; }
+      upd();
+    });
+  });
+})();
+</script>
+</body>
+</html>

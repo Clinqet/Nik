@@ -1,0 +1,14 @@
+# docx_two_column_table_resume.docx
+blocks=1 images=0 skipped=0 lost=0 pages= ceilingCollapsed=0
+
+## BLOCKS
+[  0] Table        p1
+      hasHeader=False caption= rows=1
+      | PRIYA SHARMA Senior Hair Stylist 416-555-0199 priya@example.com SKILLS Balayage Keratin Bridal styling Colour correction CERTIFICATIONS Redken Colour Specialist 2021 Olaplex Pro 2022 | PROFILE Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. EXPERIENCE Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000. EDUCATION Marvel Beauty School, Diploma 2012 |
+
+## INVENTORY
+
+
+## CARDS (1)  warnings=0
+--- card 0 [Table] section='' page=1 tokens~146 img=-1
+    PRIYA SHARMA Senior Hair Stylist 416-555-0199 priya@example.com SKILLS Balayage Keratin Bridal styling Colour correction CERTIFICATIONS Redken Colour Specialist 2021 Olaplex Pro 2022 | PROFILE Stylist with 12 years of salon experience across Toronto and Mississauga, leading a team of six and mentoring apprentices. EXPERIENCE Glow Salon — Senior Stylist (2019–present) Grew colour revenue 40% in two years; introduced the bridal package now sold at $450. City Cuts — Stylist (2013–2019) Managed 30 clients a week; expected salary $85,000. EDUCATION Marvel Beauty School, Diploma 2012

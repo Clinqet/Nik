@@ -1,0 +1,66 @@
+[
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_e20a44eb9cce470abf36e0f05b3b0d89_0",
+    "docName": "img_pricelist_lowercase_inline.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "nail bar",
+    "content": "classic manicure $30\ngel manicure $45\nspa pedicure $45\nacrylic full set $65\nnail art per nail $3\npolish change $15",
+    "docTitle": "Nail Bar Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_e20a44eb9cce470abf36e0f05b3b0d89_1",
+    "docName": "img_pricelist_lowercase_inline.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "nail bar",
+    "content": "A nail bar service price list reading “nail bar,” “classic manicure $30,” “gel manicure $45,” “spa pedicure $45,” “acrylic full set $65,” “nail art per nail $3,” and “polish change $15.”",
+    "docTitle": "Nail Bar Price List",
+    "chunkKind": "ImageCaption",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": "e20a44eb9cce470abf36e0f05b3b0d89:88aa6d4c9effc24a"
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_e20a44eb9cce470abf36e0f05b3b0d89_2",
+    "docName": "img_pricelist_lowercase_inline.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "nail bar",
+    "content": "# nail bar\n- classic manicure $30\n- gel manicure $45\n- spa pedicure $45\n- acrylic full set $65\n- nail art per nail $3\n- polish change $15",
+    "docTitle": "Nail Bar Price List",
+    "chunkKind": "Text",
+    "pageNumber": 1,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  },
+  {
+    "@search.score": 1.0,
+    "id": "SX3SG2_e20a44eb9cce470abf36e0f05b3b0d89_3",
+    "docName": "img_pricelist_lowercase_inline.jpg",
+    "docType": "Document",
+    "linkedServiceNames": [],
+    "sectionTitle": "",
+    "content": "Nail Bar Price List — overview\nNail bar services and prices, including classic manicure, gel manicure, spa pedicure, acrylic full set, nail art per nail, and polish change.\nSections: nail bar (6)",
+    "docTitle": "Nail Bar Price List",
+    "chunkKind": "DocSummary",
+    "pageNumber": null,
+    "scripts": [
+      "Latn"
+    ],
+    "imageRef": null
+  }
+]

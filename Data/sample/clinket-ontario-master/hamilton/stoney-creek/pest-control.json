@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "city": "Hamilton",
+    "area": "Stoney Creek",
+    "category": "pest-control",
+    "scrapedAt": "2026-09-23T16:45:00-04:00",
+    "providerCount": 1,
+    "sourcesNote": "public web only — category expand pass 1"
+  },
+  "providers": [
+    {
+      "id": "hamilton-stoney-creek-orkin-canada-hamilton-niagara",
+      "businessName": "Orkin Canada Hamilton-Niagara",
+      "description": "National pest control brand location serving Hamilton, Burlington and Stoney Creek.",
+      "businessImageUrl": null,
+      "employeeCount": null,
+      "yearsInBusiness": null,
+      "owner": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "businessEmail": null,
+      "businessPhone": "905-662-8494",
+      "social": {
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "tiktok": null,
+        "linkedin": null,
+        "twitter": null,
+        "website": "https://www.orkincanada.ca/locations/ontario/hamilton-niagara/",
+        "other": []
+      },
+      "address": {
+        "street": null,
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "postalCode": null,
+        "province": "ON",
+        "country": "Canada",
+        "formatted": null
+      },
+      "serviceAreas": [
+        "Hamilton",
+        "Burlington",
+        "Stoney Creek",
+        "Niagara"
+      ],
+      "geo": {
+        "city": "Hamilton",
+        "area": "Stoney Creek",
+        "region": "Hamilton"
+      },
+      "categories": [
+        {
+          "category": "pest-control",
+          "subcategory": null
+        }
+      ],
+      "services": [
+        {
+          "name": "Residential Pest Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Commercial Pest Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        },
+        {
+          "name": "Rodent Control",
+          "description": null,
+          "imageUrl": null,
+          "price": {
+            "type": "quote",
+            "amount": null,
+            "min": null,
+            "max": null,
+            "currency": "CAD",
+            "notes": null
+          },
+          "travelFee": null,
+          "ongoingFee": null
+        }
+      ],
+      "availability": {
+        "timezone": "America/Toronto",
+        "schedule": [],
+        "notes": null
+      },
+      "offers": [],
+      "portfolio": [],
+      "sources": [
+        {
+          "url": "https://www.orkincanada.ca/locations/ontario/hamilton-niagara/",
+          "type": "website",
+          "scrapedAt": "2026-09-23T16:45:00-04:00"
+        }
+      ],
+      "dataQuality": {
+        "phoneValidated": true,
+        "emailValidated": false,
+        "completenessScore": 0.5,
+        "notes": null
+      },
+      "scrapedAt": "2026-09-23T16:45:00-04:00"
+    }
+  ]
+}

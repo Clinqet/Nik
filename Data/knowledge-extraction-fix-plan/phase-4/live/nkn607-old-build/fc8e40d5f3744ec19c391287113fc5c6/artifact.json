@@ -1,0 +1,165 @@
+{
+  "contentHash": "906615513A878AC8F45E84D3FCFFABA120A83921EE24C78A57C21C14B0D4B2CC",
+  "pipelineFingerprint": "958216fb64c54f07a5adf9f3e32a87f7:a4e76eb2c71d46c9b636e76a84122a3f:cc4a04c97c2943cba27a0654b6eb73de:cap=1",
+  "docName": "xlsx_merged_header_formats_hidden_regions.xlsx",
+  "docTitle": "Hair Salon Prices and Policies",
+  "docSummary": "Lists services, short- and long-hair prices, durations, discounts, valid dates and notes. Also covers treatment guarantees and redo policies, opening hours, and the deposit.",
+  "docLanguage": "en",
+  "blocks": [
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Prices",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Service",
+            "Price",
+            "Price",
+            "Duration",
+            "Discount",
+            "Valid from",
+            "Notes"
+          ],
+          [
+            "",
+            "Short hair",
+            "Long hair"
+          ],
+          [
+            "Haircut",
+            "$25.00",
+            "$35.00",
+            "30 min",
+            "15%",
+            "2026-01-01",
+            "Walk-ins welcome"
+          ],
+          [
+            "Full head colour",
+            "$80.00",
+            "$110.00",
+            "90 min",
+            "15%",
+            "2026-01-02",
+            "Includes toner Patch test 48h before Ask about Olaplex add-on"
+          ],
+          [
+            "Highlights",
+            "$120.00",
+            "$160.00",
+            "120 min",
+            "15%",
+            "2026-01-03",
+            "Walk-ins welcome"
+          ],
+          [
+            "Keratin treatment",
+            "$250.00",
+            "$320.00",
+            "180 min",
+            "15%",
+            "2026-01-04",
+            "Walk-ins welcome"
+          ],
+          [
+            "Blow dry",
+            "$30.00",
+            "$40.00",
+            "30 min",
+            "15%",
+            "2026-01-05",
+            "Walk-ins welcome"
+          ],
+          [
+            "Average short price",
+            "$101.00"
+          ]
+        ],
+        "hasHeaderRow": true
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Treatment",
+            "Guarantee days",
+            "Redo policy"
+          ],
+          [
+            "Keratin treatment",
+            "7",
+            "Free redo within a week"
+          ],
+          [
+            "Full head colour",
+            "5",
+            "Toner refresh free"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Heading",
+      "headingLevel": 1,
+      "text": "Sheet2",
+      "listItems": [],
+      "pageNumber": 1,
+      "imageIndex": -1
+    },
+    {
+      "kind": "Table",
+      "headingLevel": 0,
+      "text": "",
+      "listItems": [],
+      "table": {
+        "rows": [
+          [
+            "Opening hours",
+            "Mon–Fri 9:00–18:00"
+          ],
+          [
+            "Saturday",
+            "10:00–16:00"
+          ],
+          [
+            "Deposit",
+            "20%"
+          ]
+        ],
+        "hasHeaderRow": false
+      },
+      "pageNumber": 1,
+      "imageIndex": -1
+    }
+  ],
+  "imageCaptions": {},
+  "images": [],
+  "droppedImages": 0,
+  "imageCapAtBanking": 40,
+  "imageLaneDegraded": false,
+  "visionDegraded": false,
+  "visionPagesUnreadable": 0,
+  "visionRenderFailed": false,
+  "reviews": [],
+  "unpairedPriceLines": 0
+}
