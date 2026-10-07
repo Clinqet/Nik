@@ -5,7 +5,7 @@ Copy everything below the line into a new session.
 ---
 
 Continue building the **Provider Import programme** for Clinket. The previous session built Phases 2–4, most of Phase 5,
-Phase 6 code, Phase 7 and most of Phase 9, then stopped for a clean hand-over. Everything is committed and pushed on branch
+Phase 6 code, Phase 7 and most of Phase 9, then stopped for a clean hand-over. Everything is committed and pushed (2026-10-07, 14 repos, linear history, clean trees) on branch
 **`claude/affectionate-davinci-wdczbr`** in every repo. Develop and push on that same branch. Never create a merge commit
 (CLAUDE.md §0.21): use `git fetch` + `git rebase`, and prove `git rev-list --merges origin/<branch>..HEAD` prints nothing.
 
@@ -277,3 +277,531 @@ Clinket is a two-sided local-services marketplace.
   - `git fetch` + rebase; prove no merge commits; push with `git push -u origin claude/affectionate-davinci-wdczbr`.
 - Delete each `handoff/*.md` item as it is finished, and the folder when empty. Record every new decision in BUILD-LOG.md.
 - Ask the owner only when genuinely unsure, with the §0.7 table for any schema question. Never assume.
+
+
+## 7. Commits the previous session left on the branch (newest first, per repo)
+
+**clinqetshared**
+```
+dfcfb17 Provider import: settings, DTOs, messages, normalisation enums, name-prompt settings
+e534408 Provider import: SetupAlertFamily for alerts the shared setup collects instead of sending
+96140db Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+e13dcbc Locations: move the default safely, in one transaction
+5208136 Service AI validation: photo check types, measured content prompt, drop per-approval alert
+6429d93 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1adf683 Voice call experience P1: delete the P10 action-guard settings, add goodbye phrase lists
+c3de49e Prepared provider accounts, take-over, and services with no price
+```
+
+**clinqetcore**
+```
+a258532 Provider import: run/item entities, repository and friendly-name interfaces, member display name
+e12ab51 Availability.IsConfigured: response-only flag for days nobody saved (never stored)
+87967e2 Provider import: shared setup seams - alert collector, resolver overload, prepared pricing, no-revive writes, FAQ create-if-absent, profile bootstrap, silent activation
+a025616 Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+cec54c3 Service AI validation: review router, verdict-unavailable, contact pre-check
+a3b9084 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+279caf5 Voice call experience P1: call timeline stamps, hangup fence, P10 interface removal
+ee14fe9 Fix the CI breaks the prepared-provider change caused
+```
+
+**clinqetinfrastructure**
+```
+6ec743c Provider import: validator, cleaner, merge, matcher, AI curation and checks, profile writer, admin service, Identity provisioning endpoint core, friendly-name service, greetings; decision A (no seeded hours)
+ba3ef9f Provider import readers: PDF address lines without blank parts; receptionist and business search say when no hours are listed
+4dc09a9 Provider import: extract the setup apply half and profile bootstrap; import options (collected alerts, create-only services, R4 price fill, offers never widened, FAQ by question); budget dials for the import sub-flows
+88926a0 Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+23e9cf1 Locations: move the default safely, in one transaction
+67704ed Service AI validation: router, photo checker, no-verdict handling, multi-type alert query
+d90602d Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+60dca37 Voice call experience P1: delete the P10 action-guard turn detection
+```
+
+**clinqetapi**
+```
+5429a60 Provider import: admin import controller, trust-page approve, name-prompt snooze in app config; decision A bootstrap without hours
+ec4cefd Provider import readers: mark suggested hours in GET business/availability; tests for PDF address lines and the hours note
+2e191dc Provider import: controller uses the shared bootstrap, provider reactivate only from Inactive; pins for every setup default; collect-mode guard; fix order-dependent billing catalogue test
+99e5eb4 Locations: move the default safely, in one transaction
+25bdfec Service AI validation: shared review rule, multi-type admin alerts, photo check flag
+568742e Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+88993bd Correct the pricing assertions the previous commit bent
+a901db3 Fix the CI breaks the prepared-provider change caused
+```
+
+**clinqetidentity**
+```
+c696e80 Provider import: internal accounts and friendly-name endpoints, names after take-over (N1/N4/N5), ClaimedAt on profile
+c2262ef Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+72f896e Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1f3becc Fix the CI breaks the prepared-provider change caused
+06ef68c Prepared provider accounts, take-over, and services with no price
+b93ca47 Update AdminProviderProvisioningService tests for null-hash no-password path (#14)
+76a043a identity changes
+68ca5ff UI changes and imorovements
+```
+
+**clinqetfuncations**
+```
+3eb1bc1 Provider import: check-file runner, item processor, lane advancer, sweeper, cost meter; tests for validator, cleaner, AI curation; greeting templates; unknown-hours indexing
+75f5088 Provider import readers: receptionist hours-not-listed test; prompt-size fixture carries hours
+23f429a Provider import: tests for the import FAQ write path
+ee5b5c1 Service AI validation: contact pre-check, manual review on no verdict, photo safety gate
+feb36d3 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+51a1718 Voice call experience P1: supervisor hangup fence, latest-callback push, call timeline
+03e1c2d Prepared provider accounts, take-over, and services with no price
+364c548 Ask Clinket source viewer: audit fixes (comments)
+```
+
+**cosmosindexsetup**
+```
+045548c Search index: unknown hours stored as null per day
+044865f Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+194c4a5 Remove --remove-retired-alerts
+542d487 Add --remove-retired-alerts (ServiceApprovedByAI)
+45efd38 Prepared provider accounts, take-over, and services with no price
+2a53263 Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+c24d2e0 Search topology Phase 5: index swap, readable ranking numbers, search alerts, Sol 6.1
+2caa2d1 SQL database renamed: identity -> clinket
+```
+
+**azureautomation**
+```
+0fb4360 Provider import infra: queues, private container, import model deployments, Identity key, settings
+dba4031 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+7c4a8e5 Prepared provider accounts, take-over, and services with no price
+45e8477 Rotate default Geocoding/StaticMaps API keys in deploy.ps1
+ddf47d7 Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+de5d9a1 Knowledge reading accuracy: never lose a word or a price
+e0f102d Search topology Phase 5: index swap, readable ranking numbers, search alerts, Sol 6.1
+e80e945 SQL database renamed: identity -> clinket
+```
+
+**clinqetwebadmin**
+```
+b69b39a Admin onboarding: a stored city-level address no longer blocks saving; notice when opening hours were never set
+bcf703a Service approval queue reads every waiting type in one request
+a0a90ee Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+34ae333 Merge pull request #10 from Clinqet/feature/offers-admin-polish
+760e1e0 Offers admin: empty audiences save, a clearer yearly switch, a readable tooltip
+1684dcb Prepared provider accounts, take-over, and services with no price
+e6c5e35 Point the admin Maps key at the new Google key
+b1ec78c Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+```
+
+**clinqetwebpartnerapp**
+```
+0ed2a0a Name prompt (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
+89a2602 Hours never saved read as a suggestion: notice, Suggested labels, locations summary
+abf233e Locations: move the default safely, in one transaction
+fd7ae5c Route ServiceImageRemoved notifications to the service editor
+aacedb1 Fix white strip under AI Assistant onboarding page while the cookie card is showing
+d58be61 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+7db9b07 Prepared provider accounts, take-over, and services with no price
+85807b7 AI Knowledge: document title no longer breaks mid-word
+```
+
+**clinqetwebuserapp**
+```
+2aa5c8e Greeting without placeholder names (N2), typed names carried into the code check (N4)
+02a771e Hours not listed: one plain line when a business has saved no hours, never Closed
+8b5fe86 City-only businesses: no at-store service address, no city-centre pin or directions, no empty JSON-LD address fields; booking works when no hours are listed
+85d38ee Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+dcea812 Fix the CI breaks the prepared-provider change caused
+38b5887 Prepared provider accounts, take-over, and services with no price
+5c752df Merge branch 'master' of https://github.com/Clinqet/clinqetwebuserapp
+d63b176 Rotate Google Maps API key
+```
+
+**clinqetmobilepartnerapp**
+```
+8685fc5 Name prompt sheet (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
+1f8f1d2 Hours never saved read as a suggestion: notice, Suggested labels, location hours
+e5d11e3 Locations: move the default safely, in one transaction
+5e4363b test fixed
+48542e3 Route ServiceImageRemoved notifications to the service editor (phone)
+975b531 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1a1f71b Prepared provider accounts, take-over, and services with no price
+fa42b3a Billing history: receipts on iOS, and the numbered page API
+```
+
+**clinqetmobileuserapp**
+```
+62d1285 Hours not listed: one plain line when a business has saved no hours, never Closed
+2ebf554 City-only businesses: no at-store service address, area map and text search instead of a city-centre pin
+efd368a Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+0cf8857 Declare *.webp so the image index type-checks
+9b5257d Prepared provider accounts, take-over, and services with no price
+2b4893f Swap the dashboard hero artwork and serve it as WebP
+2bb0fae Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+bc647a3 Sign-in options on one line at every width
+```
+
+**Nik**
+```
+df1b3e4 Provider import: build log decisions, hand-over notes and next-session prompt; deployment skill
+35395ff Provider import build log: Phase 3b reader fixes, H-2 awaiting owner decision
+d7df1dc Provider import build log: Phase 3 results, address and hours reader sweeps
+5f649ce Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+9681951 initial commit
+```
+
+## 8. Key code map (where each piece lives)
+| Piece | Path |
+|---|---|
+| Settings class (all import settings, prompts as class defaults) | `clinqetshared/Models/AdminProviderImportSettings.cs`; Functions node `AdminProviderImport` in `clinqetfuncations/Clinqet.Communications/appsettings.json`; API subset in `clinqetapi/Clinqet.API/appsettings.json` |
+| Identity endpoint settings | `clinqetshared/Models/ProviderImportInternalSettings.cs`; Identity appsettings `ProviderImportInternal` |
+| Enums | `clinqetshared/Enums/ProviderImportEnums.cs`, `ProviderImportNormalizationEnums.cs`, `PhoneLineKind.cs`, `AdminAlertType.cs` (9 ProviderImport* types), `SpotlightType.cs` (`ProviderNamePrompt`, `IsSnoozable`) |
+| Queue messages | `clinqetshared/DTOs/Messages/ProviderImportMessages.cs` (`validate:{runId}:{n}`, `item:{runId}:{itemId}:{attempt}`) |
+| Identity DTOs | `clinqetshared/DTOs/Identity/ProviderImportAccountDtos.cs` |
+| Admin DTOs | `clinqetshared/DTOs/Admin/AdminProviderImportDtos.cs` |
+| Cosmos entities (SystemData) | `clinqetcore/Entities/COSMOS/ProviderImport.cs` — runs pk `provimport_runs` id `provimportrun_{runId}`; items pk `provimport_{runId}` id `provimportitem_{runId}_{itemKey}`; active runs `provimport_active`; daily cost `aiusage_import_{yyyyMMdd}` pk `provimport_usage` (0.0001 USD units) |
+| Repositories | `clinqetcore/Interfaces/COSMOS/IProviderImportRepository.cs`, `clinqetinfrastructure/Data/COSMOS/ProviderImportRepositories.cs` (item methods take the item KEY) |
+| Blobs | `clinqetinfrastructure/Services/ProviderImport/ProviderImportBlobStore.cs` — `{runId}/source.json`, `{runId}/items/{itemKey}/{input|prepared|ai-curation|shell|result}.json`, `_bank/{curation|review}/{key}.json.gz` |
+| Upload file model + validator | `Services/ProviderImport/Models/ImportFile.cs`, `ProviderImportFileValidator.cs`, `ProviderImportSchemaModel.cs`; schema embedded at `clinqetfuncations/Clinqet.Communications/Resources/ProviderImport/` (keep `Data/provider-import/provider-import.schema.json` and the admin-web download copy identical) |
+| Cleaner / skips / merge | `Services/ProviderImport/ProviderRecordNormalizer.cs`, `ImportTextRules.cs`, `NormalizedProvider.cs`, `ProviderImportSkipRules.cs`, `ProviderImportDeduplicator.cs`, `ProviderImportMerger.cs` |
+| Existing-account matcher | `Services/ProviderImport/ProviderImportExistingMatcher.cs` |
+| AI | `Services/ProviderImport/Ai/{CurationAnswer,CurationPrompt,ProviderImportCurator,CurationVerifier}.cs`; keyed AI client `ProviderImport` in `Configuration/ProviderImportServiceRegistration.cs` |
+| Stage contracts | `Services/ProviderImport/ProviderImportStageContracts.cs` (preparer, writer, photo copier) |
+| P1 / S2–S3 | `ProviderImportLocationPreparer.cs`, `ProviderImportProfileWriter.cs` |
+| Web-name candidates | `Services/ProviderImport/FriendlyNameCandidates.cs` |
+| Identity client | `Services/ProviderImport/ProviderImportIdentityClient.cs` (User-Agent `Clinket-ProviderImport/1.0`, header `X-Internal-Api-Key`) |
+| Run slots + status sets | `Services/ProviderImport/ProviderImportRunSlots.cs` |
+| Result document | `Services/ProviderImport/ProviderImportItemResult.cs` (`pendingApprovalServiceIds` is read by admin approve) |
+| Admin service | `Services/ProviderImport/Admin/*` |
+| Functions orchestration | `clinqetfuncations/Clinqet.Communications/Services/ProviderImport/{ProviderImportValidationRunner,ProviderImportItemProcessor,ProviderImportLaneAdvancer,ProviderImportSweeper,ProviderImportItemAiMeter,ProviderImportAlerts}.cs`; entry points parked at `Data/provider-import/handoff/ProviderImportFunctions.cs.txt` |
+| Identity endpoint | `clinqetidentity/Clinqet.Identity.API/Controllers/Internal/ProviderImportInternalController.cs`, `Filters/ProviderImportApiKeyFilter.cs`, rate limiter + options in `Program.cs` |
+| Provisioning core | `clinqetinfrastructure/Services/Auth/AdminProviderProvisioningService.cs` + `.Import.cs` |
+| Friendly names | `clinqetinfrastructure/Services/Auth/{FriendlyNameService,FriendlyNameRules,FriendlyNameMirror}.cs` |
+| Take-over hold lift | `clinqetinfrastructure/Services/Auth/ProviderTakeoverService.cs` + `Services/Provider/ImportedProfileActivation.cs` |
+| Shared applier (refactored) | `clinqetinfrastructure/Services/AI/ProviderSetupApplier.cs`, `ProviderSetupApplyContracts.cs` |
+| Bootstrap / lifecycle | `Services/Provider/BusinessProfileBootstrapService.cs`, `Services/Provider/ProviderLifecycleService.cs` (`ActivateImportedAsync`) |
+| Admin API | `clinqetapi/Clinqet.API/Controllers/Admin/AdminProviderImportController.cs`; approve-hidden on `AdminProviderController` |
+| Infra | `azureautomation/deploy.ps1`, `events.json`, `storage.json` |
+
+## 9. Full detail of every unfinished item (copied from `handoff/*.md` — the same text, kept here so this prompt stands alone)
+
+---
+
+### From `handoff/phase5-writer-preparer-TODO.md`
+
+## Phase 5 — profile writer + location preparer (handoff, 2026-10-07)
+
+Built and compiling, NOT yet tested:
+- `clinqetinfrastructure/Services/ProviderImport/ProviderImportLocationPreparer.cs` (P1, §8.5/§8.7): existing
+  `IGeocodingService` only. Street confirmed only when not partial/coarse, in the file's country, with a street-level
+  component; else `AddressNotConfirmed` + city fallback. Source point within `GeocodeAgreementStreetKm` kept, else the geocoded
+  point + `AddressNotConfirmed` + note `MapPointDisagrees`. City-level ⇒ city centre (`GeocodeAgreementCityKm`). Province
+  filled from the geocoder. Primary = first placeable address (source primary first); if none, the default service area stands
+  in as a city-level primary (reading of F6g); nothing placeable ⇒ `Primary = null` (NoCity). Areas geocoded city-level,
+  unplaceable ⇒ dropped + `ServiceAreaNotPlaced`; null radius ⇒ `Discovery:CountryDefaults` via `DiscoverySettings`.
+  Geocoder outage ⇒ throws (item retried) — never recorded as NoCity.
+- `clinqetinfrastructure/Services/ProviderImport/ProviderImportProfileWriter.cs` (S2 fields + S3): fill-blank profile fields
+  (one `UpdateItemWithRetryAsync`), PUBLIC contacts only, a different existing value ⇒ `NotApplied AlreadyHasValue`;
+  deterministic `AddressId = DeterministicGuid(businessId,"import-address", NameKey(city)|NameKey(street))`; city-level ⇒
+  `Street = ""`, `ZipCode = ""`; areas written by the writer (prepared centre + radius, `ProviderSetupAreaMatcher`, seed
+  `provider-setup-service-area`); category selections via `AddSubcategorySelectionAsync`; services/offers/hours through
+  `IProviderSetupApplier` with the §19.1 import options, `FileUrl = "provider-import"`, `ServiceFacts` with
+  `DeterministicGuid(businessId,"import-service",SourceNameKey)`; §8.5.7a at-store without street; hours only when known;
+  FAQs `CreateFaqIfAbsentAsync` id `DeterministicGuid(businessId,"import-faq", KnowledgeText.Normalize(q).ToLower())`;
+  licences create-only id `DeterministicGuid(businessId,"import-license",type,number)`. Verdict flags read the business's
+  state so a redelivery decides the same.
+- Registered in `ProviderImportServiceRegistration.AddProviderImportWorker` (verifier singleton; preparer + writer Scoped).
+- New `ProviderImportNoteCode` values: `AddressNotPlaced`, `ServiceAreaNotPlaced`, `MapPointDisagrees`.
+
+NOT done:
+1. Unit tests (Functions `Clinqet.Communications.UnitTests/ProviderImport/`, Moq, a capturing `IProviderSetupApplier` mock):
+   preparer AD3/AD6/AD7/AD8/AD10, default radius, outage throws, next-address promotion, area standing in; writer: every
+   mapping rule, fill-blank + NotApplied (R2/R3/R6), deterministic ids, rerun converges, hours never defaulted/overwritten
+   (H1), city-level address, public vs owner contact (X29), AtStoreWithoutStreet, NoApprovedServices, PriceAboveCeiling, the
+   exact applier options. Sabotage ≥ 3.
+2. Integration: `WriteAsync` twice (then with LESS data) on the real Cosmos emulator via `FunctionAppFactory`
+   (`Clinqet.Communications.IntegrationTests`) — every document's `_etag` unchanged on the rerun. The factory needs
+   `IServiceAreaRepository`, `ISelectedCategoryRepository`, `IAvailabilityRepository` registered.
+3. Functions DI: `AddProviderImportWorker` not yet called from `Program.cs`; `IProviderSetupApplier` and
+   `IKnowledgeManagementService` (and their dependencies) not registered in the Functions host (T-4/T-5 DI audit).
+4. Functions `appsettings.json` lacks `Discovery:CountryDefaults` ⇒ the default radius falls back to 50 km (India should be 25).
+5. Decisions to revisit: offers with a MinimumSpend are NOT imported (the applier's `ExtractedOfferDto` has no minimum — ask
+   before widening the shared DTO); not done deliberately: `TimezoneMismatch` (no reason code), area history, branch/currency
+   cache eviction, marketing address update.
+
+---
+
+### From `handoff/phase5-orchestration-tests-TODO.md`
+
+## Phase 5 — orchestration tests still to write (handoff, 2026-10-07)
+
+None written yet. Home: `clinqetfuncations/Clinqet.Communications.UnitTests/ProviderImport/` (xunit.v3 + Moq,
+`[Trait("Category","Unit")]`, `[Trait("Feature","ProviderImport")]`, like `CurationVerifierTests.cs`). Name tests with §21 IDs
+(F11, F14, F15, F17–F20, X1, X6, X9, X12–X15, X18, X19, X21, X22, V1–V3, V10, V11, FN3, FN5 …). Run with
+`dotnet test Clinqet.Communications.UnitTests --filter "FullyQualifiedName~Clinqet.Communications.UnitTests.ProviderImport.<Class>"`
+(VSTest; a full build of the test project takes ~5 min).
+
+1. `FriendlyNameCandidatesTests` — order (bot, AI, slug, slug-city, -2..-N); accents, `&`→and, legal suffixes + "the" dropped;
+   whole-word cut ≤ 20; initials fallback; non-Latin ⇒ only bot/AI; no duplicates.
+2. `ProviderImportFakes` — run/item repositories honouring ETags (stale ETag ⇒ null; each write a new ETag), applying
+   `PatchOperation` Set/Increment by JSON path through a Newtonsoft `JObject` round-trip (cast to `PatchOperation<T>`, read
+   `.Value`); `UpsertManyAsync`, `ListAsync`, `CountByStatusAsync` from the stored items; daily spend dictionary; a CAS
+   active-runs document so the real `ProviderImportRunSlots` works; a blob store fake with the `ProviderImportBlobStore` JSON
+   options; the real `ProviderImportAlerts` over a recording `Mock<IServiceBusService>`.
+3. `ProviderImportValidationRunnerTests` — mock `IProviderImportFileValidator` (records from
+   `ProviderImportNormalizationFixture.Provider(...)`, each with its own name/email/phone or they dedupe), the real normalizer
+   + deduplicator, a mocked `IProviderImportExistingMatcher`. Cases: not Uploaded/Validating ⇒ no-op; missing upload ⇒
+   ValidationFailed; invalid envelope ⇒ ValidationFailed, errors capped; SchemaInvalid items; skip rules; dedupe skips;
+   matcher skip / FillGaps / PossibleExistingBusiness; lanes (position % ParallelismPerRun, nextItemId, heads); counters;
+   cost estimate; redelivery converges; LostRace.
+4. `ProviderImportItemAiMeterTests` — budget = planned + MaxAiCallsPerProvider from `item.Ai.Calls` across attempts; run and
+   daily limits ⇒ RunCostLimit; warning once on crossing (keys `run-cost-warning:{runId}`, `day-cost-warning:{yyyyMMdd}`);
+   a bank hit costs nothing.
+5. `ProviderImportLaneAdvancerTests` — next non-terminal item sent with attempt+1 and `MessageIdFor`; terminal skipped; last
+   lane finishes with recomputed counts; CompletedWithErrors; Cancelling ⇒ Cancelled; stale-ETag finish does nothing; slot
+   released; completion/custom-category/price alerts once (`completed:{runId}:{n}`, `summary:{runId}:{n}:custom-categories`,
+   `summary:{runId}:{n}:prices`); paused run moves currentItemId, sends nothing.
+6. `ProviderImportSweeperTests` — abandoned upload ⇒ Discarded + blobs deleted; stale validation re-sent
+   `validate:{runId}:{attempts+1}`, after MaxStallRequeues ⇒ ValidationFailed + Stalled alert; stale lane re-sent; after
+   MaxStallRequeues ⇒ item Failed Stalled + alert + advance; terminal current item ⇒ advance; fresh lane untouched; one broken
+   run does not stop the others.
+7. `ProviderImportItemProcessorTests` — mocks for curator, category prompt service (Lookup = `CurationTestData.Categories`),
+   preparer, identity client, account store, profile repo, bootstrap, writer, photo copier, lifecycle; real `CurationVerifier`
+   and `ProviderImportLaneAdvancer`. Every case: terminal / stale attempt / claim / paused / Cancelling; ContentRefused ⇒
+   Skipped, no Identity call; merge veto + NoCity at P5; P5 re-check skip + FillGaps switch; each Identity outcome; Identity
+   Unavailable ⇒ PausedIdentityUnavailable + one High alert + item Queued; AI unavailable below threshold ⇒
+   `ProviderImportTransientException`, at threshold ⇒ PausedAiUnavailable; PausedCostLimit; AiBudgetExhausted; OwnerTookOver;
+   verdict Live / blockers / FillGaps never activates; `PendingApprovalServiceIds` in the result blob; redelivery after each
+   checkpoint repeats nothing (no 2nd AI or account call); `Reconcile()` agree/disagree.
+   ‼️ `Reconcile` is `internal static` and `Clinqet.Communications` has no `InternalsVisibleTo` for its unit tests — check
+   first; either add it (host csproj change) or test through `ProcessAsync`. Also check the FillGaps re-check on a redelivery
+   (the processor reads `Mode`, `ExistingUserId`, `Links` from the item).
+8. Sabotage ≥ 4.
+
+---
+
+### From `handoff/phase5-ai-curation-TODO.md`
+
+## Phase 5 — AI curation, verification, bank (handoff, 2026-10-07)
+
+DONE: `clinqetinfrastructure/Services/ProviderImport/Ai/` — `CurationAnswer.cs`, `CurationPrompt.cs` (input + strict schemas,
+chunking), `ProviderImportCurator.cs` (keyed "ProviderImport" AI client, bank, truncation split, schema retry, cost from
+TokenPricing, meter), `CurationVerifier.cs` (§9.4). System prompts in Functions appsettings = class defaults. Tests 396/396
+under `ProviderImport|BankRulesVersion`: CurationVerifierTests 97, CurationPromptTests 25, ProviderImportCuratorTests 20,
+ProviderImportAiPromptSettingsTests 6, BankRulesVersion pin `(1, "64f4a480857ce7ee")` for both versions. Two bugs fixed:
+empty serviceIndex enum; VerifyHours missing finding.
+
+NOT done:
+1. Sabotage ≥ 3: remove the `numbers.Any(n => n <= 0 …)` guard in `CurationVerifier.VerifyPrice`; drop `WriteBankAsync` in
+   `ProviderImportCurator.CallAsync`; put `scrapedAt` into `CurationPrompt.Input`.
+2. `ProviderImportCurator` is NOT yet registered in DI (`AddProviderImportWorker`) — register it (Scoped/Transient; it takes
+   the keyed AI client).
+3. `AiModelPinConventionTests` registry: add the two import deployment names if that test requires every deployment string.
+4. Two CS8601 warnings in `ProviderImportProfileWriter.cs` (~L487-490, offer Description/Conditions) — decide null handling.
+
+---
+
+### From `handoff/phase5-normalizer-TODO.md`
+
+## Phase 5 — cleaner, skip rules, in-file merge (handoff, 2026-10-07)
+
+DONE: 188 tests pass (`ProviderRecordNormalizerTests`, `ProviderImportSkipRulesTests`, `ProviderImportDeduplicatorTests`,
+`ProviderImportNormalizationSettingsTests`). Files: `NormalizedProvider.cs`, `ImportTextRules.cs`, `ProviderRecordNormalizer.cs`,
+`ProviderImportSkipRules.cs`, `ProviderImportDeduplicator.cs`, `ProviderImportMerger.cs` (clinqetinfrastructure/Services/
+ProviderImport); `clinqetshared/Utilities/SocialPlatformHosts.cs` (moved out of `ProviderSetupProfileService`, same
+behaviour — the API suite covering it was NOT run); new enums `ProviderImportNormalizationEnums.cs`;
+`ProviderImportReviewReason.PriceDropped` appended; `Normalization.DirectoryHosts` setting; Functions appsettings
+`AdminProviderImport:Normalization` lists filled (SharedContactBlocklist empty until the pilot).
+
+Readings taken (not stated by the plan): MG4 same name in different cities ⇒ `PossibleDuplicateInFile`; a merge member with no
+hours is ignored, stated hours must match exactly else no hours + `HoursConflict`; franchise rule = brandName on any member
+and names or primary cities differ; a missing contact purpose = main; an extension phone links only on number + extension;
+added flags `StaleSource`, `PossiblyClosed` (temporarily closed), `ConflictsInSource`; CA/US provinces → 2-letter codes, an
+Indian state kept as written; closed every day ⇒ `HoursIncomplete`.
+
+NOT done:
+1. Sabotage (six breaks: gmail dot key, conflict check, franchise rule, toll-free linking, home-street rule, zero price) — never
+   ran (build blocked at the time). Copy the three files to scratch, apply, run only these classes, copy back, diff.
+2. Full Communications unit suite run.
+3. DI: `ProviderRecordNormalizer` (IOptions<AdminProviderImportSettings>, IOptions<DiscoverySettings>, TimeProvider) and
+   `ProviderImportDeduplicator` as singletons in Functions `Program.cs` AND `FunctionAppFactory` (trap T-5).
+4. Skills/memory.
+
+---
+
+### From `handoff/phase4-identity-tests-TODO.md`
+
+## Phase 4 — Identity tests still to write (handoff, 2026-10-07)
+
+Home: `clinqetidentity/Clinqet.Identity.IntegrationTests/Tests/ProviderImport/` (new folder). Identity's `Program.cs` is the
+only host that registers `ProviderTakeoverService` and the internal controller (§0.18).
+
+### Suspected defect (prove with a test first, then fix)
+Two concurrent requests with the SAME userId probably answer 500 instead of `AlreadyCreated`:
+`AdminProviderProvisioningService.TryInsertPreparedUserAsync` catches `DbUpdateException` and re-checks with
+`CollidingAccountAsync(normalizedEmail, phoneSearchKey, userId, …)`, which EXCLUDES the row whose id is `userId`, so a
+primary-key clash finds nothing and is rethrown; the caller's "lost a race to its own redelivery" branch
+(`FindHolderAsync(request.UserId)` in `AdminProviderProvisioningService.Import.cs`) is never reached.
+
+### Fixture facts
+- `IdentityApiFactory` (assembly fixture): real SQL + Cosmos emulator + Azurite. The emulator has only `SystemData` and
+  `UserMetadata`; create `ProviderData` (pk `/businessId`) from the test class with
+  `CosmosContainerPolicies.ProviderData("ProviderData")` + `CreateContainerIfNotExistsAsync` on database
+  `ClinqetIdentityTest`. Do not edit the factory.
+- API key in the fixture: `integration-test-provider-import-internal-key-0001`. `API:RequiredHeaders:0 = User-Agent` ⇒ no
+  User-Agent = 400 (`RequiredHeadersMiddleware`). Missing/wrong `X-Internal-Api-Key` = 401 (`ProviderImportApiKeyFilter`).
+  Key < 32 chars fails `ValidateOnStart`: `factory.WithWebHostBuilder(… ProviderImportInternal:ApiKey=short …)` and assert
+  `CreateClient()` throws.
+- Rate limiter `provider-import-internal`: ONE fixed-window partition for every caller, 60/min, 429 + `Retry-After`. Run the
+  functional tests on a derived host with `ProviderImportInternal:RateLimitPerMinute` high (parallel tests would otherwise
+  flake); the 429 test on its own derived host with the limit 2. A derived host has its own singleton
+  `MockServiceBusService` / `MockEmailService` / `MockSmsService` / `MockPushNotificationService`; still filter by
+  userId/businessId. Patterns: `Tests/HealthEndpointTierIntegrationTests.cs`, `Tests/AdminAlertRepositoryRegistrationTests.cs`.
+- Offer-match: `OfferMatchEnqueuer` sends `SubscriptionChargeMessage` (`Kind = OfferMatchKind`) to
+  `SubscriptionChargesQueueName`; assert none for an imported business (sabotage: flip `enqueueOfferMatch: false` in
+  `CreatePreparedBusinessAsync`).
+- Outcomes come from `AdminProviderProvisioningService.Import.cs` (`ClassifyHolder`, `ValidateImportRequest`). The SQL
+  `Business` on Created: `Status = Active`, `DisplayName = businessName`, `SignupOrigin = Business`, primary-owner membership;
+  `businessId` is allocator-made (NOT deterministic); only `userId` is deterministic. Identity writes no Cosmos profile.
+  User: `ProvisionedAt` + `ProvisionedByAdminId` set, no `PasswordHash`, `ReceiveMarketingEmails = false`.
+- Friendly-name endpoint: 400 unless `IsBusinessWaitingForItsOwnerAsync(businessId)` AND
+  `GetOwnedBusinessIdAsync(userId) == businessId`. `FriendlyNameService.TrySetAsync` skips invalid/reserved/wrong-length/
+  taken; a second call ⇒ `AlreadyHeld = true`, same slug; never sends `FriendlyNameUpdated`. Existing coverage (do not
+  duplicate): `Tests/Services/FriendlyNameServiceIntegrationTests.cs` (FN1, FN6).
+- Take-over: `ProviderTakeoverService.TakeOverAsync` → `LiftImportHoldAsync` → `ImportedProfileActivation.ActivateAsync`.
+  Pending ⇒ Active; Active/Inactive/Suspended/missing ⇒ no alert; Conflict (ETag fails 3×) or exception ⇒
+  `ProviderImportActivationFailed`, High, `EventId = DeterministicGuid.Create("provimport-activation-failed", businessId)`,
+  `forceAdminAlert: true`; the take-over still returns `TakenOver`; a second take-over returns `AlreadyTakenOver`, no second
+  alert. Simulate with a decorating `IBusinessProfileRepository` whose `TrySetLifecycleStatusAsync` returns false/throws,
+  service built by hand on a real SQL `AppDbContext` (as `FriendlyNameServiceIntegrationTests.NewService`). References:
+  `Tests/Services/ProviderTakeoverIntegrationTests.cs`, `Clinqet.Identity.UnitTests/Services/ProviderTakeoverAlertTests.cs`.
+
+### Classes to write
+1. `ProviderImportAccountsEndpointIntegrationTests`: Created; AlreadyCreated/X2; ExistingPrepared (C15/X3/X4/C17);
+   ExistingTakenOver (C12/C16); ExistingSelfRegistered (C14); ExistingClosed (C27/X36); ContactOnTwoAccounts (C13);
+   PendingInvitation (X7); CustomerRecord (X8); InvalidRequest (400 naming the field); OwnershipLimit; key/boot (401, 401,
+   400, boot fails); 429 + Retry-After; race same contact different userIds ⇒ one account + ExistingPrepared; race same
+   userId (the suspected defect); nothing sent (offer-match, notification, email, SMS).
+2. `ProviderImportFriendlyNameEndpointIntegrationTests`: FN1, FN2, FN4, AlreadyHeld same slug, not this user's prepared
+   business ⇒ 400, no `FriendlyNameUpdated`.
+3. `ProviderImportTakeoverHoldLiftIntegrationTests`: X22, X23, non-Pending untouched.
+Sabotage ≥ 3 (copy to scratchpad, mutate, see it fail, copy back, `diff`). Run only these classes; report exact counts.
+
+---
+
+### From `handoff/phase4-names-TODO.md`
+
+## Phase 4 — names (N1/N2/N4/N5) + friendly-name service (handoff, 2026-10-07)
+
+DONE and tested (each behaviour sabotage-checked):
+- `IFriendlyNameService.TrySetAsync` (`clinqetinfrastructure/Services/Auth/FriendlyNameService.cs`) on the shared
+  `FriendlyNameRules.cs` + `FriendlyNameMirror.cs` (Cosmos copy + `FriendlyNameProjectionFailure` alert, moved out of
+  `UserProfileController` unchanged). AlreadyHeld, candidates in order, `Tried`, clash at save ⇒ next candidate, concurrent
+  same request ⇒ the winner's name, never `FriendlyNameUpdated`. `AuthService` PUT UserProfile uses the shared rules.
+  Registered in Identity `Program.cs`.
+- N1: `HandleExternalLoginAsync` after a take-over fills only placeholder halves from verified claims
+  (`ProposedPersonName.FromClaim`).
+- N2: `TemplateService.ProcessTemplate` fills `{{Greeting}}` (`PersonName.Greeting`, HTML-encoded); 295 templates (59 × 5
+  languages) moved to `{{Greeting}}`; keys `Greeting_Named`, `Greeting_Anonymous`, `MemberDisplayName_AccountOwner` in 5
+  languages; AuthService call sites pass First/Last; `MemberDisplayName.Of` real halves → email → label; take-over alert text;
+  Razorpay contact uses the business name for a placeholder person.
+- N4: `VerifyMfaDto.ProposedFirstName/ProposedLastName` (no validation attributes on purpose); applied only on `TakenOver`.
+- N5: the "name differs" take-over alert is Medium; `NameDiffers` compares only real halves.
+- Identity integration fixture: `ProviderImportInternal:ApiKey = integration-test-provider-import-internal-key-0001`.
+Tests: Identity unit (ProposedPersonNameTests 25, FriendlyNameServiceTests 14, TakeoverNamesTests 13,
+ProviderTakeoverAlertTests 8, GreetingRenderTests 17), Identity integration real SQL (FriendlyNameServiceIntegrationTests 3,
+TakeoverNamesIntegrationTests 4), Communications EmailGreetingRenderTests 4, API MemberDisplayNameTests 8 + 3 + 3.
+
+NOT done:
+1. Run each touched unit suite IN FULL once: `Clinqet.Identity.UnitTests`, `Clinqet.API.UnitTests`,
+   `Clinqet.Communications.UnitTests` (a processor test asserting a rendered "Hello X" may now fail because of `{{Greeting}}`).
+2. Sabotage the integration clash path: change the `continue` after the clash catch in `FriendlyNameService` to `throw;` and
+   confirm `FN6_ACandidateTakenAtSaveTime…` fails.
+3. The localized "Account owner" label is wired only in `TeamLifecycleNotifier`. Still empty for a member with no real name
+   and no email: `ProviderInboxService` (~L270, ~L630), `MemberLifecycleService` (~L129, ~L804), `BusinessMemberDirectory`
+   (~L262), `WorkAssignmentService` (~L125), `BusinessNotificationSettingsService` (~L686), admin tenancy services — needs a
+   per-recipient label or the client's own label.
+4. `GET friendlyname check` (`UserProfileController` ~L504-558) keeps its own copy of the rules and does not lower-case before
+   the format check — move it onto `FriendlyNameRules` (a small behaviour change: say so).
+5. Skills ×4 (identity-api, prepared-providers, auth-sessions, notifications) + memory not updated for these.
+6. UI greetings by name (N2 client side) — behind the N3 mockup gate: provider web
+   `src/components/dashboard/layout/Header.jsx` L109-142 (`utils/displayName.js` `displayFirstName`); provider phone
+   `src/Screen/homeTab/MyDashboardScreen/index.tsx` L170, L663 (`MY_DASHBOARD.WELCOME_BACK`); customer web
+   `components/layout/customer/header.jsx` L314, L691 (`header.hello`); admin `src/utils/adminIdentity.js` L9. N4 client side:
+   send `proposedFirstName/proposedLastName` from provider web `registerForm.jsx` / `PreparedProfileReady.jsx` and provider
+   phone `RegisterScreen`.
+
+---
+
+### From `handoff/phase6-admin-api-TODO.md`
+
+## Phase 6 — Main API admin endpoints (handoff, 2026-10-07)
+
+DONE (compiles; unit tests 187/187 under `FullyQualifiedName~ProviderImport|FullyQualifiedName~AdminProviderControllerTests`):
+`clinqetapi/Clinqet.API/Controllers/Admin/AdminProviderImportController.cs` (`api/v1/admin/provider-imports`, Admin role):
+upload-url, {runId}/check, list, get, items (status/continuation/pageSize), item detail (5-min read links + ClaimedAt + live
+profile status), start/cancel/resume/retry-failed/discard/cost-limit, item approve/retry/remove, bulk approve (≤200),
+report.csv (skipped|review|all, formula-guarded). Trust page: `POST api/v1/admin/providers/{businessId}/approve-hidden` on
+`AdminProviderController`. Services in `clinqetinfrastructure/Services/ProviderImport/Admin/` (admin service, mapper, CSV,
+upload storage with streamed SHA-256 pinned to the blob ETag, SQL account store). `ProviderImportRunSlots` +
+`ProviderImportStatuses` shared with the worker. New `IAzureStorageService.GetCreateSasUrlAsync` (Create|Write, one path,
+never Delete). DTOs `clinqetshared/DTOs/Admin/AdminProviderImportDtos.cs`. API `Program.cs` + appsettings `AdminProviderImport`.
+
+NOT done:
+1. API integration tests (`Clinqet.API.IntegrationTests`, `ClinqetApiFactory`, Cosmos emulator + Azurite): run list paging newest
+   first; `CountByStatusAsync` GROUP BY; `provimport_active` CAS race; `UpsertManyAsync` idempotent; start → item messages over
+   HTTP with an admin token (`MockServiceBusService.SentToQueues`); upload-url → PUT to Azurite → check (SHA-256 + validate
+   message). Put every class touching `provimport_active` in one `[Collection]`.
+2. SQL integration test for `ProviderImportAccountStore` (conditional `ExecuteUpdateAsync`, batched lookup) — "Seo SQL"
+   collection, own id prefix "PI".
+3. Sabotage: drop the ETag condition in `TransitionRunAsync`; MaxConcurrentRuns + 1; remove the retry-lane revert; remove the CSV
+   formula guard; remove the `ClaimedAt == null` condition.
+4. Full `Clinqet.API.UnitTests` run (incl. the convention tests that scan every controller).
+5. Skills ×4 (main-api, admin-app) + memory.
+Open questions for the owner: should the 5-minute read-link lifetime and the 200 bulk-approve cap be settings?
+Edge: an owner who takes over between the closure and the deactivation keeps an active account on a closed business; the admin
+is told so.
+Fixed at handback (2026-10-07): item point reads/patches now map the item KEY to the document id
+(`ProviderImportKeys.ItemId(runId, itemKey)`) in `ProviderImportItemRepository` — `item.ItemId` is the 16-hex key, NOT the
+document id. Re-check the admin fakes/tests assume the same.
+
+---
+
+### From `handoff/phase9-ui-TODO.md`
+
+## Phase 9 — name prompt (N3), greetings (N2 UI), names into the code check (N4 clients) (handoff, 2026-10-07)
+
+Mockup `Data/mockups/provider-name-prompt` registered; owner waived waiting for approval (2026-10-07).
+
+DONE:
+- Server: snoozable dismissal (`SpotlightTypeRules.IsSnoozable`, only `ProviderNamePrompt`; `UserMetadataService.DismissSpotlightAsync`
+  moves DismissedAt/UpdatedAt — no new column); `UserProfileDto.ClaimedAt` filled in Identity `UserProfileController` GET (DTO
+  only); `NamePromptSettings` (`NamePrompt:SnoozeDays` 7) → `AppConfigDto.NamePrompt`. Unit tests pass (Identity 92/92, API 17/17).
+- Provider web: `src/lib/namePrompt.js`, `src/components/dashboard/NamePrompt.jsx` (mounted in `src/app/dashboard/layout.jsx`),
+  `src/utils/personName.js` greeting, `src/lib/proposedNames.js` + register/PreparedProfileReady/verifyLoginPhoneForm (phone code
+  only); keys in 5 languages; `Dashboard.WelcomePrefix` removed. Tests pass; ESLint 0.
+- Customer web: N4 (`lib/proposedNames.js` …) + N2 (`utils/personName.js`, header). Tests pass; ESLint 0.
+- Provider phone: `src/lib/namePrompt.ts`, `src/hooks/useNamePrompt.ts`, `src/components/NamePromptSheet.tsx` (on
+  `BookingSheet`), N2 greeting, N4 params RegisterScreen → LoginOTPScreen; keys in 5 languages. tsc clean; tests pass
+  (684 regression tests over touched shared files).
+
+NOT done:
+1. Provider phone N4 tests (LoginOTPScreen sends the params with the phone verify only; RegisterScreen navigates with them).
+2. Customer phone (`clinqetmobileuserapp`): N4 (PreparedProfileReady.tsx + RegisterScreen → LoginOTP params → phone verify) and
+   the home greeting (`src/screen/homeTab/homeScreen/index.tsx` ~L379 `HOME_SCREEN.HELLO`) must filter "Guest"/"User"; jest tests.
+3. Run the two integration tests written but not run: Identity
+   `UserMetadataControllerIntegrationTests.DismissSpotlight_NamePromptAgain_MovesDismissedAtInSql`, API
+   `AppConfigEndpointTests.GetAppConfig_ServesTheNamePromptSnoozeDaysBoundFromConfiguration`.
+4. Sabotage proofs for every new suite (4 apps + 2 hosts).
+5. Viewport checks 320/375/768/1024/1440 (web prompt) and simulator light/dark (phone sheet).
+6. Skills ×4 + memory (spotlight snoozable type, partner app, provider mobile, user app, customer mobile, auth sessions N4).
+7. Stale comments: `preserveAccountSettings` (provider web `src/services/authServices.js`) and `withAccountSettings` (mobile
+   `editProfileAPI.tsx`) still say a missing `ReceiveMarketingEmails` is saved as true — no longer true after the null-keeps fix.
+8. Confirm with the owner: "Not now" on web OR phone snoozes both (the latest ProviderNamePrompt dismissal of either surface counts).
+
+---
+
+## 10. Definition of done for the whole programme
+- Every §25 phase finished; every §21 row has a passing test named with its ID; every guard sabotage-checked.
+- Every test project and app builds; every FULL suite run once at the end and passes 100% (Identity unit + integration,
+  API unit + integration, Communications unit + integration, cosmosindexsetup tests, the four web/phone apps' jest + ESLint 0).
+- The Functions host boots with every import service registered (DI validation test).
+- Pilot numbers recorded in SOLUTION §20; skills + memory updated; `handoff/` emptied and deleted; BUILD-LOG current.
+- **§27 audit done in full** (audit → fix every finding → re-verify every fix) and reported with the §27.5 evidence.
+- Committed and pushed on `claude/affectionate-davinci-wdczbr` in every repo; `git rev-list --merges` empty; trees clean.
