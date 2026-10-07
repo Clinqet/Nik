@@ -332,58 +332,59 @@ Clinket is a two-sided local-services marketplace.
 - Ask the owner only when genuinely unsure, with the §0.7 table for any schema question. Never assume.
 
 
-## 7. Commits the previous session left on the branch (newest first, per repo)
+## 7. The previous session's work on `master` (latest commits per repo, newest first — all pushed 2026-10-07)
 
 **clinqetshared**
 ```
-dfcfb17 Provider import: settings, DTOs, messages, normalisation enums, name-prompt settings
-e534408 Provider import: SetupAlertFamily for alerts the shared setup collects instead of sending
-96140db Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+2593402 Offers carry a minimum spend; provider import admin limits as settings
+ece4052 Provider import: settings, DTOs, messages, normalisation enums, name-prompt settings
+6672ec0 Provider import: SetupAlertFamily for alerts the shared setup collects instead of sending
+3d62d4c Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+a0e4ed4 Quotes: a failed pause check is no longer configured as send-anyway
 e13dcbc Locations: move the default safely, in one transaction
 5208136 Service AI validation: photo check types, measured content prompt, drop per-approval alert
 6429d93 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
-1adf683 Voice call experience P1: delete the P10 action-guard settings, add goodbye phrase lists
-c3de49e Prepared provider accounts, take-over, and services with no price
 ```
 
 **clinqetcore**
 ```
-a258532 Provider import: run/item entities, repository and friendly-name interfaces, member display name
-e12ab51 Availability.IsConfigured: response-only flag for days nobody saved (never stored)
-87967e2 Provider import: shared setup seams - alert collector, resolver overload, prepared pricing, no-revive writes, FAQ create-if-absent, profile bootstrap, silent activation
-a025616 Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+49c1051 Provider import: run/item entities, repository and friendly-name interfaces, member display name
+05e2cba Availability.IsConfigured: response-only flag for days nobody saved (never stored)
+0b1f7aa Provider import: shared setup seams - alert collector, resolver overload, prepared pricing, no-revive writes, FAQ create-if-absent, profile bootstrap, silent activation
+82854f6 Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+8b7ab98 Search: the service search can ask whether the live index can answer
 cec54c3 Service AI validation: review router, verdict-unavailable, contact pre-check
 a3b9084 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 279caf5 Voice call experience P1: call timeline stamps, hangup fence, P10 interface removal
-ee14fe9 Fix the CI breaks the prepared-provider change caused
 ```
 
 **clinqetinfrastructure**
 ```
-6ec743c Provider import: validator, cleaner, merge, matcher, AI curation and checks, profile writer, admin service, Identity provisioning endpoint core, friendly-name service, greetings; decision A (no seeded hours)
-ba3ef9f Provider import readers: PDF address lines without blank parts; receptionist and business search say when no hours are listed
-4dc09a9 Provider import: extract the setup apply half and profile bootstrap; import options (collected alerts, create-only services, R4 price fill, offers never widened, FAQ by question); budget dials for the import sub-flows
-88926a0 Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+c6d8dcb Provider import: same-request account race returns AlreadyCreated; minimum-spend offers through the shared saver; admin limits from settings
+14a8597 Provider import: validator, cleaner, merge, matcher, AI curation and checks, profile writer, admin service, Identity provisioning endpoint core, friendly-name service, greetings; decision A (no seeded hours)
+96309df Provider import readers: PDF address lines without blank parts; receptionist and business search say when no hours are listed
+0972215 Provider import: extract the setup apply half and profile bootstrap; import options (collected alerts, create-only services, R4 price fill, offers never widened, FAQ by question); budget dials for the import sub-flows
+7a2ed1b Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+016c494 Search: the empty-index probe is a count-only query
+5b45f0e Search and quotes: an empty city stays empty, and a failed pause check writes no lead
 23e9cf1 Locations: move the default safely, in one transaction
-67704ed Service AI validation: router, photo checker, no-verdict handling, multi-type alert query
-d90602d Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
-60dca37 Voice call experience P1: delete the P10 action-guard turn detection
 ```
 
 **clinqetapi**
 ```
-5429a60 Provider import: admin import controller, trust-page approve, name-prompt snooze in app config; decision A bootstrap without hours
-ec4cefd Provider import readers: mark suggested hours in GET business/availability; tests for PDF address lines and the hours note
-2e191dc Provider import: controller uses the shared bootstrap, provider reactivate only from Inactive; pins for every setup default; collect-mode guard; fix order-dependent billing catalogue test
+cd99541 Tests for minimum-spend offers; provider import admin limits in appsettings
+d8f6462 Provider import: admin import controller, trust-page approve, name-prompt snooze in app config; decision A bootstrap without hours
+d98cefe Provider import readers: mark suggested hours in GET business/availability; tests for PDF address lines and the hours note
+d6225da Provider import: controller uses the shared bootstrap, provider reactivate only from Inactive; pins for every setup default; collect-mode guard; fix order-dependent billing catalogue test
+2087ebe Search: an empty live service index asks the customer to try again
 99e5eb4 Locations: move the default safely, in one transaction
 25bdfec Service AI validation: shared review rule, multi-type admin alerts, photo check flag
 568742e Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
-88993bd Correct the pricing assertions the previous commit bent
-a901db3 Fix the CI breaks the prepared-provider change caused
 ```
 
 **clinqetidentity**
 ```
+f16cb5a Provider import: real-SQL tests for the same-request account race
 c696e80 Provider import: internal accounts and friendly-name endpoints, names after take-over (N1/N4/N5), ClaimedAt on profile
 c2262ef Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
 72f896e Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
@@ -391,19 +392,18 @@ c2262ef Provider import phase 2: shared enums, PersonName, IsAdminProvisioned re
 06ef68c Prepared provider accounts, take-over, and services with no price
 b93ca47 Update AdminProviderProvisioningService tests for null-hash no-password path (#14)
 76a043a identity changes
-68ca5ff UI changes and imorovements
 ```
 
 **clinqetfuncations**
 ```
-3eb1bc1 Provider import: check-file runner, item processor, lane advancer, sweeper, cost meter; tests for validator, cleaner, AI curation; greeting templates; unknown-hours indexing
-75f5088 Provider import readers: receptionist hours-not-listed test; prompt-size fixture carries hours
-23f429a Provider import: tests for the import FAQ write path
+ea239be Provider import: check-file runner, item processor, lane advancer, sweeper, cost meter; tests for validator, cleaner, AI curation; greeting templates; unknown-hours indexing
+7f57c67 Provider import readers: receptionist hours-not-listed test; prompt-size fixture carries hours
+2eaf9a4 Provider import: tests for the import FAQ write path
+8a6bb14 Quotes and search: retry a failed pause check immediately, and project a late pause now
 ee5b5c1 Service AI validation: contact pre-check, manual review on no verdict, photo safety gate
 feb36d3 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 51a1718 Voice call experience P1: supervisor hangup fence, latest-callback push, call timeline
 03e1c2d Prepared provider accounts, take-over, and services with no price
-364c548 Ask Clinket source viewer: audit fixes (comments)
 ```
 
 **cosmosindexsetup**
@@ -456,14 +456,14 @@ d58be61 Prepared providers: UI verification fixes, price-awaiting rules, public 
 
 **clinqetwebuserapp**
 ```
-2aa5c8e Greeting without placeholder names (N2), typed names carried into the code check (N4)
-02a771e Hours not listed: one plain line when a business has saved no hours, never Closed
-8b5fe86 City-only businesses: no at-store service address, no city-centre pin or directions, no empty JSON-LD address fields; booking works when no hours are listed
+662e0fe Greeting without placeholder names (N2), typed names carried into the code check (N4)
+4c5fe6b Hours not listed: one plain line when a business has saved no hours, never Closed
+15b7d2b City-only businesses: no at-store service address, no city-centre pin or directions, no empty JSON-LD address fields; booking works when no hours are listed
+8bd154b Search: the header place box uses our place lookup
+aa85d70 Search: place lookup goes through our API, and an empty result offers quotes
 85d38ee Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 dcea812 Fix the CI breaks the prepared-provider change caused
 38b5887 Prepared provider accounts, take-over, and services with no price
-5c752df Merge branch 'master' of https://github.com/Clinqet/clinqetwebuserapp
-d63b176 Rotate Google Maps API key
 ```
 
 **clinqetmobilepartnerapp**
@@ -480,18 +480,33 @@ fa42b3a Billing history: receipts on iOS, and the numbered page API
 
 **clinqetmobileuserapp**
 ```
-62d1285 Hours not listed: one plain line when a business has saved no hours, never Closed
-2ebf554 City-only businesses: no at-store service address, area map and text search instead of a city-centre pin
+bf8514c Hours not listed: one plain line when a business has saved no hours, never Closed
+5cb4830 City-only businesses: no at-store service address, area map and text search instead of a city-centre pin
+5a9909f Search: a failed search is not an empty city, and the map stays on our API
 efd368a Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 0cf8857 Declare *.webp so the image index type-checks
 9b5257d Prepared provider accounts, take-over, and services with no price
 2b4893f Swap the dashboard hero artwork and serve it as WebP
 2bb0fae Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
-bc647a3 Sign-in options on one line at every width
+```
+
+**clinqetmobileadminapp**
+```
+d853c39 Admin onboarding: a stored city-level address no longer blocks saving; notice when opening hours were never set
+48b8916 Service approval queue reads every waiting type (admin phone)
+2d48115 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+cd8005c Prepared provider accounts, take-over, and services with no price
+62a7efb Point the admin Maps key at the new Google key
+c7023da Voice numbers: never return a number this environment did not buy
+9d2c07f Knowledge: Read again spends from the same daily limit
+68a3a9d Knowledge: daily limit on Refresh suggestions
 ```
 
 **Nik**
 ```
+126416f Provider import prompt: never-miss block (parked triggers, name-prompt decision, settings), master workflow, path fixes
+bc86e0c Provider import hand-over: race fixed, minimum-spend offers, settings; prompt updated
+c055617 Provider import: self-contained next-session prompt with full hand-over detail
 df1b3e4 Provider import: build log decisions, hand-over notes and next-session prompt; deployment skill
 35395ff Provider import build log: Phase 3b reader fixes, H-2 awaiting owner decision
 d7df1dc Provider import build log: Phase 3 results, address and hours reader sweeps
