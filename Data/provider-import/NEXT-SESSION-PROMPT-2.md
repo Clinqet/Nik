@@ -4,10 +4,43 @@ Copy everything below the line into a new session.
 
 ---
 
+## ‼️‼️ READ FIRST — THREE THINGS THAT MUST NEVER BE MISSED ‼️‼️
+
+**N-1. The provider import's Functions entry points are PARKED and MUST be put back.**
+`Data/provider-import/handoff/ProviderImportFunctions.cs.txt` holds the three triggers of the import:
+`ProviderImportValidate` (queue `provider-import-validate`), `ProviderImportItem` (queue `provider-import-items`) and
+`ProviderImportSweeper` (timer `%AdminProviderImport:Processing:SweeperSchedule%`). They were taken OUT of
+`clinqetfuncations/Clinqet.Communications/Functions/` on purpose, because the services they call are not yet registered in
+the Functions host and the photo copier does not exist yet. A deployed host with the triggers in place but the services missing
+would fail every 15 minutes. **Until the file is moved back, the import cannot run at all.** Put it back only after ALL of:
+1. `IProviderImportPhotoCopier` is implemented (§5.1 step 1).
+2. `AddProviderImportWorker` + every import service is registered in Functions `Program.cs` AND in `FunctionAppFactory`
+   (§5.1 step 2), and `Discovery:CountryDefaults` is in Functions appsettings.
+3. The host's DI validation test passes (the host boots with every import service resolvable).
+Then: move it to `clinqetfuncations/Clinqet.Communications/Functions/ProviderImportFunctions.cs` (rename `.cs.txt` → `.cs`),
+build, run an end-to-end Functions integration test through the triggers, and delete it from `handoff/`. **The programme is
+NOT done while that file is still in `handoff/`** — the §27 audit must check it.
+
+**N-2. Decided — the provider name prompt's "Not now" snoozes it on web AND phone (FINAL, owner 2026-10-07).**
+The latest `ProviderNamePrompt` dismissal from EITHER surface counts, for `NamePrompt:SnoozeDays` (7). One person, one
+account: being asked again on the other device minutes later is a worse experience. Do not change this; keep it covered by
+tests on both apps.
+
+**N-3. Admin import values that are SETTINGS now (not constants) — keep them settings.**
+In `clinqetshared/Models/AdminProviderImportSettings.cs` and the Main API `appsettings.json` node `AdminProviderImport`:
+`Storage:ReadLinkMinutes` = 5 (how long the admin's links to one provider's source/result files work — §22),
+`Limits:MaxBulkApprove` = 200 (most providers one bulk Approve may take), `Limits:DefaultRunsPageSize` = 20 (imports list
+page). The runs scan uses `Limits:MaxItemsPageSize`. Class defaults equal appsettings; the Functions host does not read
+them, so they are NOT in Functions appsettings (CLAUDE §4). Any NEW limit, lifetime or page size follows the same rule
+(CLAUDE §0.12): a setting with a class default equal to appsettings — never a constant.
+
+
 Continue building the **Provider Import programme** for Clinket. The previous session built Phases 2–4, most of Phase 5,
-Phase 6 code, Phase 7 and most of Phase 9, then stopped for a clean hand-over. Everything is committed and pushed (2026-10-07, 14 repos, linear history, clean trees) on branch
-**`claude/affectionate-davinci-wdczbr`** in every repo. Develop and push on that same branch. Never create a merge commit
-(CLAUDE.md §0.21): use `git fetch` + `git rebase`, and prove `git rev-list --merges origin/<branch>..HEAD` prints nothing.
+Phase 6 code, Phase 7 and most of Phase 9, then stopped for a clean hand-over. **Everything is on `master` in every repo**
+(rebased onto the latest `origin/master` and pushed as a fast-forward on 2026-10-07; linear history, clean trees). Start every
+repo from `origin/master` (`git fetch origin && git checkout -B <your branch> origin/master`, or work on `master` itself if the
+owner says so). Never create a merge commit (CLAUDE.md §0.21): `git fetch` + `git rebase origin/master`, and prove
+`git rev-list --merges origin/master..HEAD` prints nothing before every push.
 
 ## 0. Where things are
 - In a cloud session every repo is at `/home/user/<repo>`. The owner's `C:\Nik\<repo>` is the same repo. `C:\Nik\Data\...`
@@ -119,6 +152,8 @@ Clinket is a two-sided local-services marketplace.
   - Existing data is left alone. AI setup saves only the days it read.
 - **B1:** an FAQ an admin deleted on an UNCLAIMED business comes back if a later upload carries it.
 - **B2:** the admin apps' hours notice is English.
+- **Name prompt "Not now":** snoozes web AND phone (N-2) — final.
+- **Minimum-spend offers:** imported (done, §3a).
 - **Mockups:** admin mockup gate waived. The provider name prompt mockup (`Data/mockups/provider-name-prompt`) is registered;
   the owner waived waiting for approval.
 - **Process:** do not stop; ask only when genuinely unsure (never assume). Quality over speed. Modern, responsive design in
@@ -291,7 +326,8 @@ Clinket is a two-sided local-services marketplace.
   - run targeted tests;
   - delete scratch files;
   - commit per repo with clear messages ending in the session's attribution lines;
-  - `git fetch` + rebase; prove no merge commits; push with `git push -u origin claude/affectionate-davinci-wdczbr`.
+  - `git fetch origin` + `git rebase origin/master`; prove `git rev-list --merges origin/master..HEAD` is empty; push to the
+    branch the session/owner names (and to `master` as a fast-forward only when the owner says so — never `--force` on master).
 - Delete each `handoff/*.md` item as it is finished, and the folder when empty. Record every new decision in BUILD-LOG.md.
 - Ask the owner only when genuinely unsure, with the §0.7 table for any schema question. Never assume.
 
@@ -733,7 +769,7 @@ NOT done:
    the format check — move it onto `FriendlyNameRules` (a small behaviour change: say so).
 5. Skills ×4 (identity-api, prepared-providers, auth-sessions, notifications) + memory not updated for these.
 6. UI greetings by name (N2 client side) — behind the N3 mockup gate: provider web
-   `src/components/dashboard/layout/Header.jsx` L109-142 (`utils/displayName.js` `displayFirstName`); provider phone
+   `src/components/dashboard/layout/Header.jsx` L109-142 (`src/utils/displayName.js` `displayFirstName`); provider phone
    `src/Screen/homeTab/MyDashboardScreen/index.tsx` L170, L663 (`MY_DASHBOARD.WELCOME_BACK`); customer web
    `components/layout/customer/header.jsx` L314, L691 (`header.hello`); admin `src/utils/adminIdentity.js` L9. N4 client side:
    send `proposedFirstName/proposedLastName` from provider web `registerForm.jsx` / `PreparedProfileReady.jsx` and provider
@@ -805,7 +841,7 @@ NOT done:
 6. Skills ×4 + memory (spotlight snoozable type, partner app, provider mobile, user app, customer mobile, auth sessions N4).
 7. Stale comments: `preserveAccountSettings` (provider web `src/services/authServices.js`) and `withAccountSettings` (mobile
    `editProfileAPI.tsx`) still say a missing `ReceiveMarketingEmails` is saved as true — no longer true after the null-keeps fix.
-8. Confirm with the owner: "Not now" on web OR phone snoozes both (the latest ProviderNamePrompt dismissal of either surface counts).
+8. DECIDED (owner, 2026-10-07): "Not now" on web OR phone snoozes both — see N-2 at the top. Keep it; test it on both apps.
 
 ---
 
@@ -816,4 +852,4 @@ NOT done:
 - The Functions host boots with every import service registered (DI validation test).
 - Pilot numbers recorded in SOLUTION §20; skills + memory updated; `handoff/` emptied and deleted; BUILD-LOG current.
 - **§27 audit done in full** (audit → fix every finding → re-verify every fix) and reported with the §27.5 evidence.
-- Committed and pushed on `claude/affectionate-davinci-wdczbr` in every repo; `git rev-list --merges` empty; trees clean.
+- Committed and pushed in every repo (on `master` when the owner asks, as a fast-forward); `git rev-list --merges` empty; trees clean.

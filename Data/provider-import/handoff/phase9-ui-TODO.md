@@ -26,4 +26,4 @@ NOT done:
 6. Skills ×4 + memory (spotlight snoozable type, partner app, provider mobile, user app, customer mobile, auth sessions N4).
 7. Stale comments: `preserveAccountSettings` (provider web `src/services/authServices.js`) and `withAccountSettings` (mobile
    `editProfileAPI.tsx`) still say a missing `ReceiveMarketingEmails` is saved as true — no longer true after the null-keeps fix.
-8. Confirm with the owner: "Not now" on web OR phone snoozes both (the latest ProviderNamePrompt dismissal of either surface counts).
+8. DECIDED (owner, 2026-10-07): "Not now" on web OR phone snoozes both — keep it; test it on both apps.

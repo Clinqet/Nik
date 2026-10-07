@@ -32,7 +32,7 @@ NOT done:
    the format check — move it onto `FriendlyNameRules` (a small behaviour change: say so).
 5. Skills ×4 (identity-api, prepared-providers, auth-sessions, notifications) + memory not updated for these.
 6. UI greetings by name (N2 client side) — behind the N3 mockup gate: provider web
-   `src/components/dashboard/layout/Header.jsx` L109-142 (`utils/displayName.js` `displayFirstName`); provider phone
+   `src/components/dashboard/layout/Header.jsx` L109-142 (`src/utils/displayName.js` `displayFirstName`); provider phone
    `src/Screen/homeTab/MyDashboardScreen/index.tsx` L170, L663 (`MY_DASHBOARD.WELCOME_BACK`); customer web
    `components/layout/customer/header.jsx` L314, L691 (`header.hello`); admin `src/utils/adminIdentity.js` L9. N4 client side:
    send `proposedFirstName/proposedLastName` from provider web `registerForm.jsx` / `PreparedProfileReady.jsx` and provider

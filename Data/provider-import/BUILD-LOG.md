@@ -223,5 +223,5 @@ Owner waived waiting for approval in conversation (2026-10-07). Findings while d
 - **Minimum-spend offers (owner: yes).** Carried through the shared offer saver into the EXISTING `Offer.MinValue`; signature
   gains `|min:` only when a minimum exists, so existing offer ids are unchanged; a minimum ≤ 0 refuses the offer.
 - **Admin constants → settings**: `Storage:ReadLinkMinutes`, `Limits:MaxBulkApprove`, `Limits:DefaultRunsPageSize`.
-- **"Not now" on the name prompt** snoozes it on web AND phone (the latest dismissal from either surface counts) — kept as
-  built; the owner to confirm.
+- **"Not now" on the name prompt** snoozes it on web AND phone (the latest dismissal from either surface counts) — owner
+  approved as best practice (2026-10-07). Final.
