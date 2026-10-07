@@ -1,0 +1,87 @@
+using System.Text.Json;
+using Azure.Messaging.ServiceBus;
+using Clinqet.Communications.Services.ProviderImport;
+using Clinqet.Shared.DTOs.Messages;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Clinqet.Communications.Functions
+{
+    // The provider import's three entry points (SOLUTION §16.2). The work lives in the services; every one is idempotent, so a
+    // redelivery is free. A transient failure is rethrown so Service Bus redelivers (bounded by maxDeliveryCount); a message
+    // that dead-letters is picked up again by the sweeper.
+    public sealed class ProviderImportFunctions
+    {
+        private static readonly JsonSerializerOptions Json = new(JsonSerializerDefaults.Web);
+
+        private readonly ProviderImportValidationRunner _validation;
+        private readonly ProviderImportItemProcessor _processor;
+        private readonly ProviderImportSweeper _sweeper;
+        private readonly ILogger<ProviderImportFunctions> _logger;
+
+        public ProviderImportFunctions(
+            ProviderImportValidationRunner validation,
+            ProviderImportItemProcessor processor,
+            ProviderImportSweeper sweeper,
+            ILogger<ProviderImportFunctions> logger)
+        {
+            _validation = validation;
+            _processor = processor;
+            _sweeper = sweeper;
+            _logger = logger;
+        }
+
+        [Function("ProviderImportValidate")]
+        public async Task ValidateAsync(
+            [ServiceBusTrigger("%ServiceBusSettings:ProviderImportValidateQueueName%", Connection = "ServiceBusConnection")]
+            ServiceBusReceivedMessage message,
+            ServiceBusMessageActions actions,
+            CancellationToken cancellationToken)
+        {
+            var payload = Read<ProviderImportValidateMessage>(message);
+            if (payload is null || string.IsNullOrWhiteSpace(payload.RunId))
+            {
+                await actions.DeadLetterMessageAsync(message, null, "InvalidPayload", "Missing run id.", cancellationToken);
+                return;
+            }
+
+            await _validation.RunAsync(payload.RunId, cancellationToken);
+            await actions.CompleteMessageAsync(message, cancellationToken);
+        }
+
+        [Function("ProviderImportItem")]
+        public async Task ProcessItemAsync(
+            [ServiceBusTrigger("%ServiceBusSettings:ProviderImportItemsQueueName%", Connection = "ServiceBusConnection")]
+            ServiceBusReceivedMessage message,
+            ServiceBusMessageActions actions,
+            CancellationToken cancellationToken)
+        {
+            var payload = Read<ProviderImportItemMessage>(message);
+            if (payload is null || string.IsNullOrWhiteSpace(payload.RunId) || string.IsNullOrWhiteSpace(payload.ItemId))
+            {
+                await actions.DeadLetterMessageAsync(message, null, "InvalidPayload", "Missing run or item id.", cancellationToken);
+                return;
+            }
+
+            await _processor.ProcessAsync(payload, message.DeliveryCount, cancellationToken);
+            await actions.CompleteMessageAsync(message, cancellationToken);
+        }
+
+        [Function("ProviderImportSweeper")]
+        public Task SweepAsync([TimerTrigger("%AdminProviderImport:Processing:SweeperSchedule%")] TimerInfo timer, CancellationToken cancellationToken)
+            => _sweeper.SweepAsync(cancellationToken);
+
+        private T? Read<T>(ServiceBusReceivedMessage message) where T : class
+        {
+            try
+            {
+                return JsonSerializer.Deserialize<T>(message.Body.ToString(), Json);
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Provider import message {MessageId} is not valid JSON", message.MessageId);
+                return null;
+            }
+        }
+    }
+}

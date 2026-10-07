@@ -78,7 +78,17 @@ creation: all OK. Defects:
 | H-3 | receptionist instructions: when the weekly hours are empty, an explicit "hours not listed — never say closed" line. Today every business has seeded hours, so no live prompt changes (the prompt-size guard's "everything on" fixture now has hours, as a real business has) |
 | H-4 | `get_business_profile` carries `hoursNote` (the existing `NoAvailability` note) when there are no hours |
 | H-5 | `Availability.IsConfigured` — response only, `[Newtonsoft.Json.JsonIgnore]` so the Cosmos serializer never stores it (test serializes with `ClinqetCosmosSerializer`); private `GET business/availability` marks synthesized days false. Admin web + phone notice; provider web + phone "Suggested" day labels + notice, locations week summary "No hours set yet" (shared `renderingRules`, parity test) |
-| **H-2 / H-2b** | **NOT done — the edit was refused by this session's permission check** (it changes the search documents: provider index `null` when a business has no rows, service index `DayAvailability.IsAvailable` `bool` → `bool?`, and the "available on day" filter `eq true` → `ne false`). Both C# types map to the same `Edm.Boolean` field, so the index definition itself does not change. **Owner decision needed.** Until then a business with no hours is left out of the "available on {day}" filter (it still appears in every other search) |
+| **H-2 / H-2b** | **SUPERSEDED by the owner decision below.** Was: NOT done — the edit was refused by this session's permission check** (it changes the search documents: provider index `null` when a business has no rows, service index `DayAvailability.IsAvailable` `bool` → `bool?`, and the "available on day" filter `eq true` → `ne false`). Both C# types map to the same `Edm.Boolean` field, so the index definition itself does not change. **Owner decision needed.** Until then a business with no hours is left out of the "available on {day}" filter (it still appears in every other search) |
+
+### Owner decisions 2026-10-07 (in conversation)
+- **Hours (A, approved):** no hours are ever invented — the profile-creation seed of Mon–Sun 09:00–17:00 is REMOVED for every
+  business (provider onboarding, admin wizard, AI setup, import); editors still pre-fill 9–5 marked "Suggested" and only a
+  Save stores hours; customers see one "Hours not listed" line; the search indexes store `null` (unknown) per day when a
+  business has no rows (`DayAvailability.IsAvailable` `bool?` — the SAME `Edm.Boolean` field, pinned by
+  `UnknownHoursIndexFieldTests`); the "available on {day}" filter is unchanged (`eq true` — a filter is a promise, unknown is
+  not shown, like Google "open now"); existing stored hours are left alone. H-2 is closed by this.
+- **B (approved, recommendation kept):** an FAQ an admin deletes on a not-yet-claimed business comes back if a later upload
+  still carries it (shown in the item's "added" list); the admin apps' hours notice is English (admin apps are English by design).
 
 ## 2a. After Phase 3 (current tree)
 | Suite | Result |
@@ -162,3 +172,44 @@ Owner waived waiting for approval in conversation (2026-10-07). Findings while d
 > Note (2026-10-07 18:04): the session scratchpad was wiped by an over-broad cleanup in a helper agent — it took the frozen
 > source snapshot and the baseline logs. The unit-baseline numbers above were already recorded. The integration baseline
 > snapshot was rebuilt from `git archive` of each repo's session-start commit (+ PRE-1) and re-run.
+
+## 9. Phase 4–5 design notes (2026-10-07)
+| # | Decision | Why |
+|---|---|---|
+| R-4 | Account and business are NOT one SQL transaction: the account commits (shared `TryInsertPreparedUserAsync`, same as the admin form), then the business is ensured; a redelivery with the same deterministic `userId` finds the account (`AlreadyCreated`) and finishes the business | `BusinessProvisioningService.CreateAsync` owns its own execution-strategy transaction + applock; nesting it would mean rewriting business creation. Convergence gives the same end state |
+| R-5 | Prepared businesses never enqueue the offer-match / trial announcement: new `IBusinessProvisioningService.CreatePreparedBusinessAsync` (the explicit path, `enqueueOfferMatch: false`) | §11A.3 step 5 — closed at the source |
+| R-6 | Identity internal endpoint: `ProviderImportInternal:{ApiKey (≥32, boot refuses), RateLimitPerMinute 60}`; key compared via SHA-256 + `FixedTimeEquals`; ASP.NET fixed-window rate limiter (429 + Retry-After); `[AllowAnonymous]` + key filter; no CORS policy | §11A.1 |
+| R-7 | The import's Identity client retries transient failures itself (3 attempts, exponential; 5xx/timeouts only, never a 4xx) instead of a Polly handler | the library does not reference `Microsoft.Extensions.Http.Polly`; a dozen lines, unit-tested |
+| R-8 | `IAzureStorageService.UploadPrivateBlobAsync` (Cache-Control `no-store`) for every import blob | the existing upload stamps `public, max-age` — wrong for files full of contact details |
+| R-9 | A removed (inactive) PREPARED account keeps its phone blocked in both the Identity classifier and the plan matcher | §10.4 |
+| R-10 | Take-over lifts the import hold through the ONE shared `ImportedProfileActivation` (also behind `ActivateImportedAsync`); a failure raises `ProviderImportActivationFailed` (High, EventId per business), the take-over still succeeds | §10.5 |
+
+## 10. Phase 5 orchestration — decisions taken while building (2026-10-07)
+- **R-11 AI outage threshold (§11.8).** The run document has no "consecutive AI failures" field, and adding one is a schema
+  change. Because lanes are chained, a lane cannot move past a provider whose AI call fails, so "N consecutive items failing on
+  AI" is measured as N deliveries of the SAME provider failing on AI (`Processing:AiOutageItemThreshold`, 3, below the queue's
+  maxDeliveryCount 5). Below the threshold the delivery is rethrown (Service Bus redelivers); at it the run pauses
+  `PausedAiUnavailable` with one High alert. A provider whose own content keeps failing is still bounded: a call is counted
+  when it is ASKED, so its AI budget (planned chunks + `MaxAiCallsPerProvider`, across attempts) ends it `Failed:
+  AiBudgetExhausted`.
+- **R-12 Bank key.** The curation bank keys on exactly what is sent (system prompt + user prompt + schema + deployment +
+  effort + rules version). The user prompt is built without the volatile fields (scrapedAt, completeness, sources, batch),
+  so a re-scrape of an unchanged business is a free hit; verification runs after the bank, so changing a §9.4 check needs no
+  version bump.
+- **R-13 Second-opinion merge (§9.5).** Agreement (the reviewer says `agrees` AND name, primary category, merge verdict and
+  every kept price match after both answers pass §9.4) ⇒ the reviewer's checked answer. Otherwise: source name, the
+  deterministic price for each differing service, `not_same_business` for a merge disagreement (⇒ MergeVetoed, nothing
+  created), CategoryUncertain for a category disagreement, and the provider is held (`AiDisagreement`).
+- **R-14 AI price reading.** The AI may only fill a price when the deterministic price is On request, the evidence is a
+  substring of the service's price text / notes / description and every number appears in the evidence. A "range" becomes
+  StartingFrom with Start/Max (the platform has no range price type).
+- **R-15 AI hours reading.** Accepted only when all seven days are given (the same rule as the structured week), each open
+  day one period with open < close, and every time appears in the evidence (12 h / 24 h / "9h30" forms).
+- **R-16 Friendly-name candidates for a non-Latin name.** The slug of an Indic-script name is empty, so only the bot's and
+  the AI's candidates are offered; none ⇒ `NoFriendlyName` review flag.
+- **R-17 Item state.** Checkpoints are the item `stage` plus blobs `prepared`, `ai-curation`, `shell`, `result`. The
+  `shell` blob records whether the import created the profile (a FillGaps item whose shell the import had to create gets the
+  New-item verdict, §11.3 S6).
+- **R-18 Function wrapper parked.** `ProviderImportFunctions.cs` (validate / item / sweeper triggers) is kept in
+  `Data/provider-import/handoff/` until the host registration and the photo copier exist, so a deployed Functions host never
+  runs a trigger whose services are not registered.

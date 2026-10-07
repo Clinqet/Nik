@@ -5,6 +5,48 @@ description: |
 
 # CLINQET DEPLOYMENT & INFRASTRUCTURE AUTOMATION — COMPREHENSIVE SKILL
 
+## RECENT CHANGES — 2026-10-07 (provider import, Phase 7)
+
+Authority: `C:\Nik\Data\provider-import\SOLUTION.md` §16.1, §17.6, §11A.1. What changed HERE:
+
+- **Two queues** per stamp in `events.json`: `provider-import-validate` and `provider-import-items` — no sessions,
+  duplicate detection **PT10M**, lock **PT5M**, TTL P14D, `maxDeliveryCount` 5 (= `RetrySettings:MaxDeliveryCount`).
+  `deploy.ps1`: `$qProviderImportValidate` / `$qProviderImportItems` in `$script:ServiceBusEntitySettings`, so
+  `ServiceBusSettings__ProviderImportValidateQueueName` / `__ProviderImportItemsQueueName` reach EVERY host (the API
+  sends to both; Functions consumes and re-sends), and both are listed explicitly in `$script:RequiredFunctionAppSettings`.
+- **Private blob container `provider-imports`** (`publicAccess: None`) in `storage.json`. The admin web PUTs the upload
+  through a short SAS; the storage CORS list already carries the admin origins.
+- **Two model deployments on the SHARED Foundry account only**: `gpt-6-luna-import` (model `gpt-6-luna`, `$importLunaTpm`
+  = 250) and `gpt-6.1-sol-import` (model `gpt-6.1-sol`, `$importSolTpm` = 100), x1K TPM like `$OpenAiModelCapacity`.
+  They are entries in `$modelDeployments` with **name != modelName** — the ladder already PUTs `$Model.modelName` and
+  addresses `$Model.name`, and the RAI loop filters by `name`, so both get the content filter. The model versions are
+  `$openAiLunaModelVersion` / `$openAiSolModelVersion`, shared with the base deployments so the two cannot drift.
+  `sharedAccountOnly = $true` keeps them OFF the India Sweden account (every stamp's chat traffic, the import's
+  included, goes to the shared account's `$openAiEndpoint`). A short quota grant steps capacity DOWN and the run prints
+  `(reduced from 250K)` — raise the quota, then re-run.
+- **Key Vault secret `ProviderImportInternalApiKey`**, PER STAMP (each stamp's Functions calls only its own Identity):
+  `Get-OrCreateKeyVaultSecret` with 48 random bytes (base64, 64 chars), never rotated by the script. Wired as a Key Vault
+  reference to Identity `ProviderImportInternal__ApiKey` and Functions `AdminProviderImport__Identity__ApiKey`; both are in
+  the Identity / Functions `Required*AppSettings`. Non-prod paste blocks print the value, prod prints the reference.
+- **Functions settings** (Merge block + paste block + required list): `AdminProviderImport__Processing__SweeperSchedule`
+  (`0 */15 * * * *`, a timer binding — mirrors the class default), `AdminProviderImport__Ai__{Endpoint,ApiKey}` (the shared
+  account, same source as `AIService__*`), `__CurationDeploymentName` / `__ReviewDeploymentName` (the two deployments
+  above), `AdminProviderImport__Identity__BaseUrl` = `https://identity-<stamp>.<apex>` (the stamp's OWN Identity host,
+  never the geo-routed apex). A future dedicated AI resource = change only these variables.
+- `ProviderImportInternal:RateLimitPerMinute` (Identity) and every other `AdminProviderImport:*` key are appsettings-only.
+
+### ‼️ Release order
+**Identity** (internal endpoint) → **Functions** (worker, sweeper, alert types) → **Main API** (admin endpoints) →
+**admin web**. `deploy.ps1` (queues, container, deployments, key) runs before all four.
+
+### ‼️ Rotating the provider import key (by hand; the script never rotates it)
+1. Write the new value as a new version of `ProviderImportInternalApiKey` in that stamp's vault (≥ 32 chars).
+2. Restart **Functions first**, then **Identity** (SOLUTION §11A.1) — both resolve the unversioned reference at start.
+   Rotate with no import running: between the two restarts the keys differ, Identity answers 401, and a running import
+   pauses as `PausedIdentityUnavailable` with one `ProviderImportIdentityUnavailable` alert (§11A.5) — "Resume" it once
+   both hosts are restarted.
+3. Local: update the key in both `local.settings.{ca,in}.json` (Functions) and Identity's local appsettings together.
+
 ## RECENT CHANGES — 2026-10-06 (the claim/stop link signing key)
 
 See the `clinqet-prepared-providers` skill for the whole feature. What changed HERE:
