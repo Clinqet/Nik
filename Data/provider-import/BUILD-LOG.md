@@ -65,6 +65,21 @@ creation: all OK. Defects:
 | H-6 | onboarding Availability step / `AudienceAccountRule` `Progress >= 100` | an hours-unknown business is never "complete" | intended nudge — kept (the owner sets hours after take-over) |
 `BusinessProfileBootstrapService`: the import passes `SeedDefaultAvailability = false` (pinned by test).
 
+### V-1 / V-2 — fixed (Phase 3b, 2026-10-07)
+| # | Done |
+|---|---|
+| A-1 | `QuestPdfService.AddressLines` — blank parts leave no separator, an empty line is skipped (booking, quote, invoice provider box + invoice bill-to). `PdfAddressLinesTests` |
+| A-2 | the clients send NO service address for an at-store booking when the provider has no street (`atStoreServiceAddress`, customer web + phone) — the address is optional on the server, so no server change; it also stops the city-level address being synced as the customer's own |
+| A-3 | customer web `utils/businessMapLinks.js` (directions + embedded map), customer phone `directionsUrl` + `Area` static map — a blank street searches the city text, never a pin at the city centre |
+| A-4 | customer web JSON-LD omits empty `streetAddress`/`postalCode` and `geo` when the street is blank |
+| A-5 | admin web + phone Step 1: street/postal required only when the admin edits the address in this session; a stored city-level address is not re-sent |
+| A-6 | not changed — renders cleanly (empty JSON strings); noted for the §27 audit |
+| H-1 | customer web cart picker ignores `isConfigured: false` rows: no hours at all ⇒ the existing default window. A day never set in a PARTLY set week stays not offered — the established rule the phone app pins (`session24Parity`) |
+| H-3 | receptionist instructions: when the weekly hours are empty, an explicit "hours not listed — never say closed" line. Today every business has seeded hours, so no live prompt changes (the prompt-size guard's "everything on" fixture now has hours, as a real business has) |
+| H-4 | `get_business_profile` carries `hoursNote` (the existing `NoAvailability` note) when there are no hours |
+| H-5 | `Availability.IsConfigured` — response only, `[Newtonsoft.Json.JsonIgnore]` so the Cosmos serializer never stores it (test serializes with `ClinqetCosmosSerializer`); private `GET business/availability` marks synthesized days false. Admin web + phone notice; provider web + phone "Suggested" day labels + notice, locations week summary "No hours set yet" (shared `renderingRules`, parity test) |
+| **H-2 / H-2b** | **NOT done — the edit was refused by this session's permission check** (it changes the search documents: provider index `null` when a business has no rows, service index `DayAvailability.IsAvailable` `bool` → `bool?`, and the "available on day" filter `eq true` → `ne false`). Both C# types map to the same `Edm.Boolean` field, so the index definition itself does not change. **Owner decision needed.** Until then a business with no hours is left out of the "available on {day}" filter (it still appears in every other search) |
+
 ## 2a. After Phase 3 (current tree)
 | Suite | Result |
 |---|---|
