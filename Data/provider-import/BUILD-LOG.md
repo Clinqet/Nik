@@ -15,6 +15,7 @@
 
 | # | Where | What | Done |
 |---|---|---|---|
+| PRE-2 | `clinqetapi/Clinqet.API.IntegrationTests/Tests/BillingCatalogV3ReleaseIntegrationTests.cs` | the two tests share one SQL database (collection fixture); `SeedAsync_OlderVersion_…` asserted its first seed INSERTED rows, so it failed whenever its sibling ran first (it did in the after-run; passes alone) | seed without asserting a count, as the sibling already does — the test's real assertions are unchanged |
 | PRE-1 | `clinqetidentity/.../Controllers/Admin/AdminAccessController.cs:184` | `clinqetcore` commit `cec54c3` (another session, 2026-10-07) renamed `AdminAlertQuery.AlertType` → `AlertTypes`; Identity was never updated, so **the Identity API did not compile at the branch heads**. Every Identity step of this programme needs it to build | one-line fix `AlertTypes = new[] { alertType }` — the same meaning as before |
 
 ## 2. Baseline ("before") test runs — sources untouched except PRE-1
@@ -26,11 +27,50 @@
 | `Clinqet.Communications.UnitTests` | 9,893 passed, 0 failed |
 | `Clinqet.Mcp.UnitTests` | 1,556 passed, 0 failed |
 | `ClinqetCosmosAIIndexSetup.UnitTests` | 397 passed, 0 failed |
-| integration suites (API, Identity, Functions, MCP) | run on a frozen snapshot of the untouched sources — results below |
+| `Clinqet.API.IntegrationTests` (snapshot) | 2,658 passed, 18 skipped, 0 failed |
+| `Clinqet.Identity.IntegrationTests` (snapshot) | 657 passed, 0 failed |
+| `Clinqet.Communications.IntegrationTests` (snapshot) | 963 passed, 0 failed |
+| `Clinqet.Mcp.IntegrationTests` (snapshot) | 129 passed, 0 failed |
 
 ## 3. Plan "verify" points — what the code showed
 
-(filled in as each phase reaches them)
+### V-1 §8.5.6 — every reader of a city-level business address (`Street = ""`, ZipCode maybe "") — swept 2026-10-07
+Text formatters almost all filter blanks already (web/phone profile header, About tab, cart, booking detail, partner lists,
+voice context, search index — which never stores Street —, emails/SMS — which carry no business address). Defects to fix
+before the first city-level address is written:
+
+| # | Where | Defect | Fix |
+|---|---|---|---|
+| A-1 | `clinqetinfrastructure/Services/Documents/QuestPdfService.cs` ~548, ~831, ~1305 (provider box) + ~1285 (bill-to) | ", Toronto" (leading comma) | one shared "join the non-blank parts" helper |
+| A-2 | `clinqetshared/DTOs/COSMOS/Cosmos.cs` `AddressDto` `[Required]` Street/ZipCode, used as `BookingRequestDto.ServiceAddress`; web `bookingPopUp.jsx` ~105 and phone `QuickBookScreen.tsx` ~351 copy the business address for an at-store booking | **every at-store booking with a city-level business → 400** | server: an at-store booking's place is the business's own address — validated against the profile, not the copied street |
+| A-3 | customer web `businessProfile.jsx` ~1278 `handleDirection`, `profile/AboutTab.jsx` ~253 directions + ~296 embedded map; customer phone `BusinessProfileScreen.tsx` ~1221, `components/AboutTab.tsx` ~16-46 static map `Place` + ~141 | directions / street-zoom pin to the CITY CENTRE | blank street ⇒ map search on "city, state, country" (no pin / area zoom) |
+| A-4 | customer web `lib/seo/dynamic-seo.js` ~233-255 | `"streetAddress":""`, `"postalCode":""`, `geo` at the city centre | omit empty keys and `geo` when street is blank (as `serviceSeo.js` does) |
+| A-5 | admin web `providers/onboarding/StepBusinessDetails.jsx` ~254-294, admin phone `StepBusinessDetails.tsx` ~263-337 | the admin cannot save Step 1 (even a name change) without inventing a street, because City is prefilled | require street/postal only when the admin edits the address fields, not when a city-level address is merely loaded |
+| A-6 | voice context / business-search profile tool | `"street":""` in JSON (no artefact) | blank ⇒ omitted (hardening) |
+Kept as decided (D10): the provider's own address form keeps "street required" — the owner types it when they edit.
+
+### V-2 §8.6 — every reader of business hours with ZERO availability documents — swept 2026-10-07
+Backend rule already "missing = not configured, never closed" (`BranchAvailabilityResolver`, `PublicAvailabilityWeek` sends
+`isConfigured:false`). Customer phone app, service page, location hours, schema.org, voice gates, MCP booking gates, booking
+creation: all OK. Defects:
+
+| # | Where | Defect | Fix |
+|---|---|---|---|
+| H-1 | customer web `cart/model/selectDateAndTime.jsx` ~72-81 | **no slots ⇒ a business with no hours cannot be booked on web** (and an unconfigured day in a partial week) | ignore `isConfigured === false` rows (as the phone app does) |
+| H-2 | `ProviderSearchIndexer.cs` ~536-551 (field already `bool?`) + both filter builders (`ProviderSearchFilterBuilder.cs` ~146, `SearchFilterExpressionBuilder.cs` ~225) | unknown hours indexed as closed every day ⇒ excluded from "available on {day}" | provider index: null when no rows; filter `ne false` |
+| H-2b | `AzureSearchIndexer.cs` ~2128-2192 service index, `SearchDocument.cs` ~765 `IsAvailable` is plain `bool` | same, on the SERVICE index | needs `bool?` = a search-index field change ⇒ **§0.7 ASK** |
+| H-3 | `RealtimeSessionPayloadBuilder.cs` ~590-629, ~861 (+ `ProviderContextTools`) | profile "authoritative for working hours" with `weeklyAvailability: []` ⇒ the receptionist may say "we're closed" | an explicit "hours not listed — never say closed" line when empty (voice prompt change ⇒ bank/prompt versions checked) |
+| H-4 | `GetBusinessProfileTool.cs` ~110 | `weeklyHours: []` without the note `get_availability` gives | attach `BusinessSearchToolNotes.NoAvailability` |
+| H-5 | private `GET business/availability` (`AvailabilityController.cs` ~190-212) and the three hour editors + locations list | invents 09:00–17:00 as if saved | add `isConfigured`; editors show "Hours not set yet" |
+| H-6 | onboarding Availability step / `AudienceAccountRule` `Progress >= 100` | an hours-unknown business is never "complete" | intended nudge — kept (the owner sets hours after take-over) |
+`BusinessProfileBootstrapService`: the import passes `SeedDefaultAvailability = false` (pinned by test).
+
+## 2a. After Phase 3 (current tree)
+| Suite | Result |
+|---|---|
+| `Clinqet.API.UnitTests` | 16,406 passed before the import options; all pass after (+ new tests) |
+| `Clinqet.API.IntegrationTests` | 2,657 passed, 18 skipped, 1 failed = PRE-2 (order-dependent, fixed); the three AI-setup suites (catalogue manifest, chunked extraction, reading conservation) all pass on the moved applier |
+| `Clinqet.Identity.IntegrationTests` | 660 passed (657 + 3 migration tests) |
 
 ## 4. Readings of the plan where two statements differ
 
@@ -103,3 +143,7 @@ Owner waived waiting for approval in conversation (2026-10-07). Findings while d
   Down restores the flag from `ProvisionedAt`.
 - `PUT UserProfile`: `ReceiveMarketingEmails` null = keep. Tests: 4 cases; sabotage (`?? true`) fails them.
 - Identity unit: 1,469 passed (baseline 1,436 + 33 new).
+
+> Note (2026-10-07 18:04): the session scratchpad was wiped by an over-broad cleanup in a helper agent — it took the frozen
+> source snapshot and the baseline logs. The unit-baseline numbers above were already recorded. The integration baseline
+> snapshot was rebuilt from `git archive` of each repo's session-start commit (+ PRE-1) and re-run.
