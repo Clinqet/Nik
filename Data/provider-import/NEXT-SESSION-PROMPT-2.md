@@ -125,6 +125,26 @@ Clinket is a two-sided local-services marketplace.
   the house theme.
 - **Sandbox keys:** the sandbox keys in tracked appsettings are ACCEPTED. Do not report or rotate them.
 
+## 3a. Closed at hand-over (2026-10-07, after the owner's review)
+- **Same-request race (X2) — FIXED + proven on real SQL.** Two defects, both reproduced first by
+  `clinqetidentity/Clinqet.Identity.IntegrationTests/Tests/ProviderImport/ProviderImportAccountRaceIntegrationTests.cs`
+  (2 tests, failed with `PK_UserProfile` violation before the fix, pass 3 runs in a row after):
+  1. `AdminProviderProvisioningService.TryInsertPreparedUserAsync` now treats a clash on the account's OWN id as a lost race
+     (the import's deterministic id losing to its own redelivery) instead of rethrowing a 500.
+  2. `AdminProviderProvisioningService.Import.cs` `EnsureImportedBusinessAsync`: when business creation answers "ownership
+     limit" because a concurrent copy of the same request created the business a moment earlier, it re-reads the account's
+     business and returns it (was: `OwnershipLimit` to every losing copy).
+  Regression: Identity unit `Provision|ProviderImport` 67/67, integration `Provision|ProviderImport|AdminProvider` 48/48.
+- **Offers with a minimum spend — DONE (owner: "yes, we need that").** `ExtractedOfferDto.MinValue` (DTO only; the stored
+  `Offer.MinValue` already existed — no schema change). `ProviderSetupApplier.SaveExtractedOffersAsync` stores it, refuses an
+  offer whose minimum is ≤ 0 (never drops the minimum), and adds `|min:` to the dedupe signature ONLY when a minimum exists
+  (so every existing offer keeps its signature and id). The import writer passes `NormalizedOffer.MinimumSpend`. Tests in
+  `McpServiceTests` (minimum kept / invalid refused / two minimums = two offers); sabotage-checked (removing the
+  assignment fails both). API unit `McpServiceTests|ProviderSetup|Offer` 922/922.
+- **Admin constants → settings (CLAUDE §0.12).** `AdminProviderImport:Storage:ReadLinkMinutes` (5),
+  `Limits:MaxBulkApprove` (200), `Limits:DefaultRunsPageSize` (20); the runs scan uses `Limits:MaxItemsPageSize`. API
+  appsettings only (the Functions host does not read them). Class defaults = appsettings. API unit ProviderImport 309/309.
+
 ## 4. Done so far (committed)
 | Phase | State |
 |---|---|
@@ -218,8 +238,6 @@ Clinket is a two-sided local-services marketplace.
 4. **Known open items in the code:**
    - **F3:** a file whose `batch.countryCode` this stamp does not serve must fail the envelope. Find how a stamp declares
      its served countries; ASK if none exists.
-   - **Offers with a `MinimumSpend` are not imported** (the applier's `ExtractedOfferDto` has no minimum). ASK the owner
-     before widening the shared DTO.
    - Two CS8601 warnings in `ProviderImportProfileWriter.cs` (~L487-490).
    - `TimezoneMismatch` (§8.5.8) has no reason/note code. Decide with the owner or record it in the log.
    - `ProviderImportItemProcessor.Reconcile` is `internal static`, and Communications has no `InternalsVisibleTo` for its tests.
@@ -228,8 +246,7 @@ Clinket is a two-sided local-services marketplace.
 5. **Skills + memory for Phase 5.**
 
 ### 5.2 Other phases left
-- **Phase 4:** `handoff/phase4-identity-tests-TODO.md` (integration tests, including a SUSPECTED DEFECT: two concurrent
-  requests with the same userId may answer 500 instead of AlreadyCreated — prove it with a test, then fix) and
+- **Phase 4:** `handoff/phase4-identity-tests-TODO.md` (integration tests; the same-userId race is already FIXED and tested — §3a) and
   `handoff/phase4-names-TODO.md` (full suite runs, "Account owner" label call sites, the GET friendlyname check onto the
   shared rules, skills).
 - **Phase 6:** `handoff/phase6-admin-api-TODO.md`.
@@ -521,8 +538,7 @@ NOT done:
 3. Functions DI: `AddProviderImportWorker` not yet called from `Program.cs`; `IProviderSetupApplier` and
    `IKnowledgeManagementService` (and their dependencies) not registered in the Functions host (T-4/T-5 DI audit).
 4. Functions `appsettings.json` lacks `Discovery:CountryDefaults` ⇒ the default radius falls back to 50 km (India should be 25).
-5. Decisions to revisit: offers with a MinimumSpend are NOT imported (the applier's `ExtractedOfferDto` has no minimum — ask
-   before widening the shared DTO); not done deliberately: `TimezoneMismatch` (no reason code), area history, branch/currency
+5. Offers with a MinimumSpend: DONE at hand-over (see the prompt §3a). Not done deliberately: `TimezoneMismatch` (no reason code), area history, branch/currency
    cache eviction, marketing address update.
 
 ---
@@ -632,12 +648,8 @@ NOT done:
 Home: `clinqetidentity/Clinqet.Identity.IntegrationTests/Tests/ProviderImport/` (new folder). Identity's `Program.cs` is the
 only host that registers `ProviderTakeoverService` and the internal controller (§0.18).
 
-### Suspected defect (prove with a test first, then fix)
-Two concurrent requests with the SAME userId probably answer 500 instead of `AlreadyCreated`:
-`AdminProviderProvisioningService.TryInsertPreparedUserAsync` catches `DbUpdateException` and re-checks with
-`CollidingAccountAsync(normalizedEmail, phoneSearchKey, userId, …)`, which EXCLUDES the row whose id is `userId`, so a
-primary-key clash finds nothing and is rethrown; the caller's "lost a race to its own redelivery" branch
-(`FindHolderAsync(request.UserId)` in `AdminProviderProvisioningService.Import.cs`) is never reached.
+### Suspected defect — FIXED (2026-10-07)
+See the race fix in `NEXT-SESSION-PROMPT-2.md` §3a. The race class is written; still write the rest below.
 
 ### Fixture facts
 - `IdentityApiFactory` (assembly fixture): real SQL + Cosmos emulator + Azurite. The emulator has only `SystemData` and
@@ -676,8 +688,8 @@ primary-key clash finds nothing and is rethrown; the caller's "lost a race to it
 1. `ProviderImportAccountsEndpointIntegrationTests`: Created; AlreadyCreated/X2; ExistingPrepared (C15/X3/X4/C17);
    ExistingTakenOver (C12/C16); ExistingSelfRegistered (C14); ExistingClosed (C27/X36); ContactOnTwoAccounts (C13);
    PendingInvitation (X7); CustomerRecord (X8); InvalidRequest (400 naming the field); OwnershipLimit; key/boot (401, 401,
-   400, boot fails); 429 + Retry-After; race same contact different userIds ⇒ one account + ExistingPrepared; race same
-   userId (the suspected defect); nothing sent (offer-match, notification, email, SMS).
+   400, boot fails); 429 + Retry-After; race same contact different userIds ⇒ one account + ExistingPrepared; (same-userId race DONE in
+   `ProviderImportAccountRaceIntegrationTests`); nothing sent (offer-match, notification, email, SMS).
 2. `ProviderImportFriendlyNameEndpointIntegrationTests`: FN1, FN2, FN4, AlreadyHeld same slug, not this user's prepared
    business ⇒ 400, no `FriendlyNameUpdated`.
 3. `ProviderImportTakeoverHoldLiftIntegrationTests`: X22, X23, non-Pending untouched.
@@ -754,7 +766,7 @@ NOT done:
    formula guard; remove the `ClaimedAt == null` condition.
 4. Full `Clinqet.API.UnitTests` run (incl. the convention tests that scan every controller).
 5. Skills ×4 (main-api, admin-app) + memory.
-Open questions for the owner: should the 5-minute read-link lifetime and the 200 bulk-approve cap be settings?
+Read-link lifetime, bulk-approve cap and the default runs page size are settings now (prompt §3a).
 Edge: an owner who takes over between the closure and the deactivation keeps an active account on a closed business; the admin
 is told so.
 Fixed at handback (2026-10-07): item point reads/patches now map the item KEY to the document id

@@ -213,3 +213,15 @@ Owner waived waiting for approval in conversation (2026-10-07). Findings while d
 - **R-18 Function wrapper parked.** `ProviderImportFunctions.cs` (validate / item / sweeper triggers) is kept in
   `Data/provider-import/handoff/` until the host registration and the photo copier exist, so a deployed Functions host never
   runs a trigger whose services are not registered.
+
+## 11. Closed after the owner's review of the hand-over (2026-10-07)
+- **X2 same-request race — two real defects, both proven on real SQL then fixed.** (1) The import's deterministic account id
+  losing to its own redelivery raised a `PK_UserProfile` violation as a 500 (`TryInsertPreparedUserAsync` excluded its own id
+  from the re-check). (2) Concurrent copies of one request that lost the business creation answered `OwnershipLimit`.
+  Tests: `ProviderImportAccountRaceIntegrationTests` (redelivery committed between the check and the insert — deterministic,
+  via a SaveChanges interceptor; and 4 copies in parallel).
+- **Minimum-spend offers (owner: yes).** Carried through the shared offer saver into the EXISTING `Offer.MinValue`; signature
+  gains `|min:` only when a minimum exists, so existing offer ids are unchanged; a minimum ≤ 0 refuses the offer.
+- **Admin constants → settings**: `Storage:ReadLinkMinutes`, `Limits:MaxBulkApprove`, `Limits:DefaultRunsPageSize`.
+- **"Not now" on the name prompt** snoozes it on web AND phone (the latest dismissal from either surface counts) — kept as
+  built; the owner to confirm.

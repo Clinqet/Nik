@@ -34,6 +34,5 @@ NOT done:
 3. Functions DI: `AddProviderImportWorker` not yet called from `Program.cs`; `IProviderSetupApplier` and
    `IKnowledgeManagementService` (and their dependencies) not registered in the Functions host (T-4/T-5 DI audit).
 4. Functions `appsettings.json` lacks `Discovery:CountryDefaults` ⇒ the default radius falls back to 50 km (India should be 25).
-5. Decisions to revisit: offers with a MinimumSpend are NOT imported (the applier's `ExtractedOfferDto` has no minimum — ask
-   before widening the shared DTO); not done deliberately: `TimezoneMismatch` (no reason code), area history, branch/currency
+5. Offers with a MinimumSpend: DONE at hand-over (see the prompt §3a). Not done deliberately: `TimezoneMismatch` (no reason code), area history, branch/currency
    cache eviction, marketing address update.

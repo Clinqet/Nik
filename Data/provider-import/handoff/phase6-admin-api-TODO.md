@@ -21,7 +21,7 @@ NOT done:
    formula guard; remove the `ClaimedAt == null` condition.
 4. Full `Clinqet.API.UnitTests` run (incl. the convention tests that scan every controller).
 5. Skills ×4 (main-api, admin-app) + memory.
-Open questions for the owner: should the 5-minute read-link lifetime and the 200 bulk-approve cap be settings?
+Read-link lifetime, bulk-approve cap and the default runs page size are settings now (prompt §3a).
 Edge: an owner who takes over between the closure and the deactivation keeps an active account on a closed business; the admin
 is told so.
 Fixed at handback (2026-10-07): item point reads/patches now map the item KEY to the document id

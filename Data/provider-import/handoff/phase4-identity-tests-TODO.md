@@ -3,12 +3,8 @@
 Home: `clinqetidentity/Clinqet.Identity.IntegrationTests/Tests/ProviderImport/` (new folder). Identity's `Program.cs` is the
 only host that registers `ProviderTakeoverService` and the internal controller (§0.18).
 
-## Suspected defect (prove with a test first, then fix)
-Two concurrent requests with the SAME userId probably answer 500 instead of `AlreadyCreated`:
-`AdminProviderProvisioningService.TryInsertPreparedUserAsync` catches `DbUpdateException` and re-checks with
-`CollidingAccountAsync(normalizedEmail, phoneSearchKey, userId, …)`, which EXCLUDES the row whose id is `userId`, so a
-primary-key clash finds nothing and is rethrown; the caller's "lost a race to its own redelivery" branch
-(`FindHolderAsync(request.UserId)` in `AdminProviderProvisioningService.Import.cs`) is never reached.
+## Suspected defect — FIXED (2026-10-07)
+See the race fix in `NEXT-SESSION-PROMPT-2.md` §3a. The race class is written; still write the rest below.
 
 ## Fixture facts
 - `IdentityApiFactory` (assembly fixture): real SQL + Cosmos emulator + Azurite. The emulator has only `SystemData` and
@@ -47,8 +43,8 @@ primary-key clash finds nothing and is rethrown; the caller's "lost a race to it
 1. `ProviderImportAccountsEndpointIntegrationTests`: Created; AlreadyCreated/X2; ExistingPrepared (C15/X3/X4/C17);
    ExistingTakenOver (C12/C16); ExistingSelfRegistered (C14); ExistingClosed (C27/X36); ContactOnTwoAccounts (C13);
    PendingInvitation (X7); CustomerRecord (X8); InvalidRequest (400 naming the field); OwnershipLimit; key/boot (401, 401,
-   400, boot fails); 429 + Retry-After; race same contact different userIds ⇒ one account + ExistingPrepared; race same
-   userId (the suspected defect); nothing sent (offer-match, notification, email, SMS).
+   400, boot fails); 429 + Retry-After; race same contact different userIds ⇒ one account + ExistingPrepared; (same-userId race DONE in
+   `ProviderImportAccountRaceIntegrationTests`); nothing sent (offer-match, notification, email, SMS).
 2. `ProviderImportFriendlyNameEndpointIntegrationTests`: FN1, FN2, FN4, AlreadyHeld same slug, not this user's prepared
    business ⇒ 400, no `FriendlyNameUpdated`.
 3. `ProviderImportTakeoverHoldLiftIntegrationTests`: X22, X23, non-Pending untouched.
