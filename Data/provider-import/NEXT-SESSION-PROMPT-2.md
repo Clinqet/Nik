@@ -378,10 +378,11 @@ Identity host for this.
 - Ask the owner only when genuinely unsure, with the §0.7 table for any schema question. Never assume.
 
 
-## 7. The previous session's work on `master` (latest commits per repo, newest first — all pushed 2026-10-07)
+## 7. The previous session's work on `master` (latest commits per repo, newest first — all pushed 2026-10-08)
 
 **clinqetshared**
 ```
+bc969bd Provider import: friendly-name candidate cap as settings on both sides
 2593402 Offers carry a minimum spend; provider import admin limits as settings
 ece4052 Provider import: settings, DTOs, messages, normalisation enums, name-prompt settings
 6672ec0 Provider import: SetupAlertFamily for alerts the shared setup collects instead of sending
@@ -390,6 +391,7 @@ a0e4ed4 Quotes: a failed pause check is no longer configured as send-anyway
 e13dcbc Locations: move the default safely, in one transaction
 5208136 Service AI validation: photo check types, measured content prompt, drop per-approval alert
 6429d93 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1adf683 Voice call experience P1: delete the P10 action-guard settings, add goodbye phrase lists
 ```
 
 **clinqetcore**
@@ -402,34 +404,41 @@ e13dcbc Locations: move the default safely, in one transaction
 cec54c3 Service AI validation: review router, verdict-unavailable, contact pre-check
 a3b9084 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 279caf5 Voice call experience P1: call timeline stamps, hangup fence, P10 interface removal
+ee14fe9 Fix the CI breaks the prepared-provider change caused
+9efb447 Prepared provider accounts, take-over, and services with no price
 ```
 
 **clinqetinfrastructure**
 ```
-c6d8dcb Provider import: same-request account race returns AlreadyCreated; minimum-spend offers through the shared saver; admin limits from settings
-14a8597 Provider import: validator, cleaner, merge, matcher, AI curation and checks, profile writer, admin service, Identity provisioning endpoint core, friendly-name service, greetings; decision A (no seeded hours)
-96309df Provider import readers: PDF address lines without blank parts; receptionist and business search say when no hours are listed
-0972215 Provider import: extract the setup apply half and profile bootstrap; import options (collected alerts, create-only services, R4 price fill, offers never widened, FAQ by question); budget dials for the import sub-flows
-7a2ed1b Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
-016c494 Search: the empty-index probe is a count-only query
-5b45f0e Search and quotes: an empty city stays empty, and a failed pause check writes no lead
-23e9cf1 Locations: move the default safely, in one transaction
+553fbda6 Name prompt: a second "Not now" is saved — load the row tracked on the NoTracking Identity host
+decb3bae Provider import: internal endpoint messages as localization keys; profile shell factory owned by the bootstrap; exact minimum-spend key
+c6d8dcbc Provider import: same-request account race returns AlreadyCreated; minimum-spend offers through the shared saver; admin limits from settings
+14a8597f Provider import: validator, cleaner, merge, matcher, AI curation and checks, profile writer, admin service, Identity provisioning endpoint core, friendly-name service, greetings; decision A (no seeded hours)
+96309df1 Provider import readers: PDF address lines without blank parts; receptionist and business search say when no hours are listed
+0972215d Provider import: extract the setup apply half and profile bootstrap; import options (collected alerts, create-only services, R4 price fill, offers never widened, FAQ by question); budget dials for the import sub-flows
+7a2ed1bc Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
+016c4945 Search: the empty-index probe is a count-only query
+5b45f0e8 Search and quotes: an empty city stays empty, and a failed pause check writes no lead
+23e9cf1a Locations: move the default safely, in one transaction
 ```
 
 **clinqetapi**
 ```
-cd99541 Tests for minimum-spend offers; provider import admin limits in appsettings
-d8f6462 Provider import: admin import controller, trust-page approve, name-prompt snooze in app config; decision A bootstrap without hours
-d98cefe Provider import readers: mark suggested hours in GET business/availability; tests for PDF address lines and the hours note
-d6225da Provider import: controller uses the shared bootstrap, provider reactivate only from Inactive; pins for every setup default; collect-mode guard; fix order-dependent billing catalogue test
-2087ebe Search: an empty live service index asks the customer to try again
-99e5eb4 Locations: move the default safely, in one transaction
-25bdfec Service AI validation: shared review rule, multi-type admin alerts, photo check flag
-568742e Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1dd02fd2 Marketplace seed convention: register the bootstrap's profile shell factory
+7eee5c32 Knowledge refresh counter race test: resolve a cut-off reservation by reading, never by guessing
+cd99541b Tests for minimum-spend offers; provider import admin limits in appsettings
+d8f64625 Provider import: admin import controller, trust-page approve, name-prompt snooze in app config; decision A bootstrap without hours
+d98cefed Provider import readers: mark suggested hours in GET business/availability; tests for PDF address lines and the hours note
+d6225da2 Provider import: controller uses the shared bootstrap, provider reactivate only from Inactive; pins for every setup default; collect-mode guard; fix order-dependent billing catalogue test
+2087ebe6 Search: an empty live service index asks the customer to try again
+99e5eb48 Locations: move the default safely, in one transaction
+25bdfec2 Service AI validation: shared review rule, multi-type admin alerts, photo check flag
+568742e9 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 ```
 
 **clinqetidentity**
 ```
+363d151 Provider import internal endpoint: localized refusals, candidate cap from settings, controller tests
 f16cb5a Provider import: real-SQL tests for the same-request account race
 c696e80 Provider import: internal accounts and friendly-name endpoints, names after take-over (N1/N4/N5), ClaimedAt on profile
 c2262ef Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
@@ -438,10 +447,12 @@ c2262ef Provider import phase 2: shared enums, PersonName, IsAdminProvisioned re
 06ef68c Prepared provider accounts, take-over, and services with no price
 b93ca47 Update AdminProviderProvisioningService tests for null-hash no-password path (#14)
 76a043a identity changes
+68ca5ff UI changes and imorovements
 ```
 
 **clinqetfuncations**
 ```
+835134c Provider import worker: profile shell via the bootstrap factory; candidates capped to what Identity accepts
 ea239be Provider import: check-file runner, item processor, lane advancer, sweeper, cost meter; tests for validator, cleaner, AI curation; greeting templates; unknown-hours indexing
 7f57c67 Provider import readers: receptionist hours-not-listed test; prompt-size fixture carries hours
 2eaf9a4 Provider import: tests for the import FAQ write path
@@ -450,6 +461,7 @@ ee5b5c1 Service AI validation: contact pre-check, manual review on no verdict, p
 feb36d3 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 51a1718 Voice call experience P1: supervisor hangup fence, latest-callback push, call timeline
 03e1c2d Prepared provider accounts, take-over, and services with no price
+364c548 Ask Clinket source viewer: audit fixes (comments)
 ```
 
 **cosmosindexsetup**
@@ -462,6 +474,8 @@ feb36d3 Prepared providers: UI verification fixes, price-awaiting rules, public 
 2a53263 Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
 c24d2e0 Search topology Phase 5: index swap, readable ranking numbers, search alerts, Sol 6.1
 2caa2d1 SQL database renamed: identity -> clinket
+08d8ae2 Guard listingReviewCount like every review count: on the index, never a boost
+5078fc1 Search ranking programme: per-area fan-out, provider scoring, booking rules, audit fixes
 ```
 
 **azureautomation**
@@ -474,6 +488,8 @@ ddf47d7 Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
 de5d9a1 Knowledge reading accuracy: never lose a word or a price
 e0f102d Search topology Phase 5: index swap, readable ranking numbers, search alerts, Sol 6.1
 e80e945 SQL database renamed: identity -> clinket
+e0563a0 Functions: TrialReminders__TimerSchedule per stamp (CA 14:00 UTC, IN 04:00 UTC), required
+664f60c AI Assistant number lifecycle: inventory, purchase, hold, keep-or-return, four screens
 ```
 
 **clinqetwebadmin**
@@ -486,18 +502,22 @@ a0a90ee Prepared providers: UI verification fixes, price-awaiting rules, public 
 1684dcb Prepared provider accounts, take-over, and services with no price
 e6c5e35 Point the admin Maps key at the new Google key
 b1ec78c Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+8ddf049 Voice numbers: never return a number this environment did not buy
+8b71d61 Merge pull request #9 from Clinqet/feature/offers-rules-look-lint
 ```
 
 **clinqetwebpartnerapp**
 ```
-0ed2a0a Name prompt (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
-89a2602 Hours never saved read as a suggestion: notice, Suggested labels, locations summary
-abf233e Locations: move the default safely, in one transaction
-fd7ae5c Route ServiceImageRemoved notifications to the service editor
-aacedb1 Fix white strip under AI Assistant onboarding page while the cookie card is showing
-d58be61 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
-7db9b07 Prepared provider accounts, take-over, and services with no price
-85807b7 AI Knowledge: document title no longer breaks mid-word
+0ed2a0aa Name prompt (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
+89a26029 Hours never saved read as a suggestion: notice, Suggested labels, locations summary
+abf233e4 Locations: move the default safely, in one transaction
+fd7ae5c7 Route ServiceImageRemoved notifications to the service editor
+aacedb1e Fix white strip under AI Assistant onboarding page while the cookie card is showing
+d58be61f Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+7db9b079 Prepared provider accounts, take-over, and services with no price
+85807b76 AI Knowledge: document title no longer breaks mid-word
+157a7214 Refactor billing history API to support pagination and update related components for improved transaction display (#41)
+3401d675 Read engines and plans from the catalogue, and show a total only when it is one
 ```
 
 **clinqetwebuserapp**
@@ -510,18 +530,22 @@ aa85d70 Search: place lookup goes through our API, and an empty result offers qu
 85d38ee Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
 dcea812 Fix the CI breaks the prepared-provider change caused
 38b5887 Prepared provider accounts, take-over, and services with no price
+5c752df Merge branch 'master' of https://github.com/Clinqet/clinqetwebuserapp
+d63b176 Rotate Google Maps API key
 ```
 
 **clinqetmobilepartnerapp**
 ```
-8685fc5 Name prompt sheet (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
-1f8f1d2 Hours never saved read as a suggestion: notice, Suggested labels, location hours
-e5d11e3 Locations: move the default safely, in one transaction
-5e4363b test fixed
-48542e3 Route ServiceImageRemoved notifications to the service editor (phone)
-975b531 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
-1a1f71b Prepared provider accounts, take-over, and services with no price
-fa42b3a Billing history: receipts on iOS, and the numbered page API
+8685fc54 Name prompt sheet (N3), greeting without placeholder names (N2), typed names carried into the code check (N4)
+1f8f1d2d Hours never saved read as a suggestion: notice, Suggested labels, location hours
+e5d11e3e Locations: move the default safely, in one transaction
+5e4363b2 test fixed
+48542e3e Route ServiceImageRemoved notifications to the service editor (phone)
+975b5314 Prepared providers: UI verification fixes, price-awaiting rules, public page refresh
+1a1f71be Prepared provider accounts, take-over, and services with no price
+fa42b3ab Billing history: receipts on iOS, and the numbered page API
+90e1d192 Bring the rest of the web billing page to the phone, with nothing that sells
+c78d8b51 Ask Clinket source viewer: full-screen viewer on the business app's /source-viewer
 ```
 
 **clinqetmobileuserapp**
@@ -534,6 +558,8 @@ efd368a Prepared providers: UI verification fixes, price-awaiting rules, public 
 9b5257d Prepared provider accounts, take-over, and services with no price
 2b4893f Swap the dashboard hero artwork and serve it as WebP
 2bb0fae Two plans (Free + Premium), yearly = 12x monthly, lead limits done right
+bc647a3 Sign-in options on one line at every width
+3f01bf4 Consent: one question at a time on mobile
 ```
 
 **clinqetmobileadminapp**
@@ -546,18 +572,22 @@ cd8005c Prepared provider accounts, take-over, and services with no price
 c7023da Voice numbers: never return a number this environment did not buy
 9d2c07f Knowledge: Read again spends from the same daily limit
 68a3a9d Knowledge: daily limit on Refresh suggestions
+09d1c97 Knowledge reading accuracy: never lose a word or a price
+2896dc5 Search topology Phase 5: index swap, readable ranking numbers, search alerts, Sol 6.1
 ```
 
 **Nik**
 ```
+32ca6db Provider import hand-over: NoTracking snooze bug fixed and recorded
+a3c7e67 Provider import prompt: CI notes (convention fixes, SQL Server startup crash on the runner)
+df84a66 Provider import prompt: integration-test flake notes
+b6e9419 Provider import prompt: commit list from master after the rebase
 126416f Provider import prompt: never-miss block (parked triggers, name-prompt decision, settings), master workflow, path fixes
 bc86e0c Provider import hand-over: race fixed, minimum-spend offers, settings; prompt updated
 c055617 Provider import: self-contained next-session prompt with full hand-over detail
 df1b3e4 Provider import: build log decisions, hand-over notes and next-session prompt; deployment skill
 35395ff Provider import build log: Phase 3b reader fixes, H-2 awaiting owner decision
 d7df1dc Provider import build log: Phase 3 results, address and hours reader sweeps
-5f649ce Provider import phase 2: shared enums, PersonName, IsAdminProvisioned removed
-9681951 initial commit
 ```
 
 ## 8. Key code map (where each piece lives)
