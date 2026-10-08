@@ -293,6 +293,27 @@ Clinket is a two-sided local-services marketplace.
   `Delivered` helper re-sends after a transport failure, which can over-count to 21). Fix both the same honest way and
   sabotage-check them.
 
+### 5.1b CI notes from the hand-over (2026-10-08)
+- FIXED: Identity `LocalizationSourceConventionTests` — `ProviderImportInternalController` used English literals; it now uses
+  `ILocalizationService` keys `ProviderImport_RequestBodyRequired`, `ProviderImport_InvalidField`,
+  `ProviderImport_FriendlyNameRequestInvalid`, `ProviderImport_NotAPreparedBusiness` (all 5 languages), and the candidate cap is
+  the setting `ProviderImportInternal:MaxFriendlyNameCandidates` (20). Bug closed with it: the worker could send MORE candidates
+  than Identity accepts (bot suggestions + 3 AI + up to 10 slugs) ⇒ every such provider Failed; the worker now caps at
+  `AdminProviderImport:Identity:MaxFriendlyNameCandidates` (20). ‼️ The two settings must stay equal — add the check to
+  `azureautomation/deploy.ps1` (the cross-host place, CLAUDE §0.17) in this programme. Unit tests:
+  `Clinqet.Identity.UnitTests/ProviderImport/ProviderImportInternalControllerTests.cs` (5).
+- FIXED: API `MarketplaceParticipationSeedSiteConventionTests` — the import built `new BusinessProfile` in the Functions
+  processor; it now uses `BusinessProfileBootstrapService.NewShell` (registered with its reason: `CreateAsync` seeds the flag from
+  SQL SignupOrigin). ‼️ Guard blind spot to close: the scanner only sees `new BusinessProfile {`, never target-typed
+  `BusinessProfile x = new() {…}` — extend it (or ban target-typed creation of BusinessProfile) and prove it with a sabotage.
+- FIXED: API `MoneyNeverFormattedFromTheReadersCultureTests` — the offer signature formatted the minimum with `F2`; it is a key,
+  not money on a screen, and `F2` could collapse two minimums — now the exact round-trip `R`.
+- NOT CODE: Functions `KnowledgeIngestSourceAnchorsIntegrationTests` failed because the SQL Server 2022 container crashed at
+  startup on the CI runner (`RETAIL ASSERT ... qpcFrequency >= MinimumQpcFrequency ... DrtlpInitializeUserSharedData`) — the
+  engine rejecting the runner VM's clock before any test code ran; the same image passes in the API/Identity suites and here.
+  Re-run the job. If it recurs on that runner, look at the runner image/clocksource or the SQL image version — never add a blind
+  retry in the fixture.
+
 ### 5.2 Other phases left
 - **Phase 4:** `handoff/phase4-identity-tests-TODO.md` (integration tests; the same-userId race is already FIXED and tested — §3a) and
   `handoff/phase4-names-TODO.md` (full suite runs, "Account owner" label call sites, the GET friendlyname check onto the
