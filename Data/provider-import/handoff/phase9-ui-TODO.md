@@ -18,9 +18,10 @@ NOT done:
 1. Provider phone N4 tests (LoginOTPScreen sends the params with the phone verify only; RegisterScreen navigates with them).
 2. Customer phone (`clinqetmobileuserapp`): N4 (PreparedProfileReady.tsx + RegisterScreen → LoginOTP params → phone verify) and
    the home greeting (`src/screen/homeTab/homeScreen/index.tsx` ~L379 `HOME_SCREEN.HELLO`) must filter "Guest"/"User"; jest tests.
-3. Run the two integration tests written but not run: Identity
-   `UserMetadataControllerIntegrationTests.DismissSpotlight_NamePromptAgain_MovesDismissedAtInSql`, API
-   `AppConfigEndpointTests.GetAppConfig_ServesTheNamePromptSnoozeDaysBoundFromConfiguration`.
+3. DONE 2026-10-08: both integration tests run and pass. The Identity one exposed a REAL bug, fixed: the second "Not now" was
+   never saved (`UserMetadataService.DismissSpotlightAsync` loaded the row without `AsTracking()` while the Identity host is
+   `QueryTrackingBehavior.NoTracking`, so `SaveChangesAsync` wrote nothing). Now `.AsTracking()`; `UserMetadataControllerIntegrationTests`
+   25/25 on real SQL (failed before the fix); API `AppConfigEndpointTests` 6/6.
 4. Sabotage proofs for every new suite (4 apps + 2 hosts).
 5. Viewport checks 320/375/768/1024/1440 (web prompt) and simulator light/dark (phone sheet).
 6. Skills ×4 + memory (spotlight snoozable type, partner app, provider mobile, user app, customer mobile, auth sessions N4).

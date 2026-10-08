@@ -225,3 +225,9 @@ Owner waived waiting for approval in conversation (2026-10-07). Findings while d
 - **Admin constants → settings**: `Storage:ReadLinkMinutes`, `Limits:MaxBulkApprove`, `Limits:DefaultRunsPageSize`.
 - **"Not now" on the name prompt** snoozes it on web AND phone (the latest dismissal from either surface counts) — owner
   approved as best practice (2026-10-07). Final.
+
+## 12. Fixed 2026-10-08 — second "Not now" never saved (Identity NoTracking trap)
+`UserMetadataService.DismissSpotlightAsync` changed a row loaded without `.AsTracking()`; the Identity host is
+`QueryTrackingBehavior.NoTracking`, so `SaveChangesAsync` wrote nothing and the name prompt came back on the next visit.
+Proven by the real-SQL test `UserMetadataControllerIntegrationTests.DismissSpotlight_NamePromptAgain_MovesDismissedAtInSql`
+(failed, then 25/25 after `.AsTracking()`). Rule: every Identity-host mutation loads with `.AsTracking()` and has a real-SQL test.

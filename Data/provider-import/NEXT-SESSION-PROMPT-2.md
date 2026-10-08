@@ -314,6 +314,18 @@ Clinket is a two-sided local-services marketplace.
   Re-run the job. If it recurs on that runner, look at the runner image/clocksource or the SQL image version — never add a blind
   retry in the fixture.
 
+### 5.1c Fixed 2026-10-08 — a real bug the Identity integration test caught
+`UserMetadataControllerIntegrationTests.DismissSpotlight_NamePromptAgain_MovesDismissedAtInSql` failed in CI and here: the
+provider name prompt's SECOND "Not now" was silently lost, so the prompt would return on the next visit instead of after 7 days.
+Root cause: `clinqetinfrastructure/Services/Auth/UserMetadataService.cs` `DismissSpotlightAsync` loaded the row to update without
+`.AsTracking()`, and the Identity host registers `QueryTrackingBehavior.NoTracking` (`clinqetidentity/Clinqet.Identity.API/Program.cs`
+~L546), so `SaveChangesAsync` wrote nothing. Fixed with `.AsTracking()`; the class passes 25/25 on real SQL (it failed before the
+fix — that IS the sabotage proof). The unit test could not see it because EF InMemory tracks by default.
+‼️ RULE FOR ALL NEW CODE (add it to the identity-api + infrastructure skills): any code that runs in the Identity host and changes
+an entity it loaded MUST load it with `.AsTracking()` (or use `ExecuteUpdateAsync` / an explicit `Update`), and MUST have a
+real-SQL integration test — an InMemory unit test cannot catch this. The §27 audit must grep every mutation reachable from the
+Identity host for this.
+
 ### 5.2 Other phases left
 - **Phase 4:** `handoff/phase4-identity-tests-TODO.md` (integration tests; the same-userId race is already FIXED and tested — §3a) and
   `handoff/phase4-names-TODO.md` (full suite runs, "Account owner" label call sites, the GET friendlyname check onto the
@@ -882,15 +894,16 @@ NOT done:
 1. Provider phone N4 tests (LoginOTPScreen sends the params with the phone verify only; RegisterScreen navigates with them).
 2. Customer phone (`clinqetmobileuserapp`): N4 (PreparedProfileReady.tsx + RegisterScreen → LoginOTP params → phone verify) and
    the home greeting (`src/screen/homeTab/homeScreen/index.tsx` ~L379 `HOME_SCREEN.HELLO`) must filter "Guest"/"User"; jest tests.
-3. Run the two integration tests written but not run: Identity
-   `UserMetadataControllerIntegrationTests.DismissSpotlight_NamePromptAgain_MovesDismissedAtInSql`, API
-   `AppConfigEndpointTests.GetAppConfig_ServesTheNamePromptSnoozeDaysBoundFromConfiguration`.
+3. DONE 2026-10-08: both integration tests run and pass. The Identity one exposed a REAL bug, fixed: the second "Not now" was
+   never saved (`UserMetadataService.DismissSpotlightAsync` loaded the row without `AsTracking()` while the Identity host is
+   `QueryTrackingBehavior.NoTracking`, so `SaveChangesAsync` wrote nothing). Now `.AsTracking()`; `UserMetadataControllerIntegrationTests`
+   25/25 on real SQL (failed before the fix); API `AppConfigEndpointTests` 6/6.
 4. Sabotage proofs for every new suite (4 apps + 2 hosts).
 5. Viewport checks 320/375/768/1024/1440 (web prompt) and simulator light/dark (phone sheet).
 6. Skills ×4 + memory (spotlight snoozable type, partner app, provider mobile, user app, customer mobile, auth sessions N4).
 7. Stale comments: `preserveAccountSettings` (provider web `src/services/authServices.js`) and `withAccountSettings` (mobile
    `editProfileAPI.tsx`) still say a missing `ReceiveMarketingEmails` is saved as true — no longer true after the null-keeps fix.
-8. DECIDED (owner, 2026-10-07): "Not now" on web OR phone snoozes both — see N-2 at the top. Keep it; test it on both apps.
+8. DECIDED (owner, 2026-10-07): "Not now" on web OR phone snoozes both — keep it; test it on both apps.
 
 ---
 
